@@ -1,8 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://djhbg64n8c37t"]
+[gd_scene load_steps=4 format=3]
 
-[ext_resource type="PackedScene" uid="uid://bsr4stqhehfhl" path="res://ui/game_menu.tscn" id="1_0wetn"]
+[ext_resource type="PackedScene" path="res://ui/game_menu.tscn" id="1_0wetn"]
 [ext_resource type="Script" path="res://ui/Effects.gd" id="1_3a4ee"]
-[ext_resource type="PackedScene" uid="uid://bao8rb0rtk3ps" path="res://effects/black_star_animation.tscn" id="2_ujwrl"]
+[ext_resource type="PackedScene" path="res://effects/black_star_animation.tscn" id="2_ujwrl"]
 
 [node name="MainScreen" type="SubViewportContainer"]
 offset_right = 1920.0

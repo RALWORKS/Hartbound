@@ -1,7 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://cckjjsr211i70"]
+[gd_scene load_steps=4 format=3]
 
 [ext_resource type="Script" path="res://ProfileDesigner.gd" id="1_4dkvh"]
-[ext_resource type="PackedScene" uid="uid://bhmsxsfgsrsl" path="res://character/profile.tscn" id="2_ekdgc"]
+[ext_resource type="PackedScene" path="res://character/profile.tscn" id="2_ekdgc"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_b0jv5"]
 viewport_path = NodePath("img")

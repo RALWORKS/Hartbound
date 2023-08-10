@@ -1,11 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://bhgfrklqc255q"]
+[gd_scene load_steps=7 format=3]
 
-[ext_resource type="PackedScene" uid="uid://da2brajkhjwx0" path="res://scene.tscn" id="1_4su6i"]
-[ext_resource type="Texture2D" uid="uid://csuby6ljoq3k4" path="res://scenes/demo/1/industrial/b.png" id="2_beatb"]
-[ext_resource type="Texture2D" uid="uid://dvfr1dn6tj71q" path="res://scenes/demo/1/industrial/b-pipe.png" id="3_r4qbj"]
-[ext_resource type="Texture2D" uid="uid://q51rolnu3yqv" path="res://scenes/demo/1/industrial/b-treetop.png" id="4_jobxl"]
-[ext_resource type="Texture2D" uid="uid://dp13b4uainaq8" path="res://scenes/demo/1/industrial/b-vent-tree.png" id="5_ij0re"]
-[ext_resource type="PackedScene" uid="uid://dmo755y46u66g" path="res://travel/door.tscn" id="6_dl5dw"]
+[ext_resource type="PackedScene" path="res://scene.tscn" id="1_4su6i"]
+[ext_resource type="Texture2D" path="res://assets/scenes/demo/1/industrial/b.png" id="2_beatb"]
+[ext_resource type="Texture2D" path="res://assets/scenes/demo/1/industrial/b-pipe.png" id="3_r4qbj"]
+[ext_resource type="Texture2D" path="res://assets/scenes/demo/1/industrial/b-treetop.png" id="4_jobxl"]
+[ext_resource type="Texture2D" path="res://assets/scenes/demo/1/industrial/b-vent-tree.png" id="5_ij0re"]
+[ext_resource type="PackedScene" path="res://travel/door.tscn" id="6_dl5dw"]
 
 [node name="Scene" instance=ExtResource("1_4su6i")]
 

@@ -1,8 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://bubvh4k8fs3w"]
+[gd_scene load_steps=6 format=3]
 
-[ext_resource type="PackedScene" uid="uid://yrts3cle3xys" path="res://ui/outline-button.tscn" id="1_c6gep"]
+[ext_resource type="PackedScene" path="res://ui/outline-button.tscn" id="1_c6gep"]
 [ext_resource type="Script" path="res://character/character_namer.gd" id="1_rw5xu"]
-[ext_resource type="PackedScene" uid="uid://chmjvhi52y0b0" path="res://ui/radio-parent.tscn" id="3_yf7vm"]
+[ext_resource type="PackedScene" path="res://ui/radio-parent.tscn" id="3_yf7vm"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q04j5"]
 content_margin_left = 10.0

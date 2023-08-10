@@ -1,4 +1,4 @@
-[gd_scene load_steps=2 format=3 uid="uid://vtauk80h7k1u"]
+[gd_scene load_steps=2 format=3]
 
 [ext_resource type="Script" path="res://ChapterEventMutation.gd" id="1_csqx1"]
 

@@ -1,9 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://bsr4stqhehfhl"]
+[gd_scene load_steps=6 format=3]
 
 [ext_resource type="Script" path="res://ui/game_menu.gd" id="1_qi0kv"]
-[ext_resource type="Texture2D" uid="uid://b4qmfyh2beo7n" path="res://assets/menubg.png" id="1_qo3pl"]
+[ext_resource type="Texture2D" path="res://assets/menubg.png" id="1_qo3pl"]
 [ext_resource type="Script" path="res://ui/GlobalSaveBtn.gd" id="2_srpx4"]
-[ext_resource type="PackedScene" uid="uid://bhmsxsfgsrsl" path="res://character/profile.tscn" id="3_gksuv"]
+[ext_resource type="PackedScene" path="res://character/profile.tscn" id="3_gksuv"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_apsb4"]
 viewport_path = NodePath("img")

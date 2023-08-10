@@ -1,9 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://c2oqnodk818g8"]
+[gd_scene load_steps=8 format=3]
 
 [ext_resource type="Script" path="res://CharacterDesginer.gd" id="1_304cl"]
-[ext_resource type="Texture2D" uid="uid://wgm62g04a7db" path="res://scenes/demo/1/f.png" id="2_idm2p"]
-[ext_resource type="PackedScene" uid="uid://276dk713bnmv" path="res://character/character.tscn" id="2_jht2j"]
-[ext_resource type="PackedScene" uid="uid://yrts3cle3xys" path="res://ui/outline-button.tscn" id="3_y8erm"]
+[ext_resource type="Texture2D" path="res://scenes/demo/1/f.png" id="2_idm2p"]
+[ext_resource type="PackedScene" path="res://character/character.tscn" id="2_jht2j"]
+[ext_resource type="PackedScene" path="res://ui/outline-button.tscn" id="3_y8erm"]
 [ext_resource type="Script" path="res://character/SkinColorButtons.gd" id="5_th1gm"]
 [ext_resource type="Script" path="res://character/OutfitColorButtons.gd" id="6_nrqhh"]
 [ext_resource type="Script" path="res://character/HairColorButtons.gd" id="6_vhj88"]

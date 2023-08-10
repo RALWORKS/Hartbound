@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://n20yr7w1x725"]
+[gd_scene load_steps=6 format=3 uid="uid://cvo7vcb5suvjv"]
 
 [ext_resource type="Script" path="res://game.gd" id="1_0h5ve"]
 [ext_resource type="FontFile" uid="uid://1hwyo0mraq4u" path="res://assets/Georgiaz.TTF" id="2_va15i"]

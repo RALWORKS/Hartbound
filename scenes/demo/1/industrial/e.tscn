@@ -1,11 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://b3nnrgsbdpvqu"]
+[gd_scene load_steps=7 format=3]
 
-[ext_resource type="PackedScene" uid="uid://da2brajkhjwx0" path="res://scene.tscn" id="1_4aibn"]
-[ext_resource type="Texture2D" uid="uid://ej55ei3nmssr" path="res://scenes/demo/1/industrial/e.png" id="2_lmy4c"]
-[ext_resource type="Texture2D" uid="uid://cajii06m807vy" path="res://scenes/demo/1/industrial/e-back-rocks-2.png" id="3_yflys"]
-[ext_resource type="Texture2D" uid="uid://pf5en6ct4ecb" path="res://scenes/demo/1/industrial/e-back-rocks-1.png" id="4_shwhh"]
-[ext_resource type="Texture2D" uid="uid://gonrx22tde2k" path="res://scenes/demo/1/industrial/e-front-wall.png" id="6_isrdr"]
-[ext_resource type="PackedScene" uid="uid://dmo755y46u66g" path="res://travel/door.tscn" id="6_wa5ko"]
+[ext_resource type="PackedScene" path="res://scene.tscn" id="1_4aibn"]
+[ext_resource type="Texture2D" path="res://assets/scenes/demo/1/industrial/e.png" id="2_lmy4c"]
+[ext_resource type="Texture2D" path="res://assets/scenes/demo/1/industrial/e-back-rocks-2.png" id="3_yflys"]
+[ext_resource type="Texture2D" path="res://assets/scenes/demo/1/industrial/e-back-rocks-1.png" id="4_shwhh"]
+[ext_resource type="Texture2D" path="res://assets/scenes/demo/1/industrial/e-front-wall.png" id="6_isrdr"]
+[ext_resource type="PackedScene" path="res://travel/door.tscn" id="6_wa5ko"]
 
 [node name="Scene" instance=ExtResource("1_4aibn")]
 

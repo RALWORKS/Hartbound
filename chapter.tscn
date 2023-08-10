@@ -1,7 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://b3k40sjbjksb2"]
+[gd_scene load_steps=3 format=3]
 
 [ext_resource type="Script" path="res://chapter.gd" id="1_3wcey"]
-[ext_resource type="PackedScene" uid="uid://bm4xgk41fje0y" path="res://chapter_event.tscn" id="2_q5q82"]
+[ext_resource type="PackedScene" path="res://chapter_event.tscn" id="2_q5q82"]
 
 [node name="Chapter" type="Node"]
 script = ExtResource("1_3wcey")

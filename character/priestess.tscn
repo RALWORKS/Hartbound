@@ -1,11 +1,11 @@
-[gd_scene load_steps=27 format=3 uid="uid://cnyxn6ve605j"]
+[gd_scene load_steps=27 format=3]
 
-[ext_resource type="Texture2D" uid="uid://ddclgh7u53efq" path="res://assets/character/body/v0/mid/whole.png" id="2_84aea"]
+[ext_resource type="Texture2D" path="res://assets/character/body/v0/mid/whole.png" id="2_84aea"]
 [ext_resource type="Script" path="res://character/priestess.gd" id="2_ov74j"]
-[ext_resource type="Texture2D" uid="uid://0qbm0thf2167" path="res://assets/character/priestess/clothes.png" id="3_rntpm"]
-[ext_resource type="Texture2D" uid="uid://4rguc5qfg0x7" path="res://assets/character/body/v0/mid/front-arm.png" id="4_lsq05"]
-[ext_resource type="Texture2D" uid="uid://bob0r7adc4cpr" path="res://assets/character/priestess/face.png" id="5_24vr8"]
-[ext_resource type="Texture2D" uid="uid://ceyyrxucviugx" path="res://assets/character/priestess/front-sleeve.png" id="6_d3ti1"]
+[ext_resource type="Texture2D" path="res://assets/character/priestess/clothes.png" id="3_rntpm"]
+[ext_resource type="Texture2D" path="res://assets/character/body/v0/mid/front-arm.png" id="4_lsq05"]
+[ext_resource type="Texture2D" path="res://assets/character/priestess/face.png" id="5_24vr8"]
+[ext_resource type="Texture2D" path="res://assets/character/priestess/front-sleeve.png" id="6_d3ti1"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_g5phm"]
 viewport_path = NodePath("img")

@@ -1,10 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://bqujocdqn0t2y"]
+[gd_scene load_steps=9 format=3]
 
-[ext_resource type="PackedScene" uid="uid://da2brajkhjwx0" path="res://scene.tscn" id="1_3eu3s"]
-[ext_resource type="Texture2D" uid="uid://b7a22u8kflnu7" path="res://assets/demo-1/scenes/d.png" id="2_p6xrp"]
-[ext_resource type="Texture2D" uid="uid://ba0qqa3avfiv" path="res://assets/demo-1/scenes/d-river.png" id="3_v0sm3"]
+[ext_resource type="PackedScene" path="res://scene.tscn" id="1_3eu3s"]
+[ext_resource type="Texture2D" path="res://assets/demo-1/scenes/d.png" id="2_p6xrp"]
+[ext_resource type="Texture2D" path="res://assets/demo-1/scenes/d-river.png" id="3_v0sm3"]
 [ext_resource type="Script" path="res://scenes/demo/1/River.gd" id="4_ai4qp"]
-[ext_resource type="PackedScene" uid="uid://dmo755y46u66g" path="res://travel/door.tscn" id="5_6qm0l"]
+[ext_resource type="PackedScene" path="res://travel/door.tscn" id="5_6qm0l"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r1clp"]
 size = Vector2(1222, 94)

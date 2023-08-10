@@ -1,8 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://ct8gogyookif7"]
+[gd_scene load_steps=5 format=3]
 
-[ext_resource type="PackedScene" uid="uid://da2brajkhjwx0" path="res://scene.tscn" id="1_ti0qu"]
-[ext_resource type="Texture2D" uid="uid://lwh7diakcmcv" path="res://assets/demo-1/scenes/g.png" id="2_gnwqr"]
-[ext_resource type="PackedScene" uid="uid://dmo755y46u66g" path="res://travel/door.tscn" id="3_q2sgv"]
+[ext_resource type="PackedScene" path="res://scene.tscn" id="1_ti0qu"]
+[ext_resource type="Texture2D" path="res://assets/demo-1/scenes/g.png" id="2_gnwqr"]
+[ext_resource type="PackedScene" path="res://travel/door.tscn" id="3_q2sgv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bnktw"]
 size = Vector2(20, 900)

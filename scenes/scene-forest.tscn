@@ -1,9 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://cjauxdhushojd"]
+[gd_scene load_steps=5 format=3]
 
-[ext_resource type="PackedScene" uid="uid://da2brajkhjwx0" path="res://scene.tscn" id="1_8ahkx"]
-[ext_resource type="Texture2D" uid="uid://ctaejx8g721ta" path="res://assets/iso-forest-crayon.png" id="2_qh3h5"]
-[ext_resource type="PackedScene" uid="uid://dmo755y46u66g" path="res://travel/door.tscn" id="4_rmi31"]
-[ext_resource type="PackedScene" uid="uid://cnyxn6ve605j" path="res://character/priestess.tscn" id="6_go8pp"]
+[ext_resource type="PackedScene" path="res://scene.tscn" id="1_8ahkx"]
+[ext_resource type="Texture2D" path="res://assets/iso-forest-crayon.png" id="2_qh3h5"]
+[ext_resource type="PackedScene" path="res://travel/door.tscn" id="4_rmi31"]
+[ext_resource type="PackedScene" path="res://character/priestess.tscn" id="6_go8pp"]
 
 [node name="SceneForest" instance=ExtResource("1_8ahkx")]
 

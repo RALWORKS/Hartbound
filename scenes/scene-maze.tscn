@@ -1,12 +1,12 @@
-[gd_scene load_steps=8 format=3 uid="uid://cwwdwlak5rsdk"]
+[gd_scene load_steps=8 format=3]
 
-[ext_resource type="PackedScene" uid="uid://da2brajkhjwx0" path="res://scene.tscn" id="1_w70ho"]
-[ext_resource type="Texture2D" uid="uid://bpm6fmqr7bgxc" path="res://assets/test-iso-maze-bg.png" id="2_7qefm"]
-[ext_resource type="PackedScene" uid="uid://dmo755y46u66g" path="res://travel/door.tscn" id="3_njonr"]
-[ext_resource type="Texture2D" uid="uid://chegiu6f8ftia" path="res://assets/base-walls-dark.png" id="5_bodgr"]
-[ext_resource type="Texture2D" uid="uid://d21vj7b3k4vb3" path="res://assets/base-walls-mid-dark.png" id="5_yp8j4"]
-[ext_resource type="PackedScene" uid="uid://bluqf1wmuhx0q" path="res://walls/wall_left.tscn" id="6_mnfbu"]
-[ext_resource type="PackedScene" uid="uid://dggd3eon15udv" path="res://walls/wall_right.tscn" id="7_vi8qv"]
+[ext_resource type="PackedScene" path="res://scene.tscn" id="1_w70ho"]
+[ext_resource type="Texture2D" path="res://assets/test-iso-maze-bg.png" id="2_7qefm"]
+[ext_resource type="PackedScene" path="res://travel/door.tscn" id="3_njonr"]
+[ext_resource type="Texture2D" path="res://assets/base-walls-dark.png" id="5_bodgr"]
+[ext_resource type="Texture2D" path="res://assets/base-walls-mid-dark.png" id="5_yp8j4"]
+[ext_resource type="PackedScene" path="res://walls/wall_left.tscn" id="6_mnfbu"]
+[ext_resource type="PackedScene" path="res://walls/wall_right.tscn" id="7_vi8qv"]
 
 [node name="SceneMaze" instance=ExtResource("1_w70ho")]
 position = Vector2(0, 2)

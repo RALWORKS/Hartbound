@@ -1,13 +1,13 @@
-[gd_scene load_steps=10 format=3 uid="uid://bhmsxsfgsrsl"]
+[gd_scene load_steps=10 format=3]
 
 [ext_resource type="Script" path="res://Profile.gd" id="1_ub4hi"]
-[ext_resource type="Texture2D" uid="uid://f0714pv60rjh" path="res://assets/character/profile/bg5.png" id="2_3r2h7"]
-[ext_resource type="PackedScene" uid="uid://duh6j33y6v72b" path="res://character/abstract_modular_character.tscn" id="2_qxdjb"]
-[ext_resource type="Texture2D" uid="uid://y4csi2y8e4pg" path="res://assets/character/profile/head.png" id="5_vw4gv"]
-[ext_resource type="Texture2D" uid="uid://dmbvjircd87x7" path="res://assets/character/profile/shirt.png" id="6_hee2c"]
-[ext_resource type="Texture2D" uid="uid://dv7f63bqrk0ly" path="res://assets/character/profile/locks.png" id="7_ha2vv"]
-[ext_resource type="Texture2D" uid="uid://c2vpmjnf21nk0" path="res://assets/character/profile/face-round.png" id="8_aunvl"]
-[ext_resource type="Texture2D" uid="uid://c2xh8mnfms6u0" path="res://assets/character/profile/round-eyes-neutral.png" id="9_4n3wx"]
+[ext_resource type="Texture2D" path="res://assets/character/profile/bg5.png" id="2_3r2h7"]
+[ext_resource type="PackedScene" path="res://character/abstract_modular_character.tscn" id="2_qxdjb"]
+[ext_resource type="Texture2D" path="res://assets/character/profile/head.png" id="5_vw4gv"]
+[ext_resource type="Texture2D" path="res://assets/character/profile/shirt.png" id="6_hee2c"]
+[ext_resource type="Texture2D" path="res://assets/character/profile/locks.png" id="7_ha2vv"]
+[ext_resource type="Texture2D" path="res://assets/character/profile/face-round.png" id="8_aunvl"]
+[ext_resource type="Texture2D" path="res://assets/character/profile/round-eyes-neutral.png" id="9_4n3wx"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_26oqu"]
 viewport_path = NodePath("img")

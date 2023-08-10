@@ -1,9 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://bycg08yo67k63"]
+[gd_scene load_steps=5 format=3]
 
-[ext_resource type="PackedScene" uid="uid://j2dbr5tbes4g" path="res://cutscene/cutscene.tscn" id="1_pry4u"]
-[ext_resource type="PackedScene" uid="uid://1dufvn358sa2" path="res://cutscene/cutscene_node.tscn" id="2_g46hl"]
-[ext_resource type="Texture2D" uid="uid://bdh2583d74wqv" path="res://assets/tileable-plants.png" id="3_vx5rc"]
-[ext_resource type="PackedScene" uid="uid://bh5i01l8o67d1" path="res://cutscene/cutscene_option.tscn" id="4_ov1ch"]
+[ext_resource type="PackedScene" path="res://cutscene/cutscene.tscn" id="1_pry4u"]
+[ext_resource type="PackedScene" path="res://cutscene/cutscene_node.tscn" id="2_g46hl"]
+[ext_resource type="Texture2D" path="res://assets/tileable-plants.png" id="3_vx5rc"]
+[ext_resource type="PackedScene" path="res://cutscene/cutscene_option.tscn" id="4_ov1ch"]
 
 [node name="PlantCutscene" node_paths=PackedStringArray("starting_page") instance=ExtResource("1_pry4u")]
 starting_page = NodePath("1")

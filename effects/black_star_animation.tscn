@@ -1,11 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://bao8rb0rtk3ps"]
+[gd_scene load_steps=10 format=3]
 
-[ext_resource type="Texture2D" uid="uid://cwobelc0kaio" path="res://assets/effects/pass-out-1/black.png" id="1_aeyhh"]
+[ext_resource type="Texture2D" path="res://assets/effects/pass-out-1/black.png" id="1_aeyhh"]
 [ext_resource type="Script" path="res://effects/black_star_animation.gd" id="1_lpr02"]
-[ext_resource type="Texture2D" uid="uid://d0bohla42ydfn" path="res://assets/effects/pass-out-1/star-small.png" id="2_gqvd4"]
-[ext_resource type="Texture2D" uid="uid://c6thhbacnwtof" path="res://assets/effects/pass-out-1/star-medium.png" id="3_apske"]
-[ext_resource type="Texture2D" uid="uid://bcpt5rcpndsn8" path="res://assets/effects/pass-out-1/star-2nd-biggest.png" id="4_6y4vv"]
-[ext_resource type="Texture2D" uid="uid://nwp046lvkv0y" path="res://assets/effects/pass-out-1/star-biggest.png" id="5_ly64n"]
+[ext_resource type="Texture2D" path="res://assets/effects/pass-out-1/star-small.png" id="2_gqvd4"]
+[ext_resource type="Texture2D" path="res://assets/effects/pass-out-1/star-medium.png" id="3_apske"]
+[ext_resource type="Texture2D" path="res://assets/effects/pass-out-1/star-2nd-biggest.png" id="4_6y4vv"]
+[ext_resource type="Texture2D" path="res://assets/effects/pass-out-1/star-biggest.png" id="5_ly64n"]
 
 [sub_resource type="Animation" id="Animation_pyj3l"]
 resource_name = "Close"
