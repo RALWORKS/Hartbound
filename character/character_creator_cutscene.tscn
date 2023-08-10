@@ -1,0 +1,175 @@
+[gd_scene load_steps=14 format=3 uid="uid://dqul0nmq801lk"]
+
+[ext_resource type="PackedScene" uid="uid://j2dbr5tbes4g" path="res://cutscene/cutscene.tscn" id="1_ipyp7"]
+[ext_resource type="PackedScene" uid="uid://1dufvn358sa2" path="res://cutscene/cutscene_node.tscn" id="2_wt2i3"]
+[ext_resource type="Script" path="res://character/GenderSelector.gd" id="3_uhgcb"]
+[ext_resource type="PackedScene" uid="uid://chmjvhi52y0b0" path="res://ui/radio-parent.tscn" id="4_hox6o"]
+[ext_resource type="PackedScene" uid="uid://bh5i01l8o67d1" path="res://cutscene/cutscene_option.tscn" id="4_tiul5"]
+[ext_resource type="PackedScene" uid="uid://c2oqnodk818g8" path="res://character/character_desginer.tscn" id="5_ooc6y"]
+[ext_resource type="PackedScene" uid="uid://bugo5f0rxbpgy" path="res://ui/radio-child.tscn" id="5_wxebt"]
+[ext_resource type="PackedScene" uid="uid://bubvh4k8fs3w" path="res://character/character_namer.tscn" id="6_g0hlq"]
+[ext_resource type="Script" path="res://character/SelectName.gd" id="7_jh1jd"]
+[ext_resource type="PackedScene" uid="uid://cckjjsr211i70" path="res://character/profile_designer.tscn" id="10_28cb0"]
+[ext_resource type="Script" path="res://character/save-character.gd" id="10_cdibu"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_krm4x"]
+content_margin_left = 20.0
+content_margin_top = 2.0
+content_margin_right = 20.0
+content_margin_bottom = 2.0
+bg_color = Color(1, 1, 1, 0)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c2ah0"]
+content_margin_left = 20.0
+content_margin_top = 2.0
+content_margin_right = 20.0
+content_margin_bottom = 2.0
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[node name="CharacterCreatorCutscene" node_paths=PackedStringArray("starting_page") instance=ExtResource("1_ipyp7")]
+starting_page = NodePath("1")
+
+[node name="1" parent="." index="0" instance=ExtResource("2_wt2i3")]
+visible = false
+is_option_node = true
+
+[node name="NewCharacterTitle" type="RichTextLabel" parent="1" index="0"]
+offset_left = 66.0
+offset_top = 52.0
+offset_right = 317.0
+offset_bottom = 106.0
+theme_override_font_sizes/normal_font_size = 30
+text = "New Character"
+
+[node name="GenderTitle" type="RichTextLabel" parent="1" index="1"]
+offset_left = 73.0
+offset_top = 118.0
+offset_right = 142.0
+offset_bottom = 147.0
+theme_override_font_sizes/normal_font_size = 15
+text = "Gender
+"
+
+[node name="SetGender" parent="1" index="2" node_paths=PackedStringArray("to") instance=ExtResource("4_tiul5")]
+offset_left = 75.0
+offset_top = 259.0
+offset_right = 154.0
+offset_bottom = 290.0
+text = "> Continue"
+to = NodePath("../../2")
+
+[node name="GenderSelect" parent="1" index="3" instance=ExtResource("4_hox6o")]
+
+[node name="Man" parent="1/GenderSelect" index="0" instance=ExtResource("5_wxebt")]
+offset_left = 75.0
+offset_top = 146.0
+offset_right = 150.0
+offset_bottom = 173.0
+text = "Man"
+
+[node name="Woman" parent="1/GenderSelect" index="1" instance=ExtResource("5_wxebt")]
+offset_left = 74.0
+offset_top = 186.0
+offset_right = 174.0
+offset_bottom = 213.0
+text = "Woman
+"
+
+[node name="NB" parent="1/GenderSelect" index="2" instance=ExtResource("5_wxebt")]
+offset_left = 73.0
+offset_top = 224.0
+offset_right = 195.0
+offset_bottom = 251.0
+text = "Nonbinary"
+
+[node name="Script" type="Node2D" parent="1" index="4"]
+script = ExtResource("3_uhgcb")
+
+[node name="2" parent="." index="1" instance=ExtResource("2_wt2i3")]
+is_option_node = true
+
+[node name="CharacterDesginer" parent="2" index="0" node_paths=PackedStringArray("send_data_to") instance=ExtResource("5_ooc6y")]
+position = Vector2(59, 100)
+send_data_to = NodePath("../../Saver")
+
+[node name="ProfileDesigner" parent="2" index="1" node_paths=PackedStringArray("send_data_to") instance=ExtResource("10_28cb0")]
+position = Vector2(79, 645)
+send_data_to = NodePath("../../Saver")
+
+[node name="SetDesign" parent="2" index="2" node_paths=PackedStringArray("to") instance=ExtResource("4_tiul5")]
+offset_left = 315.0
+offset_top = 46.0
+offset_right = 407.0
+offset_bottom = 77.0
+text = "> Continue"
+to = NodePath("../../3")
+
+[node name="DesignCharacterTitle" type="RichTextLabel" parent="2" index="3"]
+offset_left = 53.0
+offset_top = 36.0
+offset_right = 304.0
+offset_bottom = 90.0
+theme_override_font_sizes/normal_font_size = 30
+text = "Design Character"
+
+[node name="3" parent="." index="2" instance=ExtResource("2_wt2i3")]
+visible = false
+is_option_node = true
+
+[node name="CharacterNamer" parent="3" index="0" node_paths=PackedStringArray("send_data_to", "change_handler") instance=ExtResource("6_g0hlq")]
+send_data_to = NodePath("../../Saver")
+change_handler = NodePath("../Script")
+
+[node name="Proceed" parent="3" index="1" node_paths=PackedStringArray("to") instance=ExtResource("4_tiul5")]
+offset_left = 32.0
+offset_top = 685.0
+offset_right = 269.0
+offset_bottom = 762.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_krm4x")
+theme_override_styles/hover = SubResource("StyleBoxFlat_c2ah0")
+disabled = true
+text = "[Choose a name to proceed]"
+to = NodePath("../../4")
+
+[node name="Script" type="Node2D" parent="3" index="2"]
+script = ExtResource("7_jh1jd")
+
+[node name="4" parent="." index="3" instance=ExtResource("2_wt2i3")]
+visible = false
+
+[node name="CompleteTitle" type="RichTextLabel" parent="4" index="0"]
+offset_left = 30.0
+offset_top = 238.0
+offset_right = 336.0
+offset_bottom = 292.0
+theme_override_font_sizes/normal_font_size = 30
+text = "Creation Complete."
+
+[node name="ClickToBegin" type="RichTextLabel" parent="4" index="1"]
+offset_left = 33.0
+offset_top = 294.0
+offset_right = 339.0
+offset_bottom = 348.0
+theme_override_font_sizes/normal_font_size = 15
+text = "Click anywhere to begin"
+
+[node name="Saver" type="Node2D" parent="." index="4"]
+script = ExtResource("10_cdibu")
+
+[connection signal="pressed" from="1/GenderSelect/Man" to="1/Script" method="_on_man_pressed"]
+[connection signal="pressed" from="1/GenderSelect/Woman" to="1/Script" method="_on_woman_pressed"]
+[connection signal="pressed" from="1/GenderSelect/NB" to="1/Script" method="_on_nb_pressed"]

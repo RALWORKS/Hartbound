@@ -1,0 +1,60 @@
+[gd_scene load_steps=4 format=3 uid="uid://cckjjsr211i70"]
+
+[ext_resource type="Script" path="res://ProfileDesigner.gd" id="1_4dkvh"]
+[ext_resource type="PackedScene" uid="uid://bhmsxsfgsrsl" path="res://character/profile.tscn" id="2_ekdgc"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_b0jv5"]
+viewport_path = NodePath("img")
+
+[node name="ProfileDesigner" type="Node2D"]
+script = ExtResource("1_4dkvh")
+
+[node name="Profile" parent="." instance=ExtResource("2_ekdgc")]
+scale = Vector2(0.5, 0.5)
+texture = SubResource("ViewportTexture_b0jv5")
+
+[node name="BgBtn" type="Button" parent="."]
+offset_left = 205.0
+offset_top = 160.0
+offset_right = 329.0
+offset_bottom = 191.0
+text = "Background"
+metadata/_edit_use_anchors_ = true
+
+[node name="EyesBtn" type="Button" parent="."]
+offset_left = 205.0
+offset_top = 40.0
+offset_right = 329.0
+offset_bottom = 71.0
+text = "Facial Features"
+metadata/_edit_use_anchors_ = true
+
+[node name="FaceBtn" type="Button" parent="."]
+offset_left = 205.0
+offset_right = 329.0
+offset_bottom = 31.0
+text = "Face Shape"
+metadata/_edit_use_anchors_ = true
+
+[node name="ShotBtn" type="Button" parent="."]
+offset_left = 205.0
+offset_top = 80.0
+offset_right = 329.0
+offset_bottom = 111.0
+text = "Camera Angle"
+metadata/_edit_use_anchors_ = true
+
+[node name="FilterBtn" type="Button" parent="."]
+offset_left = 205.0
+offset_top = 120.0
+offset_right = 329.0
+offset_bottom = 151.0
+text = "Filter
+"
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="BgBtn" to="." method="_on_bg_btn_pressed"]
+[connection signal="pressed" from="EyesBtn" to="." method="_on_eyes_btn_pressed"]
+[connection signal="pressed" from="FaceBtn" to="." method="_on_face_btn_pressed"]
+[connection signal="pressed" from="ShotBtn" to="." method="_on_shot_btn_pressed"]
+[connection signal="pressed" from="FilterBtn" to="." method="_on_filter_btn_pressed"]

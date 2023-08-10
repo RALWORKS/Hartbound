@@ -1,0 +1,101 @@
+[gd_scene load_steps=12 format=3 uid="uid://bd8okmdytaho8"]
+
+[ext_resource type="PackedScene" uid="uid://da2brajkhjwx0" path="res://scene.tscn" id="1_80s2n"]
+[ext_resource type="Texture2D" uid="uid://drj1db64cxn7v" path="res://scenes/demo/1/industrial/d.png" id="2_f3skq"]
+[ext_resource type="Texture2D" uid="uid://bpwdtlm165485" path="res://scenes/demo/1/industrial/d-ledge-a.png" id="3_71x16"]
+[ext_resource type="Texture2D" uid="uid://dscw4qtw2nppy" path="res://scenes/demo/1/industrial/d-ledge-b.png" id="4_5jj5m"]
+[ext_resource type="Texture2D" uid="uid://bdghwbpcihbea" path="res://scenes/demo/1/industrial/d-ledge-c.png" id="5_3j72w"]
+[ext_resource type="Texture2D" uid="uid://d0qinegyhiaod" path="res://scenes/demo/1/industrial/d-ledge-d.png" id="6_rsv7x"]
+[ext_resource type="Texture2D" uid="uid://dgtw32sb0a4gn" path="res://scenes/demo/1/industrial/d-front-rubble.png" id="7_uju8i"]
+[ext_resource type="Texture2D" uid="uid://b8cqy4s61ofrj" path="res://scenes/demo/1/industrial/d-corner-tree.png" id="8_at5b3"]
+[ext_resource type="PackedScene" uid="uid://dmo755y46u66g" path="res://travel/door.tscn" id="9_yk81u"]
+[ext_resource type="PackedScene" uid="uid://dpuaxdfhp2oqw" path="res://switch.tscn" id="10_5eqo1"]
+[ext_resource type="Script" path="res://scenes/demo/1/industrial/d-StairsSwitchScript.gd" id="11_cpite"]
+
+[node name="Scene" instance=ExtResource("1_80s2n")]
+
+[node name="Background" parent="." index="0"]
+texture = ExtResource("2_f3skq")
+
+[node name="front-corner" type="CollisionPolygon2D" parent="Background/StaticBody2D" index="0"]
+polygon = PackedVector2Array(1081, 1260, 1059, 1233, 1261, 757, 1636, 966, 1640, 1307)
+
+[node name="GROUND-side-overhang" type="CollisionPolygon2D" parent="Background/StaticBody2D" index="1"]
+polygon = PackedVector2Array(1119, 688, 933, 1161, 846, 937, 830, 845, 774, 831, 785, 773, 864, 643, 1700, 115, 1698, 209, 1020, 625)
+
+[node name="ROOF-side-overhang" type="CollisionPolygon2D" parent="Background/StaticBody2D" index="2"]
+polygon = PackedVector2Array(1119, 688, 933, 1161, 846, 937, 830, 845, 774, 831, 785, 773, 757, 506, 1587, 56, 1617, 86, 868, 527)
+disabled = true
+
+[node name="edge" type="CollisionPolygon2D" parent="Background/StaticBody2D" index="3"]
+polygon = PackedVector2Array(19, 1236, 14, 19, 1595, 19, 1585, 1210, 1077, 1229, 993, 1283, 857, 1288, 661, 1229, 363, 1207, 33, 1236, 96, 1480, 1944, 1448, 1804, -187, -358, -60, -208, 1600)
+
+[node name="DefaultSpawner" parent="YSort" index="0"]
+position = Vector2(1420, 480)
+
+[node name="front-ledge-1" type="Sprite2D" parent="YSort" index="1"]
+position = Vector2(1499.5, 333)
+texture = ExtResource("3_71x16")
+offset = Vector2(0, -100)
+
+[node name="front-ledge-2" type="Sprite2D" parent="YSort" index="2"]
+position = Vector2(1323.75, 400.43)
+scale = Vector2(1.0503, 1.0132)
+texture = ExtResource("4_5jj5m")
+offset = Vector2(0, -100)
+
+[node name="front-ledge-3" type="Sprite2D" parent="YSort" index="3"]
+position = Vector2(1154.5, 539)
+texture = ExtResource("5_3j72w")
+offset = Vector2(0, -100)
+
+[node name="front-ledge-4" type="Sprite2D" parent="YSort" index="4"]
+position = Vector2(957.5, 657)
+texture = ExtResource("6_rsv7x")
+offset = Vector2(0, -100)
+
+[node name="rubble" type="Sprite2D" parent="YSort" index="5"]
+position = Vector2(353, 1106)
+texture = ExtResource("7_uju8i")
+offset = Vector2(0, 50)
+
+[node name="corner-tree" type="Sprite2D" parent="YSort" index="6"]
+position = Vector2(799, 614)
+texture = ExtResource("8_at5b3")
+offset = Vector2(0, 50)
+
+[node name="NorthRoof" parent="YSort" index="7" instance=ExtResource("9_yk81u")]
+position = Vector2(1601, 235)
+rotation = 0.514872
+scale = Vector2(2, 1)
+dest_resource = "res://scenes/demo/1/industrial/c.tscn"
+dest_edge = "SouthRoof"
+disabled = true
+
+[node name="NorthGround" parent="YSort" index="8" instance=ExtResource("9_yk81u")]
+position = Vector2(975, 32)
+scale = Vector2(9, 1)
+dest_resource = "res://scenes/demo/1/industrial/c.tscn"
+dest_edge = "SouthGround"
+
+[node name="WestGround" parent="YSort" index="9" instance=ExtResource("9_yk81u")]
+position = Vector2(24, 785)
+rotation = -1.5708
+scale = Vector2(9, 1)
+dest_resource = "res://scenes/demo/1/industrial/e.tscn"
+dest_edge = "East"
+
+[node name="StairsSwitch" parent="YSort" index="10" node_paths=PackedStringArray("on_off_script", "extend_off_switch") instance=ExtResource("10_5eqo1")]
+position = Vector2(1143, 659)
+rotation = 0.523599
+on_off_script = NodePath("../../StairsSwitchScript")
+extend_off_switch = NodePath("../UpperRegion")
+on = true
+
+[node name="UpperRegion" type="Area2D" parent="YSort" index="11"]
+
+[node name="HIT" type="CollisionPolygon2D" parent="YSort/UpperRegion" index="0"]
+polygon = PackedVector2Array(1596, 894, 1075, 588, 1767, 175, 1692, 888)
+
+[node name="StairsSwitchScript" type="Node" parent="." index="2"]
+script = ExtResource("11_cpite")

@@ -1,0 +1,96 @@
+[gd_scene load_steps=6 format=3 uid="uid://bsr4stqhehfhl"]
+
+[ext_resource type="Script" path="res://ui/game_menu.gd" id="1_qi0kv"]
+[ext_resource type="Texture2D" uid="uid://b4qmfyh2beo7n" path="res://assets/menubg.png" id="1_qo3pl"]
+[ext_resource type="Script" path="res://ui/GlobalSaveBtn.gd" id="2_srpx4"]
+[ext_resource type="PackedScene" uid="uid://bhmsxsfgsrsl" path="res://character/profile.tscn" id="3_gksuv"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_apsb4"]
+viewport_path = NodePath("img")
+
+[node name="GameMenu" type="Node2D"]
+position = Vector2(1720, 0)
+script = ExtResource("1_qi0kv")
+
+[node name="bg" type="Sprite2D" parent="."]
+scale = Vector2(1.28, 1.28)
+texture = ExtResource("1_qo3pl")
+centered = false
+
+[node name="GlobalSaveBtn" type="Button" parent="."]
+offset_left = 14.0
+offset_top = 1040.0
+offset_right = 194.0
+offset_bottom = 1076.0
+theme_override_font_sizes/font_size = 20
+text = "Save
+"
+script = ExtResource("2_srpx4")
+metadata/_edit_use_anchors_ = true
+
+[node name="ProfileBtn" type="Button" parent="."]
+offset_left = 14.0
+offset_top = 14.0
+offset_right = 194.0
+offset_bottom = 204.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Profile" parent="ProfileBtn" instance=ExtResource("3_gksuv")]
+position = Vector2(15, 12)
+scale = Vector2(0.38, 0.38)
+texture = SubResource("ViewportTexture_apsb4")
+
+[node name="Label" type="Label" parent="ProfileBtn"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.058
+offset_left = 18.0
+offset_top = 164.0
+offset_right = 153.038
+offset_bottom = 202.0
+text = "Character"
+horizontal_alignment = 1
+clip_text = true
+metadata/_edit_use_anchors_ = true
+
+[node name="CharacterRecord" type="Window" parent="."]
+title = "Character Record"
+initial_position = 2
+size = Vector2i(1280, 1000)
+visible = false
+always_on_top = true
+mouse_passthrough = true
+
+[node name="FullName" type="RichTextLabel" parent="CharacterRecord"]
+offset_left = 50.0
+offset_top = 20.0
+offset_right = 1050.0
+offset_bottom = 120.0
+mouse_filter = 2
+theme_override_font_sizes/normal_font_size = 50
+text = "Full Character Name"
+
+[node name="FullNameDefinition" type="RichTextLabel" parent="CharacterRecord"]
+offset_left = 50.0
+offset_top = 100.0
+offset_right = 1050.0
+offset_bottom = 200.0
+mouse_filter = 2
+theme_override_font_sizes/normal_font_size = 25
+bbcode_enabled = true
+text = "[i]Character Name Definition[/i]"
+
+[node name="Story" type="RichTextLabel" parent="CharacterRecord"]
+offset_left = 50.0
+offset_top = 200.0
+offset_right = 1050.0
+offset_bottom = 1000.0
+mouse_filter = 2
+theme_override_font_sizes/normal_font_size = 25
+bbcode_enabled = true
+text = "- Story of the character's life"
+
+[connection signal="pressed" from="GlobalSaveBtn" to="GlobalSaveBtn" method="_on_pressed"]
+[connection signal="pressed" from="ProfileBtn" to="." method="_on_profile_btn_pressed"]
+[connection signal="close_requested" from="CharacterRecord" to="." method="_on_character_record_close_requested"]
+[connection signal="focus_exited" from="CharacterRecord" to="." method="_on_character_record_focus_exited"]

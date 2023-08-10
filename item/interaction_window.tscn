@@ -1,0 +1,56 @@
+[gd_scene load_steps=3 format=3 uid="uid://d25o7875tkeqn"]
+
+[ext_resource type="Script" path="res://InteractionWindow.gd" id="1_nq8oh"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rbutd"]
+content_margin_left = 7.0
+content_margin_top = 7.0
+content_margin_right = 7.0
+content_margin_bottom = 7.0
+bg_color = Color(0.145098, 0.145098, 0.145098, 1)
+
+[node name="InteractionWindow" type="Window"]
+initial_position = 1
+size = Vector2i(500, 500)
+script = ExtResource("1_nq8oh")
+
+[node name="ExamineHeading" type="Label" parent="."]
+offset_top = 5.0
+offset_right = 75.0
+offset_bottom = 31.0
+text = "Examine:
+"
+
+[node name="Description" type="RichTextLabel" parent="."]
+custom_minimum_size = Vector2(520, 120)
+offset_top = 35.0
+offset_right = 520.0
+offset_bottom = 155.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_rbutd")
+bbcode_enabled = true
+
+[node name="ContentsHeading" type="Label" parent="."]
+offset_top = 160.0
+offset_right = 75.0
+offset_bottom = 186.0
+text = "Contents:"
+
+[node name="ActionsHeading" type="Label" parent="."]
+offset_left = 250.0
+offset_top = 160.0
+offset_right = 325.0
+offset_bottom = 186.0
+text = "Actions:"
+
+[node name="ContentsBG" type="ColorRect" parent="."]
+offset_top = 190.0
+offset_right = 240.0
+offset_bottom = 500.0
+color = Color(0.145098, 0.145098, 0.145098, 1)
+
+[node name="ActionsBG" type="ColorRect" parent="."]
+offset_left = 250.0
+offset_top = 190.0
+offset_right = 500.0
+offset_bottom = 500.0
+color = Color(0.145098, 0.145098, 0.145098, 1)

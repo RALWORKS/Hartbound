@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=3 uid="uid://bugo5f0rxbpgy"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fu53l"]
+content_margin_left = 10.0
+content_margin_top = 2.0
+content_margin_right = 10.0
+content_margin_bottom = 2.0
+bg_color = Color(0.192157, 0.192157, 0.192157, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xjw7e"]
+content_margin_left = 10.0
+content_margin_top = 2.0
+content_margin_right = 10.0
+content_margin_bottom = 2.0
+bg_color = Color(0.478431, 0.478431, 0.478431, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d247s"]
+content_margin_left = 10.0
+content_margin_top = 2.0
+content_margin_right = 10.0
+content_margin_bottom = 2.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7jnyc"]
+content_margin_left = 10.0
+content_margin_top = 2.0
+content_margin_right = 10.0
+content_margin_bottom = 2.0
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[node name="RadioOption" type="CheckBox"]
+offset_right = 75.0
+offset_bottom = 27.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_fu53l")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_xjw7e")
+theme_override_styles/hover = SubResource("StyleBoxFlat_d247s")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_7jnyc")
+text = "[opt]"

@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://bq5ymfywj48jf"]
+
+[ext_resource type="Script" path="res://Cursor.gd" id="1_acj8d"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_75jwd"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+expand_margin_left = 3.0
+expand_margin_top = 3.0
+expand_margin_right = 3.0
+expand_margin_bottom = 3.0
+
+[node name="Cursor" type="Node2D"]
+position = Vector2(500, 500)
+script = ExtResource("1_acj8d")
+
+[node name="Title" type="Label" parent="."]
+offset_left = -65.0
+offset_top = 40.0
+offset_right = 65.0
+offset_bottom = 68.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_75jwd")
+text = "Title"
+horizontal_alignment = 1

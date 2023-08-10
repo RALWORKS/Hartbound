@@ -1,0 +1,113 @@
+[gd_scene load_steps=10 format=3 uid="uid://ccrb82hdvpt4u"]
+
+[ext_resource type="PackedScene" uid="uid://da2brajkhjwx0" path="res://scene.tscn" id="1_3u62o"]
+[ext_resource type="Texture2D" uid="uid://bdwnmnc81pv8j" path="res://scenes/demo/1/industrial/a.png" id="2_kjnsv"]
+[ext_resource type="Texture2D" uid="uid://mddfefkftw1h" path="res://scenes/demo/1/industrial/a-train1.png" id="3_xs5p8"]
+[ext_resource type="Texture2D" uid="uid://ba400gkbtj501" path="res://scenes/demo/1/industrial/a-train2.png" id="4_x7qvf"]
+[ext_resource type="Texture2D" uid="uid://bptt7fqd657q8" path="res://scenes/demo/1/industrial/a-train3.png" id="5_8b6xd"]
+[ext_resource type="Texture2D" uid="uid://dn8s1t40fxc7r" path="res://scenes/demo/1/industrial/a-train4.png" id="6_fukre"]
+[ext_resource type="Texture2D" uid="uid://copvdvlqgiyji" path="res://scenes/demo/1/industrial/a-train5.png" id="7_ppj6t"]
+[ext_resource type="PackedScene" uid="uid://dmo755y46u66g" path="res://travel/door.tscn" id="8_w73q6"]
+[ext_resource type="PackedScene" uid="uid://cbqdeec2gepfp" path="res://item/interaction_area.tscn" id="9_immxw"]
+
+[node name="Scene" instance=ExtResource("1_3u62o")]
+
+[node name="Background" parent="." index="0"]
+texture = ExtResource("2_kjnsv")
+
+[node name="wall" type="CollisionPolygon2D" parent="Background/StaticBody2D" index="0"]
+position = Vector2(30.3537, 38.5654)
+scale = Vector2(1.42972, 1.34205)
+polygon = PackedVector2Array(-15, 431, 96.9744, 340.103, 355.766, 501.796, 511, 408, 610, 435, 681, 428, 718, 468, 791, 524, 835, 540, 824, 555, 881, 561, 952, 608, 1096, 679, 1102, 398, 850, 264, 893, 228, 908, 204, 826, 203, 794.316, 220.882, 694.296, 164.997, 597.074, 223.117, 485.863, 147.859, 343.178, 230.568, -17.7334, -13.0884)
+
+[node name="train" type="CollisionPolygon2D" parent="Background/StaticBody2D" index="1"]
+position = Vector2(-31.9161, 59.4315)
+scale = Vector2(1.33703, 1.34928)
+polygon = PackedVector2Array(705.982, 872.737, 156.254, 565.166, 153.263, 516.992, 153.263, 476.23, 188.415, 442.879, 945.319, 872.737)
+
+[node name="edge" type="CollisionPolygon2D" parent="Background/StaticBody2D" index="2"]
+position = Vector2(82.5004, 12.9295)
+scale = Vector2(1.37934, 1.43532)
+polygon = PackedVector2Array(125, 853, 32.9865, 822.165, 11.237, 802.657, -26.4622, 785.936, -34.437, 756.675, -32.9871, 726.02, -36.612, 679.34, -48.2117, 639.628, -56.1866, 423.648, -53, -4, 1106, -2, 1101, 851, 464, 849, 127, 853, 142, 928, 1180, 942, 1180, -61, -144, -57, -144, 890, -31, 971, 109, 933)
+
+[node name="little roof building" type="CollisionPolygon2D" parent="Background/StaticBody2D" index="3"]
+position = Vector2(30.3537, 38.5654)
+scale = Vector2(1.42972, 1.34205)
+polygon = PackedVector2Array(64.8005, -130.073, 186.503, -25.0105, 366.259, 80.7976, 482.366, 10.7556, 480.967, -169.565)
+
+[node name="vent1" type="CollisionPolygon2D" parent="Background/StaticBody2D" index="4"]
+polygon = PackedVector2Array(1028, 67, 1029, 90, 1084, 125, 1122, 93, 1120, 65, 1068, 44)
+
+[node name="vent2" type="CollisionPolygon2D" parent="Background/StaticBody2D" index="5"]
+position = Vector2(226, 129)
+polygon = PackedVector2Array(1028, 67, 1029, 90, 1084, 125, 1122, 93, 1120, 65, 1068, 44)
+
+[node name="vent3" type="CollisionPolygon2D" parent="Background/StaticBody2D" index="6"]
+position = Vector2(424, 240)
+polygon = PackedVector2Array(1028, 67, 1029, 90, 1084, 125, 1122, 93, 1120, 65, 1068, 44)
+
+[node name="vent4" type="CollisionPolygon2D" parent="Background/StaticBody2D" index="7"]
+position = Vector2(424, -40)
+polygon = PackedVector2Array(1028, 67, 1029, 90, 1084, 125, 1132, 86, 1125, 53, 1071, 37)
+
+[node name="YSort" parent="." index="1"]
+position = Vector2(-85, -3)
+
+[node name="DefaultSpawner" parent="YSort" index="0"]
+position = Vector2(1060, 677)
+
+[node name="train-a" type="Sprite2D" parent="YSort" index="1"]
+position = Vector2(392, 803)
+texture = ExtResource("3_xs5p8")
+offset = Vector2(0, -30)
+
+[node name="train-b" type="Sprite2D" parent="YSort" index="2"]
+position = Vector2(596, 901)
+texture = ExtResource("4_x7qvf")
+offset = Vector2(0, -30)
+
+[node name="train-c" type="Sprite2D" parent="YSort" index="3"]
+position = Vector2(807, 1011)
+texture = ExtResource("5_8b6xd")
+offset = Vector2(0, -30)
+
+[node name="train-d" type="Sprite2D" parent="YSort" index="4"]
+position = Vector2(1026, 1134)
+texture = ExtResource("6_fukre")
+offset = Vector2(0, -30)
+
+[node name="train-e" type="Sprite2D" parent="YSort" index="5"]
+position = Vector2(1234, 1222)
+scale = Vector2(1.01493, 1)
+texture = ExtResource("7_ppj6t")
+offset = Vector2(0, -30)
+
+[node name="EastRoof" parent="YSort" index="6" instance=ExtResource("8_w73q6")]
+position = Vector2(1685, 198)
+rotation = 1.5708
+scale = Vector2(5, 1)
+dest_resource = "res://scenes/demo/1/industrial/b.tscn"
+dest_edge = "WestRoof"
+
+[node name="EastGround" parent="YSort" index="7" instance=ExtResource("8_w73q6")]
+position = Vector2(1572, 1136)
+rotation = 2.40855
+scale = Vector2(3, 1)
+dest_resource = "res://scenes/demo/1/industrial/b.tscn"
+dest_edge = "WestGround"
+
+[node name="TracksSouth" parent="YSort" index="8" instance=ExtResource("8_w73q6")]
+position = Vector2(637, 1234)
+rotation = 3.14159
+scale = Vector2(5, 0.6)
+dest_resource = "res://scenes/demo/1/industrial/f.tscn"
+dest_edge = "TracksNorth"
+
+[node name="ScaffoldX" parent="." index="2" instance=ExtResource("9_immxw")]
+position = Vector2(1124, 788)
+scale = Vector2(5, 5)
+title = "Scaffold"
+description = "These scaffolds are set up all around this complex. Perhaps maintenance was underway when it was abandoned. This doesn't look climbable, which is unfortunate, because you'll most likely need a route up and down from the rooves."
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="ScaffoldX" index="0"]
+polygon = PackedVector2Array(-80.2, -108.4, -74.8, -40.8, -45.6001, -32.4, -22.2, -36.2, -19.6001, -104.4, -48.6, -90)

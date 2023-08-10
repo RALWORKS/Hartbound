@@ -1,0 +1,34 @@
+[gd_scene load_steps=4 format=3 uid="uid://djhbg64n8c37t"]
+
+[ext_resource type="PackedScene" uid="uid://bsr4stqhehfhl" path="res://ui/game_menu.tscn" id="1_0wetn"]
+[ext_resource type="Script" path="res://ui/Effects.gd" id="1_3a4ee"]
+[ext_resource type="PackedScene" uid="uid://bao8rb0rtk3ps" path="res://effects/black_star_animation.tscn" id="2_ujwrl"]
+
+[node name="MainScreen" type="SubViewportContainer"]
+offset_right = 1920.0
+offset_bottom = 1080.0
+
+[node name="Menu" type="SubViewport" parent="."]
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(1920, 1080)
+render_target_update_mode = 4
+
+[node name="GameMenu" parent="Menu" instance=ExtResource("1_0wetn")]
+
+[node name="Effects" type="SubViewport" parent="."]
+transparent_bg = true
+handle_input_locally = false
+gui_disable_input = true
+size = Vector2i(1720, 1080)
+render_target_update_mode = 4
+script = ExtResource("1_3a4ee")
+
+[node name="BlackStarAnimation" parent="Effects" instance=ExtResource("2_ujwrl")]
+visible = false
+
+[node name="World" type="SubViewport" parent="."]
+handle_input_locally = false
+physics_object_picking = true
+size = Vector2i(1720, 1080)
+render_target_update_mode = 4

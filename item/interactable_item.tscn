@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://51nj1v3l8jgn"]
+
+[ext_resource type="Script" path="res://item/interactable_item.gd" id="1_q6o7d"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1sf37"]
+radius = 22.0
+
+[node name="CollisionBox" type="StaticBody2D"]
+script = ExtResource("1_q6o7d")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="Box" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_1sf37")
+debug_color = Color(0.666667, 0.505882, 0.172549, 0.419608)
+
+[node name="Options" type="Node2D" parent="."]
+visible = false

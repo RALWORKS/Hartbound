@@ -1,0 +1,138 @@
+[gd_scene load_steps=7 format=3 uid="uid://ctrft5xyw15uh"]
+
+[ext_resource type="PackedScene" uid="uid://j2dbr5tbes4g" path="res://cutscene/cutscene.tscn" id="1_crk8y"]
+[ext_resource type="PackedScene" uid="uid://1dufvn358sa2" path="res://cutscene/cutscene_node.tscn" id="2_l2ax4"]
+[ext_resource type="PackedScene" uid="uid://bh5i01l8o67d1" path="res://cutscene/cutscene_option.tscn" id="3_tv43y"]
+[ext_resource type="Script" path="res://ui/save_menu/save_menu_detect_name.gd" id="3_vb1fb"]
+[ext_resource type="Script" path="res://ui/save_menu/name_save_file.gd" id="5_7nbng"]
+[ext_resource type="Script" path="res://ui/save_menu/save-menu-saving.gd" id="7_p373e"]
+
+[node name="GameSaveMenu" node_paths=PackedStringArray("starting_page") instance=ExtResource("1_crk8y")]
+starting_page = NodePath("TellMeWhereWe\'llSave")
+
+[node name="Saved" parent="." index="0" instance=ExtResource("2_l2ax4")]
+visible = false
+
+[node name="title" type="RichTextLabel" parent="Saved" index="0"]
+offset_left = 98.0
+offset_top = 20.0
+offset_right = 383.0
+offset_bottom = 90.0
+theme_override_font_sizes/normal_font_size = 30
+text = "Saved."
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Saved" index="1"]
+offset_left = 97.0
+offset_top = 73.0
+offset_right = 470.0
+offset_bottom = 113.0
+text = "Click anywhere to dismiss"
+
+[node name="TellMeWhereWe\'llSave" parent="." index="1" instance=ExtResource("2_l2ax4")]
+visible = false
+script = ExtResource("3_vb1fb")
+
+[node name="title" type="RichTextLabel" parent="TellMeWhereWe\'llSave" index="0"]
+offset_left = 98.0
+offset_top = 20.0
+offset_right = 281.0
+offset_bottom = 90.0
+theme_override_font_sizes/normal_font_size = 30
+text = "Save"
+
+[node name="Cancelled" parent="." index="2" instance=ExtResource("2_l2ax4")]
+visible = false
+
+[node name="title" type="RichTextLabel" parent="Cancelled" index="0"]
+offset_left = 98.0
+offset_top = 20.0
+offset_right = 383.0
+offset_bottom = 90.0
+theme_override_font_sizes/normal_font_size = 30
+text = "Save Cancelled."
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Cancelled" index="1"]
+offset_left = 97.0
+offset_top = 73.0
+offset_right = 470.0
+offset_bottom = 113.0
+text = "[click anywhere to dismiss]"
+
+[node name="NewSaveFile" parent="." index="3" instance=ExtResource("2_l2ax4")]
+visible = false
+is_option_node = true
+
+[node name="title" type="RichTextLabel" parent="NewSaveFile" index="0"]
+offset_left = 98.0
+offset_top = 20.0
+offset_right = 383.0
+offset_bottom = 90.0
+theme_override_font_sizes/normal_font_size = 30
+text = "Save"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="NewSaveFile" index="1"]
+offset_left = 102.0
+offset_top = 89.0
+offset_right = 475.0
+offset_bottom = 129.0
+text = "Name this game:"
+
+[node name="NextWrapper" type="Node2D" parent="NewSaveFile" index="2"]
+script = ExtResource("5_7nbng")
+
+[node name="TextEdit" type="TextEdit" parent="NewSaveFile/NextWrapper" index="0"]
+offset_left = 257.0
+offset_top = 84.0
+offset_right = 484.0
+offset_bottom = 126.0
+
+[node name="AcceptName" parent="NewSaveFile" index="3" node_paths=PackedStringArray("to") instance=ExtResource("3_tv43y")]
+offset_left = 100.0
+offset_top = 130.0
+offset_right = 167.0
+offset_bottom = 161.0
+text = "Save As"
+to = NodePath("../../Saving")
+
+[node name="Saving" parent="." index="4" instance=ExtResource("2_l2ax4")]
+visible = false
+script = ExtResource("7_p373e")
+
+[node name="title" type="RichTextLabel" parent="Saving" index="0"]
+offset_left = 98.0
+offset_top = 20.0
+offset_right = 383.0
+offset_bottom = 90.0
+theme_override_font_sizes/normal_font_size = 30
+text = "Saving ..."
+scroll_active = false
+
+[node name="NoSaveYet" parent="." index="5" instance=ExtResource("2_l2ax4")]
+visible = false
+is_option_node = true
+
+[node name="RichTextLabel" type="RichTextLabel" parent="NoSaveYet" index="0"]
+offset_left = 97.0
+offset_top = 73.0
+offset_right = 470.0
+offset_bottom = 113.0
+text = "There is no savefile yet for this character."
+
+[node name="CreateOption" parent="NoSaveYet" index="1" node_paths=PackedStringArray("to") instance=ExtResource("3_tv43y")]
+offset_left = 100.0
+offset_top = 103.0
+offset_right = 173.0
+offset_bottom = 134.0
+text = "> Create
+"
+to = NodePath("../../NewSaveFile")
+
+[node name="CancelOption2" parent="NoSaveYet" index="2" node_paths=PackedStringArray("to") instance=ExtResource("3_tv43y")]
+offset_left = 100.0
+offset_top = 137.0
+offset_right = 173.0
+offset_bottom = 168.0
+text = "> Cancel"
+to = NodePath("../../Cancelled")
+
+[connection signal="text_changed" from="NewSaveFile/NextWrapper/TextEdit" to="NewSaveFile/NextWrapper" method="_on_text_edit_text_changed"]

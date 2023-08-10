@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://cjauxdhushojd"]
+
+[ext_resource type="PackedScene" uid="uid://da2brajkhjwx0" path="res://scene.tscn" id="1_8ahkx"]
+[ext_resource type="Texture2D" uid="uid://ctaejx8g721ta" path="res://assets/iso-forest-crayon.png" id="2_qh3h5"]
+[ext_resource type="PackedScene" uid="uid://dmo755y46u66g" path="res://travel/door.tscn" id="4_rmi31"]
+[ext_resource type="PackedScene" uid="uid://cnyxn6ve605j" path="res://character/priestess.tscn" id="6_go8pp"]
+
+[node name="SceneForest" instance=ExtResource("1_8ahkx")]
+
+[node name="Background" parent="." index="0"]
+texture = ExtResource("2_qh3h5")
+
+[node name="Walls" type="CollisionPolygon2D" parent="Background/StaticBody2D" index="4"]
+polygon = PackedVector2Array(-21, -36, 779, -19, 769, 11, 604, 102, 476, 39, 154, 242, 377, 361, 267, 428, 481, 553, 2, 849, 687, 851, 1017, 619, 803, 490, 921, 409, 830, 367, 1059, 219, 824, 102, 1023, -29, 1286, -2, 1320, 922, -174, 939)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Background/StaticBody2D" index="5"]
+polygon = PackedVector2Array(754, -70, 762, 0, 1038, 0, 1038, -97)
+
+[node name="NorthDoor" parent="YSort" index="1" instance=ExtResource("4_rmi31")]
+position = Vector2(824, 34)
+rotation = 0.673697
+dest_resource = "res://scenes/scene-maze.tscn"
+dest_edge = "SouthDoor"
+
+[node name="Priestess" parent="YSort" index="2" instance=ExtResource("6_go8pp")]
+position = Vector2(300, 211)

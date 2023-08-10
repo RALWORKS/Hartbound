@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://b5tgkfy4gnfuh"]
+
+[ext_resource type="Script" path="res://Chapter.gd" id="1_n3qva"]
+[ext_resource type="Texture2D" uid="uid://ctaejx8g721ta" path="res://assets/iso-forest-crayon.png" id="2_le5bv"]
+[ext_resource type="PackedScene" uid="uid://c4txdwmo8r1xq" path="res://chapters/demo/0/test-plant.tscn" id="3_56pjc"]
+
+[node name="ChapterTest" type="Node"]
+script = ExtResource("1_n3qva")
+
+[node name="SceneForestContents" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("2_le5bv")
+centered = false
+
+[node name="Plants" parent="SceneForestContents" instance=ExtResource("3_56pjc")]
+position = Vector2(745, 462)

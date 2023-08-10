@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://ct8gogyookif7"]
+
+[ext_resource type="PackedScene" uid="uid://da2brajkhjwx0" path="res://scene.tscn" id="1_ti0qu"]
+[ext_resource type="Texture2D" uid="uid://lwh7diakcmcv" path="res://assets/demo-1/scenes/g.png" id="2_gnwqr"]
+[ext_resource type="PackedScene" uid="uid://dmo755y46u66g" path="res://travel/door.tscn" id="3_q2sgv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bnktw"]
+size = Vector2(20, 900)
+
+[node name="Scene" instance=ExtResource("1_ti0qu")]
+
+[node name="Background" parent="." index="0"]
+position = Vector2(-16, 0)
+scale = Vector2(1.01455, 1)
+texture = ExtResource("2_gnwqr")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Background/StaticBody2D" index="4"]
+polygon = PackedVector2Array(-0.985663, 3, -0.985663, 513, 142.921, 502, 172.491, 520, 235.573, 517, 259.229, 503, 279.928, 519, 352.867, 517, 373.566, 505, 378.495, 483, 415.95, 466, 432.706, 443, 449.462, 464, 501.703, 462, 524.373, 454, 520.43, 413, 592.384, 409, 656.452, 439, 678.136, 471, 669.265, 528, 702.778, 560, 657.437, 653, 661.38, 675, 598.298, 719, 570.699, 704, 527.33, 713, 493.817, 704, 470.161, 677, 408.065, 656, 287.814, 649, 235.573, 624, 155.735, 630, 131.093, 645, -34.4982, 647, -36.4695, 945, 1174.91, 938, 1180.82, -38, 27.5986, -23)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Background/StaticBody2D" index="5"]
+position = Vector2(0, 440)
+shape = SubResource("RectangleShape2D_bnktw")
+
+[node name="DefaultSpawner" parent="YSort" index="0"]
+position = Vector2(515, 584)
+
+[node name="Exit" parent="YSort" index="1" instance=ExtResource("3_q2sgv")]
+position = Vector2(0, 574)
+rotation = -1.5708
+dest_resource = "res://scenes/demo/1/b.tscn"
+dest_edge = "CaveDoor"

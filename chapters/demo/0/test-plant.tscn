@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://c4txdwmo8r1xq"]
+
+[ext_resource type="PackedScene" uid="uid://51nj1v3l8jgn" path="res://item/interactable_item.tscn" id="1_7lv81"]
+[ext_resource type="Texture2D" uid="uid://ctldxebxlsg3h" path="res://assets/water-flow-puzzle.png" id="2_ygiut"]
+
+[node name="Plants" instance=ExtResource("1_7lv81")]
+
+[node name="Sprite2D" parent="." index="0"]
+position = Vector2(0, 180)
+texture = ExtResource("2_ygiut")
+hframes = 4
+vframes = 6
+
+[node name="Box" parent="." index="1"]
+position = Vector2(0, 200)

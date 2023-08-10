@@ -1,0 +1,55 @@
+[gd_scene load_steps=7 format=3 uid="uid://b3nnrgsbdpvqu"]
+
+[ext_resource type="PackedScene" uid="uid://da2brajkhjwx0" path="res://scene.tscn" id="1_4aibn"]
+[ext_resource type="Texture2D" uid="uid://ej55ei3nmssr" path="res://scenes/demo/1/industrial/e.png" id="2_lmy4c"]
+[ext_resource type="Texture2D" uid="uid://cajii06m807vy" path="res://scenes/demo/1/industrial/e-back-rocks-2.png" id="3_yflys"]
+[ext_resource type="Texture2D" uid="uid://pf5en6ct4ecb" path="res://scenes/demo/1/industrial/e-back-rocks-1.png" id="4_shwhh"]
+[ext_resource type="Texture2D" uid="uid://gonrx22tde2k" path="res://scenes/demo/1/industrial/e-front-wall.png" id="6_isrdr"]
+[ext_resource type="PackedScene" uid="uid://dmo755y46u66g" path="res://travel/door.tscn" id="6_wa5ko"]
+
+[node name="Scene" instance=ExtResource("1_4aibn")]
+
+[node name="Background" parent="." index="0"]
+texture = ExtResource("2_lmy4c")
+
+[node name="edge" type="CollisionPolygon2D" parent="Background/StaticBody2D" index="0"]
+polygon = PackedVector2Array(-105, 651, -119, -129, 1897, -138, 1753, 1143, 1595, 1214, 1600, 9, 16, 15, 14, 739, 537, 1158, 1716, 1228, 1725, 1313, -66, 1307)
+
+[node name="rubble" type="CollisionPolygon2D" parent="Background/StaticBody2D" index="1"]
+polygon = PackedVector2Array(475, -132, 531, 111, 641, 213, 695, 269, 800, 326, 862, 385, 896, 377, 933, 337, 1015, 318, 975, 265, 1014, 252, 1000, 226, 941.135, 212.097, 766, -39)
+
+[node name="DefaultSpawner" parent="YSort" index="0"]
+position = Vector2(931, 812)
+
+[node name="rocks-2" type="Sprite2D" parent="YSort" index="1"]
+position = Vector2(856, 97)
+texture = ExtResource("3_yflys")
+offset = Vector2(0, 10)
+
+[node name="rocks-1" type="Sprite2D" parent="YSort" index="2"]
+position = Vector2(959, 174)
+texture = ExtResource("4_shwhh")
+offset = Vector2(0, 10)
+
+[node name="East" parent="YSort" index="3" instance=ExtResource("6_wa5ko")]
+position = Vector2(1590, 693)
+rotation = 1.5708
+scale = Vector2(8, 1)
+dest_resource = "res://scenes/demo/1/industrial/d.tscn"
+dest_edge = "WestGround"
+
+[node name="NorthEast" parent="YSort" index="4" instance=ExtResource("6_wa5ko")]
+position = Vector2(1187, 17)
+scale = Vector2(5, 0.6)
+dest_resource = "res://scenes/demo/1/industrial/f.tscn"
+dest_edge = "South"
+
+[node name="NorthWest" parent="YSort" index="5" instance=ExtResource("6_wa5ko")]
+position = Vector2(262, 20)
+scale = Vector2(4, 0.6)
+dest_resource = "res://scenes/demo/1/industrial/f.tscn"
+dest_edge = "West"
+
+[node name="FrontWall" type="Sprite2D" parent="." index="2"]
+position = Vector2(801, 879)
+texture = ExtResource("6_isrdr")

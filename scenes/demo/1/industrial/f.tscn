@@ -1,0 +1,97 @@
+[gd_scene load_steps=12 format=3 uid="uid://cr11gsr27lvs4"]
+
+[ext_resource type="PackedScene" uid="uid://da2brajkhjwx0" path="res://scene.tscn" id="1_d7mn4"]
+[ext_resource type="Texture2D" uid="uid://dtcpalifd4thy" path="res://scenes/demo/1/industrial/f.png" id="2_u64ec"]
+[ext_resource type="Texture2D" uid="uid://coueypd5mb1r3" path="res://scenes/demo/1/industrial/f-rubble-a.png" id="3_roxx8"]
+[ext_resource type="Texture2D" uid="uid://cis6dbxeponlw" path="res://scenes/demo/1/industrial/f-rubble-b.png" id="4_2wv8o"]
+[ext_resource type="Texture2D" uid="uid://bfdgify1nne7b" path="res://scenes/demo/1/industrial/f-rubble-c.png" id="5_1squk"]
+[ext_resource type="Texture2D" uid="uid://kra70fimsksm" path="res://scenes/demo/1/industrial/f-fence-a.png" id="6_lq2a6"]
+[ext_resource type="Texture2D" uid="uid://7bmawba6pmm7" path="res://scenes/demo/1/industrial/f-fence-b.png" id="7_mlmr4"]
+[ext_resource type="Texture2D" uid="uid://m6ocb2ukmqgn" path="res://scenes/demo/1/industrial/f-fence-c.png" id="8_fyemp"]
+[ext_resource type="Texture2D" uid="uid://d1exk2vlaorpe" path="res://scenes/demo/1/industrial/f-fence-d.png" id="9_lvfnb"]
+[ext_resource type="Texture2D" uid="uid://bkgc35bg8mtgv" path="res://scenes/demo/1/industrial/f-fence-e.png" id="10_wkart"]
+[ext_resource type="PackedScene" uid="uid://dmo755y46u66g" path="res://travel/door.tscn" id="11_523ee"]
+
+[node name="Scene" instance=ExtResource("1_d7mn4")]
+
+[node name="Background" parent="." index="0"]
+texture = ExtResource("2_u64ec")
+
+[node name="barriers" type="CollisionPolygon2D" parent="Background/StaticBody2D" index="0"]
+polygon = PackedVector2Array(-84, 52, 300, -93, 542, -115, 604, 101, 1136, 433, 1676, 671, 1676, 845, 1104, 529, 1048, 582, 982, 606, 940, 634, 922, 684, 840, 768, 795.29, 777.011, 582, 820, 534, 920, 460, 996, 436, 1056, 400, 1106, 408, 1234, -36, 1248, -22, 996, 194, 972, 378, 796, 562, 746, 770, 620, 1010, 477, 668, 293, 526, 360, 222, 520, -48, 664)
+
+[node name="post" type="CollisionPolygon2D" parent="Background/StaticBody2D" index="1"]
+polygon = PackedVector2Array(1770, 1130, 1164, 882, 1140, 934, 1114, 894, 1138, 862, 1108, 826, 1154, 846, 1166, 814, 1192, 824, 1180, 860)
+
+[node name="edge" type="CollisionPolygon2D" parent="Background/StaticBody2D" index="2"]
+polygon = PackedVector2Array(-580, 586, -20, 455, 32, 39, 1588, 15, 1588, 727, 1476, 1215, 16, 1223, 20, 499, -520, 623, -164, 1475, 2076, 1451, 2040, -361, -676, -197)
+
+[node name="DefaultSpawner" parent="YSort" index="0"]
+position = Vector2(1116, 179)
+
+[node name="RubbleA" type="Sprite2D" parent="YSort" index="1"]
+position = Vector2(890, 515.5)
+texture = ExtResource("3_roxx8")
+offset = Vector2(0, -20)
+
+[node name="RubbleB" type="Sprite2D" parent="YSort" index="2"]
+position = Vector2(640, 733.5)
+texture = ExtResource("4_2wv8o")
+offset = Vector2(0, -20)
+
+[node name="RubbleC" type="Sprite2D" parent="YSort" index="3"]
+position = Vector2(184, 991)
+texture = ExtResource("5_1squk")
+offset = Vector2(0, -20)
+
+[node name="Fence1" type="Sprite2D" parent="YSort" index="4"]
+position = Vector2(652, 212)
+texture = ExtResource("6_lq2a6")
+offset = Vector2(0, -60)
+
+[node name="Fence2" type="Sprite2D" parent="YSort" index="5"]
+position = Vector2(878, 309)
+texture = ExtResource("7_mlmr4")
+offset = Vector2(0, -60)
+
+[node name="Fence3" type="Sprite2D" parent="YSort" index="6"]
+position = Vector2(1064, 423)
+texture = ExtResource("8_fyemp")
+offset = Vector2(0, -60)
+
+[node name="Fence4" type="Sprite2D" parent="YSort" index="7"]
+position = Vector2(1234, 529)
+texture = ExtResource("9_lvfnb")
+offset = Vector2(0, -60)
+
+[node name="Fence5" type="Sprite2D" parent="YSort" index="8"]
+position = Vector2(1462, 645)
+texture = ExtResource("10_wkart")
+offset = Vector2(0, -60)
+
+[node name="West" parent="YSort" index="9" instance=ExtResource("11_523ee")]
+position = Vector2(24, 800)
+rotation = -1.5708
+scale = Vector2(3, 1)
+dest_resource = "res://scenes/demo/1/industrial/e.tscn"
+dest_edge = "NorthWest"
+
+[node name="TracksNorth" parent="YSort" index="10" instance=ExtResource("11_523ee")]
+position = Vector2(985, 32)
+scale = Vector2(6, 0.6)
+dest_resource = "res://scenes/demo/1/industrial/a.tscn"
+dest_edge = "TracksSouth"
+
+[node name="TracksEast" parent="YSort" index="11" instance=ExtResource("11_523ee")]
+position = Vector2(1584, 392)
+rotation = 1.5708
+scale = Vector2(4, 0.6)
+dest_resource = "res://scenes/demo/1/industrial/c.tscn"
+dest_edge = "TracksWest"
+
+[node name="South" parent="YSort" index="12" instance=ExtResource("11_523ee")]
+position = Vector2(940, 1212)
+rotation = 3.14159
+scale = Vector2(8, 0.6)
+dest_resource = "res://scenes/demo/1/industrial/e.tscn"
+dest_edge = "NorthEast"

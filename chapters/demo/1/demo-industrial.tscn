@@ -1,0 +1,21 @@
+[gd_scene load_steps=6 format=3 uid="uid://dsu4eeuhytggi"]
+
+[ext_resource type="PackedScene" uid="uid://b3k40sjbjksb2" path="res://chapter.tscn" id="1_abxn2"]
+[ext_resource type="PackedScene" uid="uid://ccrb82hdvpt4u" path="res://scenes/demo/1/industrial/a.tscn" id="2_3a8qy"]
+[ext_resource type="PackedScene" uid="uid://vtauk80h7k1u" path="res://chapter_event_mutation.tscn" id="4_gn21l"]
+[ext_resource type="PackedScene" uid="uid://bqdm7ba555klv" path="res://scenes/demo/1/industrial/c.tscn" id="5_cdjcb"]
+[ext_resource type="PackedScene" uid="uid://d4jj73sm4myvn" path="res://story_item.tscn" id="5_r0j2r"]
+
+[node name="Chapter" instance=ExtResource("1_abxn2")]
+starting_scene = ExtResource("2_3a8qy")
+
+[node name="StartChapter" parent="Events" index="0"]
+to_scene = ExtResource("5_cdjcb")
+effect = "come to"
+
+[node name="ChapterEventMutation" parent="Events/StartChapter" index="0" node_paths=PackedStringArray("append_story") instance=ExtResource("4_gn21l")]
+append_story = NodePath("../../../BirthStory")
+
+[node name="BirthStory" parent="." index="1" instance=ExtResource("5_r0j2r")]
+title = "birth"
+narrative = "You were born at Sun Temple, your parents two rare elves among the predominately human generator crews. When you were sixteen, an apprentice at Generator 67, your parents were killed in a demon attack."
