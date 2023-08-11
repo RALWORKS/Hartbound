@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3]
 
 [ext_resource type="PackedScene" path="res://scene.tscn" id="1_jynfr"]
-[ext_resource type="Texture2D" path="res://scenes/demo/1/f.png" id="2_jbefw"]
+[ext_resource type="Texture2D" path="res://assets/scenes/demo/1/f.png" id="2_jbefw"]
 [ext_resource type="PackedScene" path="res://travel/door.tscn" id="3_pnwk6"]
 
 [node name="Scene" instance=ExtResource("1_jynfr")]

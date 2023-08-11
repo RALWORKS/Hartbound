@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3]
 
 [ext_resource type="Script" path="res://CharacterDesginer.gd" id="1_304cl"]
-[ext_resource type="Texture2D" path="res://scenes/demo/1/f.png" id="2_idm2p"]
+[ext_resource type="Texture2D" path="res://assets/scenes/demo/1/f.png" id="2_idm2p"]
 [ext_resource type="PackedScene" path="res://character/character.tscn" id="2_jht2j"]
 [ext_resource type="PackedScene" path="res://ui/outline-button.tscn" id="3_y8erm"]
 [ext_resource type="Script" path="res://character/SkinColorButtons.gd" id="5_th1gm"]
