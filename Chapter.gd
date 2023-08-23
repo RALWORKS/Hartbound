@@ -7,7 +7,7 @@ var scene0 = null
 
 var cur_game: Array[Node]
 
-var cutscene
+var cutscene = null
 
 func next(to_event_name=null):
 	var event

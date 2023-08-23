@@ -1,8 +1,8 @@
-[gd_scene load_steps=5 format=3]
+[gd_scene load_steps=5 format=3 uid="uid://cfbf3caqkq0hw"]
 
-[ext_resource type="PackedScene" path="res://scene.tscn" id="1_3xj80"]
-[ext_resource type="Texture2D" path="res://assets/demo-1/scenes/c.png" id="2_tfhso"]
-[ext_resource type="PackedScene" path="res://travel/door.tscn" id="3_ectdt"]
+[ext_resource type="PackedScene" uid="uid://byrlpmbpj6yr5" path="res://scene.tscn" id="1_3xj80"]
+[ext_resource type="Texture2D" uid="uid://s4i0876xb5nh" path="res://assets/demo-1/scenes/c.png" id="2_tfhso"]
+[ext_resource type="PackedScene" uid="uid://dxfuidhlgwthh" path="res://travel/door.tscn" id="3_ectdt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ik1do"]
 size = Vector2(915, 45)
@@ -12,10 +12,10 @@ size = Vector2(915, 45)
 [node name="Background" parent="." index="0"]
 texture = ExtResource("2_tfhso")
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Background/StaticBody2D" index="4"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Background/StaticBody2D" index="0"]
 polygon = PackedVector2Array(-9, 2, 80, -10, 414, 191, 139, 354, 141, 381, 202, 413, 277, 461, 277, 461, 370, 580, 354, 616, 240, 676, 322, 715, 378, 744, 459, 774, 511, 792, 511, 808, 454, 853, 1058, 850, 1001, 820, 919, 753, 820, 685, 814, 661, 914, 600, 863, 552, 824, 549, 796, 491, 605, 378, 584, 359, 745, 255, 809, 222, 769, 225, 731, 195, 718, 156, 736, 110, 769, 102, 695, 92, 656, 62, 754, -25, 1155, -25, 1161, 862, -48, 865)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Background/StaticBody2D" index="5"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Background/StaticBody2D" index="1"]
 position = Vector2(447.5, -21.5)
 shape = SubResource("RectangleShape2D_ik1do")
 

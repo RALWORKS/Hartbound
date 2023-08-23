@@ -1,16 +1,16 @@
-[gd_scene load_steps=36 format=3]
+[gd_scene load_steps=36 format=3 uid="uid://b03wpar88cr5r"]
 
 [ext_resource type="Script" path="res://character/player-walk.gd" id="1_s1ce1"]
-[ext_resource type="PackedScene" path="res://character/abstract_modular_character.tscn" id="2_kvgd3"]
-[ext_resource type="Texture2D" path="res://assets/character/body/v1/face-full.png" id="4_2ku3h"]
-[ext_resource type="Texture2D" path="res://assets/character/clothes/v1/ruana/full/full.png" id="4_va24q"]
-[ext_resource type="Texture2D" path="res://assets/character/body/v1/front-arm-full.png" id="5_2wkkg"]
-[ext_resource type="Texture2D" path="res://assets/character/body/v1/body-full.png" id="6_gtrvy"]
-[ext_resource type="Texture2D" path="res://assets/character/hair/v1/long-back-bun/front/full.png" id="7_fw528"]
+[ext_resource type="PackedScene" uid="uid://8rir4hoqy3xr" path="res://character/abstract_modular_character.tscn" id="2_kvgd3"]
+[ext_resource type="Texture2D" uid="uid://cedwx0mvi067h" path="res://assets/character/body/v1/face-full.png" id="4_2ku3h"]
+[ext_resource type="Texture2D" uid="uid://c2j1diolt6sq2" path="res://assets/character/clothes/v1/ruana/full/full.png" id="4_va24q"]
+[ext_resource type="Texture2D" uid="uid://riq1pcahb5rh" path="res://assets/character/body/v1/front-arm-full.png" id="5_2wkkg"]
+[ext_resource type="Texture2D" uid="uid://167dwj5srl63" path="res://assets/character/body/v1/body-full.png" id="6_gtrvy"]
+[ext_resource type="Texture2D" uid="uid://cqvyyq154sou1" path="res://assets/character/hair/v1/long-back-bun/front/full.png" id="7_fw528"]
 [ext_resource type="Script" path="res://FollowerAgent.gd" id="7_l2hxk"]
-[ext_resource type="Texture2D" path="res://assets/character/clothes/v1/ruana/front/full.png" id="8_1vf4x"]
-[ext_resource type="Texture2D" path="res://assets/character/hair/v1/long-back-bun/back/full.png" id="8_dhyik"]
-[ext_resource type="Texture2D" path="res://assets/emote-question.png" id="12_erhxf"]
+[ext_resource type="Texture2D" uid="uid://dwfpk60035qf3" path="res://assets/character/clothes/v1/ruana/front/full.png" id="8_1vf4x"]
+[ext_resource type="Texture2D" uid="uid://f3u4wjjde7ve" path="res://assets/character/hair/v1/long-back-bun/back/full.png" id="8_dhyik"]
+[ext_resource type="Texture2D" uid="uid://cgfc1dfr6jvic" path="res://assets/emote-question.png" id="12_erhxf"]
 
 [sub_resource type="Animation" id="Animation_23u3m"]
 length = 0.001
@@ -160,7 +160,7 @@ y_sort_enabled = true
 scale = Vector2(0.75, 0.75)
 script = ExtResource("1_s1ce1")
 
-[node name="char" parent="." node_paths=PackedStringArray("body", "front_arm", "face", "hair_back", "hair_front", "clothes", "front_sleeve", "character_img") instance=ExtResource("2_kvgd3")]
+[node name="char" parent="." node_paths=PackedStringArray("body", "front_arm", "face", "hair_back", "hair_front", "clothes", "clothes_accent", "front_sleeve", "front_sleeve_accent", "character_img") instance=ExtResource("2_kvgd3")]
 centered = true
 hframes = 6
 vframes = 4
@@ -170,7 +170,9 @@ face = NodePath("../img/face")
 hair_back = NodePath("../img/hair-back")
 hair_front = NodePath("../img/hair-front")
 clothes = NodePath("../img/clothes")
+clothes_accent = NodePath("../img/clothes-accent")
 front_sleeve = NodePath("../img/front-sleeve")
+front_sleeve_accent = NodePath("../img/front-sleeve-accent")
 character_img = NodePath("../img")
 anchor_bottom = true
 
@@ -210,12 +212,20 @@ centered = false
 texture = ExtResource("4_va24q")
 centered = false
 
+[node name="clothes-accent" type="Sprite2D" parent="img"]
+texture = ExtResource("4_va24q")
+centered = false
+
 [node name="front-arm" type="Sprite2D" parent="img"]
 texture = ExtResource("5_2wkkg")
 centered = false
 
 [node name="front-sleeve" type="Sprite2D" parent="img"]
 texture = ExtResource("8_1vf4x")
+centered = false
+
+[node name="front-sleeve-accent" type="Sprite2D" parent="img"]
+texture = ExtResource("5_2wkkg")
 centered = false
 
 [node name="hair-front" type="Sprite2D" parent="img"]
@@ -241,7 +251,7 @@ shape = SubResource("CircleShape2D_p2524")
 script = ExtResource("7_l2hxk")
 
 [node name="Emote" type="Node2D" parent="."]
-position = Vector2(0, -270)
+position = Vector2(0, -300)
 scale = Vector2(0.3, 0.3)
 
 [node name="Question" type="Sprite2D" parent="Emote"]
@@ -253,8 +263,11 @@ libraries = {
 "": SubResource("AnimationLibrary_7a4wf")
 }
 
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+
 [connection signal="animation_changed" from="char_anims" to="." method="_on_char_anims_animation_changed"]
 [connection signal="area_entered" from="InteractBox" to="." method="_on_interact_box_area_entered"]
 [connection signal="area_exited" from="InteractBox" to="." method="_on_interact_box_area_exited"]
 [connection signal="body_entered" from="InteractBox" to="." method="_on_interact_box_body_entered"]
 [connection signal="body_exited" from="InteractBox" to="." method="_on_interact_box_body_exited"]
+[connection signal="navigation_finished" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_navigation_finished"]

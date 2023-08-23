@@ -1,16 +1,31 @@
-[gd_scene load_steps=12 format=3]
+[gd_scene load_steps=15 format=3 uid="uid://cckqtpr4xqdv1"]
 
 [ext_resource type="PackedScene" path="res://scene.tscn" id="1_d7mn4"]
-[ext_resource type="Texture2D" path="res://assets/scenes/demo/1/industrial/f.png" id="2_u64ec"]
-[ext_resource type="Texture2D" path="res://assets/scenes/demo/1/industrial/f-rubble-a.png" id="3_roxx8"]
-[ext_resource type="Texture2D" path="res://assets/scenes/demo/1/industrial/f-rubble-b.png" id="4_2wv8o"]
-[ext_resource type="Texture2D" path="res://assets/scenes/demo/1/industrial/f-rubble-c.png" id="5_1squk"]
-[ext_resource type="Texture2D" path="res://assets/scenes/demo/1/industrial/f-fence-a.png" id="6_lq2a6"]
-[ext_resource type="Texture2D" path="res://assets/scenes/demo/1/industrial/f-fence-b.png" id="7_mlmr4"]
-[ext_resource type="Texture2D" path="res://assets/scenes/demo/1/industrial/f-fence-c.png" id="8_fyemp"]
-[ext_resource type="Texture2D" path="res://assets/scenes/demo/1/industrial/f-fence-d.png" id="9_lvfnb"]
-[ext_resource type="Texture2D" path="res://assets/scenes/demo/1/industrial/f-fence-e.png" id="10_wkart"]
-[ext_resource type="PackedScene" path="res://travel/door.tscn" id="11_523ee"]
+[ext_resource type="Texture2D" uid="uid://b03p7gc1dm2aq" path="res://assets/scenes/demo/1/industrial/f.png" id="2_u64ec"]
+[ext_resource type="Texture2D" uid="uid://c3snxdvwxp5ff" path="res://assets/scenes/demo/1/industrial/f-rubble-a.png" id="3_roxx8"]
+[ext_resource type="Texture2D" uid="uid://dcrdxmqhn1yjw" path="res://assets/scenes/demo/1/industrial/f-rubble-b.png" id="4_2wv8o"]
+[ext_resource type="Texture2D" uid="uid://cmods1er0qqvf" path="res://assets/scenes/demo/1/industrial/f-rubble-c.png" id="5_1squk"]
+[ext_resource type="Texture2D" uid="uid://dovr5wfqkehpv" path="res://assets/scenes/demo/1/industrial/f-fence-a.png" id="6_lq2a6"]
+[ext_resource type="Texture2D" uid="uid://c5w7s5mupae7l" path="res://assets/scenes/demo/1/industrial/f-fence-b.png" id="7_mlmr4"]
+[ext_resource type="Texture2D" uid="uid://b4qwxwyic0a4r" path="res://assets/scenes/demo/1/industrial/f-fence-c.png" id="8_fyemp"]
+[ext_resource type="Texture2D" uid="uid://dnse2uc1ils34" path="res://assets/scenes/demo/1/industrial/f-fence-d.png" id="9_lvfnb"]
+[ext_resource type="Texture2D" uid="uid://5wynkhavuwwe" path="res://assets/scenes/demo/1/industrial/f-fence-e.png" id="10_wkart"]
+[ext_resource type="PackedScene" uid="uid://dxfuidhlgwthh" path="res://travel/door.tscn" id="11_523ee"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_kqse4"]
+vertices = PackedVector2Array(17, 704, 682, 333, 857, 446, 254, 817, 96, 817, -14, 831)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4), PackedInt32Array(5, 0, 4)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-14, 831, 96, 817, 254, 817, 857, 446, 682, 333, 17, 704)])
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_ws03c"]
+vertices = PackedVector2Array(1589, 50, 1612, 619, 1044, 327, 583, 25)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(583, 25, 1044, 327, 1612, 619, 1589, 50)])
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_3nelf"]
+vertices = PackedVector2Array(1450, 1141, 495, 1248, 467, 1098, 631, 856, 930, 784, 1532, 827, 1105, 592)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4, 5), PackedInt32Array(5, 4, 6)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(495, 1248, 467, 1098, 631, 856, 930, 784, 1105, 592, 1532, 827, 1450, 1141)])
 
 [node name="Scene" instance=ExtResource("1_d7mn4")]
 
@@ -95,3 +110,12 @@ rotation = 3.14159
 scale = Vector2(8, 0.6)
 dest_resource = "res://scenes/demo/1/industrial/e.tscn"
 dest_edge = "NorthEast"
+
+[node name="NavigationMiddle" type="NavigationRegion2D" parent="YSort" index="13"]
+navigation_polygon = SubResource("NavigationPolygon_kqse4")
+
+[node name="NavigationBack" type="NavigationRegion2D" parent="YSort" index="14"]
+navigation_polygon = SubResource("NavigationPolygon_ws03c")
+
+[node name="NavigationFront" type="NavigationRegion2D" parent="YSort" index="15"]
+navigation_polygon = SubResource("NavigationPolygon_3nelf")

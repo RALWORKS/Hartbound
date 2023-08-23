@@ -1,14 +1,24 @@
-[gd_scene load_steps=10 format=3]
+[gd_scene load_steps=12 format=3 uid="uid://wwmpe6ttdblv"]
 
 [ext_resource type="PackedScene" path="res://scene.tscn" id="1_3u62o"]
-[ext_resource type="Texture2D" path="res://assets/scenes/demo/1/industrial/a.png" id="2_kjnsv"]
-[ext_resource type="Texture2D" path="res://assets/scenes/demo/1/industrial/a-train1.png" id="3_xs5p8"]
-[ext_resource type="Texture2D" path="res://assets/scenes/demo/1/industrial/a-train2.png" id="4_x7qvf"]
-[ext_resource type="Texture2D" path="res://assets/scenes/demo/1/industrial/a-train3.png" id="5_8b6xd"]
-[ext_resource type="Texture2D" path="res://assets/scenes/demo/1/industrial/a-train4.png" id="6_fukre"]
-[ext_resource type="Texture2D" path="res://assets/scenes/demo/1/industrial/a-train5.png" id="7_ppj6t"]
-[ext_resource type="PackedScene" path="res://travel/door.tscn" id="8_w73q6"]
-[ext_resource type="PackedScene" path="res://item/interaction_area.tscn" id="9_immxw"]
+[ext_resource type="Texture2D" uid="uid://cdm0ewe6djiw" path="res://assets/scenes/demo/1/industrial/a.png" id="2_kjnsv"]
+[ext_resource type="Texture2D" uid="uid://b0jooxcixx621" path="res://assets/scenes/demo/1/industrial/a-train1.png" id="3_xs5p8"]
+[ext_resource type="Texture2D" uid="uid://co4syflnms3c5" path="res://assets/scenes/demo/1/industrial/a-train2.png" id="4_x7qvf"]
+[ext_resource type="Texture2D" uid="uid://cb01scgdodu5k" path="res://assets/scenes/demo/1/industrial/a-train3.png" id="5_8b6xd"]
+[ext_resource type="Texture2D" uid="uid://cxt8h6d0otgpo" path="res://assets/scenes/demo/1/industrial/a-train4.png" id="6_fukre"]
+[ext_resource type="Texture2D" uid="uid://csb12eaiht5tq" path="res://assets/scenes/demo/1/industrial/a-train5.png" id="7_ppj6t"]
+[ext_resource type="PackedScene" uid="uid://dxfuidhlgwthh" path="res://travel/door.tscn" id="8_w73q6"]
+[ext_resource type="PackedScene" uid="uid://cl4heje674d3q" path="res://item/interaction_area.tscn" id="9_immxw"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_awuu0"]
+vertices = PackedVector2Array(214, 824, 926, 1243, 325, 1233, 137, 1121, 106, 631, 231, 620, 244, 540, 621, 760, 1412, 1288, 848, 614, 981, 648, 1056, 633, 1687, 1000, 1691, 1243)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(0, 3, 4, 5), PackedInt32Array(5, 4, 6), PackedInt32Array(5, 6, 7, 8), PackedInt32Array(8, 7, 9, 10), PackedInt32Array(8, 10, 11, 12, 13)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(137, 1121, 106, 631, 244, 540, 621, 760, 848, 614, 981, 648, 1056, 633, 1687, 1000, 1691, 1243, 1412, 1288, 231, 620, 214, 824, 926, 1243, 325, 1233)])
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_ds4b2"]
+vertices = PackedVector2Array(598, 295, 187, 22, 322, 20, 638, 196, 1607, 115, 1683, 13, 1689, 532, 1475, 321, 797, 208, 848, 81, 1426, 393, 1401, 257, 1526, 73, 979, 297, 1119, 215, 859, 15, 1443, 3, 1219, 285)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 5, 6, 7), PackedInt32Array(8, 0, 3, 9), PackedInt32Array(6, 10, 7), PackedInt32Array(4, 7, 11, 12), PackedInt32Array(13, 8, 9, 14), PackedInt32Array(15, 16, 12, 11, 17, 14), PackedInt32Array(14, 9, 15)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(187, 22, 598, 295, 797, 208, 979, 297, 1119, 215, 1219, 285, 1401, 257, 1475, 321, 1426, 393, 1689, 532, 1683, 13, 1607, 115, 1526, 73, 1443, 3, 859, 15, 848, 81, 638, 196, 322, 20)])
 
 [node name="Scene" instance=ExtResource("1_3u62o")]
 
@@ -102,6 +112,21 @@ rotation = 3.14159
 scale = Vector2(5, 0.6)
 dest_resource = "res://scenes/demo/1/industrial/f.tscn"
 dest_edge = "TracksNorth"
+
+[node name="NavigationGround" type="NavigationRegion2D" parent="YSort" index="9"]
+navigation_polygon = SubResource("NavigationPolygon_awuu0")
+
+[node name="NavigationRoof" type="NavigationRegion2D" parent="YSort" index="10"]
+navigation_polygon = SubResource("NavigationPolygon_ds4b2")
+
+[node name="VentA" type="NavigationObstacle2D" parent="YSort" index="11"]
+vertices = PackedVector2Array(1293, 208, 1382, 136, 1507, 212, 1390, 291)
+
+[node name="VentB" type="NavigationObstacle2D" parent="YSort" index="12"]
+vertices = PackedVector2Array(1064, 87, 1170, -4, 1287, 66, 1181, 155, 1181, 155)
+
+[node name="VentC" type="NavigationObstacle2D" parent="YSort" index="13"]
+vertices = PackedVector2Array(1484, 323, 1598, 253, 1679, 323, 1592, 393)
 
 [node name="ScaffoldX" parent="." index="2" instance=ExtResource("9_immxw")]
 position = Vector2(1124, 788)

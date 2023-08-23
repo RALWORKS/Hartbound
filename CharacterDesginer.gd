@@ -3,6 +3,7 @@ extends Node2D
 
 var texture_settings = {}
 @export var send_data_to: Node
+@export var profile_designer: Node
 
 func init_default_texture(gender):
 	$WrapAndScale/Character.init_default_texture(gender)
@@ -30,6 +31,7 @@ func refresh_indicators():
 		[$HairstyleBtn, "hair", "Hair"],
 		[$HairColourBtn, "hair-color", "Hair Colour"],
 		[$OutfitColourBtn, "outfit-color-1", "Outfit Colour"],
+		[$AccentColourBtn, "outfit-color-2", "Accent Colour"],
 	]:
 		var l= ch.TEXTURES[pair[1]].size()
 		var cur = ch.texture_settings[pair[1]] + 1
@@ -83,4 +85,12 @@ func _on_skin_colour_btn_pressed():
 
 func _on_randomize_btn_pressed():
 	$WrapAndScale/Character.randomize_features()
+	if profile_designer != null:
+		profile_designer.shuffle()
+	
+	refresh_indicators()
+
+
+func _on_accent_colour_btn_pressed():
+	$WrapAndScale/Character.next_accent_color()
 	refresh_indicators()

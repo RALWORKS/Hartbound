@@ -1,19 +1,34 @@
-[gd_scene load_steps=15 format=3]
+[gd_scene load_steps=18 format=3 uid="uid://c61y5cf8qd8vl"]
 
 [ext_resource type="PackedScene" path="res://scene.tscn" id="1_c5dv2"]
-[ext_resource type="Texture2D" path="res://assets/scenes/demo/1/industrial/c.png" id="2_7kp15"]
-[ext_resource type="Texture2D" path="res://assets/scenes/demo/1/industrial/c-back-ledge-a.png" id="3_s3o6l"]
-[ext_resource type="Texture2D" path="res://assets/scenes/demo/1/industrial/c-front-ledge.png" id="4_wlth3"]
-[ext_resource type="PackedScene" path="res://travel/door.tscn" id="5_opb7a"]
-[ext_resource type="Texture2D" path="res://assets/scenes/demo/1/industrial/c-back-train-b.png" id="7_gq1vq"]
-[ext_resource type="Texture2D" path="res://assets/scenes/demo/1/industrial/c-front-train-a.png" id="8_6ampf"]
-[ext_resource type="Texture2D" path="res://assets/scenes/demo/1/industrial/c-back-train-a.png" id="8_p61y3"]
-[ext_resource type="Texture2D" path="res://assets/scenes/demo/1/industrial/c-left-fence.png" id="9_5jqef"]
-[ext_resource type="Texture2D" path="res://assets/scenes/demo/1/industrial/c-front-train-b.png" id="9_h5wlc"]
+[ext_resource type="Texture2D" uid="uid://bdh1dphfwy4ng" path="res://assets/scenes/demo/1/industrial/c.png" id="2_7kp15"]
+[ext_resource type="Texture2D" uid="uid://y8do164lafek" path="res://assets/scenes/demo/1/industrial/c-back-ledge-a.png" id="3_s3o6l"]
+[ext_resource type="Texture2D" uid="uid://bmubpntnl3s4m" path="res://assets/scenes/demo/1/industrial/c-front-ledge.png" id="4_wlth3"]
+[ext_resource type="PackedScene" uid="uid://dxfuidhlgwthh" path="res://travel/door.tscn" id="5_opb7a"]
+[ext_resource type="Texture2D" uid="uid://dbbgasy4bg0h2" path="res://assets/scenes/demo/1/industrial/c-back-train-b.png" id="7_gq1vq"]
+[ext_resource type="Texture2D" uid="uid://qspyxf8ofma3" path="res://assets/scenes/demo/1/industrial/c-front-train-a.png" id="8_6ampf"]
+[ext_resource type="Texture2D" uid="uid://d0gfsy1h0i77y" path="res://assets/scenes/demo/1/industrial/c-back-train-a.png" id="8_p61y3"]
+[ext_resource type="Texture2D" uid="uid://boqoghud1gyj6" path="res://assets/scenes/demo/1/industrial/c-left-fence.png" id="9_5jqef"]
+[ext_resource type="Texture2D" uid="uid://bv6vhj304xiwc" path="res://assets/scenes/demo/1/industrial/c-front-train-b.png" id="9_h5wlc"]
 [ext_resource type="PackedScene" path="res://switch.tscn" id="12_tr1n7"]
-[ext_resource type="Texture2D" path="res://assets/scenes/demo/1/industrial/c-front-tree.png" id="12_uurvq"]
+[ext_resource type="Texture2D" uid="uid://djls0mm7suojo" path="res://assets/scenes/demo/1/industrial/c-front-tree.png" id="12_uurvq"]
 [ext_resource type="Script" path="res://scenes/demo/1/industrial/c-LevelSwitchScript.gd" id="13_thh61"]
-[ext_resource type="Texture2D" path="res://assets/scenes/demo/1/industrial/c-far-back-ledge.png" id="13_uji7m"]
+[ext_resource type="Texture2D" uid="uid://c3p4bcjbt5u44" path="res://assets/scenes/demo/1/industrial/c-far-back-ledge.png" id="13_uji7m"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_i64kx"]
+vertices = PackedVector2Array(512, 2, 1379, 2, 1268, 93, 784, 282, 1170, 304, 787, 430, 30, 1215, 60, 687, 182, 801, 741, 1106, 751, 1207, 416, 894, 701, 587)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(3, 2, 4, 5), PackedInt32Array(6, 7, 8), PackedInt32Array(9, 10, 6, 8, 11), PackedInt32Array(11, 8, 5, 12), PackedInt32Array(4, 12, 5)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(60, 687, 182, 801, 787, 430, 784, 282, 512, 2, 1379, 2, 1268, 93, 1170, 304, 701, 587, 416, 894, 741, 1106, 751, 1207, 30, 1215)])
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_j5vyj"]
+vertices = PackedVector2Array(3, 138, 441, 342, 177, 488, 0, 342)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(0, 342, 177, 488, 441, 342, 3, 138)])
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_wbapc"]
+vertices = PackedVector2Array(1608, 1227, 1404, 1234, 1585, 1085, 1626, 796, 1545, 95, 1452, 30, 1507, -1, 1606, -1, 824, 624, 1117, 647, 1588, 329, 1550, 287, 1520, 355, 1525, 481, 1306, 632, 1018, 493, 1046, 612)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2), PackedInt32Array(3, 0, 2), PackedInt32Array(4, 5, 6, 7), PackedInt32Array(3, 2, 8, 9), PackedInt32Array(4, 7, 10, 11), PackedInt32Array(12, 11, 10, 13), PackedInt32Array(9, 12, 13, 14), PackedInt32Array(8, 15, 16), PackedInt32Array(9, 14, 3), PackedInt32Array(9, 8, 16)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(824, 624, 1018, 493, 1046, 612, 1117, 647, 1520, 355, 1550, 287, 1545, 95, 1452, 30, 1507, -1, 1606, -1, 1588, 329, 1525, 481, 1306, 632, 1626, 796, 1608, 1227, 1404, 1234, 1585, 1085)])
 
 [node name="Scene" instance=ExtResource("1_c5dv2")]
 
@@ -130,6 +145,15 @@ offset = Vector2(0, -50)
 position = Vector2(1470, 229)
 texture = ExtResource("13_uji7m")
 offset = Vector2(0, -100)
+
+[node name="NavigationMiddle" type="NavigationRegion2D" parent="YSort" index="17"]
+navigation_polygon = SubResource("NavigationPolygon_i64kx")
+
+[node name="NavigationBehindTrain" type="NavigationRegion2D" parent="YSort" index="18"]
+navigation_polygon = SubResource("NavigationPolygon_j5vyj")
+
+[node name="NavigationRoof" type="NavigationRegion2D" parent="YSort" index="19"]
+navigation_polygon = SubResource("NavigationPolygon_wbapc")
 
 [node name="c-LevelSwitchScript" type="Node" parent="." index="2"]
 script = ExtResource("13_thh61")

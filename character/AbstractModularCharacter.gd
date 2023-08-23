@@ -9,7 +9,9 @@ extends Sprite2D
 @export var hair_front: Node
 @export var profile_hair: Node
 @export var clothes: Node
+@export var clothes_accent: Node
 @export var front_sleeve: Node
+@export var front_sleeve_accent: Node
 @export var profile_shirt: Node
 @export var profile_features: Node
 @export var character_img: Node
@@ -113,6 +115,7 @@ func randomize_features():
 		"hair-color": randi() % TEXTURES["hair-color"].size(),
 		"outfit": randi() % TEXTURES["outfit"].size(),
 		"outfit-color-1": randi() % TEXTURES["outfit-color-1"].size(),
+		"outfit-color-2": randi() % TEXTURES["outfit-color-2"].size(),
 		"build": randi() % TEXTURES["build"].size(),
 		"face": texture_settings["face"],
 		"eyes": texture_settings["eyes"],
@@ -127,6 +130,7 @@ var DEFAULT_TEXTURES_F = {
 	"hair-color": 0,
 	"outfit": 1,
 	"outfit-color-1": 2,
+	"outfit-color-2": 2,
 	"build": 0,
 	"eyes": 0,
 	"face": 2,
@@ -139,6 +143,7 @@ var DEFAULT_TEXTURES_M = {
 	"hair-color": 2,
 	"outfit": 0,
 	"outfit-color-1": 0,
+	"outfit-color-2": 0,
 	"build": 2,
 	"eyes": 2,
 	"face": 3,
@@ -151,6 +156,7 @@ var DEFAULT_TEXTURES_NB = {
 	"hair-color": 1,
 	"outfit": 2,
 	"outfit-color-1": 3,
+	"outfit-color-2": 3,
 	"build": 1,
 	"eyes": 1,
 	"face": 0,
@@ -163,6 +169,7 @@ var texture_settings = {
 	"hair-color": 2,
 	"outfit": 0,
 	"outfit-color-1": 0,
+	"outfit-color-2": 0,
 	"build": 1,
 	"eyes": 0,
 	"face": 0,
@@ -190,6 +197,23 @@ var TEXTURES = {
 		"#47280e",
 	],
 	"outfit-color-1": [
+		"#666602", # olive
+		"#76962b", # spring
+		"#405e33", # forest
+		"#288750", # mint
+		"#589286", # robin's egg
+		"#2b4286", # periwinkle
+		"#6b8296", # cloudy skies
+		"#604f84", # lilac
+		"#68373d", # blueberry juice
+		"#902d1d", # fire engine
+		"#5f260d", # dark leather
+		"#4f361d", # light leather
+		"#303030", # "black"
+		"#505050", # grey
+		"#cccccc", # white
+	],
+	"outfit-color-2": [
 		"#969622", # olive
 		"#a6c65b", # spring
 		"#708e63", # forest
@@ -264,16 +288,28 @@ var TEXTURES = {
 	],
 	"outfit": [
 		[
-			preload("res://assets/character/clothes/v1/ruana/full/shade-1.png"),
-			preload("res://assets/character/clothes/v1/ruana/front/shade-1.png")
+			preload("res://assets/character/clothes/v1/ruana/full/full.png"),
+			preload("res://assets/character/clothes/v1/ruana/front/full.png"),
+			preload("res://assets/character/clothes/v1/ruana/full/accent.png"),
+			preload("res://assets/character/clothes/v1/ruana/front/accent.png")
 		],
 		[
 			preload("res://assets/character/clothes/v1/dress-and-coat/full/full.png"),
-			preload("res://assets/character/clothes/v1/dress-and-coat/front/full.png")
+			preload("res://assets/character/clothes/v1/dress-and-coat/front/full.png"),
+			preload("res://assets/character/clothes/v1/dress-and-coat/full/accent.png"),
+			preload("res://assets/character/clothes/v1/dress-and-coat/front/accent.png")
 		],
 		[
 			preload("res://assets/character/clothes/v1/side-cape/full/full.png"),
-			preload("res://assets/character/clothes/v1/side-cape/front/full.png")
+			preload("res://assets/character/clothes/v1/side-cape/front/full.png"),
+			preload("res://assets/character/clothes/v1/side-cape/full/accent.png"),
+			preload("res://assets/character/clothes/v1/side-cape/front/accent.png")
+		],
+		[
+			preload("res://assets/character/clothes/v1/chiton/full/full-shaded-shoes.png"),
+			preload("res://assets/character/clothes/v1/chiton/front/full.png"),
+			preload("res://assets/character/clothes/v1/chiton/full/accent.png"),
+			preload("res://assets/character/clothes/v1/chiton/front/accent.png"),
 		],
 	]
 }
@@ -343,7 +379,9 @@ func _refresh_outfit():
 		"outfit",
 		[
 			clothes,
-			front_sleeve
+			front_sleeve,
+			clothes_accent,
+			front_sleeve_accent,
 		]
 	)
 	_refresh_color_element(
@@ -352,6 +390,13 @@ func _refresh_outfit():
 			front_sleeve,
 			clothes,
 			profile_shirt,
+		]
+	)
+	_refresh_color_element(
+		"outfit-color-2",
+		[
+			front_sleeve_accent,
+			clothes_accent,
 		]
 	)
 
@@ -413,8 +458,15 @@ func set_skin(ix):
 func next_outfit_color():
 	_next_texture("outfit-color-1")
 
+func next_accent_color():
+	_next_texture("outfit-color-2")
+
 func set_outfit_color(ix):
 	texture_settings["outfit-color-1"] = ix
+	texture_updated()
+
+func set_accent_color(ix):
+	texture_settings["outfit-color-2"] = ix
 	texture_updated()
 
 func texture_updated():

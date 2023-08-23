@@ -1,14 +1,15 @@
 extends CharacterBody2D
 
-@export var speed = 95
+@export var speed = 110
 @export var osc_rate = 0.2
 @export var is_demo_instance = false
 @export var turning_timeout = 0.05
 @export var is_profile = false
 
+@onready var navigation_agent: NavigationAgent2D = $NavigationAgent2D
+
 var DestinationMarker = preload("res://ui/destination_arrow.tscn")
 
-var destination = null
 var destination_marker = null
 
 var last_collision = null
@@ -18,6 +19,7 @@ var cur_collision = null
 var osc_origin = Time.get_ticks_msec()
 var game = null
 var world = null
+var unreachable = false
 
 @export var follower_call_interval = 0.05
 @export var has_follower = false
@@ -103,6 +105,9 @@ func next_hair():
 func next_outfit_color():
 	$char.next_outfit_color()
 
+func next_accent_color():
+	$char.next_accent_color()
+
 func next_hair_color():
 	$char.next_hair_color()
 
@@ -118,6 +123,9 @@ func set_hair_color(ix):
 func set_outfit_color(ix):
 	$char.set_outfit_color(ix)
 
+func set_accent_color(ix):
+	$char.set_accent_color(ix)
+
 func texture_updated():
 	$char.texture_updated()
 
@@ -130,6 +138,9 @@ func _ready():
 	world = game.get_node_or_null("MainScreen/World")
 	TEXTURES = $char.TEXTURES
 #	texture_settings = $char.texture_settings
+	navigation_agent.path_desired_distance = 4.0
+	navigation_agent.target_desired_distance = 4.0
+
 
 var anims = {
 	"up": {"on": "up", "off": "up-stopped"},
@@ -196,37 +207,45 @@ func _target_in_range():
 		return false
 	return game.staged_action_node.in_range
 
-func get_input():
-	var arrow_keys = Input.get_vector("left", "right", "up", "down")
-	var click = Input.is_action_just_released("click")
-	
+func set_destination(d):
+	if d == null:
+		navigation_agent.target_position = global_position
+		return
+	navigation_agent.target_position = d
+	unreachable = not navigation_agent.is_target_reachable()
+
+func navigation_finished():
+	return navigation_agent.is_navigation_finished()
+
+func refresh_walk_direction():
 	if world and world.is_input_disabled():
-		return Vector2(0, 0)
+		return null
 
-	if click and _mouse_in_range() and not _target_in_range():
-		destination = $"..".get_global_mouse_position()
+	if navigation_finished():
+		return null
+	
+	var cur_agent_position: Vector2 = global_position
+	var next_path_position: Vector2 = navigation_agent.get_next_path_position()
+	
+	var new_velocity: Vector2 = next_path_position - cur_agent_position
+	new_velocity = new_velocity.normalized()
 
-	var input_direction = arrow_keys
-	input_direction.y = input_direction.y * 0.568
+	return new_velocity
 
-	if arrow_keys.x != 0 or arrow_keys.y != 0:
-		destination = null
-	if _near(position, destination):
-		destination = null
-	if destination != null:
-		input_direction = Vector2.from_angle(get_angle_to(destination))
-	
+func no_input():
+	if navigation_finished():
+		velocity = Vector2(0, 0)
 
-	input_direction = input_direction.normalized()
-	
-	if input_direction != last_input_direction:
-		last_collision = null
-		cur_collision = null
-	
-	last_input_direction = input_direction
-	
-	#velocity = input_direction * speed
-	return input_direction
+func destination_clicked(_delta):
+	set_destination($"..".get_global_mouse_position())
+
+func arrow_keys_pressed(delta, arrow_keys):
+	if not navigation_agent.is_navigation_finished():
+		set_destination(null)
+	unreachable = false
+	go_direction(delta, arrow_keys)
+
+
 
 func walk():
 	#$Sprite2D/AnimatedSprite2D.play(anims[facing]["on"])
@@ -235,8 +254,8 @@ func walk():
 func stop_walking():
 	#$Sprite2D/AnimatedSprite2D.play(anims[facing]["off"])
 	$char.play(anims[facing]["off"])
-	if destination != null:
-		destination = null
+	if not navigation_finished():
+		# set_destination(null)
 		emote_question()
 
 func set_anim():
@@ -246,17 +265,17 @@ func set_anim():
 	if (velocity.x**2 + velocity.y**2) < (speed*0.5)**2:
 		stop_walking()
 		return
-	if velocity.y < 0 and velocity.x < 0:
+	if velocity.y < -13 and velocity.x < -10:
 		facing = "up_left"
-	elif velocity.y < 0 and velocity.x > 0:
+	elif velocity.y < -13 and velocity.x > 10:
 		facing = "up_right"
-	elif velocity.y > 0 and velocity.x < 0:
+	elif velocity.y > 13 and velocity.x < -10:
 		facing = "down_left"
-	elif velocity.y > 0 and velocity.x > 0:
+	elif velocity.y > 13 and velocity.x > 10:
 		facing = "down_right"
-	elif velocity.y < 0:
+	elif velocity.y < -10:
 		facing = "up"
-	elif velocity.y > 0:
+	elif velocity.y > 10:
 		facing = "down"
 	elif velocity.x < 0:
 		facing = "left"
@@ -266,8 +285,8 @@ func set_anim():
 		last_facing = facing
 	if facing != last_facing and turning:
 		facing = last_facing
-		if destination != null:
-			destination = null
+		if not navigation_finished():
+			# set_destination(null)
 			emote_question()
 	elif facing != last_facing:
 		turn()
@@ -310,11 +329,11 @@ func _refresh_destination_marker():
 	if destination_marker == null:
 		destination_marker = DestinationMarker.instantiate()
 		destination_marker.make_destination_marker($"../..")
-	
-	if destination == null:
+
+	if navigation_finished():
 		destination_marker.hide_marker()
 		return
-	destination_marker.move_marker(destination)
+	destination_marker.move_marker(navigation_agent.target_position)
 	destination_marker.show_marker()
 	if game.staged_action_node == null:
 		destination_marker.marker_walk_mode()
@@ -325,18 +344,21 @@ func _physics_process(delta):
 	_refresh_destination_marker()
 	if is_demo_instance:
 		return
-	var input_direction = get_input()
-	velocity = _modulate_velocity(input_direction)
+	var input_direction = refresh_walk_direction()
+	if input_direction != null:
+		go_direction(delta, input_direction)
 
-	var collision = move_and_collide(velocity * delta)
-	_handle_collisions(delta, collision, input_direction)
-	
 	set_anim()
 	call_follower()
 
+func go_direction(delta, input_direction):
+	velocity = _modulate_velocity(input_direction)
+	var collision = move_and_collide(velocity * delta)
+	_handle_collisions(delta, collision, input_direction)
+
 func _clear_staged_action_node():
 	game.unstage_action_node(game.staged_action_node)
-	destination = null
+	# set_destination(null)
 
 func _on_interact_box_body_entered(body):
 	if body.has_method("interact_range_entered"):
@@ -362,3 +384,9 @@ func _on_interact_box_area_entered(area):
 
 func _on_interact_box_area_exited(area):
 	_on_interact_box_body_exited(area)
+
+
+func _on_navigation_agent_2d_navigation_finished():
+	if unreachable:
+		emote_question()
+		unreachable = false

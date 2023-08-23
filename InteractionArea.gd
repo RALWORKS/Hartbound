@@ -5,7 +5,7 @@ extends Area2D
 @export var description: String
 
 var x_cursor = preload("res://cursor.tscn")
-var InteractionWindow = preload("res://item/interaction_window.tscn")
+var InteractionModal = preload("res://item/interaction_modal.tscn")
 
 var cur_window = null
 var cur_cursor = null
@@ -21,48 +21,41 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	var click = Input.is_action_just_released("click")
-	var g = _get_game()
-	if click and cur_cursor == null and g.staged_action_node == self:
-		g.unstage_action_node(self)
+	game = _get_game()
+	if click and cur_cursor == null and game.staged_action_node == self:
+		game.unstage_action_node(self)
 	if cur_cursor:
-		if g.staged_action_node == self:
+		if game.staged_action_node == self:
 			cur_cursor.set_deferred("visible", false)
 		else:
 			cur_cursor.set_deferred("visible", true)
 
 func _close_action_window():
 	if cur_window:
-		cur_window.call_deferred("free")
-	cur_window = null
+		cur_window.close()
 
 func action():
 	if cur_window:
 		return
-	
-	var g = _get_game()
-	cur_window = InteractionWindow.instantiate()
-	
-	
-	$"..".add_child(cur_window)
 
-	cur_window.connect("close_requested", _close_action_window)
-	cur_window.connect("focus_exited", _close_action_window)
-	g.add_child(cur_window)
+	var g = _get_game()
+	cur_window = InteractionModal.instantiate()
+	cur_window.target = self
 	cur_window.title = title
 	cur_window.set_description(description)
-	cur_window.grab_focus()
+	
+	cur_window.open(g)
 
 
 func _on_mouse_entered():
-	#print("mouse!")
 	cur_cursor = x_cursor.instantiate()
-	
+
 	var w = $".."
 	w.add_child(cur_cursor)
 	cur_cursor.set_title(title)
 	DisplayServer.cursor_set_shape(DisplayServer.CURSOR_POINTING_HAND)
 
-func _on_click():	
+func _on_click():
 	_get_game().staged_action_node = self
 	if in_range:
 		action()
@@ -88,6 +81,7 @@ func interact_range_entered():
 	in_range = true
 	if _get_game().staged_action_node == self:
 		action()
+		game.unstage_action_node(self)
 
 func interact_range_exited():
 	in_range = false

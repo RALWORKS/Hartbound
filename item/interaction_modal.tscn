@@ -1,0 +1,77 @@
+[gd_scene load_steps=3 format=3 uid="uid://cqc4mkd115sor"]
+
+[ext_resource type="PackedScene" uid="uid://i6laa1tesr13" path="res://ui/modal.tscn" id="1_lcft4"]
+[ext_resource type="Script" path="res://item/interaction_modal.gd" id="1_tbl4t"]
+
+[node name="InteractionModal" type="Node2D"]
+position = Vector2(920, 540)
+script = ExtResource("1_tbl4t")
+
+[node name="Modal" parent="." node_paths=PackedStringArray("wrapper") instance=ExtResource("1_lcft4")]
+offset_left = -250.0
+offset_top = -250.0
+offset_right = 250.0
+offset_bottom = 250.0
+grow_horizontal = 2
+grow_vertical = 2
+wrapper = NodePath("..")
+
+[node name="ExamineTitle" type="Label" parent="Modal"]
+layout_mode = 0
+offset_top = 50.0
+offset_right = 91.0
+offset_bottom = 96.0
+text = "Examine:"
+
+[node name="ExamineBody" type="RichTextLabel" parent="Modal"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.3
+offset_top = 80.0
+offset_bottom = 50.0
+
+[node name="ContentsTitle" type="Label" parent="Modal"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.3
+anchor_bottom = 0.3
+offset_top = 35.0
+offset_right = 95.0
+offset_bottom = 81.0
+text = "Contents:"
+
+[node name="ActionsTitle" type="Label" parent="Modal"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.3
+anchor_right = 0.5
+anchor_bottom = 0.3
+offset_top = 35.0
+offset_right = 91.0
+offset_bottom = 81.0
+text = "Actions:"
+
+[node name="ContentsBody" type="Panel" parent="Modal"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.4
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = 30.0
+offset_right = -5.0
+offset_bottom = -10.0
+
+[node name="ActionsBody" type="Panel" parent="Modal"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.4
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 5.0
+offset_top = 30.0
+offset_right = -10.0
+offset_bottom = -10.0

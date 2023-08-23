@@ -1,11 +1,21 @@
-[gd_scene load_steps=7 format=3]
+[gd_scene load_steps=9 format=3 uid="uid://qhhv4s8njcrp"]
 
 [ext_resource type="PackedScene" path="res://scene.tscn" id="1_4su6i"]
-[ext_resource type="Texture2D" path="res://assets/scenes/demo/1/industrial/b.png" id="2_beatb"]
-[ext_resource type="Texture2D" path="res://assets/scenes/demo/1/industrial/b-pipe.png" id="3_r4qbj"]
-[ext_resource type="Texture2D" path="res://assets/scenes/demo/1/industrial/b-treetop.png" id="4_jobxl"]
-[ext_resource type="Texture2D" path="res://assets/scenes/demo/1/industrial/b-vent-tree.png" id="5_ij0re"]
-[ext_resource type="PackedScene" path="res://travel/door.tscn" id="6_dl5dw"]
+[ext_resource type="Texture2D" uid="uid://dobfgkrdvoy5g" path="res://assets/scenes/demo/1/industrial/b.png" id="2_beatb"]
+[ext_resource type="Texture2D" uid="uid://dduqbcoe6864b" path="res://assets/scenes/demo/1/industrial/b-pipe.png" id="3_r4qbj"]
+[ext_resource type="Texture2D" uid="uid://b7bo0oyjlmq03" path="res://assets/scenes/demo/1/industrial/b-treetop.png" id="4_jobxl"]
+[ext_resource type="Texture2D" uid="uid://c6dbijn80ep15" path="res://assets/scenes/demo/1/industrial/b-vent-tree.png" id="5_ij0re"]
+[ext_resource type="PackedScene" uid="uid://dxfuidhlgwthh" path="res://travel/door.tscn" id="6_dl5dw"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_2fe48"]
+vertices = PackedVector2Array(1165, 943, 1592, 1182, 1592, 1226, 512, 1229, 482, 1125, 539, 546, 704, 499, 1064, 765, 337, 1075, 8, 980, 4, 705, 354, 520, 226, 1085)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4), PackedInt32Array(5, 6, 7, 0, 4, 8), PackedInt32Array(9, 10, 11, 5, 8, 12), PackedInt32Array(9, 12, 9)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(4, 705, 354, 520, 539, 546, 704, 499, 1064, 765, 1165, 943, 1592, 1182, 1592, 1226, 512, 1229, 482, 1125, 337, 1075, 226, 1085, 8, 980, 8, 980)])
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_0pbjy"]
+vertices = PackedVector2Array(1595, 738, 1259, 526, 1437, 442, 1602, -2, 358, 39, 9, 227, 14, 4, 723, 38, 546, 102)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2), PackedInt32Array(3, 0, 2), PackedInt32Array(4, 5, 6), PackedInt32Array(4, 6, 3, 7), PackedInt32Array(3, 2, 7), PackedInt32Array(4, 7, 8)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(9, 227, 358, 39, 546, 102, 723, 38, 1437, 442, 1259, 526, 1595, 738, 1602, -2, 14, 4)])
 
 [node name="Scene" instance=ExtResource("1_4su6i")]
 
@@ -85,15 +95,33 @@ dest_resource = "res://scenes/demo/1/industrial/c.tscn"
 dest_edge = "NorthRoof"
 
 [node name="EastGround" parent="YSort" index="6" instance=ExtResource("6_dl5dw")]
-position = Vector2(1025, 1183)
-rotation = -3.22886
+position = Vector2(1025, 1220)
+rotation = -3.14159
 scale = Vector2(9, 0.8)
 dest_resource = "res://scenes/demo/1/industrial/c.tscn"
 dest_edge = "NorthGround"
 
 [node name="WestGround" parent="YSort" index="7" instance=ExtResource("6_dl5dw")]
-position = Vector2(8, 856)
+position = Vector2(8, 857)
 rotation = -1.5708
 scale = Vector2(3, 1)
 dest_resource = "res://scenes/demo/1/industrial/a.tscn"
 dest_edge = "EastGround"
+
+[node name="NavigationGround" type="NavigationRegion2D" parent="YSort" index="8"]
+navigation_polygon = SubResource("NavigationPolygon_2fe48")
+
+[node name="NavigationRoof" type="NavigationRegion2D" parent="YSort" index="9"]
+navigation_polygon = SubResource("NavigationPolygon_0pbjy")
+
+[node name="VentA" type="NavigationObstacle2D" parent="YSort" index="10"]
+vertices = PackedVector2Array(942, 2, 1011, 42, 1095, -1, 1093, -34, 1005, -65, 939, -28)
+
+[node name="VentB" type="NavigationObstacle2D" parent="YSort" index="11"]
+vertices = PackedVector2Array(1114, 105, 1186, 43, 1261, 81, 1262, 119, 1194, 162)
+
+[node name="VentC" type="NavigationObstacle2D" parent="YSort" index="12"]
+vertices = PackedVector2Array(1313, 227, 1403, 173, 1494, 229, 1405, 319, 1310, 254)
+
+[node name="VentD" type="NavigationObstacle2D" parent="YSort" index="13"]
+vertices = PackedVector2Array(1510, 361, 1596, 320, 1600, 446, 1510, 403)

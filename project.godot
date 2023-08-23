@@ -27,6 +27,10 @@ window/stretch/mode="viewport"
 
 movie_writer/movie_file="/home/eleven/Saint/playtests/demo.avi"
 
+[gui]
+
+theme/custom="res://base_theme.tres"
+
 [input]
 
 up={

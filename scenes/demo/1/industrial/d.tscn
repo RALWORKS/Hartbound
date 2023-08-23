@@ -1,16 +1,21 @@
-[gd_scene load_steps=12 format=3]
+[gd_scene load_steps=13 format=3 uid="uid://bhfuxxbxxm52q"]
 
-[ext_resource type="PackedScene" path="res://scene.tscn" id="1_80s2n"]
-[ext_resource type="Texture2D" path="res://assets/scenes/demo/1/industrial/d.png" id="2_f3skq"]
-[ext_resource type="Texture2D" path="res://assets/scenes/demo/1/industrial/d-ledge-a.png" id="3_71x16"]
-[ext_resource type="Texture2D" path="res://assets/scenes/demo/1/industrial/d-ledge-b.png" id="4_5jj5m"]
-[ext_resource type="Texture2D" path="res://assets/scenes/demo/1/industrial/d-ledge-c.png" id="5_3j72w"]
-[ext_resource type="Texture2D" path="res://assets/scenes/demo/1/industrial/d-ledge-d.png" id="6_rsv7x"]
-[ext_resource type="Texture2D" path="res://assets/scenes/demo/1/industrial/d-front-rubble.png" id="7_uju8i"]
-[ext_resource type="Texture2D" path="res://assets/scenes/demo/1/industrial/d-corner-tree.png" id="8_at5b3"]
-[ext_resource type="PackedScene" path="res://travel/door.tscn" id="9_yk81u"]
+[ext_resource type="PackedScene" uid="uid://byrlpmbpj6yr5" path="res://scene.tscn" id="1_80s2n"]
+[ext_resource type="Texture2D" uid="uid://bjerew5lp6nnj" path="res://assets/scenes/demo/1/industrial/d.png" id="2_f3skq"]
+[ext_resource type="Texture2D" uid="uid://ufjnx3yc65s3" path="res://assets/scenes/demo/1/industrial/d-ledge-a.png" id="3_71x16"]
+[ext_resource type="Texture2D" uid="uid://bh7jf288jwlvc" path="res://assets/scenes/demo/1/industrial/d-ledge-b.png" id="4_5jj5m"]
+[ext_resource type="Texture2D" uid="uid://l5ragloxq0di" path="res://assets/scenes/demo/1/industrial/d-ledge-c.png" id="5_3j72w"]
+[ext_resource type="Texture2D" uid="uid://cqmb21dfyhc2r" path="res://assets/scenes/demo/1/industrial/d-ledge-d.png" id="6_rsv7x"]
+[ext_resource type="Texture2D" uid="uid://bepx8msnu5co5" path="res://assets/scenes/demo/1/industrial/d-front-rubble.png" id="7_uju8i"]
+[ext_resource type="Texture2D" uid="uid://dyab5s4gcbtrb" path="res://assets/scenes/demo/1/industrial/d-corner-tree.png" id="8_at5b3"]
+[ext_resource type="PackedScene" uid="uid://dxfuidhlgwthh" path="res://travel/door.tscn" id="9_yk81u"]
 [ext_resource type="PackedScene" path="res://switch.tscn" id="10_5eqo1"]
 [ext_resource type="Script" path="res://scenes/demo/1/industrial/d-StairsSwitchScript.gd" id="11_cpite"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_xwl0q"]
+vertices = PackedVector2Array(1594, 137, 1590, 893, 1259, 704, 942, 526, 1177, 661, 967, 1189, 1038, 1206, 942, 1267, 906, 1196, 806, 1253, 728, 807, 671, 1153, 47, 1124, 22, 13, 753, 551, 1580, 9, 1587, 73)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2), PackedInt32Array(3, 0, 2, 4), PackedInt32Array(5, 4, 2, 6, 7), PackedInt32Array(8, 5, 7, 9), PackedInt32Array(10, 11, 12, 13, 14), PackedInt32Array(10, 8, 9, 11), PackedInt32Array(14, 13, 15, 16)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(1594, 137, 942, 526, 1177, 661, 967, 1189, 906, 1196, 728, 807, 753, 551, 1587, 73, 1580, 9, 22, 13, 47, 1124, 671, 1153, 806, 1253, 942, 1267, 1038, 1206, 1259, 704, 1590, 893)])
 
 [node name="Scene" instance=ExtResource("1_80s2n")]
 
@@ -96,6 +101,9 @@ on = true
 
 [node name="HIT" type="CollisionPolygon2D" parent="YSort/UpperRegion" index="0"]
 polygon = PackedVector2Array(1596, 894, 1075, 588, 1767, 175, 1692, 888)
+
+[node name="NavigationAll" type="NavigationRegion2D" parent="YSort" index="12"]
+navigation_polygon = SubResource("NavigationPolygon_xwl0q")
 
 [node name="StairsSwitchScript" type="Node" parent="." index="2"]
 script = ExtResource("11_cpite")

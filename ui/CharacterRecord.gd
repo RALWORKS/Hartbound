@@ -1,7 +1,6 @@
 extends Window
 
 var game = null
-@export var target: Node = null
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -12,14 +11,11 @@ func _ready():
 func _process(_delta):
 	pass
 
-func set_description(d):
-	$Description.append_text(d)
-
 func close():
-	call_deferred("free")
+	visible = false
 	if game.cur_modal == self:
 		game.cur_modal = null
-	target.cur_window = null
 
-func open(g):
-	g.add_child(self)
+func open(_g):
+	visible = true
+	grab_focus()

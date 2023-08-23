@@ -22,6 +22,7 @@ func _move_to(dest: Node):
 	$"..".staged_action_node = null
 	var old = current
 	current = dest
+	dest.position = Vector2(0, 0)
 	var contents = null
 	if chapter:
 		contents = chapter.get_node_or_null(dest.name + "Contents")

@@ -19,7 +19,7 @@ func start_cutscene(cutscene_res):
 #	cur_game = $"../MainScreen/World".get_children()
 #	for child in $"..".get_children():
 #		print(child)
-	
+
 	$"../MainScreen/World".add_child(cutscene)
 	cutscene.start()
 

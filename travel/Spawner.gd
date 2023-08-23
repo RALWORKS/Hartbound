@@ -47,7 +47,8 @@ func _spawn(c, shift):
 
 
 func spawn(g):
-	_spawn(character, Vector2(0, 0))
+	var character_instance = _spawn(character, Vector2(0, 0))
+	g.set_player(character_instance)
 	follower = g.get_state(["micro_progress", "priestess_follows"])
 	if follower:
 		priestess_instance = _spawn(priestess, Vector2(-30, 0))

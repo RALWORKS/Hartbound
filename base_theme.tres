@@ -1,0 +1,126 @@
+[gd_resource type="Theme" load_steps=15 format=3 uid="uid://bowrqsap2qmsa"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wnnqy"]
+content_margin_left = 10.0
+content_margin_top = 5.0
+content_margin_right = 10.0
+content_margin_bottom = 5.0
+bg_color = Color(0.0588235, 0.0588235, 0.0588235, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.294118, 0.294118, 0.294118, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2l4da"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q3sr5"]
+bg_color = Color(0.278431, 0.278431, 0.278431, 1)
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ws02e"]
+bg_color = Color(0.137255, 0.137255, 0.137255, 1)
+border_color = Color(0.278431, 0.278431, 0.278431, 1)
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a1h13"]
+bg_color = Color(1, 1, 1, 1)
+border_color = Color(0.8, 0.8, 0.8, 0)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3m6fv"]
+bg_color = Color(1, 1, 1, 1)
+border_color = Color(0.8, 0.8, 0.8, 0)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_63218"]
+bg_color = Color(0, 0, 0, 1)
+border_color = Color(0.8, 0.8, 0.8, 0)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gb4ec"]
+bg_color = Color(0, 0, 0, 1)
+border_color = Color(0.8, 0.8, 0.8, 0)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6a3qb"]
+bg_color = Color(0.277528, 0.277528, 0.277528, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bpg1b"]
+content_margin_left = 20.0
+content_margin_top = 12.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0r1a6"]
+content_margin_left = 20.0
+content_margin_top = 12.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_43up6"]
+bg_color = Color(0.278431, 0.278431, 0.278431, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jwxqf"]
+content_margin_left = 10.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5l86r"]
+content_margin_left = 10.0
+
+[resource]
+Button/styles/normal = SubResource("StyleBoxFlat_wnnqy")
+Label/styles/normal = SubResource("StyleBoxEmpty_2l4da")
+Modal/base_type = &"Panel"
+Modal/styles/panel = SubResource("StyleBoxFlat_q3sr5")
+ModalBody/base_type = &"Panel"
+ModalBody/styles/panel = SubResource("StyleBoxFlat_ws02e")
+ModalExit/base_type = &"Button"
+ModalExit/colors/font_color = Color(1, 1, 1, 1)
+ModalExit/colors/font_focus_color = Color(0, 0, 0, 1)
+ModalExit/colors/font_hover_color = Color(0, 0, 0, 1)
+ModalExit/colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+ModalExit/colors/font_pressed_color = Color(1, 0, 0, 1)
+ModalExit/styles/focus = SubResource("StyleBoxFlat_a1h13")
+ModalExit/styles/hover = SubResource("StyleBoxFlat_3m6fv")
+ModalExit/styles/normal = SubResource("StyleBoxFlat_63218")
+ModalExit/styles/pressed = SubResource("StyleBoxFlat_gb4ec")
+ModalHead/base_type = &"Panel"
+ModalHead/styles/panel = SubResource("StyleBoxFlat_6a3qb")
+ModalTitle/base_type = &"RichTextLabel"
+ModalTitle/font_sizes/bold_font_size = 16
+ModalTitle/font_sizes/bold_italics_font_size = 16
+ModalTitle/font_sizes/italics_font_size = 16
+ModalTitle/font_sizes/mono_font_size = 16
+ModalTitle/font_sizes/normal_font_size = 16
+ModalTitle/styles/focus = SubResource("StyleBoxEmpty_bpg1b")
+ModalTitle/styles/normal = SubResource("StyleBoxEmpty_0r1a6")
+Panel/styles/panel = SubResource("StyleBoxFlat_43up6")
+RichTextLabel/styles/focus = SubResource("StyleBoxFlat_jwxqf")
+RichTextLabel/styles/normal = SubResource("StyleBoxEmpty_5l86r")

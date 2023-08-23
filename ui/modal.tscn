@@ -1,0 +1,60 @@
+[gd_scene load_steps=3 format=3 uid="uid://i6laa1tesr13"]
+
+[ext_resource type="Theme" uid="uid://bowrqsap2qmsa" path="res://base_theme.tres" id="1_531ua"]
+[ext_resource type="Script" path="res://ui/modal.gd" id="2_4lnkt"]
+
+[node name="Modal" type="Panel"]
+clip_contents = true
+custom_minimum_size = Vector2(500, 500)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 120.0
+offset_right = 500.0
+offset_bottom = 500.0
+theme = ExtResource("1_531ua")
+theme_type_variation = &"Modal"
+script = ExtResource("2_4lnkt")
+
+[node name="TitleBar" type="Panel" parent="."]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+theme_type_variation = &"ModalHead"
+
+[node name="Exit" type="Button" parent="TitleBar"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -40.0
+offset_right = -10.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_type_variation = &"ModalExit"
+text = "X"
+
+[node name="Title" type="RichTextLabel" parent="TitleBar"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 1
+offset_right = 400.0
+offset_bottom = 40.0
+theme_type_variation = &"ModalTitle"
+text = "Window"
+
+[node name="Body" type="Panel" parent="."]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -10.0
+offset_top = 50.0
+theme = ExtResource("1_531ua")
+theme_type_variation = &"ModalBody"

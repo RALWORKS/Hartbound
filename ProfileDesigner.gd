@@ -14,6 +14,8 @@ func refresh_texture():
 func _ready():
 	refresh_indicators()
 
+func shuffle():
+	$Profile.shuffle_bg()
 
 func refresh_indicators():
 	var ch = $Profile/img/Character
@@ -26,7 +28,7 @@ func refresh_indicators():
 		send_data_to.on_profile_edited(profile_texture_settings)
 
 	for pair in [
-		[$BgBtn, "bg", "Background"],
+		[$BgBtn, "bg-texture", "Background Texture"],
 		[$FilterBtn, "filter", "Filter"],
 		[$ShotBtn, "shot", "Camera Angle"],
 	]:

@@ -1,12 +1,38 @@
-[gd_scene load_steps=8 format=3]
+[gd_scene load_steps=10 format=3 uid="uid://dixypholkmdeq"]
 
 [ext_resource type="Script" path="res://CharacterDesginer.gd" id="1_304cl"]
-[ext_resource type="Texture2D" path="res://assets/scenes/demo/1/f.png" id="2_idm2p"]
-[ext_resource type="PackedScene" path="res://character/character.tscn" id="2_jht2j"]
+[ext_resource type="Texture2D" uid="uid://ddnb1w55tctmj" path="res://assets/scenes/demo/1/f.png" id="2_idm2p"]
+[ext_resource type="PackedScene" uid="uid://b03wpar88cr5r" path="res://character/character.tscn" id="2_jht2j"]
 [ext_resource type="PackedScene" path="res://ui/outline-button.tscn" id="3_y8erm"]
 [ext_resource type="Script" path="res://character/SkinColorButtons.gd" id="5_th1gm"]
 [ext_resource type="Script" path="res://character/OutfitColorButtons.gd" id="6_nrqhh"]
 [ext_resource type="Script" path="res://character/HairColorButtons.gd" id="6_vhj88"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_piecp"]
+content_margin_left = 15.0
+content_margin_top = 15.0
+content_margin_right = 15.0
+content_margin_bottom = 15.0
+bg_color = Color(0, 0.427451, 0.32549, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0wahf"]
+content_margin_left = 15.0
+content_margin_top = 15.0
+content_margin_right = 15.0
+content_margin_bottom = 15.0
+bg_color = Color(0, 0.176471, 0.12549, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
 
 [node name="CharacterDesginer" type="Node2D"]
 script = ExtResource("1_304cl")
@@ -36,71 +62,85 @@ text = "Rotate"
 
 [node name="OutfitBtn" parent="." instance=ExtResource("3_y8erm")]
 offset_left = 596.0
-offset_top = 60.0
+offset_top = 94.0
 offset_right = 721.0
-offset_bottom = 91.0
+offset_bottom = 125.0
 text = "> Outfit
 "
 
 [node name="BuildBtn" parent="." instance=ExtResource("3_y8erm")]
 offset_left = 288.0
-offset_top = 62.0
+offset_top = 96.0
 offset_right = 413.0
-offset_bottom = 93.0
+offset_bottom = 127.0
 text = "> Build
 "
 
 [node name="HairstyleBtn" parent="." instance=ExtResource("3_y8erm")]
 offset_left = 445.0
-offset_top = 61.0
+offset_top = 95.0
 offset_right = 570.0
-offset_bottom = 92.0
+offset_bottom = 126.0
 text = "> Hairstyle
 "
 
 [node name="HairColourBtn" parent="." instance=ExtResource("3_y8erm")]
 offset_left = 445.0
-offset_top = 110.0
+offset_top = 144.0
 offset_right = 570.0
-offset_bottom = 141.0
+offset_bottom = 175.0
 text = "> Hair Colour
 "
 
 [node name="SkinColourBtn" parent="." instance=ExtResource("3_y8erm")]
 offset_left = 288.0
-offset_top = 109.0
+offset_top = 143.0
 offset_right = 413.0
-offset_bottom = 140.0
+offset_bottom = 174.0
 text = "> Skin Colour
 "
 
 [node name="OutfitColourBtn" parent="." instance=ExtResource("3_y8erm")]
 offset_left = 599.0
-offset_top = 109.0
+offset_top = 143.0
 offset_right = 724.0
-offset_bottom = 140.0
+offset_bottom = 174.0
 text = "> Outfit Colour
 "
 
+[node name="AccentColourBtn" parent="." instance=ExtResource("3_y8erm")]
+offset_left = 810.0
+offset_top = 143.0
+offset_right = 935.0
+offset_bottom = 174.0
+text = "> Accent Colour
+"
+
 [node name="SkinColorButtons" type="Node2D" parent="."]
-position = Vector2(285, 170)
+position = Vector2(285, 204)
 script = ExtResource("5_th1gm")
 
 [node name="HairColorButtons" type="Node2D" parent="."]
-position = Vector2(442, 170)
+position = Vector2(442, 204)
 script = ExtResource("6_vhj88")
 
 [node name="OutfitColorButtons" type="Node2D" parent="."]
-position = Vector2(597, 170)
+position = Vector2(597, 204)
 script = ExtResource("6_nrqhh")
 
+[node name="OutfitAccentButtons" type="Node2D" parent="."]
+position = Vector2(810, 204)
+script = ExtResource("6_nrqhh")
+is_accent = true
+
 [node name="RandomizeBtn" parent="." instance=ExtResource("3_y8erm")]
-offset_left = 288.0
-offset_top = 16.0
-offset_right = 413.0
-offset_bottom = 47.0
-text = "> RANDOMIZE
-"
+offset_left = 282.0
+offset_top = 18.0
+offset_right = 424.0
+offset_bottom = 81.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_piecp")
+theme_override_styles/hover = SubResource("StyleBoxFlat_0wahf")
+text = "Randomize"
 
 [connection signal="toggled" from="CheckButton" to="." method="_on_check_button_toggled"]
 [connection signal="pressed" from="OutfitBtn" to="." method="_on_outfit_btn_pressed"]
@@ -109,4 +149,5 @@ text = "> RANDOMIZE
 [connection signal="pressed" from="HairColourBtn" to="." method="_on_hair_colour_btn_pressed"]
 [connection signal="pressed" from="SkinColourBtn" to="." method="_on_skin_colour_btn_pressed"]
 [connection signal="pressed" from="OutfitColourBtn" to="." method="_on_outfit_colour_btn_pressed"]
+[connection signal="pressed" from="AccentColourBtn" to="." method="_on_accent_colour_btn_pressed"]
 [connection signal="pressed" from="RandomizeBtn" to="." method="_on_randomize_btn_pressed"]
