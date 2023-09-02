@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3]
+[gd_scene load_steps=6 format=3 uid="uid://cio4dmo6oq7ki"]
 
 [ext_resource type="PackedScene" path="res://ui/outline-button.tscn" id="1_c6gep"]
 [ext_resource type="Script" path="res://character/character_namer.gd" id="1_rw5xu"]

@@ -26,6 +26,7 @@ func refresh_indicators():
 
 	for pair in [
 		[$OutfitBtn, "outfit", "Outfit"],
+		[$OutfitPatternBtn, "pattern", "Fabric Pattern"],
 		[$SkinColourBtn, "skin-color", "Skin Colour"],
 		[$BuildBtn, "build", "Build"],
 		[$HairstyleBtn, "hair", "Hair"],
@@ -33,7 +34,7 @@ func refresh_indicators():
 		[$OutfitColourBtn, "outfit-color-1", "Outfit Colour"],
 		[$AccentColourBtn, "outfit-color-2", "Accent Colour"],
 	]:
-		var l= ch.TEXTURES[pair[1]].size()
+		var l = ch.TEXTURES[pair[1]].size()
 		var cur = ch.texture_settings[pair[1]] + 1
 		pair[0].set_text(pair[2] + "  (" + str(cur) + "/" + str(l) + ")")
 
@@ -58,9 +59,9 @@ func _on_outfit_btn_pressed():
 
 func _on_check_button_toggled(button_pressed):
 	if button_pressed:
-		$WrapAndScale/Character/char_anims.play("Rotate")
+		$WrapAndScale/Character/char.play("Rotate")
 	else:
-		$WrapAndScale/Character/char_anims.stop()
+		$WrapAndScale/Character/char.stop()
 
 
 func _on_hair_btn_pressed():
@@ -93,4 +94,9 @@ func _on_randomize_btn_pressed():
 
 func _on_accent_colour_btn_pressed():
 	$WrapAndScale/Character.next_accent_color()
+	refresh_indicators()
+
+
+func _on_outfit_pattern_btn_pressed():
+	$WrapAndScale/Character.next_outfit_pattern()
 	refresh_indicators()

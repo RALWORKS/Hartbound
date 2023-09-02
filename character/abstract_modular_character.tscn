@@ -5,8 +5,6 @@
 [node name="AbstractModularCharacter" type="Sprite2D"]
 centered = false
 script = ExtResource("1_j1c5m")
-anchor_bottom = null
-frame_spacing = null
 
 [node name="Character" type="Sprite2D" parent="."]
 

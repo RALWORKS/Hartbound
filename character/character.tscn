@@ -160,7 +160,7 @@ y_sort_enabled = true
 scale = Vector2(0.75, 0.75)
 script = ExtResource("1_s1ce1")
 
-[node name="char" parent="." node_paths=PackedStringArray("body", "front_arm", "face", "hair_back", "hair_front", "clothes", "clothes_accent", "front_sleeve", "front_sleeve_accent", "character_img") instance=ExtResource("2_kvgd3")]
+[node name="char" parent="." node_paths=PackedStringArray("body", "front_arm", "face", "hair_back", "hair_front", "clothes", "clothes_pattern", "clothes_accent", "front_sleeve", "front_sleeve_accent", "character_img") instance=ExtResource("2_kvgd3")]
 centered = true
 hframes = 6
 vframes = 4
@@ -170,6 +170,7 @@ face = NodePath("../img/face")
 hair_back = NodePath("../img/hair-back")
 hair_front = NodePath("../img/hair-front")
 clothes = NodePath("../img/clothes")
+clothes_pattern = NodePath("../img/clothes-pattern")
 clothes_accent = NodePath("../img/clothes-accent")
 front_sleeve = NodePath("../img/front-sleeve")
 front_sleeve_accent = NodePath("../img/front-sleeve-accent")
@@ -226,6 +227,9 @@ centered = false
 
 [node name="front-sleeve-accent" type="Sprite2D" parent="img"]
 texture = ExtResource("5_2wkkg")
+centered = false
+
+[node name="clothes-pattern" type="Sprite2D" parent="img"]
 centered = false
 
 [node name="hair-front" type="Sprite2D" parent="img"]

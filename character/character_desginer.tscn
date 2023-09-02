@@ -68,6 +68,14 @@ offset_bottom = 125.0
 text = "> Outfit
 "
 
+[node name="OutfitPatternBtn" parent="." instance=ExtResource("3_y8erm")]
+offset_left = 596.0
+offset_top = 46.0
+offset_right = 723.0
+offset_bottom = 77.0
+text = "> Fabric Pattern
+"
+
 [node name="BuildBtn" parent="." instance=ExtResource("3_y8erm")]
 offset_left = 288.0
 offset_top = 96.0
@@ -144,6 +152,7 @@ text = "Randomize"
 
 [connection signal="toggled" from="CheckButton" to="." method="_on_check_button_toggled"]
 [connection signal="pressed" from="OutfitBtn" to="." method="_on_outfit_btn_pressed"]
+[connection signal="pressed" from="OutfitPatternBtn" to="." method="_on_outfit_pattern_btn_pressed"]
 [connection signal="pressed" from="BuildBtn" to="." method="_on_build_btn_pressed"]
 [connection signal="pressed" from="HairstyleBtn" to="." method="_on_hair_btn_pressed"]
 [connection signal="pressed" from="HairColourBtn" to="." method="_on_hair_colour_btn_pressed"]

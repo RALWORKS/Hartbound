@@ -13,7 +13,8 @@ var MainScreen = preload("res://ui/main_screen.tscn")
 var staged_action_node = null
 
 var CHAPTERS = {
-	"new": preload("res://character/character_creator.tscn"),
+	"intro": preload("res://intro-story/intro_story_chapter.tscn"),
+	"create": preload("res://character/character_creator.tscn"),
 	"test0": preload("res://chapters/demo/0/chapter_test.tscn"),
 	"demo1": preload("res://chapters/demo/1/demo-industrial.tscn")
 }
@@ -24,7 +25,7 @@ var STATE = {
 		"priestess_follows": false,
 		"event": 0,
 	},
-	"chapter": "new",
+	"chapter": "intro",
 	"story": [],
 }
 
@@ -140,10 +141,12 @@ func save():
 
 func start_new():
 	start_from_state(STATE)
+	$ThemeFader.play("fadeout")
 
 func load_game(f):
 	var state = JSON.parse_string(f.get_as_text())
 	start_from_state(state)
+	$ThemeFader.play("fadeout")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

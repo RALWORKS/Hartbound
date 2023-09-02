@@ -9,6 +9,7 @@ extends Sprite2D
 @export var hair_front: Node
 @export var profile_hair: Node
 @export var clothes: Node
+@export var clothes_pattern: Node
 @export var clothes_accent: Node
 @export var front_sleeve: Node
 @export var front_sleeve_accent: Node
@@ -39,6 +40,7 @@ var ANIMATIONS = {
 	"up-right-stopped": [6],
 	"up-left": [21, 23, 22, 23],
 	"up-left-stopped": [23],
+	"Rotate": [0, 9, 12, 6, 3, 23, 17, 20]
 }
 
 func verb(base):
@@ -98,6 +100,9 @@ var PRONOUNS_NB = {
 func play(animation_title):
 	$AnimationPlayer.play("movement/" + animation_title)
 
+func stop():
+	$AnimationPlayer.stop()
+
 func init_default_texture(gender):
 	texture_settings = DEFAULT_TEXTURES_NB
 	if gender == "M":
@@ -117,6 +122,7 @@ func randomize_features():
 		"outfit-color-1": randi() % TEXTURES["outfit-color-1"].size(),
 		"outfit-color-2": randi() % TEXTURES["outfit-color-2"].size(),
 		"build": randi() % TEXTURES["build"].size(),
+		"pattern": randi() % (N_PATTERNS + 1),
 		"face": texture_settings["face"],
 		"eyes": texture_settings["eyes"],
 	}
@@ -134,6 +140,7 @@ var DEFAULT_TEXTURES_F = {
 	"build": 0,
 	"eyes": 0,
 	"face": 2,
+	"pattern": 0,
 }
 
 var DEFAULT_TEXTURES_M = {
@@ -147,6 +154,7 @@ var DEFAULT_TEXTURES_M = {
 	"build": 2,
 	"eyes": 2,
 	"face": 3,
+	"pattern": 0,
 }
 
 var DEFAULT_TEXTURES_NB = {
@@ -160,6 +168,7 @@ var DEFAULT_TEXTURES_NB = {
 	"build": 1,
 	"eyes": 1,
 	"face": 0,
+	"pattern": 0,
 }
 
 var texture_settings = {
@@ -173,9 +182,10 @@ var texture_settings = {
 	"build": 1,
 	"eyes": 0,
 	"face": 0,
+	"pattern": 0,
 }
 	
-
+var N_PATTERNS = 3
 var TEXTURES = {
 	"skin-color": [
 		"#b47a50",
@@ -291,27 +301,49 @@ var TEXTURES = {
 			preload("res://assets/character/clothes/v1/ruana/full/full.png"),
 			preload("res://assets/character/clothes/v1/ruana/front/full.png"),
 			preload("res://assets/character/clothes/v1/ruana/full/accent.png"),
-			preload("res://assets/character/clothes/v1/ruana/front/accent.png")
+			preload("res://assets/character/clothes/v1/ruana/front/accent.png"),
+			preload("res://assets/character/clothes/v1/ruana/pattern/check.png"),
+			preload("res://assets/character/clothes/v1/ruana/pattern/tartan.png"),
+			preload("res://assets/character/clothes/v1/ruana/pattern/maze.png"),
 		],
 		[
 			preload("res://assets/character/clothes/v1/dress-and-coat/full/full.png"),
 			preload("res://assets/character/clothes/v1/dress-and-coat/front/full.png"),
 			preload("res://assets/character/clothes/v1/dress-and-coat/full/accent.png"),
-			preload("res://assets/character/clothes/v1/dress-and-coat/front/accent.png")
+			preload("res://assets/character/clothes/v1/dress-and-coat/front/accent.png"),
+			preload("res://assets/character/clothes/v1/dress-and-coat/pattern/check.png"),
+			preload("res://assets/character/clothes/v1/dress-and-coat/pattern/tartan.png"),
+			preload("res://assets/character/clothes/v1/dress-and-coat/pattern/maze.png"),
 		],
 		[
 			preload("res://assets/character/clothes/v1/side-cape/full/full.png"),
 			preload("res://assets/character/clothes/v1/side-cape/front/full.png"),
 			preload("res://assets/character/clothes/v1/side-cape/full/accent.png"),
-			preload("res://assets/character/clothes/v1/side-cape/front/accent.png")
+			preload("res://assets/character/clothes/v1/side-cape/front/accent.png"),
+			preload("res://assets/character/clothes/v1/side-cape/pattern/check.png"),
+			preload("res://assets/character/clothes/v1/side-cape/pattern/tartan.png"),
+			preload("res://assets/character/clothes/v1/side-cape/pattern/maze.png"),
 		],
 		[
 			preload("res://assets/character/clothes/v1/chiton/full/full-shaded-shoes.png"),
 			preload("res://assets/character/clothes/v1/chiton/front/full.png"),
 			preload("res://assets/character/clothes/v1/chiton/full/accent.png"),
 			preload("res://assets/character/clothes/v1/chiton/front/accent.png"),
+			preload("res://assets/character/clothes/v1/chiton/pattern/check.png"),
+			preload("res://assets/character/clothes/v1/chiton/pattern/tartan.png"),
+			preload("res://assets/character/clothes/v1/chiton/pattern/maze.png"),
 		],
-	]
+		[
+			preload("res://assets/character/clothes/v1/greatkilt/full/full-shaded-shoes.png"),
+			preload("res://assets/character/clothes/v1/greatkilt/front/full.png"),
+			preload("res://assets/character/clothes/v1/greatkilt/full/accent.png"),
+			preload("res://assets/character/clothes/v1/greatkilt/front/accent.png"),
+			preload("res://assets/character/clothes/v1/greatkilt/pattern/check.png"),
+			preload("res://assets/character/clothes/v1/greatkilt/pattern/tartan.png"),
+			preload("res://assets/character/clothes/v1/greatkilt/pattern/maze.png"),
+		],
+	],
+	"pattern": [],
 }
 
 func _refresh_texture_element(key, nodes):
@@ -325,6 +357,19 @@ func _refresh_texture_element(key, nodes):
 			continue
 		nodes[i].set_texture(data[i])
 		i += 1
+
+func _update_pattern_options():
+	var outfit_ix = texture_settings["outfit"]
+	var options = TEXTURES["outfit"][outfit_ix].slice(-1 * N_PATTERNS)
+	TEXTURES["pattern"] = options
+	TEXTURES["pattern"].push_front(null)
+
+func _refresh_pattern():
+	_update_pattern_options()
+	if not clothes_pattern:
+		return
+	var ix = texture_settings["pattern"]
+	clothes_pattern.set_texture(TEXTURES["pattern"][ix])
 
 func _refresh_color_element(key, nodes):
 	var color = TEXTURES[key][texture_settings[key]]
@@ -384,6 +429,7 @@ func _refresh_outfit():
 			front_sleeve_accent,
 		]
 	)
+	_refresh_pattern()
 	_refresh_color_element(
 		"outfit-color-1",
 		[
@@ -431,6 +477,9 @@ func next_hair():
 
 func next_outfit():
 	_next_texture("outfit")
+
+func next_outfit_pattern():
+	_next_texture("pattern")
 
 func next_build():
 	_next_texture("build")

@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://bl3qjgb340prl"]
+
+[ext_resource type="Script" path="res://NPC.gd" id="1_h3n7a"]
+[ext_resource type="PackedScene" uid="uid://cl4heje674d3q" path="res://item/interaction_area.tscn" id="2_bgeax"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_87bq4"]
+radius = 38.0
+height = 220.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_eywls"]
+radius = 43.1045
+
+[node name="NPC" type="CharacterBody2D"]
+script = ExtResource("1_h3n7a")
+
+[node name="InteractionArea" parent="." node_paths=PackedStringArray("action_source") instance=ExtResource("2_bgeax")]
+action_source = NodePath("..")
+
+[node name="hitbox" type="CollisionShape2D" parent="InteractionArea"]
+position = Vector2(0, -107)
+shape = SubResource("CapsuleShape2D_87bq4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_eywls")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]

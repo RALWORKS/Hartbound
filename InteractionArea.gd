@@ -3,6 +3,7 @@ extends Area2D
 @export var title: String
 @export var reference_id: String
 @export var description: String
+@export var action_source: Node
 
 var x_cursor = preload("res://cursor.tscn")
 var InteractionModal = preload("res://item/interaction_modal.tscn")
@@ -35,6 +36,8 @@ func _close_action_window():
 		cur_window.close()
 
 func action():
+	if action_source:
+		return action_source.action()
 	if cur_window:
 		return
 

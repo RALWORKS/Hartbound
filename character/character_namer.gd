@@ -1035,6 +1035,13 @@ var NAME_DATA = {
 	  ]
 	},
 	{
+	  "mora": "saem",
+	  "gloss": "tree",
+	  "class": [
+		"noun"
+	  ]
+	},
+	{
 	  "mora": "raem",
 	  "gloss": "river",
 	  "class": [

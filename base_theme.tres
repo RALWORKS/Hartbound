@@ -1,4 +1,6 @@
-[gd_resource type="Theme" load_steps=15 format=3 uid="uid://bowrqsap2qmsa"]
+[gd_resource type="Theme" load_steps=21 format=3 uid="uid://bowrqsap2qmsa"]
+
+[ext_resource type="FontFile" uid="uid://ebgllykqxqm7" path="res://assets/Georgia.TTF" id="1_uqqh3"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wnnqy"]
 content_margin_left = 10.0
@@ -21,6 +23,14 @@ content_margin_left = 10.0
 content_margin_top = 10.0
 content_margin_right = 10.0
 content_margin_bottom = 10.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bngpe"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mvfqe"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fvuq6"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2j4b2"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q3sr5"]
 bg_color = Color(0.278431, 0.278431, 0.278431, 1)
@@ -94,9 +104,23 @@ content_margin_left = 10.0
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5l86r"]
 content_margin_left = 10.0
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s8l8b"]
+content_margin_left = 20.0
+content_margin_top = 20.0
+content_margin_right = 20.0
+content_margin_bottom = 20.0
+bg_color = Color(0, 0, 0, 1)
+
 [resource]
 Button/styles/normal = SubResource("StyleBoxFlat_wnnqy")
 Label/styles/normal = SubResource("StyleBoxEmpty_2l4da")
+MenuItem/base_type = &"Button"
+MenuItem/colors/font_focus_color = Color(0, 0.596078, 0.537255, 1)
+MenuItem/colors/font_hover_color = Color(0, 0.596078, 0.537255, 1)
+MenuItem/styles/disabled = SubResource("StyleBoxEmpty_bngpe")
+MenuItem/styles/focus = SubResource("StyleBoxEmpty_mvfqe")
+MenuItem/styles/hover = SubResource("StyleBoxEmpty_fvuq6")
+MenuItem/styles/normal = SubResource("StyleBoxEmpty_2j4b2")
 Modal/base_type = &"Panel"
 Modal/styles/panel = SubResource("StyleBoxFlat_q3sr5")
 ModalBody/base_type = &"Panel"
@@ -124,3 +148,11 @@ ModalTitle/styles/normal = SubResource("StyleBoxEmpty_0r1a6")
 Panel/styles/panel = SubResource("StyleBoxFlat_43up6")
 RichTextLabel/styles/focus = SubResource("StyleBoxFlat_jwxqf")
 RichTextLabel/styles/normal = SubResource("StyleBoxEmpty_5l86r")
+VoiceoverBox/base_type = &"RichTextLabel"
+VoiceoverBox/font_sizes/bold_font_size = 32
+VoiceoverBox/font_sizes/bold_italics_font_size = 32
+VoiceoverBox/font_sizes/italics_font_size = 32
+VoiceoverBox/font_sizes/mono_font_size = 32
+VoiceoverBox/font_sizes/normal_font_size = 32
+VoiceoverBox/fonts/normal_font = ExtResource("1_uqqh3")
+VoiceoverBox/styles/normal = SubResource("StyleBoxFlat_s8l8b")

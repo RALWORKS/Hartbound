@@ -105,6 +105,9 @@ func next_hair():
 func next_outfit_color():
 	$char.next_outfit_color()
 
+func next_outfit_pattern():
+	$char.next_outfit_pattern()
+
 func next_accent_color():
 	$char.next_accent_color()
 
