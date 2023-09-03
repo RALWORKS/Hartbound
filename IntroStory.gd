@@ -8,14 +8,22 @@ var menu: SubViewport
 var game
 var menu_visible = false
 var menu_parent
+var menu_ix = 0
+
+@export var starting_music: AudioStreamPlayer
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	start_cutscene(intro_story)
-	
+
 	game = get_tree().get_root().get_node("Game")
+	
+	if starting_music != null:
+		game.play_music(starting_music)
+
 	menu = game.get_node("MainScreen/Menu")
 	menu_parent = menu.get_parent()
+	menu_ix = menu.get_index()
 	menu_parent.remove_child(menu)
 
 
@@ -39,4 +47,5 @@ func end_cutscene():
 
 	var g = $"/root/Game"
 	menu_parent.add_child(menu)
+	menu_parent.move_child(menu, menu_ix)
 	g.to_chapter("create")

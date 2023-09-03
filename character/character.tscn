@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://b03wpar88cr5r"]
+[gd_scene load_steps=37 format=3 uid="uid://b03wpar88cr5r"]
 
 [ext_resource type="Script" path="res://character/player-walk.gd" id="1_s1ce1"]
 [ext_resource type="PackedScene" uid="uid://8rir4hoqy3xr" path="res://character/abstract_modular_character.tscn" id="2_kvgd3"]
@@ -10,6 +10,7 @@
 [ext_resource type="Script" path="res://FollowerAgent.gd" id="7_l2hxk"]
 [ext_resource type="Texture2D" uid="uid://dwfpk60035qf3" path="res://assets/character/clothes/v1/ruana/front/full.png" id="8_1vf4x"]
 [ext_resource type="Texture2D" uid="uid://f3u4wjjde7ve" path="res://assets/character/hair/v1/long-back-bun/back/full.png" id="8_dhyik"]
+[ext_resource type="AudioStream" uid="uid://bfr0kt4krwjws" path="res://assets/sfx/footsteps1/both.ogg" id="12_0uv52"]
 [ext_resource type="Texture2D" uid="uid://cgfc1dfr6jvic" path="res://assets/emote-question.png" id="12_erhxf"]
 
 [sub_resource type="Animation" id="Animation_23u3m"]
@@ -268,6 +269,10 @@ libraries = {
 }
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+
+[node name="Footsteps" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_0uv52")
+volume_db = -4.0
 
 [connection signal="animation_changed" from="char_anims" to="." method="_on_char_anims_animation_changed"]
 [connection signal="area_entered" from="InteractBox" to="." method="_on_interact_box_area_entered"]

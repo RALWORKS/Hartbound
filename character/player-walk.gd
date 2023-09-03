@@ -5,6 +5,8 @@ extends CharacterBody2D
 @export var is_demo_instance = false
 @export var turning_timeout = 0.05
 @export var is_profile = false
+@export var footstep_interval = 0.7
+var footstep_waiting = false
 
 @onready var navigation_agent: NavigationAgent2D = $NavigationAgent2D
 
@@ -30,6 +32,7 @@ var follower_to_positions = []
 var next_follower_position = null
 var wait_to_call_follower = false
 var arrived_with_player = false
+var footsteps_on = false
 
 func verb(base):
 	if base in ["is", "are"]:
@@ -256,10 +259,29 @@ func walk():
 
 func stop_walking():
 	#$Sprite2D/AnimatedSprite2D.play(anims[facing]["off"])
+	stop_footsteps()
 	$char.play(anims[facing]["off"])
 	if not navigation_finished():
 		# set_destination(null)
 		emote_question()
+
+func _footstep():
+	footstep_waiting = false
+	if not footsteps_on:
+		return
+	$Footsteps.playing = false
+	$Footsteps.playing = true
+	footstep_waiting = true
+	await get_tree().create_timer(footstep_interval).timeout
+	_footstep()
+
+func stop_footsteps():
+	footsteps_on = false
+
+func start_footsteps():
+	footsteps_on = true
+	if not footstep_waiting:
+		_footstep()
 
 func set_anim():
 	if is_demo_instance:
@@ -268,6 +290,8 @@ func set_anim():
 	if (velocity.x**2 + velocity.y**2) < (speed*0.5)**2:
 		stop_walking()
 		return
+	if not footsteps_on:
+		start_footsteps()
 	if velocity.y < -13 and velocity.x < -10:
 		facing = "up_left"
 	elif velocity.y < -13 and velocity.x > 10:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3]
+[gd_scene load_steps=3 format=3 uid="uid://bh1yfkyt3u44i"]
 
 [ext_resource type="Script" path="res://chapter.gd" id="1_3wcey"]
 [ext_resource type="PackedScene" path="res://chapter_event.tscn" id="2_q5q82"]

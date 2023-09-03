@@ -12,6 +12,12 @@ var MainScreen = preload("res://ui/main_screen.tscn")
 
 var staged_action_node = null
 
+var current_music: AudioStreamPlayer = null
+var next_music: AudioStreamPlayer = null
+var old_music = []
+
+@export var music_crossfade_speed = 2
+
 var CHAPTERS = {
 	"intro": preload("res://intro-story/intro_story_chapter.tscn"),
 	"create": preload("res://character/character_creator.tscn"),
@@ -28,6 +34,35 @@ var STATE = {
 	"chapter": "intro",
 	"story": [],
 }
+
+func play_music(n: AudioStreamPlayer, fade_slow=false):
+	next_music = n.duplicate()
+	$DynamicMusic.add_child(next_music)
+	if current_music != null:
+		if current_music.get_node("Fader") != null:
+			current_music.get_node("Fader").play("fadeout", -1, music_crossfade_speed)
+		else:
+			current_music.playing = false
+	if next_music.get_node("Fader") != null:
+		if fade_slow:
+			next_music.get_node("Fader").play("fadein", -1, music_crossfade_speed)
+		else:
+			next_music.get_node("Fader").play("faston", -1, music_crossfade_speed)
+	else:
+		next_music.playing = true
+	old_music.push_back(current_music)
+	current_music = next_music
+
+func _not_null(item):
+	if item == null:
+		return false
+	return true
+
+func _purge_old_music():
+	old_music = old_music.filter(_not_null)
+	for music in old_music:
+		if not music.playing:
+			music.call_deferred("free")
 
 func unstage_action_node(n):
 	if staged_action_node == n:
@@ -141,7 +176,7 @@ func save():
 
 func start_new():
 	start_from_state(STATE)
-	$ThemeFader.play("fadeout")
+	$ThemeFader.play("fadeout", -1, music_crossfade_speed)
 
 func load_game(f):
 	var state = JSON.parse_string(f.get_as_text())
@@ -208,6 +243,7 @@ func _handle_walk_input(delta):
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	handle_input(delta)
+	_purge_old_music()
 
 func add_modal(some_modal):
 	if cur_modal == some_modal:

@@ -1,5 +1,6 @@
 extends Node
 @export var starting_scene: Resource
+@export var starting_music: AudioStreamPlayer
 
 var sequence_ix = 0
 
@@ -26,8 +27,6 @@ func reload_sequence_ix():
 	sequence_ix = game.get_state(["micro_progress", "event"])
 
 func _default_init():
-	game = $".".get_tree().get_root().get_node("Game")	
-	
 	scene0 = starting_scene.instantiate()
 	#scene0.spawn_at = "n"
 	#$"../MainScreen/World".add_child(scene0)
@@ -37,7 +36,10 @@ func _default_init():
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	game = $".".get_tree().get_root().get_node("Game")	
 	_default_init()
+	if starting_music != null:
+		game.play_music(starting_music)
 	if $Events.get_child_count() > 0 and sequence_ix == 0:
 		next()
 

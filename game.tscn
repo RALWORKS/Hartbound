@@ -160,5 +160,7 @@ position = Vector2(0, 50)
 [node name="Map" type="Node" parent="."]
 script = ExtResource("2_vy8bn")
 
+[node name="DynamicMusic" type="Node" parent="."]
+
 [connection signal="pressed" from="StartScreen/NewGameBtn" to="StartScreen/NewGameBtn" method="_on_pressed"]
 [connection signal="pressed" from="StartScreen/LoadGameBtn" to="StartScreen/LoadGameBtn" method="_on_pressed"]
