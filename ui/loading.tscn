@@ -1,0 +1,52 @@
+[gd_scene load_steps=6 format=3 uid="uid://c3rmyn3jfv53d"]
+
+[ext_resource type="Script" path="res://ui/loading.gd" id="1_1aimo"]
+[ext_resource type="Texture2D" uid="uid://chm3yg8qey3gr" path="res://assets/loading-spinner.png" id="1_bnjk4"]
+
+[sub_resource type="Animation" id="Animation_gy3il"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_4ur58"]
+resource_name = "spin"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 6.28319, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 2)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_646xy"]
+_data = {
+"RESET": SubResource("Animation_gy3il"),
+"spin": SubResource("Animation_4ur58")
+}
+
+[node name="Loading" type="Node2D"]
+script = ExtResource("1_1aimo")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(-1, -1)
+texture = ExtResource("1_bnjk4")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_646xy")
+}

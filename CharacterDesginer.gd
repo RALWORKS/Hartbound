@@ -83,14 +83,16 @@ func _on_skin_colour_btn_pressed():
 	$WrapAndScale/Character.next_skin_color()
 	refresh_indicators()
 
-
-func _on_randomize_btn_pressed():
+func randomize_character():
 	$WrapAndScale/Character.randomize_features()
 	if profile_designer != null:
 		profile_designer.shuffle()
 	
 	refresh_indicators()
 
+
+func _on_randomize_btn_pressed():
+	randomize_character()
 
 func _on_accent_colour_btn_pressed():
 	$WrapAndScale/Character.next_accent_color()

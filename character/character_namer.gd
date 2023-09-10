@@ -13,6 +13,7 @@ var selected_name = null
 
 var export_data = {
 	"short": null,
+	"elf_short": null,
 	"short_def": null,
 	"full": null,
 	"full_def": null,
@@ -25,6 +26,7 @@ func select_name(nickname, btn):
 	}
 	export_data = {
 		"short": nickname[0],
+		"elf_short": nickname[0],
 		"short_def": nickname[1],
 		"full": char_name[0],
 		"full_def": char_name[1],

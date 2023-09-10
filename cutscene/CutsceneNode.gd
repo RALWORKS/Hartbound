@@ -5,6 +5,7 @@ class_name CutsceneNode
 @export var previous: CutsceneNode
 @export var on_start: Callable
 @export var is_option_node: bool
+@export var use_on_start_fn_from: Node
 
 var just_clicked = false
 
@@ -34,9 +35,11 @@ func _pause_next():
 
 func start():
 	self.visible = true
+	_pause_next()
 	if on_start:
 		on_start.call()
-	_pause_next()
+	elif use_on_start_fn_from:
+		use_on_start_fn_from.on_start.call()
 
 func flip():
 	if is_option_node:

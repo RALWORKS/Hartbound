@@ -1,20 +1,18 @@
-extends Node2D
+extends CheckBox
+@export var value: String = ""
 
-@export var starting_page: CutsceneNode
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	for page in self.get_children():
-		page.visible = false
-		
-#	start()
-
+	pass
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	pass
 
-func start():
-	if starting_page:
-		starting_page.start()
+
+
+func _on_pressed():
+	if get_parent().has_method("child_clicked"):
+		get_parent().child_clicked(self)

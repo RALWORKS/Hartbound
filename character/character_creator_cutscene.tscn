@@ -1,16 +1,21 @@
-[gd_scene load_steps=14 format=3 uid="uid://kex3fql26uxy"]
+[gd_scene load_steps=19 format=3 uid="uid://kex3fql26uxy"]
 
-[ext_resource type="PackedScene" path="res://cutscene/cutscene.tscn" id="1_ipyp7"]
-[ext_resource type="PackedScene" path="res://cutscene/cutscene_node.tscn" id="2_wt2i3"]
+[ext_resource type="PackedScene" uid="uid://bp8tsdjdbwj8i" path="res://cutscene/cutscene.tscn" id="1_ipyp7"]
+[ext_resource type="PackedScene" uid="uid://55vflx8ylix1" path="res://cutscene/cutscene_node.tscn" id="2_wt2i3"]
 [ext_resource type="Script" path="res://character/GenderSelector.gd" id="3_uhgcb"]
 [ext_resource type="PackedScene" path="res://ui/radio-parent.tscn" id="4_hox6o"]
 [ext_resource type="PackedScene" path="res://cutscene/cutscene_option.tscn" id="4_tiul5"]
 [ext_resource type="PackedScene" uid="uid://dixypholkmdeq" path="res://character/character_desginer.tscn" id="5_ooc6y"]
-[ext_resource type="PackedScene" path="res://ui/radio-child.tscn" id="5_wxebt"]
-[ext_resource type="PackedScene" path="res://character/character_namer.tscn" id="6_g0hlq"]
+[ext_resource type="PackedScene" uid="uid://buej1basav7ji" path="res://ui/radio-child.tscn" id="5_wxebt"]
+[ext_resource type="PackedScene" uid="uid://cio4dmo6oq7ki" path="res://character/character_namer.tscn" id="6_g0hlq"]
 [ext_resource type="Script" path="res://character/SelectName.gd" id="7_jh1jd"]
 [ext_resource type="PackedScene" uid="uid://buc6wae5lxvk8" path="res://character/profile_designer.tscn" id="10_28cb0"]
 [ext_resource type="Script" path="res://character/save-character.gd" id="10_cdibu"]
+[ext_resource type="PackedScene" uid="uid://helgsc16nedd" path="res://character/nicknamer.tscn" id="11_581lr"]
+[ext_resource type="FontFile" uid="uid://ebgllykqxqm7" path="res://assets/Georgia.TTF" id="11_hiyv0"]
+[ext_resource type="PackedScene" uid="uid://c3rmyn3jfv53d" path="res://ui/loading.tscn" id="12_mkwkc"]
+[ext_resource type="Script" path="res://character/NicknameLister.gd" id="13_sehjf"]
+[ext_resource type="Script" path="res://character/NamePreferenceChooser.gd" id="15_g6sas"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_krm4x"]
 content_margin_left = 20.0
@@ -62,15 +67,7 @@ theme_override_font_sizes/normal_font_size = 15
 text = "Gender
 "
 
-[node name="SetGender" parent="1" index="2" node_paths=PackedStringArray("to") instance=ExtResource("4_tiul5")]
-offset_left = 75.0
-offset_top = 259.0
-offset_right = 154.0
-offset_bottom = 290.0
-text = "> Continue"
-to = NodePath("../../2")
-
-[node name="GenderSelect" parent="1" index="3" instance=ExtResource("4_hox6o")]
+[node name="GenderSelect" parent="1" index="2" instance=ExtResource("4_hox6o")]
 
 [node name="Man" parent="1/GenderSelect" index="0" instance=ExtResource("5_wxebt")]
 offset_left = 75.0
@@ -94,10 +91,24 @@ offset_right = 195.0
 offset_bottom = 251.0
 text = "Nonbinary"
 
-[node name="Script" type="Node2D" parent="1" index="4"]
+[node name="Script" type="Node2D" parent="1" index="3"]
 script = ExtResource("3_uhgcb")
 
+[node name="SetGender" parent="1" index="4" node_paths=PackedStringArray("to") instance=ExtResource("4_tiul5")]
+offset_left = 71.0
+offset_top = 277.0
+offset_right = 328.0
+offset_bottom = 354.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_krm4x")
+theme_override_styles/hover = SubResource("StyleBoxFlat_c2ah0")
+disabled = true
+text = "Customize Character"
+to = NodePath("../../2")
+
 [node name="2" parent="." index="1" instance=ExtResource("2_wt2i3")]
+visible = false
 is_option_node = true
 
 [node name="CharacterDesginer" parent="2" index="0" node_paths=PackedStringArray("send_data_to", "profile_designer") instance=ExtResource("5_ooc6y")]
@@ -115,7 +126,7 @@ offset_top = 44.0
 offset_right = 438.0
 offset_bottom = 75.0
 text = "> Continue"
-to = NodePath("../../3")
+to = NodePath("../../2_5")
 
 [node name="DesignCharacterTitle" type="RichTextLabel" parent="2" index="3"]
 offset_left = 53.0
@@ -125,8 +136,44 @@ offset_bottom = 90.0
 theme_override_font_sizes/normal_font_size = 30
 text = "Design Character"
 
-[node name="3" parent="." index="2" instance=ExtResource("2_wt2i3")]
+[node name="2_5" parent="." index="2" instance=ExtResource("2_wt2i3")]
 visible = false
+is_option_node = true
+
+[node name="Title" type="RichTextLabel" parent="2_5" index="0"]
+offset_left = 60.0
+offset_top = 36.0
+offset_right = 360.0
+offset_bottom = 90.0
+theme_override_font_sizes/normal_font_size = 30
+text = "Name Character"
+
+[node name="Proceed" parent="2_5" index="1" node_paths=PackedStringArray("to") instance=ExtResource("4_tiul5")]
+offset_left = 60.0
+offset_top = 410.0
+offset_right = 410.0
+offset_bottom = 487.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_krm4x")
+theme_override_styles/hover = SubResource("StyleBoxFlat_c2ah0")
+text = "Roll Full Name"
+to = NodePath("../../3")
+
+[node name="Text" type="RichTextLabel" parent="2_5" index="2"]
+offset_left = 60.0
+offset_top = 116.0
+offset_right = 988.0
+offset_bottom = 378.0
+theme_type_variation = &"VoiceoverBox"
+theme_override_font_sizes/normal_font_size = 30
+text = "Elven names are generally a sentence or sentence fragment, often a reference to mythology or spritituality.
+
+Most elves use a  short form of their name for day to day interactions, with the full form generally only being used in formal situations."
+
+[node name="3" parent="." index="3" node_paths=PackedStringArray("next") instance=ExtResource("2_wt2i3")]
+visible = false
+next = NodePath("../3_5")
 is_option_node = true
 
 [node name="CharacterNamer" parent="3" index="0" node_paths=PackedStringArray("send_data_to", "change_handler") instance=ExtResource("6_g0hlq")]
@@ -144,13 +191,155 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_krm4x")
 theme_override_styles/hover = SubResource("StyleBoxFlat_c2ah0")
 disabled = true
 text = "[Choose a name to proceed]"
-to = NodePath("../../4")
+to = NodePath("../../3_5")
 
 [node name="Script" type="Node2D" parent="3" index="2"]
 script = ExtResource("7_jh1jd")
 
-[node name="4" parent="." index="3" instance=ExtResource("2_wt2i3")]
+[node name="3_5" parent="." index="4" node_paths=PackedStringArray("next", "use_on_start_fn_from") instance=ExtResource("2_wt2i3")]
 visible = false
+next = NodePath("../4")
+is_option_node = true
+use_on_start_fn_from = NodePath("ColorRect/NicknameLister")
+
+[node name="Title" type="RichTextLabel" parent="3_5" index="0"]
+offset_left = 50.0
+offset_top = 18.0
+offset_right = 874.0
+offset_bottom = 79.0
+theme_override_font_sizes/normal_font_size = 40
+text = "{n}"
+
+[node name="SubTitle1" type="RichTextLabel" parent="3_5" index="1"]
+offset_left = 50.0
+offset_top = 75.0
+offset_right = 874.0
+offset_bottom = 126.0
+theme_override_font_sizes/normal_font_size = 25
+text = "was an unfamiliar name to the humans."
+
+[node name="SubTitle2" type="RichTextLabel" parent="3_5" index="2"]
+offset_left = 50.0
+offset_top = 116.0
+offset_right = 1096.0
+offset_bottom = 167.0
+theme_override_fonts/bold_font = ExtResource("11_hiyv0")
+theme_override_font_sizes/normal_font_size = 20
+theme_override_font_sizes/bold_font_size = 40
+bbcode_enabled = true
+text = "During your first few years among them, you were called by a number of [b]nicknames[/b]:"
+
+[node name="Nicknamer" parent="3_5" index="3" instance=ExtResource("11_581lr")]
+visible = false
+
+[node name="NicknameSelect" parent="3_5" index="4" instance=ExtResource("4_hox6o")]
+
+[node name="Text" type="RichTextLabel" parent="3_5" index="5"]
+offset_left = 36.0
+offset_top = 631.0
+offset_right = 964.0
+offset_bottom = 713.0
+theme_type_variation = &"VoiceoverBox"
+theme_override_font_sizes/normal_font_size = 30
+text = "Choose the one you found most acceptable."
+
+[node name="ColorRect" type="ColorRect" parent="3_5" index="6"]
+offset_left = 48.0
+offset_top = 185.0
+offset_right = 1089.0
+offset_bottom = 624.0
+color = Color(0.0509804, 0.0509804, 0.0509804, 1)
+
+[node name="NicknameLister" type="Node" parent="3_5/ColorRect" index="0"]
+script = ExtResource("13_sehjf")
+
+[node name="RadioParent" parent="3_5/ColorRect" index="1" instance=ExtResource("4_hox6o")]
+
+[node name="Loading" parent="3_5/ColorRect" index="2" instance=ExtResource("12_mkwkc")]
+position = Vector2(498, 206)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="3_5/ColorRect/Loading" index="2"]
+offset_left = -125.0
+offset_top = 78.0
+offset_right = 141.0
+offset_bottom = 158.0
+text = "Generating nicknames for {n}  ..."
+
+[node name="Proceed" parent="3_5" index="7" node_paths=PackedStringArray("to") instance=ExtResource("4_tiul5")]
+offset_left = 37.0
+offset_top = 736.0
+offset_right = 294.0
+offset_bottom = 813.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_krm4x")
+theme_override_styles/hover = SubResource("StyleBoxFlat_c2ah0")
+disabled = true
+text = "[Choose a name to proceed]"
+to = NodePath("../../3_6")
+
+[node name="3_6" parent="." index="5" node_paths=PackedStringArray("use_on_start_fn_from") instance=ExtResource("2_wt2i3")]
+visible = false
+is_option_node = true
+use_on_start_fn_from = NodePath("NamePreferenceChooser")
+
+[node name="NewCharacterTitle" type="RichTextLabel" parent="3_6" index="0"]
+offset_left = 66.0
+offset_top = 52.0
+offset_right = 317.0
+offset_bottom = 106.0
+theme_override_font_sizes/normal_font_size = 30
+text = "{human_short}"
+
+[node name="PreferenceTitle" type="RichTextLabel" parent="3_6" index="1"]
+offset_left = 73.0
+offset_top = 118.0
+offset_right = 787.0
+offset_bottom = 147.0
+theme_override_font_sizes/normal_font_size = 15
+text = "How do you feel about being called this?
+"
+
+[node name="PreferenceSelect" parent="3_6" index="2" instance=ExtResource("4_hox6o")]
+
+[node name="No" parent="3_6/PreferenceSelect" index="0" instance=ExtResource("5_wxebt")]
+offset_left = 80.0
+offset_top = 169.0
+offset_right = 450.0
+offset_bottom = 219.0
+text = "I insist on {elf_short}"
+
+[node name="Kinda" parent="3_6/PreferenceSelect" index="1" instance=ExtResource("5_wxebt")]
+offset_left = 80.0
+offset_top = 229.0
+offset_right = 450.0
+offset_bottom = 279.0
+text = "I allow humans to call me {human_short}"
+
+[node name="Yes" parent="3_6/PreferenceSelect" index="2" instance=ExtResource("5_wxebt")]
+offset_left = 80.0
+offset_top = 289.0
+offset_right = 450.0
+offset_bottom = 339.0
+text = "I go by {human_short} generally"
+
+[node name="NamePreferenceChooser" type="Node2D" parent="3_6" index="3"]
+script = ExtResource("15_g6sas")
+
+[node name="Proceed" parent="3_6" index="4" node_paths=PackedStringArray("to") instance=ExtResource("4_tiul5")]
+offset_left = 80.0
+offset_top = 350.0
+offset_right = 354.0
+offset_bottom = 427.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_krm4x")
+theme_override_styles/hover = SubResource("StyleBoxFlat_c2ah0")
+disabled = true
+text = "[Choose an option to proceed]"
+to = NodePath("../../4")
+
+[node name="4" parent="." index="6" instance=ExtResource("2_wt2i3")]
 
 [node name="CompleteTitle" type="RichTextLabel" parent="4" index="0"]
 offset_left = 30.0
@@ -168,9 +357,13 @@ offset_bottom = 348.0
 theme_override_font_sizes/normal_font_size = 15
 text = "Click anywhere to begin"
 
-[node name="Saver" type="Node2D" parent="." index="4"]
+[node name="Saver" type="Node2D" parent="." index="7"]
 script = ExtResource("10_cdibu")
 
 [connection signal="pressed" from="1/GenderSelect/Man" to="1/Script" method="_on_man_pressed"]
 [connection signal="pressed" from="1/GenderSelect/Woman" to="1/Script" method="_on_woman_pressed"]
 [connection signal="pressed" from="1/GenderSelect/NB" to="1/Script" method="_on_nb_pressed"]
+[connection signal="names_loaded" from="3_5/Nicknamer" to="3_5/ColorRect/NicknameLister" method="_on_nicknamer_names_loaded"]
+[connection signal="pressed" from="3_6/PreferenceSelect/No" to="3_6/NamePreferenceChooser" method="_on_no_pressed"]
+[connection signal="pressed" from="3_6/PreferenceSelect/Kinda" to="3_6/NamePreferenceChooser" method="_on_kinda_pressed"]
+[connection signal="pressed" from="3_6/PreferenceSelect/Yes" to="3_6/NamePreferenceChooser" method="_on_yes_pressed"]

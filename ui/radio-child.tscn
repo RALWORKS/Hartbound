@@ -1,4 +1,6 @@
-[gd_scene load_steps=5 format=3]
+[gd_scene load_steps=6 format=3 uid="uid://buej1basav7ji"]
+
+[ext_resource type="Script" path="res://ui/radio-child.gd" id="1_borog"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fu53l"]
 content_margin_left = 10.0
@@ -35,3 +37,6 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_xjw7e")
 theme_override_styles/hover = SubResource("StyleBoxFlat_d247s")
 theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_7jnyc")
 text = "[opt]"
+script = ExtResource("1_borog")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

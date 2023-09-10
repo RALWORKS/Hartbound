@@ -18,7 +18,8 @@ func _on_nb_pressed():
 	gender = "NB"
 	$"../SetGender".disabled = false
 	$"../../Saver".on_gender_edited(gender)
-	$"../../2/ProfileDesigner".refresh_texture()
+	$"../../2/CharacterDesginer".randomize_character()
+	#$"../../2/ProfileDesigner".refresh_texture()
 
 func _on_woman_pressed():
 	$"../GenderSelect".reset()
@@ -27,7 +28,8 @@ func _on_woman_pressed():
 	gender = "F"
 	$"../SetGender".disabled = false
 	$"../../Saver".on_gender_edited(gender)
-	$"../../2/ProfileDesigner".refresh_texture()
+	$"../../2/CharacterDesginer".randomize_character()
+	#$"../../2/ProfileDesigner".refresh_texture()
 
 
 func _on_man_pressed():
@@ -37,4 +39,5 @@ func _on_man_pressed():
 	gender = "M"
 	$"../SetGender".disabled = false
 	$"../../Saver".on_gender_edited(gender)
-	$"../../2/ProfileDesigner".refresh_texture()
+	$"../../2/CharacterDesginer".randomize_character()
+	#$"../../2/ProfileDesigner".refresh_texture()
