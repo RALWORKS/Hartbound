@@ -7,7 +7,9 @@ func _ready():
 	game = $"/root".get_node_or_null("Game")
 	refresh_data($CharacterRecord)
 
-func refresh_data(character_record):
+func refresh_data(character_record=null):
+	if not character_record:
+		character_record = $CharacterRecord
 	if not game:
 		return
 	var name_ = game.get_state(["character", "name"])
@@ -16,7 +18,12 @@ func refresh_data(character_record):
 	$ProfileBtn/Label.text = name_["short"]
 	var full_name = character_record.get_node("FullName")
 	full_name.clear()
-	full_name.add_text(name_["full"])
+	var short_name = name_["elf_short"]
+	if name_["short"] == name_["human_short"]:
+		short_name = name_["human_short"]
+	elif name_["use_human_short"]:
+		short_name += "/" + name_["human_short"]
+	full_name.add_text(name_["full"] + "  (%s)" % short_name)
 	var full_name_def = character_record.get_node("FullNameDefinition")
 	full_name_def.clear()
 	full_name_def.append_text("[i]" + name_["full_def"] + "[/i]")
@@ -25,7 +32,12 @@ func refresh_data(character_record):
 	full_story.clear()
 	var story = game.get_state(["story"])
 	for item in story:
-		full_story.append_text("-  " + item["narrative"] + "\n")
+		full_story.append_text(
+			#"-  "
+			item["narrative"]
+			+ ("."	if item["narrative"][-1] not in [".", "!", "?"] else "")
+			+ "\n"
+		)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):

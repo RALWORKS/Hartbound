@@ -16,6 +16,8 @@ func _process(_delta):
 func _on_pressed():
 	if disabled:
 		return
+	$"..".leave()	
 	if to:
-		$"..".leave()
 		to.start()
+	else:
+		$"/root/Game/Chapter".end_cutscene()

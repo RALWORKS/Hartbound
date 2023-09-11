@@ -1,12 +1,13 @@
-[gd_scene load_steps=7 format=3 uid="uid://d2tvvel0wxl51"]
+[gd_scene load_steps=8 format=3 uid="uid://d2tvvel0wxl51"]
 
 [ext_resource type="Script" path="res://ui/game_menu.gd" id="1_qi0kv"]
 [ext_resource type="Texture2D" uid="uid://b4qmfyh2beo7n" path="res://assets/menubg.png" id="1_qo3pl"]
 [ext_resource type="Script" path="res://ui/GlobalSaveBtn.gd" id="2_srpx4"]
 [ext_resource type="PackedScene" uid="uid://cemborgcdx75k" path="res://character/profile.tscn" id="3_gksuv"]
 [ext_resource type="PackedScene" uid="uid://i6laa1tesr13" path="res://ui/modal.tscn" id="5_jpiq8"]
+[ext_resource type="Theme" uid="uid://bowrqsap2qmsa" path="res://base_theme.tres" id="6_pr2h2"]
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_7tsct"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_a3v4o"]
 viewport_path = NodePath("img")
 
 [node name="GameMenu" type="Node2D"]
@@ -39,7 +40,7 @@ metadata/_edit_use_anchors_ = true
 [node name="Profile" parent="ProfileBtn" instance=ExtResource("3_gksuv")]
 position = Vector2(15, 12)
 scale = Vector2(0.38, 0.38)
-texture = SubResource("ViewportTexture_7tsct")
+texture = SubResource("ViewportTexture_a3v4o")
 
 [node name="Label" type="Label" parent="ProfileBtn"]
 layout_mode = 1
@@ -65,6 +66,7 @@ anchor_bottom = 1.0
 offset_left = 0.0
 offset_right = -200.0
 offset_bottom = 0.0
+theme_type_variation = &"ModalBlack"
 title = "Character Record"
 
 [node name="FullName" type="RichTextLabel" parent="CharacterRecord"]
@@ -75,9 +77,10 @@ anchor_right = 0.997
 anchor_bottom = 0.165
 offset_left = 32.0
 offset_top = 23.32
-offset_right = -682.84
+offset_right = -40.2
 offset_bottom = -35.2
 mouse_filter = 2
+theme = ExtResource("6_pr2h2")
 theme_override_font_sizes/normal_font_size = 50
 text = "Full Character Name"
 
@@ -104,10 +107,12 @@ anchor_right = 0.997
 anchor_bottom = 1.007
 offset_left = 32.0
 offset_top = -153.16
-offset_right = -682.84
-offset_bottom = -87.5601
+offset_right = -40.2
+offset_bottom = -87.5599
 mouse_filter = 2
-theme_override_font_sizes/normal_font_size = 25
+theme = ExtResource("6_pr2h2")
+theme_type_variation = &"VoiceoverBox"
+theme_override_font_sizes/normal_font_size = 30
 bbcode_enabled = true
 text = "- Story of the character's life"
 

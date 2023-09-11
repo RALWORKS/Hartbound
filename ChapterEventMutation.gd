@@ -4,7 +4,6 @@ extends Node
 @export var data: String
 @export var parse_data_as_int: bool
 @export var current_plus_data: bool
-@export var append_story: Node
 
 func _parse_path(p: String):
 	return p.split("/")
@@ -12,9 +11,6 @@ func _parse_path(p: String):
 func mutate():
 	var game = $".".get_tree().get_root().get_node("Game")
 	var path = _parse_path(state_path_slash_delineated)
-	if append_story != null:
-		append_story.push(game)
-		return
 	var d = data
 	if parse_data_as_int:
 		d = int(data)

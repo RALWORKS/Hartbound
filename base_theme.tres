@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=21 format=3 uid="uid://bowrqsap2qmsa"]
+[gd_resource type="Theme" load_steps=22 format=3 uid="uid://bowrqsap2qmsa"]
 
 [ext_resource type="FontFile" uid="uid://ebgllykqxqm7" path="res://assets/Georgia.TTF" id="1_uqqh3"]
 
@@ -39,6 +39,9 @@ corner_radius_top_left = 20
 corner_radius_top_right = 20
 corner_radius_bottom_right = 20
 corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cbbaw"]
+bg_color = Color(0.0941176, 0.0941176, 0.0941176, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ws02e"]
 bg_color = Color(0.137255, 0.137255, 0.137255, 1)
@@ -123,6 +126,8 @@ MenuItem/styles/hover = SubResource("StyleBoxEmpty_fvuq6")
 MenuItem/styles/normal = SubResource("StyleBoxEmpty_2j4b2")
 Modal/base_type = &"Panel"
 Modal/styles/panel = SubResource("StyleBoxFlat_q3sr5")
+ModalBlack/base_type = &"Panel"
+ModalBlack/styles/panel = SubResource("StyleBoxFlat_cbbaw")
 ModalBody/base_type = &"Panel"
 ModalBody/styles/panel = SubResource("StyleBoxFlat_ws02e")
 ModalExit/base_type = &"Button"

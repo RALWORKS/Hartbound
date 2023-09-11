@@ -34,6 +34,10 @@ func on_profile_edited(data):
 	side_profile.refresh()
 	$"../2/CharacterDesginer".refresh_texture()
 
+func set_job(data):
+	if not game:
+		return
+	game.set_state(["profile", "job"], data)
 
 func on_name_edited(data):
 	if not game:

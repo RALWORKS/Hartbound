@@ -1,6 +1,7 @@
 extends Node
 @export var starting_scene: Resource
 @export var starting_music: AudioStreamPlayer
+@export var script_holder: Node
 
 var sequence_ix = 0
 
@@ -36,7 +37,9 @@ func _default_init():
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	game = $".".get_tree().get_root().get_node("Game")	
+	game = $".".get_tree().get_root().get_node("Game")
+	if script_holder != null and script_holder.has_method("pre_init"):
+		script_holder.pre_init()
 	_default_init()
 	if starting_music != null:
 		game.play_music(starting_music)

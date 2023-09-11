@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://kex3fql26uxy"]
+[gd_scene load_steps=20 format=3 uid="uid://kex3fql26uxy"]
 
 [ext_resource type="PackedScene" uid="uid://bp8tsdjdbwj8i" path="res://cutscene/cutscene.tscn" id="1_ipyp7"]
 [ext_resource type="PackedScene" uid="uid://55vflx8ylix1" path="res://cutscene/cutscene_node.tscn" id="2_wt2i3"]
@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://c3rmyn3jfv53d" path="res://ui/loading.tscn" id="12_mkwkc"]
 [ext_resource type="Script" path="res://character/NicknameLister.gd" id="13_sehjf"]
 [ext_resource type="Script" path="res://character/NamePreferenceChooser.gd" id="15_g6sas"]
+[ext_resource type="Script" path="res://character/JobChooser.gd" id="16_yduv8"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_krm4x"]
 content_margin_left = 20.0
@@ -44,6 +45,7 @@ corner_radius_bottom_right = 6
 corner_radius_bottom_left = 6
 
 [node name="CharacterCreatorCutscene" node_paths=PackedStringArray("starting_page") instance=ExtResource("1_ipyp7")]
+position = Vector2(0, 145)
 starting_page = NodePath("1")
 
 [node name="1" parent="." index="0" instance=ExtResource("2_wt2i3")]
@@ -148,11 +150,19 @@ offset_bottom = 90.0
 theme_override_font_sizes/normal_font_size = 30
 text = "Name Character"
 
-[node name="Proceed" parent="2_5" index="1" node_paths=PackedStringArray("to") instance=ExtResource("4_tiul5")]
+[node name="ElvenNamesTitle" type="RichTextLabel" parent="2_5" index="1"]
 offset_left = 60.0
-offset_top = 410.0
+offset_top = 229.0
+offset_right = 881.0
+offset_bottom = 283.0
+theme_override_font_sizes/normal_font_size = 30
+text = "The name you were given at birth was an Elven one."
+
+[node name="Proceed" parent="2_5" index="2" node_paths=PackedStringArray("to") instance=ExtResource("4_tiul5")]
+offset_left = 60.0
+offset_top = 562.0
 offset_right = 410.0
-offset_bottom = 487.0
+offset_bottom = 639.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
 theme_override_styles/normal = SubResource("StyleBoxFlat_krm4x")
@@ -160,16 +170,25 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_c2ah0")
 text = "Roll Full Name"
 to = NodePath("../../3")
 
-[node name="Text" type="RichTextLabel" parent="2_5" index="2"]
+[node name="ElvenNameText" type="RichTextLabel" parent="2_5" index="3"]
 offset_left = 60.0
-offset_top = 116.0
+offset_top = 282.0
 offset_right = 988.0
-offset_bottom = 378.0
+offset_bottom = 544.0
 theme_type_variation = &"VoiceoverBox"
 theme_override_font_sizes/normal_font_size = 30
 text = "Elven names are generally a sentence or sentence fragment, often a reference to mythology or spritituality.
 
-Most elves use a  short form of their name for day to day interactions, with the full form generally only being used in formal situations."
+Most elves use a  short form of their name for day to day interactions, with the full form only being used in formal situations."
+
+[node name="ElvenNameText2" type="RichTextLabel" parent="2_5" index="4"]
+offset_left = 60.0
+offset_top = 84.0
+offset_right = 988.0
+offset_bottom = 217.0
+theme_type_variation = &"VoiceoverBox"
+theme_override_font_sizes/normal_font_size = 30
+text = "The Elves teach that names are powerful--that the name of each thing is a prayer. You may go by another name now, after years among the humans, but"
 
 [node name="3" parent="." index="3" node_paths=PackedStringArray("next") instance=ExtResource("2_wt2i3")]
 visible = false
@@ -198,7 +217,7 @@ script = ExtResource("7_jh1jd")
 
 [node name="3_5" parent="." index="4" node_paths=PackedStringArray("next", "use_on_start_fn_from") instance=ExtResource("2_wt2i3")]
 visible = false
-next = NodePath("../4")
+next = NodePath("../END")
 is_option_node = true
 use_on_start_fn_from = NodePath("ColorRect/NicknameLister")
 
@@ -339,25 +358,134 @@ disabled = true
 text = "[Choose an option to proceed]"
 to = NodePath("../../4")
 
-[node name="4" parent="." index="6" instance=ExtResource("2_wt2i3")]
+[node name="4" parent="." index="6" node_paths=PackedStringArray("use_on_start_fn_from") instance=ExtResource("2_wt2i3")]
+visible = false
+is_option_node = true
+use_on_start_fn_from = NodePath("../3_6/NamePreferenceChooser")
 
-[node name="CompleteTitle" type="RichTextLabel" parent="4" index="0"]
-offset_left = 30.0
-offset_top = 238.0
-offset_right = 336.0
-offset_bottom = 292.0
+[node name="NewCharacterTitle" type="RichTextLabel" parent="4" index="0"]
+offset_left = 66.0
+offset_top = 31.0
+offset_right = 866.0
+offset_bottom = 85.0
 theme_override_font_sizes/normal_font_size = 30
-text = "Creation Complete."
+text = "What specialty did you take up?"
+metadata/_edit_use_anchors_ = true
 
-[node name="ClickToBegin" type="RichTextLabel" parent="4" index="1"]
-offset_left = 33.0
-offset_top = 294.0
-offset_right = 339.0
-offset_bottom = 348.0
+[node name="PreferenceTitle" type="RichTextLabel" parent="4" index="1"]
+offset_left = 80.0
+offset_top = 92.0
+offset_right = 480.0
+offset_bottom = 182.0
 theme_override_font_sizes/normal_font_size = 15
-text = "Click anywhere to begin"
+text = "This will affect the mechanics open to you during play, as well as some roleplay options.
+"
+metadata/_edit_use_anchors_ = true
 
-[node name="Saver" type="Node2D" parent="." index="7"]
+[node name="PreferenceSelect" parent="4" index="2" instance=ExtResource("4_hox6o")]
+
+[node name="Engineer" parent="4/PreferenceSelect" index="0" instance=ExtResource("5_wxebt")]
+offset_left = 80.0
+offset_top = 162.0
+offset_right = 450.0
+offset_bottom = 262.0
+text = "Engineering
+
+
+"
+metadata/_edit_use_anchors_ = true
+
+[node name="RichTextLabel" type="RichTextLabel" parent="4/PreferenceSelect/Engineer" index="0"]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 44.0
+offset_right = 350.0
+offset_bottom = 90.0
+mouse_filter = 2
+theme_override_colors/default_color = Color(0.486275, 0.486275, 0.486275, 1)
+text = "Engineers work directly on the maintenance of the Generators"
+metadata/_edit_use_anchors_ = true
+
+[node name="Medic" parent="4/PreferenceSelect" index="1" instance=ExtResource("5_wxebt")]
+offset_left = 80.0
+offset_top = 284.0
+offset_right = 450.0
+offset_bottom = 384.0
+text = "Field Medicine
+
+
+"
+metadata/_edit_use_anchors_ = true
+
+[node name="RichTextLabel" type="RichTextLabel" parent="4/PreferenceSelect/Medic" index="0"]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 44.0
+offset_right = 350.0
+offset_bottom = 90.0
+mouse_filter = 2
+theme_override_colors/default_color = Color(0.486275, 0.486275, 0.486275, 1)
+text = "Generator maintainers work a risky job, so medics are always kept on staff"
+metadata/_edit_use_anchors_ = true
+
+[node name="JobChooser" type="Node2D" parent="4" index="3"]
+script = ExtResource("16_yduv8")
+
+[node name="Proceed" parent="4" index="4" node_paths=PackedStringArray("to") instance=ExtResource("4_tiul5")]
+offset_left = 80.0
+offset_top = 409.0
+offset_right = 354.0
+offset_bottom = 486.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_krm4x")
+theme_override_styles/hover = SubResource("StyleBoxFlat_c2ah0")
+disabled = true
+text = "[Choose an option to proceed]"
+to = NodePath("../../END")
+metadata/_edit_use_anchors_ = true
+
+[node name="StoryText" type="RichTextLabel" parent="4" index="5"]
+offset_left = 60.0
+offset_top = -89.0
+offset_right = 988.0
+offset_bottom = 22.0
+theme_type_variation = &"VoiceoverBox"
+theme_override_font_sizes/normal_font_size = 30
+text = "At age sixteen, when you had been among the humans for a year and a half, you began an apprenticeship with the Generator crews."
+
+[node name="END" parent="." index="7" instance=ExtResource("2_wt2i3")]
+visible = false
+is_option_node = true
+
+[node name="StoryText" type="RichTextLabel" parent="END" index="0"]
+offset_left = 60.0
+offset_top = -89.0
+offset_right = 988.0
+offset_bottom = 662.0
+theme_type_variation = &"VoiceoverBox"
+theme_override_font_sizes/normal_font_size = 30
+bbcode_enabled = true
+text = "You graduated your apprenticeship at nineteen, and have been working for four years since.
+
+Your work takes you out into the forests and ruins as often as up to the Generators themselves. There was a time when the parts needed for their maintenance could be manufactured, but that time is long gone. Now, they must be salvaged from the cities and factories of old.
+
+Hiking through ruins; prying open hatches to sift through rusted components in hopes of finding something useful; long journeys with only a few colleagues to talk to -- these things are routine to you.
+
+But as anyone who's so much as [i]talked[/i] to as Salvager knows, routine can turn to calamity at any moment."
+
+[node name="Proceed2" parent="END" index="1" instance=ExtResource("4_tiul5")]
+offset_left = 60.0
+offset_top = 544.0
+offset_right = 334.0
+offset_bottom = 621.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_krm4x")
+theme_override_styles/hover = SubResource("StyleBoxFlat_c2ah0")
+text = "Play"
+
+[node name="Saver" type="Node2D" parent="." index="8"]
 script = ExtResource("10_cdibu")
 
 [connection signal="pressed" from="1/GenderSelect/Man" to="1/Script" method="_on_man_pressed"]
@@ -367,3 +495,5 @@ script = ExtResource("10_cdibu")
 [connection signal="pressed" from="3_6/PreferenceSelect/No" to="3_6/NamePreferenceChooser" method="_on_no_pressed"]
 [connection signal="pressed" from="3_6/PreferenceSelect/Kinda" to="3_6/NamePreferenceChooser" method="_on_kinda_pressed"]
 [connection signal="pressed" from="3_6/PreferenceSelect/Yes" to="3_6/NamePreferenceChooser" method="_on_yes_pressed"]
+[connection signal="pressed" from="4/PreferenceSelect/Engineer" to="4/JobChooser" method="_on_engineer_pressed"]
+[connection signal="pressed" from="4/PreferenceSelect/Medic" to="4/JobChooser" method="_on_medic_pressed"]

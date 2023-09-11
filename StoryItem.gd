@@ -3,6 +3,10 @@ extends Node
 @export var title: String
 @export var narrative: String
 
+func mutate():
+	var game = $".".get_tree().get_root().get_node("Game")
+	push(game)
+
 func push(game):
 	game.push_story(title, narrative)
 

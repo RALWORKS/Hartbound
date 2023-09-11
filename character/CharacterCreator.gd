@@ -24,9 +24,10 @@ func start_cutscene(cutscene_res):
 	cutscene.start()
 
 func end_cutscene():
-	cutscene.free()
+	cutscene.call_deferred("free")
 #	for child in cur_game:
 #		$"../MainScreen/World".add_child(child)
 
 	var g = $"/root/Game"
+	print(g)
 	g.to_chapter(g.FIRST_CHAPTER)
