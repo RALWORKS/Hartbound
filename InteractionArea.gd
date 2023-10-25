@@ -4,6 +4,8 @@ extends Area2D
 @export var reference_id: String
 @export var description: String
 @export var action_source: Node
+@export var child_depth = 0
+
 
 var x_cursor = preload("res://cursor.tscn")
 var InteractionModal = preload("res://item/interaction_modal.tscn")
@@ -54,6 +56,10 @@ func _on_mouse_entered():
 	cur_cursor = x_cursor.instantiate()
 
 	var w = $".."
+	var depth_iter = 0
+	while depth_iter < child_depth:
+		w = w.get_parent()
+		depth_iter += 1
 	w.add_child(cur_cursor)
 	cur_cursor.set_title(title)
 	DisplayServer.cursor_set_shape(DisplayServer.CURSOR_POINTING_HAND)

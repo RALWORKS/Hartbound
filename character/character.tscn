@@ -274,6 +274,8 @@ libraries = {
 stream = ExtResource("12_0uv52")
 volume_db = -4.0
 
+[connection signal="tree_entered" from="." to="." method="_on_tree_entered"]
+[connection signal="tree_exited" from="." to="." method="_on_tree_exited"]
 [connection signal="animation_changed" from="char_anims" to="." method="_on_char_anims_animation_changed"]
 [connection signal="area_entered" from="InteractBox" to="." method="_on_interact_box_area_entered"]
 [connection signal="area_exited" from="InteractBox" to="." method="_on_interact_box_area_exited"]

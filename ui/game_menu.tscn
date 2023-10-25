@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://i6laa1tesr13" path="res://ui/modal.tscn" id="5_jpiq8"]
 [ext_resource type="Theme" uid="uid://bowrqsap2qmsa" path="res://base_theme.tres" id="6_pr2h2"]
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_a3v4o"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_q00d6"]
 viewport_path = NodePath("img")
 
 [node name="GameMenu" type="Node2D"]
@@ -40,7 +40,7 @@ metadata/_edit_use_anchors_ = true
 [node name="Profile" parent="ProfileBtn" instance=ExtResource("3_gksuv")]
 position = Vector2(15, 12)
 scale = Vector2(0.38, 0.38)
-texture = SubResource("ViewportTexture_a3v4o")
+texture = SubResource("ViewportTexture_q00d6")
 
 [node name="Label" type="Label" parent="ProfileBtn"]
 layout_mode = 1

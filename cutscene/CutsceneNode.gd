@@ -6,6 +6,7 @@ class_name CutsceneNode
 @export var on_start: Callable
 @export var is_option_node: bool
 @export var use_on_start_fn_from: Node
+@export var tag: String = ""
 
 var just_clicked = false
 
@@ -34,6 +35,7 @@ func _pause_next():
 	just_clicked = false
 
 func start():
+	$"/root/Game/Chapter".update_cutscene_page(self)
 	self.visible = true
 	_pause_next()
 	if on_start:

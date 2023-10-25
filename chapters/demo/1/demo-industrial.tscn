@@ -34,7 +34,7 @@ narrative = "Your human foster family helped you train as {a_profession}"
 
 [node name="TrainingStory2" parent="Events/StartChapter" index="4" instance=ExtResource("5_r0j2r")]
 title = "birth"
-narrative = "Five years ago, you completed your training and joined the Generator crews at Sun Temple"
+narrative = "Four years ago, you completed your training and joined the Generator crews at Sun Temple"
 
 [node name="Music" parent="." index="1" instance=ExtResource("6_eeti4")]
 stream = ExtResource("7_q6myq")

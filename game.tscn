@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://cvo7vcb5suvjv"]
+[gd_scene load_steps=13 format=3 uid="uid://cvo7vcb5suvjv"]
 
 [ext_resource type="Script" path="res://game.gd" id="1_0h5ve"]
 [ext_resource type="PackedScene" uid="uid://b6jcbgn4xd7lm" path="res://ui/power_pole_loop.tscn" id="2_4nhxm"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" path="res://ui/NewGameBtn.gd" id="3_yxrff"]
 [ext_resource type="Script" path="res://ui/LoadGameBtn.gd" id="4_5o1fu"]
 [ext_resource type="Theme" uid="uid://bowrqsap2qmsa" path="res://base_theme.tres" id="4_851ct"]
+[ext_resource type="PackedScene" uid="uid://do0ku8pfkpj0n" path="res://concept-map/concept_map.tscn" id="9_0i75i"]
 
 [sub_resource type="Animation" id="Animation_yxiww"]
 length = 0.001
@@ -161,6 +162,8 @@ position = Vector2(0, 50)
 script = ExtResource("2_vy8bn")
 
 [node name="DynamicMusic" type="Node" parent="."]
+
+[node name="ConceptMap" parent="." instance=ExtResource("9_0i75i")]
 
 [connection signal="pressed" from="StartScreen/NewGameBtn" to="StartScreen/NewGameBtn" method="_on_pressed"]
 [connection signal="pressed" from="StartScreen/LoadGameBtn" to="StartScreen/LoadGameBtn" method="_on_pressed"]

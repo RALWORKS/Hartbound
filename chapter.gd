@@ -53,7 +53,7 @@ func start_cutscene(cutscene_res):
 	cutscene = cutscene_res.instantiate()
 	cur_game = $"../MainScreen/World".get_children()
 	for child in $"../MainScreen/World".get_children():
-		$"../MainScreen/World".remove_child(child)
+		$"../MainScreen/World".call_deferred("remove_child", child)
 	
 	$"../MainScreen/World".add_child(cutscene)
 	cutscene.start()
@@ -62,3 +62,6 @@ func end_cutscene():
 	cutscene.free()
 	for child in cur_game:
 		$"../MainScreen/World".add_child(child)
+
+func update_cutscene_page(p):
+	cutscene.update_page(p)

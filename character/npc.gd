@@ -8,15 +8,17 @@ var last_collision = null
 var cur_collision = null
 var disable_all = false
 
-@export var base_dialogue: ResourcePreloader = null
+@export var base_dialogue: Resource = null
 var triggering_interact = false
 
+@export var character_name: String = ""
+@export var reference_id: String = ""
 
 var last_input_direction = null
 
 @export var follow_player = false
 @export var show_self = true
-@export var texture: ResourcePreloader = null
+@export var texture: Resource = null
 
 var waiting = false
 var going = false
@@ -45,6 +47,8 @@ var arrived_with_player = false
 
 func _ready():
 	$char.texture = texture
+	$InteractionArea.title = character_name
+	$InteractionArea.reference_id = reference_id
 
 func _near(a, b):
 	if null in [a, b]:
@@ -188,19 +192,14 @@ func start_following(g):
 	leader.follower_arrived()
 	g.set_state(["micro_progress", "priestess_follows"], true)
 
-func interact_range_entered():
+func action():
 	#start_following($"/root/Game")
 	if not paused:
 		$"/root/Game/Chapter".start_cutscene(base_dialogue)
-		print("retrigger")
 
 	return
 
 
-func interact_range_exited():
-#	if body.has_method("interact_range_exited"):
-#		body.interact_range_exited()
-	return
 
 
 func _on_tree_exited():

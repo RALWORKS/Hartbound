@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://cio4dmo6oq7ki"]
+[gd_scene load_steps=8 format=3 uid="uid://cio4dmo6oq7ki"]
 
 [ext_resource type="PackedScene" path="res://ui/outline-button.tscn" id="1_c6gep"]
 [ext_resource type="Script" path="res://character/character_namer.gd" id="1_rw5xu"]
@@ -17,6 +17,32 @@ content_margin_top = 10.0
 content_margin_right = 10.0
 content_margin_bottom = 10.0
 bg_color = Color(0.0823529, 0.0823529, 0.0823529, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wxrrs"]
+content_margin_left = 15.0
+content_margin_top = 15.0
+content_margin_right = 15.0
+content_margin_bottom = 15.0
+bg_color = Color(0, 0.427451, 0.32549, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cuc5i"]
+content_margin_left = 15.0
+content_margin_top = 15.0
+content_margin_right = 15.0
+content_margin_bottom = 15.0
+bg_color = Color(0, 0.176471, 0.12549, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
 
 [node name="CharacterNamer" type="Node2D"]
 script = ExtResource("1_rw5xu")
@@ -64,14 +90,17 @@ offset_bottom = 279.0
 theme_override_styles/normal = SubResource("StyleBoxFlat_qvd7v")
 bbcode_enabled = true
 
-[node name="Button" parent="." instance=ExtResource("1_c6gep")]
-offset_left = 130.0
-offset_top = 113.0
-offset_right = 260.0
-offset_bottom = 155.0
-text = "> Reroll"
-
 [node name="ShortForms" parent="." instance=ExtResource("3_yf7vm")]
 position = Vector2(34, 399)
 
-[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[node name="RerollBtn" parent="." instance=ExtResource("1_c6gep")]
+offset_left = 150.0
+offset_top = 104.0
+offset_right = 292.0
+offset_bottom = 167.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_wxrrs")
+theme_override_styles/hover = SubResource("StyleBoxFlat_cuc5i")
+text = "Reroll
+"
+
+[connection signal="pressed" from="RerollBtn" to="." method="_on_reroll_btn_pressed"]

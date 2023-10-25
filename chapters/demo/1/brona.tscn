@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://uc3gpi8pp0cj"]
+
+[ext_resource type="PackedScene" uid="uid://bl3qjgb340prl" path="res://character/npc.tscn" id="1_sxpcq"]
+
+[node name="Brona" instance=ExtResource("1_sxpcq")]

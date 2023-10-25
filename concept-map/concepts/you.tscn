@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://b55rum1sarsvt"]
+
+[ext_resource type="PackedScene" uid="uid://bt0e2jwvmgpgm" path="res://concept-map/concept.tscn" id="1_nku7r"]
+
+[node name="You" instance=ExtResource("1_nku7r")]
+id = "you"
+as_verb_object = "yourself"
+title = "you"

@@ -8,6 +8,9 @@ extends CharacterBody2D
 @export var footstep_interval = 0.7
 var footstep_waiting = false
 
+var disable_all = false
+var paused = false
+
 @onready var navigation_agent: NavigationAgent2D = $NavigationAgent2D
 
 var DestinationMarker = preload("res://ui/destination_arrow.tscn")
@@ -243,6 +246,8 @@ func no_input():
 		velocity = Vector2(0, 0)
 
 func destination_clicked(_delta):
+	if disable_all or paused:
+		return
 	set_destination($"..".get_global_mouse_position())
 
 func arrow_keys_pressed(delta, arrow_keys):
@@ -267,6 +272,9 @@ func stop_walking():
 
 func _footstep():
 	footstep_waiting = false
+	if disable_all:
+		stop_footsteps()
+		return
 	if not footsteps_on:
 		return
 	$Footsteps.playing = false
@@ -292,13 +300,13 @@ func set_anim():
 		return
 	if not footsteps_on:
 		start_footsteps()
-	if velocity.y < -13 and velocity.x < -10:
+	if velocity.y < -10 and velocity.x < -10:
 		facing = "up_left"
-	elif velocity.y < -13 and velocity.x > 10:
+	elif velocity.y < -10 and velocity.x > 10:
 		facing = "up_right"
-	elif velocity.y > 13 and velocity.x < -10:
+	elif velocity.y > 10 and velocity.x < -10:
 		facing = "down_left"
-	elif velocity.y > 13 and velocity.x > 10:
+	elif velocity.y > 10 and velocity.x > 10:
 		facing = "down_right"
 	elif velocity.y < -10:
 		facing = "up"
@@ -379,15 +387,20 @@ func _physics_process(delta):
 	call_follower()
 
 func go_direction(delta, input_direction):
+	if disable_all:
+		return
 	velocity = _modulate_velocity(input_direction)
+
 	var collision = move_and_collide(velocity * delta)
 	_handle_collisions(delta, collision, input_direction)
 
 func _clear_staged_action_node():
 	game.unstage_action_node(game.staged_action_node)
-	# set_destination(null)
 
 func _on_interact_box_body_entered(body):
+	if body == game.staged_action_node:
+		set_destination(null)
+	
 	if body.has_method("interact_range_entered"):
 		body.interact_range_entered()
 	
@@ -417,3 +430,15 @@ func _on_navigation_agent_2d_navigation_finished():
 	if unreachable:
 		emote_question()
 		unreachable = false
+
+
+func _on_tree_exited():
+	disable_all = true
+
+
+
+func _on_tree_entered():
+	disable_all = false
+	paused = true
+	await get_tree().create_timer(0.2).timeout
+	paused = false

@@ -1478,5 +1478,5 @@ var NAME_DATA = {
 }
 
 
-func _on_button_pressed():
+func _on_reroll_btn_pressed():
 	reroll_names()
