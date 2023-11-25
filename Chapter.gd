@@ -48,6 +48,7 @@ func start_cutscene(cutscene_res):
 	
 	$"../MainScreen/World".add_child(cutscene)
 	cutscene.start()
+	return cutscene
 
 func end_cutscene():
 	cutscene.free()

@@ -1,6 +1,6 @@
-[gd_scene load_steps=15 format=3 uid="uid://cckqtpr4xqdv1"]
+[gd_scene load_steps=20 format=3 uid="uid://cckqtpr4xqdv1"]
 
-[ext_resource type="PackedScene" path="res://scene.tscn" id="1_d7mn4"]
+[ext_resource type="PackedScene" uid="uid://byrlpmbpj6yr5" path="res://scene.tscn" id="1_d7mn4"]
 [ext_resource type="Texture2D" uid="uid://b03p7gc1dm2aq" path="res://assets/scenes/demo/1/industrial/f.png" id="2_u64ec"]
 [ext_resource type="Texture2D" uid="uid://c3snxdvwxp5ff" path="res://assets/scenes/demo/1/industrial/f-rubble-a.png" id="3_roxx8"]
 [ext_resource type="Texture2D" uid="uid://dcrdxmqhn1yjw" path="res://assets/scenes/demo/1/industrial/f-rubble-b.png" id="4_2wv8o"]
@@ -11,6 +11,11 @@
 [ext_resource type="Texture2D" uid="uid://dnse2uc1ils34" path="res://assets/scenes/demo/1/industrial/f-fence-d.png" id="9_lvfnb"]
 [ext_resource type="Texture2D" uid="uid://5wynkhavuwwe" path="res://assets/scenes/demo/1/industrial/f-fence-e.png" id="10_wkart"]
 [ext_resource type="PackedScene" uid="uid://dxfuidhlgwthh" path="res://travel/door.tscn" id="11_523ee"]
+[ext_resource type="Texture2D" uid="uid://bw40tyqi0m237" path="res://assets/scenery/parking-meter-a.png" id="12_ui4a6"]
+[ext_resource type="PackedScene" uid="uid://cl4heje674d3q" path="res://item/interaction_area.tscn" id="13_80ejq"]
+[ext_resource type="PackedScene" uid="uid://cpbg7yuq873y5" path="res://item/interaction_action.tscn" id="14_hojlb"]
+[ext_resource type="PackedScene" uid="uid://dh1scrjroovcn" path="res://item/interaction_modal_maker.tscn" id="15_4rgmo"]
+[ext_resource type="PackedScene" uid="uid://ddhdd81qyis1b" path="res://cutscene/electrocuted_end.tscn" id="16_hbmqc"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_kqse4"]
 vertices = PackedVector2Array(17, 704, 682, 333, 857, 446, 254, 817, 96, 817, -14, 831)
@@ -119,3 +124,76 @@ navigation_polygon = SubResource("NavigationPolygon_ws03c")
 
 [node name="NavigationFront" type="NavigationRegion2D" parent="YSort" index="15"]
 navigation_polygon = SubResource("NavigationPolygon_3nelf")
+
+[node name="Meter C-No-3" type="Sprite2D" parent="YSort" index="16"]
+position = Vector2(511, 536)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("12_ui4a6")
+offset = Vector2(0, -100)
+
+[node name="InteractionArea" parent="YSort/Meter C-No-3" index="0" node_paths=PackedStringArray("options_container_node") instance=ExtResource("13_80ejq")]
+position = Vector2(-485, -415)
+title = "Tithe Collector"
+reference_id = "meter-c-no-3"
+description = "An ancient tithe collecting machine mounted on a post."
+child_depth = 2
+options_container_node = NodePath("Actions")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/Meter C-No-3/InteractionArea" index="0"]
+polygon = PackedVector2Array(474, 401, 488, 390, 479, 286, 467, 285, 455, 257, 459, 225, 474, 221, 484, 260, 489, 260, 490, 224, 502, 218, 511, 230, 512, 264, 498, 290, 490, 297, 499, 389, 514, 401, 503, 408, 487, 412)
+
+[node name="Actions" type="Node" parent="YSort/Meter C-No-3/InteractionArea" index="1"]
+
+[node name="Open" parent="YSort/Meter C-No-3/InteractionArea/Actions" index="0" node_paths=PackedStringArray("to_modal_maker") instance=ExtResource("14_hojlb")]
+to_modal_maker = NodePath("OpenModalMaker")
+title = "[ENGINEER] Open the casing"
+
+[node name="OpenModalMaker" parent="YSort/Meter C-No-3/InteractionArea/Actions/Open" index="0" node_paths=PackedStringArray("options_container_node") instance=ExtResource("15_4rgmo")]
+title = "Access Panel"
+description = "The screwdriver sparks a little as it contacts the screw. Good thing it's insulated--this is definitely still posessed by the Leyline."
+options_container_node = NodePath("Actions")
+
+[node name="Actions" type="Node" parent="YSort/Meter C-No-3/InteractionArea/Actions/Open/OpenModalMaker" index="0"]
+
+[node name="Leave" parent="YSort/Meter C-No-3/InteractionArea/Actions/Open/OpenModalMaker/Actions" index="0" instance=ExtResource("14_hojlb")]
+title = "Never mind"
+is_close_btn = true
+
+[node name="ReallyOpen" parent="YSort/Meter C-No-3/InteractionArea/Actions/Open/OpenModalMaker/Actions" index="1" instance=ExtResource("14_hojlb")]
+to_cutscene = ExtResource("16_hbmqc")
+title = "Open it anyway"
+
+[node name="Pole C-No-2" parent="YSort" index="17" node_paths=PackedStringArray("options_container_node") instance=ExtResource("13_80ejq")]
+title = "Fallen Leyline Cross"
+reference_id = "pole-c-no-2"
+description = "A Leyline cross lies fallen on the ground, its cables strewn beside it."
+child_depth = 2
+options_container_node = NodePath("Actions")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/Pole C-No-2" index="0"]
+polygon = PackedVector2Array(1101, 828, 1121, 916, 1206, 913, 1644, 1088, 1642, 1052, 1415, 947, 1602, 989, 1582, 905, 1424, 899, 1181, 800)
+
+[node name="Actions" type="Node" parent="YSort/Pole C-No-2" index="1"]
+
+[node name="Open" parent="YSort/Pole C-No-2/Actions" index="0" node_paths=PackedStringArray("to_modal_maker") instance=ExtResource("14_hojlb")]
+to_modal_maker = NodePath("OpenModalMaker")
+title = "[ENGINEER] Harvest cable"
+
+[node name="OpenModalMaker" parent="YSort/Pole C-No-2/Actions/Open" index="0" node_paths=PackedStringArray("options_container_node") instance=ExtResource("15_4rgmo")]
+title = "Access Panel"
+description = "Are you absolutely sure? If you're on top of a Leyline right now, trying that will kill you. If you don't have a way to check at the moment, maybe err on the side of caution."
+options_container_node = NodePath("Actions")
+
+[node name="Actions" type="Node" parent="YSort/Pole C-No-2/Actions/Open/OpenModalMaker" index="0"]
+
+[node name="Leave" parent="YSort/Pole C-No-2/Actions/Open/OpenModalMaker/Actions" index="0" instance=ExtResource("14_hojlb")]
+title = "Never mind"
+is_close_btn = true
+
+[node name="ReallyOpen" parent="YSort/Pole C-No-2/Actions/Open/OpenModalMaker/Actions" index="1" instance=ExtResource("14_hojlb")]
+to_cutscene = ExtResource("16_hbmqc")
+title = "Yes, I'm sure. Harvest the cable."
+
+[node name="Leave" parent="YSort/Pole C-No-2/Actions" index="1" instance=ExtResource("14_hojlb")]
+title = "Never mind"
+is_close_btn = true

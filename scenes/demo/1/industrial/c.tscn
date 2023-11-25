@@ -1,11 +1,17 @@
-[gd_scene load_steps=18 format=3 uid="uid://c61y5cf8qd8vl"]
+[gd_scene load_steps=24 format=3 uid="uid://c61y5cf8qd8vl"]
 
-[ext_resource type="PackedScene" path="res://scene.tscn" id="1_c5dv2"]
+[ext_resource type="PackedScene" uid="uid://byrlpmbpj6yr5" path="res://scene.tscn" id="1_c5dv2"]
 [ext_resource type="Texture2D" uid="uid://bdh1dphfwy4ng" path="res://assets/scenes/demo/1/industrial/c.png" id="2_7kp15"]
+[ext_resource type="Texture2D" uid="uid://bdu22xxvauwd6" path="res://assets/scenery/top-panel.png" id="3_hjm7p"]
 [ext_resource type="Texture2D" uid="uid://y8do164lafek" path="res://assets/scenes/demo/1/industrial/c-back-ledge-a.png" id="3_s3o6l"]
+[ext_resource type="PackedScene" uid="uid://cl4heje674d3q" path="res://item/interaction_area.tscn" id="4_ev54w"]
 [ext_resource type="Texture2D" uid="uid://bmubpntnl3s4m" path="res://assets/scenes/demo/1/industrial/c-front-ledge.png" id="4_wlth3"]
+[ext_resource type="PackedScene" uid="uid://cpbg7yuq873y5" path="res://item/interaction_action.tscn" id="5_6s1jt"]
 [ext_resource type="PackedScene" uid="uid://dxfuidhlgwthh" path="res://travel/door.tscn" id="5_opb7a"]
+[ext_resource type="PackedScene" uid="uid://dh1scrjroovcn" path="res://item/interaction_modal_maker.tscn" id="6_0yq8x"]
 [ext_resource type="Texture2D" uid="uid://dbbgasy4bg0h2" path="res://assets/scenes/demo/1/industrial/c-back-train-b.png" id="7_gq1vq"]
+[ext_resource type="Texture2D" uid="uid://cf5r4v2jyv3yo" path="res://assets/items/demo-1/wire-large.png" id="7_rmmv2"]
+[ext_resource type="PackedScene" uid="uid://btcaowwqv7a55" path="res://chapters/demo/1/tmp_take.tscn" id="8_4rjbx"]
 [ext_resource type="Texture2D" uid="uid://qspyxf8ofma3" path="res://assets/scenes/demo/1/industrial/c-front-train-a.png" id="8_6ampf"]
 [ext_resource type="Texture2D" uid="uid://d0gfsy1h0i77y" path="res://assets/scenes/demo/1/industrial/c-back-train-a.png" id="8_p61y3"]
 [ext_resource type="Texture2D" uid="uid://boqoghud1gyj6" path="res://assets/scenes/demo/1/industrial/c-left-fence.png" id="9_5jqef"]
@@ -51,6 +57,47 @@ polygon = PackedVector2Array(-6, 1230, 1602, 1234, 1600, 2, 15, -1, 11, 1225, -8
 
 [node name="BridgeGap" type="CollisionPolygon2D" parent="Background/StaticBody2D" index="4"]
 polygon = PackedVector2Array(1720, 655, 1522, 536, 1387, 625, 1709, 820)
+
+[node name="Panel-C-Yes-1" type="Sprite2D" parent="Background" index="1"]
+position = Vector2(951, 651)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("3_hjm7p")
+
+[node name="InteractionArea" parent="Background/Panel-C-Yes-1" index="0" node_paths=PackedStringArray("options_container_node") instance=ExtResource("4_ev54w")]
+title = "Access Panel"
+reference_id = "panel-c-yes-1"
+description = "There's an access panel built into the roof here."
+child_depth = 2
+options_container_node = NodePath("Actions")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Background/Panel-C-Yes-1/InteractionArea" index="0"]
+polygon = PackedVector2Array(-126.667, -11.6665, 1.6665, -74.9998, 125, -3.33313, 1.6665, 73.3335)
+
+[node name="Actions" type="Node" parent="Background/Panel-C-Yes-1/InteractionArea" index="1"]
+
+[node name="Harvest" parent="Background/Panel-C-Yes-1/InteractionArea/Actions" index="0" node_paths=PackedStringArray("to_modal_maker") instance=ExtResource("5_6s1jt")]
+to_modal_maker = NodePath("MakeHarvest")
+title = "[ENGINEER] Unscrew the panel"
+
+[node name="MakeHarvest" parent="Background/Panel-C-Yes-1/InteractionArea/Actions/Harvest" index="0" node_paths=PackedStringArray("options_container_node") instance=ExtResource("6_0yq8x")]
+title = "Acess Panel"
+description = "You unscrew the panel, and remove it. Black coated wiring runs underneath, in a bundle. Seeing as you were able to open this incdent, the Leyline itsn't using these at the moment. You should be able to harvest them safely."
+options_container_node = NodePath("Options")
+image_texture = ExtResource("7_rmmv2")
+
+[node name="Options" type="Node" parent="Background/Panel-C-Yes-1/InteractionArea/Actions/Harvest/MakeHarvest" index="0"]
+
+[node name="Take" parent="Background/Panel-C-Yes-1/InteractionArea/Actions/Harvest/MakeHarvest/Options" index="0" node_paths=PackedStringArray("script_node") instance=ExtResource("5_6s1jt")]
+script_node = NodePath("TMPTake")
+title = "Take"
+is_close_btn = true
+
+[node name="TMPTake" parent="Background/Panel-C-Yes-1/InteractionArea/Actions/Harvest/MakeHarvest/Options/Take" index="0" node_paths=PackedStringArray("option_to_disable") instance=ExtResource("8_4rjbx")]
+option_to_disable = NodePath("../../../..")
+item_name = "Black Coated Wires"
+
+[node name="Leave" parent="Background/Panel-C-Yes-1/InteractionArea/Actions" index="1" instance=ExtResource("5_6s1jt")]
+title = "Never mind"
 
 [node name="DefaultSpawner" parent="YSort" index="0"]
 position = Vector2(778, 246)

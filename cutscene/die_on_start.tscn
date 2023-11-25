@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://cbobuwybuv22l"]
+
+[ext_resource type="Script" path="res://cutscene/DieOnStart.gd" id="1_qij8r"]
+[ext_resource type="PackedScene" uid="uid://ba6aujjl8u38p" path="res://ui/main_menu_action.tscn" id="2_bicei"]
+
+[node name="DieOnStart" type="Node"]
+script = ExtResource("1_qij8r")
+
+[node name="ToMainMenu" parent="." instance=ExtResource("2_bicei")]

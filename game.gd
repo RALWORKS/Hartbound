@@ -9,6 +9,7 @@ var paused = false
 var unpausing = false
 
 var MainScreen = preload("res://ui/main_screen.tscn")
+var StartScreen = preload("res://ui/start_screen.tscn")
 
 var staged_action_node = null
 
@@ -26,7 +27,7 @@ var CHAPTERS = {
 }
 @export var FIRST_CHAPTER = "demo1"
 
-var STATE = {
+var INITIAL_STATE = {
 	"micro_progress": {
 		"priestess_follows": false,
 		"event": 0,
@@ -34,6 +35,8 @@ var STATE = {
 	"chapter": "intro",
 	"story": [],
 }
+
+var STATE = INITIAL_STATE.duplicate(true)
 
 func play_music(n: AudioStreamPlayer, fade_slow=false):
 	next_music = n.duplicate()
@@ -102,6 +105,13 @@ func _deep_set(d, ix, val):
 func set_state(ix, val):
 	_deep_set(STATE, ix, val)
 
+func set_state_push_to_key(ix, val):
+	var cur = get_state(ix)
+	if cur == null:
+		set_state(ix, [val])
+		return
+	set_state(ix, cur + [val])
+
 
 func set_player(some_player):
 	player = some_player
@@ -118,6 +128,24 @@ func start_from_state(s):
 	ch.name = "Chapter"
 	$".".add_child(ch)
 	started = true
+	
+func main_menu():
+	var s = StartScreen.instantiate()
+	add_child(s)
+	
+	var m = get_node_or_null("MainScreen")
+	
+	if m != null:
+		m.queue_free()
+		
+	var c = get_node_or_null("Chapter")
+	
+	if c != null:
+		c.queue_free()
+	
+	reset_state()
+	
+	
 
 func unpause():
 	if unpausing:
@@ -173,6 +201,8 @@ func save():
 	var content = JSON.stringify(STATE)
 	file.store_string(content)
 
+func reset_state():
+	STATE = INITIAL_STATE.duplicate(true)
 
 func start_new():
 	start_from_state(STATE)

@@ -19,6 +19,7 @@ var last_input_direction = null
 @export var follow_player = false
 @export var show_self = true
 @export var texture: Resource = null
+@export var frame_spacing: float = 0.3
 
 var waiting = false
 var going = false
@@ -28,6 +29,26 @@ var direction = Vector2(0, 0)
 
 var next_position = null
 var last_position = null
+
+var ANIMATIONS = {
+	"down": [1, 0, 2, 0],
+	"down-stopped": [0],
+	"up": [4, 3, 5, 3],
+	"up-stopped": [3],
+	"left": [15, 17, 16, 17],
+	"left-stopped": [17],
+	"right": [13, 12, 14, 12],
+	"right-stopped": [12],
+	"down-right": [10, 9, 11, 9],
+	"down-right-stopped": [9],
+	"down-left": [18, 20, 19, 20],
+	"down-left-stopped": [20],
+	"up-right": [7, 6, 8, 6],
+	"up-right-stopped": [6],
+	"up-left": [21, 23, 22, 23],
+	"up-left-stopped": [23],
+	"Rotate": [0, 9, 12, 6, 3, 23, 17, 20]
+}
 
 var anims = {
 	"up": {"on": "up", "off": "up-stopped"},
@@ -44,11 +65,41 @@ var facing = "down_right"
 var stopped = false
 var turning = false
 var arrived_with_player = false
+@export var footstep_interval = 0.7
+var footstep_waiting = false
+var footsteps_on = false
+
+func _animation_from_frames(frames_sequence):
+	var animation = Animation.new()
+	animation.length = frame_spacing * frames_sequence.size()
+	animation.loop_mode = Animation.LOOP_LINEAR
+	var track_index = animation.add_track(Animation.TYPE_VALUE)
+	animation.track_set_path(track_index, "char:frame")
+	animation.track_set_interpolation_type(track_index, Animation.INTERPOLATION_NEAREST)
+	
+	var trace = 0
+	
+	for cur_frame in frames_sequence:
+		animation.track_insert_key(track_index, trace, cur_frame)
+		trace += frame_spacing
+
+	return animation
+
+func _make_walk_animations():
+	var library = AnimationLibrary.new()
+	
+	for key in ANIMATIONS.keys():
+		var value = ANIMATIONS[key]		
+		library.add_animation(key, _animation_from_frames(value))
+
+	$AnimationPlayer.add_animation_library("movement", library)
 
 func _ready():
-	$char.texture = texture
+	#$char.texture = texture
 	$InteractionArea.title = character_name
 	$InteractionArea.reference_id = reference_id
+	if $char.hframes == 6 and $char.vframes == 4:
+		_make_walk_animations()
 
 func _near(a, b):
 	if null in [a, b]:
@@ -60,20 +111,48 @@ func _near(a, b):
 		a.y - b.y
 	) < THRESHOLD + 1
 
+func play(animation_title):
+	$AnimationPlayer.play("movement/" + animation_title)
+
 func walk():
 	#$Sprite2D/AnimatedSprite2D.play(anims[facing]["on"])
-	$char_anims.play(anims[facing]["on"])
+	play(anims[facing]["on"])
 
 func stop_walking():
 	#$Sprite2D/AnimatedSprite2D.play(anims[facing]["off"])
-	$char_anims.play(anims[facing]["off"])
+	stop_footsteps()
+	play(anims[facing]["off"])
 	waiting = true
 	await get_tree().create_timer(0.5).timeout
 	waiting = false
+	
+func _footstep():
+	footstep_waiting = false
+	if disable_all:
+		stop_footsteps()
+		return
+	if not footsteps_on:
+		return
+	$Footsteps.playing = false
+	$Footsteps.playing = true
+	footstep_waiting = true
+	await get_tree().create_timer(footstep_interval).timeout
+	_footstep()
+
+func stop_footsteps():
+	footsteps_on = false
+
+func start_footsteps():
+	footsteps_on = true
+	if not footstep_waiting:
+		_footstep()
 
 func _go():
 	going = true
-	await get_tree().create_timer(0.05).timeout
+	var tree = get_tree()
+	if tree == null:
+		return
+	await tree.create_timer(0.05).timeout
 	going = false
 
 func _turn():
@@ -88,6 +167,8 @@ func set_anim():
 	if (velocity.x**2 + velocity.y**2) < (speed*0.75):
 		stop_walking()
 		return
+	if not footsteps_on:
+		start_footsteps()
 	if velocity.y < 0 and abs(velocity.x) < 15:
 		facing = "up"
 	elif velocity.y > 0 and abs(velocity.x) < 15:
@@ -186,16 +267,16 @@ func _physics_process(delta):
 	_handle_collisions(delta, collision, direction)
 	set_anim()
 
-func start_following(g):
+func start_following(_g):
 	leader = $"../Character"
 	leader.has_follower = true
 	leader.follower_arrived()
-	g.set_state(["micro_progress", "priestess_follows"], true)
+	#g.set_state(["micro_progress", "priestess_follows"], true)
 
 func action():
 	#start_following($"/root/Game")
-	if not paused:
-		$"/root/Game/Chapter".start_cutscene(base_dialogue)
+	if not paused and base_dialogue != null:
+		$"/root/Game/Chapter".start_cutscene(base_dialogue, self)
 
 	return
 

@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://do0ku8pfkpj0n"]
+[gd_scene load_steps=7 format=3 uid="uid://do0ku8pfkpj0n"]
 
 [ext_resource type="Script" path="res://concept-map/concept_map.gd" id="1_7c8vd"]
 [ext_resource type="Script" path="res://concept-map/Category.gd" id="2_l5orv"]
 [ext_resource type="PackedScene" uid="uid://b55rum1sarsvt" path="res://concept-map/concepts/you.tscn" id="3_dfj6r"]
 [ext_resource type="PackedScene" uid="uid://cjet5t2jtr03s" path="res://concept-map/concepts/brona.tscn" id="4_moagi"]
 [ext_resource type="PackedScene" uid="uid://84etqm7v3b47" path="res://concept-map/concepts/age_of_dusk.tscn" id="5_p2vyk"]
+[ext_resource type="PackedScene" uid="uid://bmaotdu8ofpwi" path="res://concept-map/concepts/sun_temple.tscn" id="6_wxi2u"]
 
 [node name="ConceptMap" type="Node"]
 script = ExtResource("1_7c8vd")
@@ -26,3 +27,5 @@ script = ExtResource("2_l5orv")
 category = "World"
 
 [node name="Age of Dusk" parent="World" instance=ExtResource("5_p2vyk")]
+
+[node name="Sun Temple" parent="World" instance=ExtResource("6_wxi2u")]

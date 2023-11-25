@@ -1,16 +1,26 @@
-[gd_scene load_steps=9 format=3 uid="uid://qhhv4s8njcrp"]
+[gd_scene load_steps=19 format=3 uid="uid://qhhv4s8njcrp"]
 
-[ext_resource type="PackedScene" path="res://scene.tscn" id="1_4su6i"]
+[ext_resource type="PackedScene" uid="uid://byrlpmbpj6yr5" path="res://scene.tscn" id="1_4su6i"]
 [ext_resource type="Texture2D" uid="uid://dobfgkrdvoy5g" path="res://assets/scenes/demo/1/industrial/b.png" id="2_beatb"]
 [ext_resource type="Texture2D" uid="uid://dduqbcoe6864b" path="res://assets/scenes/demo/1/industrial/b-pipe.png" id="3_r4qbj"]
 [ext_resource type="Texture2D" uid="uid://b7bo0oyjlmq03" path="res://assets/scenes/demo/1/industrial/b-treetop.png" id="4_jobxl"]
 [ext_resource type="Texture2D" uid="uid://c6dbijn80ep15" path="res://assets/scenes/demo/1/industrial/b-vent-tree.png" id="5_ij0re"]
 [ext_resource type="PackedScene" uid="uid://dxfuidhlgwthh" path="res://travel/door.tscn" id="6_dl5dw"]
+[ext_resource type="PackedScene" uid="uid://uc3gpi8pp0cj" path="res://chapters/demo/1/brona.tscn" id="7_pftbf"]
+[ext_resource type="PackedScene" uid="uid://d0q6kg3spk25s" path="res://chapters/demo/1/jerry.tscn" id="8_nh0w8"]
+[ext_resource type="PackedScene" uid="uid://bii8gdmkfiy5x" path="res://chapters/demo/1/taylor.tscn" id="9_5mskm"]
+[ext_resource type="PackedScene" uid="uid://in7v8nsvojyp" path="res://chapters/demo/1/nate.tscn" id="10_yhvk4"]
+[ext_resource type="Texture2D" uid="uid://cucflpddlqdqp" path="res://assets/scenery/left-panel-situation-1.png" id="11_0g0bb"]
+[ext_resource type="PackedScene" uid="uid://cl4heje674d3q" path="res://item/interaction_area.tscn" id="12_6urft"]
+[ext_resource type="PackedScene" uid="uid://bkyp4rqktyinq" path="res://item/interact_range_extender.tscn" id="13_6vyp4"]
+[ext_resource type="PackedScene" uid="uid://cpbg7yuq873y5" path="res://item/interaction_action.tscn" id="14_v06dg"]
+[ext_resource type="PackedScene" uid="uid://dh1scrjroovcn" path="res://item/interaction_modal_maker.tscn" id="15_s4ofs"]
+[ext_resource type="PackedScene" uid="uid://ddhdd81qyis1b" path="res://cutscene/electrocuted_end.tscn" id="16_k1any"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_2fe48"]
-vertices = PackedVector2Array(1165, 943, 1592, 1182, 1592, 1226, 512, 1229, 482, 1125, 539, 546, 704, 499, 1064, 765, 337, 1075, 8, 980, 4, 705, 354, 520, 226, 1085)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4), PackedInt32Array(5, 6, 7, 0, 4, 8), PackedInt32Array(9, 10, 11, 5, 8, 12), PackedInt32Array(9, 12, 9)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(4, 705, 354, 520, 539, 546, 704, 499, 1064, 765, 1165, 943, 1592, 1182, 1592, 1226, 512, 1229, 482, 1125, 337, 1075, 226, 1085, 8, 980, 8, 980)])
+vertices = PackedVector2Array(4, 705, 354, 520, 704, 499, 1064, 765, 1520, 1240, 610, 1236, 8, 980)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4, 5, 6, 6)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(4, 705, 354, 520, 704, 499, 1064, 765, 1520, 1240, 610, 1236, 8, 980, 8, 980)])
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_0pbjy"]
 vertices = PackedVector2Array(1595, 738, 1259, 526, 1437, 442, 1602, -2, 358, 39, 9, 227, 14, 4, 723, 38, 546, 102)
@@ -63,7 +73,7 @@ build_mode = 1
 polygon = PackedVector2Array(2, 1339, 2, -7, 1600, 1, 1600, 1232, 3, 1234, 39, 1331, 1784, 1331, 1781, -211, -312, -262, -193, 1345)
 
 [node name="DefaultSpawner" parent="YSort" index="0"]
-position = Vector2(550, 642)
+position = Vector2(590, 642)
 
 [node name="pipe" type="Sprite2D" parent="YSort" index="1"]
 position = Vector2(255, 1243)
@@ -115,7 +125,7 @@ navigation_polygon = SubResource("NavigationPolygon_2fe48")
 navigation_polygon = SubResource("NavigationPolygon_0pbjy")
 
 [node name="VentA" type="NavigationObstacle2D" parent="YSort" index="10"]
-vertices = PackedVector2Array(942, 2, 1011, 42, 1095, -1, 1093, -34, 1005, -65, 939, -28)
+vertices = PackedVector2Array(942, 3, 940, -26, 1005, -70, 1094, -35, 1094, -1, 1009, 47)
 
 [node name="VentB" type="NavigationObstacle2D" parent="YSort" index="11"]
 vertices = PackedVector2Array(1114, 105, 1186, 43, 1261, 81, 1262, 119, 1194, 162)
@@ -125,3 +135,76 @@ vertices = PackedVector2Array(1313, 227, 1403, 173, 1494, 229, 1405, 319, 1310, 
 
 [node name="VentD" type="NavigationObstacle2D" parent="YSort" index="13"]
 vertices = PackedVector2Array(1510, 361, 1596, 320, 1600, 446, 1510, 403)
+
+[node name="Brona" parent="YSort" index="14" instance=ExtResource("7_pftbf")]
+position = Vector2(235, 574)
+
+[node name="Jerry" parent="YSort" index="15" instance=ExtResource("8_nh0w8")]
+position = Vector2(408, 520)
+
+[node name="Taylor" parent="YSort" index="16" instance=ExtResource("9_5mskm")]
+position = Vector2(600, 504)
+
+[node name="Nate" parent="YSort" index="17" instance=ExtResource("10_yhvk4")]
+position = Vector2(1083, 160)
+
+[node name="Panel C-No-1" type="Node2D" parent="YSort" index="18"]
+
+[node name="Sprite2D" type="Sprite2D" parent="YSort/Panel C-No-1" index="0"]
+position = Vector2(1049, 483)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("11_0g0bb")
+
+[node name="InteractionArea" parent="YSort/Panel C-No-1" index="1" node_paths=PackedStringArray("options_container_node") instance=ExtResource("12_6urft")]
+position = Vector2(17, -24)
+title = "Access Panel"
+reference_id = "panel-c-no-1"
+description = "There's an access panel built into the wall here."
+child_depth = 1
+options_container_node = NodePath("../Actions")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/Panel C-No-1/InteractionArea" index="0"]
+position = Vector2(3, 0)
+polygon = PackedVector2Array(990, 542, 984, 444, 1062, 493, 1064, 582)
+
+[node name="InteractRangeExtender" parent="YSort/Panel C-No-1" index="2" node_paths=PackedStringArray("interactable") instance=ExtResource("13_6vyp4")]
+position = Vector2(17, 17)
+interactable = NodePath("../InteractionArea")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/Panel C-No-1/InteractRangeExtender" index="0"]
+polygon = PackedVector2Array(901, 637, 933, 614, 1034, 684, 996, 707)
+
+[node name="Actions" type="Node" parent="YSort/Panel C-No-1" index="3"]
+
+[node name="Open" parent="YSort/Panel C-No-1/Actions" index="0" node_paths=PackedStringArray("to_modal_maker") instance=ExtResource("14_v06dg")]
+to_modal_maker = NodePath("OpenModalMaker")
+title = "[ENGINEER] Unscrew the panel"
+
+[node name="OpenModalMaker" parent="YSort/Panel C-No-1/Actions/Open" index="0" node_paths=PackedStringArray("options_container_node") instance=ExtResource("15_s4ofs")]
+title = "Access Panel"
+description = "When you touch it, you find that the panel is ... vibrating slightly. Ten to one, it's because you're right on top of a Leyline, and the machinery back there has become possessed. If that's really the case, opening this will blow your arm off--at best."
+options_container_node = NodePath("Actions")
+
+[node name="Actions" type="Node" parent="YSort/Panel C-No-1/Actions/Open/OpenModalMaker" index="0"]
+
+[node name="Leave" parent="YSort/Panel C-No-1/Actions/Open/OpenModalMaker/Actions" index="0" instance=ExtResource("14_v06dg")]
+title = "Never mind"
+is_close_btn = true
+
+[node name="ReallyOpen" parent="YSort/Panel C-No-1/Actions/Open/OpenModalMaker/Actions" index="1" instance=ExtResource("14_v06dg")]
+to_cutscene = ExtResource("16_k1any")
+title = "Open it anyway"
+
+[node name="InteractionArea" parent="YSort" index="19" instance=ExtResource("12_6urft")]
+title = "Leyline Cross"
+description = "There must be a Leyline nearby--though this probably isn't connected to it. There isn't even any wire left on it."
+child_depth = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/InteractionArea" index="0"]
+polygon = PackedVector2Array(272, 408, 293, 417, 335, 266, 365, 262, 373, 220, 344, 169, 289, 230, 282, 245, 314, 256)
+
+[node name="InteractRangeExtender" parent="YSort/InteractionArea" index="1" node_paths=PackedStringArray("interactable") instance=ExtResource("13_6vyp4")]
+interactable = NodePath("..")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/InteractionArea/InteractRangeExtender" index="0"]
+polygon = PackedVector2Array(269, 514, 325, 480, 356, 533, 289, 561)

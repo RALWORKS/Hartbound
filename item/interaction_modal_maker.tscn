@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dh1scrjroovcn"]
+
+[ext_resource type="Script" path="res://InteractionModalMaker.gd" id="1_ljuf4"]
+
+[node name="InteractionModalMaker" type="Node"]
+script = ExtResource("1_ljuf4")

@@ -4,6 +4,7 @@ extends Node2D
 @export var concepts: Node
 @export var default_topics: Node
 var page = null
+@export var npc: CharacterBody2D = null # will auto set if used as npc dialogue
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

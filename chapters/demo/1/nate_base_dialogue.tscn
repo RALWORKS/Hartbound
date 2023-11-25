@@ -1,0 +1,26 @@
+[gd_scene load_steps=6 format=3 uid="uid://disv4e233mw0e"]
+
+[ext_resource type="PackedScene" uid="uid://bp8tsdjdbwj8i" path="res://cutscene/cutscene.tscn" id="1_xokwk"]
+[ext_resource type="PackedScene" uid="uid://55vflx8ylix1" path="res://cutscene/cutscene_node.tscn" id="2_6fcjh"]
+[ext_resource type="Texture2D" uid="uid://dlfi64p84aoys" path="res://assets/scenes/demo/1/industrial/cutscene/1-ground.png" id="3_s7s43"]
+[ext_resource type="Texture2D" uid="uid://dxlwv778ouxxb" path="res://assets/npcs/nate/bored.png" id="4_dcr1o"]
+[ext_resource type="PackedScene" uid="uid://b11g7mb25w5xp" path="res://cutscene/smart_label.tscn" id="5_c3g3p"]
+
+[node name="Jerry1" node_paths=PackedStringArray("starting_page") instance=ExtResource("1_xokwk")]
+starting_page = NodePath("1")
+
+[node name="1" parent="." index="0" node_paths=PackedStringArray("use_on_start_fn_from") instance=ExtResource("2_6fcjh")]
+use_on_start_fn_from = NodePath("")
+
+[node name="bg" type="Sprite2D" parent="1" index="0"]
+scale = Vector2(1.35, 1.35)
+texture = ExtResource("3_s7s43")
+centered = false
+
+[node name="nate" type="Sprite2D" parent="1" index="1"]
+position = Vector2(455, 889)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("4_dcr1o")
+
+[node name="SmartLabel" parent="1" index="2" instance=ExtResource("5_c3g3p")]
+text = "\"Hey.\""

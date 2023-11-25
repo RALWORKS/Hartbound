@@ -9,7 +9,7 @@ var game = null
 func _ready():
 	game = get_tree().get_root().get_node("Game")
 	$TitleBar/Exit.connect("pressed", close)
-	$".".connect("focus_exited", close)
+	#$".".connect("focus_exited", close)
 	$TitleBar/Title.clear()
 	$TitleBar/Title.append_text(title)
 	if is_cached:

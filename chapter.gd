@@ -49,13 +49,14 @@ func _ready():
 func _process(_delta):
 	pass
 
-func start_cutscene(cutscene_res):
+func start_cutscene(cutscene_res, npc=null):
 	cutscene = cutscene_res.instantiate()
 	cur_game = $"../MainScreen/World".get_children()
 	for child in $"../MainScreen/World".get_children():
 		$"../MainScreen/World".call_deferred("remove_child", child)
 	
 	$"../MainScreen/World".add_child(cutscene)
+	cutscene.npc = npc
 	cutscene.start()
 
 func end_cutscene():

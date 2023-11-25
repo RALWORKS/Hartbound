@@ -1,0 +1,11 @@
+[gd_scene load_steps=4 format=3 uid="uid://ba6aujjl8u38p"]
+
+[ext_resource type="Script" path="res://ui/main_menu_action.gd" id="1_hfsdn"]
+[ext_resource type="PackedScene" uid="uid://bcinc4blag4el" path="res://music.tscn" id="2_buekg"]
+[ext_resource type="AudioStream" uid="uid://cav44ry5mv08r" path="res://assets/music/saint-theme-1.ogg" id="3_4kf6s"]
+
+[node name="ToMainMenu" type="Node"]
+script = ExtResource("1_hfsdn")
+
+[node name="Music" parent="." instance=ExtResource("2_buekg")]
+stream = ExtResource("3_4kf6s")

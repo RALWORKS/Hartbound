@@ -17,6 +17,7 @@ grow_vertical = 2
 wrapper = NodePath("..")
 
 [node name="ExamineTitle" type="Label" parent="Modal"]
+visible = false
 layout_mode = 0
 offset_top = 50.0
 offset_right = 91.0
@@ -32,6 +33,7 @@ offset_top = 80.0
 offset_bottom = 50.0
 
 [node name="ContentsTitle" type="Label" parent="Modal"]
+visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_top = 0.3
@@ -42,6 +44,7 @@ offset_bottom = 81.0
 text = "Contents:"
 
 [node name="ActionsTitle" type="Label" parent="Modal"]
+visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
@@ -54,6 +57,7 @@ offset_bottom = 81.0
 text = "Actions:"
 
 [node name="ContentsBody" type="Panel" parent="Modal"]
+visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_top = 0.4
@@ -64,7 +68,8 @@ offset_top = 30.0
 offset_right = -5.0
 offset_bottom = -10.0
 
-[node name="ActionsBody" type="Panel" parent="Modal"]
+[node name="OldActionsBody" type="Panel" parent="Modal"]
+visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
@@ -73,5 +78,17 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 5.0
 offset_top = 30.0
+offset_right = -10.0
+offset_bottom = -10.0
+
+[node name="Actions" type="Panel" parent="Modal"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.4
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -240.0
+offset_top = 72.0
 offset_right = -10.0
 offset_bottom = -10.0

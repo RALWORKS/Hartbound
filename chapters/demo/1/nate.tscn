@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://in7v8nsvojyp"]
+
+[ext_resource type="PackedScene" uid="uid://bl3qjgb340prl" path="res://character/npc.tscn" id="1_sy3eq"]
+[ext_resource type="PackedScene" uid="uid://disv4e233mw0e" path="res://chapters/demo/1/nate_base_dialogue.tscn" id="2_o244n"]
+[ext_resource type="Texture2D" uid="uid://crfwjolgw6hfy" path="res://assets/npcs/nate/sprite.png" id="3_42n73"]
+
+[node name="Nate" instance=ExtResource("1_sy3eq")]
+base_dialogue = ExtResource("2_o244n")
+character_name = "Nate"
+reference_id = "nate"
+
+[node name="char" parent="." index="0"]
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("3_42n73")

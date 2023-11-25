@@ -49,3 +49,6 @@ func end_cutscene():
 	menu_parent.add_child(menu)
 	menu_parent.move_child(menu, menu_ix)
 	g.to_chapter("create")
+
+func update_cutscene_page(p):
+	cutscene.update_page(p)

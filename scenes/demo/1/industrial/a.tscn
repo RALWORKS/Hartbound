@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://wwmpe6ttdblv"]
+[gd_scene load_steps=28 format=3 uid="uid://wwmpe6ttdblv"]
 
 [ext_resource type="PackedScene" uid="uid://byrlpmbpj6yr5" path="res://scene.tscn" id="1_3u62o"]
 [ext_resource type="Texture2D" uid="uid://cdm0ewe6djiw" path="res://assets/scenes/demo/1/industrial/a.png" id="2_kjnsv"]
@@ -8,8 +8,18 @@
 [ext_resource type="Texture2D" uid="uid://cxt8h6d0otgpo" path="res://assets/scenes/demo/1/industrial/a-train4.png" id="6_fukre"]
 [ext_resource type="Texture2D" uid="uid://csb12eaiht5tq" path="res://assets/scenes/demo/1/industrial/a-train5.png" id="7_ppj6t"]
 [ext_resource type="PackedScene" uid="uid://dxfuidhlgwthh" path="res://travel/door.tscn" id="8_w73q6"]
-[ext_resource type="PackedScene" uid="uid://uc3gpi8pp0cj" path="res://chapters/demo/1/brona.tscn" id="9_h2axn"]
 [ext_resource type="PackedScene" uid="uid://cl4heje674d3q" path="res://item/interaction_area.tscn" id="9_immxw"]
+[ext_resource type="Texture2D" uid="uid://cucflpddlqdqp" path="res://assets/scenery/left-panel-situation-1.png" id="9_ysk77"]
+[ext_resource type="Shader" path="res://effects/alpha-mask.gdshader" id="10_lqi68"]
+[ext_resource type="Shader" path="res://scenes/light-path1.gdshader" id="10_r8qs7"]
+[ext_resource type="Texture2D" uid="uid://gqej44bqtstb" path="res://assets/effects/light-fleck-4.png" id="11_jcyyb"]
+[ext_resource type="PackedScene" uid="uid://cpbg7yuq873y5" path="res://item/interaction_action.tscn" id="11_lyn4d"]
+[ext_resource type="Texture2D" uid="uid://cyh1dw8ebawi7" path="res://assets/scenes/demo/1/industrial/a-light-test.png" id="11_riryp"]
+[ext_resource type="PackedScene" uid="uid://bkyp4rqktyinq" path="res://item/interact_range_extender.tscn" id="11_rivki"]
+[ext_resource type="PackedScene" uid="uid://dh1scrjroovcn" path="res://item/interaction_modal_maker.tscn" id="12_vne6e"]
+[ext_resource type="Script" path="res://scenes/demo/1/industrial/LightPathMaterial.gd" id="12_yf8y7"]
+[ext_resource type="Texture2D" uid="uid://b88ukj7qtchlg" path="res://assets/items/demo-1/pcb-large.png" id="13_ht4ji"]
+[ext_resource type="PackedScene" uid="uid://btcaowwqv7a55" path="res://chapters/demo/1/tmp_take.tscn" id="14_sbn2f"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_awuu0"]
 vertices = PackedVector2Array(214, 824, 926, 1243, 325, 1233, 137, 1121, 106, 631, 231, 620, 244, 540, 621, 760, 1412, 1288, 848, 614, 981, 648, 1056, 633, 1687, 1000, 1691, 1243)
@@ -20,6 +30,60 @@ outlines = Array[PackedVector2Array]([PackedVector2Array(137, 1121, 106, 631, 24
 vertices = PackedVector2Array(598, 295, 187, 22, 322, 20, 638, 196, 1607, 115, 1683, 13, 1689, 532, 1475, 321, 797, 208, 848, 81, 1426, 393, 1401, 257, 1526, 73, 979, 297, 1119, 215, 859, 15, 1443, 3, 1219, 285)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 5, 6, 7), PackedInt32Array(8, 0, 3, 9), PackedInt32Array(6, 10, 7), PackedInt32Array(4, 7, 11, 12), PackedInt32Array(13, 8, 9, 14), PackedInt32Array(15, 16, 12, 11, 17, 14), PackedInt32Array(14, 9, 15)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(187, 22, 598, 295, 797, 208, 979, 297, 1119, 215, 1219, 285, 1401, 257, 1475, 321, 1426, 393, 1689, 532, 1683, 13, 1607, 115, 1526, 73, 1443, 3, 859, 15, 848, 81, 638, 196, 322, 20)])
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xkijc"]
+shader = ExtResource("10_lqi68")
+shader_parameter/scale_x = 1.0
+shader_parameter/scale_y = 0.3
+shader_parameter/mask_texture = ExtResource("11_riryp")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_wdtqi"]
+viewport_path = NodePath("LightPath/SubViewport")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_webro"]
+shader = ExtResource("10_r8qs7")
+shader_parameter/dimensions = Vector2(1700, 1900)
+shader_parameter/rows = 20.0
+shader_parameter/columns = 10.0
+shader_parameter/vertical_scroll = 0.39
+shader_parameter/horizontal_scroll = 0.1
+shader_parameter/size_min = 0.1
+shader_parameter/size_max = 1.0
+shader_parameter/wave_min = 0.2
+shader_parameter/wave_max = 0.8
+shader_parameter/wave_speed = 1.0
+shader_parameter/wave_rotation = 1.0
+shader_parameter/particle_texture = ExtResource("11_jcyyb")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7wlyq"]
+shader = ExtResource("10_r8qs7")
+shader_parameter/dimensions = Vector2(1700, 1900)
+shader_parameter/rows = 8.0
+shader_parameter/columns = 7.0
+shader_parameter/vertical_scroll = 0.5
+shader_parameter/horizontal_scroll = -0.66
+shader_parameter/size_min = 0.7
+shader_parameter/size_max = 0.3
+shader_parameter/wave_min = 0.2
+shader_parameter/wave_max = 1.0
+shader_parameter/wave_speed = 1.6
+shader_parameter/wave_rotation = 1.0
+shader_parameter/particle_texture = ExtResource("11_jcyyb")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_h25ru"]
+shader = ExtResource("10_r8qs7")
+shader_parameter/dimensions = Vector2(1700, 1900)
+shader_parameter/rows = 20.0
+shader_parameter/columns = 20.0
+shader_parameter/vertical_scroll = 0.18
+shader_parameter/horizontal_scroll = -0.17
+shader_parameter/size_min = 0.1
+shader_parameter/size_max = 0.5
+shader_parameter/wave_min = 0.1
+shader_parameter/wave_max = 0.3
+shader_parameter/wave_speed = 1.0
+shader_parameter/wave_rotation = 1.0
+shader_parameter/particle_texture = ExtResource("11_jcyyb")
 
 [node name="Scene" instance=ExtResource("1_3u62o")]
 
@@ -129,8 +193,52 @@ vertices = PackedVector2Array(1064, 87, 1170, -4, 1287, 66, 1181, 155, 1181, 155
 [node name="VentC" type="NavigationObstacle2D" parent="YSort" index="13"]
 vertices = PackedVector2Array(1484, 323, 1598, 253, 1679, 323, 1592, 393)
 
-[node name="Brona" parent="YSort" index="14" instance=ExtResource("9_h2axn")]
-position = Vector2(790, 705)
+[node name="Panel-C-Yes-3" type="Sprite2D" parent="YSort" index="14"]
+position = Vector2(730, 18)
+scale = Vector2(-0.6, 0.6)
+texture = ExtResource("9_ysk77")
+
+[node name="InteractionArea" parent="YSort/Panel-C-Yes-3" index="0" node_paths=PackedStringArray("options_container_node") instance=ExtResource("9_immxw")]
+title = "Access Panel"
+reference_id = "panel-c-yes-3"
+description = "There's an access panel built into the wall here."
+child_depth = 2
+options_container_node = NodePath("Actions")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/Panel-C-Yes-3/InteractionArea" index="0"]
+polygon = PackedVector2Array(58.3334, -21.6667, 61.6667, 126.667, -65, 43.3333, -61.6666, -28.3333)
+
+[node name="Actions" type="Node" parent="YSort/Panel-C-Yes-3/InteractionArea" index="1"]
+
+[node name="Harvest" parent="YSort/Panel-C-Yes-3/InteractionArea/Actions" index="0" node_paths=PackedStringArray("to_modal_maker") instance=ExtResource("11_lyn4d")]
+to_modal_maker = NodePath("MakeHarvest")
+title = "[ENGINEER] Unscrew the panel"
+
+[node name="MakeHarvest" parent="YSort/Panel-C-Yes-3/InteractionArea/Actions/Harvest" index="0" node_paths=PackedStringArray("options_container_node") instance=ExtResource("12_vne6e")]
+title = "Acess Panel"
+description = "You unscrew the panel, and remove it. An intact PCB covered with usable compenents  is mounted behind. The solder point for POW is cracked right off. You should be able to just pull this out, maybe snipping a connection or two if needed."
+options_container_node = NodePath("Options")
+image_texture = ExtResource("13_ht4ji")
+
+[node name="Options" type="Node" parent="YSort/Panel-C-Yes-3/InteractionArea/Actions/Harvest/MakeHarvest" index="0"]
+
+[node name="Take" parent="YSort/Panel-C-Yes-3/InteractionArea/Actions/Harvest/MakeHarvest/Options" index="0" node_paths=PackedStringArray("script_node") instance=ExtResource("11_lyn4d")]
+script_node = NodePath("TMPTake")
+title = "Take"
+is_close_btn = true
+
+[node name="TMPTake" parent="YSort/Panel-C-Yes-3/InteractionArea/Actions/Harvest/MakeHarvest/Options/Take" index="0" node_paths=PackedStringArray("option_to_disable") instance=ExtResource("14_sbn2f")]
+option_to_disable = NodePath("../../../..")
+item_name = "PCB"
+
+[node name="Leave" parent="YSort/Panel-C-Yes-3/InteractionArea/Actions" index="1" instance=ExtResource("11_lyn4d")]
+title = "Never mind"
+
+[node name="InteractRangeExtender" parent="YSort/Panel-C-Yes-3" index="1" node_paths=PackedStringArray("interactable") instance=ExtResource("11_rivki")]
+interactable = NodePath("../InteractionArea")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/Panel-C-Yes-3/InteractRangeExtender" index="0"]
+polygon = PackedVector2Array(75, 183.333, -86.6666, 91.6667, -161.667, 136.667, 20, 243.333)
 
 [node name="ScaffoldX" parent="." index="2" instance=ExtResource("9_immxw")]
 position = Vector2(1124, 788)
@@ -140,3 +248,39 @@ description = "These scaffolds are set up all around this complex. Perhaps maint
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="ScaffoldX" index="0"]
 polygon = PackedVector2Array(-80.2, -108.4, -74.8, -40.8, -45.6001, -32.4, -22.2, -36.2, -19.6001, -104.4, -48.6, -90)
+
+[node name="LightPath" type="Sprite2D" parent="." index="3"]
+visible = false
+material = SubResource("ShaderMaterial_xkijc")
+position = Vector2(0, 120)
+texture = SubResource("ViewportTexture_wdtqi")
+centered = false
+
+[node name="SubViewport" type="SubViewport" parent="LightPath" index="0"]
+size = Vector2i(1700, 1700)
+
+[node name="ColorRect2" type="ColorRect" parent="LightPath/SubViewport" index="0"]
+material = SubResource("ShaderMaterial_webro")
+custom_minimum_size = Vector2(1700, 1700)
+offset_right = 40.0
+offset_bottom = 40.0
+color = Color(1, 1, 1, 0)
+script = ExtResource("12_yf8y7")
+
+[node name="ColorRect4" type="ColorRect" parent="LightPath/SubViewport" index="1"]
+material = SubResource("ShaderMaterial_7wlyq")
+custom_minimum_size = Vector2(1700, 1700)
+offset_right = 40.0
+offset_bottom = 40.0
+color = Color(1, 1, 1, 0)
+script = ExtResource("12_yf8y7")
+
+[node name="ColorRect3" type="ColorRect" parent="LightPath/SubViewport" index="2"]
+material = SubResource("ShaderMaterial_h25ru")
+custom_minimum_size = Vector2(1700, 1700)
+offset_right = 40.0
+offset_bottom = 40.0
+color = Color(0, 1, 1, 0)
+script = ExtResource("12_yf8y7")
+
+[node name="Sprite2D" type="Sprite2D" parent="." index="4"]

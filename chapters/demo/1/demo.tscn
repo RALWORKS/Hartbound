@@ -1,7 +1,7 @@
-[gd_scene load_steps=4 format=3]
+[gd_scene load_steps=4 format=3 uid="uid://k3vh7irimb40"]
 
 [ext_resource type="Script" path="res://Chapter.gd" id="1_2amfw"]
-[ext_resource type="Texture2D" path="res://assets/iso-forest-crayon.png" id="2_y0nvm"]
+[ext_resource type="Texture2D" uid="uid://ctaejx8g721ta" path="res://assets/iso-forest-crayon.png" id="2_y0nvm"]
 [ext_resource type="PackedScene" path="res://chapters/demo/0/test-plant.tscn" id="3_276yh"]
 
 [node name="ChapterDemo1" type="Node"]

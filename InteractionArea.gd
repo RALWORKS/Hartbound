@@ -5,6 +5,7 @@ extends Area2D
 @export var description: String
 @export var action_source: Node
 @export var child_depth = 0
+@export var options_container_node: Node = null
 
 
 var x_cursor = preload("res://cursor.tscn")
@@ -27,7 +28,7 @@ func _process(_delta):
 	game = _get_game()
 	if click and cur_cursor == null and game.staged_action_node == self:
 		game.unstage_action_node(self)
-	if cur_cursor:
+	if cur_cursor != null:
 		if game.staged_action_node == self:
 			cur_cursor.set_deferred("visible", false)
 		else:
@@ -48,6 +49,7 @@ func action():
 	cur_window.target = self
 	cur_window.title = title
 	cur_window.set_description(description)
+	cur_window.set_options(options_container_node)
 	
 	cur_window.open(g)
 
@@ -94,3 +96,8 @@ func interact_range_entered():
 
 func interact_range_exited():
 	in_range = false
+
+
+func _on_tree_exiting():
+	if cur_cursor != null:
+		cur_cursor.call_deferred("free")

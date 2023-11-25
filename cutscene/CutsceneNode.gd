@@ -35,9 +35,9 @@ func _pause_next():
 	just_clicked = false
 
 func start():
-	$"/root/Game/Chapter".update_cutscene_page(self)
 	self.visible = true
 	_pause_next()
+	$"/root/Game/Chapter".update_cutscene_page(self)
 	if on_start:
 		on_start.call()
 	elif use_on_start_fn_from:

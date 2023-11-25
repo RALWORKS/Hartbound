@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=3 uid="uid://bii8gdmkfiy5x"]
+
+[ext_resource type="PackedScene" uid="uid://bl3qjgb340prl" path="res://character/npc.tscn" id="1_1hx5h"]
+[ext_resource type="PackedScene" uid="uid://epq5ioa4sayx" path="res://chapters/demo/1/taylor_base_dialogue.tscn" id="2_8ry6f"]
+[ext_resource type="Texture2D" uid="uid://bq21x5hwe1dg3" path="res://assets/npcs/taylor/sprite.png" id="3_6rci0"]
+
+[node name="Taylor" instance=ExtResource("1_1hx5h")]
+base_dialogue = ExtResource("2_8ry6f")
+character_name = "Taylor"
+reference_id = "taylor"
+
+[node name="char" parent="." index="0"]
+texture = ExtResource("3_6rci0")

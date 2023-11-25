@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://cj4mq4w13vijs"]
 
 [ext_resource type="PackedScene" uid="uid://bh1yfkyt3u44i" path="res://chapter.tscn" id="1_abxn2"]
-[ext_resource type="PackedScene" uid="uid://wwmpe6ttdblv" path="res://scenes/demo/1/industrial/a.tscn" id="2_3a8qy"]
+[ext_resource type="PackedScene" uid="uid://qhhv4s8njcrp" path="res://scenes/demo/1/industrial/b.tscn" id="2_x5gxs"]
 [ext_resource type="PackedScene" path="res://chapter_event_mutation.tscn" id="4_gn21l"]
 [ext_resource type="PackedScene" uid="uid://c61y5cf8qd8vl" path="res://scenes/demo/1/industrial/c.tscn" id="5_cdjcb"]
 [ext_resource type="PackedScene" path="res://story_item.tscn" id="5_r0j2r"]
@@ -10,7 +10,7 @@
 [ext_resource type="Script" path="res://chapters/demo/1/DemoChapterScript.gd" id="8_up1b2"]
 
 [node name="Chapter" node_paths=PackedStringArray("starting_music", "script_holder") instance=ExtResource("1_abxn2")]
-starting_scene = ExtResource("2_3a8qy")
+starting_scene = ExtResource("2_x5gxs")
 starting_music = NodePath("Music")
 script_holder = NodePath("DemoChapterScript")
 

@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://bmaotdu8ofpwi"]
+
+[ext_resource type="PackedScene" uid="uid://bt0e2jwvmgpgm" path="res://concept-map/concept.tscn" id="1_gra4i"]
+
+[node name="Sun Temple" instance=ExtResource("1_gra4i")]
+id = "sun-temple"
+title = "the Sun Temple"

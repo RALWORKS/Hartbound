@@ -1,11 +1,17 @@
-[gd_scene load_steps=8 format=3 uid="uid://dpgus4q55ghrs"]
+[gd_scene load_steps=14 format=3 uid="uid://dpgus4q55ghrs"]
 
-[ext_resource type="PackedScene" path="res://scene.tscn" id="1_4aibn"]
+[ext_resource type="PackedScene" uid="uid://byrlpmbpj6yr5" path="res://scene.tscn" id="1_4aibn"]
 [ext_resource type="Texture2D" uid="uid://bgosew3t2w5s6" path="res://assets/scenes/demo/1/industrial/e.png" id="2_lmy4c"]
 [ext_resource type="Texture2D" uid="uid://cjrm27beguqu8" path="res://assets/scenes/demo/1/industrial/e-back-rocks-2.png" id="3_yflys"]
 [ext_resource type="Texture2D" uid="uid://b7stv73goj4s6" path="res://assets/scenes/demo/1/industrial/e-back-rocks-1.png" id="4_shwhh"]
+[ext_resource type="PackedScene" uid="uid://cl4heje674d3q" path="res://item/interaction_area.tscn" id="6_dgxub"]
 [ext_resource type="Texture2D" uid="uid://c6wxva2f6mqyn" path="res://assets/scenes/demo/1/industrial/e-front-wall.png" id="6_isrdr"]
 [ext_resource type="PackedScene" uid="uid://dxfuidhlgwthh" path="res://travel/door.tscn" id="6_wa5ko"]
+[ext_resource type="PackedScene" uid="uid://bkyp4rqktyinq" path="res://item/interact_range_extender.tscn" id="7_pif8w"]
+[ext_resource type="PackedScene" uid="uid://cpbg7yuq873y5" path="res://item/interaction_action.tscn" id="8_cpq4g"]
+[ext_resource type="PackedScene" uid="uid://dh1scrjroovcn" path="res://item/interaction_modal_maker.tscn" id="9_fletx"]
+[ext_resource type="Texture2D" uid="uid://bfmygrdvdfbag" path="res://assets/items/demo-1/alternator-large.png" id="10_ytopt"]
+[ext_resource type="PackedScene" uid="uid://btcaowwqv7a55" path="res://chapters/demo/1/tmp_take.tscn" id="11_u7826"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_30nyk"]
 vertices = PackedVector2Array(1091, 341, 986, -1, 1634, -44, 1612, 694, 995, 986, 916, 451, 579, 1090, 84, 822, 25, 7, 449, 13, 715, 431)
@@ -57,6 +63,63 @@ dest_edge = "West"
 
 [node name="NavigationAll" type="NavigationRegion2D" parent="YSort" index="6"]
 navigation_polygon = SubResource("NavigationPolygon_30nyk")
+
+[node name="MO-Car-Key-B" parent="YSort" index="7" instance=ExtResource("6_dgxub")]
+title = "Ruined Chariot"
+reference_id = "car-key-b"
+description = "A chariot, painted in a festive yellow colour. The windows are long since gone, and you're able to see and even reach inside."
+child_depth = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/MO-Car-Key-B" index="0"]
+polygon = PackedVector2Array(816, 330, 841, 224, 861, 231, 892, 215, 716, 101, 677, 113, 654, 129, 644, 204, 657, 224, 690, 245, 705, 273, 774, 318)
+
+[node name="XHood" parent="YSort" index="8" node_paths=PackedStringArray("interactable") instance=ExtResource("7_pif8w")]
+interactable = NodePath("../MO-Car-Hood-C-Yes-2")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/XHood" index="0"]
+polygon = PackedVector2Array(795, 338, 853, 392, 909, 390, 943, 351, 1006, 327, 1067, 377, 922, 470, 688, 428)
+
+[node name="MO-Car-Hood-C-Yes-2" parent="YSort" index="9" node_paths=PackedStringArray("options_container_node") instance=ExtResource("6_dgxub")]
+title = "Chariot (Under the Hood)"
+reference_id = "car-c-yes-2"
+description = "The hood of the chariot still opens, with a little effort."
+child_depth = 2
+options_container_node = NodePath("Actions")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/MO-Car-Hood-C-Yes-2" index="0"]
+polygon = PackedVector2Array(825, 330, 844, 231, 864, 240, 897, 218, 936, 242, 946, 273, 931, 323, 918, 345, 889, 348, 855, 345)
+
+[node name="Actions" type="Node" parent="YSort/MO-Car-Hood-C-Yes-2" index="1"]
+
+[node name="Harvest" parent="YSort/MO-Car-Hood-C-Yes-2/Actions" index="0" node_paths=PackedStringArray("to_modal_maker") instance=ExtResource("8_cpq4g")]
+to_modal_maker = NodePath("MakeHarvest")
+title = "[ENGINEER] Check for salvageable pieces"
+
+[node name="MakeHarvest" parent="YSort/MO-Car-Hood-C-Yes-2/Actions/Harvest" index="0" node_paths=PackedStringArray("options_container_node") instance=ExtResource("9_fletx")]
+title = "Chariot (Under the Hood)"
+description = "The alternator looks usable"
+options_container_node = NodePath("Options")
+image_texture = ExtResource("10_ytopt")
+
+[node name="Options" type="Node" parent="YSort/MO-Car-Hood-C-Yes-2/Actions/Harvest/MakeHarvest" index="0"]
+
+[node name="Take" parent="YSort/MO-Car-Hood-C-Yes-2/Actions/Harvest/MakeHarvest/Options" index="0" node_paths=PackedStringArray("script_node") instance=ExtResource("8_cpq4g")]
+script_node = NodePath("TMPTake")
+title = "Take"
+is_close_btn = true
+
+[node name="TMPTake" parent="YSort/MO-Car-Hood-C-Yes-2/Actions/Harvest/MakeHarvest/Options/Take" index="0" node_paths=PackedStringArray("option_to_disable") instance=ExtResource("11_u7826")]
+option_to_disable = NodePath("../../../..")
+item_name = "Alternator"
+
+[node name="Leave" parent="YSort/MO-Car-Hood-C-Yes-2/Actions" index="1" instance=ExtResource("8_cpq4g")]
+title = "Never mind"
+
+[node name="XCar" parent="YSort" index="10" node_paths=PackedStringArray("interactable") instance=ExtResource("7_pif8w")]
+interactable = NodePath("../MO-Car-Key-B")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/XCar" index="0"]
+polygon = PackedVector2Array(562, 217, 599, 182, 671, 252, 686, 282, 784, 332, 688, 412)
 
 [node name="FrontWall" type="Sprite2D" parent="." index="2"]
 position = Vector2(801, 879)

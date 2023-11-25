@@ -160,6 +160,7 @@ _data = {
 y_sort_enabled = true
 scale = Vector2(0.75, 0.75)
 script = ExtResource("1_s1ce1")
+speed = 150
 
 [node name="char" parent="." node_paths=PackedStringArray("body", "front_arm", "face", "hair_back", "hair_front", "clothes", "clothes_pattern", "clothes_accent", "front_sleeve", "front_sleeve_accent", "character_img") instance=ExtResource("2_kvgd3")]
 centered = true
