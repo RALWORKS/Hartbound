@@ -402,6 +402,10 @@ func _on_interact_box_body_entered(body):
 		set_destination(null)
 	
 	if body.has_method("interact_range_entered"):
+		if body == game.staged_action_node:
+			unreachable = false
+			set_destination(null)
+			stop_walking()
 		body.interact_range_entered()
 	
 	if body == game.staged_action_node:
@@ -434,7 +438,6 @@ func _on_navigation_agent_2d_navigation_finished():
 
 func _on_tree_exited():
 	disable_all = true
-
 
 
 func _on_tree_entered():

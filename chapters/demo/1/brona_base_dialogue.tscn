@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://6juapn3r3s4p"]
+[gd_scene load_steps=35 format=3 uid="uid://6juapn3r3s4p"]
 
 [ext_resource type="PackedScene" uid="uid://bp8tsdjdbwj8i" path="res://cutscene/cutscene.tscn" id="1_qsal8"]
 [ext_resource type="PackedScene" uid="uid://55vflx8ylix1" path="res://cutscene/cutscene_node.tscn" id="2_p2ho2"]
@@ -8,17 +8,73 @@
 [ext_resource type="PackedScene" uid="uid://cm3keg86x7x3y" path="res://cutscene/concept_cutscene_node.tscn" id="6_v78vy"]
 [ext_resource type="PackedScene" uid="uid://cjet5t2jtr03s" path="res://concept-map/concepts/brona.tscn" id="7_djyi8"]
 [ext_resource type="PackedScene" uid="uid://84etqm7v3b47" path="res://concept-map/concepts/age_of_dusk.tscn" id="8_gia2f"]
+[ext_resource type="PackedScene" uid="uid://bxl45ycc6ucjc" path="res://concept-map/concepts/age_of_the_sun.tscn" id="9_c1g8s"]
 [ext_resource type="PackedScene" path="res://cutscene/cutscene_option.tscn" id="9_i4jsg"]
 [ext_resource type="PackedScene" uid="uid://bmaotdu8ofpwi" path="res://concept-map/concepts/sun_temple.tscn" id="10_63psu"]
+[ext_resource type="PackedScene" uid="uid://clq8611xkfdqp" path="res://cutscene/cutscene_redirect_node.tscn" id="10_mrlbu"]
+[ext_resource type="PackedScene" uid="uid://blq44wuaxi7tj" path="res://concept-map/concepts/elves.tscn" id="11_aq2yq"]
+[ext_resource type="PackedScene" uid="uid://b8suyge8lpaac" path="res://concept-map/concepts/age_of_the_moon.tscn" id="11_wj80n"]
+[ext_resource type="PackedScene" uid="uid://be12fgu7h2rj1" path="res://concept-map/concepts/humans.tscn" id="12_fcwu0"]
+[ext_resource type="Texture2D" uid="uid://cmqlhuyhj20d4" path="res://assets/npcs/brona/angry.png" id="13_l34vt"]
+[ext_resource type="PackedScene" uid="uid://pgm63ijam86e" path="res://concept-map/concepts/moon_temple.tscn" id="14_v2wmk"]
+[ext_resource type="PackedScene" uid="uid://cpcg5ug3rutlq" path="res://concept-map/concepts/salvagers.tscn" id="15_7ftck"]
+[ext_resource type="PackedScene" uid="uid://2jrq48rwuyls" path="res://concept-map/concepts/medics.tscn" id="16_utlsb"]
+[ext_resource type="PackedScene" uid="uid://dsv37l7unrm2e" path="res://concept-map/concepts/engineers.tscn" id="17_ltluw"]
+[ext_resource type="PackedScene" uid="uid://b031fpm2fu6f1" path="res://cutscene/play_animation_on_start.tscn" id="17_rnccx"]
+[ext_resource type="Texture2D" uid="uid://buc3vu7e6om1c" path="res://assets/npcs/jerry/jerry_angry.png" id="18_7trph"]
+[ext_resource type="PackedScene" uid="uid://d0r7la835u7wq" path="res://concept-map/concepts/taylor.tscn" id="20_bpc4w"]
+[ext_resource type="PackedScene" uid="uid://bppqrtvum64n1" path="res://concept-map/concepts/nate.tscn" id="21_gnqxc"]
+[ext_resource type="PackedScene" uid="uid://bk55nkktsq3s7" path="res://concept-map/concepts/jerry.tscn" id="22_nc18r"]
+[ext_resource type="PackedScene" uid="uid://dih3h8h1ydmo7" path="res://concept-map/concepts/end_of_the_world.tscn" id="26_yk4vq"]
+[ext_resource type="PackedScene" uid="uid://bgy0ifcrbug27" path="res://concept-map/concepts/plague_of_dreams.tscn" id="27_hfw3t"]
+[ext_resource type="PackedScene" uid="uid://dx6xjr5pem8yp" path="res://concept-map/concepts/demons.tscn" id="28_shrv5"]
+[ext_resource type="PackedScene" uid="uid://d4lq0ypd46jdf" path="res://concept-map/concepts/generators.tscn" id="29_1g1kh"]
+[ext_resource type="PackedScene" uid="uid://cnfcwymfs6yoq" path="res://concept-map/concepts/generator_crews.tscn" id="29_3h32n"]
+[ext_resource type="PackedScene" uid="uid://dqm085unfkqhk" path="res://concept-map/concepts/leylines.tscn" id="29_mjhar"]
+
+[sub_resource type="Animation" id="Animation_eigjd"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1754, 779)]
+}
+
+[sub_resource type="Animation" id="Animation_tq2w1"]
+resource_name = "base"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(2250, 779), Vector2(1500, 779)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_mwnhc"]
+_data = {
+"RESET": SubResource("Animation_eigjd"),
+"base": SubResource("Animation_tq2w1")
+}
 
 [node name="Brona1" node_paths=PackedStringArray("starting_page", "concepts", "default_topics") instance=ExtResource("1_qsal8")]
 starting_page = NodePath("1")
 concepts = NodePath("Concepts")
 default_topics = NodePath("Defaults")
 
-[node name="1" parent="." index="0" node_paths=PackedStringArray("next", "use_on_start_fn_from") instance=ExtResource("2_p2ho2")]
+[node name="1" parent="." index="0" node_paths=PackedStringArray("next") instance=ExtResource("2_p2ho2")]
 next = NodePath("../ConceptCutsceneNode")
-use_on_start_fn_from = NodePath("")
 
 [node name="bg" type="Sprite2D" parent="1" index="0"]
 scale = Vector2(1.35, 1.35)
@@ -177,7 +233,17 @@ theme_type_variation = &"VoiceoverBox"
 text = "\"Yeah, that's kind of the impression I always got.
 Me? I'm human, obviously, so I was raised to believe we could bring our era back.\""
 
-[node name="Brona" parent="Concepts" index="1" instance=ExtResource("7_djyi8")]
+[node name="Age of the Sun" parent="Concepts" index="1" instance=ExtResource("9_c1g8s")]
+
+[node name="CutsceneRedirectNode" parent="Concepts/Age of the Sun" index="0" node_paths=PackedStringArray("next") instance=ExtResource("10_mrlbu")]
+next = NodePath("../../Age of Dusk/AOD1")
+
+[node name="AgeOfTheMoon" parent="Concepts" index="2" instance=ExtResource("11_wj80n")]
+
+[node name="CutsceneRedirectNode" parent="Concepts/AgeOfTheMoon" index="0" node_paths=PackedStringArray("next") instance=ExtResource("10_mrlbu")]
+next = NodePath("../../Age of Dusk/AOD1")
+
+[node name="Brona" parent="Concepts" index="3" instance=ExtResource("7_djyi8")]
 
 [node name="Brona1" parent="Concepts/Brona" index="0" node_paths=PackedStringArray("next") instance=ExtResource("2_p2ho2")]
 visible = false
@@ -203,7 +269,7 @@ theme_type_variation = &"VoiceoverBox"
 text = "\"Oh, I'm doing all right. I'd been on back to back expeditions since May, but I finally managed to get some time off last
 month. So I'm rested and ready to go!\""
 
-[node name="Sun Temple" parent="Concepts" index="2" instance=ExtResource("10_63psu")]
+[node name="Sun Temple" parent="Concepts" index="4" instance=ExtResource("10_63psu")]
 
 [node name="SunTemple1" parent="Concepts/Sun Temple" index="0" node_paths=PackedStringArray("next") instance=ExtResource("2_p2ho2")]
 visible = false
@@ -227,6 +293,748 @@ offset_bottom = 995.0
 theme = ExtResource("5_gloko")
 theme_type_variation = &"VoiceoverBox"
 text = "\"Yep! Sun Temple City. That's home!\""
+
+[node name="Elves" parent="Concepts" index="5" instance=ExtResource("11_aq2yq")]
+
+[node name="CutsceneNode" parent="Concepts/Elves" index="0" node_paths=PackedStringArray("next") instance=ExtResource("2_p2ho2")]
+visible = false
+next = NodePath("../../../ConceptCutsceneNode")
+
+[node name="bg" type="Sprite2D" parent="Concepts/Elves/CutsceneNode" index="0"]
+scale = Vector2(1.35, 1.35)
+texture = ExtResource("3_jfk7p")
+centered = false
+
+[node name="brona" type="Sprite2D" parent="Concepts/Elves/CutsceneNode" index="1"]
+position = Vector2(455, 850)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("4_w7ofy")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Concepts/Elves/CutsceneNode" index="2"]
+offset_left = 684.0
+offset_top = 198.0
+offset_right = 1337.0
+offset_bottom = 393.0
+theme = ExtResource("5_gloko")
+theme_type_variation = &"VoiceoverBox"
+text = "\"If you're any indication, Elves seem pretty chill.\" She stops to think for a moment. \"Well, Taylor has no chill at all, but she's only half. Maybe it's a Half-Elf problem.\""
+
+[node name="Humans" parent="Concepts" index="6" instance=ExtResource("12_fcwu0")]
+
+[node name="humans1" parent="Concepts/Humans" index="0" instance=ExtResource("2_p2ho2")]
+visible = false
+is_option_node = true
+
+[node name="bg" type="Sprite2D" parent="Concepts/Humans/humans1" index="0"]
+scale = Vector2(1.35, 1.35)
+texture = ExtResource("3_jfk7p")
+centered = false
+
+[node name="brona" type="Sprite2D" parent="Concepts/Humans/humans1" index="1"]
+position = Vector2(455, 850)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("4_w7ofy")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Concepts/Humans/humans1" index="2"]
+offset_left = 762.0
+offset_top = 234.0
+offset_right = 1356.0
+offset_bottom = 354.0
+theme = ExtResource("5_gloko")
+theme_type_variation = &"VoiceoverBox"
+text = "\"I'd say we're a decent enough bunch, generally, wouldn't you?\""
+
+[node name="Yes" parent="Concepts/Humans/humans1" index="3" node_paths=PackedStringArray("to") instance=ExtResource("9_i4jsg")]
+offset_left = 762.0
+offset_top = 371.0
+offset_right = 970.0
+offset_bottom = 404.0
+text = "> \"Yes.\""
+to = NodePath("../../humans2")
+
+[node name="No" parent="Concepts/Humans/humans1" index="4" node_paths=PackedStringArray("to") instance=ExtResource("9_i4jsg")]
+offset_left = 762.0
+offset_top = 413.0
+offset_right = 970.0
+offset_bottom = 446.0
+text = "> \"No.\""
+to = NodePath("../../humans3")
+
+[node name="humans2" parent="Concepts/Humans" index="1" node_paths=PackedStringArray("next") instance=ExtResource("2_p2ho2")]
+visible = false
+next = NodePath("../../../ConceptCutsceneNode")
+
+[node name="bg" type="Sprite2D" parent="Concepts/Humans/humans2" index="0"]
+scale = Vector2(1.35, 1.35)
+texture = ExtResource("3_jfk7p")
+centered = false
+
+[node name="brona" type="Sprite2D" parent="Concepts/Humans/humans2" index="1"]
+position = Vector2(455, 850)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("4_w7ofy")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Concepts/Humans/humans2" index="2"]
+offset_left = 680.0
+offset_top = 98.0
+offset_right = 1274.0
+offset_bottom = 218.0
+theme = ExtResource("5_gloko")
+theme_type_variation = &"VoiceoverBox"
+text = "\"Right?\" she says. \"Some humans get weird. But we're mostly just scared.\""
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="Concepts/Humans/humans2" index="3"]
+offset_left = 762.0
+offset_top = 235.0
+offset_right = 1356.0
+offset_bottom = 468.0
+theme = ExtResource("5_gloko")
+theme_type_variation = &"VoiceoverBox"
+text = " \"Elves--I don't really mean you--we grew up with you, but like, Moon Temple elves--they talk about how our era's ended, and theirs is beginning, and to us, it sounds like a threat.\""
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="Concepts/Humans/humans2" index="4"]
+offset_left = 847.0
+offset_top = 485.0
+offset_right = 1441.0
+offset_bottom = 678.0
+theme = ExtResource("5_gloko")
+theme_type_variation = &"VoiceoverBox"
+text = " \"Not that we're justifed when we take it out on you folks, obviously. Just, if you wanna understand, that's how you gotta look at it.\""
+
+[node name="humans3" parent="Concepts/Humans" index="2" instance=ExtResource("2_p2ho2")]
+visible = false
+
+[node name="bg" type="Sprite2D" parent="Concepts/Humans/humans3" index="0"]
+scale = Vector2(1.35, 1.35)
+texture = ExtResource("3_jfk7p")
+centered = false
+
+[node name="brona" type="Sprite2D" parent="Concepts/Humans/humans3" index="1"]
+position = Vector2(455, 850)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("13_l34vt")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Concepts/Humans/humans3" index="2"]
+offset_left = 565.0
+offset_top = 190.0
+offset_right = 1033.0
+offset_bottom = 360.0
+theme = ExtResource("5_gloko")
+theme_type_variation = &"VoiceoverBox"
+text = "\"Well if you're just gonna be racist, then I don't want to talk.\""
+
+[node name="MoonTemple" parent="Concepts" index="7" instance=ExtResource("14_v2wmk")]
+
+[node name="CutsceneNode" parent="Concepts/MoonTemple" index="0" node_paths=PackedStringArray("next") instance=ExtResource("2_p2ho2")]
+visible = false
+next = NodePath("../../../ConceptCutsceneNode")
+
+[node name="bg" type="Sprite2D" parent="Concepts/MoonTemple/CutsceneNode" index="0"]
+scale = Vector2(1.35, 1.35)
+texture = ExtResource("3_jfk7p")
+centered = false
+
+[node name="brona" type="Sprite2D" parent="Concepts/MoonTemple/CutsceneNode" index="1"]
+position = Vector2(455, 850)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("4_w7ofy")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Concepts/MoonTemple/CutsceneNode" index="2"]
+offset_left = -1.0
+offset_top = 832.0
+offset_right = 1979.0
+offset_bottom = 995.0
+theme = ExtResource("5_gloko")
+theme_type_variation = &"VoiceoverBox"
+text = "\"The big Elven city? I don't really know much about it.  They're supposed to be our enemy, I guess.
+But the only people I've ever know with any Moon Temple ties would be you--or your parents ,
+anyway--and Taylor. And you guys both seem all right.\""
+
+[node name="Salvagers" parent="Concepts" index="8" instance=ExtResource("15_7ftck")]
+
+[node name="CutsceneNode" parent="Concepts/Salvagers" index="0" node_paths=PackedStringArray("next") instance=ExtResource("2_p2ho2")]
+visible = false
+next = NodePath("../../../ConceptCutsceneNode")
+
+[node name="bg" type="Sprite2D" parent="Concepts/Salvagers/CutsceneNode" index="0"]
+scale = Vector2(1.35, 1.35)
+texture = ExtResource("3_jfk7p")
+centered = false
+
+[node name="brona" type="Sprite2D" parent="Concepts/Salvagers/CutsceneNode" index="1"]
+position = Vector2(455, 850)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("4_w7ofy")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Concepts/Salvagers/CutsceneNode" index="2"]
+offset_left = 684.0
+offset_top = 218.0
+offset_right = 1437.0
+offset_bottom = 411.0
+theme = ExtResource("5_gloko")
+theme_type_variation = &"VoiceoverBox"
+bbcode_enabled = true
+text = "\"Oh, it's the [i]best[/i] job. Never cooped up in a room--always exploring--always learning. I feel so sorry for you Medics and Engineers who only get to come out with us every few months.\""
+
+[node name="Medics" parent="Concepts" index="9" instance=ExtResource("16_utlsb")]
+
+[node name="CutsceneNode" parent="Concepts/Medics" index="0" node_paths=PackedStringArray("next") instance=ExtResource("2_p2ho2")]
+visible = false
+next = NodePath("../CutsceneNode2")
+
+[node name="bg" type="Sprite2D" parent="Concepts/Medics/CutsceneNode" index="0"]
+scale = Vector2(1.35, 1.35)
+texture = ExtResource("3_jfk7p")
+centered = false
+
+[node name="brona" type="Sprite2D" parent="Concepts/Medics/CutsceneNode" index="1"]
+position = Vector2(500, 875)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("13_l34vt")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Concepts/Medics/CutsceneNode" index="2"]
+offset_left = 684.0
+offset_top = 218.0
+offset_right = 1162.0
+offset_bottom = 302.0
+theme = ExtResource("5_gloko")
+theme_type_variation = &"VoiceoverBox"
+bbcode_enabled = true
+text = "\"Medics are killjoys always.\""
+
+[node name="CutsceneNode2" parent="Concepts/Medics" index="1" node_paths=PackedStringArray("next") instance=ExtResource("2_p2ho2")]
+visible = false
+next = NodePath("../../../ConceptCutsceneNode")
+
+[node name="bg" type="Sprite2D" parent="Concepts/Medics/CutsceneNode2" index="0"]
+scale = Vector2(1.35, 1.35)
+texture = ExtResource("3_jfk7p")
+centered = false
+
+[node name="brona" type="Sprite2D" parent="Concepts/Medics/CutsceneNode2" index="1"]
+position = Vector2(455, 850)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("4_w7ofy")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Concepts/Medics/CutsceneNode2" index="2"]
+offset_left = 684.0
+offset_top = 218.0
+offset_right = 1162.0
+offset_bottom = 302.0
+theme = ExtResource("5_gloko")
+theme_type_variation = &"VoiceoverBox"
+bbcode_enabled = true
+text = "\"Don't tell Taylor I said that.\""
+
+[node name="Engineers" parent="Concepts" index="10" instance=ExtResource("17_ltluw")]
+
+[node name="CutsceneNode" parent="Concepts/Engineers" index="0" node_paths=PackedStringArray("next") instance=ExtResource("2_p2ho2")]
+visible = false
+next = NodePath("../CutsceneNode2")
+
+[node name="bg" type="Sprite2D" parent="Concepts/Engineers/CutsceneNode" index="0"]
+scale = Vector2(1.35, 1.35)
+texture = ExtResource("3_jfk7p")
+centered = false
+
+[node name="brona" type="Sprite2D" parent="Concepts/Engineers/CutsceneNode" index="1"]
+position = Vector2(455, 850)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("4_w7ofy")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Concepts/Engineers/CutsceneNode" index="2"]
+offset_left = 776.0
+offset_top = 215.0
+offset_right = 1313.0
+offset_bottom = 335.0
+theme = ExtResource("5_gloko")
+theme_type_variation = &"VoiceoverBox"
+text = "\"Engineers are always like--"
+
+[node name="CutsceneNode2" parent="Concepts/Engineers" index="1" node_paths=PackedStringArray("next") instance=ExtResource("2_p2ho2")]
+visible = false
+next = NodePath("../CutsceneNode3")
+
+[node name="bg" type="Sprite2D" parent="Concepts/Engineers/CutsceneNode2" index="0"]
+scale = Vector2(1.35, 1.35)
+texture = ExtResource("3_jfk7p")
+centered = false
+
+[node name="brona" type="Sprite2D" parent="Concepts/Engineers/CutsceneNode2" index="1"]
+position = Vector2(500, 875)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("13_l34vt")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Concepts/Engineers/CutsceneNode2" index="2"]
+offset_left = 776.0
+offset_top = 215.0
+offset_right = 1313.0
+offset_bottom = 335.0
+theme = ExtResource("5_gloko")
+theme_type_variation = &"VoiceoverBox"
+text = "\"Engineers are always like--"
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="Concepts/Engineers/CutsceneNode2" index="3"]
+offset_left = 970.0
+offset_top = 360.0
+offset_right = 1507.0
+offset_bottom = 468.0
+theme = ExtResource("5_gloko")
+theme_type_variation = &"VoiceoverBox"
+text = "\"'Safety, safety, safety!'
+"
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="Concepts/Engineers/CutsceneNode2" index="4"]
+offset_left = 1121.0
+offset_top = 497.0
+offset_right = 1658.0
+offset_bottom = 605.0
+theme = ExtResource("5_gloko")
+theme_type_variation = &"VoiceoverBox"
+text = "\"Bleh! Live a little, you know?'
+"
+
+[node name="CutsceneNode3" parent="Concepts/Engineers" index="2" node_paths=PackedStringArray("next", "use_on_start_fn_from") instance=ExtResource("2_p2ho2")]
+visible = false
+next = NodePath("../CutsceneNode4")
+use_on_start_fn_from = NodePath("jerry/PlayAnimationOnStart")
+
+[node name="bg" type="Sprite2D" parent="Concepts/Engineers/CutsceneNode3" index="0"]
+scale = Vector2(1.35, 1.35)
+texture = ExtResource("3_jfk7p")
+centered = false
+
+[node name="brona" type="Sprite2D" parent="Concepts/Engineers/CutsceneNode3" index="1"]
+position = Vector2(455, 850)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("4_w7ofy")
+
+[node name="jerry" type="Sprite2D" parent="Concepts/Engineers/CutsceneNode3" index="2"]
+position = Vector2(1754, 779)
+scale = Vector2(0.559, 0.6)
+texture = ExtResource("18_7trph")
+flip_h = true
+
+[node name="PlayAnimationOnStart" parent="Concepts/Engineers/CutsceneNode3/jerry" index="0" node_paths=PackedStringArray("player") instance=ExtResource("17_rnccx")]
+player = NodePath("../AnimationPlayer")
+repeat = 0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Concepts/Engineers/CutsceneNode3/jerry" index="1"]
+libraries = {
+"": SubResource("AnimationLibrary_mwnhc")
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Concepts/Engineers/CutsceneNode3" index="3"]
+offset_left = 787.0
+offset_top = 58.0
+offset_right = 1324.0
+offset_bottom = 235.0
+theme = ExtResource("5_gloko")
+theme_type_variation = &"VoiceoverBox"
+text = "\"Then maybe you'd do well to think more like an engineer and less like an eight year old, Brona.\""
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="Concepts/Engineers/CutsceneNode3" index="4"]
+offset_left = 728.0
+offset_top = 264.0
+offset_right = 1041.0
+offset_bottom = 441.0
+theme = ExtResource("5_gloko")
+theme_type_variation = &"VoiceoverBox"
+text = "\"Whoops! Forgot you were there, boss.\""
+
+[node name="CutsceneNode4" parent="Concepts/Engineers" index="3" node_paths=PackedStringArray("next", "use_on_start_fn_from") instance=ExtResource("2_p2ho2")]
+visible = false
+next = NodePath("../../../ConceptCutsceneNode")
+use_on_start_fn_from = NodePath("../CutsceneNode3/jerry/PlayAnimationOnStart")
+
+[node name="bg" type="Sprite2D" parent="Concepts/Engineers/CutsceneNode4" index="0"]
+scale = Vector2(1.35, 1.35)
+texture = ExtResource("3_jfk7p")
+centered = false
+
+[node name="brona" type="Sprite2D" parent="Concepts/Engineers/CutsceneNode4" index="1"]
+position = Vector2(455, 850)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("4_w7ofy")
+
+[node name="jerry" type="Sprite2D" parent="Concepts/Engineers/CutsceneNode4" index="2"]
+position = Vector2(1754, 779)
+scale = Vector2(0.559, 0.6)
+texture = ExtResource("18_7trph")
+flip_h = true
+
+[node name="PlayAnimationOnStart" parent="Concepts/Engineers/CutsceneNode4/jerry" index="0" node_paths=PackedStringArray("player") instance=ExtResource("17_rnccx")]
+player = NodePath("../../../CutsceneNode3/jerry/AnimationPlayer")
+repeat = 0
+from_end = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Concepts/Engineers/CutsceneNode4/jerry" index="1"]
+libraries = {
+"": SubResource("AnimationLibrary_mwnhc")
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Concepts/Engineers/CutsceneNode4" index="3"]
+offset_left = 847.0
+offset_top = 468.0
+offset_right = 1075.0
+offset_bottom = 554.0
+theme = ExtResource("5_gloko")
+theme_type_variation = &"VoiceoverBox"
+text = "\"Anyway.\""
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="Concepts/Engineers/CutsceneNode4" index="4"]
+offset_left = 762.0
+offset_top = 264.0
+offset_right = 1075.0
+offset_bottom = 441.0
+theme = ExtResource("5_gloko")
+theme_type_variation = &"VoiceoverBox"
+text = "\"Whoops! Forgot you were there, boss.\""
+
+[node name="Taylor" parent="Concepts" index="11" instance=ExtResource("20_bpc4w")]
+
+[node name="CutsceneNode" parent="Concepts/Taylor" index="0" node_paths=PackedStringArray("next") instance=ExtResource("2_p2ho2")]
+next = NodePath("../../../ConceptCutsceneNode")
+
+[node name="bg" type="Sprite2D" parent="Concepts/Taylor/CutsceneNode" index="0"]
+scale = Vector2(1.35, 1.35)
+texture = ExtResource("3_jfk7p")
+centered = false
+
+[node name="brona" type="Sprite2D" parent="Concepts/Taylor/CutsceneNode" index="1"]
+position = Vector2(455, 850)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("4_w7ofy")
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="Concepts/Taylor/CutsceneNode" index="2"]
+offset_left = -1.0
+offset_top = 875.0
+offset_right = 1979.0
+offset_bottom = 995.0
+theme = ExtResource("5_gloko")
+theme_type_variation = &"VoiceoverBox"
+text = "\"She's fine, I guess.\""
+
+[node name="Nate" parent="Concepts" index="12" instance=ExtResource("21_gnqxc")]
+
+[node name="CutsceneNode2" parent="Concepts/Nate" index="0" node_paths=PackedStringArray("next") instance=ExtResource("2_p2ho2")]
+next = NodePath("../CutsceneNode")
+
+[node name="bg" type="Sprite2D" parent="Concepts/Nate/CutsceneNode2" index="0"]
+scale = Vector2(1.35, 1.35)
+texture = ExtResource("3_jfk7p")
+centered = false
+
+[node name="brona" type="Sprite2D" parent="Concepts/Nate/CutsceneNode2" index="1"]
+position = Vector2(447, 875)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("4_w7ofy")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Concepts/Nate/CutsceneNode2" index="2"]
+offset_left = 612.0
+offset_top = 264.0
+offset_right = 932.0
+offset_bottom = 357.0
+theme = ExtResource("5_gloko")
+theme_type_variation = &"VoiceoverBox"
+bbcode_enabled = true
+text = "She considers this."
+
+[node name="CutsceneNode" parent="Concepts/Nate" index="1" node_paths=PackedStringArray("next") instance=ExtResource("2_p2ho2")]
+next = NodePath("../CutsceneNode3")
+
+[node name="bg" type="Sprite2D" parent="Concepts/Nate/CutsceneNode" index="0"]
+scale = Vector2(1.35, 1.35)
+texture = ExtResource("3_jfk7p")
+centered = false
+
+[node name="brona" type="Sprite2D" parent="Concepts/Nate/CutsceneNode" index="1"]
+position = Vector2(500, 875)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("13_l34vt")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Concepts/Nate/CutsceneNode" index="2"]
+offset_left = 612.0
+offset_top = 264.0
+offset_right = 1202.0
+offset_bottom = 357.0
+theme = ExtResource("5_gloko")
+theme_type_variation = &"VoiceoverBox"
+bbcode_enabled = true
+text = "\"Nate's an ass,\" she says."
+
+[node name="CutsceneNode3" parent="Concepts/Nate" index="2" node_paths=PackedStringArray("next") instance=ExtResource("2_p2ho2")]
+next = NodePath("../../../ConceptCutsceneNode")
+
+[node name="bg" type="Sprite2D" parent="Concepts/Nate/CutsceneNode3" index="0"]
+scale = Vector2(1.35, 1.35)
+texture = ExtResource("3_jfk7p")
+centered = false
+
+[node name="brona" type="Sprite2D" parent="Concepts/Nate/CutsceneNode3" index="1"]
+position = Vector2(500, 875)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("13_l34vt")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Concepts/Nate/CutsceneNode3" index="2"]
+offset_left = 684.0
+offset_top = 739.0
+offset_right = 1441.0
+offset_bottom = 1016.0
+theme = ExtResource("5_gloko")
+theme_type_variation = &"VoiceoverBox"
+bbcode_enabled = true
+text = "\"You know, the other day, he was fixing that flaky radio again, and I asked whether he was about done, because it was getting dark and we needed to find a camp. Not even, 'hurry up', just, 'are you close?' I swear to God, the dude was ready to throw hands 'til Jerry talked him down.\""
+
+[node name="Jerry" parent="Concepts" index="13" instance=ExtResource("22_nc18r")]
+
+[node name="CutsceneNode" parent="Concepts/Jerry" index="0" node_paths=PackedStringArray("next") instance=ExtResource("2_p2ho2")]
+visible = false
+next = NodePath("../CutsceneNode2")
+
+[node name="bg" type="Sprite2D" parent="Concepts/Jerry/CutsceneNode" index="0"]
+scale = Vector2(1.35, 1.35)
+texture = ExtResource("3_jfk7p")
+centered = false
+
+[node name="brona" type="Sprite2D" parent="Concepts/Jerry/CutsceneNode" index="1"]
+position = Vector2(455, 850)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("4_w7ofy")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Concepts/Jerry/CutsceneNode" index="2"]
+offset_left = 754.0
+offset_top = 215.0
+offset_right = 1204.0
+offset_bottom = 335.0
+theme = ExtResource("5_gloko")
+theme_type_variation = &"VoiceoverBox"
+text = "\"Jerry's the best. He's been like a second father to me.\""
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="Concepts/Jerry/CutsceneNode" index="3"]
+offset_left = 847.0
+offset_top = 371.0
+offset_right = 1297.0
+offset_bottom = 554.0
+theme = ExtResource("5_gloko")
+theme_type_variation = &"VoiceoverBox"
+text = "\"He might seem harsh at times, but if you keep the bullshit to a minimum, he's a really nice guy.\""
+
+[node name="CutsceneNode2" parent="Concepts/Jerry" index="1" node_paths=PackedStringArray("next") instance=ExtResource("2_p2ho2")]
+visible = false
+next = NodePath("../../../ConceptCutsceneNode")
+
+[node name="bg" type="Sprite2D" parent="Concepts/Jerry/CutsceneNode2" index="0"]
+scale = Vector2(1.35, 1.35)
+texture = ExtResource("3_jfk7p")
+centered = false
+
+[node name="brona" type="Sprite2D" parent="Concepts/Jerry/CutsceneNode2" index="1"]
+position = Vector2(455, 850)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("4_w7ofy")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Concepts/Jerry/CutsceneNode2" index="2"]
+offset_left = 754.0
+offset_top = 215.0
+offset_right = 1204.0
+offset_bottom = 371.0
+theme = ExtResource("5_gloko")
+theme_type_variation = &"VoiceoverBox"
+text = "\"Of course, Jerry's idea of bullshit and my idea of fun ..."
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="Concepts/Jerry/CutsceneNode2" index="3"]
+offset_left = 847.0
+offset_top = 404.0
+offset_right = 1324.0
+offset_bottom = 605.0
+theme = ExtResource("5_gloko")
+theme_type_variation = &"VoiceoverBox"
+bbcode_enabled = true
+text = "\"... can tend to overlap a little. But he knows I know better than to do anything [i]really[/i] stupid. We trust each other.\""
+
+[node name="EndOfTheWorld" parent="Concepts" index="14" instance=ExtResource("26_yk4vq")]
+
+[node name="CutsceneNode" parent="Concepts/EndOfTheWorld" index="0" node_paths=PackedStringArray("next") instance=ExtResource("2_p2ho2")]
+visible = false
+next = NodePath("../../../ConceptCutsceneNode")
+
+[node name="bg" type="Sprite2D" parent="Concepts/EndOfTheWorld/CutsceneNode" index="0"]
+scale = Vector2(1.35, 1.35)
+texture = ExtResource("3_jfk7p")
+centered = false
+
+[node name="brona" type="Sprite2D" parent="Concepts/EndOfTheWorld/CutsceneNode" index="1"]
+position = Vector2(455, 850)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("4_w7ofy")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Concepts/EndOfTheWorld/CutsceneNode" index="2"]
+offset_left = -1.0
+offset_top = 875.0
+offset_right = 1979.0
+offset_bottom = 995.0
+theme = ExtResource("5_gloko")
+theme_type_variation = &"VoiceoverBox"
+text = "\"Jerry says the world isn't ending. But just look around. There obviously used to be ... more.\""
+
+[node name="Plague of Dreams" parent="Concepts" index="15" instance=ExtResource("27_hfw3t")]
+
+[node name="CutsceneNode" parent="Concepts/Plague of Dreams" index="0" node_paths=PackedStringArray("next") instance=ExtResource("2_p2ho2")]
+visible = false
+next = NodePath("../CutsceneNode2")
+
+[node name="bg" type="Sprite2D" parent="Concepts/Plague of Dreams/CutsceneNode" index="0"]
+scale = Vector2(1.35, 1.35)
+texture = ExtResource("3_jfk7p")
+centered = false
+
+[node name="brona" type="Sprite2D" parent="Concepts/Plague of Dreams/CutsceneNode" index="1"]
+position = Vector2(455, 850)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("4_w7ofy")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Concepts/Plague of Dreams/CutsceneNode" index="2"]
+offset_left = -1.0
+offset_top = 875.0
+offset_right = 1979.0
+offset_bottom = 995.0
+theme = ExtResource("5_gloko")
+theme_type_variation = &"VoiceoverBox"
+text = "\"Growing up, I had a neighbour who was dying of it. Young guy. A salvager. Bet Jerry knew him.\""
+
+[node name="CutsceneNode2" parent="Concepts/Plague of Dreams" index="1" node_paths=PackedStringArray("next") instance=ExtResource("2_p2ho2")]
+visible = false
+next = NodePath("../../../ConceptCutsceneNode")
+
+[node name="bg" type="Sprite2D" parent="Concepts/Plague of Dreams/CutsceneNode2" index="0"]
+scale = Vector2(1.35, 1.35)
+texture = ExtResource("3_jfk7p")
+centered = false
+
+[node name="brona" type="Sprite2D" parent="Concepts/Plague of Dreams/CutsceneNode2" index="1"]
+position = Vector2(455, 850)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("13_l34vt")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Concepts/Plague of Dreams/CutsceneNode2" index="2"]
+offset_left = -1.0
+offset_top = 832.0
+offset_right = 1979.0
+offset_bottom = 995.0
+theme = ExtResource("5_gloko")
+theme_type_variation = &"VoiceoverBox"
+bbcode_enabled = true
+text = "\"The way he was past a month or two? Lord, if a Demon ever gets me, I hope I die on the spot.
+I hear elves fare a little better than we do. But then I hear elves ... see things when they get it.
+So maybe it [i]isn't[/i] better.\""
+
+[node name="Demons" parent="Concepts" index="16" instance=ExtResource("28_shrv5")]
+
+[node name="CutsceneNode" parent="Concepts/Demons" index="0" node_paths=PackedStringArray("next") instance=ExtResource("2_p2ho2")]
+visible = false
+next = NodePath("../CutsceneNode2")
+
+[node name="bg" type="Sprite2D" parent="Concepts/Demons/CutsceneNode" index="0"]
+scale = Vector2(1.35, 1.35)
+texture = ExtResource("3_jfk7p")
+centered = false
+
+[node name="brona" type="Sprite2D" parent="Concepts/Demons/CutsceneNode" index="1"]
+position = Vector2(455, 850)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("4_w7ofy")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Concepts/Demons/CutsceneNode" index="2"]
+offset_left = -1.0
+offset_top = 875.0
+offset_right = 1979.0
+offset_bottom = 995.0
+theme = ExtResource("5_gloko")
+theme_type_variation = &"VoiceoverBox"
+text = "\"Never seen one. I guess you have--"
+
+[node name="CutsceneNode2" parent="Concepts/Demons" index="1" node_paths=PackedStringArray("next") instance=ExtResource("2_p2ho2")]
+visible = false
+next = NodePath("../../../ConceptCutsceneNode")
+
+[node name="bg" type="Sprite2D" parent="Concepts/Demons/CutsceneNode2" index="0"]
+scale = Vector2(1.35, 1.35)
+texture = ExtResource("3_jfk7p")
+centered = false
+
+[node name="brona" type="Sprite2D" parent="Concepts/Demons/CutsceneNode2" index="1"]
+position = Vector2(418, 832)
+rotation = 0.0767945
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("4_w7ofy")
+flip_h = true
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Concepts/Demons/CutsceneNode2" index="2"]
+offset_left = -1.0
+offset_top = 875.0
+offset_right = 1979.0
+offset_bottom = 995.0
+theme = ExtResource("5_gloko")
+theme_type_variation = &"VoiceoverBox"
+text = "\"But you'd probably rather not talk about that.\""
+
+[node name="GeneratorCrews" parent="Concepts" index="17" instance=ExtResource("29_3h32n")]
+
+[node name="CutsceneRedirectNode" parent="Concepts/GeneratorCrews" index="0" node_paths=PackedStringArray("next") instance=ExtResource("10_mrlbu")]
+next = NodePath("../../Salvagers/CutsceneNode")
+
+[node name="Generators" parent="Concepts" index="18" instance=ExtResource("29_1g1kh")]
+
+[node name="CutsceneNode" parent="Concepts/Generators" index="0" node_paths=PackedStringArray("next") instance=ExtResource("2_p2ho2")]
+next = NodePath("../../../ConceptCutsceneNode")
+
+[node name="bg" type="Sprite2D" parent="Concepts/Generators/CutsceneNode" index="0"]
+scale = Vector2(1.35, 1.35)
+texture = ExtResource("3_jfk7p")
+centered = false
+
+[node name="brona" type="Sprite2D" parent="Concepts/Generators/CutsceneNode" index="1"]
+position = Vector2(455, 850)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("4_w7ofy")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Concepts/Generators/CutsceneNode" index="2"]
+offset_left = -1.0
+offset_top = 875.0
+offset_right = 1979.0
+offset_bottom = 995.0
+theme = ExtResource("5_gloko")
+theme_type_variation = &"VoiceoverBox"
+text = "\"The Altars of Sun Temple. Keeping them running--keeping the City and the Age alive--
+that's what drives us all.\""
+
+[node name="Leylines" parent="Concepts" index="19" instance=ExtResource("29_mjhar")]
+
+[node name="CutsceneNode" parent="Concepts/Leylines" index="0" node_paths=PackedStringArray("next") instance=ExtResource("2_p2ho2")]
+visible = false
+next = NodePath("../../../ConceptCutsceneNode")
+
+[node name="bg" type="Sprite2D" parent="Concepts/Leylines/CutsceneNode" index="0"]
+scale = Vector2(1.35, 1.35)
+texture = ExtResource("3_jfk7p")
+centered = false
+
+[node name="brona" type="Sprite2D" parent="Concepts/Leylines/CutsceneNode" index="1"]
+position = Vector2(455, 850)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("4_w7ofy")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Concepts/Leylines/CutsceneNode" index="2"]
+offset_left = -1.0
+offset_top = 832.0
+offset_right = 1979.0
+offset_bottom = 995.0
+theme = ExtResource("5_gloko")
+theme_type_variation = &"VoiceoverBox"
+text = "\"Medics love 'em, engineers hate 'em, I don't give a damn because most of the stuff
+I go after isn't affected by them either way. Though they do tend to have Demons
+hanging around 'em, so there's always that to be aware of.\""
 
 [node name="Defaults" type="Node" parent="." index="4"]
 

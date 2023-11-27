@@ -1,16 +1,22 @@
-[gd_scene load_steps=6 format=3 uid="uid://disv4e233mw0e"]
+[gd_scene load_steps=9 format=3 uid="uid://disv4e233mw0e"]
 
 [ext_resource type="PackedScene" uid="uid://bp8tsdjdbwj8i" path="res://cutscene/cutscene.tscn" id="1_xokwk"]
 [ext_resource type="PackedScene" uid="uid://55vflx8ylix1" path="res://cutscene/cutscene_node.tscn" id="2_6fcjh"]
 [ext_resource type="Texture2D" uid="uid://dlfi64p84aoys" path="res://assets/scenes/demo/1/industrial/cutscene/1-ground.png" id="3_s7s43"]
 [ext_resource type="Texture2D" uid="uid://dxlwv778ouxxb" path="res://assets/npcs/nate/bored.png" id="4_dcr1o"]
 [ext_resource type="PackedScene" uid="uid://b11g7mb25w5xp" path="res://cutscene/smart_label.tscn" id="5_c3g3p"]
+[ext_resource type="PackedScene" path="res://cutscene/cutscene_option.tscn" id="6_djk5t"]
+[ext_resource type="PackedScene" uid="uid://cm3keg86x7x3y" path="res://cutscene/concept_cutscene_node.tscn" id="7_om0mq"]
+[ext_resource type="Texture2D" uid="uid://dwo3yyav56eua" path="res://assets/npcs/nate/angry.png" id="8_anes8"]
 
-[node name="Jerry1" node_paths=PackedStringArray("starting_page") instance=ExtResource("1_xokwk")]
+[node name="Nate1" node_paths=PackedStringArray("starting_page", "concepts", "default_topics") instance=ExtResource("1_xokwk")]
 starting_page = NodePath("1")
+concepts = NodePath("Concepts")
+default_topics = NodePath("Defaults")
 
-[node name="1" parent="." index="0" node_paths=PackedStringArray("use_on_start_fn_from") instance=ExtResource("2_6fcjh")]
-use_on_start_fn_from = NodePath("")
+[node name="1" parent="." index="0" node_paths=PackedStringArray("next") instance=ExtResource("2_6fcjh")]
+visible = false
+next = NodePath("../2")
 
 [node name="bg" type="Sprite2D" parent="1" index="0"]
 scale = Vector2(1.35, 1.35)
@@ -23,4 +29,153 @@ scale = Vector2(0.7, 0.7)
 texture = ExtResource("4_dcr1o")
 
 [node name="SmartLabel" parent="1" index="2" instance=ExtResource("5_c3g3p")]
-text = "\"Hey.\""
+text = "\"It's on a Leyline. I checked already.\""
+
+[node name="2" parent="." index="1" instance=ExtResource("2_6fcjh")]
+visible = false
+is_option_node = true
+
+[node name="bg" type="Sprite2D" parent="2" index="0"]
+scale = Vector2(1.35, 1.35)
+texture = ExtResource("3_s7s43")
+centered = false
+
+[node name="nate" type="Sprite2D" parent="2" index="1"]
+position = Vector2(455, 889)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("4_dcr1o")
+
+[node name="CutsceneOption" parent="2" index="2" node_paths=PackedStringArray("to") instance=ExtResource("6_djk5t")]
+offset_left = 785.0
+offset_top = 166.0
+offset_right = 1098.0
+offset_bottom = 231.0
+text = "> \"Got it. Thanks.\""
+to = NodePath("../../4")
+
+[node name="CutsceneOption2" parent="2" index="3" node_paths=PackedStringArray("to") instance=ExtResource("6_djk5t")]
+offset_left = 785.0
+offset_top = 242.0
+offset_right = 1098.0
+offset_bottom = 307.0
+text = "> \"What are you talking about?\""
+to = NodePath("../../3")
+
+[node name="3" parent="." index="2" instance=ExtResource("2_6fcjh")]
+visible = false
+is_option_node = true
+
+[node name="bg" type="Sprite2D" parent="3" index="0"]
+scale = Vector2(1.35, 1.35)
+texture = ExtResource("3_s7s43")
+centered = false
+
+[node name="nate" type="Sprite2D" parent="3" index="1"]
+position = Vector2(455, 889)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("4_dcr1o")
+
+[node name="CutsceneOption" parent="3" index="2" node_paths=PackedStringArray("to") instance=ExtResource("6_djk5t")]
+offset_left = 785.0
+offset_top = 483.0
+offset_right = 998.0
+offset_bottom = 548.0
+text = "> OK"
+to = NodePath("../../ConceptCutsceneNode")
+
+[node name="SmartLabel" parent="3" index="3" instance=ExtResource("5_c3g3p")]
+offset_left = 785.0
+offset_top = 307.0
+offset_right = 1126.0
+offset_bottom = 472.0
+text = "\"The panel on the wall beside me,\" Nate says."
+
+[node name="4" parent="." index="3" node_paths=PackedStringArray("next") instance=ExtResource("2_6fcjh")]
+visible = false
+next = NodePath("../ConceptCutsceneNode")
+
+[node name="bg" type="Sprite2D" parent="4" index="0"]
+scale = Vector2(1.35, 1.35)
+texture = ExtResource("3_s7s43")
+centered = false
+
+[node name="nate" type="Sprite2D" parent="4" index="1"]
+position = Vector2(455, 889)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("4_dcr1o")
+
+[node name="SmartLabel" parent="4" index="2" instance=ExtResource("5_c3g3p")]
+offset_left = 785.0
+offset_top = 307.0
+offset_right = 1126.0
+offset_bottom = 440.0
+text = "\"Don't mention it,\" Nate says."
+
+[node name="ConceptCutsceneNode" parent="." index="4" instance=ExtResource("7_om0mq")]
+visible = false
+
+[node name="Defaults" type="Node" parent="." index="5"]
+
+[node name="Base" parent="Defaults" index="0" instance=ExtResource("2_6fcjh")]
+visible = false
+
+[node name="bg" type="Sprite2D" parent="Defaults/Base" index="0"]
+scale = Vector2(1.35, 1.35)
+texture = ExtResource("3_s7s43")
+centered = false
+
+[node name="nate" type="Sprite2D" parent="Defaults/Base" index="1"]
+position = Vector2(455, 889)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("8_anes8")
+
+[node name="SmartLabel" parent="Defaults/Base" index="2" instance=ExtResource("5_c3g3p")]
+offset_left = 785.0
+offset_top = 307.0
+offset_right = 1126.0
+offset_bottom = 440.0
+text = "\"Are you trying to waste my time?\""
+
+[node name="World" parent="Defaults" index="1" instance=ExtResource("2_6fcjh")]
+visible = false
+tag = "World"
+
+[node name="bg" type="Sprite2D" parent="Defaults/World" index="0"]
+scale = Vector2(1.35, 1.35)
+texture = ExtResource("3_s7s43")
+centered = false
+
+[node name="nate" type="Sprite2D" parent="Defaults/World" index="1"]
+position = Vector2(455, 889)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("4_dcr1o")
+
+[node name="SmartLabel" parent="Defaults/World" index="2" instance=ExtResource("5_c3g3p")]
+offset_left = 785.0
+offset_top = 307.0
+offset_right = 1126.0
+offset_bottom = 440.0
+text = "\"Taylor'd know better than me.\""
+
+[node name="People" parent="Defaults" index="2" instance=ExtResource("2_6fcjh")]
+visible = false
+tag = "People"
+
+[node name="bg" type="Sprite2D" parent="Defaults/People" index="0"]
+scale = Vector2(1.35, 1.35)
+texture = ExtResource("3_s7s43")
+centered = false
+
+[node name="nate" type="Sprite2D" parent="Defaults/People" index="1"]
+position = Vector2(455, 889)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("4_dcr1o")
+
+[node name="SmartLabel" parent="Defaults/People" index="2" instance=ExtResource("5_c3g3p")]
+offset_left = 785.0
+offset_top = 307.0
+offset_right = 1060.0
+offset_bottom = 395.0
+text = "\"I don't gossip.\""
+
+[node name="Concepts" type="Node" parent="." index="6"]

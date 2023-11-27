@@ -286,3 +286,30 @@ func add_modal(some_modal):
 func remove_modal(some_modal):
 	if cur_modal == some_modal:
 		cur_modal = null
+
+func _init_quests_if_needed():
+	var q = get_state(["quests"])
+	if q != null:
+		return
+	set_state(
+		["quests"],
+		{"active": [], "complete": []},
+	)
+
+func start_quest(quest):
+	_init_quests_if_needed()
+	set_state_push_to_key(["quests", "active"], quest.id)
+
+func complete_quest(quest):
+	var active_quests = get_state(["quests", "active"])
+	active_quests = active_quests.filter(func(q): return q.id != quest.id)
+	set_state(["quests", "active"], active_quests)
+	set_state_push_to_key(["quests", "complete"], quest.id)
+
+func get_active_quests():
+	_init_quests_if_needed()
+	return get_state(["quests", "active"])
+
+func is_quest_active(quest):
+	_init_quests_if_needed()
+	return quest.id in get_state(["quests", "active"])

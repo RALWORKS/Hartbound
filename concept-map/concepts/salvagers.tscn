@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://cpcg5ug3rutlq"]
+
+[ext_resource type="PackedScene" uid="uid://bt0e2jwvmgpgm" path="res://concept-map/concept.tscn" id="1_stdi7"]
+
+[node name="Salvagers" instance=ExtResource("1_stdi7")]
+id = "salvagers"
+title = "salvagers"

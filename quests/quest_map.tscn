@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://c0vsa31kgtvm5"]
+
+[ext_resource type="Script" path="res://quests/quest-map.gd" id="1_kp1r4"]
+[ext_resource type="PackedScene" uid="uid://5exo54lvam30" path="res://quests/quests/demo_c_1_regroup_initial.tscn" id="2_ei1e3"]
+
+[node name="QuestMap" type="Node"]
+script = ExtResource("1_kp1r4")
+
+[node name="DemoC1RegroupInitial" parent="." instance=ExtResource("2_ei1e3")]

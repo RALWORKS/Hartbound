@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://pgm63ijam86e"]
+
+[ext_resource type="PackedScene" uid="uid://bt0e2jwvmgpgm" path="res://concept-map/concept.tscn" id="1_dpcj3"]
+
+[node name="MoonTemple" instance=ExtResource("1_dpcj3")]
+id = "moon-temple"
+title = "Moon Temple"

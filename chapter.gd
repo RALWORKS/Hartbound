@@ -60,9 +60,10 @@ func start_cutscene(cutscene_res, npc=null):
 	cutscene.start()
 
 func end_cutscene():
-	cutscene.free()
+	cutscene.call_deferred("free")
 	for child in cur_game:
 		$"../MainScreen/World".add_child(child)
+	game.chapter = self
 
 func update_cutscene_page(p):
 	cutscene.update_page(p)

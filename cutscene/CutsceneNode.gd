@@ -7,6 +7,7 @@ class_name CutsceneNode
 @export var is_option_node: bool
 @export var use_on_start_fn_from: Node
 @export var tag: String = ""
+@export var override_pause = false
 
 var just_clicked = false
 
@@ -30,6 +31,8 @@ func leave():
 	self.visible = false
 
 func _pause_next():
+	if override_pause:
+		return
 	just_clicked = true
 	await get_tree().create_timer(0.3).timeout
 	just_clicked = false
@@ -47,7 +50,7 @@ func flip():
 	if is_option_node:
 		return
 	self.leave()
-	if next:
+	if next != null:
 		next.start()
 	else:
 		$"/root/Game/Chapter".end_cutscene()

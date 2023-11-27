@@ -1,8 +1,8 @@
-[gd_scene load_steps=7 format=3]
+[gd_scene load_steps=7 format=3 uid="uid://drrvvmj1mrfm4"]
 
 [ext_resource type="Script" path="res://ui/destination_arrow.gd" id="1_m2cng"]
-[ext_resource type="Texture2D" path="res://assets/destination-arrow-1.png" id="1_vscdj"]
-[ext_resource type="Texture2D" path="res://assets/destination-arrow-2.png" id="2_uu4w6"]
+[ext_resource type="Texture2D" uid="uid://b23y3ueij64bk" path="res://assets/destination-arrow-1.png" id="1_vscdj"]
+[ext_resource type="Texture2D" uid="uid://46xx8a2jlkqj" path="res://assets/destination-arrow-2.png" id="2_uu4w6"]
 
 [sub_resource type="Animation" id="Animation_gcfco"]
 resource_name = "RESET"

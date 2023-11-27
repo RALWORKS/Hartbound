@@ -1,26 +1,96 @@
-[gd_scene load_steps=6 format=3 uid="uid://epq5ioa4sayx"]
+[gd_scene load_steps=7 format=3 uid="uid://epq5ioa4sayx"]
 
 [ext_resource type="PackedScene" uid="uid://bp8tsdjdbwj8i" path="res://cutscene/cutscene.tscn" id="1_qv2i1"]
 [ext_resource type="PackedScene" uid="uid://55vflx8ylix1" path="res://cutscene/cutscene_node.tscn" id="2_vonvd"]
 [ext_resource type="Texture2D" uid="uid://dlfi64p84aoys" path="res://assets/scenes/demo/1/industrial/cutscene/1-ground.png" id="3_ney04"]
 [ext_resource type="Texture2D" uid="uid://dx1wrwvh6nviu" path="res://assets/npcs/taylor/taylor_neutral.png" id="4_bxirh"]
 [ext_resource type="PackedScene" uid="uid://b11g7mb25w5xp" path="res://cutscene/smart_label.tscn" id="5_sc1vl"]
+[ext_resource type="PackedScene" uid="uid://cm3keg86x7x3y" path="res://cutscene/concept_cutscene_node.tscn" id="6_kxhl6"]
 
-[node name="Jerry1" node_paths=PackedStringArray("starting_page") instance=ExtResource("1_qv2i1")]
+[node name="Taylor1" node_paths=PackedStringArray("starting_page", "concepts", "default_topics") instance=ExtResource("1_qv2i1")]
 starting_page = NodePath("1")
+concepts = NodePath("Concepts")
+default_topics = NodePath("Defaults")
 
-[node name="1" parent="." index="0" node_paths=PackedStringArray("use_on_start_fn_from") instance=ExtResource("2_vonvd")]
-use_on_start_fn_from = NodePath("")
+[node name="1" parent="." index="0" node_paths=PackedStringArray("next") instance=ExtResource("2_vonvd")]
+visible = false
+next = NodePath("../ConceptCutsceneNode")
 
 [node name="bg" type="Sprite2D" parent="1" index="0"]
 scale = Vector2(1.35, 1.35)
 texture = ExtResource("3_ney04")
 centered = false
 
-[node name="nate" type="Sprite2D" parent="1" index="1"]
+[node name="taylor" type="Sprite2D" parent="1" index="1"]
 position = Vector2(455, 947)
 scale = Vector2(0.7, 0.7)
 texture = ExtResource("4_bxirh")
 
 [node name="SmartLabel" parent="1" index="2" instance=ExtResource("5_sc1vl")]
 text = "\"... Hi, {character,name,elf_short}.\""
+
+[node name="2" parent="." index="1" instance=ExtResource("2_vonvd")]
+
+[node name="bg" type="Sprite2D" parent="2" index="0"]
+scale = Vector2(1.35, 1.35)
+texture = ExtResource("3_ney04")
+centered = false
+
+[node name="taylor" type="Sprite2D" parent="2" index="1"]
+position = Vector2(455, 947)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("4_bxirh")
+
+[node name="SmartLabel" parent="2" index="2" instance=ExtResource("5_sc1vl")]
+text = "\"Let me know if there's anything else.\""
+
+[node name="ConceptCutsceneNode" parent="." index="2" node_paths=PackedStringArray("next") instance=ExtResource("6_kxhl6")]
+next = NodePath("../2")
+
+[node name="Defaults" type="Node" parent="." index="3"]
+
+[node name="Base" parent="Defaults" index="0" node_paths=PackedStringArray("next") instance=ExtResource("2_vonvd")]
+visible = false
+next = NodePath("../../ConceptCutsceneNode")
+
+[node name="bg" type="Sprite2D" parent="Defaults/Base" index="0"]
+scale = Vector2(1.35, 1.35)
+texture = ExtResource("3_ney04")
+centered = false
+
+[node name="taylor" type="Sprite2D" parent="Defaults/Base" index="1"]
+position = Vector2(455, 947)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("4_bxirh")
+
+[node name="SmartLabel" parent="Defaults/Base" index="2" instance=ExtResource("5_sc1vl")]
+offset_left = 649.0
+offset_top = 247.0
+offset_right = 1063.0
+offset_bottom = 415.0
+text = "\"No offense, but I'm not really sure why you're asking me this right now.\""
+
+[node name="World" parent="Defaults" index="1" node_paths=PackedStringArray("next") instance=ExtResource("2_vonvd")]
+visible = false
+next = NodePath("../../ConceptCutsceneNode")
+tag = "World"
+
+[node name="bg" type="Sprite2D" parent="Defaults/World" index="0"]
+scale = Vector2(1.35, 1.35)
+texture = ExtResource("3_ney04")
+centered = false
+
+[node name="taylor" type="Sprite2D" parent="Defaults/World" index="1"]
+position = Vector2(455, 947)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("4_bxirh")
+
+[node name="SmartLabel" parent="Defaults/World" index="2" instance=ExtResource("5_sc1vl")]
+offset_left = 649.0
+offset_top = 207.0
+offset_right = 1201.0
+offset_bottom = 377.0
+bbcode_enabled = true
+text = "\"Oh, don't get me started on [i]that[/i]. I'd prattle on for hours, and we've got work to do\""
+
+[node name="Concepts" type="Node" parent="." index="4"]

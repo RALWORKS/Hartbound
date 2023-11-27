@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://bxl45ycc6ucjc"]
+
+[ext_resource type="PackedScene" uid="uid://bt0e2jwvmgpgm" path="res://concept-map/concept.tscn" id="1_x7iuk"]
+
+[node name="Age of the Sun" instance=ExtResource("1_x7iuk")]
+id = "age-of-the-sun"
+title = "Age of the Sun"

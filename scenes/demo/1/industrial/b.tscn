@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://qhhv4s8njcrp"]
+[gd_scene load_steps=22 format=3 uid="uid://qhhv4s8njcrp"]
 
 [ext_resource type="PackedScene" uid="uid://byrlpmbpj6yr5" path="res://scene.tscn" id="1_4su6i"]
 [ext_resource type="Texture2D" uid="uid://dobfgkrdvoy5g" path="res://assets/scenes/demo/1/industrial/b.png" id="2_beatb"]
@@ -16,6 +16,9 @@
 [ext_resource type="PackedScene" uid="uid://cpbg7yuq873y5" path="res://item/interaction_action.tscn" id="14_v06dg"]
 [ext_resource type="PackedScene" uid="uid://dh1scrjroovcn" path="res://item/interaction_modal_maker.tscn" id="15_s4ofs"]
 [ext_resource type="PackedScene" uid="uid://ddhdd81qyis1b" path="res://cutscene/electrocuted_end.tscn" id="16_k1any"]
+[ext_resource type="PackedScene" uid="uid://blhapbv7bnq0p" path="res://quests/quest_boundary.tscn" id="17_hmbms"]
+[ext_resource type="PackedScene" uid="uid://cqv8vs3o2qua4" path="res://chapters/demo/1/jerry_says_no_leavng_alone.tscn" id="18_h44q5"]
+[ext_resource type="PackedScene" uid="uid://5exo54lvam30" path="res://quests/quests/demo_c_1_regroup_initial.tscn" id="18_i73ob"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_2fe48"]
 vertices = PackedVector2Array(4, 705, 354, 520, 704, 499, 1064, 765, 1520, 1240, 610, 1236, 8, 980)
@@ -137,16 +140,19 @@ vertices = PackedVector2Array(1313, 227, 1403, 173, 1494, 229, 1405, 319, 1310, 
 vertices = PackedVector2Array(1510, 361, 1596, 320, 1600, 446, 1510, 403)
 
 [node name="Brona" parent="YSort" index="14" instance=ExtResource("7_pftbf")]
-position = Vector2(235, 574)
+position = Vector2(413, 525)
+starting_animaton = "down-right-stopped"
 
 [node name="Jerry" parent="YSort" index="15" instance=ExtResource("8_nh0w8")]
-position = Vector2(408, 520)
+position = Vector2(538, 525)
+starting_animaton = "down-left-stopped"
 
 [node name="Taylor" parent="YSort" index="16" instance=ExtResource("9_5mskm")]
-position = Vector2(600, 504)
+position = Vector2(719, 504)
 
 [node name="Nate" parent="YSort" index="17" instance=ExtResource("10_yhvk4")]
-position = Vector2(1083, 160)
+position = Vector2(933, 609)
+starting_animaton = "right-stopped"
 
 [node name="Panel C-No-1" type="Node2D" parent="YSort" index="18"]
 
@@ -160,7 +166,7 @@ position = Vector2(17, -24)
 title = "Access Panel"
 reference_id = "panel-c-no-1"
 description = "There's an access panel built into the wall here."
-child_depth = 1
+child_depth = 2
 options_container_node = NodePath("../Actions")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/Panel C-No-1/InteractionArea" index="0"]
@@ -208,3 +214,31 @@ interactable = NodePath("..")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/InteractionArea/InteractRangeExtender" index="0"]
 polygon = PackedVector2Array(269, 514, 325, 480, 356, 533, 289, 561)
+
+[node name="QuestBoundary" parent="YSort" index="20" node_paths=PackedStringArray("wall_area_node", "quest") instance=ExtResource("17_hmbms")]
+wall_area_node = NodePath("stop")
+quest = NodePath("DemoC1RegroupInitial")
+cannot_pass_cutscene = ExtResource("18_h44q5")
+
+[node name="interact" type="CollisionPolygon2D" parent="YSort/QuestBoundary" index="1"]
+polygon = PackedVector2Array(-48, 674, 96, 583, 98, 1130, -56, 981)
+
+[node name="stop" type="CollisionPolygon2D" parent="YSort/QuestBoundary" index="2"]
+polygon = PackedVector2Array(55, 588, 53, 1110, -8, 1064, -5, 616)
+
+[node name="DemoC1RegroupInitial" parent="YSort/QuestBoundary" index="3" instance=ExtResource("18_i73ob")]
+
+[node name="QuestBoundary2" parent="YSort" index="21" node_paths=PackedStringArray("wall_area_node", "quest") instance=ExtResource("17_hmbms")]
+wall_area_node = NodePath("stop")
+quest = NodePath("../QuestBoundary/DemoC1RegroupInitial")
+cannot_pass_cutscene = ExtResource("18_h44q5")
+
+[node name="interact" type="CollisionPolygon2D" parent="YSort/QuestBoundary2" index="1"]
+position = Vector2(719, 95)
+polygon = PackedVector2Array(-321, 1022, 904, 972, 987, 1148, -286, 1171)
+
+[node name="stop" type="CollisionPolygon2D" parent="YSort/QuestBoundary2" index="2"]
+polygon = PackedVector2Array(1628, 1138, 1628, 1233, 476, 1266, 446, 1170)
+
+[node name="DemoC1RegroupInitial" parent="YSort/QuestBoundary2" index="3" node_paths=PackedStringArray("on_start_modal_maker") instance=ExtResource("18_i73ob")]
+on_start_modal_maker = NodePath("../../QuestBoundary/DemoC1RegroupInitial/StartModal")

@@ -1,26 +1,97 @@
-[gd_scene load_steps=6 format=3 uid="uid://dalxj2teso65p"]
+[gd_scene load_steps=7 format=3 uid="uid://dalxj2teso65p"]
 
 [ext_resource type="PackedScene" uid="uid://bp8tsdjdbwj8i" path="res://cutscene/cutscene.tscn" id="1_hapjt"]
 [ext_resource type="PackedScene" uid="uid://55vflx8ylix1" path="res://cutscene/cutscene_node.tscn" id="2_gtdvt"]
 [ext_resource type="Texture2D" uid="uid://dlfi64p84aoys" path="res://assets/scenes/demo/1/industrial/cutscene/1-ground.png" id="3_iu762"]
 [ext_resource type="Texture2D" uid="uid://drgnorx0b8oaj" path="res://assets/npcs/jerry/jerry_happy.png" id="4_ntyuu"]
 [ext_resource type="PackedScene" uid="uid://b11g7mb25w5xp" path="res://cutscene/smart_label.tscn" id="5_f3x5x"]
+[ext_resource type="PackedScene" uid="uid://cm3keg86x7x3y" path="res://cutscene/concept_cutscene_node.tscn" id="6_g8e1x"]
 
-[node name="Jerry1" node_paths=PackedStringArray("starting_page") instance=ExtResource("1_hapjt")]
+[node name="Jerry1" node_paths=PackedStringArray("starting_page", "concepts", "default_topics") instance=ExtResource("1_hapjt")]
 starting_page = NodePath("1")
+concepts = NodePath("Concepts")
+default_topics = NodePath("Defaults")
 
-[node name="1" parent="." index="0" node_paths=PackedStringArray("use_on_start_fn_from") instance=ExtResource("2_gtdvt")]
-use_on_start_fn_from = NodePath("")
+[node name="1" parent="." index="0" node_paths=PackedStringArray("next") instance=ExtResource("2_gtdvt")]
+visible = false
+next = NodePath("../ConceptCutsceneNode")
 
 [node name="bg" type="Sprite2D" parent="1" index="0"]
 scale = Vector2(1.35, 1.35)
 texture = ExtResource("3_iu762")
 centered = false
 
-[node name="brona" type="Sprite2D" parent="1" index="1"]
+[node name="jerry" type="Sprite2D" parent="1" index="1"]
 position = Vector2(455, 894)
 scale = Vector2(0.7, 0.7)
 texture = ExtResource("4_ntyuu")
 
 [node name="SmartLabel" parent="1" index="2" instance=ExtResource("5_f3x5x")]
 text = "\"Hey, {character,name,human_short}! What do you need?\""
+
+[node name="ConceptCutsceneNode" parent="." index="1" node_paths=PackedStringArray("next") instance=ExtResource("6_g8e1x")]
+next = NodePath("../2")
+
+[node name="2" parent="." index="2" instance=ExtResource("2_gtdvt")]
+visible = false
+
+[node name="bg" type="Sprite2D" parent="2" index="0"]
+scale = Vector2(1.35, 1.35)
+texture = ExtResource("3_iu762")
+centered = false
+
+[node name="jerry" type="Sprite2D" parent="2" index="1"]
+position = Vector2(455, 894)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("4_ntyuu")
+
+[node name="SmartLabel" parent="2" index="2" instance=ExtResource("5_f3x5x")]
+text = "\"Take care,\" Jerry tells you."
+
+[node name="Defaults" type="Node" parent="." index="3"]
+
+[node name="Base" parent="Defaults" index="0" node_paths=PackedStringArray("next") instance=ExtResource("2_gtdvt")]
+visible = false
+next = NodePath("../../ConceptCutsceneNode")
+
+[node name="bg" type="Sprite2D" parent="Defaults/Base" index="0"]
+scale = Vector2(1.35, 1.35)
+texture = ExtResource("3_iu762")
+centered = false
+
+[node name="jerry2" type="Sprite2D" parent="Defaults/Base" index="1"]
+position = Vector2(455, 894)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("4_ntyuu")
+
+[node name="SmartLabel" parent="Defaults/Base" index="2" instance=ExtResource("5_f3x5x")]
+offset_left = 923.0
+offset_top = 184.0
+offset_right = 1364.0
+offset_bottom = 303.0
+text = "\"You young guys sure love your chit chat, don'tcha?\""
+
+[node name="World" parent="Defaults" index="1" node_paths=PackedStringArray("next") instance=ExtResource("2_gtdvt")]
+visible = false
+next = NodePath("../../ConceptCutsceneNode")
+tag = "World"
+
+[node name="bg" type="Sprite2D" parent="Defaults/World" index="0"]
+scale = Vector2(1.35, 1.35)
+texture = ExtResource("3_iu762")
+centered = false
+
+[node name="jerry2" type="Sprite2D" parent="Defaults/World" index="1"]
+position = Vector2(455, 894)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("4_ntyuu")
+
+[node name="SmartLabel" parent="Defaults/World" index="2" instance=ExtResource("5_f3x5x")]
+offset_left = 853.0
+offset_top = 184.0
+offset_right = 1445.0
+offset_bottom = 354.0
+bbcode_enabled = true
+text = "\"You and Taylor with your worldly ideas. Wait 'til you're my age. What's right in front of you is what matters.\""
+
+[node name="Concepts" type="Node" parent="." index="4"]

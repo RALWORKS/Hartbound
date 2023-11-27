@@ -1,7 +1,3 @@
-"""
-Always explicitely inherit these--you need to redefine the id
-"""
-
 extends Node
 
 @export var id = ""

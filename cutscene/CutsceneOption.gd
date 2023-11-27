@@ -2,6 +2,7 @@ extends Button
 
 
 @export var to: CutsceneNode
+@export var sub_node_parent: Node
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -16,8 +17,8 @@ func _process(_delta):
 func _on_pressed():
 	if disabled:
 		return
-	$"..".leave()	
-	if to:
+	$"..".leave()
+	if to != null:
 		to.start()
 	else:
 		$"/root/Game/Chapter".end_cutscene()

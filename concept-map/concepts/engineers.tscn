@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://dsv37l7unrm2e"]
+
+[ext_resource type="PackedScene" uid="uid://bt0e2jwvmgpgm" path="res://concept-map/concept.tscn" id="1_owv38"]
+
+[node name="Engineers" instance=ExtResource("1_owv38")]
+id = "engineers"
+title = "engineers"

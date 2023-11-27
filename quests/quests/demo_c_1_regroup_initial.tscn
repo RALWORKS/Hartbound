@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://5exo54lvam30"]
+
+[ext_resource type="PackedScene" uid="uid://df648eobw25cw" path="res://quests/quest.tscn" id="1_xww5q"]
+[ext_resource type="PackedScene" uid="uid://dh1scrjroovcn" path="res://item/interaction_modal_maker.tscn" id="2_ocips"]
+[ext_resource type="PackedScene" uid="uid://cpbg7yuq873y5" path="res://item/interaction_action.tscn" id="3_p55wj"]
+
+[node name="DemoC1RegroupInitial" node_paths=PackedStringArray("on_start_modal_maker") instance=ExtResource("1_xww5q")]
+id = "demo-c1-regroup-intial"
+headline = "Regroup with the team and plan"
+on_start_modal_maker = NodePath("StartModal")
+
+[node name="StartModal" parent="." index="0" node_paths=PackedStringArray("options_container_node") instance=ExtResource("2_ocips")]
+description = "After a morning spent scouting for salvage, your party has stopped for a brief midday break. Plan your next task with the others."
+options_container_node = NodePath("Actions")
+
+[node name="Actions" type="Node" parent="StartModal" index="0"]
+
+[node name="GotIt" parent="StartModal/Actions" index="0" instance=ExtResource("3_p55wj")]
+title = "Got it"
+is_close_btn = true

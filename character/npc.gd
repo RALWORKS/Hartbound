@@ -1,5 +1,6 @@
 extends CharacterBody2D
 
+@export var starting_animaton = "down-stopped"
 @export var speed = 100
 @export var leader: CharacterBody2D
 @export var follow_distance = 150
@@ -100,6 +101,7 @@ func _ready():
 	$InteractionArea.reference_id = reference_id
 	if $char.hframes == 6 and $char.vframes == 4:
 		_make_walk_animations()
+	play(starting_animaton)
 
 func _near(a, b):
 	if null in [a, b]:

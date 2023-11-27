@@ -1,0 +1,66 @@
+[gd_scene load_steps=6 format=3 uid="uid://cqv8vs3o2qua4"]
+
+[ext_resource type="PackedScene" uid="uid://bp8tsdjdbwj8i" path="res://cutscene/cutscene.tscn" id="1_bn6y1"]
+[ext_resource type="PackedScene" uid="uid://55vflx8ylix1" path="res://cutscene/cutscene_node.tscn" id="2_51nji"]
+[ext_resource type="Texture2D" uid="uid://dlfi64p84aoys" path="res://assets/scenes/demo/1/industrial/cutscene/1-ground.png" id="3_leyt0"]
+[ext_resource type="Texture2D" uid="uid://buc3vu7e6om1c" path="res://assets/npcs/jerry/jerry_angry.png" id="4_eqv2d"]
+[ext_resource type="PackedScene" uid="uid://b11g7mb25w5xp" path="res://cutscene/smart_label.tscn" id="5_4nr3o"]
+
+[node name="Jerry1" node_paths=PackedStringArray("starting_page") instance=ExtResource("1_bn6y1")]
+starting_page = NodePath("1")
+
+[node name="1" parent="." index="0" node_paths=PackedStringArray("next") instance=ExtResource("2_51nji")]
+visible = false
+next = NodePath("../2")
+
+[node name="bg" type="Sprite2D" parent="1" index="0"]
+scale = Vector2(1.35, 1.35)
+texture = ExtResource("3_leyt0")
+centered = false
+
+[node name="brona" type="Sprite2D" parent="1" index="1"]
+position = Vector2(455, 894)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("4_eqv2d")
+
+[node name="SmartLabel" parent="1" index="2" instance=ExtResource("5_4nr3o")]
+offset_left = 613.0
+offset_top = 127.0
+offset_right = 1269.0
+offset_bottom = 212.0
+text = "\"Oy, {character,name,human_short}!\""
+
+[node name="SmartLabel2" parent="1" index="3" instance=ExtResource("5_4nr3o")]
+offset_left = 853.0
+offset_top = 274.0
+offset_right = 1490.0
+offset_bottom = 437.0
+text = "\"First rule of salvaging:
+Don't wander off on your own like an idiot.\""
+
+[node name="2" parent="." index="1" instance=ExtResource("2_51nji")]
+
+[node name="bg" type="Sprite2D" parent="2" index="0"]
+scale = Vector2(1.35, 1.35)
+texture = ExtResource("3_leyt0")
+centered = false
+
+[node name="brona" type="Sprite2D" parent="2" index="1"]
+position = Vector2(455, 894)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("4_eqv2d")
+
+[node name="SmartLabel3" parent="2" index="2" instance=ExtResource("5_4nr3o")]
+offset_left = 803.0
+offset_top = 212.0
+offset_right = 1331.0
+offset_bottom = 375.0
+bbcode_enabled = true
+text = "\"I know you were trained better than this--'cause I [i]did[/i] some that training myself.\""
+
+[node name="SmartLabel4" parent="2" index="3" instance=ExtResource("5_4nr3o")]
+offset_left = 1000.0
+offset_top = 437.0
+offset_right = 1573.0
+offset_bottom = 565.0
+text = "\"Got somewhere you need to go? Then find someone to go with you.\""

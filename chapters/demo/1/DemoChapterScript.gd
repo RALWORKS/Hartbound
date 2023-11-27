@@ -19,3 +19,6 @@ func pre_init():
 	$"../Events/StartChapter/TrainingStory".narrative = $"../Events/StartChapter/TrainingStory".narrative.format(
 		{"a_profession": a_your_profession}
 	)
+	
+	$"../DemoC1RegroupInitial".start()
+	

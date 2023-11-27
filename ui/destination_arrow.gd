@@ -28,7 +28,7 @@ func make_destination_marker(scene):
 	marker["ring"].get_node("Ring").set_deferred("visible", true)
 	marker["arrow"].get_node("Arrow").set_deferred("visible", true)
 	scene.add_child(marker["ring"])
-	scene.move_child(marker["ring"], scene.get_node("YSort").get_index())
+	#scene.move_child(marker["ring"], scene.get_node("YSort").get_index())
 	scene.add_child(marker["arrow"])
 		
 	marker["ring"].get_node("Bounce").play("RESET")
