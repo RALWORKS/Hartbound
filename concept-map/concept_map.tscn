@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://do0ku8pfkpj0n"]
+[gd_scene load_steps=30 format=3 uid="uid://do0ku8pfkpj0n"]
 
 [ext_resource type="Script" path="res://concept-map/concept_map.gd" id="1_7c8vd"]
 [ext_resource type="Script" path="res://concept-map/Category.gd" id="2_l5orv"]
@@ -28,9 +28,13 @@
 [ext_resource type="PackedScene" uid="uid://df2jtainy2sra" path="res://concept-map/concepts/magic.tscn" id="25_4u8f4"]
 [ext_resource type="PackedScene" uid="uid://bgy0ifcrbug27" path="res://concept-map/concepts/plague_of_dreams.tscn" id="26_2dii7"]
 [ext_resource type="PackedScene" uid="uid://dih3h8h1ydmo7" path="res://concept-map/concepts/end_of_the_world.tscn" id="27_2v7t1"]
+[ext_resource type="PackedScene" uid="uid://b07jmvddb18hr" path="res://concept-map/category.tscn" id="29_aq5kf"]
 
 [node name="ConceptMap" type="Node"]
 script = ExtResource("1_7c8vd")
+
+[node name="Quest" parent="." instance=ExtResource("29_aq5kf")]
+category = "Quest"
 
 [node name="People" type="Node" parent="."]
 script = ExtResource("2_l5orv")

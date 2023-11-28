@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://epq5ioa4sayx"]
+[gd_scene load_steps=11 format=3 uid="uid://epq5ioa4sayx"]
 
 [ext_resource type="PackedScene" uid="uid://bp8tsdjdbwj8i" path="res://cutscene/cutscene.tscn" id="1_qv2i1"]
 [ext_resource type="PackedScene" uid="uid://55vflx8ylix1" path="res://cutscene/cutscene_node.tscn" id="2_vonvd"]
@@ -6,6 +6,10 @@
 [ext_resource type="Texture2D" uid="uid://dx1wrwvh6nviu" path="res://assets/npcs/taylor/taylor_neutral.png" id="4_bxirh"]
 [ext_resource type="PackedScene" uid="uid://b11g7mb25w5xp" path="res://cutscene/smart_label.tscn" id="5_sc1vl"]
 [ext_resource type="PackedScene" uid="uid://cm3keg86x7x3y" path="res://cutscene/concept_cutscene_node.tscn" id="6_kxhl6"]
+[ext_resource type="PackedScene" uid="uid://bxu8qsfgeojlr" path="res://quests/quests/demo_c_1_regroup_initial/plan_for_afternoon.tscn" id="7_chmtn"]
+[ext_resource type="PackedScene" path="res://cutscene/cutscene_option.tscn" id="8_w0od5"]
+[ext_resource type="Script" path="res://quests/quests/demo_c_1_regroup_initial/EndQuest1.gd" id="9_ymsko"]
+[ext_resource type="PackedScene" uid="uid://5exo54lvam30" path="res://quests/quests/demo_c_1_regroup_initial.tscn" id="10_j3pmb"]
 
 [node name="Taylor1" node_paths=PackedStringArray("starting_page", "concepts", "default_topics") instance=ExtResource("1_qv2i1")]
 starting_page = NodePath("1")
@@ -94,3 +98,105 @@ bbcode_enabled = true
 text = "\"Oh, don't get me started on [i]that[/i]. I'd prattle on for hours, and we've got work to do\""
 
 [node name="Concepts" type="Node" parent="." index="4"]
+
+[node name="PlanForAfternoon" parent="Concepts" index="0" instance=ExtResource("7_chmtn")]
+
+[node name="CutsceneNode" parent="Concepts/PlanForAfternoon" index="0" instance=ExtResource("2_vonvd")]
+is_option_node = true
+
+[node name="bg" type="Sprite2D" parent="Concepts/PlanForAfternoon/CutsceneNode" index="0"]
+scale = Vector2(1.35, 1.35)
+texture = ExtResource("3_ney04")
+centered = false
+
+[node name="taylor" type="Sprite2D" parent="Concepts/PlanForAfternoon/CutsceneNode" index="1"]
+position = Vector2(455, 947)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("4_bxirh")
+
+[node name="SmartLabel" parent="Concepts/PlanForAfternoon/CutsceneNode" index="2" instance=ExtResource("5_sc1vl")]
+offset_left = 649.0
+offset_top = 165.0
+offset_right = 1479.0
+offset_bottom = 335.0
+bbcode_enabled = true
+text = "\"Some of the others are talking about heading back up the way we came for a bit, but there's a few more herbs I was looking for that I didn't see back that way.\""
+
+[node name="SmartLabel2" parent="Concepts/PlanForAfternoon/CutsceneNode" index="3" instance=ExtResource("5_sc1vl")]
+offset_left = 775.0
+offset_top = 377.0
+offset_right = 1605.0
+offset_bottom = 547.0
+bbcode_enabled = true
+text = "She pauses to think for a moment. \"Didn't you mention earlier you wanted to spend a bit more time scouting for salvage before we make camp tonight?\""
+
+[node name="SmartLabel3" parent="Concepts/PlanForAfternoon/CutsceneNode" index="4" instance=ExtResource("5_sc1vl")]
+offset_left = 936.0
+offset_top = 588.0
+offset_right = 1466.0
+offset_bottom = 726.0
+bbcode_enabled = true
+text = "\"I'll tag along, if you don't mind--assuming that's still the plan.\""
+
+[node name="Yes" parent="Concepts/PlanForAfternoon/CutsceneNode" index="5" node_paths=PackedStringArray("to") instance=ExtResource("8_w0od5")]
+offset_left = 936.0
+offset_top = 737.0
+offset_right = 1019.0
+offset_bottom = 770.0
+text = "> \"Sure\""
+to = NodePath("../../Y")
+
+[node name="No" parent="Concepts/PlanForAfternoon/CutsceneNode" index="6" node_paths=PackedStringArray("to") instance=ExtResource("8_w0od5")]
+offset_left = 936.0
+offset_top = 778.0
+offset_right = 1019.0
+offset_bottom = 811.0
+text = "> \"I'll get back to you on that.\""
+to = NodePath("../../N")
+
+[node name="Y" parent="Concepts/PlanForAfternoon" index="1" node_paths=PackedStringArray("use_on_start_fn_from") instance=ExtResource("2_vonvd")]
+use_on_start_fn_from = NodePath("EndQuest1")
+
+[node name="bg" type="Sprite2D" parent="Concepts/PlanForAfternoon/Y" index="0"]
+scale = Vector2(1.35, 1.35)
+texture = ExtResource("3_ney04")
+centered = false
+
+[node name="taylor" type="Sprite2D" parent="Concepts/PlanForAfternoon/Y" index="1"]
+position = Vector2(455, 947)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("4_bxirh")
+
+[node name="SmartLabel" parent="Concepts/PlanForAfternoon/Y" index="2" instance=ExtResource("5_sc1vl")]
+offset_left = 649.0
+offset_top = 165.0
+offset_right = 1019.0
+offset_bottom = 295.0
+bbcode_enabled = true
+text = "\"Great. I'm ready to head out whenever.\""
+
+[node name="EndQuest1" type="Node2D" parent="Concepts/PlanForAfternoon/Y" index="3"]
+script = ExtResource("9_ymsko")
+
+[node name="DemoC1RegroupInitial" parent="Concepts/PlanForAfternoon/Y/EndQuest1" index="0" instance=ExtResource("10_j3pmb")]
+
+[node name="N" parent="Concepts/PlanForAfternoon" index="2" node_paths=PackedStringArray("next") instance=ExtResource("2_vonvd")]
+next = NodePath("../../../ConceptCutsceneNode")
+
+[node name="bg" type="Sprite2D" parent="Concepts/PlanForAfternoon/N" index="0"]
+scale = Vector2(1.35, 1.35)
+texture = ExtResource("3_ney04")
+centered = false
+
+[node name="taylor" type="Sprite2D" parent="Concepts/PlanForAfternoon/N" index="1"]
+position = Vector2(455, 947)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("4_bxirh")
+
+[node name="SmartLabel" parent="Concepts/PlanForAfternoon/N" index="2" instance=ExtResource("5_sc1vl")]
+offset_left = 649.0
+offset_top = 165.0
+offset_right = 1019.0
+offset_bottom = 295.0
+bbcode_enabled = true
+text = "\"All right. Let me know.\""

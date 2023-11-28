@@ -1,5 +1,6 @@
 extends Node2D
 
+@export var is_under_concept = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -11,4 +12,7 @@ func _process(_delta):
 	pass
 
 func on_start():
-	$"../..".npc.start_following($"/root/Game")
+	var p = $"../.."
+	if is_under_concept:
+		p = $"../../../.."
+	p.npc.start_following($"/root/Game")

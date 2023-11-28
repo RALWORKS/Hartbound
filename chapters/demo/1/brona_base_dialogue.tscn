@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://6juapn3r3s4p"]
+[gd_scene load_steps=36 format=3 uid="uid://6juapn3r3s4p"]
 
 [ext_resource type="PackedScene" uid="uid://bp8tsdjdbwj8i" path="res://cutscene/cutscene.tscn" id="1_qsal8"]
 [ext_resource type="PackedScene" uid="uid://55vflx8ylix1" path="res://cutscene/cutscene_node.tscn" id="2_p2ho2"]
@@ -31,6 +31,7 @@
 [ext_resource type="PackedScene" uid="uid://d4lq0ypd46jdf" path="res://concept-map/concepts/generators.tscn" id="29_1g1kh"]
 [ext_resource type="PackedScene" uid="uid://cnfcwymfs6yoq" path="res://concept-map/concepts/generator_crews.tscn" id="29_3h32n"]
 [ext_resource type="PackedScene" uid="uid://dqm085unfkqhk" path="res://concept-map/concepts/leylines.tscn" id="29_mjhar"]
+[ext_resource type="PackedScene" uid="uid://bxu8qsfgeojlr" path="res://quests/quests/demo_c_1_regroup_initial/plan_for_afternoon.tscn" id="32_g0eab"]
 
 [sub_resource type="Animation" id="Animation_eigjd"]
 length = 0.001
@@ -1035,6 +1036,34 @@ theme_type_variation = &"VoiceoverBox"
 text = "\"Medics love 'em, engineers hate 'em, I don't give a damn because most of the stuff
 I go after isn't affected by them either way. Though they do tend to have Demons
 hanging around 'em, so there's always that to be aware of.\""
+
+[node name="PlanForAfternoon" parent="Concepts" index="20" instance=ExtResource("32_g0eab")]
+
+[node name="CutsceneNode" parent="Concepts/PlanForAfternoon" index="0" node_paths=PackedStringArray("next") instance=ExtResource("2_p2ho2")]
+next = NodePath("../../../ConceptCutsceneNode")
+
+[node name="bg" type="Sprite2D" parent="Concepts/PlanForAfternoon/CutsceneNode" index="0"]
+scale = Vector2(1.35, 1.35)
+texture = ExtResource("3_jfk7p")
+centered = false
+
+[node name="brona" type="Sprite2D" parent="Concepts/PlanForAfternoon/CutsceneNode" index="1"]
+position = Vector2(455, 850)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("4_w7ofy")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Concepts/PlanForAfternoon/CutsceneNode" index="2"]
+offset_left = -1.0
+offset_top = 808.0
+offset_right = 1979.0
+offset_bottom = 1016.0
+theme = ExtResource("5_gloko")
+theme_type_variation = &"VoiceoverBox"
+bbcode_enabled = true
+text = "\"Jerry and me saw this [i]big[/i] sheet of undamaged glass out where we were scouting before,\"
+she says.
+\"I was hoping we'd be able to go back, and see if we can get it out intact. Might rope Nate in,
+[i]if it's not too much trouble for him[/i], since he [i]is[/i] surprisingly good with careful work like that.\""
 
 [node name="Defaults" type="Node" parent="." index="4"]
 

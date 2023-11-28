@@ -76,6 +76,7 @@ scale = Vector2(2, 1)
 dest_resource = "res://scenes/demo/1/industrial/c.tscn"
 dest_edge = "SouthRoof"
 disabled = true
+follower_offset = Vector2(30, 0)
 
 [node name="NorthGround" parent="YSort" index="8" instance=ExtResource("9_yk81u")]
 position = Vector2(975, 32)

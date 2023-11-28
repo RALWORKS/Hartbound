@@ -1,7 +1,8 @@
 extends CharacterBody2D
 
+@export var id = ""
 @export var starting_animaton = "down-stopped"
-@export var speed = 100
+@export var speed = 150
 @export var leader: CharacterBody2D
 @export var follow_distance = 150
 
@@ -96,6 +97,11 @@ func _make_walk_animations():
 	$AnimationPlayer.add_animation_library("movement", library)
 
 func _ready():
+	if $"/root/Game".check_state_for_follower(self) and leader == null:
+		process_mode = Node.PROCESS_MODE_DISABLED
+		visible = false
+		return
+	
 	#$char.texture = texture
 	$InteractionArea.title = character_name
 	$InteractionArea.reference_id = reference_id
@@ -269,11 +275,12 @@ func _physics_process(delta):
 	_handle_collisions(delta, collision, direction)
 	set_anim()
 
-func start_following(_g):
+func start_following(g):
 	leader = $"../Character"
 	leader.has_follower = true
 	leader.follower_arrived()
 	#g.set_state(["micro_progress", "priestess_follows"], true)
+	g.set_state(["party"], [self.id])
 
 func action():
 	#start_following($"/root/Game")

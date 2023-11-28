@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://b07jmvddb18hr"]
+
+[ext_resource type="Script" path="res://concept-map/Category.gd" id="1_5g5kt"]
+
+[node name="Category" type="Node"]
+script = ExtResource("1_5g5kt")

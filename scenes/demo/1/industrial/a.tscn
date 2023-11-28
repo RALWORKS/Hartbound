@@ -163,6 +163,7 @@ rotation = 1.5708
 scale = Vector2(5, 1)
 dest_resource = "res://scenes/demo/1/industrial/b.tscn"
 dest_edge = "WestRoof"
+follower_offset = Vector2(30, 0)
 
 [node name="EastGround" parent="YSort" index="7" instance=ExtResource("8_w73q6")]
 position = Vector2(1572, 1136)
@@ -170,6 +171,7 @@ rotation = 2.40855
 scale = Vector2(3, 1)
 dest_resource = "res://scenes/demo/1/industrial/b.tscn"
 dest_edge = "WestGround"
+follower_offset = Vector2(30, 0)
 
 [node name="TracksSouth" parent="YSort" index="8" instance=ExtResource("8_w73q6")]
 position = Vector2(637, 1234)

@@ -445,3 +445,12 @@ func _on_tree_entered():
 	paused = true
 	await get_tree().create_timer(0.2).timeout
 	paused = false
+
+func get_follower(g):
+	var data = g.get_followers_from_state()
+	var followers = $AllowedFollowers.get_children().filter(
+		func (f): return f.id in data
+	)
+	if followers.size() == 0:
+		return
+	return followers[0].resource

@@ -215,10 +215,9 @@ interactable = NodePath("..")
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/InteractionArea/InteractRangeExtender" index="0"]
 polygon = PackedVector2Array(269, 514, 325, 480, 356, 533, 289, 561)
 
-[node name="QuestBoundary" parent="YSort" index="20" node_paths=PackedStringArray("wall_area_node", "quest") instance=ExtResource("17_hmbms")]
+[node name="QuestBoundary" parent="YSort" index="20" node_paths=PackedStringArray("wall_area_node", "blockade_quests_container") instance=ExtResource("17_hmbms")]
 wall_area_node = NodePath("stop")
-quest = NodePath("DemoC1RegroupInitial")
-cannot_pass_cutscene = ExtResource("18_h44q5")
+blockade_quests_container = NodePath("../../BlockadeQuests")
 
 [node name="interact" type="CollisionPolygon2D" parent="YSort/QuestBoundary" index="1"]
 polygon = PackedVector2Array(-48, 674, 96, 583, 98, 1130, -56, 981)
@@ -226,12 +225,9 @@ polygon = PackedVector2Array(-48, 674, 96, 583, 98, 1130, -56, 981)
 [node name="stop" type="CollisionPolygon2D" parent="YSort/QuestBoundary" index="2"]
 polygon = PackedVector2Array(55, 588, 53, 1110, -8, 1064, -5, 616)
 
-[node name="DemoC1RegroupInitial" parent="YSort/QuestBoundary" index="3" instance=ExtResource("18_i73ob")]
-
-[node name="QuestBoundary2" parent="YSort" index="21" node_paths=PackedStringArray("wall_area_node", "quest") instance=ExtResource("17_hmbms")]
+[node name="QuestBoundary2" parent="YSort" index="21" node_paths=PackedStringArray("wall_area_node", "blockade_quests_container") instance=ExtResource("17_hmbms")]
 wall_area_node = NodePath("stop")
-quest = NodePath("../QuestBoundary/DemoC1RegroupInitial")
-cannot_pass_cutscene = ExtResource("18_h44q5")
+blockade_quests_container = NodePath("../../BlockadeQuests")
 
 [node name="interact" type="CollisionPolygon2D" parent="YSort/QuestBoundary2" index="1"]
 position = Vector2(719, 95)
@@ -240,5 +236,9 @@ polygon = PackedVector2Array(-321, 1022, 904, 972, 987, 1148, -286, 1171)
 [node name="stop" type="CollisionPolygon2D" parent="YSort/QuestBoundary2" index="2"]
 polygon = PackedVector2Array(1628, 1138, 1628, 1233, 476, 1266, 446, 1170)
 
-[node name="DemoC1RegroupInitial" parent="YSort/QuestBoundary2" index="3" node_paths=PackedStringArray("on_start_modal_maker") instance=ExtResource("18_i73ob")]
-on_start_modal_maker = NodePath("../../QuestBoundary/DemoC1RegroupInitial/StartModal")
+[node name="ThresholdQuests" type="Node" parent="." index="2"]
+
+[node name="BlockadeQuests" type="Node" parent="." index="3"]
+
+[node name="DemoC1RegroupInitial" parent="BlockadeQuests" index="0" instance=ExtResource("18_i73ob")]
+data_resource = ExtResource("18_h44q5")

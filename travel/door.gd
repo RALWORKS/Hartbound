@@ -4,6 +4,8 @@ extends Node2D
 @export var dest_edge = "NorthDoor"
 @export var disabled: bool = false
 
+@export var follower_offset = Vector2(-30, 0)
+
 var entered = false
 var loading = true
 
@@ -46,6 +48,7 @@ func _on_hitbox_body_entered(body):
 		map.traverse(dest, dest_edge)
 
 func spawn(g):
+	$Spawner.follower_offset = follower_offset
 	$Spawner.spawn(g)
 
 

@@ -2,10 +2,10 @@ extends Node2D
 
 @export var spawn_to = ".."
 @export var position_from = "."
+@export var follower_offset = Vector2(-30, 0)
 
 var character = preload("res://character/character.tscn")
-var priestess = preload("res://character/priestess.tscn")
-var priestess_instance = null
+var follower_instance = null
 var follower = false
 var spawn_on_ready = false
 
@@ -49,7 +49,7 @@ func _spawn(c, shift):
 func spawn(g):
 	var character_instance = _spawn(character, Vector2(0, 0))
 	g.set_player(character_instance)
-	follower = g.get_state(["micro_progress", "priestess_follows"])
+	follower = character_instance.get_follower(g)
 	if follower:
-		priestess_instance = _spawn(priestess, Vector2(-30, 0))
-		priestess_instance.start_following(g)
+		follower_instance = _spawn(follower, follower_offset)
+		follower_instance.start_following(g)

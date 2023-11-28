@@ -13,11 +13,18 @@ func _get_game():
 @export var on_done_modal_maker: Node
 @export var on_done_script_node: Node
 @export var on_start_script_node: Node
+@export var initial_concepts_container: Node
+## When the quest is used as data, this resource holds additional info, such as a cutscene
+@export var data_resource: Resource
+
+var concepts = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	assert(id.length() > 0)
 	assert(headline.length() > 0)
+	for c in initial_concepts_container.get_children():
+		concepts.push_back(c)
 
 
 func start():
@@ -29,6 +36,8 @@ func start():
 		on_start_script_node.action()
 	var g = _get_game()
 	g.start_quest(self)
+	for c in initial_concepts_container.get_children():
+		add_concept(c)
 
 func complete():
 	if on_done_modal_maker != null:
@@ -37,5 +46,16 @@ func complete():
 		on_done_modal_maker.make()
 	if on_done_script_node != null:
 		on_done_script_node.action()
+	remove_all_concepts()
 	var g = _get_game()
 	g.complete_quest(self)
+
+func remove_all_concepts():
+	var g = _get_game()
+	var cmap = g.get_node("ConceptMap")
+	cmap.remove_quest_concepts(concepts)
+
+func add_concept(concept):
+	var g = _get_game()
+	var cmap = g.get_node("ConceptMap")
+	cmap.add_concept(concept, $QuestConceptCategory)

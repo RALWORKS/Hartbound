@@ -1,10 +1,14 @@
-[gd_scene load_steps=37 format=3 uid="uid://b03wpar88cr5r"]
+[gd_scene load_steps=41 format=3 uid="uid://b03wpar88cr5r"]
 
 [ext_resource type="Script" path="res://character/player-walk.gd" id="1_s1ce1"]
+[ext_resource type="PackedScene" uid="uid://dhr0qbec14v6p" path="res://follower.tscn" id="2_2k6gm"]
 [ext_resource type="PackedScene" uid="uid://8rir4hoqy3xr" path="res://character/abstract_modular_character.tscn" id="2_kvgd3"]
+[ext_resource type="PackedScene" uid="uid://bii8gdmkfiy5x" path="res://chapters/demo/1/taylor.tscn" id="3_hek6k"]
+[ext_resource type="PackedScene" uid="uid://in7v8nsvojyp" path="res://chapters/demo/1/nate.tscn" id="4_0yyfu"]
 [ext_resource type="Texture2D" uid="uid://cedwx0mvi067h" path="res://assets/character/body/v1/face-full.png" id="4_2ku3h"]
 [ext_resource type="Texture2D" uid="uid://c2j1diolt6sq2" path="res://assets/character/clothes/v1/ruana/full/full.png" id="4_va24q"]
 [ext_resource type="Texture2D" uid="uid://riq1pcahb5rh" path="res://assets/character/body/v1/front-arm-full.png" id="5_2wkkg"]
+[ext_resource type="PackedScene" uid="uid://uc3gpi8pp0cj" path="res://chapters/demo/1/brona.tscn" id="5_66jup"]
 [ext_resource type="Texture2D" uid="uid://167dwj5srl63" path="res://assets/character/body/v1/body-full.png" id="6_gtrvy"]
 [ext_resource type="Texture2D" uid="uid://cqvyyq154sou1" path="res://assets/character/hair/v1/long-back-bun/front/full.png" id="7_fw528"]
 [ext_resource type="Script" path="res://FollowerAgent.gd" id="7_l2hxk"]
@@ -161,6 +165,20 @@ y_sort_enabled = true
 scale = Vector2(0.75, 0.75)
 script = ExtResource("1_s1ce1")
 speed = 150
+
+[node name="AllowedFollowers" type="Node" parent="."]
+
+[node name="Taylor" parent="AllowedFollowers" instance=ExtResource("2_2k6gm")]
+id = "taylor"
+resource = ExtResource("3_hek6k")
+
+[node name="Nate" parent="AllowedFollowers" instance=ExtResource("2_2k6gm")]
+id = "taylor"
+resource = ExtResource("4_0yyfu")
+
+[node name="Brona" parent="AllowedFollowers" instance=ExtResource("2_2k6gm")]
+id = "taylor"
+resource = ExtResource("5_66jup")
 
 [node name="char" parent="." node_paths=PackedStringArray("body", "front_arm", "face", "hair_back", "hair_front", "clothes", "clothes_pattern", "clothes_accent", "front_sleeve", "front_sleeve_accent", "character_img") instance=ExtResource("2_kvgd3")]
 centered = true

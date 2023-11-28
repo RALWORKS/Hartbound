@@ -29,7 +29,6 @@ var CHAPTERS = {
 
 var INITIAL_STATE = {
 	"micro_progress": {
-		"priestess_follows": false,
 		"event": 0,
 	},
 	"chapter": "intro",
@@ -295,6 +294,15 @@ func _init_quests_if_needed():
 		["quests"],
 		{"active": [], "complete": []},
 	)
+	
+func _init_party_if_needed():
+	var q = get_state(["party"])
+	if q != null:
+		return
+	set_state(
+		["party"],
+		[""],
+	)
 
 func start_quest(quest):
 	_init_quests_if_needed()
@@ -302,7 +310,7 @@ func start_quest(quest):
 
 func complete_quest(quest):
 	var active_quests = get_state(["quests", "active"])
-	active_quests = active_quests.filter(func(q): return q.id != quest.id)
+	active_quests = active_quests.filter(func(q): return q != quest.id)
 	set_state(["quests", "active"], active_quests)
 	set_state_push_to_key(["quests", "complete"], quest.id)
 
@@ -313,3 +321,12 @@ func get_active_quests():
 func is_quest_active(quest):
 	_init_quests_if_needed()
 	return quest.id in get_state(["quests", "active"])
+
+func get_followers_from_state():
+	_init_party_if_needed()
+	return get_state(["party"])
+
+func check_state_for_follower(npc):
+	_init_party_if_needed()
+	var followers = get_state(["party"])
+	return npc.id in followers
