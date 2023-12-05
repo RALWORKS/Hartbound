@@ -13,13 +13,17 @@ var cutscene
 
 var game = null
 
+func trigger(trigger_name):
+	var t = $Triggers.get_node(trigger_name)
+	t.action()
+
 func next(to_event_name=null):
 	var event
-	if to_event_name:
+	if to_event_name != null:
 		event = $Events.get_node_or_null(to_event_name)
 	else:
 		event = $Events.get_child(sequence_ix)
-	if not event:
+	if not event or event.played:
 		return
 	event.play()
 	sequence_ix = event.get_index()

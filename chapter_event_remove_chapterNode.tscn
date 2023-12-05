@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://mcph6fai6ep6"]
+
+[ext_resource type="Script" path="res://chapter_event_remove_chapter_node.gd" id="1_e1ouh"]
+
+[node name="ChapterEventRemoveChapterNode" type="Node"]
+script = ExtResource("1_e1ouh")

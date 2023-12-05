@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://qhhv4s8njcrp"]
+[gd_scene load_steps=18 format=3 uid="uid://qhhv4s8njcrp"]
 
 [ext_resource type="PackedScene" uid="uid://byrlpmbpj6yr5" path="res://scene.tscn" id="1_4su6i"]
 [ext_resource type="Texture2D" uid="uid://dobfgkrdvoy5g" path="res://assets/scenes/demo/1/industrial/b.png" id="2_beatb"]
@@ -6,10 +6,6 @@
 [ext_resource type="Texture2D" uid="uid://b7bo0oyjlmq03" path="res://assets/scenes/demo/1/industrial/b-treetop.png" id="4_jobxl"]
 [ext_resource type="Texture2D" uid="uid://c6dbijn80ep15" path="res://assets/scenes/demo/1/industrial/b-vent-tree.png" id="5_ij0re"]
 [ext_resource type="PackedScene" uid="uid://dxfuidhlgwthh" path="res://travel/door.tscn" id="6_dl5dw"]
-[ext_resource type="PackedScene" uid="uid://uc3gpi8pp0cj" path="res://chapters/demo/1/brona.tscn" id="7_pftbf"]
-[ext_resource type="PackedScene" uid="uid://d0q6kg3spk25s" path="res://chapters/demo/1/jerry.tscn" id="8_nh0w8"]
-[ext_resource type="PackedScene" uid="uid://bii8gdmkfiy5x" path="res://chapters/demo/1/taylor.tscn" id="9_5mskm"]
-[ext_resource type="PackedScene" uid="uid://in7v8nsvojyp" path="res://chapters/demo/1/nate.tscn" id="10_yhvk4"]
 [ext_resource type="Texture2D" uid="uid://cucflpddlqdqp" path="res://assets/scenery/left-panel-situation-1.png" id="11_0g0bb"]
 [ext_resource type="PackedScene" uid="uid://cl4heje674d3q" path="res://item/interaction_area.tscn" id="12_6urft"]
 [ext_resource type="PackedScene" uid="uid://bkyp4rqktyinq" path="res://item/interact_range_extender.tscn" id="13_6vyp4"]
@@ -26,17 +22,17 @@ polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4, 5, 6, 6)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(4, 705, 354, 520, 704, 499, 1064, 765, 1520, 1240, 610, 1236, 8, 980, 8, 980)])
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_0pbjy"]
-vertices = PackedVector2Array(1595, 738, 1259, 526, 1437, 442, 1602, -2, 358, 39, 9, 227, 14, 4, 723, 38, 546, 102)
+vertices = PackedVector2Array(1595, 738, 1259, 526, 1437, 442, 1602, -2, 358, 39, 9, 227, 14, 4, 720, 45, 546, 102)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2), PackedInt32Array(3, 0, 2), PackedInt32Array(4, 5, 6), PackedInt32Array(4, 6, 3, 7), PackedInt32Array(3, 2, 7), PackedInt32Array(4, 7, 8)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(9, 227, 358, 39, 546, 102, 723, 38, 1437, 442, 1259, 526, 1595, 738, 1602, -2, 14, 4)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(9, 227, 358, 39, 546, 102, 720, 45, 1437, 442, 1259, 526, 1595, 738, 1602, -2, 14, 4)])
 
-[node name="Scene" instance=ExtResource("1_4su6i")]
+[node name="IndustrialB" instance=ExtResource("1_4su6i")]
 
 [node name="Background" parent="." index="0"]
 texture = ExtResource("2_beatb")
 
 [node name="wall" type="CollisionPolygon2D" parent="Background/StaticBody2D" index="0"]
-polygon = PackedVector2Array(-147, 340, 366, 79, 550, 152, 722, 71, 1349, 427, 1192, 529, 1644, 800, 1642, 1160, 1192, 904, 1112, 743, 709, 435, 559, 493, 368, 450, -121, 713)
+polygon = PackedVector2Array(-147, 340, 366, 79, 550, 152, 717, 86, 766, 103, 1349, 427, 1192, 529, 1644, 800, 1642, 1160, 1192, 904, 1112, 743, 709, 435, 559, 493, 368, 450, -121, 713)
 
 [node name="pipe" type="CollisionPolygon2D" parent="Background/StaticBody2D" index="1"]
 polygon = PackedVector2Array(-70, 1035, 209, 1224, 303, 1234, 392, 1177, 449, 1192, 489, 1270, -153, 1262)
@@ -139,22 +135,7 @@ vertices = PackedVector2Array(1313, 227, 1403, 173, 1494, 229, 1405, 319, 1310, 
 [node name="VentD" type="NavigationObstacle2D" parent="YSort" index="13"]
 vertices = PackedVector2Array(1510, 361, 1596, 320, 1600, 446, 1510, 403)
 
-[node name="Brona" parent="YSort" index="14" instance=ExtResource("7_pftbf")]
-position = Vector2(413, 525)
-starting_animaton = "down-right-stopped"
-
-[node name="Jerry" parent="YSort" index="15" instance=ExtResource("8_nh0w8")]
-position = Vector2(538, 525)
-starting_animaton = "down-left-stopped"
-
-[node name="Taylor" parent="YSort" index="16" instance=ExtResource("9_5mskm")]
-position = Vector2(719, 504)
-
-[node name="Nate" parent="YSort" index="17" instance=ExtResource("10_yhvk4")]
-position = Vector2(933, 609)
-starting_animaton = "right-stopped"
-
-[node name="Panel C-No-1" type="Node2D" parent="YSort" index="18"]
+[node name="Panel C-No-1" type="Node2D" parent="YSort" index="14"]
 
 [node name="Sprite2D" type="Sprite2D" parent="YSort/Panel C-No-1" index="0"]
 position = Vector2(1049, 483)
@@ -201,7 +182,7 @@ is_close_btn = true
 to_cutscene = ExtResource("16_k1any")
 title = "Open it anyway"
 
-[node name="InteractionArea" parent="YSort" index="19" instance=ExtResource("12_6urft")]
+[node name="InteractionArea" parent="YSort" index="15" instance=ExtResource("12_6urft")]
 title = "Leyline Cross"
 description = "There must be a Leyline nearby--though this probably isn't connected to it. There isn't even any wire left on it."
 child_depth = 2
@@ -215,9 +196,11 @@ interactable = NodePath("..")
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/InteractionArea/InteractRangeExtender" index="0"]
 polygon = PackedVector2Array(269, 514, 325, 480, 356, 533, 289, 561)
 
-[node name="QuestBoundary" parent="YSort" index="20" node_paths=PackedStringArray("wall_area_node", "blockade_quests_container") instance=ExtResource("17_hmbms")]
+[node name="QuestBoundary" parent="YSort" index="16" node_paths=PackedStringArray("wall_area_node", "blockade_quests_container", "threshold_quests_container") instance=ExtResource("17_hmbms")]
 wall_area_node = NodePath("stop")
 blockade_quests_container = NodePath("../../BlockadeQuests")
+threshold_quests_container = NodePath("../../ThresholdQuests")
+trigger_name = "LeaveCamp1"
 
 [node name="interact" type="CollisionPolygon2D" parent="YSort/QuestBoundary" index="1"]
 polygon = PackedVector2Array(-48, 674, 96, 583, 98, 1130, -56, 981)
@@ -225,9 +208,10 @@ polygon = PackedVector2Array(-48, 674, 96, 583, 98, 1130, -56, 981)
 [node name="stop" type="CollisionPolygon2D" parent="YSort/QuestBoundary" index="2"]
 polygon = PackedVector2Array(55, 588, 53, 1110, -8, 1064, -5, 616)
 
-[node name="QuestBoundary2" parent="YSort" index="21" node_paths=PackedStringArray("wall_area_node", "blockade_quests_container") instance=ExtResource("17_hmbms")]
+[node name="QuestBoundary2" parent="YSort" index="17" node_paths=PackedStringArray("wall_area_node", "blockade_quests_container") instance=ExtResource("17_hmbms")]
 wall_area_node = NodePath("stop")
 blockade_quests_container = NodePath("../../BlockadeQuests")
+trigger_name = "LeaveCamp1"
 
 [node name="interact" type="CollisionPolygon2D" parent="YSort/QuestBoundary2" index="1"]
 position = Vector2(719, 95)

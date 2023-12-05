@@ -1,21 +1,32 @@
 extends Area2D
 
 var game
+var chapter
 
 func _get_game():
 	if game == null:
 		game = get_tree().get_root().get_node("Game")
 	return game
 
+func _get_chapter():
+	if chapter == null:
+		var g = _get_game()
+		chapter = g.get_node("Chapter")
+	return chapter
+	
+
 @export var wall_area_node: CollisionPolygon2D
 @export var blockade_quests_container: Node
 @export var threshold_quests_container: Node
+@export var trigger_name: String
 
 var triggering = false
 var threshold_quests = []
 var blockade_quests = []
 
 func _ready():
+	#trigger_name = "LeaveCamp1"
+	#assert(trigger_name == "LeaveCamp1")
 	wall_area_node.get_parent().remove_child(wall_area_node)
 	$Wall.add_child(wall_area_node)
 	
@@ -46,9 +57,12 @@ func _on_body_entered(body):
 		return
 	triggering = true
 	
+	
 	var blocks = _active_blockades()
 	if blocks.size() == 0:
 		$Wall.process_mode = Node.PROCESS_MODE_DISABLED
+		if trigger_name.length() > 0:
+			_get_chapter().trigger(trigger_name)
 	else:
 		$Wall.process_mode = Node.PROCESS_MODE_INHERIT
 		

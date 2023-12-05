@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://disv4e233mw0e"]
+[gd_scene load_steps=10 format=3 uid="uid://disv4e233mw0e"]
 
 [ext_resource type="PackedScene" uid="uid://bp8tsdjdbwj8i" path="res://cutscene/cutscene.tscn" id="1_xokwk"]
 [ext_resource type="PackedScene" uid="uid://55vflx8ylix1" path="res://cutscene/cutscene_node.tscn" id="2_6fcjh"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" path="res://cutscene/cutscene_option.tscn" id="6_djk5t"]
 [ext_resource type="PackedScene" uid="uid://cm3keg86x7x3y" path="res://cutscene/concept_cutscene_node.tscn" id="7_om0mq"]
 [ext_resource type="Texture2D" uid="uid://dwo3yyav56eua" path="res://assets/npcs/nate/angry.png" id="8_anes8"]
+[ext_resource type="PackedScene" uid="uid://bxu8qsfgeojlr" path="res://quests/quests/demo_c_1_regroup_initial/plan_for_afternoon.tscn" id="9_ttpqn"]
 
 [node name="Nate1" node_paths=PackedStringArray("starting_page", "concepts", "default_topics") instance=ExtResource("1_xokwk")]
 starting_page = NodePath("1")
@@ -179,3 +180,44 @@ offset_bottom = 395.0
 text = "\"I don't gossip.\""
 
 [node name="Concepts" type="Node" parent="." index="6"]
+
+[node name="PlanForAfternoon" parent="Concepts" index="0" instance=ExtResource("9_ttpqn")]
+
+[node name="CutsceneNode" parent="Concepts/PlanForAfternoon" index="0" node_paths=PackedStringArray("next") instance=ExtResource("2_6fcjh")]
+next = NodePath("../CutsceneNode2")
+
+[node name="bg" type="Sprite2D" parent="Concepts/PlanForAfternoon/CutsceneNode" index="0"]
+scale = Vector2(1.35, 1.35)
+texture = ExtResource("3_s7s43")
+centered = false
+
+[node name="nate" type="Sprite2D" parent="Concepts/PlanForAfternoon/CutsceneNode" index="1"]
+position = Vector2(455, 889)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("8_anes8")
+
+[node name="SmartLabel" parent="Concepts/PlanForAfternoon/CutsceneNode" index="2" instance=ExtResource("5_c3g3p")]
+offset_left = 745.0
+offset_top = 137.0
+offset_right = 1086.0
+offset_bottom = 225.0
+text = "\"No, I'm not free!\""
+
+[node name="CutsceneNode2" parent="Concepts/PlanForAfternoon" index="1" instance=ExtResource("2_6fcjh")]
+
+[node name="bg" type="Sprite2D" parent="Concepts/PlanForAfternoon/CutsceneNode2" index="0"]
+scale = Vector2(1.35, 1.35)
+texture = ExtResource("3_s7s43")
+centered = false
+
+[node name="nate" type="Sprite2D" parent="Concepts/PlanForAfternoon/CutsceneNode2" index="1"]
+position = Vector2(455, 889)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("8_anes8")
+
+[node name="SmartLabel" parent="Concepts/PlanForAfternoon/CutsceneNode2" index="2" instance=ExtResource("5_c3g3p")]
+offset_left = 745.0
+offset_top = 137.0
+offset_right = 1172.0
+offset_bottom = 307.0
+text = "\"Brona's already dumping extra work on me. Go ask someone else.\""

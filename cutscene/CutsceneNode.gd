@@ -8,6 +8,7 @@ class_name CutsceneNode
 @export var use_on_start_fn_from: Node
 @export var tag: String = ""
 @export var override_pause = false
+@export var end = false
 
 var just_clicked = false
 

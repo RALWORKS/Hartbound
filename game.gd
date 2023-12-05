@@ -10,6 +10,7 @@ var unpausing = false
 
 var MainScreen = preload("res://ui/main_screen.tscn")
 var StartScreen = preload("res://ui/start_screen.tscn")
+var ConceptMapRes = preload("res://concept-map/concept_map.tscn")
 
 var staged_action_node = null
 
@@ -131,6 +132,10 @@ func start_from_state(s):
 func main_menu():
 	var s = StartScreen.instantiate()
 	add_child(s)
+	
+	$ConceptMap.free()
+	var new_map = ConceptMapRes.instantiate()
+	add_child(new_map)
 	
 	var m = get_node_or_null("MainScreen")
 	

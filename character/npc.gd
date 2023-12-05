@@ -88,6 +88,8 @@ func _animation_from_frames(frames_sequence):
 	return animation
 
 func _make_walk_animations():
+	if $AnimationPlayer.has_animation_library("movement"):
+		return
 	var library = AnimationLibrary.new()
 	
 	for key in ANIMATIONS.keys():
@@ -141,10 +143,14 @@ func _footstep():
 		return
 	if not footsteps_on:
 		return
+	var tree = get_tree()
+	if tree == null:
+		return
 	$Footsteps.playing = false
 	$Footsteps.playing = true
 	footstep_waiting = true
-	await get_tree().create_timer(footstep_interval).timeout
+	
+	await tree.create_timer(footstep_interval).timeout
 	_footstep()
 
 func stop_footsteps():
@@ -276,14 +282,16 @@ func _physics_process(delta):
 	set_anim()
 
 func start_following(g):
-	leader = $"../Character"
+	leader = g.player
+	print(g.player, g.player.position)
 	leader.has_follower = true
 	leader.follower_arrived()
 	#g.set_state(["micro_progress", "priestess_follows"], true)
 	g.set_state(["party"], [self.id])
 
 func action():
-	#start_following($"/root/Game")
+	if process_mode == Node.PROCESS_MODE_DISABLED:
+		return
 	if not paused and base_dialogue != null:
 		$"/root/Game/Chapter".start_cutscene(base_dialogue, self)
 

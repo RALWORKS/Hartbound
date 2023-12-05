@@ -1,13 +1,21 @@
-[gd_scene load_steps=9 format=3 uid="uid://cj4mq4w13vijs"]
+[gd_scene load_steps=17 format=3 uid="uid://cj4mq4w13vijs"]
 
 [ext_resource type="PackedScene" uid="uid://bh1yfkyt3u44i" path="res://chapter.tscn" id="1_abxn2"]
 [ext_resource type="PackedScene" uid="uid://qhhv4s8njcrp" path="res://scenes/demo/1/industrial/b.tscn" id="2_x5gxs"]
 [ext_resource type="PackedScene" path="res://chapter_event_mutation.tscn" id="4_gn21l"]
+[ext_resource type="PackedScene" path="res://chapter_event.tscn" id="5_440p5"]
 [ext_resource type="PackedScene" path="res://story_item.tscn" id="5_r0j2r"]
 [ext_resource type="PackedScene" uid="uid://bcinc4blag4el" path="res://music.tscn" id="6_eeti4"]
+[ext_resource type="PackedScene" uid="uid://cbn3xklmtuki3" path="res://chapters/demo/1/party-is-leaving-camp-1.tscn" id="6_gis10"]
+[ext_resource type="PackedScene" uid="uid://mcph6fai6ep6" path="res://chapter_event_remove_chapterNode.tscn" id="6_xlrko"]
 [ext_resource type="AudioStream" uid="uid://cj5m4rj3aoeck" path="res://assets/music/maybe-saint-lvl1-bg.ogg" id="7_q6myq"]
 [ext_resource type="PackedScene" uid="uid://5exo54lvam30" path="res://quests/quests/demo_c_1_regroup_initial.tscn" id="8_qoif5"]
 [ext_resource type="Script" path="res://chapters/demo/1/DemoChapterScript.gd" id="8_up1b2"]
+[ext_resource type="PackedScene" uid="uid://uc3gpi8pp0cj" path="res://chapters/demo/1/brona.tscn" id="9_x8k8q"]
+[ext_resource type="PackedScene" uid="uid://d0q6kg3spk25s" path="res://chapters/demo/1/jerry.tscn" id="10_ccv0d"]
+[ext_resource type="PackedScene" uid="uid://bii8gdmkfiy5x" path="res://chapters/demo/1/taylor.tscn" id="11_fc7l2"]
+[ext_resource type="PackedScene" uid="uid://in7v8nsvojyp" path="res://chapters/demo/1/nate.tscn" id="12_fj03t"]
+[ext_resource type="Script" path="res://chapters/demo/1/LeaveCamp1.gd" id="15_lcypw"]
 
 [node name="Chapter" node_paths=PackedStringArray("starting_music", "script_holder") instance=ExtResource("1_abxn2")]
 starting_scene = ExtResource("2_x5gxs")
@@ -35,6 +43,21 @@ narrative = "Your human foster family helped you train as {a_profession}"
 title = "birth"
 narrative = "Four years ago, you completed your training and joined the Generator crews at Sun Temple"
 
+[node name="DepartingCamp1" parent="Events" index="1" instance=ExtResource("5_440p5")]
+cutscene = ExtResource("6_gis10")
+
+[node name="RMBrona" parent="Events/DepartingCamp1" index="0" node_paths=PackedStringArray("node_to_remove") instance=ExtResource("6_xlrko")]
+node_to_remove = NodePath("../../../IndustrialBContents/Brona")
+
+[node name="RMTaylor" parent="Events/DepartingCamp1" index="1" node_paths=PackedStringArray("node_to_remove") instance=ExtResource("6_xlrko")]
+node_to_remove = NodePath("../../../IndustrialBContents/Taylor")
+
+[node name="RMNate" parent="Events/DepartingCamp1" index="2" node_paths=PackedStringArray("node_to_remove") instance=ExtResource("6_xlrko")]
+node_to_remove = NodePath("../../../IndustrialBContents/Nate")
+
+[node name="RMJerry" parent="Events/DepartingCamp1" index="3" node_paths=PackedStringArray("node_to_remove") instance=ExtResource("6_xlrko")]
+node_to_remove = NodePath("../../../IndustrialBContents/Jerry")
+
 [node name="Music" parent="." index="1" instance=ExtResource("6_eeti4")]
 stream = ExtResource("7_q6myq")
 
@@ -42,3 +65,23 @@ stream = ExtResource("7_q6myq")
 script = ExtResource("8_up1b2")
 
 [node name="DemoC1RegroupInitial" parent="." index="3" instance=ExtResource("8_qoif5")]
+
+[node name="IndustrialBContents" type="Node2D" parent="." index="4"]
+
+[node name="Brona" parent="IndustrialBContents" index="0" instance=ExtResource("9_x8k8q")]
+position = Vector2(413, 525)
+starting_animaton = "down-right-stopped"
+
+[node name="Jerry" parent="IndustrialBContents" index="1" instance=ExtResource("10_ccv0d")]
+position = Vector2(538, 525)
+starting_animaton = "down-left-stopped"
+
+[node name="Taylor" parent="IndustrialBContents" index="2" instance=ExtResource("11_fc7l2")]
+position = Vector2(719, 504)
+
+[node name="Nate" parent="IndustrialBContents" index="3" instance=ExtResource("12_fj03t")]
+position = Vector2(933, 609)
+starting_animaton = "right-stopped"
+
+[node name="LeaveCamp1" type="Node" parent="Triggers" index="0"]
+script = ExtResource("15_lcypw")

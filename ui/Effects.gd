@@ -15,6 +15,8 @@ func _process(_delta):
 	pass
 
 func play(effect):
+	if effect.length() == 0:
+		return
 	if not effect in EFFECTS:
 		push_error("FX '" + effect + "' not recognized by Game/Effects")
 		return

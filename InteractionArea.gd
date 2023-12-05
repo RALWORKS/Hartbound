@@ -55,6 +55,8 @@ func action():
 
 
 func _on_mouse_entered():
+	if process_mode == Node.PROCESS_MODE_DISABLED:
+		return
 	cur_cursor = x_cursor.instantiate()
 
 	var w = $".."
@@ -67,6 +69,8 @@ func _on_mouse_entered():
 	DisplayServer.cursor_set_shape(DisplayServer.CURSOR_POINTING_HAND)
 
 func _on_click():
+	if process_mode == Node.PROCESS_MODE_DISABLED:
+		return
 	_get_game().staged_action_node = self
 	if in_range:
 		action()

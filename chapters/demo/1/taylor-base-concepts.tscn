@@ -1,0 +1,1295 @@
+[gd_scene load_steps=29 format=3 uid="uid://c4nb0ap5n2w2b"]
+
+[ext_resource type="Script" path="res://cutscene/CutsceneConceptsContainer.gd" id="1_iedjd"]
+[ext_resource type="PackedScene" uid="uid://84etqm7v3b47" path="res://concept-map/concepts/age_of_dusk.tscn" id="1_rendb"]
+[ext_resource type="PackedScene" uid="uid://55vflx8ylix1" path="res://cutscene/cutscene_node.tscn" id="2_xxf8h"]
+[ext_resource type="Texture2D" uid="uid://dlfi64p84aoys" path="res://assets/scenes/demo/1/industrial/cutscene/1-ground.png" id="3_ao1sr"]
+[ext_resource type="Theme" uid="uid://bowrqsap2qmsa" path="res://base_theme.tres" id="5_yjk2e"]
+[ext_resource type="PackedScene" path="res://cutscene/cutscene_option.tscn" id="6_es51f"]
+[ext_resource type="PackedScene" uid="uid://bxl45ycc6ucjc" path="res://concept-map/concepts/age_of_the_sun.tscn" id="7_eqxgh"]
+[ext_resource type="PackedScene" uid="uid://clq8611xkfdqp" path="res://cutscene/cutscene_redirect_node.tscn" id="8_nd0ea"]
+[ext_resource type="PackedScene" uid="uid://b8suyge8lpaac" path="res://concept-map/concepts/age_of_the_moon.tscn" id="9_5l3xg"]
+[ext_resource type="PackedScene" uid="uid://cjet5t2jtr03s" path="res://concept-map/concepts/brona.tscn" id="10_guh14"]
+[ext_resource type="PackedScene" uid="uid://bmaotdu8ofpwi" path="res://concept-map/concepts/sun_temple.tscn" id="11_0co5p"]
+[ext_resource type="PackedScene" uid="uid://blq44wuaxi7tj" path="res://concept-map/concepts/elves.tscn" id="12_nnrce"]
+[ext_resource type="PackedScene" uid="uid://be12fgu7h2rj1" path="res://concept-map/concepts/humans.tscn" id="13_g47my"]
+[ext_resource type="Texture2D" uid="uid://dn77d8pdelpv5" path="res://assets/npcs/taylor/taylor_irritated.png" id="13_j3tip"]
+[ext_resource type="PackedScene" uid="uid://pgm63ijam86e" path="res://concept-map/concepts/moon_temple.tscn" id="15_rb8eg"]
+[ext_resource type="PackedScene" uid="uid://cpcg5ug3rutlq" path="res://concept-map/concepts/salvagers.tscn" id="16_2qebk"]
+[ext_resource type="PackedScene" uid="uid://2jrq48rwuyls" path="res://concept-map/concepts/medics.tscn" id="17_j8no1"]
+[ext_resource type="PackedScene" uid="uid://dsv37l7unrm2e" path="res://concept-map/concepts/engineers.tscn" id="18_mve8y"]
+[ext_resource type="PackedScene" uid="uid://d0r7la835u7wq" path="res://concept-map/concepts/taylor.tscn" id="21_dgpl7"]
+[ext_resource type="PackedScene" uid="uid://bppqrtvum64n1" path="res://concept-map/concepts/nate.tscn" id="22_bs0i6"]
+[ext_resource type="PackedScene" uid="uid://bk55nkktsq3s7" path="res://concept-map/concepts/jerry.tscn" id="23_kdbo1"]
+[ext_resource type="PackedScene" uid="uid://dih3h8h1ydmo7" path="res://concept-map/concepts/end_of_the_world.tscn" id="24_4l1fl"]
+[ext_resource type="PackedScene" uid="uid://bgy0ifcrbug27" path="res://concept-map/concepts/plague_of_dreams.tscn" id="25_bpwdp"]
+[ext_resource type="PackedScene" uid="uid://dx6xjr5pem8yp" path="res://concept-map/concepts/demons.tscn" id="26_5kt1y"]
+[ext_resource type="PackedScene" uid="uid://cnfcwymfs6yoq" path="res://concept-map/concepts/generator_crews.tscn" id="27_v2sg7"]
+[ext_resource type="PackedScene" uid="uid://d4lq0ypd46jdf" path="res://concept-map/concepts/generators.tscn" id="28_8lo38"]
+[ext_resource type="PackedScene" uid="uid://dqm085unfkqhk" path="res://concept-map/concepts/leylines.tscn" id="29_802h3"]
+[ext_resource type="Texture2D" uid="uid://dx1wrwvh6nviu" path="res://assets/npcs/taylor/taylor_neutral.png" id="31_kx3if"]
+
+[node name="Concepts" type="Node"]
+script = ExtResource("1_iedjd")
+
+[node name="Age of Dusk" parent="." instance=ExtResource("1_rendb")]
+
+[node name="AOD1" parent="Age of Dusk" node_paths=PackedStringArray("next") instance=ExtResource("2_xxf8h")]
+visible = false
+next = NodePath("../AOD2")
+
+[node name="bg" type="Sprite2D" parent="Age of Dusk/AOD1"]
+scale = Vector2(1.35, 1.35)
+texture = ExtResource("3_ao1sr")
+centered = false
+
+[node name="taylor" type="Sprite2D" parent="Age of Dusk/AOD1"]
+position = Vector2(455, 1011)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("31_kx3if")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Age of Dusk/AOD1"]
+offset_left = -1.0
+offset_top = 875.0
+offset_right = 1944.0
+offset_bottom = 995.0
+theme = ExtResource("5_yjk2e")
+theme_type_variation = &"VoiceoverBox"
+text = "\"My mother used to talk about it--the cycle of history--the end of the Human Age."
+
+[node name="AOD2" parent="Age of Dusk" node_paths=PackedStringArray("next") instance=ExtResource("2_xxf8h")]
+visible = false
+next = NodePath("../AOD5")
+
+[node name="bg" type="Sprite2D" parent="Age of Dusk/AOD2"]
+scale = Vector2(1.35, 1.35)
+texture = ExtResource("3_ao1sr")
+centered = false
+
+[node name="taylor" type="Sprite2D" parent="Age of Dusk/AOD2"]
+position = Vector2(455, 1011)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("31_kx3if")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Age of Dusk/AOD2"]
+offset_left = -1.0
+offset_top = 875.0
+offset_right = 1944.0
+offset_bottom = 995.0
+theme = ExtResource("5_yjk2e")
+theme_type_variation = &"VoiceoverBox"
+text = "\"I think when I was really small, I used to believe that the Saint would come and end all this,
+one day. Now I don't really know what to think."
+
+[node name="AOD5" parent="Age of Dusk" instance=ExtResource("2_xxf8h")]
+visible = false
+is_option_node = true
+
+[node name="bg" type="Sprite2D" parent="Age of Dusk/AOD5"]
+scale = Vector2(1.35, 1.35)
+texture = ExtResource("3_ao1sr")
+centered = false
+
+[node name="taylor" type="Sprite2D" parent="Age of Dusk/AOD5"]
+position = Vector2(455, 1011)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("31_kx3if")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Age of Dusk/AOD5"]
+offset_left = 630.0
+offset_top = 202.0
+offset_right = 1167.0
+offset_bottom = 431.0
+theme = ExtResource("5_yjk2e")
+theme_type_variation = &"VoiceoverBox"
+text = "\"It's not the happiest thought, is it? That this world that you and I, and everyone at Sun Temple, 
+have worked so hard to ressurect is doomed to die regardless?\""
+
+[node name="Happy" parent="Age of Dusk/AOD5" node_paths=PackedStringArray("to") instance=ExtResource("6_es51f")]
+offset_left = 807.0
+offset_top = 512.0
+offset_right = 1247.0
+offset_bottom = 557.0
+text = "> \"I'm happy if it means the Age of the Moon is coming.\""
+to = NodePath("../../AOD-happy")
+
+[node name="Sad" parent="Age of Dusk/AOD5" node_paths=PackedStringArray("to") instance=ExtResource("6_es51f")]
+offset_left = 807.0
+offset_top = 454.0
+offset_right = 1259.0
+offset_bottom = 499.0
+text = "> \"No, it isn't a happy thought.\""
+to = NodePath("../../AOD6")
+
+[node name="AOD-happy" parent="Age of Dusk" node_paths=PackedStringArray("next") instance=ExtResource("2_xxf8h")]
+visible = false
+next = NodePath("../AOD6")
+
+[node name="bg" type="Sprite2D" parent="Age of Dusk/AOD-happy"]
+scale = Vector2(1.35, 1.35)
+texture = ExtResource("3_ao1sr")
+centered = false
+
+[node name="taylor" type="Sprite2D" parent="Age of Dusk/AOD-happy"]
+position = Vector2(591, 2349)
+scale = Vector2(2, 2)
+texture = ExtResource("31_kx3if")
+flip_h = true
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Age of Dusk/AOD-happy"]
+offset_left = 975.0
+offset_top = 663.0
+offset_right = 1404.0
+offset_bottom = 783.0
+theme = ExtResource("5_yjk2e")
+theme_type_variation = &"VoiceoverBox"
+text = "\"I wouldn't say that where the others can hear.\""
+
+[node name="AOD6" parent="Age of Dusk" instance=ExtResource("2_xxf8h")]
+visible = false
+
+[node name="bg" type="Sprite2D" parent="Age of Dusk/AOD6"]
+scale = Vector2(1.35, 1.35)
+texture = ExtResource("3_ao1sr")
+centered = false
+
+[node name="taylor" type="Sprite2D" parent="Age of Dusk/AOD6"]
+position = Vector2(455, 1011)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("31_kx3if")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Age of Dusk/AOD6"]
+offset_left = 789.0
+offset_top = 225.0
+offset_right = 1376.0
+offset_bottom = 345.0
+theme = ExtResource("5_yjk2e")
+theme_type_variation = &"VoiceoverBox"
+text = "\"Those teachings, though--I've always wondered if there's truth to them.\""
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="Age of Dusk/AOD6"]
+offset_left = 1086.0
+offset_top = 370.0
+offset_right = 1375.0
+offset_bottom = 450.0
+theme = ExtResource("5_yjk2e")
+theme_type_variation = &"VoiceoverBox"
+text = "\"Is time a cycle?\""
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="Age of Dusk/AOD6"]
+offset_left = 796.0
+offset_top = 472.0
+offset_right = 1377.0
+offset_bottom = 628.0
+theme = ExtResource("5_yjk2e")
+theme_type_variation = &"VoiceoverBox"
+text = "\"Is the end of the world as we know it really just the start of something else?\""
+
+[node name="Age of the Sun" parent="." instance=ExtResource("7_eqxgh")]
+
+[node name="AOS1" parent="Age of the Sun" node_paths=PackedStringArray("next") instance=ExtResource("2_xxf8h")]
+visible = false
+next = NodePath("../AOS2")
+
+[node name="bg" type="Sprite2D" parent="Age of the Sun/AOS1"]
+scale = Vector2(1.35, 1.35)
+texture = ExtResource("3_ao1sr")
+centered = false
+
+[node name="taylor" type="Sprite2D" parent="Age of the Sun/AOS1"]
+position = Vector2(455, 1011)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("31_kx3if")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Age of the Sun/AOS1"]
+offset_left = -1.0
+offset_top = 875.0
+offset_right = 1944.0
+offset_bottom = 995.0
+theme = ExtResource("5_yjk2e")
+theme_type_variation = &"VoiceoverBox"
+text = "\"The Golden Age of Man? I can see the Moon Temple's point--it does seem to have ended.\""
+
+[node name="AOS2" parent="Age of the Sun" node_paths=PackedStringArray("next") instance=ExtResource("2_xxf8h")]
+visible = false
+next = NodePath("../AOS3")
+
+[node name="bg" type="Sprite2D" parent="Age of the Sun/AOS2"]
+scale = Vector2(1.35, 1.35)
+texture = ExtResource("3_ao1sr")
+centered = false
+
+[node name="taylor" type="Sprite2D" parent="Age of the Sun/AOS2"]
+position = Vector2(455, 1011)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("31_kx3if")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Age of the Sun/AOS2"]
+offset_left = -1.0
+offset_top = 855.0
+offset_right = 1944.0
+offset_bottom = 1007.0
+theme = ExtResource("5_yjk2e")
+theme_type_variation = &"VoiceoverBox"
+bbcode_enabled = true
+text = "\"They say that at the height of the Age of the Sun, you could talk to anyone, anywhere
+by tapping into the Leylines. You could read every book ever written without leaving
+your house. And all [i]that[/i] was [i]before[/i] the birth of Magic.\""
+
+[node name="AOS3" parent="Age of the Sun" instance=ExtResource("2_xxf8h")]
+visible = false
+
+[node name="bg" type="Sprite2D" parent="Age of the Sun/AOS3"]
+scale = Vector2(1.35, 1.35)
+texture = ExtResource("3_ao1sr")
+centered = false
+
+[node name="taylor" type="Sprite2D" parent="Age of the Sun/AOS3"]
+position = Vector2(455, 1011)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("31_kx3if")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Age of the Sun/AOS3"]
+offset_left = -1.0
+offset_top = 875.0
+offset_right = 1944.0
+offset_bottom = 995.0
+theme = ExtResource("5_yjk2e")
+theme_type_variation = &"VoiceoverBox"
+bbcode_enabled = true
+text = "\"It's not hard to see why their Age is named Sun, and ours, Dusk.\""
+
+[node name="AgeOfTheMoon" parent="." instance=ExtResource("9_5l3xg")]
+
+[node name="AOM1" parent="AgeOfTheMoon" node_paths=PackedStringArray("next") instance=ExtResource("2_xxf8h")]
+visible = false
+next = NodePath("../AOM2")
+
+[node name="bg" type="Sprite2D" parent="AgeOfTheMoon/AOM1"]
+scale = Vector2(1.35, 1.35)
+texture = ExtResource("3_ao1sr")
+centered = false
+
+[node name="taylor" type="Sprite2D" parent="AgeOfTheMoon/AOM1"]
+position = Vector2(455, 1011)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("31_kx3if")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="AgeOfTheMoon/AOM1"]
+offset_left = 629.0
+offset_top = 239.0
+offset_right = 1162.0
+offset_bottom = 359.0
+theme = ExtResource("5_yjk2e")
+theme_type_variation = &"VoiceoverBox"
+bbcode_enabled = true
+text = "\"I'm a little afraid of the notion.\""
+
+[node name="AOM2" parent="AgeOfTheMoon" node_paths=PackedStringArray("next") instance=ExtResource("2_xxf8h")]
+visible = false
+next = NodePath("../AOM3")
+
+[node name="bg" type="Sprite2D" parent="AgeOfTheMoon/AOM2"]
+scale = Vector2(1.35, 1.35)
+texture = ExtResource("3_ao1sr")
+centered = false
+
+[node name="taylor" type="Sprite2D" parent="AgeOfTheMoon/AOM2"]
+position = Vector2(455, 1011)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("31_kx3if")
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="AgeOfTheMoon/AOM2"]
+offset_left = 733.0
+offset_top = 233.0
+offset_right = 1110.0
+offset_bottom = 353.0
+theme = ExtResource("5_yjk2e")
+theme_type_variation = &"VoiceoverBox"
+bbcode_enabled = true
+text = "\"Magic and the Forest, ruling once more?\""
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="AgeOfTheMoon/AOM2"]
+offset_left = 811.0
+offset_top = 381.0
+offset_right = 1254.0
+offset_bottom = 539.0
+theme = ExtResource("5_yjk2e")
+theme_type_variation = &"VoiceoverBox"
+bbcode_enabled = true
+text = "\"I have Magic--a smidge of it, anyway--and let me tell you: Magic makes a mess.\""
+
+[node name="RichTextLabel4" type="RichTextLabel" parent="AgeOfTheMoon/AOM2"]
+offset_left = 914.0
+offset_top = 568.0
+offset_right = 1357.0
+offset_bottom = 790.0
+theme = ExtResource("5_yjk2e")
+theme_type_variation = &"VoiceoverBox"
+bbcode_enabled = true
+text = "\"Mucks up electronics. Drains batteries. Helps the herbs grow, sure, but not necessarily the ones you planted.\""
+
+[node name="AOM3" parent="AgeOfTheMoon" node_paths=PackedStringArray("next") instance=ExtResource("2_xxf8h")]
+visible = false
+next = NodePath("../AOM4")
+
+[node name="bg" type="Sprite2D" parent="AgeOfTheMoon/AOM3"]
+scale = Vector2(1.35, 1.35)
+texture = ExtResource("3_ao1sr")
+centered = false
+
+[node name="taylor" type="Sprite2D" parent="AgeOfTheMoon/AOM3"]
+position = Vector2(455, 1011)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("31_kx3if")
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="AgeOfTheMoon/AOM3"]
+offset_left = 733.0
+offset_top = 233.0
+offset_right = 1354.0
+offset_bottom = 387.0
+theme = ExtResource("5_yjk2e")
+theme_type_variation = &"VoiceoverBox"
+bbcode_enabled = true
+text = "\"The Moon Temple teaches there's a harmony to that chaos--but I certainly never learned to sing it."
+
+[node name="AOM4" parent="AgeOfTheMoon" instance=ExtResource("2_xxf8h")]
+visible = false
+
+[node name="bg" type="Sprite2D" parent="AgeOfTheMoon/AOM4"]
+scale = Vector2(1.35, 1.35)
+texture = ExtResource("3_ao1sr")
+centered = false
+
+[node name="taylor" type="Sprite2D" parent="AgeOfTheMoon/AOM4"]
+position = Vector2(455, 1011)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("31_kx3if")
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="AgeOfTheMoon/AOM4"]
+offset_left = 733.0
+offset_top = 233.0
+offset_right = 1354.0
+offset_bottom = 387.0
+theme = ExtResource("5_yjk2e")
+theme_type_variation = &"VoiceoverBox"
+bbcode_enabled = true
+text = "\"At the end of the day, a world run by engineers sounds brighter to me than one run by wizards and priests."
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="AgeOfTheMoon/AOM4"]
+offset_left = 849.0
+offset_top = 427.0
+offset_right = 1470.0
+offset_bottom = 551.0
+theme = ExtResource("5_yjk2e")
+theme_type_variation = &"VoiceoverBox"
+bbcode_enabled = true
+text = "\"But maybe that's just because I grew up among humans, and not Elves.\""
+
+[node name="Brona" parent="." instance=ExtResource("10_guh14")]
+
+[node name="Brona1" parent="Brona" node_paths=PackedStringArray("next") instance=ExtResource("2_xxf8h")]
+visible = false
+next = NodePath("../Brona2")
+
+[node name="bg" type="Sprite2D" parent="Brona/Brona1"]
+scale = Vector2(1.35, 1.35)
+texture = ExtResource("3_ao1sr")
+centered = false
+
+[node name="taylor" type="Sprite2D" parent="Brona/Brona1"]
+position = Vector2(455, 1011)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("31_kx3if")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Brona/Brona1"]
+offset_left = 659.0
+offset_top = 153.0
+offset_right = 978.0
+offset_bottom = 273.0
+theme = ExtResource("5_yjk2e")
+theme_type_variation = &"VoiceoverBox"
+text = "\"She's grown up a lot, hasn't she?\""
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="Brona/Brona1"]
+offset_left = 733.0
+offset_top = 289.0
+offset_right = 1236.0
+offset_bottom = 457.0
+theme = ExtResource("5_yjk2e")
+theme_type_variation = &"VoiceoverBox"
+text = "\"Hmm. Maybe it's rude of me to say that when she's only a year or two younger than us.\""
+
+[node name="Brona2" parent="Brona" instance=ExtResource("2_xxf8h")]
+visible = false
+
+[node name="bg" type="Sprite2D" parent="Brona/Brona2"]
+scale = Vector2(1.35, 1.35)
+texture = ExtResource("3_ao1sr")
+centered = false
+
+[node name="taylor" type="Sprite2D" parent="Brona/Brona2"]
+position = Vector2(455, 1011)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("31_kx3if")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Brona/Brona2"]
+offset_left = 879.0
+offset_top = 471.0
+offset_right = 1500.0
+offset_bottom = 629.0
+theme = ExtResource("5_yjk2e")
+theme_type_variation = &"VoiceoverBox"
+bbcode_enabled = true
+text = "\"But growing up with her, I don't know if I'd have guessed she'd be able to find a job that [i]fits[/i] her so well.\""
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="Brona/Brona2"]
+offset_left = 1053.0
+offset_top = 639.0
+offset_right = 1588.0
+offset_bottom = 797.0
+theme = ExtResource("5_yjk2e")
+theme_type_variation = &"VoiceoverBox"
+bbcode_enabled = true
+text = "\"She was always in trouble, you know? But now? She's made it. I'm happy for her.\""
+
+[node name="Sun Temple" parent="." instance=ExtResource("11_0co5p")]
+
+[node name="SunTemple1" parent="Sun Temple" node_paths=PackedStringArray("next") instance=ExtResource("2_xxf8h")]
+visible = false
+next = NodePath("../SunTemple2")
+
+[node name="bg" type="Sprite2D" parent="Sun Temple/SunTemple1"]
+scale = Vector2(1.35, 1.35)
+texture = ExtResource("3_ao1sr")
+centered = false
+
+[node name="taylor2" type="Sprite2D" parent="Sun Temple/SunTemple1"]
+position = Vector2(455, 1011)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("31_kx3if")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Sun Temple/SunTemple1"]
+offset_left = -1.0
+offset_top = 875.0
+offset_right = 1944.0
+offset_bottom = 995.0
+theme = ExtResource("5_yjk2e")
+theme_type_variation = &"VoiceoverBox"
+bbcode_enabled = true
+text = "\"You know that's actually an exonym? It's what the Elves call them. I mean, what the Elves call [i]us[/i].\""
+
+[node name="SunTemple2" parent="Sun Temple" node_paths=PackedStringArray("next") instance=ExtResource("2_xxf8h")]
+visible = false
+next = NodePath("../SunTemple3")
+
+[node name="bg" type="Sprite2D" parent="Sun Temple/SunTemple2"]
+scale = Vector2(1.35, 1.35)
+texture = ExtResource("3_ao1sr")
+centered = false
+
+[node name="taylor2" type="Sprite2D" parent="Sun Temple/SunTemple2"]
+position = Vector2(455, 1011)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("31_kx3if")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Sun Temple/SunTemple2"]
+offset_left = -1.0
+offset_top = 875.0
+offset_right = 1944.0
+offset_bottom = 995.0
+theme = ExtResource("5_yjk2e")
+theme_type_variation = &"VoiceoverBox"
+bbcode_enabled = true
+text = "\"The Elves called [i]us[/i] Sun worshippers for trying to ressurect the Age of the Sun, and when we took
+the Moon Temple as our enemy, we wore that accusation as a badge of pride."
+
+[node name="SunTemple3" parent="Sun Temple" instance=ExtResource("2_xxf8h")]
+visible = false
+
+[node name="bg" type="Sprite2D" parent="Sun Temple/SunTemple3"]
+scale = Vector2(1.35, 1.35)
+texture = ExtResource("3_ao1sr")
+centered = false
+
+[node name="taylor2" type="Sprite2D" parent="Sun Temple/SunTemple3"]
+position = Vector2(455, 1011)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("31_kx3if")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Sun Temple/SunTemple3"]
+offset_left = 681.0
+offset_top = 173.0
+offset_right = 1262.0
+offset_bottom = 261.0
+theme = ExtResource("5_yjk2e")
+theme_type_variation = &"VoiceoverBox"
+bbcode_enabled = true
+text = "\"[i]Yes,[/i] we're trying to turn back time. "
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="Sun Temple/SunTemple3"]
+offset_left = 743.0
+offset_top = 277.0
+offset_right = 1350.0
+offset_bottom = 365.0
+theme = ExtResource("5_yjk2e")
+theme_type_variation = &"VoiceoverBox"
+bbcode_enabled = true
+text = "\"[i]Yes,[/i] we're opposing the natural order. "
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="Sun Temple/SunTemple3"]
+offset_left = 775.0
+offset_top = 383.0
+offset_right = 1382.0
+offset_bottom = 557.0
+theme = ExtResource("5_yjk2e")
+theme_type_variation = &"VoiceoverBox"
+bbcode_enabled = true
+text = "\"[i]Yes,[/i] we're going to make the Sun
+rise again, before Night can even fall. [i]That's[/i] the meaning of Sun Temple.\""
+
+[node name="Elves" parent="." instance=ExtResource("12_nnrce")]
+
+[node name="CutsceneNode" parent="Elves" instance=ExtResource("2_xxf8h")]
+visible = false
+
+[node name="bg" type="Sprite2D" parent="Elves/CutsceneNode"]
+scale = Vector2(1.35, 1.35)
+texture = ExtResource("3_ao1sr")
+centered = false
+
+[node name="taylor" type="Sprite2D" parent="Elves/CutsceneNode"]
+position = Vector2(455, 850)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("31_kx3if")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Elves/CutsceneNode"]
+offset_left = 742.0
+offset_top = 148.0
+offset_right = 1395.0
+offset_bottom = 263.0
+theme = ExtResource("5_yjk2e")
+theme_type_variation = &"VoiceoverBox"
+text = "\"My mother was an Elf. But I've told you that before.\""
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="Elves/CutsceneNode"]
+offset_left = 826.0
+offset_top = 284.0
+offset_right = 1479.0
+offset_bottom = 433.0
+theme = ExtResource("5_yjk2e")
+theme_type_variation = &"VoiceoverBox"
+text = "\"I'm afraid being Half has coloured my impressions of your people ... in a way that's not wholly positive.\""
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="Elves/CutsceneNode"]
+offset_left = 932.0
+offset_top = 454.0
+offset_right = 1585.0
+offset_bottom = 569.0
+theme = ExtResource("5_yjk2e")
+theme_type_variation = &"VoiceoverBox"
+bbcode_enabled = true
+text = "\"Even when I was a child at Moon Temple, I was always a bit of an outsider. \""
+
+[node name="Humans" parent="." instance=ExtResource("13_g47my")]
+
+[node name="humans1" parent="Humans" node_paths=PackedStringArray("next") instance=ExtResource("2_xxf8h")]
+visible = false
+next = NodePath("../humans2")
+
+[node name="bg" type="Sprite2D" parent="Humans/humans1"]
+scale = Vector2(1.35, 1.35)
+texture = ExtResource("3_ao1sr")
+centered = false
+
+[node name="taylor" type="Sprite2D" parent="Humans/humans1"]
+position = Vector2(481, 868)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("13_j3tip")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Humans/humans1"]
+offset_left = 740.0
+offset_top = 156.0
+offset_right = 1334.0
+offset_bottom = 276.0
+theme = ExtResource("5_yjk2e")
+theme_type_variation = &"VoiceoverBox"
+bbcode_enabled = true
+text = "\"Humans act like they're the only [i]people[/i] in the world.\""
+
+[node name="humans2" parent="Humans" node_paths=PackedStringArray("next") instance=ExtResource("2_xxf8h")]
+visible = false
+next = NodePath("../humans3")
+
+[node name="bg" type="Sprite2D" parent="Humans/humans2"]
+scale = Vector2(1.35, 1.35)
+texture = ExtResource("3_ao1sr")
+centered = false
+
+[node name="taylor" type="Sprite2D" parent="Humans/humans2"]
+position = Vector2(481, 868)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("31_kx3if")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Humans/humans2"]
+offset_left = 740.0
+offset_top = 156.0
+offset_right = 1334.0
+offset_bottom = 276.0
+theme = ExtResource("5_yjk2e")
+theme_type_variation = &"VoiceoverBox"
+bbcode_enabled = true
+text = "\"Not as if the rest of us aren't people, so much as ... how to put it?"
+
+[node name="humans3" parent="Humans" instance=ExtResource("2_xxf8h")]
+visible = false
+
+[node name="bg" type="Sprite2D" parent="Humans/humans3"]
+scale = Vector2(1.35, 1.35)
+texture = ExtResource("3_ao1sr")
+centered = false
+
+[node name="taylor" type="Sprite2D" parent="Humans/humans3"]
+position = Vector2(481, 868)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("13_j3tip")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Humans/humans3"]
+offset_left = 740.0
+offset_top = 156.0
+offset_right = 1334.0
+offset_bottom = 276.0
+theme = ExtResource("5_yjk2e")
+theme_type_variation = &"VoiceoverBox"
+bbcode_enabled = true
+text = "\"--That humans are the default people, and everyone else is an exception."
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="Humans/humans3"]
+offset_left = 840.0
+offset_top = 310.0
+offset_right = 1434.0
+offset_bottom = 544.0
+theme = ExtResource("5_yjk2e")
+theme_type_variation = &"VoiceoverBox"
+bbcode_enabled = true
+text = "\"Elves'll exclude, and patronize, and condescend, but at least they have the awareness--most of the time--that not everybody shares their experience of the world.\""
+
+[node name="MoonTemple" parent="." instance=ExtResource("15_rb8eg")]
+
+[node name="CutsceneNode" parent="MoonTemple" node_paths=PackedStringArray("next") instance=ExtResource("2_xxf8h")]
+visible = false
+next = NodePath("../CutsceneNode2")
+
+[node name="bg" type="Sprite2D" parent="MoonTemple/CutsceneNode"]
+scale = Vector2(1.35, 1.35)
+texture = ExtResource("3_ao1sr")
+centered = false
+
+[node name="taylor" type="Sprite2D" parent="MoonTemple/CutsceneNode"]
+position = Vector2(481, 868)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("31_kx3if")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MoonTemple/CutsceneNode"]
+offset_left = -1.0
+offset_top = 903.0
+offset_right = 1979.0
+offset_bottom = 1026.0
+theme = ExtResource("5_yjk2e")
+theme_type_variation = &"VoiceoverBox"
+text = "\"I only lived there until I was about five, so I don't remember everything. I know it's not as big as
+Sun Temple. It's all Elves, of course. And lots of priests and monks and churches.\""
+
+[node name="CutsceneNode2" parent="MoonTemple" node_paths=PackedStringArray("next") instance=ExtResource("2_xxf8h")]
+visible = false
+next = NodePath("../CutsceneNode3")
+
+[node name="bg" type="Sprite2D" parent="MoonTemple/CutsceneNode2"]
+scale = Vector2(1.35, 1.35)
+texture = ExtResource("3_ao1sr")
+centered = false
+
+[node name="taylor" type="Sprite2D" parent="MoonTemple/CutsceneNode2"]
+position = Vector2(481, 868)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("31_kx3if")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MoonTemple/CutsceneNode2"]
+offset_left = -1.0
+offset_top = 867.0
+offset_right = 1979.0
+offset_bottom = 1026.0
+theme = ExtResource("5_yjk2e")
+theme_type_variation = &"VoiceoverBox"
+text = "\"The 'Temple' in Sun Temple is a metaphor. The 'Temple' in Moon Temple is a sprawling
+cathedral built into a mountainside. I was inside, once. My Blessing Day. I suppose you must
+have been, too, now that I think of it."
+
+[node name="CutsceneNode3" parent="MoonTemple" instance=ExtResource("2_xxf8h")]
+visible = false
+
+[node name="bg" type="Sprite2D" parent="MoonTemple/CutsceneNode3"]
+scale = Vector2(1.35, 1.35)
+texture = ExtResource("3_ao1sr")
+centered = false
+
+[node name="taylor" type="Sprite2D" parent="MoonTemple/CutsceneNode3"]
+position = Vector2(481, 868)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("31_kx3if")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MoonTemple/CutsceneNode3"]
+offset_left = -1.0
+offset_top = 867.0
+offset_right = 1979.0
+offset_bottom = 992.0
+theme = ExtResource("5_yjk2e")
+theme_type_variation = &"VoiceoverBox"
+text = "\"You should really just cut me off when I'm telling you things you already know.
+There's no need to indulge my rambling.\""
+
+[node name="Salvagers" parent="." instance=ExtResource("16_2qebk")]
+
+[node name="CutsceneNode" parent="Salvagers" instance=ExtResource("2_xxf8h")]
+visible = false
+
+[node name="bg" type="Sprite2D" parent="Salvagers/CutsceneNode"]
+scale = Vector2(1.35, 1.35)
+texture = ExtResource("3_ao1sr")
+centered = false
+
+[node name="taylor2" type="Sprite2D" parent="Salvagers/CutsceneNode"]
+position = Vector2(481, 868)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("31_kx3if")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Salvagers/CutsceneNode"]
+offset_left = 764.0
+offset_top = 148.0
+offset_right = 1517.0
+offset_bottom = 313.0
+theme = ExtResource("5_yjk2e")
+theme_type_variation = &"VoiceoverBox"
+bbcode_enabled = true
+text = "\"Full time salvaging? I can't imagine. Adventures like this are best left to people like Brona. I can't wait to get back to my office at the hospital.\""
+
+[node name="Medics" parent="." instance=ExtResource("17_j8no1")]
+
+[node name="CutsceneNode" parent="Medics" instance=ExtResource("2_xxf8h")]
+visible = false
+
+[node name="bg" type="Sprite2D" parent="Medics/CutsceneNode"]
+scale = Vector2(1.35, 1.35)
+texture = ExtResource("3_ao1sr")
+centered = false
+
+[node name="taylor2" type="Sprite2D" parent="Medics/CutsceneNode"]
+position = Vector2(481, 868)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("31_kx3if")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Medics/CutsceneNode"]
+offset_left = 764.0
+offset_top = 128.0
+offset_right = 1242.0
+offset_bottom = 280.0
+theme = ExtResource("5_yjk2e")
+theme_type_variation = &"VoiceoverBox"
+bbcode_enabled = true
+text = "\"We can be a bitter lot, but we do mean well, most of the time.\""
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="Medics/CutsceneNode"]
+offset_left = 866.0
+offset_top = 306.0
+offset_right = 1344.0
+offset_bottom = 508.0
+theme = ExtResource("5_yjk2e")
+theme_type_variation = &"VoiceoverBox"
+bbcode_enabled = true
+text = "\"It's just that there's always so much [i]work[/i] to be done, and we can't afford to mess up on [i]any[/i] of it.\""
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="Medics/CutsceneNode"]
+offset_left = 960.0
+offset_top = 536.0
+offset_right = 1438.0
+offset_bottom = 660.0
+theme = ExtResource("5_yjk2e")
+theme_type_variation = &"VoiceoverBox"
+bbcode_enabled = true
+text = "\"That aside--I do like the job well enough, I suppose.\""
+
+[node name="Engineers" parent="." instance=ExtResource("18_mve8y")]
+
+[node name="Eng" parent="Engineers" node_paths=PackedStringArray("next") instance=ExtResource("2_xxf8h")]
+visible = false
+next = NodePath("../Eng2")
+
+[node name="bg" type="Sprite2D" parent="Engineers/Eng"]
+scale = Vector2(1.35, 1.35)
+texture = ExtResource("3_ao1sr")
+centered = false
+
+[node name="taylor2" type="Sprite2D" parent="Engineers/Eng"]
+position = Vector2(481, 868)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("31_kx3if")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Engineers/Eng"]
+offset_left = 776.0
+offset_top = 215.0
+offset_right = 1313.0
+offset_bottom = 335.0
+theme = ExtResource("5_yjk2e")
+theme_type_variation = &"VoiceoverBox"
+text = "\"I took an interest as a kid, of course but, ah--"
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="Engineers/Eng"]
+offset_left = 888.0
+offset_top = 363.0
+offset_right = 1425.0
+offset_bottom = 483.0
+theme = ExtResource("5_yjk2e")
+theme_type_variation = &"VoiceoverBox"
+text = "\"I'm a Half-Elf. I can mess up electronics just by touching them."
+
+[node name="Eng2" parent="Engineers" instance=ExtResource("2_xxf8h")]
+visible = false
+
+[node name="bg" type="Sprite2D" parent="Engineers/Eng2"]
+scale = Vector2(1.35, 1.35)
+texture = ExtResource("3_ao1sr")
+centered = false
+
+[node name="taylor2" type="Sprite2D" parent="Engineers/Eng2"]
+position = Vector2(481, 868)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("31_kx3if")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Engineers/Eng2"]
+offset_left = 814.0
+offset_top = 111.0
+offset_right = 1351.0
+offset_bottom = 355.0
+theme = ExtResource("5_yjk2e")
+theme_type_variation = &"VoiceoverBox"
+bbcode_enabled = true
+text = "\"Come to think of it, that weird ... knack of yours interfering in your [i]favour[/i] is probably the only reason you're not in the same boat, isn't it?"
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="Engineers/Eng2"]
+offset_left = 992.0
+offset_top = 377.0
+offset_right = 1421.0
+offset_bottom = 501.0
+theme = ExtResource("5_yjk2e")
+theme_type_variation = &"VoiceoverBox"
+bbcode_enabled = true
+text = "\"I don't know that I'd ever considered that before ...\""
+
+[node name="Taylor" parent="." instance=ExtResource("21_dgpl7")]
+
+[node name="CutsceneNode" parent="Taylor" instance=ExtResource("2_xxf8h")]
+visible = false
+
+[node name="bg" type="Sprite2D" parent="Taylor/CutsceneNode"]
+scale = Vector2(1.35, 1.35)
+texture = ExtResource("3_ao1sr")
+centered = false
+
+[node name="taylor2" type="Sprite2D" parent="Taylor/CutsceneNode"]
+position = Vector2(481, 868)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("31_kx3if")
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="Taylor/CutsceneNode"]
+offset_left = -1.0
+offset_top = 875.0
+offset_right = 1979.0
+offset_bottom = 995.0
+theme = ExtResource("5_yjk2e")
+theme_type_variation = &"VoiceoverBox"
+text = "\"Oh. I'm all right. Thanks for asking.\""
+
+[node name="Nate" parent="." instance=ExtResource("22_bs0i6")]
+
+[node name="Nate" parent="Nate" node_paths=PackedStringArray("next") instance=ExtResource("2_xxf8h")]
+visible = false
+next = NodePath("../Nate2")
+
+[node name="bg" type="Sprite2D" parent="Nate/Nate"]
+scale = Vector2(1.35, 1.35)
+texture = ExtResource("3_ao1sr")
+centered = false
+
+[node name="taylor2" type="Sprite2D" parent="Nate/Nate"]
+position = Vector2(481, 868)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("31_kx3if")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Nate/Nate"]
+offset_left = 748.0
+offset_top = 136.0
+offset_right = 1392.0
+offset_bottom = 345.0
+theme = ExtResource("5_yjk2e")
+theme_type_variation = &"VoiceoverBox"
+bbcode_enabled = true
+text = "\"I don't see why everyone's always mad at him. He doesn't [i]pick[/i] fights--he just doesn't ignore insult the same as everybody else does."
+
+[node name="Nate2" parent="Nate" instance=ExtResource("2_xxf8h")]
+visible = false
+
+[node name="bg" type="Sprite2D" parent="Nate/Nate2"]
+scale = Vector2(1.35, 1.35)
+texture = ExtResource("3_ao1sr")
+centered = false
+
+[node name="taylor2" type="Sprite2D" parent="Nate/Nate2"]
+position = Vector2(481, 868)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("31_kx3if")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Nate/Nate2"]
+offset_left = 750.0
+offset_top = 88.0
+offset_right = 1394.0
+offset_bottom = 321.0
+theme = ExtResource("5_yjk2e")
+theme_type_variation = &"VoiceoverBox"
+bbcode_enabled = true
+text = "\"But he doesn't hold a grudge, either. Make Nate mad once? You've made him mad once. He won't hold it against you if you don't hold it against him."
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="Nate/Nate2"]
+offset_left = 962.0
+offset_top = 346.0
+offset_right = 1606.0
+offset_bottom = 545.0
+theme = ExtResource("5_yjk2e")
+theme_type_variation = &"VoiceoverBox"
+bbcode_enabled = true
+text = "\"Argue it out. He's not made of glass. And when the argument's finished? It's over. No mess. Once you realize that, he's actually pretty easy to talk to.\""
+
+[node name="Jerry" parent="." instance=ExtResource("23_kdbo1")]
+
+[node name="CutsceneNode" parent="Jerry" instance=ExtResource("2_xxf8h")]
+visible = false
+
+[node name="bg" type="Sprite2D" parent="Jerry/CutsceneNode"]
+scale = Vector2(1.35, 1.35)
+texture = ExtResource("3_ao1sr")
+centered = false
+
+[node name="taylor2" type="Sprite2D" parent="Jerry/CutsceneNode"]
+position = Vector2(481, 868)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("31_kx3if")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Jerry/CutsceneNode"]
+offset_left = 754.0
+offset_top = 215.0
+offset_right = 1228.0
+offset_bottom = 385.0
+theme = ExtResource("5_yjk2e")
+theme_type_variation = &"VoiceoverBox"
+text = "\"Jerry's good. Sanest Salvager I ever met. I have nothing but respect for that man.\""
+
+[node name="EndOfTheWorld" parent="." instance=ExtResource("24_4l1fl")]
+
+[node name="CutsceneNode" parent="EndOfTheWorld" instance=ExtResource("2_xxf8h")]
+visible = false
+
+[node name="bg" type="Sprite2D" parent="EndOfTheWorld/CutsceneNode"]
+scale = Vector2(1.35, 1.35)
+texture = ExtResource("3_ao1sr")
+centered = false
+
+[node name="taylor2" type="Sprite2D" parent="EndOfTheWorld/CutsceneNode"]
+position = Vector2(481, 868)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("31_kx3if")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="EndOfTheWorld/CutsceneNode"]
+offset_left = -1.0
+offset_top = 833.0
+offset_right = 1979.0
+offset_bottom = 995.0
+theme = ExtResource("5_yjk2e")
+theme_type_variation = &"VoiceoverBox"
+bbcode_enabled = true
+text = "\"The Age of Sun is ended, certainly. But the world? How can that be? We're all here, aren't we?
+There's still life; still people; still Leylines. No. Things are changing. Can't tell you which way
+they're headed, but I'm confident this isn't the [i]end[/i].\""
+
+[node name="Plague of Dreams" parent="." instance=ExtResource("25_bpwdp")]
+
+[node name="Plague" parent="Plague of Dreams" node_paths=PackedStringArray("next") instance=ExtResource("2_xxf8h")]
+visible = false
+next = NodePath("../Plague2")
+
+[node name="bg" type="Sprite2D" parent="Plague of Dreams/Plague"]
+scale = Vector2(1.35, 1.35)
+texture = ExtResource("3_ao1sr")
+centered = false
+
+[node name="taylor2" type="Sprite2D" parent="Plague of Dreams/Plague"]
+position = Vector2(481, 868)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("31_kx3if")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Plague of Dreams/Plague"]
+offset_left = 743.0
+offset_top = 69.0
+offset_right = 1195.0
+offset_bottom = 345.0
+theme = ExtResource("5_yjk2e")
+theme_type_variation = &"VoiceoverBox"
+text = "\"Back at Moon Temple, there were people who dreamed the Demon's dreams, slowly losing their bodies to the Leyline's damage. "
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="Plague of Dreams/Plague"]
+offset_left = 833.0
+offset_top = 381.0
+offset_right = 1285.0
+offset_bottom = 657.0
+theme = ExtResource("5_yjk2e")
+theme_type_variation = &"VoiceoverBox"
+text = "\"Young men who walked with canes, or didn't walk at all, sleeping more, and more, knowing one day soon, they wouldn't rise again."
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="Plague of Dreams/Plague"]
+offset_left = 975.0
+offset_top = 695.0
+offset_right = 1385.0
+offset_bottom = 927.0
+theme = ExtResource("5_yjk2e")
+theme_type_variation = &"VoiceoverBox"
+text = "\"They told me you could go on for years that way, getting worse, and
+weaker, and stranger in the head, but not dying.\""
+
+[node name="Plague2" parent="Plague of Dreams" node_paths=PackedStringArray("next") instance=ExtResource("2_xxf8h")]
+visible = false
+next = NodePath("../Plague5")
+
+[node name="bg" type="Sprite2D" parent="Plague of Dreams/Plague2"]
+scale = Vector2(1.35, 1.35)
+texture = ExtResource("3_ao1sr")
+centered = false
+
+[node name="taylor2" type="Sprite2D" parent="Plague of Dreams/Plague2"]
+position = Vector2(481, 868)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("31_kx3if")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Plague of Dreams/Plague2"]
+offset_left = 743.0
+offset_top = 205.0
+offset_right = 1385.0
+offset_bottom = 359.0
+theme = ExtResource("5_yjk2e")
+theme_type_variation = &"VoiceoverBox"
+text = "\"Elves can, was what I learned, when I studied human medicine. Humans certainly cannot."
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="Plague of Dreams/Plague2"]
+offset_left = 787.0
+offset_top = 389.0
+offset_right = 1429.0
+offset_bottom = 509.0
+theme = ExtResource("5_yjk2e")
+theme_type_variation = &"VoiceoverBox"
+text = "\"I've treated several now. None have lived past a few months.\""
+
+[node name="Plague5" parent="Plague of Dreams" node_paths=PackedStringArray("next") instance=ExtResource("2_xxf8h")]
+visible = false
+next = NodePath("../Plague3")
+
+[node name="bg" type="Sprite2D" parent="Plague of Dreams/Plague5"]
+scale = Vector2(1.35, 1.35)
+texture = ExtResource("3_ao1sr")
+centered = false
+
+[node name="taylor2" type="Sprite2D" parent="Plague of Dreams/Plague5"]
+position = Vector2(481, 868)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("31_kx3if")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Plague of Dreams/Plague5"]
+offset_left = 743.0
+offset_top = 205.0
+offset_right = 1385.0
+offset_bottom = 393.0
+theme = ExtResource("5_yjk2e")
+theme_type_variation = &"VoiceoverBox"
+text = "\"If someone like me--a half-Elf, that is--were to contract it, I couldn't say what would happen. There have been too few case studies.\""
+
+[node name="Plague3" parent="Plague of Dreams" node_paths=PackedStringArray("next") instance=ExtResource("2_xxf8h")]
+visible = false
+next = NodePath("../Plague4")
+
+[node name="bg" type="Sprite2D" parent="Plague of Dreams/Plague3"]
+scale = Vector2(1.35, 1.35)
+texture = ExtResource("3_ao1sr")
+centered = false
+
+[node name="taylor2" type="Sprite2D" parent="Plague of Dreams/Plague3"]
+position = Vector2(481, 868)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("31_kx3if")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Plague of Dreams/Plague3"]
+offset_left = 731.0
+offset_top = 75.0
+offset_right = 1519.0
+offset_bottom = 273.0
+theme = ExtResource("5_yjk2e")
+theme_type_variation = &"VoiceoverBox"
+bbcode_enabled = true
+text = "\"They say the Plague of Dreams began before the Demons emerged--that at one point, when Man still lived connected to Leylines, the Plague flowed right out of them, and into the souls of those it touched. "
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="Plague of Dreams/Plague3"]
+offset_left = 779.0
+offset_top = 305.0
+offset_right = 1567.0
+offset_bottom = 431.0
+theme = ExtResource("5_yjk2e")
+theme_type_variation = &"VoiceoverBox"
+bbcode_enabled = true
+text = "\"When Man tried to slay the Leyline to control the spread, goes the theory, it ended the world."
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="Plague of Dreams/Plague3"]
+offset_left = 819.0
+offset_top = 461.0
+offset_right = 1607.0
+offset_bottom = 629.0
+theme = ExtResource("5_yjk2e")
+theme_type_variation = &"VoiceoverBox"
+bbcode_enabled = true
+text = "\"Well. There are many theories on [i]what[/i] it is we tried to slay. The Plague. The first of the Demons. The Leyline. Magic itself.\""
+
+[node name="Plague4" parent="Plague of Dreams" instance=ExtResource("2_xxf8h")]
+visible = false
+
+[node name="bg" type="Sprite2D" parent="Plague of Dreams/Plague4"]
+scale = Vector2(1.35, 1.35)
+texture = ExtResource("3_ao1sr")
+centered = false
+
+[node name="taylor2" type="Sprite2D" parent="Plague of Dreams/Plague4"]
+position = Vector2(481, 868)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("31_kx3if")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Plague of Dreams/Plague4"]
+offset_left = 751.0
+offset_top = 87.0
+offset_right = 1465.0
+offset_bottom = 361.0
+theme = ExtResource("5_yjk2e")
+theme_type_variation = &"VoiceoverBox"
+bbcode_enabled = true
+text = "\"In any case, the Plague of Dreams, so called, presumably, due to the hypersomnia it induces in its late stage, is mostly contracted through contact with Demons in the modern day--though it's been known to manfest after Leyline electrocution as well, in rare cases. "
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="Plague of Dreams/Plague4"]
+offset_left = 805.0
+offset_top = 396.0
+offset_right = 1427.0
+offset_bottom = 590.0
+theme = ExtResource("5_yjk2e")
+theme_type_variation = &"VoiceoverBox"
+bbcode_enabled = true
+text = "\"It's incurable, and terminal, with a notably more protracted course--and more psychological symptoms--in Elves than in humans.\""
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="Plague of Dreams/Plague4"]
+offset_left = 773.0
+offset_top = 628.0
+offset_right = 1351.0
+offset_bottom = 706.0
+theme = ExtResource("5_yjk2e")
+theme_type_variation = &"VoiceoverBox"
+bbcode_enabled = true
+text = "\"I hope that answers your question.\""
+
+[node name="Demons" parent="." instance=ExtResource("26_5kt1y")]
+
+[node name="CutsceneNode" parent="Demons" instance=ExtResource("2_xxf8h")]
+visible = false
+
+[node name="bg" type="Sprite2D" parent="Demons/CutsceneNode"]
+scale = Vector2(1.35, 1.35)
+texture = ExtResource("3_ao1sr")
+centered = false
+
+[node name="taylor" type="Sprite2D" parent="Demons/CutsceneNode"]
+position = Vector2(455, 850)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("31_kx3if")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Demons/CutsceneNode"]
+offset_left = -1.0
+offset_top = 875.0
+offset_right = 1979.0
+offset_bottom = 995.0
+theme = ExtResource("5_yjk2e")
+theme_type_variation = &"VoiceoverBox"
+text = "\"The Sentinels of the Leyline, the Elves teach. Perhaps. But they say the Leyline was once Man's
+creation. Who is to say it's not Man's right to try and reclaim it.\""
+
+[node name="GeneratorCrews" parent="." instance=ExtResource("27_v2sg7")]
+
+[node name="CutsceneRedirectNode" parent="GeneratorCrews" node_paths=PackedStringArray("next") instance=ExtResource("8_nd0ea")]
+visible = false
+next = NodePath("../../Salvagers/CutsceneNode")
+
+[node name="Generators" parent="." instance=ExtResource("28_8lo38")]
+
+[node name="CutsceneNode" parent="Generators" instance=ExtResource("2_xxf8h")]
+visible = false
+
+[node name="bg" type="Sprite2D" parent="Generators/CutsceneNode"]
+scale = Vector2(1.35, 1.35)
+texture = ExtResource("3_ao1sr")
+centered = false
+
+[node name="taylor" type="Sprite2D" parent="Generators/CutsceneNode"]
+position = Vector2(455, 850)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("31_kx3if")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Generators/CutsceneNode"]
+offset_left = -1.0
+offset_top = 875.0
+offset_right = 1979.0
+offset_bottom = 995.0
+theme = ExtResource("5_yjk2e")
+theme_type_variation = &"VoiceoverBox"
+text = "\"Being a medic, I don't know all that much about them.\""
+
+[node name="Leylines" parent="." instance=ExtResource("29_802h3")]
+
+[node name="Leyline" parent="Leylines" instance=ExtResource("2_xxf8h")]
+visible = false
+
+[node name="bg" type="Sprite2D" parent="Leylines/Leyline"]
+scale = Vector2(1.35, 1.35)
+texture = ExtResource("3_ao1sr")
+centered = false
+
+[node name="taylor" type="Sprite2D" parent="Leylines/Leyline"]
+position = Vector2(455, 850)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("31_kx3if")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Leylines/Leyline"]
+offset_left = 759.0
+offset_top = 64.0
+offset_right = 1263.0
+offset_bottom = 297.0
+theme = ExtResource("5_yjk2e")
+theme_type_variation = &"VoiceoverBox"
+text = "\"Herbs grow better on the Leylines. Elves say Magic runs stronger there, and plants seem to interface with Magic, so I imagine that's why. "
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="Leylines/Leyline"]
+offset_left = 759.0
+offset_top = 321.0
+offset_right = 1379.0
+offset_bottom = 612.0
+theme = ExtResource("5_yjk2e")
+theme_type_variation = &"VoiceoverBox"
+bbcode_enabled = true
+text = "\"The Elves carry their wounded to the Leyline after a battle. It's said to speed healing. I haven't been able to verify it [i]does[/i], but I keep it in my back pocket as something to try, if I run into a situation desperate enough to warrant it.\""

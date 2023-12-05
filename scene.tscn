@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://byrlpmbpj6yr5"]
 
-[ext_resource type="PackedScene" path="res://travel/spawner.tscn" id="2_b4mwe"]
+[ext_resource type="PackedScene" uid="uid://dwet7i6bmp0m6" path="res://travel/spawner.tscn" id="2_b4mwe"]
 [ext_resource type="Texture2D" uid="uid://dwyqvct36hhs7" path="res://assets/default-scene.png" id="2_o4l51"]
 
 [sub_resource type="GDScript" id="GDScript_kldhx"]
@@ -17,19 +17,39 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	pass
+	
+func _duplicate(n):
+	var scn = load(n.scene_file_path)
+	var d = scn.instantiate()
+	var props = n.get_property_list()
+	for i in props.size():
+		var attr = props[i].name
+		if attr in [
+			\"multiplayer\",
+			\"owner\",
+		]:
+			continue
+		if attr not in d or attr not in n:
+			continue
+		d[attr] = n[attr]
+	return d
+	
 
 func add_chapter_contents():
 	if contents_node:
+		contents_node.visible = false
 		for child in contents_node.get_children():
-			var item = child.duplicate()
+			var item = _duplicate(child)
 #			item.set_owner($YSort)
-			item.visible = true
+			#item.visible = true
 #			item.get_parent().remove_child(item)
 			$YSort.add_child(item)
+			child.process_mode = Node.PROCESS_MODE_DISABLED
+			item.process_mode = Node.PROCESS_MODE_INHERIT
+			assert(item.process_mode != child.process_mode)
 
 func spawn(g):
 	#$TileMap/DefaultSpawner.spawn()
-	add_chapter_contents()
 #	$YSort/DefaultSpawner.spawn()
 	$YSort/DefaultSpawner.spawn(g)
 "
