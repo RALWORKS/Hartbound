@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://cphadkoi37v4v"]
+[gd_scene load_steps=37 format=3 uid="uid://cphadkoi37v4v"]
 
 [ext_resource type="Script" path="res://cutscene/CutsceneConceptsContainer.gd" id="1_bvkoa"]
 [ext_resource type="PackedScene" uid="uid://84etqm7v3b47" path="res://concept-map/concepts/age_of_dusk.tscn" id="1_yhax7"]
@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://dlfi64p84aoys" path="res://assets/scenes/demo/1/industrial/cutscene/1-ground.png" id="3_4jg2d"]
 [ext_resource type="Texture2D" uid="uid://s0ah5pljwjc8" path="res://assets/npcs/brona/happy.png" id="4_m03cx"]
 [ext_resource type="Theme" uid="uid://bowrqsap2qmsa" path="res://base_theme.tres" id="5_dpfjf"]
-[ext_resource type="PackedScene" path="res://cutscene/cutscene_option.tscn" id="6_dpdg8"]
+[ext_resource type="PackedScene" uid="uid://yplasm5gtgly" path="res://cutscene/cutscene_option.tscn" id="6_dpdg8"]
 [ext_resource type="PackedScene" uid="uid://bxl45ycc6ucjc" path="res://concept-map/concepts/age_of_the_sun.tscn" id="7_xdme4"]
 [ext_resource type="PackedScene" uid="uid://clq8611xkfdqp" path="res://cutscene/cutscene_redirect_node.tscn" id="8_eew08"]
 [ext_resource type="PackedScene" uid="uid://b8suyge8lpaac" path="res://concept-map/concepts/age_of_the_moon.tscn" id="9_cwy7h"]
@@ -31,6 +31,8 @@
 [ext_resource type="PackedScene" uid="uid://d4lq0ypd46jdf" path="res://concept-map/concepts/generators.tscn" id="28_afamo"]
 [ext_resource type="PackedScene" uid="uid://dqm085unfkqhk" path="res://concept-map/concepts/leylines.tscn" id="29_xgcf1"]
 [ext_resource type="PackedScene" uid="uid://bxu8qsfgeojlr" path="res://quests/quests/demo_c_1_regroup_initial/plan_for_afternoon.tscn" id="30_c2xcg"]
+[ext_resource type="PackedScene" uid="uid://b0aqc6k73fj3d" path="res://quests/quests/demo_c_1_collecting/c_1_collecting_herbs.tscn" id="32_yjn4d"]
+[ext_resource type="PackedScene" uid="uid://dcaa2e368c4ty" path="res://quests/quests/demo_c_1_collecting/c_1_collecting_compenents.tscn" id="33_j5y81"]
 
 [sub_resource type="Animation" id="Animation_eigjd"]
 length = 0.25
@@ -999,3 +1001,32 @@ text = "\"Jerry and me saw this [i]big[/i] sheet of undamaged glass out where we
 she says.
 \"I was hoping we'd be able to go back, and see if we can get it out intact. Might rope Nate in,
 [i]if it's not too much trouble for him[/i], since he [i]is[/i] surprisingly good with careful work like that.\""
+
+[node name="C1CollectingHerbs" parent="." instance=ExtResource("32_yjn4d")]
+
+[node name="Herbs" parent="C1CollectingHerbs" instance=ExtResource("2_1oki1")]
+
+[node name="bg" type="Sprite2D" parent="C1CollectingHerbs/Herbs"]
+scale = Vector2(1.35, 1.35)
+texture = ExtResource("3_4jg2d")
+centered = false
+
+[node name="brona" type="Sprite2D" parent="C1CollectingHerbs/Herbs"]
+position = Vector2(455, 850)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("4_m03cx")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="C1CollectingHerbs/Herbs"]
+offset_left = -1.0
+offset_top = 886.0
+offset_right = 1979.0
+offset_bottom = 1016.0
+theme = ExtResource("5_dpfjf")
+theme_type_variation = &"VoiceoverBox"
+bbcode_enabled = true
+text = "\"Oh! Taylor's gonna go salvaging with you, huh? I'm glad you got it sorted.\""
+
+[node name="C1CollectingComponents" parent="." instance=ExtResource("33_j5y81")]
+
+[node name="CutsceneRedirectNode" parent="C1CollectingComponents" node_paths=PackedStringArray("next") instance=ExtResource("8_eew08")]
+next = NodePath("../../C1CollectingHerbs/Herbs")

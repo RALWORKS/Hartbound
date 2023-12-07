@@ -4,10 +4,11 @@
 [ext_resource type="Script" path="res://cutscene/UseConceptInDialogue.gd" id="2_f3ton"]
 [ext_resource type="PackedScene" uid="uid://wbgngbqdd7je" path="res://concept-map/concept_map_visualizer.tscn" id="2_ymnfk"]
 [ext_resource type="Theme" uid="uid://bowrqsap2qmsa" path="res://base_theme.tres" id="3_fbk60"]
-[ext_resource type="PackedScene" path="res://cutscene/cutscene_option.tscn" id="4_3f5al"]
+[ext_resource type="PackedScene" uid="uid://yplasm5gtgly" path="res://cutscene/cutscene_option.tscn" id="4_3f5al"]
 
-[node name="ConceptCutsceneNode" instance=ExtResource("1_h71b0")]
+[node name="ConceptCutsceneNode" node_paths=PackedStringArray("use_on_start_fn_from") instance=ExtResource("1_h71b0")]
 is_option_node = true
+use_on_start_fn_from = NodePath("UseConceptInDialogue")
 
 [node name="UseConceptInDialogue" type="Node" parent="." index="0"]
 script = ExtResource("2_f3ton")

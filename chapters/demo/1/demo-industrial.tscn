@@ -64,7 +64,8 @@ stream = ExtResource("7_q6myq")
 [node name="DemoChapterScript" type="Node" parent="." index="2"]
 script = ExtResource("8_up1b2")
 
-[node name="DemoC1RegroupInitial" parent="." index="3" instance=ExtResource("8_qoif5")]
+[node name="DemoC1RegroupInitial" parent="." index="3" node_paths=PackedStringArray("next_quest") instance=ExtResource("8_qoif5")]
+next_quest = NodePath("")
 
 [node name="IndustrialBContents" type="Node2D" parent="." index="4"]
 

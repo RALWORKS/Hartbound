@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://b0aqc6k73fj3d"]
+
+[ext_resource type="PackedScene" uid="uid://bt0e2jwvmgpgm" path="res://concept-map/concept.tscn" id="1_ngot5"]
+
+[node name="C1CollectingHerbs" instance=ExtResource("1_ngot5")]
+id = "c1-collecting-herbs"
+title = "Herbs"

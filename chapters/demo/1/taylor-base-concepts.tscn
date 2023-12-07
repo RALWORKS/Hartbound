@@ -1,11 +1,11 @@
-[gd_scene load_steps=29 format=3 uid="uid://c4nb0ap5n2w2b"]
+[gd_scene load_steps=31 format=3 uid="uid://c4nb0ap5n2w2b"]
 
 [ext_resource type="Script" path="res://cutscene/CutsceneConceptsContainer.gd" id="1_iedjd"]
 [ext_resource type="PackedScene" uid="uid://84etqm7v3b47" path="res://concept-map/concepts/age_of_dusk.tscn" id="1_rendb"]
 [ext_resource type="PackedScene" uid="uid://55vflx8ylix1" path="res://cutscene/cutscene_node.tscn" id="2_xxf8h"]
 [ext_resource type="Texture2D" uid="uid://dlfi64p84aoys" path="res://assets/scenes/demo/1/industrial/cutscene/1-ground.png" id="3_ao1sr"]
 [ext_resource type="Theme" uid="uid://bowrqsap2qmsa" path="res://base_theme.tres" id="5_yjk2e"]
-[ext_resource type="PackedScene" path="res://cutscene/cutscene_option.tscn" id="6_es51f"]
+[ext_resource type="PackedScene" uid="uid://yplasm5gtgly" path="res://cutscene/cutscene_option.tscn" id="6_es51f"]
 [ext_resource type="PackedScene" uid="uid://bxl45ycc6ucjc" path="res://concept-map/concepts/age_of_the_sun.tscn" id="7_eqxgh"]
 [ext_resource type="PackedScene" uid="uid://clq8611xkfdqp" path="res://cutscene/cutscene_redirect_node.tscn" id="8_nd0ea"]
 [ext_resource type="PackedScene" uid="uid://b8suyge8lpaac" path="res://concept-map/concepts/age_of_the_moon.tscn" id="9_5l3xg"]
@@ -26,7 +26,9 @@
 [ext_resource type="PackedScene" uid="uid://dx6xjr5pem8yp" path="res://concept-map/concepts/demons.tscn" id="26_5kt1y"]
 [ext_resource type="PackedScene" uid="uid://cnfcwymfs6yoq" path="res://concept-map/concepts/generator_crews.tscn" id="27_v2sg7"]
 [ext_resource type="PackedScene" uid="uid://d4lq0ypd46jdf" path="res://concept-map/concepts/generators.tscn" id="28_8lo38"]
+[ext_resource type="PackedScene" uid="uid://b0aqc6k73fj3d" path="res://quests/quests/demo_c_1_collecting/c_1_collecting_herbs.tscn" id="29_0ktl4"]
 [ext_resource type="PackedScene" uid="uid://dqm085unfkqhk" path="res://concept-map/concepts/leylines.tscn" id="29_802h3"]
+[ext_resource type="PackedScene" uid="uid://dcaa2e368c4ty" path="res://quests/quests/demo_c_1_collecting/c_1_collecting_compenents.tscn" id="30_hcq24"]
 [ext_resource type="Texture2D" uid="uid://dx1wrwvh6nviu" path="res://assets/npcs/taylor/taylor_neutral.png" id="31_kx3if"]
 
 [node name="Concepts" type="Node"]
@@ -43,8 +45,8 @@ scale = Vector2(1.35, 1.35)
 texture = ExtResource("3_ao1sr")
 centered = false
 
-[node name="taylor" type="Sprite2D" parent="Age of Dusk/AOD1"]
-position = Vector2(455, 1011)
+[node name="taylor2" type="Sprite2D" parent="Age of Dusk/AOD1"]
+position = Vector2(455, 850)
 scale = Vector2(0.7, 0.7)
 texture = ExtResource("31_kx3if")
 
@@ -66,8 +68,8 @@ scale = Vector2(1.35, 1.35)
 texture = ExtResource("3_ao1sr")
 centered = false
 
-[node name="taylor" type="Sprite2D" parent="Age of Dusk/AOD2"]
-position = Vector2(455, 1011)
+[node name="taylor2" type="Sprite2D" parent="Age of Dusk/AOD2"]
+position = Vector2(455, 850)
 scale = Vector2(0.7, 0.7)
 texture = ExtResource("31_kx3if")
 
@@ -90,8 +92,8 @@ scale = Vector2(1.35, 1.35)
 texture = ExtResource("3_ao1sr")
 centered = false
 
-[node name="taylor" type="Sprite2D" parent="Age of Dusk/AOD5"]
-position = Vector2(455, 1011)
+[node name="taylor2" type="Sprite2D" parent="Age of Dusk/AOD5"]
+position = Vector2(455, 850)
 scale = Vector2(0.7, 0.7)
 texture = ExtResource("31_kx3if")
 
@@ -153,8 +155,8 @@ scale = Vector2(1.35, 1.35)
 texture = ExtResource("3_ao1sr")
 centered = false
 
-[node name="taylor" type="Sprite2D" parent="Age of Dusk/AOD6"]
-position = Vector2(455, 1011)
+[node name="taylor2" type="Sprite2D" parent="Age of Dusk/AOD6"]
+position = Vector2(455, 850)
 scale = Vector2(0.7, 0.7)
 texture = ExtResource("31_kx3if")
 
@@ -196,8 +198,8 @@ scale = Vector2(1.35, 1.35)
 texture = ExtResource("3_ao1sr")
 centered = false
 
-[node name="taylor" type="Sprite2D" parent="Age of the Sun/AOS1"]
-position = Vector2(455, 1011)
+[node name="taylor2" type="Sprite2D" parent="Age of the Sun/AOS1"]
+position = Vector2(455, 850)
 scale = Vector2(0.7, 0.7)
 texture = ExtResource("31_kx3if")
 
@@ -219,8 +221,8 @@ scale = Vector2(1.35, 1.35)
 texture = ExtResource("3_ao1sr")
 centered = false
 
-[node name="taylor" type="Sprite2D" parent="Age of the Sun/AOS2"]
-position = Vector2(455, 1011)
+[node name="taylor2" type="Sprite2D" parent="Age of the Sun/AOS2"]
+position = Vector2(455, 850)
 scale = Vector2(0.7, 0.7)
 texture = ExtResource("31_kx3if")
 
@@ -244,8 +246,8 @@ scale = Vector2(1.35, 1.35)
 texture = ExtResource("3_ao1sr")
 centered = false
 
-[node name="taylor" type="Sprite2D" parent="Age of the Sun/AOS3"]
-position = Vector2(455, 1011)
+[node name="taylor2" type="Sprite2D" parent="Age of the Sun/AOS3"]
+position = Vector2(455, 850)
 scale = Vector2(0.7, 0.7)
 texture = ExtResource("31_kx3if")
 
@@ -270,8 +272,8 @@ scale = Vector2(1.35, 1.35)
 texture = ExtResource("3_ao1sr")
 centered = false
 
-[node name="taylor" type="Sprite2D" parent="AgeOfTheMoon/AOM1"]
-position = Vector2(455, 1011)
+[node name="taylor2" type="Sprite2D" parent="AgeOfTheMoon/AOM1"]
+position = Vector2(455, 850)
 scale = Vector2(0.7, 0.7)
 texture = ExtResource("31_kx3if")
 
@@ -294,8 +296,8 @@ scale = Vector2(1.35, 1.35)
 texture = ExtResource("3_ao1sr")
 centered = false
 
-[node name="taylor" type="Sprite2D" parent="AgeOfTheMoon/AOM2"]
-position = Vector2(455, 1011)
+[node name="taylor2" type="Sprite2D" parent="AgeOfTheMoon/AOM2"]
+position = Vector2(455, 850)
 scale = Vector2(0.7, 0.7)
 texture = ExtResource("31_kx3if")
 
@@ -338,8 +340,8 @@ scale = Vector2(1.35, 1.35)
 texture = ExtResource("3_ao1sr")
 centered = false
 
-[node name="taylor" type="Sprite2D" parent="AgeOfTheMoon/AOM3"]
-position = Vector2(455, 1011)
+[node name="taylor2" type="Sprite2D" parent="AgeOfTheMoon/AOM3"]
+position = Vector2(455, 850)
 scale = Vector2(0.7, 0.7)
 texture = ExtResource("31_kx3if")
 
@@ -361,8 +363,8 @@ scale = Vector2(1.35, 1.35)
 texture = ExtResource("3_ao1sr")
 centered = false
 
-[node name="taylor" type="Sprite2D" parent="AgeOfTheMoon/AOM4"]
-position = Vector2(455, 1011)
+[node name="taylor2" type="Sprite2D" parent="AgeOfTheMoon/AOM4"]
+position = Vector2(455, 850)
 scale = Vector2(0.7, 0.7)
 texture = ExtResource("31_kx3if")
 
@@ -397,8 +399,8 @@ scale = Vector2(1.35, 1.35)
 texture = ExtResource("3_ao1sr")
 centered = false
 
-[node name="taylor" type="Sprite2D" parent="Brona/Brona1"]
-position = Vector2(455, 1011)
+[node name="taylor2" type="Sprite2D" parent="Brona/Brona1"]
+position = Vector2(455, 850)
 scale = Vector2(0.7, 0.7)
 texture = ExtResource("31_kx3if")
 
@@ -428,8 +430,8 @@ scale = Vector2(1.35, 1.35)
 texture = ExtResource("3_ao1sr")
 centered = false
 
-[node name="taylor" type="Sprite2D" parent="Brona/Brona2"]
-position = Vector2(455, 1011)
+[node name="taylor2" type="Sprite2D" parent="Brona/Brona2"]
+position = Vector2(455, 850)
 scale = Vector2(0.7, 0.7)
 texture = ExtResource("31_kx3if")
 
@@ -465,7 +467,7 @@ texture = ExtResource("3_ao1sr")
 centered = false
 
 [node name="taylor2" type="Sprite2D" parent="Sun Temple/SunTemple1"]
-position = Vector2(455, 1011)
+position = Vector2(455, 850)
 scale = Vector2(0.7, 0.7)
 texture = ExtResource("31_kx3if")
 
@@ -489,7 +491,7 @@ texture = ExtResource("3_ao1sr")
 centered = false
 
 [node name="taylor2" type="Sprite2D" parent="Sun Temple/SunTemple2"]
-position = Vector2(455, 1011)
+position = Vector2(455, 850)
 scale = Vector2(0.7, 0.7)
 texture = ExtResource("31_kx3if")
 
@@ -513,7 +515,7 @@ texture = ExtResource("3_ao1sr")
 centered = false
 
 [node name="taylor2" type="Sprite2D" parent="Sun Temple/SunTemple3"]
-position = Vector2(455, 1011)
+position = Vector2(455, 850)
 scale = Vector2(0.7, 0.7)
 texture = ExtResource("31_kx3if")
 
@@ -558,7 +560,7 @@ scale = Vector2(1.35, 1.35)
 texture = ExtResource("3_ao1sr")
 centered = false
 
-[node name="taylor" type="Sprite2D" parent="Elves/CutsceneNode"]
+[node name="taylor2" type="Sprite2D" parent="Elves/CutsceneNode"]
 position = Vector2(455, 850)
 scale = Vector2(0.7, 0.7)
 texture = ExtResource("31_kx3if")
@@ -602,7 +604,7 @@ scale = Vector2(1.35, 1.35)
 texture = ExtResource("3_ao1sr")
 centered = false
 
-[node name="taylor" type="Sprite2D" parent="Humans/humans1"]
+[node name="taylor2" type="Sprite2D" parent="Humans/humans1"]
 position = Vector2(481, 868)
 scale = Vector2(0.7, 0.7)
 texture = ExtResource("13_j3tip")
@@ -626,7 +628,7 @@ scale = Vector2(1.35, 1.35)
 texture = ExtResource("3_ao1sr")
 centered = false
 
-[node name="taylor" type="Sprite2D" parent="Humans/humans2"]
+[node name="taylor2" type="Sprite2D" parent="Humans/humans2"]
 position = Vector2(481, 868)
 scale = Vector2(0.7, 0.7)
 texture = ExtResource("31_kx3if")
@@ -649,7 +651,7 @@ scale = Vector2(1.35, 1.35)
 texture = ExtResource("3_ao1sr")
 centered = false
 
-[node name="taylor" type="Sprite2D" parent="Humans/humans3"]
+[node name="taylor2" type="Sprite2D" parent="Humans/humans3"]
 position = Vector2(481, 868)
 scale = Vector2(0.7, 0.7)
 texture = ExtResource("13_j3tip")
@@ -685,7 +687,7 @@ scale = Vector2(1.35, 1.35)
 texture = ExtResource("3_ao1sr")
 centered = false
 
-[node name="taylor" type="Sprite2D" parent="MoonTemple/CutsceneNode"]
+[node name="taylor2" type="Sprite2D" parent="MoonTemple/CutsceneNode"]
 position = Vector2(481, 868)
 scale = Vector2(0.7, 0.7)
 texture = ExtResource("31_kx3if")
@@ -709,7 +711,7 @@ scale = Vector2(1.35, 1.35)
 texture = ExtResource("3_ao1sr")
 centered = false
 
-[node name="taylor" type="Sprite2D" parent="MoonTemple/CutsceneNode2"]
+[node name="taylor2" type="Sprite2D" parent="MoonTemple/CutsceneNode2"]
 position = Vector2(481, 868)
 scale = Vector2(0.7, 0.7)
 texture = ExtResource("31_kx3if")
@@ -733,7 +735,7 @@ scale = Vector2(1.35, 1.35)
 texture = ExtResource("3_ao1sr")
 centered = false
 
-[node name="taylor" type="Sprite2D" parent="MoonTemple/CutsceneNode3"]
+[node name="taylor2" type="Sprite2D" parent="MoonTemple/CutsceneNode3"]
 position = Vector2(481, 868)
 scale = Vector2(0.7, 0.7)
 texture = ExtResource("31_kx3if")
@@ -1183,7 +1185,8 @@ offset_bottom = 361.0
 theme = ExtResource("5_yjk2e")
 theme_type_variation = &"VoiceoverBox"
 bbcode_enabled = true
-text = "\"In any case, the Plague of Dreams, so called, presumably, due to the hypersomnia it induces in its late stage, is mostly contracted through contact with Demons in the modern day--though it's been known to manfest after Leyline electrocution as well, in rare cases. "
+text = "\"In any case, the Plague of Dreams, so called, presumably, due to the hypersomnia it induces in its late stage, is mostly contracted through contact with Demons in the modern day--though it's been known to manifest after Leyline electrocution as well, in rare cases. "
+metadata/_edit_use_anchors_ = true
 
 [node name="RichTextLabel3" type="RichTextLabel" parent="Plague of Dreams/Plague4"]
 offset_left = 805.0
@@ -1215,7 +1218,7 @@ scale = Vector2(1.35, 1.35)
 texture = ExtResource("3_ao1sr")
 centered = false
 
-[node name="taylor" type="Sprite2D" parent="Demons/CutsceneNode"]
+[node name="taylor2" type="Sprite2D" parent="Demons/CutsceneNode"]
 position = Vector2(455, 850)
 scale = Vector2(0.7, 0.7)
 texture = ExtResource("31_kx3if")
@@ -1246,7 +1249,7 @@ scale = Vector2(1.35, 1.35)
 texture = ExtResource("3_ao1sr")
 centered = false
 
-[node name="taylor" type="Sprite2D" parent="Generators/CutsceneNode"]
+[node name="taylor2" type="Sprite2D" parent="Generators/CutsceneNode"]
 position = Vector2(455, 850)
 scale = Vector2(0.7, 0.7)
 texture = ExtResource("31_kx3if")
@@ -1270,7 +1273,7 @@ scale = Vector2(1.35, 1.35)
 texture = ExtResource("3_ao1sr")
 centered = false
 
-[node name="taylor" type="Sprite2D" parent="Leylines/Leyline"]
+[node name="taylor2" type="Sprite2D" parent="Leylines/Leyline"]
 position = Vector2(455, 850)
 scale = Vector2(0.7, 0.7)
 texture = ExtResource("31_kx3if")
@@ -1293,3 +1296,112 @@ theme = ExtResource("5_yjk2e")
 theme_type_variation = &"VoiceoverBox"
 bbcode_enabled = true
 text = "\"The Elves carry their wounded to the Leyline after a battle. It's said to speed healing. I haven't been able to verify it [i]does[/i], but I keep it in my back pocket as something to try, if I run into a situation desperate enough to warrant it.\""
+
+[node name="C1CollectingHerbs" parent="." instance=ExtResource("29_0ktl4")]
+
+[node name="Herbs" parent="C1CollectingHerbs" instance=ExtResource("2_xxf8h")]
+visible = false
+
+[node name="bg" type="Sprite2D" parent="C1CollectingHerbs/Herbs"]
+scale = Vector2(1.35, 1.35)
+texture = ExtResource("3_ao1sr")
+centered = false
+
+[node name="taylor2" type="Sprite2D" parent="C1CollectingHerbs/Herbs"]
+position = Vector2(455, 850)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("31_kx3if")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="C1CollectingHerbs/Herbs"]
+offset_left = 759.0
+offset_top = 64.0
+offset_right = 1263.0
+offset_bottom = 297.0
+theme = ExtResource("5_yjk2e")
+theme_type_variation = &"VoiceoverBox"
+text = "\"Oh, don't worry about that. I'll stop you if I see a good patch, and then we can grab them and move on. I'll hardly even slow you down.\""
+
+[node name="C1CollectingComponents" parent="." instance=ExtResource("30_hcq24")]
+
+[node name="Components" parent="C1CollectingComponents" node_paths=PackedStringArray("next") instance=ExtResource("2_xxf8h")]
+visible = false
+next = NodePath("../Components2")
+
+[node name="bg" type="Sprite2D" parent="C1CollectingComponents/Components"]
+scale = Vector2(1.35, 1.35)
+texture = ExtResource("3_ao1sr")
+centered = false
+
+[node name="taylor2" type="Sprite2D" parent="C1CollectingComponents/Components"]
+position = Vector2(455, 850)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("31_kx3if")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="C1CollectingComponents/Components"]
+offset_left = 774.0
+offset_top = 75.0
+offset_right = 1278.0
+offset_bottom = 319.0
+theme = ExtResource("5_yjk2e")
+theme_type_variation = &"VoiceoverBox"
+bbcode_enabled = true
+text = "\"Ah ... I'm just the medic, remember? The only thing I know about the machines you work with is treating the injuries they cause.\""
+
+[node name="Components2" parent="C1CollectingComponents" node_paths=PackedStringArray("next") instance=ExtResource("2_xxf8h")]
+visible = false
+next = NodePath("../Components3")
+
+[node name="bg" type="Sprite2D" parent="C1CollectingComponents/Components2"]
+scale = Vector2(1.35, 1.35)
+texture = ExtResource("3_ao1sr")
+centered = false
+
+[node name="taylor2" type="Sprite2D" parent="C1CollectingComponents/Components2"]
+position = Vector2(455, 850)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("13_j3tip")
+flip_h = true
+
+[node name="RichTextLabel" type="RichTextLabel" parent="C1CollectingComponents/Components2"]
+offset_left = 772.0
+offset_top = 79.0
+offset_right = 1064.0
+offset_bottom = 234.0
+theme = ExtResource("5_yjk2e")
+theme_type_variation = &"VoiceoverBox"
+bbcode_enabled = true
+text = "\"--an ever growing list, it seems--\""
+
+[node name="Components3" parent="C1CollectingComponents" instance=ExtResource("2_xxf8h")]
+visible = false
+
+[node name="bg" type="Sprite2D" parent="C1CollectingComponents/Components3"]
+scale = Vector2(1.35, 1.35)
+texture = ExtResource("3_ao1sr")
+centered = false
+
+[node name="taylor2" type="Sprite2D" parent="C1CollectingComponents/Components3"]
+position = Vector2(455, 850)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("31_kx3if")
+flip_h = true
+
+[node name="RichTextLabel" type="RichTextLabel" parent="C1CollectingComponents/Components3"]
+offset_left = 774.0
+offset_top = 75.0
+offset_right = 1278.0
+offset_bottom = 194.0
+theme = ExtResource("5_yjk2e")
+theme_type_variation = &"VoiceoverBox"
+bbcode_enabled = true
+text = "\"The ingenuity of engineers and salvagers ..."
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="C1CollectingComponents/Components3"]
+offset_left = 835.0
+offset_top = 213.0
+offset_right = 1339.0
+offset_bottom = 296.0
+theme = ExtResource("5_yjk2e")
+theme_type_variation = &"VoiceoverBox"
+bbcode_enabled = true
+text = "\"... never ceases to amaze me.\""

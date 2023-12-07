@@ -57,7 +57,7 @@ func _refresh_options():
 			continue
 		a.parent = self
 		var btn = Button.new()
-		btn.size = Vector2(460, 45)
+		btn.size = Vector2(510, 45)
 		btn.text = a.title
 		btn.position = Vector2(10, y)
 		y += 53

@@ -4,7 +4,7 @@ var InteractionModal = preload("res://item/interaction_modal.tscn")
 var ImageInteractionModal = preload("res://item/image_interaction_modal.tscn")
 
 @export var title: String
-@export var description: String
+@export_multiline var description: String
 @export var options_container_node: Node
 @export var image_texture: Texture2D
 

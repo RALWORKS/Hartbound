@@ -1,14 +1,16 @@
-[gd_scene load_steps=10 format=3 uid="uid://disv4e233mw0e"]
+[gd_scene load_steps=12 format=3 uid="uid://disv4e233mw0e"]
 
 [ext_resource type="PackedScene" uid="uid://bp8tsdjdbwj8i" path="res://cutscene/cutscene.tscn" id="1_xokwk"]
 [ext_resource type="PackedScene" uid="uid://55vflx8ylix1" path="res://cutscene/cutscene_node.tscn" id="2_6fcjh"]
 [ext_resource type="Texture2D" uid="uid://dlfi64p84aoys" path="res://assets/scenes/demo/1/industrial/cutscene/1-ground.png" id="3_s7s43"]
 [ext_resource type="Texture2D" uid="uid://dxlwv778ouxxb" path="res://assets/npcs/nate/bored.png" id="4_dcr1o"]
 [ext_resource type="PackedScene" uid="uid://b11g7mb25w5xp" path="res://cutscene/smart_label.tscn" id="5_c3g3p"]
-[ext_resource type="PackedScene" path="res://cutscene/cutscene_option.tscn" id="6_djk5t"]
+[ext_resource type="PackedScene" uid="uid://yplasm5gtgly" path="res://cutscene/cutscene_option.tscn" id="6_djk5t"]
 [ext_resource type="PackedScene" uid="uid://cm3keg86x7x3y" path="res://cutscene/concept_cutscene_node.tscn" id="7_om0mq"]
 [ext_resource type="Texture2D" uid="uid://dwo3yyav56eua" path="res://assets/npcs/nate/angry.png" id="8_anes8"]
 [ext_resource type="PackedScene" uid="uid://bxu8qsfgeojlr" path="res://quests/quests/demo_c_1_regroup_initial/plan_for_afternoon.tscn" id="9_ttpqn"]
+[ext_resource type="PackedScene" uid="uid://b0aqc6k73fj3d" path="res://quests/quests/demo_c_1_collecting/c_1_collecting_herbs.tscn" id="10_dd3fm"]
+[ext_resource type="PackedScene" uid="uid://dcaa2e368c4ty" path="res://quests/quests/demo_c_1_collecting/c_1_collecting_compenents.tscn" id="11_o3rrh"]
 
 [node name="Nate1" node_paths=PackedStringArray("starting_page", "concepts", "default_topics") instance=ExtResource("1_xokwk")]
 starting_page = NodePath("1")
@@ -184,6 +186,7 @@ text = "\"I don't gossip.\""
 [node name="PlanForAfternoon" parent="Concepts" index="0" instance=ExtResource("9_ttpqn")]
 
 [node name="CutsceneNode" parent="Concepts/PlanForAfternoon" index="0" node_paths=PackedStringArray("next") instance=ExtResource("2_6fcjh")]
+visible = false
 next = NodePath("../CutsceneNode2")
 
 [node name="bg" type="Sprite2D" parent="Concepts/PlanForAfternoon/CutsceneNode" index="0"]
@@ -204,6 +207,7 @@ offset_bottom = 225.0
 text = "\"No, I'm not free!\""
 
 [node name="CutsceneNode2" parent="Concepts/PlanForAfternoon" index="1" instance=ExtResource("2_6fcjh")]
+visible = false
 
 [node name="bg" type="Sprite2D" parent="Concepts/PlanForAfternoon/CutsceneNode2" index="0"]
 scale = Vector2(1.35, 1.35)
@@ -221,3 +225,47 @@ offset_top = 137.0
 offset_right = 1172.0
 offset_bottom = 307.0
 text = "\"Brona's already dumping extra work on me. Go ask someone else.\""
+
+[node name="C1CollectingHerbs" parent="Concepts" index="1" instance=ExtResource("10_dd3fm")]
+
+[node name="Herbs" parent="Concepts/C1CollectingHerbs" index="0" instance=ExtResource("2_6fcjh")]
+visible = false
+
+[node name="bg" type="Sprite2D" parent="Concepts/C1CollectingHerbs/Herbs" index="0"]
+scale = Vector2(1.35, 1.35)
+texture = ExtResource("3_s7s43")
+centered = false
+
+[node name="nate" type="Sprite2D" parent="Concepts/C1CollectingHerbs/Herbs" index="1"]
+position = Vector2(455, 889)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("4_dcr1o")
+
+[node name="SmartLabel" parent="Concepts/C1CollectingHerbs/Herbs" index="2" instance=ExtResource("5_c3g3p")]
+offset_left = 745.0
+offset_top = 137.0
+offset_right = 1172.0
+offset_bottom = 307.0
+text = "\"Taylor'll handle that side of the gathering. She knows what she's doing.\""
+
+[node name="C1CollectingComponents" parent="Concepts" index="2" instance=ExtResource("11_o3rrh")]
+
+[node name="Components" parent="Concepts/C1CollectingComponents" index="0" instance=ExtResource("2_6fcjh")]
+
+[node name="bg" type="Sprite2D" parent="Concepts/C1CollectingComponents/Components" index="0"]
+scale = Vector2(1.35, 1.35)
+texture = ExtResource("3_s7s43")
+centered = false
+
+[node name="nate" type="Sprite2D" parent="Concepts/C1CollectingComponents/Components" index="1"]
+position = Vector2(455, 889)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("4_dcr1o")
+
+[node name="SmartLabel" parent="Concepts/C1CollectingComponents/Components" index="2" instance=ExtResource("5_c3g3p")]
+offset_left = 745.0
+offset_top = 110.0
+offset_right = 1172.0
+offset_bottom = 345.0
+bbcode_enabled = true
+text = "\"This is a pretty good area for electronics salvage, isn't it?--except for how the Leyline runs [i]right[/i] through.\""

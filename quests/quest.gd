@@ -14,6 +14,7 @@ func _get_game():
 @export var on_done_script_node: Node
 @export var on_start_script_node: Node
 @export var initial_concepts_container: Node
+@export var next_quest: Node
 ## When the quest is used as data, this resource holds additional info, such as a cutscene
 @export var data_resource: Resource
 
@@ -40,13 +41,19 @@ func start():
 		add_concept(c)
 
 func complete():
+	remove_all_concepts()
+	print("complete?????")
 	if on_done_modal_maker != null:
 		if not on_done_modal_maker.title.length():
 			on_done_modal_maker.title = "Quest Complete: " + self.headline
 		on_done_modal_maker.make()
 	if on_done_script_node != null:
 		on_done_script_node.action()
-	remove_all_concepts()
+
+	if next_quest != null:
+		next_quest.start()
+		print("next?")
+	
 	var g = _get_game()
 	g.complete_quest(self)
 

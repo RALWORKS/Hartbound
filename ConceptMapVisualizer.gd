@@ -6,6 +6,15 @@ signal concept_chosen(concept)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	setup()
+
+func teardown():
+	for c in get_children():
+		if c == $bg:
+			continue
+		c.call_deferred("free")
+
+func setup():
 	var x = 100
 	
 	for category in concepts.get_children():

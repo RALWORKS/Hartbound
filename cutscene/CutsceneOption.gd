@@ -17,6 +17,8 @@ func _process(_delta):
 func _on_pressed():
 	if disabled:
 		return
+	if $"..".just_clicked:
+		return
 	$"..".leave()
 	if to != null:
 		to.start()

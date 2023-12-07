@@ -1,0 +1,28 @@
+[gd_scene load_steps=6 format=3 uid="uid://cn48xheq2neu1"]
+
+[ext_resource type="PackedScene" uid="uid://df648eobw25cw" path="res://quests/quest.tscn" id="1_olk6p"]
+[ext_resource type="PackedScene" uid="uid://b0aqc6k73fj3d" path="res://quests/quests/demo_c_1_collecting/c_1_collecting_herbs.tscn" id="2_du5wd"]
+[ext_resource type="PackedScene" uid="uid://dcaa2e368c4ty" path="res://quests/quests/demo_c_1_collecting/c_1_collecting_compenents.tscn" id="3_ej1ce"]
+[ext_resource type="PackedScene" uid="uid://dh1scrjroovcn" path="res://item/interaction_modal_maker.tscn" id="4_sw17p"]
+[ext_resource type="PackedScene" uid="uid://cpbg7yuq873y5" path="res://item/interaction_action.tscn" id="5_e8yea"]
+
+[node name="DemoC1CollectingEng" node_paths=PackedStringArray("on_start_modal_maker") instance=ExtResource("1_olk6p")]
+id = "demo-c1-collecting-eng"
+headline = "Gather 3 Electronic Components With Taylor"
+on_start_modal_maker = NodePath("StartModal")
+
+[node name="C1CollectingHerbs" parent="QuestConceptCategory" index="0" instance=ExtResource("2_du5wd")]
+
+[node name="C1CollectingComponents" parent="QuestConceptCategory" index="1" instance=ExtResource("3_ej1ce")]
+
+[node name="StartModal" parent="." index="1" node_paths=PackedStringArray("options_container_node") instance=ExtResource("4_sw17p")]
+description = "Looks like you're salvaging with Taylor this afternoon.
+
+If you can get 3 more good components, you should be able to call it a day."
+options_container_node = NodePath("Actions")
+
+[node name="Actions" type="Node" parent="StartModal" index="0"]
+
+[node name="GotIt" parent="StartModal/Actions" index="0" instance=ExtResource("5_e8yea")]
+title = "Got it"
+is_close_btn = true

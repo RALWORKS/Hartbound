@@ -1,4 +1,4 @@
-[gd_scene load_steps=2 format=3]
+[gd_scene load_steps=2 format=3 uid="uid://yplasm5gtgly"]
 
 [ext_resource type="Script" path="res://cutscene/CutsceneOption.gd" id="1_ef1ox"]
 

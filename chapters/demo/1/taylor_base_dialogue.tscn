@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://cm3keg86x7x3y" path="res://cutscene/concept_cutscene_node.tscn" id="6_kxhl6"]
 [ext_resource type="PackedScene" uid="uid://bxu8qsfgeojlr" path="res://quests/quests/demo_c_1_regroup_initial/plan_for_afternoon.tscn" id="7_chmtn"]
 [ext_resource type="PackedScene" uid="uid://c4nb0ap5n2w2b" path="res://chapters/demo/1/taylor-base-concepts.tscn" id="7_rwbm1"]
-[ext_resource type="PackedScene" path="res://cutscene/cutscene_option.tscn" id="8_w0od5"]
+[ext_resource type="PackedScene" uid="uid://yplasm5gtgly" path="res://cutscene/cutscene_option.tscn" id="8_w0od5"]
 [ext_resource type="Script" path="res://quests/quests/demo_c_1_regroup_initial/EndQuest1.gd" id="9_ymsko"]
 [ext_resource type="PackedScene" uid="uid://5exo54lvam30" path="res://quests/quests/demo_c_1_regroup_initial.tscn" id="10_j3pmb"]
 
@@ -26,8 +26,8 @@ scale = Vector2(1.35, 1.35)
 texture = ExtResource("3_ney04")
 centered = false
 
-[node name="taylor" type="Sprite2D" parent="1" index="1"]
-position = Vector2(455, 947)
+[node name="taylor2" type="Sprite2D" parent="1" index="1"]
+position = Vector2(455, 850)
 scale = Vector2(0.7, 0.7)
 texture = ExtResource("4_bxirh")
 
@@ -41,8 +41,8 @@ scale = Vector2(1.35, 1.35)
 texture = ExtResource("3_ney04")
 centered = false
 
-[node name="taylor" type="Sprite2D" parent="2" index="1"]
-position = Vector2(455, 947)
+[node name="taylor2" type="Sprite2D" parent="2" index="1"]
+position = Vector2(455, 850)
 scale = Vector2(0.7, 0.7)
 texture = ExtResource("4_bxirh")
 
@@ -63,17 +63,17 @@ scale = Vector2(1.35, 1.35)
 texture = ExtResource("3_ney04")
 centered = false
 
-[node name="taylor" type="Sprite2D" parent="Defaults/Base" index="1"]
-position = Vector2(455, 947)
-scale = Vector2(0.7, 0.7)
-texture = ExtResource("4_bxirh")
-
-[node name="SmartLabel" parent="Defaults/Base" index="2" instance=ExtResource("5_sc1vl")]
+[node name="SmartLabel" parent="Defaults/Base" index="1" instance=ExtResource("5_sc1vl")]
 offset_left = 649.0
 offset_top = 247.0
 offset_right = 1063.0
 offset_bottom = 415.0
 text = "\"No offense, but I'm not really sure why you're asking me this right now.\""
+
+[node name="taylor2" type="Sprite2D" parent="Defaults/Base/SmartLabel" index="1"]
+position = Vector2(-194, 603)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("4_bxirh")
 
 [node name="World" parent="Defaults" index="1" node_paths=PackedStringArray("next") instance=ExtResource("2_vonvd")]
 visible = false
@@ -85,8 +85,8 @@ scale = Vector2(1.35, 1.35)
 texture = ExtResource("3_ney04")
 centered = false
 
-[node name="taylor" type="Sprite2D" parent="Defaults/World" index="1"]
-position = Vector2(455, 947)
+[node name="taylor2" type="Sprite2D" parent="Defaults/World" index="1"]
+position = Vector2(455, 850)
 scale = Vector2(0.7, 0.7)
 texture = ExtResource("4_bxirh")
 
@@ -111,8 +111,8 @@ scale = Vector2(1.35, 1.35)
 texture = ExtResource("3_ney04")
 centered = false
 
-[node name="taylor" type="Sprite2D" parent="Concepts/PlanForAfternoon2/CutsceneNode" index="1"]
-position = Vector2(455, 947)
+[node name="taylor2" type="Sprite2D" parent="Concepts/PlanForAfternoon2/CutsceneNode" index="1"]
+position = Vector2(455, 850)
 scale = Vector2(0.7, 0.7)
 texture = ExtResource("4_bxirh")
 
@@ -164,8 +164,8 @@ scale = Vector2(1.35, 1.35)
 texture = ExtResource("3_ney04")
 centered = false
 
-[node name="taylor" type="Sprite2D" parent="Concepts/PlanForAfternoon2/Y" index="1"]
-position = Vector2(455, 947)
+[node name="taylor2" type="Sprite2D" parent="Concepts/PlanForAfternoon2/Y" index="1"]
+position = Vector2(455, 850)
 scale = Vector2(0.7, 0.7)
 texture = ExtResource("4_bxirh")
 
@@ -190,8 +190,8 @@ scale = Vector2(1.35, 1.35)
 texture = ExtResource("3_ney04")
 centered = false
 
-[node name="taylor" type="Sprite2D" parent="Concepts/PlanForAfternoon2/N" index="1"]
-position = Vector2(455, 947)
+[node name="taylor2" type="Sprite2D" parent="Concepts/PlanForAfternoon2/N" index="1"]
+position = Vector2(455, 850)
 scale = Vector2(0.7, 0.7)
 texture = ExtResource("4_bxirh")
 
