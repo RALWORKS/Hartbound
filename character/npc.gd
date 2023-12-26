@@ -235,7 +235,7 @@ func _handle_collisions(delta, collision, input_direction):
 func follow():
 	_go()
 #	if abs(position.distance_to(leader.position)) > follow_distance and not waiting:
-	if not navigation_agent.is_navigation_finished() and stuck_counter < 15:
+	if not navigation_agent.is_navigation_finished() and stuck_counter < 7:
 		return
 	if (
 #		waiting
@@ -285,14 +285,13 @@ func _physics_process(delta):
 		var cur_agent_position: Vector2 = global_position
 		var next_path_position: Vector2 = navigation_agent.get_next_path_position()
 	
-		var direction: Vector2 = next_path_position - cur_agent_position
-		velocity = direction.normalized() * speed
+		direction = next_path_position - cur_agent_position
+		direction = direction.normalized()
 	
-	elif direction != null:
-		#direction.y = direction.y * 0.568
+	if direction != null:
 		velocity = speed * direction
 	
-	if direction == null:
+	else:
 		direction = Vector2(0, 0)
 	
 	var collision = move_and_collide(velocity * delta)

@@ -13,9 +13,9 @@ var cutscene
 
 var game = null
 
-func trigger(trigger_name):
+func trigger(trigger_name, e=null):
 	var t = $Triggers.get_node(trigger_name)
-	t.action()
+	t.action(e)
 
 func next(to_event_name=null):
 	var event
@@ -66,7 +66,8 @@ func start_cutscene(cutscene_res, npc=null):
 func end_cutscene():
 	cutscene.call_deferred("free")
 	for child in cur_game:
-		$"../MainScreen/World".add_child(child)
+		if is_instance_valid(child):
+			$"../MainScreen/World".add_child(child)
 	game.chapter = self
 
 func update_cutscene_page(p):

@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://cj4mq4w13vijs"]
+[gd_scene load_steps=27 format=3 uid="uid://cj4mq4w13vijs"]
 
 [ext_resource type="PackedScene" uid="uid://bh1yfkyt3u44i" path="res://chapter.tscn" id="1_abxn2"]
 [ext_resource type="PackedScene" uid="uid://qhhv4s8njcrp" path="res://scenes/demo/1/industrial/b.tscn" id="2_x5gxs"]
@@ -24,6 +24,8 @@
 [ext_resource type="Script" path="res://chapters/demo/1/LeaveCamp1.gd" id="15_lcypw"]
 [ext_resource type="Script" path="res://chapters/demo/1/LeaveC1.gd" id="18_ufifv"]
 [ext_resource type="Script" path="res://chapters/demo/1/CrossEWest.gd" id="19_6dtsk"]
+[ext_resource type="Script" path="res://chapters/demo/1/PutBoardOverChasm.gd" id="25_b7c5u"]
+[ext_resource type="Script" path="res://chapters/demo/1/TakeBoard.gd" id="26_xevkv"]
 
 [node name="Chapter" node_paths=PackedStringArray("starting_music", "script_holder") instance=ExtResource("1_abxn2")]
 starting_scene = ExtResource("2_x5gxs")
@@ -136,3 +138,11 @@ event_name = "TaylorAlternator"
 [node name="TakePCB" type="Node" parent="Triggers" index="6"]
 script = ExtResource("19_6dtsk")
 event_name = "TaylorPCB"
+
+[node name="PutBoardOverChasm" type="Node" parent="Triggers" index="7"]
+script = ExtResource("25_b7c5u")
+event_name = "PutBoardOverChasm"
+
+[node name="TakeBoard" type="Node" parent="Triggers" index="8"]
+script = ExtResource("26_xevkv")
+event_name = "TakeBoard"

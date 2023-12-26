@@ -1,12 +1,35 @@
-[gd_scene load_steps=2 format=3 uid="uid://50e58a5m3ql7"]
+[gd_scene load_steps=5 format=3 uid="uid://50e58a5m3ql7"]
 
+[ext_resource type="Script" path="res://chapters/demo/1/rift.gd" id="1_o51j0"]
 [ext_resource type="Texture2D" uid="uid://b5yslikwy3oyi" path="res://assets/scenes/demo/1/industrial/c-rift.png" id="1_xwy7j"]
+[ext_resource type="PackedScene" uid="uid://cl4heje674d3q" path="res://item/interaction_area.tscn" id="2_sxcqe"]
+[ext_resource type="PackedScene" uid="uid://cpbg7yuq873y5" path="res://item/interaction_action.tscn" id="3_5b0at"]
 
 [node name="Rift" type="Sprite2D"]
 position = Vector2(359, 928)
 texture = ExtResource("1_xwy7j")
+script = ExtResource("1_o51j0")
 
 [node name="Body" type="StaticBody2D" parent="."]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Body"]
 polygon = PackedVector2Array(-291, -126, -198, -62, -131, -2, 13, 97, 81, 163, 178, 180, 272, 171, 160, 54, -35, -101, -106, -160, -235, -195)
+
+[node name="InteractionArea" parent="." node_paths=PackedStringArray("options_container_node") instance=ExtResource("2_sxcqe")]
+title = "Crack in the Earth"
+reference_id = "rift"
+description = "A crack in the earth blocks the way."
+child_depth = 2
+options_container_node = NodePath("../Actions")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="InteractionArea"]
+polygon = PackedVector2Array(-299, -119, 98, 188, 284, 190, 269, 114, -113, -173, -247, -204)
+
+[node name="Actions" type="Node" parent="."]
+
+[node name="PutBoard" parent="Actions" node_paths=PackedStringArray("item") instance=ExtResource("3_5b0at")]
+title = "Lay the board you found across the chasm"
+is_close_btn = true
+enabled = false
+trigger_name = "PutBoardOverChasm"
+item = NodePath("../..")

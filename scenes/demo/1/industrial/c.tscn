@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://c61y5cf8qd8vl"]
+[gd_scene load_steps=27 format=3 uid="uid://c61y5cf8qd8vl"]
 
 [ext_resource type="PackedScene" uid="uid://byrlpmbpj6yr5" path="res://scene.tscn" id="1_c5dv2"]
 [ext_resource type="Texture2D" uid="uid://bdh1dphfwy4ng" path="res://assets/scenes/demo/1/industrial/c.png" id="2_7kp15"]
@@ -21,6 +21,7 @@
 [ext_resource type="Script" path="res://scenes/demo/1/industrial/c-LevelSwitchScript.gd" id="13_thh61"]
 [ext_resource type="Texture2D" uid="uid://c3p4bcjbt5u44" path="res://assets/scenes/demo/1/industrial/c-far-back-ledge.png" id="13_uji7m"]
 [ext_resource type="PackedScene" uid="uid://blhapbv7bnq0p" path="res://quests/quest_boundary.tscn" id="20_r0xd4"]
+[ext_resource type="PackedScene" uid="uid://ds44yda8wedm6" path="res://chapters/demo/1/board.tscn" id="21_l2bfj"]
 [ext_resource type="PackedScene" uid="uid://yr12jpup84d6" path="res://chapters/demo/1/smart_rift.tscn" id="22_1sprg"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_i64kx"]
@@ -103,7 +104,6 @@ item_name = "Black Coated Wires"
 title = "Never mind"
 
 [node name="SmartRift" parent="." index="1" instance=ExtResource("22_1sprg")]
-is_unlocked = true
 
 [node name="DefaultSpawner" parent="YSort" index="0"]
 position = Vector2(778, 246)
@@ -209,7 +209,9 @@ navigation_polygon = SubResource("NavigationPolygon_j5vyj")
 [node name="NavigationRoof" type="NavigationRegion2D" parent="YSort" index="19"]
 navigation_polygon = SubResource("NavigationPolygon_wbapc")
 
-[node name="QuestBoundary" parent="YSort" index="20" instance=ExtResource("20_r0xd4")]
+[node name="Board" parent="YSort" index="20" instance=ExtResource("21_l2bfj")]
+
+[node name="QuestBoundary" parent="YSort" index="21" instance=ExtResource("20_r0xd4")]
 trigger_name = "LeaveC1"
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/QuestBoundary" index="1"]

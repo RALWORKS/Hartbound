@@ -1,4 +1,4 @@
 extends Node
 
-func action():
+func action(_e):
 	$"../..".next("DepartingCamp1")

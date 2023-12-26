@@ -10,15 +10,15 @@ var game = null
 
 func _get_game():
 	if game == null:
-		game = $"/root/game"
+		game = $"/root/Game"
 	return game
 
 func get_unlocked_state():
 	var g = _get_game()
 	var st = g.get_state(["micro_progress", state_var])
-	if st == null:
+	if st == null or st == false:
 		return false
-	return st
+	return true
 
 func set_unlocked_state(value):
 	var g = _get_game()
@@ -26,14 +26,14 @@ func set_unlocked_state(value):
 
 func set_sprite(Klass):
 	if sprite != null:
-		sprite.free()
+		sprite.call_deferred("free")
 	if Klass == null:
 		return
 	sprite = Klass.instantiate()
 	add_child(sprite)
 
 func refresh_unlocked():
-	if get_unlocked_state or is_unlocked:
+	if get_unlocked_state() or is_unlocked:
 		set_sprite(UnlockedSprite)
 		return
 	set_sprite(LockedSprite)
