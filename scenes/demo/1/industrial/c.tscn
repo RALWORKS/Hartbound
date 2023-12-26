@@ -25,9 +25,9 @@
 [ext_resource type="PackedScene" uid="uid://yr12jpup84d6" path="res://chapters/demo/1/smart_rift.tscn" id="22_1sprg"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_i64kx"]
-vertices = PackedVector2Array(30, 1215, 60, 687, 214, 996, 512, 2, 1379, 2, 1268, 93, 784, 282, 1170, 304, 787, 430, 409, 825, 309, 682, 681, 615, 741, 1106, 751, 1207, 227, 1009, 627, 758, 425, 839)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2), PackedInt32Array(3, 4, 5, 6), PackedInt32Array(6, 5, 7, 8), PackedInt32Array(9, 10, 8, 11), PackedInt32Array(12, 13, 0, 14), PackedInt32Array(14, 0, 2), PackedInt32Array(8, 7, 11), PackedInt32Array(9, 11, 15, 16), PackedInt32Array(9, 16, 14, 2)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(60, 687, 214, 996, 409, 825, 309, 682, 787, 430, 784, 282, 512, 2, 1379, 2, 1268, 93, 1170, 304, 681, 615, 627, 758, 425, 839, 227, 1009, 741, 1106, 751, 1207, 30, 1215)])
+vertices = PackedVector2Array(30, 1215, 60, 687, 214, 996, 512, 2, 1379, 2, 1268, 93, 784, 282, 1151, 273, 787, 430, 741, 1106, 751, 1207, 227, 1009, 409, 825, 425, 839, 603, 582, 309, 682, 627, 758)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2), PackedInt32Array(3, 4, 5, 6), PackedInt32Array(6, 5, 7, 8), PackedInt32Array(9, 10, 0, 11), PackedInt32Array(11, 0, 2), PackedInt32Array(11, 2, 12, 13), PackedInt32Array(8, 7, 14, 15), PackedInt32Array(12, 15, 14, 16, 13)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(60, 687, 214, 996, 409, 825, 309, 682, 787, 430, 784, 282, 512, 2, 1379, 2, 1268, 93, 1151, 273, 603, 582, 627, 758, 425, 839, 227, 1009, 741, 1106, 751, 1207, 30, 1215)])
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_j5vyj"]
 vertices = PackedVector2Array(3, 138, 441, 342, 177, 488, 0, 342)
@@ -35,9 +35,9 @@ polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(0, 342, 177, 488, 441, 342, 3, 138)])
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_wbapc"]
-vertices = PackedVector2Array(1608, 1227, 1404, 1234, 1585, 1085, 1626, 796, 890, 656, 1054, 539, 1046, 612, 1117, 647, 1306, 632, 1525, 481, 1520, 355, 1588, 329, 1550, 287, 1606, -1, 1545, 95, 1507, -1, 1452, 30)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2), PackedInt32Array(3, 0, 2), PackedInt32Array(4, 5, 6), PackedInt32Array(2, 4, 6, 7), PackedInt32Array(3, 2, 7, 8), PackedInt32Array(9, 8, 7, 10, 11), PackedInt32Array(11, 10, 12), PackedInt32Array(13, 11, 12, 14), PackedInt32Array(15, 13, 14, 16)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(890, 656, 1054, 539, 1046, 612, 1117, 647, 1520, 355, 1550, 287, 1545, 95, 1452, 30, 1507, -1, 1606, -1, 1588, 329, 1525, 481, 1306, 632, 1626, 796, 1608, 1227, 1404, 1234, 1585, 1085)])
+vertices = PackedVector2Array(1608, 1227, 1404, 1234, 1585, 1085, 1626, 796, 1545, 95, 1452, 30, 1507, -1, 1606, -1, 1306, 632, 920, 670, 1117, 647, 1588, 329, 1550, 287, 1520, 355, 1525, 481, 1023, 599)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2), PackedInt32Array(3, 0, 2), PackedInt32Array(4, 5, 6, 7), PackedInt32Array(8, 3, 2, 9, 10), PackedInt32Array(4, 7, 11, 12), PackedInt32Array(13, 12, 11, 14), PackedInt32Array(10, 13, 14, 8), PackedInt32Array(10, 9, 15)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(920, 670, 1023, 599, 1117, 647, 1520, 355, 1550, 287, 1545, 95, 1452, 30, 1507, -1, 1606, -1, 1588, 329, 1525, 481, 1306, 632, 1626, 796, 1608, 1227, 1404, 1234, 1585, 1085)])
 
 [node name="Scene" instance=ExtResource("1_c5dv2")]
 
@@ -130,7 +130,7 @@ disabled = true
 follower_offset = Vector2(30, 0)
 
 [node name="SouthGround" parent="YSort" index="4" instance=ExtResource("5_opb7a")]
-position = Vector2(420, 1181)
+position = Vector2(230, 1181)
 rotation = 3.24457
 scale = Vector2(8, 1)
 dest_resource = "res://scenes/demo/1/industrial/d.tscn"

@@ -16,9 +16,9 @@
 [ext_resource type="PackedScene" uid="uid://bk6k14tnei0bm" path="res://chapters/demo/1/smart_roof_gate.tscn" id="14_r85h7"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_xwl0q"]
-vertices = PackedVector2Array(1066, 573, 1600, 254, 1590, 893, 1259, 704, 1177, 661, 967, 1189, 1038, 1206, 942, 1267, 906, 1196, 806, 1253, 573, 1066, 474, 1152, 47, 1124, 22, 13, 561, 874, 753, 551, 1580, 9, 1587, 73)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 0, 3), PackedInt32Array(5, 4, 3, 6, 7), PackedInt32Array(8, 5, 7, 9), PackedInt32Array(10, 8, 9, 11), PackedInt32Array(10, 11, 12, 13, 14), PackedInt32Array(15, 14, 13), PackedInt32Array(15, 13, 16, 17)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(1600, 254, 1066, 573, 1177, 661, 967, 1189, 906, 1196, 573, 1066, 561, 874, 753, 551, 1587, 73, 1580, 9, 22, 13, 47, 1124, 474, 1152, 806, 1253, 942, 1267, 1038, 1206, 1259, 704, 1590, 893)])
+vertices = PackedVector2Array(22, 13, 1580, 9, 660, 431, 1158, 646, 1632, 276, 1590, 893, 1259, 704, 47, 1124, 561, 874, 474, 1152, 573, 1066, 806, 1253, 906, 1196, 942, 1267, 967, 1189, 1038, 1206)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2), PackedInt32Array(3, 4, 5, 6), PackedInt32Array(7, 0, 2, 8, 9), PackedInt32Array(9, 8, 10), PackedInt32Array(11, 9, 10, 12, 13), PackedInt32Array(13, 12, 14, 15), PackedInt32Array(14, 3, 6, 15)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(1632, 276, 1158, 646, 967, 1189, 906, 1196, 573, 1066, 561, 874, 660, 431, 1580, 9, 22, 13, 47, 1124, 474, 1152, 806, 1253, 942, 1267, 1038, 1206, 1259, 704, 1590, 893)])
 
 [node name="Scene" instance=ExtResource("1_80s2n")]
 
@@ -29,7 +29,7 @@ texture = ExtResource("2_f3skq")
 polygon = PackedVector2Array(1081, 1260, 1059, 1233, 1261, 757, 1636, 966, 1640, 1307)
 
 [node name="GROUND-side-overhang" type="CollisionPolygon2D" parent="Background/StaticBody2D" index="1"]
-polygon = PackedVector2Array(1119, 688, 933, 1161, 846, 937, 830, 845, 774, 831, 785, 773, 864, 643, 1700, 115, 1698, 209, 1020, 625)
+polygon = PackedVector2Array(1119, 688, 933, 1161, 846, 937, 830, 845, 774, 831, 785, 773, 856, 595, 1700, 91, 1698, 209, 1020, 625)
 
 [node name="ROOF-side-overhang" type="CollisionPolygon2D" parent="Background/StaticBody2D" index="2"]
 polygon = PackedVector2Array(1119, 688, 933, 1161, 846, 937, 830, 845, 774, 831, 785, 773, 757, 506, 1587, 56, 1617, 86, 868, 527)
@@ -68,9 +68,9 @@ texture = ExtResource("8_at5b3")
 offset = Vector2(0, 50)
 
 [node name="NorthRoof" parent="YSort" index="6" instance=ExtResource("9_yk81u")]
-position = Vector2(1601, 235)
+position = Vector2(1552, 202)
 rotation = 0.514872
-scale = Vector2(2, 1)
+scale = Vector2(1, 0.5)
 dest_resource = "res://scenes/demo/1/industrial/c.tscn"
 dest_edge = "SouthRoof"
 disabled = true
@@ -99,6 +99,7 @@ on = true
 [node name="UpperRegion" type="Area2D" parent="YSort" index="10"]
 
 [node name="HIT" type="CollisionPolygon2D" parent="YSort/UpperRegion" index="0"]
+position = Vector2(38, -17)
 polygon = PackedVector2Array(1596, 894, 1075, 588, 1767, 175, 1692, 888)
 
 [node name="NavigationAll" type="NavigationRegion2D" parent="YSort" index="11"]
