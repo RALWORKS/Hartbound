@@ -2,7 +2,7 @@ extends Area2D
 
 @export var title: String
 @export var reference_id: String
-@export var description: String
+@export_multiline var description: String
 @export var action_source: Node
 @export var child_depth = 0
 @export var options_container_node: Node = null

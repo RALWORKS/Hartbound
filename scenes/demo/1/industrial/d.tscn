@@ -105,21 +105,18 @@ polygon = PackedVector2Array(1596, 894, 1075, 588, 1767, 175, 1692, 888)
 navigation_polygon = SubResource("NavigationPolygon_xwl0q")
 
 [node name="fence-right" type="Sprite2D" parent="YSort" index="12"]
-position = Vector2(721, 1031)
+position = Vector2(721, 983)
 scale = Vector2(0.972789, 1)
 texture = ExtResource("10_ki3ey")
-offset = Vector2(0, -150)
+offset = Vector2(0, -110)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="YSort/fence-right" index="0"]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/fence-right/StaticBody2D" index="0"]
-position = Vector2(-184, -24)
+position = Vector2(-171.671, 9.99982)
 polygon = PackedVector2Array(120, 57, 49, -6, 291, -156, 364, -112, 336, 16, 158, 64)
 
-[node name="SmartRoofGate" parent="YSort" index="13" instance=ExtResource("14_r85h7")]
-is_unlocked = true
-
-[node name="fence-left" type="Sprite2D" parent="YSort" index="14"]
+[node name="fence-left" type="Sprite2D" parent="YSort" index="13"]
 position = Vector2(270, 1211)
 texture = ExtResource("11_0jbps")
 offset = Vector2(0, -150)
@@ -133,7 +130,9 @@ polygon = PackedVector2Array(75.0001, 73, 52, -56, 331, -167, 380, -129, 414, -1
 [node name="StairsSwitchScript" type="Node" parent="." index="2"]
 script = ExtResource("11_cpite")
 
-[node name="rubble" type="Sprite2D" parent="." index="3"]
+[node name="SmartRoofGate" parent="." index="3" instance=ExtResource("14_r85h7")]
+
+[node name="rubble" type="Sprite2D" parent="." index="4"]
 position = Vector2(353, 1106)
 texture = ExtResource("7_uju8i")
 offset = Vector2(0, 50)

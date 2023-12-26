@@ -1,14 +1,37 @@
-[gd_scene load_steps=2 format=3 uid="uid://ds0xn5pug0hg5"]
+[gd_scene load_steps=5 format=3 uid="uid://ds0xn5pug0hg5"]
 
 [ext_resource type="Texture2D" uid="uid://ct44l1mn40hpo" path="res://assets/scenes/demo/1/industrial/roof-gate/gate.png" id="1_8o1pg"]
+[ext_resource type="PackedScene" uid="uid://cl4heje674d3q" path="res://item/interaction_area.tscn" id="2_6j24u"]
+[ext_resource type="Script" path="res://chapters/demo/1/roof-gate.gd" id="2_yrgsi"]
+[ext_resource type="PackedScene" uid="uid://cpbg7yuq873y5" path="res://item/interaction_action.tscn" id="3_0kcrd"]
 
 [node name="gate" type="Sprite2D"]
 position = Vector2(524, 1142)
 texture = ExtResource("1_8o1pg")
 offset = Vector2(0, -150)
+script = ExtResource("2_yrgsi")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
 position = Vector2(-199, 42)
 polygon = PackedVector2Array(136, 13, 76, -98, 277, -197, 364, -112)
+
+[node name="InteractionArea" parent="." node_paths=PackedStringArray("options_container_node") instance=ExtResource("2_6j24u")]
+title = "Locked Gate"
+reference_id = "roof_gate"
+description = "A locked gate blocks the way to the roof"
+child_depth = 3
+options_container_node = NodePath("Actions")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="InteractionArea"]
+polygon = PackedVector2Array(-98, -199, -95, -20, 57, -100, 49, -284)
+
+[node name="Actions" type="Node" parent="InteractionArea"]
+
+[node name="Open" parent="InteractionArea/Actions" node_paths=PackedStringArray("item") instance=ExtResource("3_0kcrd")]
+title = "Try unlocking it with the keys on the keyring"
+is_close_btn = true
+enabled = false
+trigger_name = "UnlockGate"
+item = NodePath("../../..")

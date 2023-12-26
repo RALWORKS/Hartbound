@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dpgus4q55ghrs"]
+[gd_scene load_steps=15 format=3 uid="uid://dpgus4q55ghrs"]
 
 [ext_resource type="PackedScene" uid="uid://byrlpmbpj6yr5" path="res://scene.tscn" id="1_4aibn"]
 [ext_resource type="Texture2D" uid="uid://bgosew3t2w5s6" path="res://assets/scenes/demo/1/industrial/e.png" id="2_lmy4c"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://c6wxva2f6mqyn" path="res://assets/scenes/demo/1/industrial/e-front-wall.png" id="6_isrdr"]
 [ext_resource type="PackedScene" uid="uid://dxfuidhlgwthh" path="res://travel/door.tscn" id="6_wa5ko"]
 [ext_resource type="PackedScene" uid="uid://bkyp4rqktyinq" path="res://item/interact_range_extender.tscn" id="7_pif8w"]
+[ext_resource type="Script" path="res://scenes/demo/1/industrial/RefreshCabOptions.gd" id="7_vfw5n"]
 [ext_resource type="PackedScene" uid="uid://cpbg7yuq873y5" path="res://item/interaction_action.tscn" id="8_cpq4g"]
 [ext_resource type="PackedScene" uid="uid://dh1scrjroovcn" path="res://item/interaction_modal_maker.tscn" id="9_fletx"]
 [ext_resource type="Texture2D" uid="uid://bfmygrdvdfbag" path="res://assets/items/demo-1/alternator-large.png" id="10_ytopt"]
@@ -65,14 +66,29 @@ dest_edge = "West"
 [node name="NavigationAll" type="NavigationRegion2D" parent="YSort" index="6"]
 navigation_polygon = SubResource("NavigationPolygon_30nyk")
 
-[node name="MO-Car-Key-B" parent="YSort" index="7" instance=ExtResource("6_dgxub")]
+[node name="MO-Car-Key-B" parent="YSort" index="7" node_paths=PackedStringArray("options_container_node") instance=ExtResource("6_dgxub")]
 title = "Ruined Chariot"
 reference_id = "car-key-b"
 description = "A chariot, painted in a festive yellow colour. The windows are long since gone, and you're able to see and even reach inside."
 child_depth = 2
+options_container_node = NodePath("Actions")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/MO-Car-Key-B" index="0"]
 polygon = PackedVector2Array(816, 330, 841, 224, 861, 231, 892, 215, 716, 101, 677, 113, 654, 129, 644, 204, 657, 224, 690, 245, 705, 273, 774, 318)
+
+[node name="RefreshCabOptions" type="Node" parent="YSort/MO-Car-Key-B" index="1"]
+script = ExtResource("7_vfw5n")
+
+[node name="Actions" type="Node" parent="YSort/MO-Car-Key-B" index="2"]
+
+[node name="TakeKey" parent="YSort/MO-Car-Key-B/Actions" index="0" node_paths=PackedStringArray("to_modal_maker") instance=ExtResource("8_cpq4g")]
+to_modal_maker = NodePath("Taken")
+title = "Take the ring of keys hanging from the slot below the window"
+trigger_name = "TakeKey"
+
+[node name="Taken" parent="YSort/MO-Car-Key-B/Actions/TakeKey" index="0" instance=ExtResource("9_fletx")]
+title = "Ruined Chariot"
+description = "Taken."
 
 [node name="XHood" parent="YSort" index="8" node_paths=PackedStringArray("interactable") instance=ExtResource("7_pif8w")]
 interactable = NodePath("../MO-Car-Hood-C-Yes-2")
