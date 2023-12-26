@@ -1,0 +1,178 @@
+[gd_scene load_steps=10 format=3 uid="uid://wmgbcyrkpe3r"]
+
+[ext_resource type="PackedScene" uid="uid://bp8tsdjdbwj8i" path="res://cutscene/cutscene.tscn" id="1_r7n12"]
+[ext_resource type="PackedScene" uid="uid://55vflx8ylix1" path="res://cutscene/cutscene_node.tscn" id="2_auhtm"]
+[ext_resource type="Texture2D" uid="uid://bdh1dphfwy4ng" path="res://assets/scenes/demo/1/industrial/c.png" id="3_ldim5"]
+[ext_resource type="Texture2D" uid="uid://dx1wrwvh6nviu" path="res://assets/npcs/taylor/taylor_neutral.png" id="4_gm64q"]
+[ext_resource type="PackedScene" uid="uid://b11g7mb25w5xp" path="res://cutscene/smart_label.tscn" id="5_0uvy0"]
+[ext_resource type="Texture2D" uid="uid://cf5r4v2jyv3yo" path="res://assets/items/demo-1/wire-large.png" id="6_u2p32"]
+[ext_resource type="PackedScene" uid="uid://yplasm5gtgly" path="res://cutscene/cutscene_option.tscn" id="7_x43u1"]
+[ext_resource type="PackedScene" uid="uid://cp5lbi0bmf5vp" path="res://tools/screen-guide-frame.tscn" id="8_20m7p"]
+[ext_resource type="Texture2D" uid="uid://dn77d8pdelpv5" path="res://assets/npcs/taylor/taylor_irritated.png" id="8_t8eak"]
+
+[node name="Cutscene" node_paths=PackedStringArray("starting_page") instance=ExtResource("1_r7n12")]
+starting_page = NodePath("1")
+
+[node name="1" parent="." index="0" instance=ExtResource("2_auhtm")]
+is_option_node = true
+
+[node name="bg" type="Sprite2D" parent="1" index="0"]
+position = Vector2(296, 1164)
+scale = Vector2(3, 3)
+texture = ExtResource("3_ldim5")
+
+[node name="taylor" type="Sprite2D" parent="1" index="1"]
+position = Vector2(1281, 794)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("4_gm64q")
+flip_h = true
+
+[node name="SmartLabel" parent="1" index="2" instance=ExtResource("5_0uvy0")]
+offset_left = 757.0
+offset_top = 57.0
+offset_right = 1048.0
+offset_bottom = 219.0
+text = "\"Whoa. Can you really just ... rip it up like that?\""
+
+[node name="ColorRect" type="ColorRect" parent="1" index="3"]
+modulate = Color(1, 1, 1, 0.619608)
+offset_left = 157.0
+offset_top = -105.0
+offset_right = 617.0
+offset_bottom = 1276.0
+color = Color(0, 0, 0, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="1" index="4"]
+position = Vector2(417, 332)
+texture = ExtResource("6_u2p32")
+
+[node name="Yes" parent="1" index="5" node_paths=PackedStringArray("to") instance=ExtResource("7_x43u1")]
+offset_left = 195.0
+offset_top = 700.0
+offset_right = 575.0
+offset_bottom = 750.0
+text = "> \"If you know it's not live--yes. Carefully.\""
+to = NodePath("../../Yes")
+
+[node name="ImOK" parent="1" index="6" node_paths=PackedStringArray("to") instance=ExtResource("7_x43u1")]
+offset_left = 195.0
+offset_top = 762.0
+offset_right = 575.0
+offset_bottom = 812.0
+text = "> \"Don't worry. I know what I'm doing.\""
+to = NodePath("../../ImOK")
+
+[node name="Offense" parent="1" index="7" node_paths=PackedStringArray("to") instance=ExtResource("7_x43u1")]
+offset_left = 195.0
+offset_top = 827.0
+offset_right = 575.0
+offset_bottom = 877.0
+text = "> \"Oh? You know better than me, do you?\""
+to = NodePath("../../Offense")
+
+[node name="Offense" parent="." index="1" node_paths=PackedStringArray("next") instance=ExtResource("2_auhtm")]
+visible = false
+next = NodePath("../Offense2")
+
+[node name="bg" type="Sprite2D" parent="Offense" index="0"]
+position = Vector2(296, 1164)
+scale = Vector2(3, 3)
+texture = ExtResource("3_ldim5")
+
+[node name="taylor" type="Sprite2D" parent="Offense" index="1"]
+position = Vector2(1257, 794)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("8_t8eak")
+flip_h = true
+
+[node name="SmartLabel" parent="Offense" index="2" instance=ExtResource("5_0uvy0")]
+offset_left = 677.0
+offset_top = 57.0
+offset_right = 968.0
+offset_bottom = 219.0
+text = "\"Holy Hell--I'm not accusing you of anything."
+
+[node name="SmartLabel2" parent="Offense" index="3" instance=ExtResource("5_0uvy0")]
+offset_left = 729.0
+offset_top = 240.0
+offset_right = 1020.0
+offset_bottom = 488.0
+bbcode_enabled = true
+text = "\"Forgive me for being [i]mildly interested[/i]  in what you're doing.\""
+
+[node name="Offense2" parent="." index="2" instance=ExtResource("2_auhtm")]
+visible = false
+
+[node name="bg" type="Sprite2D" parent="Offense2" index="0"]
+position = Vector2(296, 1164)
+scale = Vector2(3, 3)
+texture = ExtResource("3_ldim5")
+
+[node name="taylor" type="Sprite2D" parent="Offense2" index="1"]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(1395, 690)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("8_t8eak")
+
+[node name="SmartLabel" parent="Offense2" index="2" instance=ExtResource("5_0uvy0")]
+offset_left = 827.0
+offset_top = 129.0
+offset_right = 1118.0
+offset_bottom = 291.0
+text = "\"Let's get moving. This is a waste of time.\""
+
+[node name="ImOK" parent="." index="3" instance=ExtResource("2_auhtm")]
+
+[node name="bg" type="Sprite2D" parent="ImOK" index="0"]
+position = Vector2(296, 1164)
+scale = Vector2(3, 3)
+texture = ExtResource("3_ldim5")
+
+[node name="taylor" type="Sprite2D" parent="ImOK" index="1"]
+position = Vector2(1257, 794)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("4_gm64q")
+flip_h = true
+
+[node name="SmartLabel" parent="ImOK" index="2" instance=ExtResource("5_0uvy0")]
+offset_left = 743.0
+offset_top = 92.0
+offset_right = 1034.0
+offset_bottom = 212.0
+text = "\"Oh. OK, then. Just curious.\""
+
+[node name="Yes" parent="." index="4" instance=ExtResource("2_auhtm")]
+
+[node name="bg" type="Sprite2D" parent="Yes" index="0"]
+position = Vector2(296, 1164)
+scale = Vector2(3, 3)
+texture = ExtResource("3_ldim5")
+
+[node name="taylor" type="Sprite2D" parent="Yes" index="1"]
+position = Vector2(1257, 794)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("4_gm64q")
+flip_h = true
+
+[node name="SmartLabel" parent="Yes" index="2" instance=ExtResource("5_0uvy0")]
+offset_left = 519.0
+offset_top = 52.0
+offset_right = 810.0
+offset_bottom = 172.0
+text = "\"Huh. I wouldn't have thought."
+
+[node name="SmartLabel2" parent="Yes" index="3" instance=ExtResource("5_0uvy0")]
+offset_left = 604.0
+offset_top = 198.0
+offset_right = 1004.0
+offset_bottom = 392.0
+text = "\"But I guess in a ruin like this, you can't exactly go to the fuse box and shut off a circuit."
+
+[node name="SmartLabel3" parent="Yes" index="4" instance=ExtResource("5_0uvy0")]
+offset_left = 607.0
+offset_top = 415.0
+offset_right = 1007.0
+offset_bottom = 506.0
+text = "\"Let's carry on, then.\""
+
+[node name="Frame" parent="." index="5" instance=ExtResource("8_20m7p")]

@@ -346,6 +346,24 @@ var TEXTURES = {
 	"pattern": [],
 }
 
+func _show_expression(i):
+	var ix = texture_settings["eyes"]
+	var texture_set = TEXTURES["eyes"]
+	var expressions = texture_set[ix]
+	
+	if profile_features != null:
+		profile_features.set_texture(expressions[i])
+
+func frown():
+	_show_expression(1)
+
+func smile():
+	_show_expression(2)
+
+func scowl():
+	_show_expression(3)
+
+
 func _refresh_texture_element(key, nodes):
 	var ix = texture_settings[key]
 	var texture_set = TEXTURES[key]

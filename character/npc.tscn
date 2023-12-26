@@ -5,7 +5,7 @@
 [ext_resource type="AudioStream" uid="uid://bfr0kt4krwjws" path="res://assets/sfx/footsteps1/both.ogg" id="3_2ey6i"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_p2524"]
-radius = 57.5876
+radius = 28.5714
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rl4jm"]
 radius = 42.8571
@@ -37,6 +37,8 @@ shape = SubResource("CapsuleShape2D_rl4jm")
 [node name="Footsteps" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_2ey6i")
 volume_db = -4.0
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 
 [connection signal="tree_entered" from="." to="." method="_on_tree_entered"]
 [connection signal="tree_exited" from="." to="." method="_on_tree_exited"]

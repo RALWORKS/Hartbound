@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://ds0xn5pug0hg5"]
+
+[ext_resource type="Texture2D" uid="uid://ct44l1mn40hpo" path="res://assets/scenes/demo/1/industrial/roof-gate/gate.png" id="1_8o1pg"]
+
+[node name="gate" type="Sprite2D"]
+position = Vector2(524, 1142)
+texture = ExtResource("1_8o1pg")
+offset = Vector2(0, -150)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2(-199, 42)
+polygon = PackedVector2Array(136, 13, 76, -98, 277, -197, 364, -112)

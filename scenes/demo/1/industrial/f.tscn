@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://cckqtpr4xqdv1"]
+[gd_scene load_steps=21 format=3 uid="uid://cckqtpr4xqdv1"]
 
 [ext_resource type="PackedScene" uid="uid://byrlpmbpj6yr5" path="res://scene.tscn" id="1_d7mn4"]
 [ext_resource type="Texture2D" uid="uid://b03p7gc1dm2aq" path="res://assets/scenes/demo/1/industrial/f.png" id="2_u64ec"]
@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://cpbg7yuq873y5" path="res://item/interaction_action.tscn" id="14_hojlb"]
 [ext_resource type="PackedScene" uid="uid://dh1scrjroovcn" path="res://item/interaction_modal_maker.tscn" id="15_4rgmo"]
 [ext_resource type="PackedScene" uid="uid://ddhdd81qyis1b" path="res://cutscene/electrocuted_end.tscn" id="16_hbmqc"]
+[ext_resource type="PackedScene" uid="uid://blhapbv7bnq0p" path="res://quests/quest_boundary.tscn" id="17_kvixi"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_kqse4"]
 vertices = PackedVector2Array(17, 704, 682, 333, 857, 446, 254, 817, 96, 817, -14, 831)
@@ -197,3 +198,16 @@ title = "Yes, I'm sure. Harvest the cable."
 [node name="Leave" parent="YSort/Pole C-No-2/Actions" index="1" instance=ExtResource("14_hojlb")]
 title = "Never mind"
 is_close_btn = true
+
+[node name="NorthTrigger" parent="YSort" index="18" instance=ExtResource("17_kvixi")]
+trigger_name = "EnterF-North"
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/NorthTrigger" index="1"]
+polygon = PackedVector2Array(854, 310, 1653, 149, 1417, 119, 565, 119)
+
+[node name="WestTrigger" parent="YSort" index="19" instance=ExtResource("17_kvixi")]
+trigger_name = "EnterF-West"
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/WestTrigger" index="1"]
+position = Vector2(-723, 423)
+polygon = PackedVector2Array(1100, 459, 1275, 329, 988, 42, 769, 142)

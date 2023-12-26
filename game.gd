@@ -18,6 +18,8 @@ var current_music: AudioStreamPlayer = null
 var next_music: AudioStreamPlayer = null
 var old_music = []
 
+@export var short_circuit_cutscene: Resource
+
 @export var music_crossfade_speed = 2
 
 var CHAPTERS = {
@@ -220,6 +222,12 @@ func load_game(f):
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	world = get_node_or_null("MainScreen/World")
+
+	if short_circuit_cutscene != null:
+		start_new()
+		$Chapter.cutscene.page.leave()
+		#$Chapter.end_cutscene()
+		$Chapter.start_cutscene(short_circuit_cutscene)
 
 
 func handle_input(delta):

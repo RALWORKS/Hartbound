@@ -26,11 +26,14 @@ var last_input_direction = null
 var waiting = false
 var going = false
 var paused = false
+var stuck_counter = 0
 
 var direction = Vector2(0, 0)
 
 var next_position = null
 var last_position = null
+
+@onready var navigation_agent: NavigationAgent2D = $NavigationAgent2D
 
 var ANIMATIONS = {
 	"down": [1, 0, 2, 0],
@@ -99,6 +102,9 @@ func _make_walk_animations():
 	$AnimationPlayer.add_animation_library("movement", library)
 
 func _ready():
+	navigation_agent.path_desired_distance = 4.0
+	navigation_agent.target_desired_distance = 4.0
+	
 	if $"/root/Game".check_state_for_follower(self) and leader == null:
 		process_mode = Node.PROCESS_MODE_DISABLED
 		visible = false
@@ -168,6 +174,10 @@ func _go():
 		return
 	await tree.create_timer(0.05).timeout
 	going = false
+	
+	if last_position == position:
+		stuck_counter += 1
+	last_position = position
 
 func _turn():
 	turning = true
@@ -220,25 +230,25 @@ func _handle_collisions(delta, collision, input_direction):
 
 	set_anim() # needed in order to face the right way when stopping
 	velocity = Vector2(0, 0) # 'cause here, we lose the direction
+	#navigation_agent.target_position = global_position
 
 func follow():
 	_go()
 #	if abs(position.distance_to(leader.position)) > follow_distance and not waiting:
-
+	if not navigation_agent.is_navigation_finished() and stuck_counter < 15:
+		return
 	if (
 #		waiting
 #		or 
 		abs(position.distance_to(leader.position)) < follow_distance
 	):
-		if (
-			abs(position.distance_to(leader.position)) < 70
-			and abs(leader.get_angle_to(position) - leader.velocity.angle()) < 1 
-		):
+		if (position.distance_to(leader.position) < 70):
 			leader.follower_arrived()
-			return leader.velocity.normalized()
-
-		leader.follower_arrived()
-		return Vector2(0, 0)
+			return Vector2.from_angle(get_angle_to(leader.position) * -1)
+		
+		navigation_agent.target_position = global_position
+		stuck_counter = 0
+		return # Vector2(0, 0)
 
 	if (
 		next_position == null
@@ -247,24 +257,20 @@ func follow():
 		or (last_position and position.distance_to(last_position) < 1)
 		
 	):
-#		var input_direction = position.direction_to(leader.position)
 		if leader.follower_to_positions.size() > 0:
 			next_position = leader.follower_to_positions.pop_back()
 		else:
 			next_position = null
-		
-#		var input_direction = position.direction_to(next_position)
-
-	
-	last_position = position
 
 	if next_position == null:
-		return Vector2(0, 0)
+		navigation_agent.target_position = global_position
+		return # Vector2(0, 0)
 
 	
-	var input_direction = position.direction_to(next_position)
+	#var input_direction = position.direction_to(next_position)
 	
-	return input_direction
+	navigation_agent.target_position = next_position
+	return
 
 	
 
@@ -274,11 +280,24 @@ func _physics_process(delta):
 	
 	if not going:
 		direction = follow()
+
+	if not navigation_agent.is_navigation_finished():
+		var cur_agent_position: Vector2 = global_position
+		var next_path_position: Vector2 = navigation_agent.get_next_path_position()
+	
+		var direction: Vector2 = next_path_position - cur_agent_position
+		velocity = direction.normalized() * speed
+	
+	elif direction != null:
 		#direction.y = direction.y * 0.568
-		
-	velocity = speed * direction
+		velocity = speed * direction
+	
+	if direction == null:
+		direction = Vector2(0, 0)
+	
 	var collision = move_and_collide(velocity * delta)
 	_handle_collisions(delta, collision, direction)
+
 	set_anim()
 
 func start_following(g):

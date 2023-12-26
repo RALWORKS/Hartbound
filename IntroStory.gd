@@ -51,4 +51,6 @@ func end_cutscene():
 	g.to_chapter("create")
 
 func update_cutscene_page(p):
+	if cutscene == null:
+		return
 	cutscene.update_page(p)

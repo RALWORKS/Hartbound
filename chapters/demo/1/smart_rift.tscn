@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=3 uid="uid://yr12jpup84d6"]
+
+[ext_resource type="PackedScene" uid="uid://cbq0hs64ed0nq" path="res://travel/unlockable_barrier.tscn" id="1_p7wvc"]
+[ext_resource type="PackedScene" uid="uid://cg5if8oht8jre" path="res://chapters/demo/1/rift.-with-bridge.tscn" id="2_vhlbn"]
+[ext_resource type="PackedScene" uid="uid://50e58a5m3ql7" path="res://chapters/demo/1/rift.tscn" id="3_b8te8"]
+
+[node name="SmartRift" node_paths=PackedStringArray("sprite") instance=ExtResource("1_p7wvc")]
+UnlockedSprite = ExtResource("2_vhlbn")
+LockedSprite = ExtResource("3_b8te8")
+state_var = "c_bridge_unlocked"
+sprite = NodePath("Rift")
+
+[node name="Rift" parent="." index="0" instance=ExtResource("3_b8te8")]

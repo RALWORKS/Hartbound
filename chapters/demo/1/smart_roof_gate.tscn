@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://bk6k14tnei0bm"]
+
+[ext_resource type="PackedScene" uid="uid://cbq0hs64ed0nq" path="res://travel/unlockable_barrier.tscn" id="1_tmim6"]
+[ext_resource type="PackedScene" uid="uid://ds0xn5pug0hg5" path="res://chapters/demo/1/roof-gate.tscn" id="2_fa78m"]
+
+[node name="SmartRoofGate" node_paths=PackedStringArray("sprite") instance=ExtResource("1_tmim6")]
+LockedSprite = ExtResource("2_fa78m")
+state_var = "d_roof_gate_unlocked"
+sprite = NodePath("gate")
+
+[node name="gate" parent="." index="0" instance=ExtResource("2_fa78m")]

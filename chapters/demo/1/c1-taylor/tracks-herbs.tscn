@@ -1,0 +1,241 @@
+[gd_scene load_steps=16 format=3 uid="uid://bu8dakumsc3d2"]
+
+[ext_resource type="PackedScene" uid="uid://bp8tsdjdbwj8i" path="res://cutscene/cutscene.tscn" id="1_40cws"]
+[ext_resource type="PackedScene" uid="uid://55vflx8ylix1" path="res://cutscene/cutscene_node.tscn" id="2_drt2k"]
+[ext_resource type="Texture2D" uid="uid://b03p7gc1dm2aq" path="res://assets/scenes/demo/1/industrial/f.png" id="3_1255v"]
+[ext_resource type="Texture2D" uid="uid://dx1wrwvh6nviu" path="res://assets/npcs/taylor/taylor_neutral.png" id="4_dgw2j"]
+[ext_resource type="PackedScene" uid="uid://cemborgcdx75k" path="res://character/profile.tscn" id="5_wlujr"]
+[ext_resource type="PackedScene" uid="uid://cp5lbi0bmf5vp" path="res://tools/screen-guide-frame.tscn" id="6_6nrwc"]
+[ext_resource type="PackedScene" uid="uid://b11g7mb25w5xp" path="res://cutscene/smart_label.tscn" id="6_yf4pc"]
+[ext_resource type="PackedScene" uid="uid://b031fpm2fu6f1" path="res://cutscene/play_animation_on_start.tscn" id="7_yhnbt"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_xfmvq"]
+viewport_path = NodePath("img")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_b7o1q"]
+viewport_path = NodePath("img")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_0lpc0"]
+viewport_path = NodePath("img")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_mrsc3"]
+viewport_path = NodePath("img")
+
+[sub_resource type="Animation" id="Animation_4yk4d"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Sprite2D2:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1189, 1124)]
+}
+
+[sub_resource type="Animation" id="Animation_yxu1s"]
+resource_name = "base"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0, 0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Sprite2D2:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.5, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1189, 1124), Vector2(1189, 940)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dhxe8"]
+_data = {
+"RESET": SubResource("Animation_4yk4d"),
+"base": SubResource("Animation_yxu1s")
+}
+
+[node name="Cutscene" node_paths=PackedStringArray("starting_page") instance=ExtResource("1_40cws")]
+starting_page = NodePath("CutsceneNode")
+
+[node name="CutsceneNode" parent="." index="0" node_paths=PackedStringArray("next") instance=ExtResource("2_drt2k")]
+next = NodePath("../CutsceneNode2")
+
+[node name="Sprite2D" type="Sprite2D" parent="CutsceneNode" index="0"]
+position = Vector2(-956, 2404)
+scale = Vector2(4, 4)
+texture = ExtResource("3_1255v")
+
+[node name="Sprite2D2" type="Sprite2D" parent="CutsceneNode" index="1"]
+modulate = Color(0, 0, 0, 0.768627)
+position = Vector2(1189, 1124)
+scale = Vector2(0.897574, 0.927859)
+texture = ExtResource("4_dgw2j")
+
+[node name="Profile" parent="CutsceneNode" index="2" instance=ExtResource("5_wlujr")]
+modulate = Color(0, 0, 0, 0.768627)
+position = Vector2(111, 425)
+scale = Vector2(1.2, 1.2)
+texture = SubResource("ViewportTexture_xfmvq")
+flip_h = true
+with_background = false
+
+[node name="SmartLabel" parent="CutsceneNode" index="3" instance=ExtResource("6_yf4pc")]
+text = "Taylor crouches to look at some herbs growing on the tracks. You pause to wait."
+
+[node name="CutsceneNode2" parent="." index="1" node_paths=PackedStringArray("next") instance=ExtResource("2_drt2k")]
+next = NodePath("../CutsceneNode3")
+
+[node name="Sprite2D" type="Sprite2D" parent="CutsceneNode2" index="0"]
+position = Vector2(-956, 2404)
+scale = Vector2(4, 4)
+texture = ExtResource("3_1255v")
+
+[node name="Sprite2D2" type="Sprite2D" parent="CutsceneNode2" index="1"]
+modulate = Color(0, 0, 0, 0.768627)
+position = Vector2(1189, 1124)
+scale = Vector2(0.897574, 0.927859)
+texture = ExtResource("4_dgw2j")
+
+[node name="Profile" parent="CutsceneNode2" index="2" instance=ExtResource("5_wlujr")]
+modulate = Color(0, 0, 0, 0.768627)
+position = Vector2(111, 425)
+scale = Vector2(1.2, 1.2)
+texture = SubResource("ViewportTexture_b7o1q")
+flip_h = true
+with_background = false
+
+[node name="ColorRect" type="ColorRect" parent="CutsceneNode2" index="3"]
+offset_left = -25.0
+offset_top = 809.0
+offset_right = 1933.0
+offset_bottom = 1146.0
+color = Color(0, 0, 0, 1)
+
+[node name="SmartLabel" parent="CutsceneNode2" index="4" instance=ExtResource("6_yf4pc")]
+offset_left = 27.0
+offset_right = 2007.0
+bbcode_enabled = true
+text = "\"Hmm. The juniper seems [i]potent[/i] here. We must be pretty close to the Leyline.\""
+
+[node name="Sprite2D3" type="Sprite2D" parent="CutsceneNode2" index="5"]
+position = Vector2(1421, 1486)
+scale = Vector2(0.7, 0.723)
+texture = ExtResource("4_dgw2j")
+flip_h = true
+
+[node name="CutsceneNode3" parent="." index="2" node_paths=PackedStringArray("next") instance=ExtResource("2_drt2k")]
+next = NodePath("../CutsceneNode4")
+
+[node name="Sprite2D" type="Sprite2D" parent="CutsceneNode3" index="0"]
+position = Vector2(-956, 2404)
+scale = Vector2(4, 4)
+texture = ExtResource("3_1255v")
+
+[node name="Sprite2D2" type="Sprite2D" parent="CutsceneNode3" index="1"]
+modulate = Color(0, 0, 0, 0.768627)
+position = Vector2(1189, 1124)
+scale = Vector2(0.897574, 0.927859)
+texture = ExtResource("4_dgw2j")
+
+[node name="Profile" parent="CutsceneNode3" index="2" instance=ExtResource("5_wlujr")]
+modulate = Color(0, 0, 0, 0.768627)
+position = Vector2(111, 425)
+scale = Vector2(1.2, 1.2)
+texture = SubResource("ViewportTexture_0lpc0")
+flip_h = true
+with_background = false
+
+[node name="ColorRect" type="ColorRect" parent="CutsceneNode3" index="3"]
+offset_left = -25.0
+offset_top = 809.0
+offset_right = 1933.0
+offset_bottom = 1146.0
+color = Color(0, 0, 0, 1)
+
+[node name="SmartLabel" parent="CutsceneNode3" index="4" instance=ExtResource("6_yf4pc")]
+offset_left = 27.0
+offset_right = 2007.0
+bbcode_enabled = true
+text = "\"Well. I'll gather a bit, and then we can be on our way.\""
+
+[node name="Sprite2D3" type="Sprite2D" parent="CutsceneNode3" index="5"]
+position = Vector2(1421, 1486)
+scale = Vector2(0.7, 0.723)
+texture = ExtResource("4_dgw2j")
+
+[node name="CutsceneNode4" parent="." index="3" node_paths=PackedStringArray("use_on_start_fn_from") instance=ExtResource("2_drt2k")]
+use_on_start_fn_from = NodePath("PlayAnimationOnStart")
+
+[node name="Sprite2D" type="Sprite2D" parent="CutsceneNode4" index="0"]
+position = Vector2(-956, 2404)
+scale = Vector2(4, 4)
+texture = ExtResource("3_1255v")
+
+[node name="Sprite2D2" type="Sprite2D" parent="CutsceneNode4" index="1"]
+modulate = Color(0, 0, 0, 0.768627)
+position = Vector2(1189, 1124)
+scale = Vector2(0.897574, 0.927859)
+texture = ExtResource("4_dgw2j")
+
+[node name="Profile" parent="CutsceneNode4" index="2" instance=ExtResource("5_wlujr")]
+modulate = Color(0, 0, 0, 0.768627)
+position = Vector2(111, 425)
+scale = Vector2(1.2, 1.2)
+texture = SubResource("ViewportTexture_mrsc3")
+flip_h = true
+with_background = false
+
+[node name="ColorRect" type="ColorRect" parent="CutsceneNode4" index="3"]
+offset_left = -25.0
+offset_top = 809.0
+offset_right = 1933.0
+offset_bottom = 1146.0
+color = Color(0, 0, 0, 1)
+
+[node name="SmartLabel" parent="CutsceneNode4" index="4" instance=ExtResource("6_yf4pc")]
+offset_left = 27.0
+offset_right = 2007.0
+bbcode_enabled = true
+text = "She quickly gathers some berries and branches, then stands to leave."
+
+[node name="Sprite2D3" type="Sprite2D" parent="CutsceneNode4" index="5"]
+position = Vector2(1421, 1486)
+scale = Vector2(0.7, 0.723)
+texture = ExtResource("4_dgw2j")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CutsceneNode4/Sprite2D3" index="0"]
+libraries = {
+"": SubResource("AnimationLibrary_dhxe8")
+}
+
+[node name="PlayAnimationOnStart" parent="CutsceneNode4" index="6" node_paths=PackedStringArray("player") instance=ExtResource("7_yhnbt")]
+player = NodePath("../Sprite2D3/AnimationPlayer")
+
+[node name="Frame" parent="." index="4" instance=ExtResource("6_6nrwc")]

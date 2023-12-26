@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bhfuxxbxxm52q"]
+[gd_scene load_steps=16 format=3 uid="uid://bhfuxxbxxm52q"]
 
 [ext_resource type="PackedScene" uid="uid://byrlpmbpj6yr5" path="res://scene.tscn" id="1_80s2n"]
 [ext_resource type="Texture2D" uid="uid://bjerew5lp6nnj" path="res://assets/scenes/demo/1/industrial/d.png" id="2_f3skq"]
@@ -10,12 +10,15 @@
 [ext_resource type="Texture2D" uid="uid://dyab5s4gcbtrb" path="res://assets/scenes/demo/1/industrial/d-corner-tree.png" id="8_at5b3"]
 [ext_resource type="PackedScene" uid="uid://dxfuidhlgwthh" path="res://travel/door.tscn" id="9_yk81u"]
 [ext_resource type="PackedScene" path="res://switch.tscn" id="10_5eqo1"]
+[ext_resource type="Texture2D" uid="uid://bl1tryhrv1urn" path="res://assets/scenes/demo/1/industrial/roof-gate/fence-right.png" id="10_ki3ey"]
+[ext_resource type="Texture2D" uid="uid://bpt2b5ckp8am2" path="res://assets/scenes/demo/1/industrial/roof-gate/fence-left.png" id="11_0jbps"]
 [ext_resource type="Script" path="res://scenes/demo/1/industrial/d-StairsSwitchScript.gd" id="11_cpite"]
+[ext_resource type="PackedScene" uid="uid://bk6k14tnei0bm" path="res://chapters/demo/1/smart_roof_gate.tscn" id="14_r85h7"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_xwl0q"]
-vertices = PackedVector2Array(1594, 137, 1590, 893, 1259, 704, 942, 526, 1177, 661, 967, 1189, 1038, 1206, 942, 1267, 906, 1196, 806, 1253, 728, 807, 671, 1153, 47, 1124, 22, 13, 753, 551, 1580, 9, 1587, 73)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2), PackedInt32Array(3, 0, 2, 4), PackedInt32Array(5, 4, 2, 6, 7), PackedInt32Array(8, 5, 7, 9), PackedInt32Array(10, 11, 12, 13, 14), PackedInt32Array(10, 8, 9, 11), PackedInt32Array(14, 13, 15, 16)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(1594, 137, 942, 526, 1177, 661, 967, 1189, 906, 1196, 728, 807, 753, 551, 1587, 73, 1580, 9, 22, 13, 47, 1124, 671, 1153, 806, 1253, 942, 1267, 1038, 1206, 1259, 704, 1590, 893)])
+vertices = PackedVector2Array(1066, 573, 1600, 254, 1590, 893, 1259, 704, 1177, 661, 967, 1189, 1038, 1206, 942, 1267, 906, 1196, 806, 1253, 573, 1066, 474, 1152, 47, 1124, 22, 13, 561, 874, 753, 551, 1580, 9, 1587, 73)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 0, 3), PackedInt32Array(5, 4, 3, 6, 7), PackedInt32Array(8, 5, 7, 9), PackedInt32Array(10, 8, 9, 11), PackedInt32Array(10, 11, 12, 13, 14), PackedInt32Array(15, 14, 13), PackedInt32Array(15, 13, 16, 17)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(1600, 254, 1066, 573, 1177, 661, 967, 1189, 906, 1196, 573, 1066, 561, 874, 753, 551, 1587, 73, 1580, 9, 22, 13, 47, 1124, 474, 1152, 806, 1253, 942, 1267, 1038, 1206, 1259, 704, 1590, 893)])
 
 [node name="Scene" instance=ExtResource("1_80s2n")]
 
@@ -59,17 +62,12 @@ position = Vector2(957.5, 657)
 texture = ExtResource("6_rsv7x")
 offset = Vector2(0, -100)
 
-[node name="rubble" type="Sprite2D" parent="YSort" index="5"]
-position = Vector2(353, 1106)
-texture = ExtResource("7_uju8i")
-offset = Vector2(0, 50)
-
-[node name="corner-tree" type="Sprite2D" parent="YSort" index="6"]
+[node name="corner-tree" type="Sprite2D" parent="YSort" index="5"]
 position = Vector2(799, 614)
 texture = ExtResource("8_at5b3")
 offset = Vector2(0, 50)
 
-[node name="NorthRoof" parent="YSort" index="7" instance=ExtResource("9_yk81u")]
+[node name="NorthRoof" parent="YSort" index="6" instance=ExtResource("9_yk81u")]
 position = Vector2(1601, 235)
 rotation = 0.514872
 scale = Vector2(2, 1)
@@ -78,33 +76,64 @@ dest_edge = "SouthRoof"
 disabled = true
 follower_offset = Vector2(30, 0)
 
-[node name="NorthGround" parent="YSort" index="8" instance=ExtResource("9_yk81u")]
+[node name="NorthGround" parent="YSort" index="7" instance=ExtResource("9_yk81u")]
 position = Vector2(975, 32)
 scale = Vector2(9, 1)
 dest_resource = "res://scenes/demo/1/industrial/c.tscn"
 dest_edge = "SouthGround"
 
-[node name="WestGround" parent="YSort" index="9" instance=ExtResource("9_yk81u")]
+[node name="WestGround" parent="YSort" index="8" instance=ExtResource("9_yk81u")]
 position = Vector2(24, 785)
 rotation = -1.5708
 scale = Vector2(9, 1)
 dest_resource = "res://scenes/demo/1/industrial/e.tscn"
 dest_edge = "East"
 
-[node name="StairsSwitch" parent="YSort" index="10" node_paths=PackedStringArray("on_off_script", "extend_off_switch") instance=ExtResource("10_5eqo1")]
+[node name="StairsSwitch" parent="YSort" index="9" node_paths=PackedStringArray("on_off_script", "extend_off_switch") instance=ExtResource("10_5eqo1")]
 position = Vector2(1143, 659)
 rotation = 0.523599
 on_off_script = NodePath("../../StairsSwitchScript")
 extend_off_switch = NodePath("../UpperRegion")
 on = true
 
-[node name="UpperRegion" type="Area2D" parent="YSort" index="11"]
+[node name="UpperRegion" type="Area2D" parent="YSort" index="10"]
 
 [node name="HIT" type="CollisionPolygon2D" parent="YSort/UpperRegion" index="0"]
 polygon = PackedVector2Array(1596, 894, 1075, 588, 1767, 175, 1692, 888)
 
-[node name="NavigationAll" type="NavigationRegion2D" parent="YSort" index="12"]
+[node name="NavigationAll" type="NavigationRegion2D" parent="YSort" index="11"]
 navigation_polygon = SubResource("NavigationPolygon_xwl0q")
+
+[node name="fence-right" type="Sprite2D" parent="YSort" index="12"]
+position = Vector2(721, 1031)
+scale = Vector2(0.972789, 1)
+texture = ExtResource("10_ki3ey")
+offset = Vector2(0, -150)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="YSort/fence-right" index="0"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/fence-right/StaticBody2D" index="0"]
+position = Vector2(-184, -24)
+polygon = PackedVector2Array(120, 57, 49, -6, 291, -156, 364, -112, 336, 16, 158, 64)
+
+[node name="SmartRoofGate" parent="YSort" index="13" instance=ExtResource("14_r85h7")]
+is_unlocked = true
+
+[node name="fence-left" type="Sprite2D" parent="YSort" index="14"]
+position = Vector2(270, 1211)
+texture = ExtResource("11_0jbps")
+offset = Vector2(0, -150)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="YSort/fence-left" index="0"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/fence-left/StaticBody2D" index="0"]
+position = Vector2(-199, 42)
+polygon = PackedVector2Array(75.0001, 73, 52, -56, 331, -167, 380, -129, 414, -16)
 
 [node name="StairsSwitchScript" type="Node" parent="." index="2"]
 script = ExtResource("11_cpite")
+
+[node name="rubble" type="Sprite2D" parent="." index="3"]
+position = Vector2(353, 1106)
+texture = ExtResource("7_uju8i")
+offset = Vector2(0, 50)

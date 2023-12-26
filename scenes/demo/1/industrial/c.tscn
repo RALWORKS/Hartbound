@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://c61y5cf8qd8vl"]
+[gd_scene load_steps=26 format=3 uid="uid://c61y5cf8qd8vl"]
 
 [ext_resource type="PackedScene" uid="uid://byrlpmbpj6yr5" path="res://scene.tscn" id="1_c5dv2"]
 [ext_resource type="Texture2D" uid="uid://bdh1dphfwy4ng" path="res://assets/scenes/demo/1/industrial/c.png" id="2_7kp15"]
@@ -20,11 +20,13 @@
 [ext_resource type="Texture2D" uid="uid://djls0mm7suojo" path="res://assets/scenes/demo/1/industrial/c-front-tree.png" id="12_uurvq"]
 [ext_resource type="Script" path="res://scenes/demo/1/industrial/c-LevelSwitchScript.gd" id="13_thh61"]
 [ext_resource type="Texture2D" uid="uid://c3p4bcjbt5u44" path="res://assets/scenes/demo/1/industrial/c-far-back-ledge.png" id="13_uji7m"]
+[ext_resource type="PackedScene" uid="uid://blhapbv7bnq0p" path="res://quests/quest_boundary.tscn" id="20_r0xd4"]
+[ext_resource type="PackedScene" uid="uid://yr12jpup84d6" path="res://chapters/demo/1/smart_rift.tscn" id="22_1sprg"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_i64kx"]
-vertices = PackedVector2Array(512, 2, 1379, 2, 1268, 93, 784, 282, 1170, 304, 787, 430, 30, 1215, 60, 687, 182, 801, 741, 1106, 751, 1207, 416, 894, 701, 587)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(3, 2, 4, 5), PackedInt32Array(6, 7, 8), PackedInt32Array(9, 10, 6, 8, 11), PackedInt32Array(11, 8, 5, 12), PackedInt32Array(4, 12, 5)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(60, 687, 182, 801, 787, 430, 784, 282, 512, 2, 1379, 2, 1268, 93, 1170, 304, 701, 587, 416, 894, 741, 1106, 751, 1207, 30, 1215)])
+vertices = PackedVector2Array(30, 1215, 60, 687, 214, 996, 512, 2, 1379, 2, 1268, 93, 784, 282, 1170, 304, 787, 430, 409, 825, 309, 682, 681, 615, 741, 1106, 751, 1207, 227, 1009, 627, 758, 425, 839)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2), PackedInt32Array(3, 4, 5, 6), PackedInt32Array(6, 5, 7, 8), PackedInt32Array(9, 10, 8, 11), PackedInt32Array(12, 13, 0, 14), PackedInt32Array(14, 0, 2), PackedInt32Array(8, 7, 11), PackedInt32Array(9, 11, 15, 16), PackedInt32Array(9, 16, 14, 2)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(60, 687, 214, 996, 409, 825, 309, 682, 787, 430, 784, 282, 512, 2, 1379, 2, 1268, 93, 1170, 304, 681, 615, 627, 758, 425, 839, 227, 1009, 741, 1106, 751, 1207, 30, 1215)])
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_j5vyj"]
 vertices = PackedVector2Array(3, 138, 441, 342, 177, 488, 0, 342)
@@ -32,9 +34,9 @@ polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(0, 342, 177, 488, 441, 342, 3, 138)])
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_wbapc"]
-vertices = PackedVector2Array(1608, 1227, 1404, 1234, 1585, 1085, 1626, 796, 1545, 95, 1452, 30, 1507, -1, 1606, -1, 824, 624, 1117, 647, 1588, 329, 1550, 287, 1520, 355, 1525, 481, 1306, 632, 1018, 493, 1046, 612)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2), PackedInt32Array(3, 0, 2), PackedInt32Array(4, 5, 6, 7), PackedInt32Array(3, 2, 8, 9), PackedInt32Array(4, 7, 10, 11), PackedInt32Array(12, 11, 10, 13), PackedInt32Array(9, 12, 13, 14), PackedInt32Array(8, 15, 16), PackedInt32Array(9, 14, 3), PackedInt32Array(9, 8, 16)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(824, 624, 1018, 493, 1046, 612, 1117, 647, 1520, 355, 1550, 287, 1545, 95, 1452, 30, 1507, -1, 1606, -1, 1588, 329, 1525, 481, 1306, 632, 1626, 796, 1608, 1227, 1404, 1234, 1585, 1085)])
+vertices = PackedVector2Array(1608, 1227, 1404, 1234, 1585, 1085, 1626, 796, 890, 656, 1054, 539, 1046, 612, 1117, 647, 1306, 632, 1525, 481, 1520, 355, 1588, 329, 1550, 287, 1606, -1, 1545, 95, 1507, -1, 1452, 30)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2), PackedInt32Array(3, 0, 2), PackedInt32Array(4, 5, 6), PackedInt32Array(2, 4, 6, 7), PackedInt32Array(3, 2, 7, 8), PackedInt32Array(9, 8, 7, 10, 11), PackedInt32Array(11, 10, 12), PackedInt32Array(13, 11, 12, 14), PackedInt32Array(15, 13, 14, 16)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(890, 656, 1054, 539, 1046, 612, 1117, 647, 1520, 355, 1550, 287, 1545, 95, 1452, 30, 1507, -1, 1606, -1, 1588, 329, 1525, 481, 1306, 632, 1626, 796, 1608, 1227, 1404, 1234, 1585, 1085)])
 
 [node name="Scene" instance=ExtResource("1_c5dv2")]
 
@@ -91,6 +93,7 @@ image_texture = ExtResource("7_rmmv2")
 script_node = NodePath("TMPTake")
 title = "Take"
 is_close_btn = true
+trigger_name = "TakeWire"
 
 [node name="TMPTake" parent="Background/Panel-C-Yes-1/InteractionArea/Actions/Harvest/MakeHarvest/Options/Take" index="0" node_paths=PackedStringArray("option_to_disable") instance=ExtResource("8_4rjbx")]
 option_to_disable = NodePath("../../../..")
@@ -98,6 +101,9 @@ item_name = "Black Coated Wires"
 
 [node name="Leave" parent="Background/Panel-C-Yes-1/InteractionArea/Actions" index="1" instance=ExtResource("5_6s1jt")]
 title = "Never mind"
+
+[node name="SmartRift" parent="." index="1" instance=ExtResource("22_1sprg")]
+is_unlocked = true
 
 [node name="DefaultSpawner" parent="YSort" index="0"]
 position = Vector2(778, 246)
@@ -203,5 +209,11 @@ navigation_polygon = SubResource("NavigationPolygon_j5vyj")
 [node name="NavigationRoof" type="NavigationRegion2D" parent="YSort" index="19"]
 navigation_polygon = SubResource("NavigationPolygon_wbapc")
 
-[node name="c-LevelSwitchScript" type="Node" parent="." index="2"]
+[node name="QuestBoundary" parent="YSort" index="20" instance=ExtResource("20_r0xd4")]
+trigger_name = "LeaveC1"
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/QuestBoundary" index="1"]
+polygon = PackedVector2Array(-154, 1027, 1026, 1148, 1026, 1182, -160, 1061)
+
+[node name="c-LevelSwitchScript" type="Node" parent="." index="3"]
 script = ExtResource("13_thh61")

@@ -1,10 +1,10 @@
-[gd_scene load_steps=20 format=3 uid="uid://kex3fql26uxy"]
+[gd_scene load_steps=21 format=3 uid="uid://kex3fql26uxy"]
 
 [ext_resource type="PackedScene" uid="uid://bp8tsdjdbwj8i" path="res://cutscene/cutscene.tscn" id="1_ipyp7"]
 [ext_resource type="PackedScene" uid="uid://55vflx8ylix1" path="res://cutscene/cutscene_node.tscn" id="2_wt2i3"]
 [ext_resource type="Script" path="res://character/GenderSelector.gd" id="3_uhgcb"]
 [ext_resource type="PackedScene" path="res://ui/radio-parent.tscn" id="4_hox6o"]
-[ext_resource type="PackedScene" path="res://cutscene/cutscene_option.tscn" id="4_tiul5"]
+[ext_resource type="PackedScene" uid="uid://yplasm5gtgly" path="res://cutscene/cutscene_option.tscn" id="4_tiul5"]
 [ext_resource type="PackedScene" uid="uid://dixypholkmdeq" path="res://character/character_desginer.tscn" id="5_ooc6y"]
 [ext_resource type="PackedScene" uid="uid://buej1basav7ji" path="res://ui/radio-child.tscn" id="5_wxebt"]
 [ext_resource type="PackedScene" uid="uid://cio4dmo6oq7ki" path="res://character/character_namer.tscn" id="6_g0hlq"]
@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://c3rmyn3jfv53d" path="res://ui/loading.tscn" id="12_mkwkc"]
 [ext_resource type="Script" path="res://character/NicknameLister.gd" id="13_sehjf"]
 [ext_resource type="Script" path="res://character/NamePreferenceChooser.gd" id="15_g6sas"]
+[ext_resource type="PackedScene" uid="uid://b11g7mb25w5xp" path="res://cutscene/smart_label.tscn" id="16_jok5q"]
 [ext_resource type="Script" path="res://character/JobChooser.gd" id="16_yduv8"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_krm4x"]
@@ -382,7 +383,15 @@ text = "This will affect the mechanics open to you during play, as well as some 
 "
 metadata/_edit_use_anchors_ = true
 
-[node name="PreferenceSelect" parent="4" index="2" instance=ExtResource("4_hox6o")]
+[node name="SmartLabel" parent="4" index="2" instance=ExtResource("16_jok5q")]
+offset_left = 87.0
+offset_top = 392.0
+offset_right = 396.0
+offset_bottom = 443.0
+theme_override_font_sizes/normal_font_size = 20
+text = "Medic class not yet available"
+
+[node name="PreferenceSelect" parent="4" index="3" instance=ExtResource("4_hox6o")]
 
 [node name="Engineer" parent="4/PreferenceSelect" index="0" instance=ExtResource("5_wxebt")]
 offset_left = 80.0
@@ -411,6 +420,7 @@ offset_left = 80.0
 offset_top = 284.0
 offset_right = 450.0
 offset_bottom = 384.0
+disabled = true
 text = "Field Medicine
 
 
@@ -428,14 +438,14 @@ theme_override_colors/default_color = Color(0.486275, 0.486275, 0.486275, 1)
 text = "Generator maintainers work a risky job, so medics are always kept on staff"
 metadata/_edit_use_anchors_ = true
 
-[node name="JobChooser" type="Node2D" parent="4" index="3"]
+[node name="JobChooser" type="Node2D" parent="4" index="4"]
 script = ExtResource("16_yduv8")
 
-[node name="Proceed" parent="4" index="4" node_paths=PackedStringArray("to") instance=ExtResource("4_tiul5")]
-offset_left = 80.0
-offset_top = 409.0
-offset_right = 354.0
-offset_bottom = 486.0
+[node name="Proceed" parent="4" index="5" node_paths=PackedStringArray("to") instance=ExtResource("4_tiul5")]
+offset_left = 82.0
+offset_top = 452.0
+offset_right = 356.0
+offset_bottom = 529.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
 theme_override_styles/normal = SubResource("StyleBoxFlat_krm4x")
@@ -445,7 +455,7 @@ text = "[Choose an option to proceed]"
 to = NodePath("../../END")
 metadata/_edit_use_anchors_ = true
 
-[node name="StoryText" type="RichTextLabel" parent="4" index="5"]
+[node name="StoryText" type="RichTextLabel" parent="4" index="6"]
 offset_left = 60.0
 offset_top = -89.0
 offset_right = 988.0

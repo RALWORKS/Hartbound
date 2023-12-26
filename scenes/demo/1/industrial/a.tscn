@@ -228,6 +228,7 @@ image_texture = ExtResource("13_ht4ji")
 script_node = NodePath("TMPTake")
 title = "Take"
 is_close_btn = true
+trigger_name = "TakePCB"
 
 [node name="TMPTake" parent="YSort/Panel-C-Yes-3/InteractionArea/Actions/Harvest/MakeHarvest/Options/Take" index="0" node_paths=PackedStringArray("option_to_disable") instance=ExtResource("14_sbn2f")]
 option_to_disable = NodePath("../../../..")

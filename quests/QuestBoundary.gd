@@ -27,8 +27,9 @@ var blockade_quests = []
 func _ready():
 	#trigger_name = "LeaveCamp1"
 	#assert(trigger_name == "LeaveCamp1")
-	wall_area_node.get_parent().remove_child(wall_area_node)
-	$Wall.add_child(wall_area_node)
+	if wall_area_node != null:
+		wall_area_node.get_parent().remove_child(wall_area_node)
+		$Wall.add_child(wall_area_node)
 	
 	if threshold_quests_container != null:
 		for c in threshold_quests_container.get_children():

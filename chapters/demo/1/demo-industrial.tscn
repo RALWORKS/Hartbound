@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://cj4mq4w13vijs"]
+[gd_scene load_steps=25 format=3 uid="uid://cj4mq4w13vijs"]
 
 [ext_resource type="PackedScene" uid="uid://bh1yfkyt3u44i" path="res://chapter.tscn" id="1_abxn2"]
 [ext_resource type="PackedScene" uid="uid://qhhv4s8njcrp" path="res://scenes/demo/1/industrial/b.tscn" id="2_x5gxs"]
@@ -9,13 +9,21 @@
 [ext_resource type="PackedScene" uid="uid://cbn3xklmtuki3" path="res://chapters/demo/1/party-is-leaving-camp-1.tscn" id="6_gis10"]
 [ext_resource type="PackedScene" uid="uid://mcph6fai6ep6" path="res://chapter_event_remove_chapterNode.tscn" id="6_xlrko"]
 [ext_resource type="AudioStream" uid="uid://cj5m4rj3aoeck" path="res://assets/music/maybe-saint-lvl1-bg.ogg" id="7_q6myq"]
+[ext_resource type="PackedScene" uid="uid://b0abqxb7m84t5" path="res://chapters/demo/1/c1-taylor/train-car-herbs.tscn" id="8_otud4"]
 [ext_resource type="PackedScene" uid="uid://5exo54lvam30" path="res://quests/quests/demo_c_1_regroup_initial.tscn" id="8_qoif5"]
 [ext_resource type="Script" path="res://chapters/demo/1/DemoChapterScript.gd" id="8_up1b2"]
+[ext_resource type="PackedScene" uid="uid://bvpctsj7kdhr1" path="res://chapters/demo/1/c1-taylor/apartment-herbs.tscn" id="9_qplrx"]
 [ext_resource type="PackedScene" uid="uid://uc3gpi8pp0cj" path="res://chapters/demo/1/brona.tscn" id="9_x8k8q"]
+[ext_resource type="PackedScene" uid="uid://bu8dakumsc3d2" path="res://chapters/demo/1/c1-taylor/tracks-herbs.tscn" id="10_5t2ub"]
 [ext_resource type="PackedScene" uid="uid://d0q6kg3spk25s" path="res://chapters/demo/1/jerry.tscn" id="10_ccv0d"]
+[ext_resource type="PackedScene" uid="uid://dglus7hp2oh6x" path="res://chapters/demo/1/c1-taylor/alternator.tscn" id="11_3siyo"]
 [ext_resource type="PackedScene" uid="uid://bii8gdmkfiy5x" path="res://chapters/demo/1/taylor.tscn" id="11_fc7l2"]
+[ext_resource type="PackedScene" uid="uid://dyu2rup7cahp1" path="res://chapters/demo/1/c1-taylor/pcb.tscn" id="11_jbyho"]
 [ext_resource type="PackedScene" uid="uid://in7v8nsvojyp" path="res://chapters/demo/1/nate.tscn" id="12_fj03t"]
+[ext_resource type="PackedScene" uid="uid://wmgbcyrkpe3r" path="res://chapters/demo/1/c1-taylor/wire.tscn" id="12_glt54"]
 [ext_resource type="Script" path="res://chapters/demo/1/LeaveCamp1.gd" id="15_lcypw"]
+[ext_resource type="Script" path="res://chapters/demo/1/LeaveC1.gd" id="18_ufifv"]
+[ext_resource type="Script" path="res://chapters/demo/1/CrossEWest.gd" id="19_6dtsk"]
 
 [node name="Chapter" node_paths=PackedStringArray("starting_music", "script_holder") instance=ExtResource("1_abxn2")]
 starting_scene = ExtResource("2_x5gxs")
@@ -58,14 +66,33 @@ node_to_remove = NodePath("../../../IndustrialBContents/Nate")
 [node name="RMJerry" parent="Events/DepartingCamp1" index="3" node_paths=PackedStringArray("node_to_remove") instance=ExtResource("6_xlrko")]
 node_to_remove = NodePath("../../../IndustrialBContents/Jerry")
 
+[node name="TaylorTrainCarHerbs" parent="Events" index="2" instance=ExtResource("5_440p5")]
+cutscene = ExtResource("8_otud4")
+
+[node name="TaylorApartmentHerbs" parent="Events" index="3" instance=ExtResource("5_440p5")]
+cutscene = ExtResource("9_qplrx")
+
+[node name="TaylorCorridorHerbs" parent="Events" index="4" instance=ExtResource("5_440p5")]
+cutscene = ExtResource("10_5t2ub")
+
+[node name="TaylorAlternator" parent="Events" index="5" instance=ExtResource("5_440p5")]
+cutscene = ExtResource("11_3siyo")
+
+[node name="TaylorWire" parent="Events" index="6" instance=ExtResource("5_440p5")]
+cutscene = ExtResource("12_glt54")
+
+[node name="TaylorPCB" parent="Events" index="7" instance=ExtResource("5_440p5")]
+cutscene = ExtResource("11_jbyho")
+
+[node name="TaylorGotEmAll" parent="Events" index="8" instance=ExtResource("5_440p5")]
+
 [node name="Music" parent="." index="1" instance=ExtResource("6_eeti4")]
 stream = ExtResource("7_q6myq")
 
 [node name="DemoChapterScript" type="Node" parent="." index="2"]
 script = ExtResource("8_up1b2")
 
-[node name="DemoC1RegroupInitial" parent="." index="3" node_paths=PackedStringArray("next_quest") instance=ExtResource("8_qoif5")]
-next_quest = NodePath("")
+[node name="DemoC1RegroupInitial" parent="." index="3" instance=ExtResource("8_qoif5")]
 
 [node name="IndustrialBContents" type="Node2D" parent="." index="4"]
 
@@ -86,3 +113,26 @@ starting_animaton = "right-stopped"
 
 [node name="LeaveCamp1" type="Node" parent="Triggers" index="0"]
 script = ExtResource("15_lcypw")
+
+[node name="LeaveC1" type="Node" parent="Triggers" index="1"]
+script = ExtResource("18_ufifv")
+
+[node name="EnterF-West" type="Node" parent="Triggers" index="2"]
+script = ExtResource("19_6dtsk")
+event_name = "TaylorApartmentHerbs"
+
+[node name="EnterF-North" type="Node" parent="Triggers" index="3"]
+script = ExtResource("19_6dtsk")
+event_name = "TaylorCorridorHerbs"
+
+[node name="TakeWire" type="Node" parent="Triggers" index="4"]
+script = ExtResource("19_6dtsk")
+event_name = "TaylorWire"
+
+[node name="TakeAlternator" type="Node" parent="Triggers" index="5"]
+script = ExtResource("19_6dtsk")
+event_name = "TaylorAlternator"
+
+[node name="TakePCB" type="Node" parent="Triggers" index="6"]
+script = ExtResource("19_6dtsk")
+event_name = "TaylorPCB"

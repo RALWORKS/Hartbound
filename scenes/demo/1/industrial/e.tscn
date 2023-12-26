@@ -108,6 +108,7 @@ image_texture = ExtResource("10_ytopt")
 script_node = NodePath("TMPTake")
 title = "Take"
 is_close_btn = true
+trigger_name = "TakeAlternator"
 
 [node name="TMPTake" parent="YSort/MO-Car-Hood-C-Yes-2/Actions/Harvest/MakeHarvest/Options/Take" index="0" node_paths=PackedStringArray("option_to_disable") instance=ExtResource("11_u7826")]
 option_to_disable = NodePath("../../../..")

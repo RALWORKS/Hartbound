@@ -1,0 +1,223 @@
+[gd_scene load_steps=12 format=3 uid="uid://bvpctsj7kdhr1"]
+
+[ext_resource type="PackedScene" uid="uid://bp8tsdjdbwj8i" path="res://cutscene/cutscene.tscn" id="1_2ruyt"]
+[ext_resource type="PackedScene" uid="uid://55vflx8ylix1" path="res://cutscene/cutscene_node.tscn" id="2_g5uvd"]
+[ext_resource type="Texture2D" uid="uid://b03p7gc1dm2aq" path="res://assets/scenes/demo/1/industrial/f.png" id="3_eevp6"]
+[ext_resource type="Texture2D" uid="uid://dx1wrwvh6nviu" path="res://assets/npcs/taylor/taylor_neutral.png" id="4_4001k"]
+[ext_resource type="Texture2D" uid="uid://dn77d8pdelpv5" path="res://assets/npcs/taylor/taylor_irritated.png" id="4_x3ql4"]
+[ext_resource type="PackedScene" uid="uid://b11g7mb25w5xp" path="res://cutscene/smart_label.tscn" id="5_3xlti"]
+[ext_resource type="PackedScene" uid="uid://b031fpm2fu6f1" path="res://cutscene/play_animation_on_start.tscn" id="6_nlk23"]
+[ext_resource type="PackedScene" uid="uid://cp5lbi0bmf5vp" path="res://tools/screen-guide-frame.tscn" id="8_ent4v"]
+
+[sub_resource type="Animation" id="Animation_wdn5n"]
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("taylor:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("4_x3ql4")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("taylor:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1336, 1321)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("taylor:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_pinqe"]
+resource_name = "leaves"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("taylor:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("4_x3ql4"), ExtResource("4_4001k")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("taylor:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.5, 0.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1336, 1321), Vector2(1336, 2137)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("taylor:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.5, 0.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 0.261799]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_cqnkr"]
+_data = {
+"RESET": SubResource("Animation_wdn5n"),
+"leaves": SubResource("Animation_pinqe")
+}
+
+[node name="Cutscene" node_paths=PackedStringArray("starting_page") instance=ExtResource("1_2ruyt")]
+starting_page = NodePath("CutsceneNode")
+
+[node name="CutsceneNode" parent="." index="0" node_paths=PackedStringArray("next", "use_on_start_fn_from") instance=ExtResource("2_g5uvd")]
+next = NodePath("../CutsceneNode2")
+use_on_start_fn_from = NodePath("PlayAnimationOnStart")
+
+[node name="bg" type="Sprite2D" parent="CutsceneNode" index="0"]
+position = Vector2(-790, -591)
+scale = Vector2(4, 4)
+texture = ExtResource("3_eevp6")
+centered = false
+
+[node name="taylor" type="Sprite2D" parent="CutsceneNode" index="1"]
+position = Vector2(1336, 1321)
+texture = ExtResource("4_x3ql4")
+
+[node name="SmartLabel" parent="CutsceneNode" index="2" instance=ExtResource("5_3xlti")]
+offset_left = 321.0
+offset_top = 299.0
+offset_right = 708.0
+offset_bottom = 466.0
+theme_override_font_sizes/normal_font_size = 100
+text = "\"Wait!\""
+
+[node name="SmartLabel2" parent="CutsceneNode" index="3" instance=ExtResource("5_3xlti")]
+offset_left = 322.0
+offset_top = 500.0
+offset_right = 639.0
+offset_bottom = 655.0
+text = "Taylor crouches to examine a clump of plants."
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CutsceneNode" index="4"]
+libraries = {
+"": SubResource("AnimationLibrary_cqnkr")
+}
+
+[node name="PlayAnimationOnStart" parent="CutsceneNode" index="5" node_paths=PackedStringArray("player") instance=ExtResource("6_nlk23")]
+player = NodePath("../AnimationPlayer")
+animation_name = "leaves"
+
+[node name="CutsceneNode2" parent="." index="1" node_paths=PackedStringArray("next", "use_on_start_fn_from") instance=ExtResource("2_g5uvd")]
+next = NodePath("../CutsceneNode3")
+use_on_start_fn_from = NodePath("../CutsceneNode/PlayAnimationOnStart")
+
+[node name="bg" type="Sprite2D" parent="CutsceneNode2" index="0"]
+position = Vector2(-790, -591)
+scale = Vector2(4, 4)
+texture = ExtResource("3_eevp6")
+centered = false
+
+[node name="SmartLabel" parent="CutsceneNode2" index="1" instance=ExtResource("5_3xlti")]
+offset_left = 1217.0
+offset_top = 881.0
+offset_right = 1401.0
+offset_bottom = 968.0
+text = "\"Hmm..\""
+
+[node name="taylor" type="Sprite2D" parent="CutsceneNode2" index="2"]
+position = Vector2(1336, 2137)
+rotation = 0.261799
+texture = ExtResource("4_4001k")
+
+[node name="CutsceneNode3" parent="." index="2" node_paths=PackedStringArray("next", "use_on_start_fn_from") instance=ExtResource("2_g5uvd")]
+next = NodePath("../CutsceneNode4")
+use_on_start_fn_from = NodePath("../CutsceneNode/PlayAnimationOnStart")
+
+[node name="bg" type="Sprite2D" parent="CutsceneNode3" index="0"]
+position = Vector2(-790, -591)
+scale = Vector2(4, 4)
+texture = ExtResource("3_eevp6")
+centered = false
+
+[node name="taylor" type="Sprite2D" parent="CutsceneNode3" index="1"]
+position = Vector2(958, 1338)
+texture = ExtResource("4_4001k")
+
+[node name="SmartLabel2" parent="CutsceneNode3" index="2" instance=ExtResource("5_3xlti")]
+offset_left = 1233.0
+offset_top = 384.0
+offset_right = 1631.0
+offset_bottom = 471.0
+text = "\"Yeah. These'll be good.\""
+
+[node name="CutsceneNode4" parent="." index="3" node_paths=PackedStringArray("next", "use_on_start_fn_from") instance=ExtResource("2_g5uvd")]
+visible = false
+next = NodePath("../CutsceneNode5")
+use_on_start_fn_from = NodePath("../CutsceneNode/PlayAnimationOnStart")
+
+[node name="bg" type="Sprite2D" parent="CutsceneNode4" index="0"]
+position = Vector2(-790, -591)
+scale = Vector2(4, 4)
+texture = ExtResource("3_eevp6")
+centered = false
+
+[node name="taylor" type="Sprite2D" parent="CutsceneNode4" index="1"]
+position = Vector2(1112, 1328)
+rotation = 0.44855
+texture = ExtResource("4_x3ql4")
+
+[node name="SmartLabel2" parent="CutsceneNode4" index="2" instance=ExtResource("5_3xlti")]
+offset_left = 876.0
+offset_top = 317.0
+offset_right = 1231.0
+offset_bottom = 404.0
+text = "She gathers a bundle."
+
+[node name="CutsceneNode5" parent="." index="4" node_paths=PackedStringArray("use_on_start_fn_from") instance=ExtResource("2_g5uvd")]
+use_on_start_fn_from = NodePath("../CutsceneNode/PlayAnimationOnStart")
+
+[node name="bg" type="Sprite2D" parent="CutsceneNode5" index="0"]
+position = Vector2(-790, -591)
+scale = Vector2(4, 4)
+texture = ExtResource("3_eevp6")
+centered = false
+
+[node name="taylor" type="Sprite2D" parent="CutsceneNode5" index="1"]
+position = Vector2(958, 1338)
+texture = ExtResource("4_4001k")
+
+[node name="SmartLabel2" parent="CutsceneNode5" index="2" instance=ExtResource("5_3xlti")]
+offset_left = 1382.0
+offset_top = 484.0
+offset_right = 1664.0
+offset_bottom = 601.0
+text = "\"OK. That's all I needed,\""
+
+[node name="Frame" parent="." index="5" instance=ExtResource("8_ent4v")]
