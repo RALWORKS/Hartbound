@@ -6,6 +6,7 @@ extends Area2D
 @export var action_source: Node
 @export var child_depth = 0
 @export var options_container_node: Node = null
+@export var get_on_open_from: Node
 
 
 var x_cursor = preload("res://cursor.tscn")
@@ -39,6 +40,8 @@ func _close_action_window():
 		cur_window.close()
 
 func action():
+	if get_on_open_from != null:
+		get_on_open_from.on_open()
 	if action_source:
 		return action_source.action()
 	if cur_window:

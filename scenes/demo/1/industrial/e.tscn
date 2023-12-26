@@ -66,12 +66,13 @@ dest_edge = "West"
 [node name="NavigationAll" type="NavigationRegion2D" parent="YSort" index="6"]
 navigation_polygon = SubResource("NavigationPolygon_30nyk")
 
-[node name="MO-Car-Key-B" parent="YSort" index="7" node_paths=PackedStringArray("options_container_node") instance=ExtResource("6_dgxub")]
+[node name="MO-Car-Key-B" parent="YSort" index="7" node_paths=PackedStringArray("options_container_node", "get_on_open_from") instance=ExtResource("6_dgxub")]
 title = "Ruined Chariot"
 reference_id = "car-key-b"
 description = "A chariot, painted in a festive yellow colour. The windows are long since gone, and you're able to see and even reach inside."
 child_depth = 2
 options_container_node = NodePath("Actions")
+get_on_open_from = NodePath("RefreshCabOptions")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/MO-Car-Key-B" index="0"]
 polygon = PackedVector2Array(816, 330, 841, 224, 861, 231, 892, 215, 716, 101, 677, 113, 654, 129, 644, 204, 657, 224, 690, 245, 705, 273, 774, 318)
@@ -82,11 +83,11 @@ script = ExtResource("7_vfw5n")
 [node name="Actions" type="Node" parent="YSort/MO-Car-Key-B" index="2"]
 
 [node name="TakeKey" parent="YSort/MO-Car-Key-B/Actions" index="0" node_paths=PackedStringArray("to_modal_maker") instance=ExtResource("8_cpq4g")]
-to_modal_maker = NodePath("Taken")
+to_modal_maker = NodePath("TakenDialog")
 title = "Take the ring of keys hanging from the slot below the window"
 trigger_name = "TakeKey"
 
-[node name="Taken" parent="YSort/MO-Car-Key-B/Actions/TakeKey" index="0" instance=ExtResource("9_fletx")]
+[node name="TakenDialog" parent="YSort/MO-Car-Key-B/Actions/TakeKey" index="0" instance=ExtResource("9_fletx")]
 title = "Ruined Chariot"
 description = "Taken."
 
