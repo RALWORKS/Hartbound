@@ -18,6 +18,9 @@ func _ready():
 	if vein_node:
 		vein_node.visible = false
 	add_chapter_contents()
+	leyline()
+
+func leyline():
 	var ley = LeylineScreen.instantiate()
 	ley.set_vein_node(vein_node)
 	add_child(ley)

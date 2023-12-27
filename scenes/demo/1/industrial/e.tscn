@@ -1,7 +1,8 @@
-[gd_scene load_steps=15 format=3 uid="uid://dpgus4q55ghrs"]
+[gd_scene load_steps=16 format=3 uid="uid://dpgus4q55ghrs"]
 
 [ext_resource type="PackedScene" uid="uid://byrlpmbpj6yr5" path="res://scene.tscn" id="1_4aibn"]
 [ext_resource type="Texture2D" uid="uid://bgosew3t2w5s6" path="res://assets/scenes/demo/1/industrial/e.png" id="2_lmy4c"]
+[ext_resource type="Texture2D" uid="uid://bxyqp1jfiug4k" path="res://assets/scenes/demo/1/industrial/e-car.png" id="3_11dvp"]
 [ext_resource type="Texture2D" uid="uid://cjrm27beguqu8" path="res://assets/scenes/demo/1/industrial/e-back-rocks-2.png" id="3_yflys"]
 [ext_resource type="Texture2D" uid="uid://b7stv73goj4s6" path="res://assets/scenes/demo/1/industrial/e-back-rocks-1.png" id="4_shwhh"]
 [ext_resource type="PackedScene" uid="uid://cl4heje674d3q" path="res://item/interaction_area.tscn" id="6_dgxub"]
@@ -30,6 +31,10 @@ polygon = PackedVector2Array(-105, 651, -119, -129, 1897, -138, 1753, 1143, 1595
 
 [node name="rubble" type="CollisionPolygon2D" parent="Background/StaticBody2D" index="1"]
 polygon = PackedVector2Array(475, -132, 531, 111, 641, 213, 695, 269, 800, 326, 862, 385, 896, 377, 933, 337, 1015, 318, 975, 265, 1014, 252, 1000, 226, 941.135, 212.097, 766, -39)
+
+[node name="Car" type="Sprite2D" parent="Background" index="1"]
+position = Vector2(797, 242)
+texture = ExtResource("3_11dvp")
 
 [node name="FrontWall" type="Sprite2D" parent="." index="1"]
 position = Vector2(801, 879)

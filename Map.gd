@@ -26,7 +26,6 @@ func set_contents_node(dest: Node):
 	if chapter:
 		contents = chapter.get_node_or_null(dest.name + "Contents")
 	dest.contents_node = contents
-	$"../MainScreen/World".call_deferred("add_child", dest)
 	
 
 func _move_to(dest: Node):
@@ -35,6 +34,7 @@ func _move_to(dest: Node):
 	current = dest
 	dest.position = Vector2(0, 0)
 	set_contents_node(dest)
+	$"../MainScreen/World".call_deferred("add_child", dest)
 	if not old:
 		return
 	assert(old != $"..")
