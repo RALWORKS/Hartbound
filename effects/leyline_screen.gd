@@ -6,6 +6,12 @@ extends Node2D
 
 var animation_length = 5
 
+var game
+
+func _get_game():
+	if game == null:
+		game = $"/root/Game"
+	return game
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -13,6 +19,10 @@ func _ready():
 	
 
 func run(parent):
+	var g = _get_game()
+	if g == null:
+		return
+	g.leyline_showing = true
 	raise(parent)
 	dark.get_node("AnimationPlayer").play("show")
 	line.get_node("AnimationPlayer").play("show")
@@ -21,14 +31,15 @@ func run(parent):
 	dark.free()
 
 	queue_free()
+	g.leyline_showing = false
 	
 
 func set_vein_node(n):
-	vein_node = n
-	if vein_node == null:
+	if n == null:
 		return
+	vein_node = n.duplicate()
 	vein_node.visible = true
-	vein_node.get_parent().remove_child(vein_node)
+	#vein_node.get_parent().remove_child(vein_node)
 	$Texture.add_child(vein_node)
 
 func raise(parent):

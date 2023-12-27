@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://d2tvvel0wxl51"]
+[gd_scene load_steps=9 format=3 uid="uid://d2tvvel0wxl51"]
 
 [ext_resource type="Script" path="res://ui/game_menu.gd" id="1_qi0kv"]
 [ext_resource type="Texture2D" uid="uid://b4qmfyh2beo7n" path="res://assets/menubg.png" id="1_qo3pl"]
@@ -6,8 +6,9 @@
 [ext_resource type="PackedScene" uid="uid://cemborgcdx75k" path="res://character/profile.tscn" id="3_gksuv"]
 [ext_resource type="PackedScene" uid="uid://i6laa1tesr13" path="res://ui/modal.tscn" id="5_jpiq8"]
 [ext_resource type="Theme" uid="uid://bowrqsap2qmsa" path="res://base_theme.tres" id="6_pr2h2"]
+[ext_resource type="PackedScene" uid="uid://cywkpft2hp3p2" path="res://ui/view_leyline_btn.tscn" id="7_2qthx"]
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_q00d6"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_qud10"]
 viewport_path = NodePath("img")
 
 [node name="GameMenu" type="Node2D"]
@@ -40,7 +41,7 @@ metadata/_edit_use_anchors_ = true
 [node name="Profile" parent="ProfileBtn" instance=ExtResource("3_gksuv")]
 position = Vector2(15, 12)
 scale = Vector2(0.38, 0.38)
-texture = SubResource("ViewportTexture_q00d6")
+texture = SubResource("ViewportTexture_qud10")
 
 [node name="Label" type="Label" parent="ProfileBtn"]
 layout_mode = 1
@@ -115,6 +116,13 @@ theme_type_variation = &"VoiceoverBox"
 theme_override_font_sizes/normal_font_size = 30
 bbcode_enabled = true
 text = "- Story of the character's life"
+
+[node name="ViewLeylineBtn" parent="." instance=ExtResource("7_2qthx")]
+offset_left = 18.0
+offset_top = 212.0
+offset_right = 168.0
+offset_bottom = 362.0
+scale = Vector2(0.5, 0.5)
 
 [connection signal="pressed" from="GlobalSaveBtn" to="GlobalSaveBtn" method="_on_pressed"]
 [connection signal="pressed" from="ProfileBtn" to="." method="_on_profile_btn_pressed"]

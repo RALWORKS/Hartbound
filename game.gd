@@ -7,6 +7,7 @@ var chapter
 var started = false
 var paused = false
 var unpausing = false
+var leyline_showing = false
 
 var MainScreen = preload("res://ui/main_screen.tscn")
 var StartScreen = preload("res://ui/start_screen.tscn")
@@ -128,6 +129,7 @@ func start_from_state(s):
 
 	var ch = CHAPTERS[STATE["chapter"]].instantiate()
 	ch.name = "Chapter"
+	chapter = ch
 	$".".add_child(ch)
 	started = true
 	
@@ -220,6 +222,11 @@ func load_game(f):
 	$ThemeFader.play("fadeout")
 
 # Called when the node enters the scene tree for the first time.
+func _get_world():
+	if world == null:
+		world = $"MainScreen/World"
+	return world
+
 func _ready():
 	world = get_node_or_null("MainScreen/World")
 
@@ -254,15 +261,21 @@ func handle_input(delta):
 
 
 func _mouse_in_world():
-	if not world:
+	var w = _get_world()
+	if w == null:
 		return true
 	var mouse = get_mouse_position()
-	if mouse.x > world.size.x - 100:
+	if mouse.x > w.size.x - 20:
 		return false
-	if mouse.y > world.size.y:
+	if mouse.y > w.size.y:
 		return false
 	return true
 
+func leyline():
+	if chapter != null and chapter.cutscene != null:
+		return
+	if not leyline_showing and $Map != null and $Map.current != null:
+		$Map.current.leyline()
 
 func _handle_walk_input(delta):
 	if player == null:
@@ -270,10 +283,14 @@ func _handle_walk_input(delta):
 
 	var arrow_keys = Input.get_vector("left", "right", "up", "down")
 	var click = Input.is_action_just_released("click")
+	var ley = Input.is_action_just_released("leyline")
 
 	if click and _mouse_in_world():
 		player.destination_clicked(delta)
 		return
+	
+	if ley:
+		leyline()
 
 	if arrow_keys.x != 0 or arrow_keys.y != 0:
 		player.arrow_keys_pressed(delta, arrow_keys)
