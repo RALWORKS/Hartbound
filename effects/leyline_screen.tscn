@@ -5,8 +5,8 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_psm2n"]
 shader = ExtResource("1_w5hno")
-shader_parameter/blur_radius = 100.0
-shader_parameter/n_steps = 10.0
+shader_parameter/blur_radius = 50.0
+shader_parameter/n_steps = 5.0
 shader_parameter/bg_alpha = 0.0
 shader_parameter/invert = true
 
@@ -41,7 +41,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 1, 3, 4),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [0.0, 0.3, 0.3, 0.0]
+"values": [0.0, 0.4, 0.4, 0.0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_7jso5"]
@@ -52,9 +52,9 @@ _data = {
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_2u3gd"]
 shader = ExtResource("1_w5hno")
-shader_parameter/blur_radius = 100.0
-shader_parameter/n_steps = 10.0
-shader_parameter/bg_alpha = 0.0
+shader_parameter/blur_radius = 50.0
+shader_parameter/n_steps = 5.0
+shader_parameter/bg_alpha = 0.8
 shader_parameter/invert = false
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_3vmal"]
@@ -62,18 +62,6 @@ viewport_path = NodePath("Texture")
 
 [sub_resource type="Animation" id="Animation_os1ts"]
 length = 4.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Leyline:material:shader_parameter/bg_alpha")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1, 3, 4),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [0.0, 0.266667, 0.8, 0.0]
-}
 
 [sub_resource type="Animation" id="Animation_j352o"]
 resource_name = "show"

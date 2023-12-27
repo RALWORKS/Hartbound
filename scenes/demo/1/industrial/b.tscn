@@ -229,4 +229,4 @@ polygon = PackedVector2Array(1628, 1138, 1628, 1233, 476, 1266, 446, 1170)
 data_resource = ExtResource("18_h44q5")
 
 [node name="Vein" type="Polygon2D" parent="." index="4"]
-polygon = PackedVector2Array(3, 1388, 786, 1044, 436, 763, 948, 597, 962, 201, 1844, -238, 1966, -113, 1097, 294, 1089, 681, 636, 860, 959, 1123, 156, 1491)
+polygon = PackedVector2Array(76, 1425, 778, 1097, 464, 837, 981, 619, 993, 237, 1898, -187, 1966, -113, 1080, 277, 1072, 659, 622, 862, 959, 1123, 156, 1491)

@@ -26,10 +26,13 @@ vec4 averager(vec2 pixel_size, sampler2D cur_texture, vec2 cur_uv) {
 void fragment() {
 	vec2 pixel_size = 1.0/vec2(textureSize(TEXTURE, 0));
 	
-	vec4 avg = averager(pixel_size, TEXTURE, UV);
+	vec4 avg = (
+		averager(pixel_size, TEXTURE, UV)
+		+ averager(vec2(pixel_size.x, -1.0*pixel_size.y), TEXTURE, UV)
+		) /2.0;
 	
 	if (invert) {
-		COLOR = vec4(0.1, 0.1, 0.0, 1.0);
+		COLOR = vec4(0.1, 0.0, 0.1, 1.0);
 		COLOR.a = (1.0 - pow(avg.a, 4)) * bg_alpha;
 	}
 	else {
