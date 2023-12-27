@@ -8,11 +8,21 @@ script/source = "extends Node2D
 
 @export var spawn_at = \"s\"
 @export var contents_node: Node2D
+@export var vein_node: Node
+
+var LeylineScreen = preload(\"res://effects/leyline_screen.tscn\")
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	if vein_node:
+		vein_node.visible = false
 	add_chapter_contents()
+	var ley = LeylineScreen.instantiate()
+	ley.set_vein_node(vein_node)
+	add_child(ley)
+	move_child(ley, $YSort.get_index())
+	ley.run(self)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):

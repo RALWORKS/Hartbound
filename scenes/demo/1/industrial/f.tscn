@@ -33,7 +33,8 @@ vertices = PackedVector2Array(1450, 1141, 495, 1248, 467, 1098, 631, 856, 930, 7
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4, 5), PackedInt32Array(5, 4, 6)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(495, 1248, 467, 1098, 631, 856, 930, 784, 1105, 592, 1532, 827, 1450, 1141)])
 
-[node name="Scene" instance=ExtResource("1_d7mn4")]
+[node name="Scene" node_paths=PackedStringArray("vein_node") instance=ExtResource("1_d7mn4")]
+vein_node = NodePath("Vein")
 
 [node name="Background" parent="." index="0"]
 texture = ExtResource("2_u64ec")
@@ -211,3 +212,6 @@ trigger_name = "EnterF-West"
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/WestTrigger" index="1"]
 position = Vector2(-723, 423)
 polygon = PackedVector2Array(1100, 459, 1275, 329, 988, 42, 769, 142)
+
+[node name="Vein" type="Polygon2D" parent="." index="2"]
+polygon = PackedVector2Array(-63, 767, 1025, 137, 753, -33, 945, -33, 1713, 391, 1707, 501, 1157, 221, 723, 493, 1279, 855, 1655, 1065, 1165, 939, 1147, 811, 671, 521, 11, 917)

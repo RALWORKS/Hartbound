@@ -19,7 +19,8 @@ vertices = PackedVector2Array(1091, 341, 986, -1, 1634, -44, 1612, 694, 995, 986
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(0, 3, 4, 5), PackedInt32Array(6, 7, 8, 9, 10, 4), PackedInt32Array(5, 4, 10)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(986, -1, 1091, 341, 916, 451, 715, 431, 449, 13, 25, 7, 84, 822, 579, 1090, 995, 986, 1612, 694, 1634, -44)])
 
-[node name="Scene" instance=ExtResource("1_4aibn")]
+[node name="Scene" node_paths=PackedStringArray("vein_node") instance=ExtResource("1_4aibn")]
+vein_node = NodePath("Vein")
 
 [node name="Background" parent="." index="0"]
 texture = ExtResource("2_lmy4c")
@@ -29,6 +30,10 @@ polygon = PackedVector2Array(-105, 651, -119, -129, 1897, -138, 1753, 1143, 1595
 
 [node name="rubble" type="CollisionPolygon2D" parent="Background/StaticBody2D" index="1"]
 polygon = PackedVector2Array(475, -132, 531, 111, 641, 213, 695, 269, 800, 326, 862, 385, 896, 377, 933, 337, 1015, 318, 975, 265, 1014, 252, 1000, 226, 941.135, 212.097, 766, -39)
+
+[node name="FrontWall" type="Sprite2D" parent="." index="1"]
+position = Vector2(801, 879)
+texture = ExtResource("6_isrdr")
 
 [node name="DefaultSpawner" parent="YSort" index="0"]
 position = Vector2(931, 812)
@@ -140,6 +145,5 @@ interactable = NodePath("../MO-Car-Key-B")
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/XCar" index="0"]
 polygon = PackedVector2Array(562, 217, 599, 182, 671, 252, 686, 282, 784, 332, 688, 412)
 
-[node name="FrontWall" type="Sprite2D" parent="." index="2"]
-position = Vector2(801, 879)
-texture = ExtResource("6_isrdr")
+[node name="Vein" type="Polygon2D" parent="." index="4"]
+polygon = PackedVector2Array(-175, 472, 669, -24, 381, -38, -225, 226)

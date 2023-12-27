@@ -39,7 +39,8 @@ vertices = PackedVector2Array(1608, 1227, 1404, 1234, 1585, 1085, 1626, 796, 154
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2), PackedInt32Array(3, 0, 2), PackedInt32Array(4, 5, 6, 7), PackedInt32Array(8, 3, 2, 9, 10), PackedInt32Array(4, 7, 11, 12), PackedInt32Array(13, 12, 11, 14), PackedInt32Array(10, 13, 14, 8), PackedInt32Array(10, 9, 15)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(920, 670, 1023, 599, 1117, 647, 1520, 355, 1550, 287, 1545, 95, 1452, 30, 1507, -1, 1606, -1, 1588, 329, 1525, 481, 1306, 632, 1626, 796, 1608, 1227, 1404, 1234, 1585, 1085)])
 
-[node name="Scene" instance=ExtResource("1_c5dv2")]
+[node name="Scene" node_paths=PackedStringArray("vein_node") instance=ExtResource("1_c5dv2")]
+vein_node = NodePath("Vein")
 
 [node name="Background" parent="." index="0"]
 texture = ExtResource("2_7kp15")
@@ -219,3 +220,6 @@ polygon = PackedVector2Array(-154, 1027, 1026, 1148, 1026, 1182, -160, 1061)
 
 [node name="c-LevelSwitchScript" type="Node" parent="." index="3"]
 script = ExtResource("13_thh61")
+
+[node name="Vein" type="Polygon2D" parent="." index="4"]
+polygon = PackedVector2Array(-145, -4, 226, 157, 683, -121, 902, -123, 315, 289, -138, 77)
