@@ -170,7 +170,7 @@ title = "[ENGINEER] Unscrew the panel"
 
 [node name="OpenModalMaker" parent="YSort/Panel C-No-1/Actions/Open" index="0" node_paths=PackedStringArray("options_container_node") instance=ExtResource("15_s4ofs")]
 title = "Access Panel"
-description = "When you touch it, you find that the panel is ... vibrating slightly. Ten to one, it's because you're right on top of a Leyline, and the machinery back there has become possessed. If that's really the case, opening this will blow your arm off--at best."
+description = "When you touch it, you find that the panel is ... vibrating slightly. That's because it's on top of a Leyline. Opening this will electrocute you--possibly to death."
 options_container_node = NodePath("Actions")
 
 [node name="Actions" type="Node" parent="YSort/Panel C-No-1/Actions/Open/OpenModalMaker" index="0"]
@@ -181,7 +181,7 @@ is_close_btn = true
 
 [node name="ReallyOpen" parent="YSort/Panel C-No-1/Actions/Open/OpenModalMaker/Actions" index="1" instance=ExtResource("14_v06dg")]
 to_cutscene = ExtResource("16_k1any")
-title = "Open it anyway"
+title = "Open it anyway (kill yourself)"
 
 [node name="InteractionArea" parent="YSort" index="15" instance=ExtResource("12_6urft")]
 title = "Leyline Cross"

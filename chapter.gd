@@ -48,7 +48,7 @@ func _ready():
 	if starting_music != null:
 		game.play_music(starting_music)
 	if $Events.get_child_count() > 0 and sequence_ix == 0:
-		next()
+		call_deferred("next")
 
 func _process(_delta):
 	pass

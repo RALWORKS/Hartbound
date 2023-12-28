@@ -6,10 +6,9 @@
 [ext_resource type="PackedScene" uid="uid://dh1scrjroovcn" path="res://item/interaction_modal_maker.tscn" id="4_sw17p"]
 [ext_resource type="PackedScene" uid="uid://cpbg7yuq873y5" path="res://item/interaction_action.tscn" id="5_e8yea"]
 
-[node name="DemoC1CollectingEng" node_paths=PackedStringArray("on_start_modal_maker") instance=ExtResource("1_olk6p")]
+[node name="DemoC1CollectingEng" instance=ExtResource("1_olk6p")]
 id = "demo-c1-collecting-eng"
 headline = "Gather 3 Electronic Components With Taylor"
-on_start_modal_maker = NodePath("StartModal")
 
 [node name="C1CollectingHerbs" parent="QuestConceptCategory" index="0" instance=ExtResource("2_du5wd")]
 

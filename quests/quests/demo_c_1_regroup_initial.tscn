@@ -6,10 +6,9 @@
 [ext_resource type="PackedScene" uid="uid://bxu8qsfgeojlr" path="res://quests/quests/demo_c_1_regroup_initial/plan_for_afternoon.tscn" id="4_xfgmj"]
 [ext_resource type="PackedScene" uid="uid://cn48xheq2neu1" path="res://quests/quests/demo_c_1_collecting_eng.tscn" id="5_0qu26"]
 
-[node name="DemoC1RegroupInitial" node_paths=PackedStringArray("on_start_modal_maker", "next_quest") instance=ExtResource("1_xww5q")]
+[node name="DemoC1RegroupInitial" node_paths=PackedStringArray("next_quest") instance=ExtResource("1_xww5q")]
 id = "demo-c1-regroup-intial"
 headline = "Regroup with the team and plan"
-on_start_modal_maker = NodePath("StartModal")
 next_quest = NodePath("DemoC1CollectingEng")
 
 [node name="StartModal" parent="." index="0" node_paths=PackedStringArray("options_container_node") instance=ExtResource("2_ocips")]

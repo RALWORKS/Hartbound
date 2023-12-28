@@ -1,8 +1,10 @@
 extends Node2D
 @export var vein_node: Node
+@export var vein_alpha: float
 
 @onready var line = $Leyline
 @onready var dark = $Darkness
+
 
 var animation_length = 5
 
@@ -16,6 +18,8 @@ func _get_game():
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	set_vein_node(vein_node)
+	if vein_alpha != null:
+		$Leyline.material.set_shader_parameter("bg_alpha", float(vein_alpha))
 	
 
 func run(parent):

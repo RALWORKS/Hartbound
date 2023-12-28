@@ -20,12 +20,13 @@ func play():
 	
 	if effect != null:
 		game.get_node("MainScreen/Effects").play(effect)
-	if cutscene != null:
-		$"../..".start_cutscene(cutscene)
 	if to_scene != null:
 		var scene0 = to_scene.instantiate()
 		game.get_node("Map").move_to(scene0)
 		scene0.spawn(game)
+	if cutscene != null:
+		await get_tree().create_timer(0.2).timeout
+		$"../..".start_cutscene(cutscene)
 	for mutation in get_children():
 		mutation.mutate()
 	

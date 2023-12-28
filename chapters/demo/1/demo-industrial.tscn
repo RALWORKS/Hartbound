@@ -1,9 +1,10 @@
-[gd_scene load_steps=27 format=3 uid="uid://cj4mq4w13vijs"]
+[gd_scene load_steps=28 format=3 uid="uid://cj4mq4w13vijs"]
 
 [ext_resource type="PackedScene" uid="uid://bh1yfkyt3u44i" path="res://chapter.tscn" id="1_abxn2"]
 [ext_resource type="PackedScene" uid="uid://qhhv4s8njcrp" path="res://scenes/demo/1/industrial/b.tscn" id="2_x5gxs"]
+[ext_resource type="PackedScene" uid="uid://4k8qa6nwiryt" path="res://chapters/demo/1/intro-cutscene.tscn" id="3_1u70a"]
 [ext_resource type="PackedScene" path="res://chapter_event_mutation.tscn" id="4_gn21l"]
-[ext_resource type="PackedScene" path="res://chapter_event.tscn" id="5_440p5"]
+[ext_resource type="PackedScene" uid="uid://b1skvjxeeblbv" path="res://chapter_event.tscn" id="5_440p5"]
 [ext_resource type="PackedScene" path="res://story_item.tscn" id="5_r0j2r"]
 [ext_resource type="PackedScene" uid="uid://bcinc4blag4el" path="res://music.tscn" id="6_eeti4"]
 [ext_resource type="PackedScene" uid="uid://cbn3xklmtuki3" path="res://chapters/demo/1/party-is-leaving-camp-1.tscn" id="6_gis10"]
@@ -33,6 +34,7 @@ starting_music = NodePath("Music")
 script_holder = NodePath("DemoChapterScript")
 
 [node name="StartChapter" parent="Events" index="0"]
+cutscene = ExtResource("3_1u70a")
 to_scene = ExtResource("2_x5gxs")
 
 [node name="ChapterEventMutation" parent="Events/StartChapter" index="0" instance=ExtResource("4_gn21l")]

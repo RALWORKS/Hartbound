@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://epq5ioa4sayx"]
+[gd_scene load_steps=14 format=3 uid="uid://epq5ioa4sayx"]
 
 [ext_resource type="PackedScene" uid="uid://bp8tsdjdbwj8i" path="res://cutscene/cutscene.tscn" id="1_qv2i1"]
 [ext_resource type="PackedScene" uid="uid://55vflx8ylix1" path="res://cutscene/cutscene_node.tscn" id="2_vonvd"]
@@ -11,6 +11,8 @@
 [ext_resource type="PackedScene" uid="uid://yplasm5gtgly" path="res://cutscene/cutscene_option.tscn" id="8_w0od5"]
 [ext_resource type="Script" path="res://quests/quests/demo_c_1_regroup_initial/EndQuest1.gd" id="9_ymsko"]
 [ext_resource type="PackedScene" uid="uid://5exo54lvam30" path="res://quests/quests/demo_c_1_regroup_initial.tscn" id="10_j3pmb"]
+[ext_resource type="Texture2D" uid="uid://cwobelc0kaio" path="res://assets/effects/pass-out-1/black.png" id="12_y5u3b"]
+[ext_resource type="Texture2D" uid="uid://dla2rs7rb628l" path="res://ui/leyline-icon.png" id="13_asy10"]
 
 [node name="Taylor1" node_paths=PackedStringArray("starting_page", "concepts", "default_topics") instance=ExtResource("1_qv2i1")]
 starting_page = NodePath("1")
@@ -55,7 +57,6 @@ next = NodePath("../2")
 [node name="Defaults" type="Node" parent="." index="3"]
 
 [node name="Base" parent="Defaults" index="0" node_paths=PackedStringArray("next") instance=ExtResource("2_vonvd")]
-visible = false
 next = NodePath("../../ConceptCutsceneNode")
 
 [node name="bg" type="Sprite2D" parent="Defaults/Base" index="0"]
@@ -63,17 +64,17 @@ scale = Vector2(1.35, 1.35)
 texture = ExtResource("3_ney04")
 centered = false
 
-[node name="SmartLabel" parent="Defaults/Base" index="1" instance=ExtResource("5_sc1vl")]
-offset_left = 649.0
-offset_top = 247.0
-offset_right = 1063.0
-offset_bottom = 415.0
-text = "\"No offense, but I'm not really sure why you're asking me this right now.\""
-
-[node name="taylor2" type="Sprite2D" parent="Defaults/Base/SmartLabel" index="1"]
-position = Vector2(-194, 603)
+[node name="taylor2" type="Sprite2D" parent="Defaults/Base" index="1"]
+position = Vector2(455, 850)
 scale = Vector2(0.7, 0.7)
 texture = ExtResource("4_bxirh")
+
+[node name="SmartLabel" parent="Defaults/Base" index="2" instance=ExtResource("5_sc1vl")]
+offset_left = 666.0
+offset_top = 164.0
+offset_right = 1080.0
+offset_bottom = 332.0
+text = "\"No offense, but I'm not really sure why you're asking me this right now.\""
 
 [node name="World" parent="Defaults" index="1" node_paths=PackedStringArray("next") instance=ExtResource("2_vonvd")]
 visible = false
@@ -104,6 +105,7 @@ next = NodePath("../ConceptCutsceneNode")
 [node name="PlanForAfternoon2" parent="Concepts" index="20" instance=ExtResource("7_chmtn")]
 
 [node name="CutsceneNode" parent="Concepts/PlanForAfternoon2" index="0" instance=ExtResource("2_vonvd")]
+visible = false
 is_option_node = true
 
 [node name="bg" type="Sprite2D" parent="Concepts/PlanForAfternoon2/CutsceneNode" index="0"]
@@ -156,7 +158,9 @@ offset_bottom = 811.0
 text = "> \"I'll get back to you on that.\""
 to = NodePath("../../N")
 
-[node name="Y" parent="Concepts/PlanForAfternoon2" index="1" node_paths=PackedStringArray("use_on_start_fn_from") instance=ExtResource("2_vonvd")]
+[node name="Y" parent="Concepts/PlanForAfternoon2" index="1" node_paths=PackedStringArray("next", "use_on_start_fn_from") instance=ExtResource("2_vonvd")]
+visible = false
+next = NodePath("../Y2")
 use_on_start_fn_from = NodePath("EndQuest1")
 
 [node name="bg" type="Sprite2D" parent="Concepts/PlanForAfternoon2/Y" index="0"]
@@ -182,7 +186,40 @@ script = ExtResource("9_ymsko")
 
 [node name="DemoC1RegroupInitial" parent="Concepts/PlanForAfternoon2/Y/EndQuest1" index="0" instance=ExtResource("10_j3pmb")]
 
-[node name="N" parent="Concepts/PlanForAfternoon2" index="2" node_paths=PackedStringArray("next") instance=ExtResource("2_vonvd")]
+[node name="Y2" parent="Concepts/PlanForAfternoon2" index="2" node_paths=PackedStringArray("use_on_start_fn_from") instance=ExtResource("2_vonvd")]
+visible = false
+use_on_start_fn_from = NodePath("../Y/EndQuest1")
+end = true
+
+[node name="bg" type="Sprite2D" parent="Concepts/PlanForAfternoon2/Y2" index="0"]
+scale = Vector2(1.44493, 1.35)
+texture = ExtResource("12_y5u3b")
+centered = false
+
+[node name="SmartLabel" parent="Concepts/PlanForAfternoon2/Y2" index="1" instance=ExtResource("5_sc1vl")]
+offset_left = 1.0
+offset_top = 300.0
+offset_right = 1324.0
+offset_bottom = 748.0
+bbcode_enabled = true
+text = "[i]Objective:[/i]
+
+- Explore the map with Taylor, and gather 3 mechanical or electronic parts from
+  the old machines and buildings in the area
+
+- Do [i]not[/i] gather elctrical or mechanical parts from items or panels that directly
+  intersect with a Leyline. Doing so will electrocute you.
+  Things that aren't connected to the electronics are all right.
+
+- View the Leyline with [i]L[/i] or "
+
+[node name="Sprite2D" type="Sprite2D" parent="Concepts/PlanForAfternoon2/Y2/SmartLabel" index="1"]
+position = Vector2(470, 403)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("13_asy10")
+
+[node name="N" parent="Concepts/PlanForAfternoon2" index="3" node_paths=PackedStringArray("next") instance=ExtResource("2_vonvd")]
+visible = false
 next = NodePath("../../../ConceptCutsceneNode")
 
 [node name="bg" type="Sprite2D" parent="Concepts/PlanForAfternoon2/N" index="0"]
