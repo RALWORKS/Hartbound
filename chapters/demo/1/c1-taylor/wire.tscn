@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://wmgbcyrkpe3r"]
+[gd_scene load_steps=11 format=3 uid="uid://wmgbcyrkpe3r"]
 
 [ext_resource type="PackedScene" uid="uid://bp8tsdjdbwj8i" path="res://cutscene/cutscene.tscn" id="1_r7n12"]
 [ext_resource type="PackedScene" uid="uid://55vflx8ylix1" path="res://cutscene/cutscene_node.tscn" id="2_auhtm"]
@@ -8,13 +8,15 @@
 [ext_resource type="Texture2D" uid="uid://cf5r4v2jyv3yo" path="res://assets/items/demo-1/wire-large.png" id="6_u2p32"]
 [ext_resource type="PackedScene" uid="uid://yplasm5gtgly" path="res://cutscene/cutscene_option.tscn" id="7_x43u1"]
 [ext_resource type="PackedScene" uid="uid://cp5lbi0bmf5vp" path="res://tools/screen-guide-frame.tscn" id="8_20m7p"]
+[ext_resource type="PackedScene" uid="uid://h0r76jyn8lnu" path="res://chapters/demo/1/trigger_c_1_end_if_needed.tscn" id="8_g6q54"]
 [ext_resource type="Texture2D" uid="uid://dn77d8pdelpv5" path="res://assets/npcs/taylor/taylor_irritated.png" id="8_t8eak"]
 
 [node name="Cutscene" node_paths=PackedStringArray("starting_page") instance=ExtResource("1_r7n12")]
 starting_page = NodePath("1")
 
-[node name="1" parent="." index="0" instance=ExtResource("2_auhtm")]
+[node name="1" parent="." index="0" node_paths=PackedStringArray("use_on_start_fn_from") instance=ExtResource("2_auhtm")]
 is_option_node = true
+use_on_start_fn_from = NodePath("TriggerC1EndIfNeeded")
 
 [node name="bg" type="Sprite2D" parent="1" index="0"]
 position = Vector2(296, 1164)
@@ -69,6 +71,9 @@ offset_right = 575.0
 offset_bottom = 877.0
 text = "> \"Oh? You know better than me, do you?\""
 to = NodePath("../../Offense")
+
+[node name="TriggerC1EndIfNeeded" parent="1" index="8" node_paths=PackedStringArray("cutscene") instance=ExtResource("8_g6q54")]
+cutscene = NodePath(".")
 
 [node name="Offense" parent="." index="1" node_paths=PackedStringArray("next") instance=ExtResource("2_auhtm")]
 visible = false

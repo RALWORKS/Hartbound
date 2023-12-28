@@ -121,7 +121,7 @@ offset_top = 816.0
 offset_bottom = 989.0
 bbcode_enabled = true
 text = "\"Brona's got her heart set on getting some big window she saw earlier.\" Jerry sighs. 
-\"Personally, I'm not convinced we [i]can[/i] get it out in once piece, let alone get it home if we do--
+\"Personally, I'm not convinced we [i]can[/i] get it out in one piece, let alone get it home if we do--
 but she's not wrong it'll be good money if we somehow pull it off. I'm thinking we'll give it a shot.\""
 
 [node name="C1CollectingHerbs" parent="Concepts" index="1" instance=ExtResource("8_0mog3")]

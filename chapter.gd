@@ -64,11 +64,16 @@ func start_cutscene(cutscene_res, npc=null):
 	cutscene.start()
 
 func end_cutscene():
+	var next_cutscene = cutscene.next_cutscene
+	var npc = cutscene.npc
 	cutscene.call_deferred("free")
 	for child in cur_game:
 		if is_instance_valid(child):
 			$"../MainScreen/World".add_child(child)
 	game.chapter = self
+	if next_cutscene != null:
+		await get_tree().create_timer(0.2).timeout
+		start_cutscene(next_cutscene, npc)
 
 func update_cutscene_page(p):
 	cutscene.update_page(p)

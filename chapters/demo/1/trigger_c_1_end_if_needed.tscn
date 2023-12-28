@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://h0r76jyn8lnu"]
+
+[ext_resource type="Script" path="res://chapters/demo/1/TriggerC1EndIfNeeded.gd" id="1_74gwh"]
+
+[node name="TriggerC1EndIfNeeded" type="Node"]
+script = ExtResource("1_74gwh")
