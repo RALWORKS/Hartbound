@@ -1,7 +1,14 @@
-[gd_scene load_steps=2 format=3 uid="uid://crgb04l374k4w"]
+[gd_scene load_steps=3 format=3 uid="uid://crgb04l374k4w"]
 
 [ext_resource type="PackedScene" uid="uid://bt0e2jwvmgpgm" path="res://concept-map/concept.tscn" id="1_cng0c"]
+[ext_resource type="PackedScene" uid="uid://ttnut7gc4m3w" path="res://concept-map/concept_tag.tscn" id="2_d4d0g"]
 
 [node name="ElvenNames" instance=ExtResource("1_cng0c")]
 id = "elven-names"
 title = "Elven names"
+
+[node name="ConceptTag" parent="." index="0" instance=ExtResource("2_d4d0g")]
+phrase = "elven name"
+
+[node name="ConceptTag2" parent="." index="1" instance=ExtResource("2_d4d0g")]
+phrase = "elf name"

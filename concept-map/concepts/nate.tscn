@@ -1,7 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://bppqrtvum64n1"]
+[gd_scene load_steps=3 format=3 uid="uid://bppqrtvum64n1"]
 
 [ext_resource type="PackedScene" uid="uid://bt0e2jwvmgpgm" path="res://concept-map/concept.tscn" id="1_jxfsl"]
+[ext_resource type="PackedScene" uid="uid://ttnut7gc4m3w" path="res://concept-map/concept_tag.tscn" id="2_fjf81"]
 
 [node name="Nate" instance=ExtResource("1_jxfsl")]
 id = "nate"
 title = "Nate"
+
+[node name="ConceptTag" parent="." index="0" instance=ExtResource("2_fjf81")]
+phrase = "nate"

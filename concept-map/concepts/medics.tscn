@@ -1,7 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://2jrq48rwuyls"]
+[gd_scene load_steps=3 format=3 uid="uid://2jrq48rwuyls"]
 
 [ext_resource type="PackedScene" uid="uid://bt0e2jwvmgpgm" path="res://concept-map/concept.tscn" id="1_hl2yd"]
+[ext_resource type="PackedScene" uid="uid://ttnut7gc4m3w" path="res://concept-map/concept_tag.tscn" id="2_jklvj"]
 
 [node name="Medics" instance=ExtResource("1_hl2yd")]
 id = "medics"
 title = "medics"
+
+[node name="ConceptTag" parent="." index="0" instance=ExtResource("2_jklvj")]
+phrase = "medic"

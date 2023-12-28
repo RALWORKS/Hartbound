@@ -1,7 +1,20 @@
-[gd_scene load_steps=2 format=3 uid="uid://dqm085unfkqhk"]
+[gd_scene load_steps=3 format=3 uid="uid://dqm085unfkqhk"]
 
 [ext_resource type="PackedScene" uid="uid://bt0e2jwvmgpgm" path="res://concept-map/concept.tscn" id="1_tm62i"]
+[ext_resource type="PackedScene" uid="uid://ttnut7gc4m3w" path="res://concept-map/concept_tag.tscn" id="2_pobnc"]
 
 [node name="Leylines" instance=ExtResource("1_tm62i")]
 id = "leylines"
 title = "Leylines"
+
+[node name="ConceptTag" parent="." index="0" instance=ExtResource("2_pobnc")]
+phrase = "leyline"
+
+[node name="ConceptTag2" parent="." index="1" instance=ExtResource("2_pobnc")]
+phrase = "powerline"
+
+[node name="ConceptTag3" parent="." index="2" instance=ExtResource("2_pobnc")]
+phrase = "power line"
+
+[node name="ConceptTag4" parent="." index="3" instance=ExtResource("2_pobnc")]
+phrase = "electrical line"

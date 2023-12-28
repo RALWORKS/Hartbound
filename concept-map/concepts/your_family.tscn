@@ -1,7 +1,14 @@
-[gd_scene load_steps=2 format=3 uid="uid://di5fx1pxm4g6u"]
+[gd_scene load_steps=3 format=3 uid="uid://di5fx1pxm4g6u"]
 
 [ext_resource type="PackedScene" uid="uid://bt0e2jwvmgpgm" path="res://concept-map/concept.tscn" id="1_ov7n2"]
+[ext_resource type="PackedScene" uid="uid://ttnut7gc4m3w" path="res://concept-map/concept_tag.tscn" id="2_ik4h3"]
 
 [node name="YourFamily" instance=ExtResource("1_ov7n2")]
 id = "your-family"
 title = "your family"
+
+[node name="ConceptTag" parent="." index="0" instance=ExtResource("2_ik4h3")]
+phrase = "family"
+
+[node name="ConceptTag2" parent="." index="1" instance=ExtResource("2_ik4h3")]
+phrase = "parents"

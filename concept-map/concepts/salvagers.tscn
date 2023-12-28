@@ -1,7 +1,14 @@
-[gd_scene load_steps=2 format=3 uid="uid://cpcg5ug3rutlq"]
+[gd_scene load_steps=3 format=3 uid="uid://cpcg5ug3rutlq"]
 
 [ext_resource type="PackedScene" uid="uid://bt0e2jwvmgpgm" path="res://concept-map/concept.tscn" id="1_stdi7"]
+[ext_resource type="PackedScene" uid="uid://ttnut7gc4m3w" path="res://concept-map/concept_tag.tscn" id="2_qr8d2"]
 
 [node name="Salvagers" instance=ExtResource("1_stdi7")]
 id = "salvagers"
 title = "salvagers"
+
+[node name="ConceptTag" parent="." index="0" instance=ExtResource("2_qr8d2")]
+phrase = "salvager"
+
+[node name="ConceptTag2" parent="." index="1" instance=ExtResource("2_qr8d2")]
+phrase = "crew"

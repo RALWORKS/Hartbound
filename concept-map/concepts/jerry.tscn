@@ -1,7 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://bk55nkktsq3s7"]
+[gd_scene load_steps=3 format=3 uid="uid://bk55nkktsq3s7"]
 
 [ext_resource type="PackedScene" uid="uid://bt0e2jwvmgpgm" path="res://concept-map/concept.tscn" id="1_35d3d"]
+[ext_resource type="PackedScene" uid="uid://ttnut7gc4m3w" path="res://concept-map/concept_tag.tscn" id="2_llj1v"]
 
 [node name="Jerry" instance=ExtResource("1_35d3d")]
 id = "jerry"
 title = "Jerry"
+
+[node name="ConceptTag" parent="." index="0" instance=ExtResource("2_llj1v")]
+phrase = "jerry"

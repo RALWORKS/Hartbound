@@ -1,7 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://84etqm7v3b47"]
+[gd_scene load_steps=3 format=3 uid="uid://84etqm7v3b47"]
 
 [ext_resource type="PackedScene" uid="uid://bt0e2jwvmgpgm" path="res://concept-map/concept.tscn" id="1_k8psi"]
+[ext_resource type="PackedScene" uid="uid://ttnut7gc4m3w" path="res://concept-map/concept_tag.tscn" id="2_a7ouk"]
 
 [node name="Age of Dusk" instance=ExtResource("1_k8psi")]
 id = "age-of-dusk"
 title = "the Age of Dusk"
+
+[node name="ConceptTag" parent="." index="0" instance=ExtResource("2_a7ouk")]
+phrase = "age of dusk"

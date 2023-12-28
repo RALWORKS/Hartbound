@@ -1,7 +1,17 @@
-[gd_scene load_steps=2 format=3 uid="uid://bxl45ycc6ucjc"]
+[gd_scene load_steps=3 format=3 uid="uid://bxl45ycc6ucjc"]
 
 [ext_resource type="PackedScene" uid="uid://bt0e2jwvmgpgm" path="res://concept-map/concept.tscn" id="1_x7iuk"]
+[ext_resource type="PackedScene" uid="uid://ttnut7gc4m3w" path="res://concept-map/concept_tag.tscn" id="2_v0y5y"]
 
 [node name="Age of the Sun" instance=ExtResource("1_x7iuk")]
 id = "age-of-the-sun"
 title = "Age of the Sun"
+
+[node name="ConceptTag" parent="." index="0" instance=ExtResource("2_v0y5y")]
+phrase = "age of the sun"
+
+[node name="ConceptTag2" parent="." index="1" instance=ExtResource("2_v0y5y")]
+phrase = "age of man"
+
+[node name="ConceptTag3" parent="." index="2" instance=ExtResource("2_v0y5y")]
+phrase = "age of humans"

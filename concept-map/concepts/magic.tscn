@@ -1,7 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://df2jtainy2sra"]
+[gd_scene load_steps=3 format=3 uid="uid://df2jtainy2sra"]
 
 [ext_resource type="PackedScene" uid="uid://bt0e2jwvmgpgm" path="res://concept-map/concept.tscn" id="1_ccxnm"]
+[ext_resource type="PackedScene" uid="uid://ttnut7gc4m3w" path="res://concept-map/concept_tag.tscn" id="2_cy7a4"]
 
 [node name="Magic" instance=ExtResource("1_ccxnm")]
 id = "magic"
 title = "magic"
+
+[node name="ConceptTag" parent="." index="0" instance=ExtResource("2_cy7a4")]
+phrase = "magic"
