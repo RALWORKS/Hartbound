@@ -20,7 +20,16 @@ func _on_concept_map_visualizer_concept_chosen(concept):
 	if $"..".just_clicked:
 		return
 	cutscene.talk_about(concept)
-	$"../ConceptMapVisualizer".teardown()
+	#$"../ConceptMapVisualizer".teardown()
 
 func on_start():
-	$"../ConceptMapVisualizer".setup()
+	#$"../ConceptMapVisualizer".setup()
+	$"../ConceptMapSearcher".setup()
+	pass
+
+
+func _on_concept_map_searcher_concept_chosen(concept):
+	if $"..".just_clicked:
+		return
+	cutscene.talk_about(concept)
+	$"../ConceptMapSearcher".teardown()

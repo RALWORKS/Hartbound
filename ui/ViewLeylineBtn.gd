@@ -9,7 +9,7 @@ func _get_game():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	var g = _get_game()
 	
 	if g.leyline_showing:

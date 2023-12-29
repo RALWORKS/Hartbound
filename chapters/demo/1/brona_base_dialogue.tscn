@@ -8,12 +8,14 @@
 [ext_resource type="PackedScene" uid="uid://cm3keg86x7x3y" path="res://cutscene/concept_cutscene_node.tscn" id="6_v78vy"]
 [ext_resource type="PackedScene" uid="uid://cphadkoi37v4v" path="res://chapters/demo/1/brona-base-concepts.tscn" id="7_q0tnd"]
 
-[node name="Brona1" node_paths=PackedStringArray("starting_page", "concepts", "default_topics") instance=ExtResource("1_qsal8")]
+[node name="Brona1" node_paths=PackedStringArray("starting_page", "concepts", "default_topics", "main_concepts_page") instance=ExtResource("1_qsal8")]
 starting_page = NodePath("1")
 concepts = NodePath("Concepts")
 default_topics = NodePath("Defaults")
+main_concepts_page = NodePath("ConceptCutsceneNode")
 
 [node name="1" parent="." index="0" node_paths=PackedStringArray("next") instance=ExtResource("2_p2ho2")]
+visible = false
 next = NodePath("../ConceptCutsceneNode")
 
 [node name="bg" type="Sprite2D" parent="1" index="0"]
@@ -36,9 +38,21 @@ theme_type_variation = &"VoiceoverBox"
 text = "\"Hey, man.\" Brona grins.\"What can I do you for?\""
 
 [node name="ConceptCutsceneNode" parent="." index="1" node_paths=PackedStringArray("next") instance=ExtResource("6_v78vy")]
+visible = false
 next = NodePath("../3")
 
+[node name="bg" type="Sprite2D" parent="ConceptCutsceneNode" index="3"]
+scale = Vector2(1.35, 1.35)
+texture = ExtResource("3_jfk7p")
+centered = false
+
+[node name="brona" type="Sprite2D" parent="ConceptCutsceneNode" index="4"]
+position = Vector2(455, 850)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("4_w7ofy")
+
 [node name="3" parent="." index="2" instance=ExtResource("2_p2ho2")]
+visible = false
 
 [node name="bg" type="Sprite2D" parent="3" index="0"]
 scale = Vector2(1.35, 1.35)

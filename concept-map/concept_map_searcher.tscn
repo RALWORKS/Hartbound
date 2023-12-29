@@ -1,0 +1,35 @@
+[gd_scene load_steps=2 format=3 uid="uid://b0g14rmlg7vif"]
+
+[ext_resource type="Script" path="res://concept-map/ConceptMapSearcher.gd" id="1_xy4jk"]
+
+[node name="ConceptMapSearcher" type="Node2D"]
+z_index = 1000
+script = ExtResource("1_xy4jk")
+
+[node name="Body" type="Node2D" parent="."]
+
+[node name="ResultsBackdrop" type="ColorRect" parent="Body"]
+offset_left = 820.0
+offset_top = 48.0
+offset_right = 1586.0
+offset_bottom = 988.0
+color = Color(0.196078, 0.196078, 0.196078, 0.847059)
+
+[node name="Searchbar" type="TextEdit" parent="Body"]
+offset_left = 840.0
+offset_top = 156.0
+offset_right = 1570.0
+offset_bottom = 212.0
+theme_override_font_sizes/font_size = 30
+placeholder_text = "Type to search discussion topics"
+middle_mouse_paste_enabled = false
+
+[node name="Label" type="Label" parent="Body"]
+offset_left = 837.0
+offset_top = 60.0
+offset_right = 2123.0
+offset_bottom = 138.0
+theme_override_font_sizes/font_size = 40
+text = "What do you want to talk about?"
+
+[connection signal="text_changed" from="Body/Searchbar" to="." method="_on_searchbar_text_changed"]

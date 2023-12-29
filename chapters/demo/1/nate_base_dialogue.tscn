@@ -117,6 +117,16 @@ text = "\"Don't mention it,\" Nate says."
 [node name="ConceptCutsceneNode" parent="." index="4" instance=ExtResource("7_om0mq")]
 visible = false
 
+[node name="bg" type="Sprite2D" parent="ConceptCutsceneNode" index="3"]
+scale = Vector2(1.35, 1.35)
+texture = ExtResource("3_s7s43")
+centered = false
+
+[node name="nate" type="Sprite2D" parent="ConceptCutsceneNode" index="4"]
+position = Vector2(455, 889)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("4_dcr1o")
+
 [node name="Defaults" type="Node" parent="." index="5"]
 
 [node name="Base" parent="Defaults" index="0" instance=ExtResource("2_6fcjh")]

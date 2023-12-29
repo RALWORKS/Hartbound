@@ -11,10 +11,11 @@
 [ext_resource type="PackedScene" uid="uid://dcaa2e368c4ty" path="res://quests/quests/demo_c_1_collecting/c_1_collecting_compenents.tscn" id="9_woqvv"]
 [ext_resource type="PackedScene" uid="uid://clq8611xkfdqp" path="res://cutscene/cutscene_redirect_node.tscn" id="10_lp62j"]
 
-[node name="Jerry1" node_paths=PackedStringArray("starting_page", "concepts", "default_topics") instance=ExtResource("1_hapjt")]
+[node name="Jerry1" node_paths=PackedStringArray("starting_page", "concepts", "default_topics", "main_concepts_page") instance=ExtResource("1_hapjt")]
 starting_page = NodePath("1")
 concepts = NodePath("Concepts")
 default_topics = NodePath("Defaults")
+main_concepts_page = NodePath("ConceptCutsceneNode")
 
 [node name="1" parent="." index="0" node_paths=PackedStringArray("next") instance=ExtResource("2_gtdvt")]
 visible = false
@@ -34,7 +35,18 @@ texture = ExtResource("4_ntyuu")
 text = "\"Hey, {character,name,human_short}! What do you need?\""
 
 [node name="ConceptCutsceneNode" parent="." index="1" node_paths=PackedStringArray("next") instance=ExtResource("6_g8e1x")]
+visible = false
 next = NodePath("../2")
+
+[node name="bg" type="Sprite2D" parent="ConceptCutsceneNode" index="3"]
+scale = Vector2(1.35, 1.35)
+texture = ExtResource("3_iu762")
+centered = false
+
+[node name="jerry" type="Sprite2D" parent="ConceptCutsceneNode" index="4"]
+position = Vector2(455, 894)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("4_ntyuu")
 
 [node name="2" parent="." index="2" instance=ExtResource("2_gtdvt")]
 visible = false

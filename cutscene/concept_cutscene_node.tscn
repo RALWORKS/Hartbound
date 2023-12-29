@@ -1,9 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://cm3keg86x7x3y"]
+[gd_scene load_steps=5 format=3 uid="uid://cm3keg86x7x3y"]
 
 [ext_resource type="PackedScene" uid="uid://55vflx8ylix1" path="res://cutscene/cutscene_node.tscn" id="1_h71b0"]
 [ext_resource type="Script" path="res://cutscene/UseConceptInDialogue.gd" id="2_f3ton"]
-[ext_resource type="PackedScene" uid="uid://wbgngbqdd7je" path="res://concept-map/concept_map_visualizer.tscn" id="2_ymnfk"]
-[ext_resource type="Theme" uid="uid://bowrqsap2qmsa" path="res://base_theme.tres" id="3_fbk60"]
+[ext_resource type="PackedScene" uid="uid://b0g14rmlg7vif" path="res://concept-map/concept_map_searcher.tscn" id="3_ajkbx"]
 [ext_resource type="PackedScene" uid="uid://yplasm5gtgly" path="res://cutscene/cutscene_option.tscn" id="4_3f5al"]
 
 [node name="ConceptCutsceneNode" node_paths=PackedStringArray("use_on_start_fn_from") instance=ExtResource("1_h71b0")]
@@ -13,21 +12,15 @@ use_on_start_fn_from = NodePath("UseConceptInDialogue")
 [node name="UseConceptInDialogue" type="Node" parent="." index="0"]
 script = ExtResource("2_f3ton")
 
-[node name="ConceptMapVisualizer" parent="." index="1" instance=ExtResource("2_ymnfk")]
-position = Vector2(0, 100)
+[node name="ConceptMapSearcher" parent="." index="1" instance=ExtResource("3_ajkbx")]
+position = Vector2(0, 50)
 
-[node name="RichTextLabel" type="RichTextLabel" parent="." index="2"]
-offset_right = 1980.0
-offset_bottom = 100.0
-theme = ExtResource("3_fbk60")
-theme_type_variation = &"VoiceoverBox"
-text = "Talk about ..."
-
-[node name="Skip" parent="." index="3" instance=ExtResource("4_3f5al")]
-offset_left = 294.0
-offset_top = 25.0
-offset_right = 418.0
-offset_bottom = 58.0
+[node name="Skip" parent="." index="2" instance=ExtResource("4_3f5al")]
+z_index = 1000
+offset_left = 819.0
+offset_top = 24.0
+offset_right = 1009.0
+offset_bottom = 76.0
 text = "> Never mind"
 
-[connection signal="concept_chosen" from="ConceptMapVisualizer" to="UseConceptInDialogue" method="_on_concept_map_visualizer_concept_chosen"]
+[connection signal="concept_chosen" from="ConceptMapSearcher" to="UseConceptInDialogue" method="_on_concept_map_searcher_concept_chosen"]

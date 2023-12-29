@@ -7,6 +7,8 @@ extends Node2D
 var page = null
 @export var npc: CharacterBody2D = null # will auto set if used as npc dialogue
 
+@export var main_concepts_page: CutsceneNode
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	hide_children(self)
@@ -51,4 +53,12 @@ func talk_about(concept):
 		talk_about_default_topic(concept)
 		return
 	page.leave()
-	nodes[0].get_children()[0].start()
+	var pages = nodes[0].get_children().filter(_filter_not_tag)
+	pages[0].start()
+	if not pages[-1].end and main_concepts_page:
+		pages[-1].next = main_concepts_page
+	
+	
+
+func _filter_not_tag(a):
+	return not "is_tag" in a or not a.is_tag

@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://do0ku8pfkpj0n"]
+[gd_scene load_steps=31 format=3 uid="uid://do0ku8pfkpj0n"]
 
 [ext_resource type="Script" path="res://concept-map/concept_map.gd" id="1_7c8vd"]
 [ext_resource type="Script" path="res://concept-map/Category.gd" id="2_l5orv"]
@@ -29,6 +29,7 @@
 [ext_resource type="PackedScene" uid="uid://bgy0ifcrbug27" path="res://concept-map/concepts/plague_of_dreams.tscn" id="26_2dii7"]
 [ext_resource type="PackedScene" uid="uid://dih3h8h1ydmo7" path="res://concept-map/concepts/end_of_the_world.tscn" id="27_2v7t1"]
 [ext_resource type="PackedScene" uid="uid://b07jmvddb18hr" path="res://concept-map/category.tscn" id="29_aq5kf"]
+[ext_resource type="PackedScene" uid="uid://buylpqabg5qv6" path="res://concept-map/nlp/stemmer.tscn" id="30_uvpp1"]
 
 [node name="ConceptMap" type="Node"]
 script = ExtResource("1_7c8vd")
@@ -99,3 +100,5 @@ category = "World"
 [node name="Plague of Dreams" parent="World" instance=ExtResource("26_2dii7")]
 
 [node name="EndOfTheWorld" parent="World" instance=ExtResource("27_2v7t1")]
+
+[node name="Stemmer" parent="." instance=ExtResource("30_uvpp1")]

@@ -14,10 +14,11 @@
 [ext_resource type="Texture2D" uid="uid://cwobelc0kaio" path="res://assets/effects/pass-out-1/black.png" id="12_y5u3b"]
 [ext_resource type="Texture2D" uid="uid://dla2rs7rb628l" path="res://ui/leyline-icon.png" id="13_asy10"]
 
-[node name="Taylor1" node_paths=PackedStringArray("starting_page", "concepts", "default_topics") instance=ExtResource("1_qv2i1")]
+[node name="Taylor1" node_paths=PackedStringArray("starting_page", "concepts", "default_topics", "main_concepts_page") instance=ExtResource("1_qv2i1")]
 starting_page = NodePath("1")
 concepts = NodePath("Concepts")
 default_topics = NodePath("Defaults")
+main_concepts_page = NodePath("ConceptCutsceneNode")
 
 [node name="1" parent="." index="0" node_paths=PackedStringArray("next") instance=ExtResource("2_vonvd")]
 visible = false
@@ -37,6 +38,7 @@ texture = ExtResource("4_bxirh")
 text = "\"... Hi, {character,name,elf_short}.\""
 
 [node name="2" parent="." index="1" instance=ExtResource("2_vonvd")]
+visible = false
 
 [node name="bg" type="Sprite2D" parent="2" index="0"]
 scale = Vector2(1.35, 1.35)
@@ -54,9 +56,20 @@ text = "\"Let me know if there's anything else.\""
 [node name="ConceptCutsceneNode" parent="." index="2" node_paths=PackedStringArray("next") instance=ExtResource("6_kxhl6")]
 next = NodePath("../2")
 
+[node name="bg" type="Sprite2D" parent="ConceptCutsceneNode" index="3"]
+scale = Vector2(1.35, 1.35)
+texture = ExtResource("3_ney04")
+centered = false
+
+[node name="taylor2" type="Sprite2D" parent="ConceptCutsceneNode" index="4"]
+position = Vector2(455, 850)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("4_bxirh")
+
 [node name="Defaults" type="Node" parent="." index="3"]
 
 [node name="Base" parent="Defaults" index="0" node_paths=PackedStringArray("next") instance=ExtResource("2_vonvd")]
+visible = false
 next = NodePath("../../ConceptCutsceneNode")
 
 [node name="bg" type="Sprite2D" parent="Defaults/Base" index="0"]

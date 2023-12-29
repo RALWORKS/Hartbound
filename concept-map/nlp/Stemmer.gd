@@ -1,8 +1,10 @@
 extends Node
-	
 
-func stem_text(t: String):
+var is_stemmer = true
+
+func get_stemmed_tokens(t: String):
 	t = t.to_lower()
+	t = t.replace("\n", " ")
 	t = punct.sub(t, "", true)
 	
 	var toks = t.split(" ")
@@ -12,8 +14,11 @@ func stem_text(t: String):
 		var n = stem_token(tok)
 		if n not in stop_words:
 			new_toks.push_back(n)
+	
+	return new_toks
 
-	return " ".join(new_toks)
+func stem_text(t: String):
+	return " ".join(get_stemmed_tokens(t))
 
 const step2list = {
 	"ational" : "ate",
@@ -59,7 +64,7 @@ const meq1 = "^(" + C + ")?" + V + C + "(" + V + ")?$"  # [C]VC[V] is m=1
 const mgr1 = "^(" + C + ")?" + V + C + V + C # [C]VCVC... is m>1
 const s_v = "^(" + C + ")?" + v # vowel in stem
 
-var punct = RegEx.create_from_string("[.?',!’‘\"]")
+var punct = RegEx.create_from_string("[^a-z^A-Z^ ]")
 
 const stop_words = [
 	"a",
