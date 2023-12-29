@@ -101,7 +101,6 @@ func index():
 		tmp = index_concept(tmp, concept)
 	
 	_index = tmp
-	print(_index)
 
 func index_concept(ix, concept):
 	var tags = concept.get_children()
