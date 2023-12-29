@@ -3,6 +3,7 @@ extends Node
 @export var id = ""
 @export var as_verb_object: String = ""
 @export var title = ""
+@export var hide_for_npc_name = ""
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

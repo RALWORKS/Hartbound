@@ -15,6 +15,7 @@
 starting_page = NodePath("1")
 concepts = NodePath("Concepts")
 default_topics = NodePath("Defaults")
+npc_name = "jerry"
 main_concepts_page = NodePath("ConceptCutsceneNode")
 
 [node name="1" parent="." index="0" node_paths=PackedStringArray("next") instance=ExtResource("2_gtdvt")]

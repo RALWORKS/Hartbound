@@ -43,7 +43,6 @@ func remove_quest_concepts(concepts):
 	var to_rm = $Quest.get_children().filter(
 		func (concept): return concept.id in concepts.map(func (c): return c.id)
 	)
-	print(to_rm)
 	categories[$Quest.category] = categories[$Quest.category].filter(
 		func (c): return c not in to_rm
 	)
@@ -52,9 +51,12 @@ func remove_quest_concepts(concepts):
 		$Quest.remove_child(c)
 		c.call_deferred("free")
 
-func search(phrase):
+func search(phrase, ix=null):
+	if ix == null:
+		ix = _index
+
 	var tokens = _get_token_stems(phrase)
-	var match_objects = _get_match_objects(tokens, 0, _index)
+	var match_objects = _get_match_objects(tokens, 0, ix)
 	match_objects.sort_custom(_sort_match_objects)
 	return _deduped_concepts_from_match_objects(match_objects)
 	
@@ -93,12 +95,12 @@ func _get_match_objects(remaining_tokens, depth, sub_index):
 
 func index():
 	var tmp = {}
-	for concept in (
-		$People.get_children()
-		+ $Things.get_children()
-		+ $World.get_children()
-	):
-		tmp = index_concept(tmp, concept)
+	for category in get_children().filter(func (c): return c not in [
+		$Quest,
+		$Stemmer
+	]):
+		for concept in category.get_children():
+			tmp = index_concept(tmp, concept)
 	
 	_index = tmp
 
@@ -132,3 +134,23 @@ func _write_concept_to_index_by_tokens(concept, sub_index, remaining_tokens):
 			)
 		i += 1
 	return sub_index
+	
+	
+func _populate_custom_index_dict(sub_dict_orig, sub_dict_new, npc_name):
+	for old_key in sub_dict_orig:
+		if old_key == "_" and "_" in sub_dict_new:
+			sub_dict_new["_"] += sub_dict_orig["_"].duplicate()
+		elif old_key == "_":
+			sub_dict_new["_"] = sub_dict_orig["_"].duplicate()
+		else:
+			var new_key = old_key.replace("npc", npc_name)
+			var next_sub = {}
+			if new_key in sub_dict_new:
+				next_sub = sub_dict_new[new_key]
+			sub_dict_new[new_key] = _populate_custom_index_dict(
+				sub_dict_orig[old_key], next_sub, npc_name
+			)
+	return sub_dict_new
+
+func make_custom_npc_index(npc_name):
+	return _populate_custom_index_dict(_index, {}, npc_name)

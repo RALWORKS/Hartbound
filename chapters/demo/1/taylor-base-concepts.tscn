@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://c4nb0ap5n2w2b"]
+[gd_scene load_steps=32 format=3 uid="uid://c4nb0ap5n2w2b"]
 
 [ext_resource type="Script" path="res://cutscene/CutsceneConceptsContainer.gd" id="1_iedjd"]
 [ext_resource type="PackedScene" uid="uid://84etqm7v3b47" path="res://concept-map/concepts/age_of_dusk.tscn" id="1_rendb"]
@@ -30,6 +30,7 @@
 [ext_resource type="PackedScene" uid="uid://dqm085unfkqhk" path="res://concept-map/concepts/leylines.tscn" id="29_802h3"]
 [ext_resource type="PackedScene" uid="uid://dcaa2e368c4ty" path="res://quests/quests/demo_c_1_collecting/c_1_collecting_compenents.tscn" id="30_hcq24"]
 [ext_resource type="Texture2D" uid="uid://dx1wrwvh6nviu" path="res://assets/npcs/taylor/taylor_neutral.png" id="31_kx3if"]
+[ext_resource type="PackedScene" uid="uid://b8pbh10v7uqof" path="res://concept-map/concepts/how_are_you.tscn" id="31_n45ry"]
 
 [node name="Concepts" type="Node"]
 script = ExtResource("1_iedjd")
@@ -1405,3 +1406,26 @@ theme = ExtResource("5_yjk2e")
 theme_type_variation = &"VoiceoverBox"
 bbcode_enabled = true
 text = "\"... never ceases to amaze me.\""
+
+[node name="HowAreYou" parent="." instance=ExtResource("31_n45ry")]
+
+[node name="CutsceneNode" parent="HowAreYou" instance=ExtResource("2_xxf8h")]
+
+[node name="bg" type="Sprite2D" parent="HowAreYou/CutsceneNode"]
+scale = Vector2(1.35, 1.35)
+texture = ExtResource("3_ao1sr")
+centered = false
+
+[node name="taylor2" type="Sprite2D" parent="HowAreYou/CutsceneNode"]
+position = Vector2(481, 868)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("31_kx3if")
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="HowAreYou/CutsceneNode"]
+offset_left = -1.0
+offset_top = 875.0
+offset_right = 1979.0
+offset_bottom = 995.0
+theme = ExtResource("5_yjk2e")
+theme_type_variation = &"VoiceoverBox"
+text = "\"Oh. I'm all right. Thanks for asking.\""

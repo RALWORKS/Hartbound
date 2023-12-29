@@ -1,10 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://b0g14rmlg7vif"]
+[gd_scene load_steps=3 format=3 uid="uid://b0g14rmlg7vif"]
 
 [ext_resource type="Script" path="res://concept-map/ConceptMapSearcher.gd" id="1_xy4jk"]
+[ext_resource type="PackedScene" uid="uid://mqthx6wcxxuo" path="res://ui/state_tag_replacer.tscn" id="2_xkuxc"]
 
 [node name="ConceptMapSearcher" type="Node2D"]
 z_index = 1000
 script = ExtResource("1_xy4jk")
+
+[node name="StateTagReplacer" parent="." instance=ExtResource("2_xkuxc")]
 
 [node name="Body" type="Node2D" parent="."]
 

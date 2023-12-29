@@ -6,6 +6,7 @@ extends Node2D
 @export var next_cutscene: Resource
 var page = null
 @export var npc: CharacterBody2D = null # will auto set if used as npc dialogue
+@export var npc_name = ""
 
 @export var main_concepts_page: CutsceneNode
 

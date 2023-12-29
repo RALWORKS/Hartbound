@@ -6,6 +6,7 @@
 [node name="Brona" instance=ExtResource("1_1ranp")]
 id = "brona"
 title = "Brona"
+hide_for_npc_name = "brona"
 
 [node name="ConceptTag" parent="." index="0" instance=ExtResource("2_uvdj7")]
 phrase = "brona"

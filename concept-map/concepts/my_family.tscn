@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://b03hidjyjlpxj"]
+
+[ext_resource type="PackedScene" uid="uid://bt0e2jwvmgpgm" path="res://concept-map/concept.tscn" id="1_cxuvp"]
+[ext_resource type="PackedScene" uid="uid://ttnut7gc4m3w" path="res://concept-map/concept_tag.tscn" id="2_xlr5w"]
+
+[node name="MyFamily" instance=ExtResource("1_cxuvp")]
+id = "my-family"
+title = "My ({character,name,short}'s) family"
+
+[node name="ConceptTag" parent="." index="0" instance=ExtResource("2_xlr5w")]
+phrase = "about my family"
+
+[node name="ConceptTag2" parent="." index="1" instance=ExtResource("2_xlr5w")]
+phrase = "about my parents"

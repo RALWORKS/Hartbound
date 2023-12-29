@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://cphadkoi37v4v"]
+[gd_scene load_steps=39 format=3 uid="uid://cphadkoi37v4v"]
 
 [ext_resource type="Script" path="res://cutscene/CutsceneConceptsContainer.gd" id="1_bvkoa"]
 [ext_resource type="PackedScene" uid="uid://84etqm7v3b47" path="res://concept-map/concepts/age_of_dusk.tscn" id="1_yhax7"]
@@ -10,7 +10,6 @@
 [ext_resource type="PackedScene" uid="uid://bxl45ycc6ucjc" path="res://concept-map/concepts/age_of_the_sun.tscn" id="7_xdme4"]
 [ext_resource type="PackedScene" uid="uid://clq8611xkfdqp" path="res://cutscene/cutscene_redirect_node.tscn" id="8_eew08"]
 [ext_resource type="PackedScene" uid="uid://b8suyge8lpaac" path="res://concept-map/concepts/age_of_the_moon.tscn" id="9_cwy7h"]
-[ext_resource type="PackedScene" uid="uid://cjet5t2jtr03s" path="res://concept-map/concepts/brona.tscn" id="10_uh2x6"]
 [ext_resource type="PackedScene" uid="uid://bmaotdu8ofpwi" path="res://concept-map/concepts/sun_temple.tscn" id="11_u0gig"]
 [ext_resource type="PackedScene" uid="uid://blq44wuaxi7tj" path="res://concept-map/concepts/elves.tscn" id="12_3w1ts"]
 [ext_resource type="PackedScene" uid="uid://be12fgu7h2rj1" path="res://concept-map/concepts/humans.tscn" id="13_ajokx"]
@@ -33,6 +32,9 @@
 [ext_resource type="PackedScene" uid="uid://bxu8qsfgeojlr" path="res://quests/quests/demo_c_1_regroup_initial/plan_for_afternoon.tscn" id="30_c2xcg"]
 [ext_resource type="PackedScene" uid="uid://b0aqc6k73fj3d" path="res://quests/quests/demo_c_1_collecting/c_1_collecting_herbs.tscn" id="32_yjn4d"]
 [ext_resource type="PackedScene" uid="uid://dcaa2e368c4ty" path="res://quests/quests/demo_c_1_collecting/c_1_collecting_compenents.tscn" id="33_j5y81"]
+[ext_resource type="PackedScene" uid="uid://b8pbh10v7uqof" path="res://concept-map/concepts/how_are_you.tscn" id="34_75p0o"]
+[ext_resource type="PackedScene" uid="uid://m5dpwlmvw8ec" path="res://concept-map/concepts/me.tscn" id="35_tnwyp"]
+[ext_resource type="PackedScene" uid="uid://b55rum1sarsvt" path="res://concept-map/concepts/you.tscn" id="36_03dnw"]
 
 [sub_resource type="Animation" id="Animation_eigjd"]
 length = 0.25
@@ -186,37 +188,14 @@ Me? I'm human, obviously, so I was raised to believe we could bring our era back
 [node name="Age of the Sun" parent="." instance=ExtResource("7_xdme4")]
 
 [node name="CutsceneRedirectNode" parent="Age of the Sun" node_paths=PackedStringArray("next") instance=ExtResource("8_eew08")]
+visible = false
 next = NodePath("../../Age of Dusk/AOD1")
 
 [node name="AgeOfTheMoon" parent="." instance=ExtResource("9_cwy7h")]
 
 [node name="CutsceneRedirectNode" parent="AgeOfTheMoon" node_paths=PackedStringArray("next") instance=ExtResource("8_eew08")]
-next = NodePath("../../Age of Dusk/AOD1")
-
-[node name="Brona" parent="." instance=ExtResource("10_uh2x6")]
-
-[node name="Brona1" parent="Brona" instance=ExtResource("2_1oki1")]
 visible = false
-
-[node name="bg" type="Sprite2D" parent="Brona/Brona1"]
-scale = Vector2(1.35, 1.35)
-texture = ExtResource("3_4jg2d")
-centered = false
-
-[node name="brona" type="Sprite2D" parent="Brona/Brona1"]
-position = Vector2(455, 850)
-scale = Vector2(0.7, 0.7)
-texture = ExtResource("4_m03cx")
-
-[node name="RichTextLabel" type="RichTextLabel" parent="Brona/Brona1"]
-offset_left = -1.0
-offset_top = 875.0
-offset_right = 1944.0
-offset_bottom = 995.0
-theme = ExtResource("5_dpfjf")
-theme_type_variation = &"VoiceoverBox"
-text = "\"Oh, I'm doing all right. I'd been on back to back expeditions since May, but I finally managed to get some time off last
-month. So I'm rested and ready to go!\""
+next = NodePath("../../Age of Dusk/AOD1")
 
 [node name="Sun Temple" parent="." instance=ExtResource("11_u0gig")]
 
@@ -1030,3 +1009,106 @@ text = "\"Oh! Taylor's gonna go salvaging with you, huh? I'm glad you got it sor
 
 [node name="CutsceneRedirectNode" parent="C1CollectingComponents" node_paths=PackedStringArray("next") instance=ExtResource("8_eew08")]
 next = NodePath("../../C1CollectingHerbs/Herbs")
+
+[node name="HowAreYou" parent="." instance=ExtResource("34_75p0o")]
+
+[node name="Brona1" parent="HowAreYou" instance=ExtResource("2_1oki1")]
+visible = false
+
+[node name="bg" type="Sprite2D" parent="HowAreYou/Brona1"]
+scale = Vector2(1.35, 1.35)
+texture = ExtResource("3_4jg2d")
+centered = false
+
+[node name="brona" type="Sprite2D" parent="HowAreYou/Brona1"]
+position = Vector2(455, 850)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("4_m03cx")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="HowAreYou/Brona1"]
+offset_left = -1.0
+offset_top = 875.0
+offset_right = 1944.0
+offset_bottom = 995.0
+theme = ExtResource("5_dpfjf")
+theme_type_variation = &"VoiceoverBox"
+text = "\"Oh, I'm doing all right. I'd been on back to back expeditions since May, but I finally managed to get some time off last
+month. So I'm rested and ready to go!\""
+
+[node name="WhatDoYouThinkOfMe" parent="." instance=ExtResource("35_tnwyp")]
+
+[node name="CutsceneNode" parent="WhatDoYouThinkOfMe" instance=ExtResource("2_1oki1")]
+visible = false
+
+[node name="bg" type="Sprite2D" parent="WhatDoYouThinkOfMe/CutsceneNode"]
+scale = Vector2(1.35, 1.35)
+texture = ExtResource("3_4jg2d")
+centered = false
+
+[node name="brona" type="Sprite2D" parent="WhatDoYouThinkOfMe/CutsceneNode"]
+position = Vector2(455, 850)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("4_m03cx")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="WhatDoYouThinkOfMe/CutsceneNode"]
+offset_left = 675.0
+offset_top = 197.0
+offset_right = 1001.0
+offset_bottom = 317.0
+theme = ExtResource("5_dpfjf")
+theme_type_variation = &"VoiceoverBox"
+text = "\"You? You're cool.
+Chillest Elf I know!\""
+
+[node name="TellMeAboutYourself" parent="." instance=ExtResource("36_03dnw")]
+
+[node name="CutsceneNode" parent="TellMeAboutYourself" instance=ExtResource("2_1oki1")]
+
+[node name="bg" type="Sprite2D" parent="TellMeAboutYourself/CutsceneNode"]
+scale = Vector2(1.35, 1.35)
+texture = ExtResource("3_4jg2d")
+centered = false
+
+[node name="brona" type="Sprite2D" parent="TellMeAboutYourself/CutsceneNode"]
+position = Vector2(455, 850)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("4_m03cx")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="TellMeAboutYourself/CutsceneNode"]
+offset_left = 675.0
+offset_top = 101.0
+offset_right = 1001.0
+offset_bottom = 264.0
+theme = ExtResource("5_dpfjf")
+theme_type_variation = &"VoiceoverBox"
+text = "\"Let's see ... my favourite food is fried eggs."
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="TellMeAboutYourself/CutsceneNode"]
+offset_left = 787.0
+offset_top = 285.0
+offset_right = 1289.0
+offset_bottom = 403.0
+theme = ExtResource("5_dpfjf")
+theme_type_variation = &"VoiceoverBox"
+bbcode_enabled = true
+text = "\"I wanted to be a Salvager ever since I was a kid."
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="TellMeAboutYourself/CutsceneNode"]
+offset_left = 758.0
+offset_top = 427.0
+offset_right = 1331.0
+offset_bottom = 600.0
+theme = ExtResource("5_dpfjf")
+theme_type_variation = &"VoiceoverBox"
+bbcode_enabled = true
+text = "\"Well, when I was a [i]little[/i] kid I wanted to be a dump truck. [i]Later[/i] I wanted to be a Salvager."
+
+[node name="RichTextLabel4" type="RichTextLabel" parent="TellMeAboutYourself/CutsceneNode"]
+offset_left = 841.0
+offset_top = 621.0
+offset_right = 1414.0
+offset_bottom = 780.0
+theme = ExtResource("5_dpfjf")
+theme_type_variation = &"VoiceoverBox"
+bbcode_enabled = true
+text = "\"If I ever get a job that lets me be home every day, I'll get myself a pet rabbit.\""

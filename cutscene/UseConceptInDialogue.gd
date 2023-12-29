@@ -9,6 +9,7 @@ func _ready():
 	next = $"..".next
 	$"..".next = null
 	$"../Skip".to = next
+	$"../ConceptMapSearcher".npc_name = cutscene.npc_name
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

@@ -1,13 +1,17 @@
-[gd_scene load_steps=31 format=3 uid="uid://do0ku8pfkpj0n"]
+[gd_scene load_steps=35 format=3 uid="uid://do0ku8pfkpj0n"]
 
 [ext_resource type="Script" path="res://concept-map/concept_map.gd" id="1_7c8vd"]
 [ext_resource type="Script" path="res://concept-map/Category.gd" id="2_l5orv"]
+[ext_resource type="PackedScene" uid="uid://m5dpwlmvw8ec" path="res://concept-map/concepts/me.tscn" id="3_8qqbm"]
 [ext_resource type="PackedScene" uid="uid://b55rum1sarsvt" path="res://concept-map/concepts/you.tscn" id="3_dfj6r"]
+[ext_resource type="PackedScene" uid="uid://b03hidjyjlpxj" path="res://concept-map/concepts/my_family.tscn" id="4_2jhy4"]
 [ext_resource type="PackedScene" uid="uid://cjet5t2jtr03s" path="res://concept-map/concepts/brona.tscn" id="4_moagi"]
 [ext_resource type="PackedScene" uid="uid://d0r7la835u7wq" path="res://concept-map/concepts/taylor.tscn" id="5_idy5c"]
 [ext_resource type="PackedScene" uid="uid://84etqm7v3b47" path="res://concept-map/concepts/age_of_dusk.tscn" id="5_p2vyk"]
+[ext_resource type="PackedScene" uid="uid://di5fx1pxm4g6u" path="res://concept-map/concepts/your_family.tscn" id="5_yhgry"]
 [ext_resource type="PackedScene" uid="uid://bmaotdu8ofpwi" path="res://concept-map/concepts/sun_temple.tscn" id="6_wxi2u"]
 [ext_resource type="PackedScene" uid="uid://bk55nkktsq3s7" path="res://concept-map/concepts/jerry.tscn" id="6_wxrng"]
+[ext_resource type="PackedScene" uid="uid://b8pbh10v7uqof" path="res://concept-map/concepts/how_are_you.tscn" id="7_4300u"]
 [ext_resource type="PackedScene" uid="uid://bppqrtvum64n1" path="res://concept-map/concepts/nate.tscn" id="7_xrnqu"]
 [ext_resource type="PackedScene" uid="uid://c7fbcecgq8ibe" path="res://concept-map/concepts/the_saint.tscn" id="8_2x4q0"]
 [ext_resource type="PackedScene" uid="uid://dqm085unfkqhk" path="res://concept-map/concepts/leylines.tscn" id="9_5hqxt"]
@@ -37,11 +41,25 @@ script = ExtResource("1_7c8vd")
 [node name="Quest" parent="." instance=ExtResource("29_aq5kf")]
 category = "Quest"
 
+[node name="Me" parent="." instance=ExtResource("29_aq5kf")]
+category = "Me"
+
+[node name="WhatDoYouThinkOfMe" parent="Me" instance=ExtResource("3_8qqbm")]
+
+[node name="MyFamily" parent="Me" instance=ExtResource("4_2jhy4")]
+
+[node name="You" parent="." instance=ExtResource("29_aq5kf")]
+category = "You"
+
+[node name="TellMeAboutYourself" parent="You" instance=ExtResource("3_dfj6r")]
+
+[node name="YourFamily" parent="You" instance=ExtResource("5_yhgry")]
+
+[node name="HowAreYou" parent="You" instance=ExtResource("7_4300u")]
+
 [node name="People" type="Node" parent="."]
 script = ExtResource("2_l5orv")
 category = "People"
-
-[node name="You" parent="People" instance=ExtResource("3_dfj6r")]
 
 [node name="Brona" parent="People" instance=ExtResource("4_moagi")]
 

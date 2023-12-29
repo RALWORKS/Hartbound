@@ -19,8 +19,8 @@ position = Vector2(0, 50)
 z_index = 1000
 offset_left = 819.0
 offset_top = 24.0
-offset_right = 1009.0
+offset_right = 1060.0
 offset_bottom = 76.0
-text = "> Never mind"
+text = "> Done talking"
 
 [connection signal="concept_chosen" from="ConceptMapSearcher" to="UseConceptInDialogue" method="_on_concept_map_searcher_concept_chosen"]

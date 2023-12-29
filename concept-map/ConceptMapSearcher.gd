@@ -1,6 +1,9 @@
 extends Node2D
 
+@export var npc_name = ""
+
 @onready var concepts: Node = get_tree().get_root().get_node("Game/ConceptMap")
+var SmartLable = preload("res://cutscene/smart_label.tscn")
 
 signal concept_chosen(concept)
 
@@ -13,9 +16,16 @@ const BTN_X = 850
 
 var start_y = DEFAULT_BTN_START
 
+var _index = null
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass
+	set_npc_name(npc_name)
+
+func set_npc_name(n):
+	npc_name = n
+	if npc_name.length() > 0:
+		_index = concepts.make_custom_npc_index(npc_name)
 	
 
 func make_default_buttons():
@@ -48,9 +58,11 @@ func _set_results(data):
 func _make_btn_array(x, y, data):
 	var nodes = []
 	for concept in data:
+		if concept.hide_for_npc_name == npc_name:
+			continue
 		var btn = Button.new()
 		btn.size = Vector2(705, 50)
-		btn.text = concept.title
+		btn.text = $StateTagReplacer.replace(concept.title)
 		btn.position = Vector2(x, y)
 		btn.pressed.connect(func(): concept_chosen.emit(concept))
 		$".".add_child(btn)
@@ -60,7 +72,7 @@ func _make_btn_array(x, y, data):
 	return [nodes, y]
 
 func search(query):
-	var data = concepts.search(query)
+	var data = concepts.search(query, _index)
 	_set_results(data)
 
 
@@ -70,7 +82,7 @@ func _on_searchbar_text_changed():
 	if query.length() == 0:
 		make_default_buttons()
 	
-	elif query.length() > 2:
+	elif query.length() > 1:
 		search(query)
 	
 	else:
