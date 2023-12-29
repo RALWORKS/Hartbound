@@ -33,7 +33,7 @@ scale = Vector2(0.7, 0.7)
 texture = ExtResource("4_ntyuu")
 
 [node name="SmartLabel" parent="1" index="2" instance=ExtResource("5_f3x5x")]
-text = "\"Hey, {character,name,human_short}! What do you need?\""
+text = "\"Hey, {character,name,humans_call}! What do you need?\""
 
 [node name="ConceptCutsceneNode" parent="." index="1" node_paths=PackedStringArray("next") instance=ExtResource("6_g8e1x")]
 visible = false

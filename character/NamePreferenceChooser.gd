@@ -25,20 +25,23 @@ func on_start():
 
 func _on_no_pressed():
 	var NAME = $"../../Saver".NAME
-	NAME["use_human_short"] = false
 	NAME["short"] = NAME["elf_short"]
+	NAME["elves_call"] = NAME["elf_short"]
+	NAME["humans_call"] = NAME["elf_short"]
 	$"../../Saver".on_name_edited(NAME)
 
 
 func _on_kinda_pressed():
 	var NAME = $"../../Saver".NAME
-	NAME["use_human_short"] = true
 	NAME["short"] = NAME["elf_short"]
+	NAME["elves_call"] = NAME["elf_short"]
+	NAME["humans_call"] = NAME["human_short"]
 	$"../../Saver".on_name_edited(NAME)
 
 
 func _on_yes_pressed():
 	var NAME = $"../../Saver".NAME
-	NAME["use_human_short"] = true
 	NAME["short"] = NAME["human_short"]
+	NAME["elves_call"] = NAME["human_short"]
+	NAME["humans_call"] = NAME["human_short"]
 	$"../../Saver".on_name_edited(NAME)

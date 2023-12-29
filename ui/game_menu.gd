@@ -19,10 +19,10 @@ func refresh_data(character_record=null):
 	var full_name = character_record.get_node("FullName")
 	full_name.clear()
 	var short_name = name_["elf_short"]
-	if name_["short"] == name_["human_short"]:
-		short_name = name_["human_short"]
-	elif name_["use_human_short"]:
-		short_name += "/" + name_["human_short"]
+	if name_["elves_call"] == name_["humans_call"]:
+		short_name = name_["short"]
+	else:
+		name_["elf_short"] += "/" + name_["human_short"]
 	full_name.add_text(name_["full"] + "  (%s)" % short_name)
 	var full_name_def = character_record.get_node("FullNameDefinition")
 	full_name_def.clear()
