@@ -33,10 +33,14 @@ var CHAPTERS = {
 
 var INITIAL_STATE = {
 	"micro_progress": {
-		"event": 0,
+		"events": [],
 	},
 	"chapter": "intro",
 	"story": [],
+	"position": {
+		"scene_path": null,
+		"entrance_name": null,
+	}
 }
 
 var STATE = INITIAL_STATE.duplicate(true)
@@ -131,6 +135,13 @@ func start_from_state(s):
 	ch.name = "Chapter"
 	chapter = ch
 	$".".add_child(ch)
+	
+	var p = get_state(["position"])
+	if p != null and p["scene_path"] != null:
+		$Map.load_position(p)
+	
+	load_quests()
+	
 	started = true
 	
 func main_menu():
@@ -315,6 +326,20 @@ func add_modal(some_modal):
 func remove_modal(some_modal):
 	if cur_modal == some_modal:
 		cur_modal = null
+
+func save_position(scene_path, entrance_name=null):
+	set_state(
+		["position"],
+		{"scene_path": scene_path, "entrance_name": entrance_name}
+	)
+
+func load_quests():
+	_init_quests_if_needed()
+	var quests = get_state(["quests", "active"])
+	for ix in quests:
+		var quest = $QuestMap.get_quest(ix)
+		if quest != null:
+			quest.resume()
 
 func _init_quests_if_needed():
 	var q = get_state(["quests"])

@@ -107,12 +107,13 @@ interactable = NodePath("../MO-Car-Hood-C-Yes-2")
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/XHood" index="0"]
 polygon = PackedVector2Array(795, 338, 853, 392, 909, 390, 943, 351, 1006, 327, 1067, 377, 922, 470, 688, 428)
 
-[node name="MO-Car-Hood-C-Yes-2" parent="YSort" index="9" node_paths=PackedStringArray("options_container_node") instance=ExtResource("6_dgxub")]
+[node name="MO-Car-Hood-C-Yes-2" parent="YSort" index="9" node_paths=PackedStringArray("options_container_node", "get_on_open_from") instance=ExtResource("6_dgxub")]
 title = "Chariot (Under the Hood)"
 reference_id = "car-c-yes-2"
 description = "The hood of the chariot still opens, with a little effort."
 child_depth = 2
 options_container_node = NodePath("Actions")
+get_on_open_from = NodePath("../MO-Car-Key-B/RefreshCabOptions")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/MO-Car-Hood-C-Yes-2" index="0"]
 polygon = PackedVector2Array(825, 330, 844, 231, 864, 240, 897, 218, 936, 242, 946, 273, 931, 323, 918, 345, 889, 348, 855, 345)

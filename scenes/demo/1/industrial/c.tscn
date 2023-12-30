@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://c61y5cf8qd8vl"]
+[gd_scene load_steps=28 format=3 uid="uid://c61y5cf8qd8vl"]
 
 [ext_resource type="PackedScene" uid="uid://byrlpmbpj6yr5" path="res://scene.tscn" id="1_c5dv2"]
 [ext_resource type="Texture2D" uid="uid://bdh1dphfwy4ng" path="res://assets/scenes/demo/1/industrial/c.png" id="2_7kp15"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://cl4heje674d3q" path="res://item/interaction_area.tscn" id="4_ev54w"]
 [ext_resource type="Texture2D" uid="uid://bmubpntnl3s4m" path="res://assets/scenes/demo/1/industrial/c-front-ledge.png" id="4_wlth3"]
 [ext_resource type="PackedScene" uid="uid://cpbg7yuq873y5" path="res://item/interaction_action.tscn" id="5_6s1jt"]
+[ext_resource type="Script" path="res://chapters/demo/1/RefreshPanelCY1Options.gd" id="5_ojue2"]
 [ext_resource type="PackedScene" uid="uid://dxfuidhlgwthh" path="res://travel/door.tscn" id="5_opb7a"]
 [ext_resource type="PackedScene" uid="uid://dh1scrjroovcn" path="res://item/interaction_modal_maker.tscn" id="6_0yq8x"]
 [ext_resource type="Texture2D" uid="uid://dbbgasy4bg0h2" path="res://assets/scenes/demo/1/industrial/c-back-train-b.png" id="7_gq1vq"]
@@ -67,17 +68,23 @@ position = Vector2(951, 651)
 scale = Vector2(0.6, 0.6)
 texture = ExtResource("3_hjm7p")
 
-[node name="InteractionArea" parent="Background/Panel-C-Yes-1" index="0" node_paths=PackedStringArray("options_container_node") instance=ExtResource("4_ev54w")]
+[node name="InteractionArea" parent="Background/Panel-C-Yes-1" index="0" node_paths=PackedStringArray("options_container_node", "get_on_open_from") instance=ExtResource("4_ev54w")]
 title = "Access Panel"
 reference_id = "panel-c-yes-1"
 description = "There's an access panel built into the roof here."
 child_depth = 2
 options_container_node = NodePath("Actions")
+get_on_open_from = NodePath("RefreshPanelOptions")
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Background/Panel-C-Yes-1/InteractionArea" index="0"]
+[node name="RefreshPanelOptions" type="Node" parent="Background/Panel-C-Yes-1/InteractionArea" index="0" node_paths=PackedStringArray("taker", "btn")]
+script = ExtResource("5_ojue2")
+taker = NodePath("../Actions/Harvest/MakeHarvest/Options/Take/TMPTake")
+btn = NodePath("../Actions/Harvest")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Background/Panel-C-Yes-1/InteractionArea" index="1"]
 polygon = PackedVector2Array(-126.667, -11.6665, 1.6665, -74.9998, 125, -3.33313, 1.6665, 73.3335)
 
-[node name="Actions" type="Node" parent="Background/Panel-C-Yes-1/InteractionArea" index="1"]
+[node name="Actions" type="Node" parent="Background/Panel-C-Yes-1/InteractionArea" index="2"]
 
 [node name="Harvest" parent="Background/Panel-C-Yes-1/InteractionArea/Actions" index="0" node_paths=PackedStringArray("to_modal_maker") instance=ExtResource("5_6s1jt")]
 to_modal_maker = NodePath("MakeHarvest")

@@ -1,6 +1,6 @@
 extends Node
 
-@export var data = []
+@export var data = {}
 @export var categories = {}
 
 # Called when the node enters the scene tree for the first time.
@@ -19,4 +19,4 @@ func get_quest(id):
 	return data[id]
 
 func add_quest(quest):
-	data.push_back(quest.id)
+	data[quest.id] = quest

@@ -14,7 +14,6 @@ func _ready():
 	var game = $"/root/Game"
 	if not game:
 		return
-	follower = game.get_state(["micro_progress", "priestess_follows"])
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

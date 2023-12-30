@@ -6,6 +6,9 @@ extends Node
 func mutate():
 	var game = $".".get_tree().get_root().get_node("Game")
 	push(game)
+	
+func rerun():
+	pass
 
 func push(game):
 	game.push_story(title, narrative)

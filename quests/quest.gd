@@ -28,6 +28,20 @@ func _ready():
 		concepts.push_back(c)
 
 
+func is_active():
+	var g = _get_game()
+	return g.is_quest_active(self)
+
+
+func resume():
+	_set_up_concepts()
+
+
+func _set_up_concepts():
+	for c in initial_concepts_container.get_children():
+		add_concept(c)
+	
+
 func start():
 	if on_start_modal_maker != null:
 		if not on_start_modal_maker.title.length():
@@ -37,12 +51,21 @@ func start():
 		on_start_script_node.action()
 	var g = _get_game()
 	g.start_quest(self)
-	for c in initial_concepts_container.get_children():
-		add_concept(c)
+	
+	_set_up_concepts()
+	
+	
+
+func stop():
+	if not is_active():
+		return
+	remove_all_concepts()
+	var g = _get_game()
+	g.complete_quest(self)
 
 func complete():
-	remove_all_concepts()
-	print("complete?????")
+	stop()
+
 	if on_done_modal_maker != null:
 		if not on_done_modal_maker.title.length():
 			on_done_modal_maker.title = "Quest Complete: " + self.headline
@@ -52,10 +75,6 @@ func complete():
 
 	if next_quest != null:
 		next_quest.start()
-		print("next?")
-	
-	var g = _get_game()
-	g.complete_quest(self)
 
 func remove_all_concepts():
 	var g = _get_game()

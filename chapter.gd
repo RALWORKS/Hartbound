@@ -3,7 +3,7 @@ extends Node
 @export var starting_music: AudioStreamPlayer
 @export var script_holder: Node
 
-var sequence_ix = 0
+var events_done = []
 
 var scene0 = null
 
@@ -16,27 +16,45 @@ var game = null
 func trigger(trigger_name, e=null):
 	var t = $Triggers.get_node(trigger_name)
 	t.action(e)
+	
+func get_next_event():
+	if $Events.get_child_count() == 0:
+		return null
+	if events_done.size() == 0:
+		return $Events.get_children()[0]
+	if events_done[-1] >= $Events.get_child_count() - 1:
+		return null
+	return $Events.get_children()[events_done[-1] + 1]
+	
+	
+func rerun_all_events():
+	for ix in events_done:
+		var event = $Events.get_children()[ix]
+		event.rerun()
 
 func next(to_event_name=null):
 	var event
 	if to_event_name != null:
 		event = $Events.get_node_or_null(to_event_name)
 	else:
-		event = $Events.get_child(sequence_ix)
+		event = get_next_event()
 	if not event or event.played:
 		return
 	event.play()
-	sequence_ix = event.get_index()
+	reload_events_done()
 	
-func reload_sequence_ix():
-	sequence_ix = game.get_state(["micro_progress", "event"])
+func reload_events_done():
+	events_done = game.get_state(["micro_progress", "events"])
+	if events_done == null:
+		game.set_state(["micro_progress", "events"], [])
+		events_done = []
 
 func _default_init():
 	scene0 = starting_scene.instantiate()
 	#scene0.spawn_at = "n"
 	#$"../MainScreen/World".add_child(scene0)
 	$"../Map".start(scene0, self)
-	reload_sequence_ix()
+	reload_events_done()
 	scene0.spawn($"..")
 
 # Called when the node enters the scene tree for the first time.
@@ -47,8 +65,10 @@ func _ready():
 	_default_init()
 	if starting_music != null:
 		game.play_music(starting_music)
-	if $Events.get_child_count() > 0 and sequence_ix == 0:
+	if events_done.size() == 0:
 		call_deferred("next")
+	else:
+		rerun_all_events()
 
 func _process(_delta):
 	pass

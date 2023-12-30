@@ -40,8 +40,15 @@ func _move_to(dest: Node):
 	assert(old != $"..")
 	old.call_deferred("free")
 	
-func traverse(dest, entrance):
+
+func load_position(data):
+	var dest = load(data["scene_path"]).instantiate()
+	traverse(dest, data["entrance_name"], false)
+	
+func traverse(dest, entrance, save=true):
 	#var dest = load(dest_resource).instantiate()
 	#dest.spawn_at = dest_edge
 	_move_to(dest)
 	dest.get_node("YSort").get_node(entrance).spawn($"..")
+	if save:
+		$"..".save_position(dest.scene_file_path, entrance)

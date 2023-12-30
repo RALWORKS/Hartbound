@@ -20,5 +20,5 @@ func pre_init():
 		{"a_profession": a_your_profession}
 	)
 	
-	$"../DemoC1RegroupInitial".start()
+	#$"../DemoC1RegroupInitial".start()
 	

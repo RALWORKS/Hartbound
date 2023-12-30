@@ -8,6 +8,9 @@ extends Node
 
 func _parse_path(p: String):
 	return p.split("/")
+	
+func rerun():
+	pass
 
 func mutate():
 	var game = $".".get_tree().get_root().get_node("Game")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://cj4mq4w13vijs"]
+[gd_scene load_steps=29 format=3 uid="uid://cj4mq4w13vijs"]
 
 [ext_resource type="PackedScene" uid="uid://bh1yfkyt3u44i" path="res://chapter.tscn" id="1_abxn2"]
 [ext_resource type="PackedScene" uid="uid://qhhv4s8njcrp" path="res://scenes/demo/1/industrial/b.tscn" id="2_x5gxs"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" path="res://story_item.tscn" id="5_r0j2r"]
 [ext_resource type="PackedScene" uid="uid://bcinc4blag4el" path="res://music.tscn" id="6_eeti4"]
 [ext_resource type="PackedScene" uid="uid://cbn3xklmtuki3" path="res://chapters/demo/1/party-is-leaving-camp-1.tscn" id="6_gis10"]
+[ext_resource type="PackedScene" uid="uid://ds2vclbf4raug" path="res://chapter_event_quest_switcher.tscn" id="6_hjem6"]
 [ext_resource type="PackedScene" uid="uid://mcph6fai6ep6" path="res://chapter_event_remove_chapterNode.tscn" id="6_xlrko"]
 [ext_resource type="AudioStream" uid="uid://cj5m4rj3aoeck" path="res://assets/music/maybe-saint-lvl1-bg.ogg" id="7_q6myq"]
 [ext_resource type="PackedScene" uid="uid://b0abqxb7m84t5" path="res://chapters/demo/1/c1-taylor/train-car-herbs.tscn" id="8_otud4"]
@@ -54,6 +55,9 @@ narrative = "Your human foster family helped you train as {a_profession}"
 [node name="TrainingStory2" parent="Events/StartChapter" index="4" instance=ExtResource("5_r0j2r")]
 title = "birth"
 narrative = "Four years ago, you completed your training and joined the Generator crews at Sun Temple"
+
+[node name="ChapterEventQuestSwitcher" parent="Events/StartChapter" index="5" node_paths=PackedStringArray("quest_to_start") instance=ExtResource("6_hjem6")]
+quest_to_start = NodePath("../../../DemoC1RegroupInitial")
 
 [node name="DepartingCamp1" parent="Events" index="1" instance=ExtResource("5_440p5")]
 cutscene = ExtResource("6_gis10")

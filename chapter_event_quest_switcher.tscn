@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://ds2vclbf4raug"]
+
+[ext_resource type="Script" path="res://ChapterEventQuestSwitcher.gd" id="1_kgc2d"]
+
+[node name="ChapterEventQuestSwitcher" type="Node"]
+script = ExtResource("1_kgc2d")

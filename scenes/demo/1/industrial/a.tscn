@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://wwmpe6ttdblv"]
+[gd_scene load_steps=29 format=3 uid="uid://wwmpe6ttdblv"]
 
 [ext_resource type="PackedScene" uid="uid://byrlpmbpj6yr5" path="res://scene.tscn" id="1_3u62o"]
 [ext_resource type="Texture2D" uid="uid://cdm0ewe6djiw" path="res://assets/scenes/demo/1/industrial/a.png" id="2_kjnsv"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://dxfuidhlgwthh" path="res://travel/door.tscn" id="8_w73q6"]
 [ext_resource type="PackedScene" uid="uid://cl4heje674d3q" path="res://item/interaction_area.tscn" id="9_immxw"]
 [ext_resource type="Texture2D" uid="uid://cucflpddlqdqp" path="res://assets/scenery/left-panel-situation-1.png" id="9_ysk77"]
+[ext_resource type="Script" path="res://chapters/demo/1/RefreshPanelCY1Options.gd" id="10_dby7b"]
 [ext_resource type="Shader" path="res://effects/alpha-mask.gdshader" id="10_lqi68"]
 [ext_resource type="Shader" path="res://scenes/light-path1.gdshader" id="10_r8qs7"]
 [ext_resource type="Texture2D" uid="uid://gqej44bqtstb" path="res://assets/effects/light-fleck-4.png" id="11_jcyyb"]
@@ -200,12 +201,18 @@ position = Vector2(730, 18)
 scale = Vector2(-0.6, 0.6)
 texture = ExtResource("9_ysk77")
 
-[node name="InteractionArea" parent="YSort/Panel-C-Yes-3" index="0" node_paths=PackedStringArray("options_container_node") instance=ExtResource("9_immxw")]
+[node name="RefreshPanelOptions" type="Node" parent="YSort/Panel-C-Yes-3" index="0" node_paths=PackedStringArray("taker", "btn")]
+script = ExtResource("10_dby7b")
+taker = NodePath("../InteractionArea/Actions/Harvest/MakeHarvest/Options/Take/TMPTake")
+btn = NodePath("../InteractionArea/Actions/Harvest")
+
+[node name="InteractionArea" parent="YSort/Panel-C-Yes-3" index="1" node_paths=PackedStringArray("options_container_node", "get_on_open_from") instance=ExtResource("9_immxw")]
 title = "Access Panel"
 reference_id = "panel-c-yes-3"
 description = "There's an access panel built into the wall here."
 child_depth = 2
 options_container_node = NodePath("Actions")
+get_on_open_from = NodePath("../RefreshPanelOptions")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/Panel-C-Yes-3/InteractionArea" index="0"]
 polygon = PackedVector2Array(58.3334, -21.6667, 61.6667, 126.667, -65, 43.3333, -61.6666, -28.3333)
@@ -237,7 +244,7 @@ item_name = "PCB"
 [node name="Leave" parent="YSort/Panel-C-Yes-3/InteractionArea/Actions" index="1" instance=ExtResource("11_lyn4d")]
 title = "Never mind"
 
-[node name="InteractRangeExtender" parent="YSort/Panel-C-Yes-3" index="1" node_paths=PackedStringArray("interactable") instance=ExtResource("11_rivki")]
+[node name="InteractRangeExtender" parent="YSort/Panel-C-Yes-3" index="2" node_paths=PackedStringArray("interactable") instance=ExtResource("11_rivki")]
 interactable = NodePath("../InteractionArea")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/Panel-C-Yes-3/InteractRangeExtender" index="0"]

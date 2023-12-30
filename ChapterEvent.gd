@@ -5,6 +5,13 @@ extends Node
 @export var effect: String
 @export var played = false
 
+var game
+
+func _get_game():
+	if game == null:
+		game = $".".get_tree().get_root().get_node("Game")	
+	return game
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -14,21 +21,46 @@ func _ready():
 func _process(_delta):
 	pass
 
-func play():
-	print(name)
-	var game = $".".get_tree().get_root().get_node("Game")	
-	
-	if effect != null:
-		game.get_node("MainScreen/Effects").play(effect)
-	if to_scene != null:
-		var scene0 = to_scene.instantiate()
-		game.get_node("Map").move_to(scene0)
-		scene0.spawn(game)
+func _play(save=true):
+	var g = _get_game()
+	played = true
+	if save:
+		g.set_state_push_to_key(["micro_progress", "events"], get_index())
+
+func _mutate():
+	for mutation in get_children():
+		mutation.mutate()
+
+func _re_mutate():
+	for mutation in get_children():
+		mutation.rerun()
+
+func _cutscene():
 	if cutscene != null:
 		await get_tree().create_timer(0.2).timeout
 		$"../..".start_cutscene(cutscene)
-	for mutation in get_children():
-		mutation.mutate()
+
+func _effect():
+	var g = _get_game()
+	if effect != null:
+		g.get_node("MainScreen/Effects").play(effect)
+
+func _teleport():
+	var g = _get_game()
+	if to_scene != null:
+		var scene0 = to_scene.instantiate()
+		g.get_node("Map").move_to(scene0)
+		scene0.spawn(g)
 	
-	game.set_state(["micro_progress", "event"], get_index() + 1)
-	played = true
+
+func rerun():
+	_re_mutate()
+	_play(false)
+
+
+func play():
+	_mutate()
+	_teleport()
+	_cutscene()
+	_effect()
+	_play(true)
