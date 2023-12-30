@@ -115,6 +115,7 @@ bbcode_enabled = true
 text = "\"Oh, don't get me started on [i]that[/i]. I'd prattle on for hours, and we've got work to do\""
 
 [node name="You" parent="Defaults" index="2" node_paths=PackedStringArray("next") instance=ExtResource("2_vonvd")]
+visible = false
 next = NodePath("../../ConceptCutsceneNode")
 tag = "You"
 
@@ -157,6 +158,28 @@ offset_right = 1243.0
 offset_bottom = 275.0
 bbcode_enabled = true
 text = "\"I don't really know you well enough to have much to say on that.\""
+
+[node name="Insult" parent="Defaults" index="4" node_paths=PackedStringArray("next") instance=ExtResource("2_vonvd")]
+next = NodePath("../../ConceptCutsceneNode")
+tag = "Insult"
+
+[node name="bg" type="Sprite2D" parent="Defaults/Insult" index="0"]
+scale = Vector2(1.35, 1.35)
+texture = ExtResource("3_ney04")
+centered = false
+
+[node name="taylor2" type="Sprite2D" parent="Defaults/Insult" index="1"]
+position = Vector2(455, 850)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("4_bxirh")
+
+[node name="SmartLabel" parent="Defaults/Insult" index="2" instance=ExtResource("5_sc1vl")]
+offset_left = 691.0
+offset_top = 122.0
+offset_right = 1243.0
+offset_bottom = 275.0
+bbcode_enabled = true
+text = "\"That kind of hurts my feelings, {character,name,elves_call}.\""
 
 [node name="Concepts" parent="." index="4" node_paths=PackedStringArray("next") instance=ExtResource("7_rwbm1")]
 next = NodePath("../ConceptCutsceneNode")

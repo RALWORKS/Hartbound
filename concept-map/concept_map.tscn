@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://do0ku8pfkpj0n"]
+[gd_scene load_steps=36 format=3 uid="uid://do0ku8pfkpj0n"]
 
 [ext_resource type="Script" path="res://concept-map/concept_map.gd" id="1_7c8vd"]
 [ext_resource type="Script" path="res://concept-map/Category.gd" id="2_l5orv"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://cjet5t2jtr03s" path="res://concept-map/concepts/brona.tscn" id="4_moagi"]
 [ext_resource type="PackedScene" uid="uid://d0r7la835u7wq" path="res://concept-map/concepts/taylor.tscn" id="5_idy5c"]
 [ext_resource type="PackedScene" uid="uid://84etqm7v3b47" path="res://concept-map/concepts/age_of_dusk.tscn" id="5_p2vyk"]
+[ext_resource type="PackedScene" uid="uid://b2qwrlihux7m0" path="res://concept-map/concepts/mild_insult.tscn" id="5_x0vin"]
 [ext_resource type="PackedScene" uid="uid://di5fx1pxm4g6u" path="res://concept-map/concepts/your_family.tscn" id="5_yhgry"]
 [ext_resource type="PackedScene" uid="uid://bmaotdu8ofpwi" path="res://concept-map/concepts/sun_temple.tscn" id="6_wxi2u"]
 [ext_resource type="PackedScene" uid="uid://bk55nkktsq3s7" path="res://concept-map/concepts/jerry.tscn" id="6_wxrng"]
@@ -47,6 +48,11 @@ category = "Me"
 [node name="WhatDoYouThinkOfMe" parent="Me" instance=ExtResource("3_8qqbm")]
 
 [node name="MyFamily" parent="Me" instance=ExtResource("4_2jhy4")]
+
+[node name="Insult" parent="." instance=ExtResource("29_aq5kf")]
+category = "Insult"
+
+[node name="MildInsult" parent="Insult" instance=ExtResource("5_x0vin")]
 
 [node name="You" parent="." instance=ExtResource("29_aq5kf")]
 category = "You"

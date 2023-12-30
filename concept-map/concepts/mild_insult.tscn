@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://b2qwrlihux7m0"]
+
+[ext_resource type="PackedScene" uid="uid://bt0e2jwvmgpgm" path="res://concept-map/concept.tscn" id="1_ey5ch"]
+[ext_resource type="PackedScene" uid="uid://ttnut7gc4m3w" path="res://concept-map/concept_tag.tscn" id="2_ovlqs"]
+
+[node name="MildInsult" instance=ExtResource("1_ey5ch")]
+id = "mild-insult"
+title = "Say a mild insult"
+
+[node name="ConceptTag" parent="." index="0" instance=ExtResource("2_ovlqs")]
+phrase = "fuck"
+
+[node name="ConceptTag3" parent="." index="1" instance=ExtResource("2_ovlqs")]
+phrase = "shit"
+
+[node name="ConceptTag4" parent="." index="2" instance=ExtResource("2_ovlqs")]
+phrase = "bitch"
+
+[node name="ConceptTag5" parent="." index="3" instance=ExtResource("2_ovlqs")]
+phrase = "sex"
+
+[node name="ConceptTag6" parent="." index="4" instance=ExtResource("2_ovlqs")]
+phrase = "damn"
