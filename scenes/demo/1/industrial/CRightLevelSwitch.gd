@@ -18,3 +18,4 @@ func turn_off():
 	$"../../../Background/StaticBody2D/EdgeFromRoof".set_deferred("disabled", true)
 	$"../../../FrontOverhang".set_deferred("visible", true)
 	$"../../SouthRoof".set_deferred("disabled", true)
+	$"../../Tunnel".set_deferred("disabled", false)

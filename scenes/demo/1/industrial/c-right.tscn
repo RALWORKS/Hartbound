@@ -118,11 +118,11 @@ dest_resource = "res://scenes/demo/1/industrial/d-right.tscn"
 dest_edge = "NorthRoof"
 
 [node name="Tunnel" parent="YSort" index="11" instance=ExtResource("5_og1dx")]
-position = Vector2(613, 1058)
-rotation = -2.60054
-scale = Vector2(3, 1)
+position = Vector2(439, 934)
+rotation = -1.5708
 dest_resource = "res://scenes/demo/1/industrial/c.tscn"
 dest_edge = "Tunnel"
+disabled = true
 
 [node name="FrontOverhang" type="Sprite2D" parent="." index="2"]
 visible = false
