@@ -67,45 +67,36 @@ position = Vector2(799, 614)
 texture = ExtResource("8_at5b3")
 offset = Vector2(0, 50)
 
-[node name="NorthRoof" parent="YSort" index="6" instance=ExtResource("9_yk81u")]
-position = Vector2(1552, 202)
-rotation = 0.514872
-scale = Vector2(1, 0.5)
-dest_resource = "res://scenes/demo/1/industrial/c.tscn"
-dest_edge = "SouthRoof"
-disabled = true
-follower_offset = Vector2(30, 0)
-
-[node name="NorthGround" parent="YSort" index="7" instance=ExtResource("9_yk81u")]
+[node name="NorthGround" parent="YSort" index="6" instance=ExtResource("9_yk81u")]
 position = Vector2(975, 32)
 scale = Vector2(9, 1)
 dest_resource = "res://scenes/demo/1/industrial/c.tscn"
 dest_edge = "SouthGround"
 
-[node name="WestGround" parent="YSort" index="8" instance=ExtResource("9_yk81u")]
+[node name="WestGround" parent="YSort" index="7" instance=ExtResource("9_yk81u")]
 position = Vector2(24, 785)
 rotation = -1.5708
 scale = Vector2(9, 1)
 dest_resource = "res://scenes/demo/1/industrial/e.tscn"
 dest_edge = "East"
 
-[node name="StairsSwitch" parent="YSort" index="9" node_paths=PackedStringArray("on_off_script", "extend_off_switch") instance=ExtResource("10_5eqo1")]
+[node name="StairsSwitch" parent="YSort" index="8" node_paths=PackedStringArray("on_off_script", "extend_off_switch") instance=ExtResource("10_5eqo1")]
 position = Vector2(1143, 659)
 rotation = 0.523599
 on_off_script = NodePath("../../StairsSwitchScript")
 extend_off_switch = NodePath("../UpperRegion")
 on = true
 
-[node name="UpperRegion" type="Area2D" parent="YSort" index="10"]
+[node name="UpperRegion" type="Area2D" parent="YSort" index="9"]
 
 [node name="HIT" type="CollisionPolygon2D" parent="YSort/UpperRegion" index="0"]
 position = Vector2(38, -17)
 polygon = PackedVector2Array(1596, 894, 1075, 588, 1767, 175, 1692, 888)
 
-[node name="NavigationAll" type="NavigationRegion2D" parent="YSort" index="11"]
+[node name="NavigationAll" type="NavigationRegion2D" parent="YSort" index="10"]
 navigation_polygon = SubResource("NavigationPolygon_xwl0q")
 
-[node name="fence-right" type="Sprite2D" parent="YSort" index="12"]
+[node name="fence-right" type="Sprite2D" parent="YSort" index="11"]
 position = Vector2(721, 983)
 scale = Vector2(0.972789, 1)
 texture = ExtResource("10_ki3ey")
@@ -117,7 +108,7 @@ offset = Vector2(0, -110)
 position = Vector2(-171.671, 9.99982)
 polygon = PackedVector2Array(120, 57, 49, -6, 291, -156, 364, -112, 336, 16, 158, 64)
 
-[node name="fence-left" type="Sprite2D" parent="YSort" index="13"]
+[node name="fence-left" type="Sprite2D" parent="YSort" index="12"]
 position = Vector2(270, 1211)
 texture = ExtResource("11_0jbps")
 offset = Vector2(0, -150)
@@ -127,6 +118,15 @@ offset = Vector2(0, -150)
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/fence-left/StaticBody2D" index="0"]
 position = Vector2(-199, 42)
 polygon = PackedVector2Array(75.0001, 73, 52, -56, 331, -167, 380, -129, 414, -16)
+
+[node name="NorthRoof" parent="YSort" index="13" instance=ExtResource("9_yk81u")]
+position = Vector2(1589, 519)
+rotation = 1.5708
+scale = Vector2(6, 1)
+dest_resource = "res://scenes/demo/1/industrial/d-right.tscn"
+dest_edge = "WestDoor"
+disabled = true
+follower_offset = Vector2(30, 0)
 
 [node name="StairsSwitchScript" type="Node" parent="." index="2"]
 script = ExtResource("11_cpite")

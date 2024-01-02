@@ -121,112 +121,120 @@ position = Vector2(1346, 408)
 texture = ExtResource("3_s3o6l")
 offset = Vector2(0, -130)
 
-[node name="NorthRoof" parent="YSort" index="2" instance=ExtResource("5_opb7a")]
-position = Vector2(1527, 9)
-scale = Vector2(1, 0.6)
-dest_resource = "res://scenes/demo/1/industrial/b.tscn"
-dest_edge = "EastRoof"
-disabled = true
-
-[node name="SouthRoof" parent="YSort" index="3" instance=ExtResource("5_opb7a")]
-position = Vector2(1511, 938)
-rotation = 2.52375
-scale = Vector2(2, 1)
-dest_resource = "res://scenes/demo/1/industrial/d.tscn"
-dest_edge = "NorthRoof"
+[node name="SouthRoof" parent="YSort" index="2" instance=ExtResource("5_opb7a")]
+position = Vector2(1576, 896)
+rotation = 1.5708
+scale = Vector2(3, 1)
+dest_resource = "res://scenes/demo/1/industrial/c-right.tscn"
+dest_edge = "WestRoofSouth"
 disabled = true
 follower_offset = Vector2(30, 0)
 
-[node name="SouthGround" parent="YSort" index="4" instance=ExtResource("5_opb7a")]
+[node name="SouthGround" parent="YSort" index="3" instance=ExtResource("5_opb7a")]
 position = Vector2(230, 1181)
 rotation = 3.24457
 scale = Vector2(8, 1)
 dest_resource = "res://scenes/demo/1/industrial/d.tscn"
 dest_edge = "NorthGround"
 
-[node name="NorthGround" parent="YSort" index="5" instance=ExtResource("5_opb7a")]
+[node name="NorthGround" parent="YSort" index="4" instance=ExtResource("5_opb7a")]
 position = Vector2(856, 10)
 scale = Vector2(8, 1)
 dest_resource = "res://scenes/demo/1/industrial/b.tscn"
 dest_edge = "EastGround"
 
-[node name="TracksWest" parent="YSort" index="6" instance=ExtResource("5_opb7a")]
+[node name="TracksWest" parent="YSort" index="5" instance=ExtResource("5_opb7a")]
 position = Vector2(20, 257)
 rotation = -1.5708
 scale = Vector2(4, 0.6)
 dest_resource = "res://scenes/demo/1/industrial/f.tscn"
 dest_edge = "TracksEast"
 
-[node name="back-train-b" type="Sprite2D" parent="YSort" index="7"]
+[node name="back-train-b" type="Sprite2D" parent="YSort" index="6"]
 position = Vector2(190, 158)
 texture = ExtResource("7_gq1vq")
 offset = Vector2(0, -50)
 
-[node name="back-train-c" type="Sprite2D" parent="YSort" index="8"]
+[node name="back-train-c" type="Sprite2D" parent="YSort" index="7"]
 position = Vector2(468, 230)
 texture = ExtResource("8_p61y3")
 offset = Vector2(0, -50)
 
-[node name="front-train-a" type="Sprite2D" parent="YSort" index="9"]
+[node name="front-train-a" type="Sprite2D" parent="YSort" index="8"]
 position = Vector2(335, 544)
 texture = ExtResource("8_6ampf")
 
-[node name="front-train-b" type="Sprite2D" parent="YSort" index="10"]
+[node name="front-train-b" type="Sprite2D" parent="YSort" index="9"]
 position = Vector2(592, 420)
 texture = ExtResource("9_h5wlc")
 offset = Vector2(0, -20)
 
-[node name="fence" type="Sprite2D" parent="YSort" index="11"]
+[node name="fence" type="Sprite2D" parent="YSort" index="10"]
 position = Vector2(124, 594)
 texture = ExtResource("9_5jqef")
 offset = Vector2(0, -50)
 
-[node name="LevelSwitch" parent="YSort" index="12" node_paths=PackedStringArray("on_off_script", "extend_off_switch") instance=ExtResource("12_tr1n7")]
+[node name="LevelSwitch" parent="YSort" index="11" node_paths=PackedStringArray("on_off_script", "extend_off_switch") instance=ExtResource("12_tr1n7")]
 position = Vector2(-537, 285)
 on_off_script = NodePath("../../c-LevelSwitchScript")
 extend_off_switch = NodePath("../UpperLevel")
 on = true
 
-[node name="UpperLevel" type="Area2D" parent="YSort" index="13"]
+[node name="UpperLevel" type="Area2D" parent="YSort" index="12"]
 visible = false
 
 [node name="HIT" type="CollisionPolygon2D" parent="YSort/UpperLevel" index="0"]
 polygon = PackedVector2Array(1304, 1370, 1612, 1103, 941, 695, 1491, 340, 1551, 292, 1536, 146, 1418, 90, 1702, -131, 1894, -101, 1876, 1396)
 
-[node name="front-ledge" type="Sprite2D" parent="YSort" index="14"]
+[node name="front-ledge" type="Sprite2D" parent="YSort" index="13"]
 position = Vector2(907.5, 713.5)
 texture = ExtResource("4_wlth3")
 offset = Vector2(0, -130)
 
-[node name="front-tree" type="Sprite2D" parent="YSort" index="15"]
+[node name="front-tree" type="Sprite2D" parent="YSort" index="14"]
 position = Vector2(652, 851)
 texture = ExtResource("12_uurvq")
 offset = Vector2(0, -50)
 
-[node name="far-back-edge" type="Sprite2D" parent="YSort" index="16"]
+[node name="far-back-edge" type="Sprite2D" parent="YSort" index="15"]
 position = Vector2(1470, 229)
 texture = ExtResource("13_uji7m")
 offset = Vector2(0, -100)
 
-[node name="NavigationMiddle" type="NavigationRegion2D" parent="YSort" index="17"]
+[node name="NavigationMiddle" type="NavigationRegion2D" parent="YSort" index="16"]
 navigation_polygon = SubResource("NavigationPolygon_i64kx")
 
-[node name="NavigationBehindTrain" type="NavigationRegion2D" parent="YSort" index="18"]
+[node name="NavigationBehindTrain" type="NavigationRegion2D" parent="YSort" index="17"]
 navigation_polygon = SubResource("NavigationPolygon_j5vyj")
 
-[node name="NavigationRoof" type="NavigationRegion2D" parent="YSort" index="19"]
+[node name="NavigationRoof" type="NavigationRegion2D" parent="YSort" index="18"]
 navigation_polygon = SubResource("NavigationPolygon_wbapc")
 
-[node name="Board" parent="YSort" index="20" instance=ExtResource("21_l2bfj")]
+[node name="Board" parent="YSort" index="19" instance=ExtResource("21_l2bfj")]
 
-[node name="QuestBoundary" parent="YSort" index="21" instance=ExtResource("20_r0xd4")]
+[node name="QuestBoundary" parent="YSort" index="20" instance=ExtResource("20_r0xd4")]
 trigger_name = "LeaveC1"
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/QuestBoundary" index="1"]
 polygon = PackedVector2Array(-154, 1027, 1026, 1148, 1026, 1182, -160, 1061)
 
+[node name="Tunnel" parent="YSort" index="21" instance=ExtResource("5_opb7a")]
+position = Vector2(1159, 458)
+rotation = 2.61799
+scale = Vector2(2, 1)
+dest_resource = "res://scenes/demo/1/industrial/c-right.tscn"
+dest_edge = "Tunnel"
+
+[node name="NorthRoof" parent="YSort" index="22" instance=ExtResource("5_opb7a")]
+position = Vector2(1565, 259)
+rotation = 1.3439
+scale = Vector2(4, 0.6)
+dest_resource = "res://scenes/demo/1/industrial/c-right.tscn"
+dest_edge = "WestRoofNorth"
+disabled = true
+
 [node name="c-LevelSwitchScript" type="Node" parent="." index="3"]
 script = ExtResource("13_thh61")
 
 [node name="Vein" type="Polygon2D" parent="." index="4"]
-polygon = PackedVector2Array(-145, -4, 226, 157, 683, -121, 902, -123, 315, 289, -138, 77)
+polygon = PackedVector2Array(-145, -4, 312, 211, 730, -127, 858, -143, 322, 299, 602, 455, 682, 405, 900, 517, 824, 553, 692, 483, 616, 541, 216, 325, 274, 263, -138, 77)

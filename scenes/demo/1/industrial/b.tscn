@@ -86,9 +86,9 @@ texture = ExtResource("4_jobxl")
 offset = Vector2(0, -100)
 
 [node name="vent-tree" type="Sprite2D" parent="YSort" index="3"]
-position = Vector2(1400, 17)
+position = Vector2(1399, 214)
 texture = ExtResource("5_ij0re")
-offset = Vector2(0, 100)
+offset = Vector2(0, -100)
 
 [node name="WestRoof" parent="YSort" index="4" instance=ExtResource("6_dl5dw")]
 position = Vector2(7, 122)
@@ -101,8 +101,8 @@ dest_edge = "EastRoof"
 position = Vector2(1588, 427)
 rotation = 1.5708
 scale = Vector2(5, 1.2)
-dest_resource = "res://scenes/demo/1/industrial/c.tscn"
-dest_edge = "NorthRoof"
+dest_resource = "res://scenes/demo/1/industrial/b-right.tscn"
+dest_edge = "WestDoor"
 
 [node name="EastGround" parent="YSort" index="6" instance=ExtResource("6_dl5dw")]
 position = Vector2(1025, 1220)
@@ -220,6 +220,20 @@ polygon = PackedVector2Array(-321, 1022, 904, 972, 987, 1148, -286, 1171)
 
 [node name="stop" type="CollisionPolygon2D" parent="YSort/QuestBoundary2" index="2"]
 polygon = PackedVector2Array(1628, 1138, 1628, 1233, 476, 1266, 446, 1170)
+
+[node name="NorthDoor1" parent="YSort" index="18" instance=ExtResource("6_dl5dw")]
+position = Vector2(1039, 11)
+rotation = -0.148353
+scale = Vector2(5, 0.5)
+dest_resource = "res://scenes/demo/1/industrial/b-up.tscn"
+dest_edge = "SouthDoor1"
+
+[node name="NorthDoor2" parent="YSort" index="19" instance=ExtResource("6_dl5dw")]
+position = Vector2(239, 25)
+rotation = 0.223402
+scale = Vector2(4, 0.5)
+dest_resource = "res://scenes/demo/1/industrial/b-up.tscn"
+dest_edge = "SouthDoor2"
 
 [node name="ThresholdQuests" type="Node" parent="." index="2"]
 

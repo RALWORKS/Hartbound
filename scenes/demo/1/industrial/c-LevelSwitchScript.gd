@@ -21,3 +21,4 @@ func turn_off():
 	$"../YSort/back-ledge-a".set_deferred("visible", false)
 	$"../YSort/front-ledge".set_deferred("visible", false)
 	$"../YSort/far-back-edge".set_deferred("visible", false)
+	$"../YSort/Tunnel".set_deferred("disabled", true)
