@@ -78,7 +78,29 @@ const stop_words = [
 	"it",
 	"for",
 	"of",
+	"with",
+	"he",
+	"his",
+	"him",
+	"her",
+	"hers",
+	"they",
+	"their",
+	"theirs",
 ]
+const half_stop_words = [
+	"you",
+	"yourself",
+	"me",
+	"i",
+	"your",
+	"about",
+	"know",
+	"anything",
+	"do",
+	"tell",
+]
+
 
 func stem_token(w: String):
 	var stem

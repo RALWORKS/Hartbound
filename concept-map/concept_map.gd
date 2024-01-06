@@ -7,6 +7,7 @@ extends Node
 var _index = {}
 
 const RECORD_MARKER = "_"
+const WEIGHT_MARKER = "$"
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -57,7 +58,9 @@ func search(phrase, ix=null):
 
 	var tokens = _get_token_stems(phrase)
 	var match_objects = _get_match_objects(tokens, 0, ix)
+
 	match_objects.sort_custom(_sort_match_objects)
+	match_objects = _filter_match_0_scores_if_needed(match_objects)
 	return _deduped_concepts_from_match_objects(match_objects)
 	
 func _deduped_concepts_from_match_objects(match_objects):
@@ -69,7 +72,19 @@ func _deduped_concepts_from_match_objects(match_objects):
 	return ret
 
 func _sort_match_objects(a, b):
-	return a[1] > b[1]	
+	return a[1] > b[1]
+
+func _filter_match_0_scores_if_needed(sorted_match_objects):
+	if sorted_match_objects.size() < 1:
+		return sorted_match_objects
+	if sorted_match_objects[0][1] == 0:
+		return sorted_match_objects
+
+	var new_match_objects = []
+	for match_object in sorted_match_objects:
+		if match_object[1] > 0:
+			new_match_objects.push_back(match_object)
+	return new_match_objects
 	
 
 func _get_match_objects(remaining_tokens, depth, sub_index):
@@ -81,12 +96,20 @@ func _get_match_objects(remaining_tokens, depth, sub_index):
 		if i == remaining_tokens.size() - 1 and token.length() > 2:
 			for possibility in sub_index:
 				if possibility.find(token) == 0:
-					new_match_objects.push_back([sub_index[possibility][RECORD_MARKER], depth])
+					new_match_objects.push_back([
+							sub_index[possibility][RECORD_MARKER],
+							depth + sub_index[possibility][WEIGHT_MARKER],
+					])
 		elif token in sub_index:
-			new_match_objects.push_back([sub_index[token][RECORD_MARKER], depth])
+			new_match_objects.push_back([
+				sub_index[token][RECORD_MARKER],
+				depth + sub_index[token][WEIGHT_MARKER]
+			])
 			if remaining_tokens.size() - i > 1:
 				new_match_objects += _get_match_objects(
-					remaining_tokens.slice(i + 1), depth + 1, sub_index[token]
+					remaining_tokens.slice(i + 1),
+					depth,
+					sub_index[token],
 				)
 		i += 1
 
@@ -120,10 +143,14 @@ func _write_concept_to_index_by_tokens(concept, sub_index, remaining_tokens):
 	var i = 0
 	while i < remaining_tokens.size():
 		var token = remaining_tokens[i]
+		var weight = 1
+		if token in $Stemmer.half_stop_words:
+			weight = 0
 		
 		if not token in sub_index:
 			sub_index[token] = {}
 			sub_index[token][RECORD_MARKER] = []
+			sub_index[token][WEIGHT_MARKER] = weight
 
 		if concept not in sub_index[token][RECORD_MARKER]:
 			sub_index[token][RECORD_MARKER].push_back(concept)
@@ -138,6 +165,9 @@ func _write_concept_to_index_by_tokens(concept, sub_index, remaining_tokens):
 	
 func _populate_custom_index_dict(sub_dict_orig, sub_dict_new, npc_name):
 	for old_key in sub_dict_orig:
+		if old_key == WEIGHT_MARKER:
+			sub_dict_new[WEIGHT_MARKER] = sub_dict_orig[WEIGHT_MARKER]
+			continue
 		if old_key == "_" and "_" in sub_dict_new:
 			sub_dict_new["_"] += sub_dict_orig["_"].duplicate()
 		elif old_key == "_":
