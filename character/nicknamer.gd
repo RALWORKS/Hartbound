@@ -2,6 +2,8 @@ extends Node2D
 @export var your_name = ""
 signal names_loaded
 
+var name_index = "res://data/human-name-index.json"
+
 """
 IMPORTANT:
 	Godot had a bug at the time of writing where RegEx search and
@@ -243,6 +245,40 @@ var graphs = [
 	["qu", "K"],
 	["q", "K"],
 	["y", "I"],
+]
+
+var DE_CONVOLUTE = [
+	["pp", "p"],
+	["aa", "a"],
+	["ee", "i"],
+	["oo", "u"],
+	["ii", "i"],
+	["iie", "i"],
+	["uu", "u"],
+	["chr", "kr"],
+	["ian", "an"],
+	["gh", ""],
+	["bb", "b"],
+	["au", "o"],
+	["tt", "t"],
+	["ss", "s"],
+	["zz", "z"],
+	["gn", "n"],
+	["bd", "d"],
+	["yn", "in"],
+	["nn", "n"],
+	["ph", "f"],
+	["ll", "l"],
+]
+
+var DE_CONVOLUTE_HUMAN  = [
+	["ce", "se"],
+	["cé", "se"],
+	["ci", "si"],
+	["cy", "si"],
+	["ge", "je"],
+	["gé", "je"],
+	["gia", "ja"],
 ]
 
 func map_str(s, f):
@@ -626,3 +662,204 @@ func main():
 	categorized_names = bump_first_letter_matches(data, categorized_names)
 
 	return get_best_names(categorized_names)
+
+func phoneticize(data, use_human=false):
+	graphs.sort_custom(func(a, b): return b[0].length() > a[0].length())
+	DE_CONVOLUTE.sort_custom(func(a, b): return b[0].length() > a[0].length())
+
+	data = data.lower()
+	data = data.replace("-", "")
+	data = data.replace(" ", "")
+
+	for pair in DE_CONVOLUTE + (DE_CONVOLUTE_HUMAN if use_human else []):
+		data = data.replace(pair[0], pair[1])
+	for pair in graphs:
+		data = data.replace(pair[0], API_LETTERS[pair[1]])
+
+	data = data.lower()
+	for pair in DE_CONVOLUTE + (DE_CONVOLUTE_HUMAN if use_human else []):
+		data = data.replace(pair[0], pair[1])
+
+	return data.lower()
+
+
+func accentify(data: String):
+
+	if data[-1] not in VOWELS:
+		data += "ö"
+
+	if data.length() < 4:
+		return data
+
+	var _name = data[0]
+	var i = 1
+	while i < data.length():
+		if data[i] not in VOWELS and data[i-1] not in VOWELS:
+			_name = _name + "ö" + data[i]
+		else:
+			_name += data[i]
+		i += 1
+
+	return _name
+
+func get_phonetic(data, use_human=false):
+	graphs.sort_custom(func(a, b): return b[0].length() > a[0].length())
+	
+
+	data = data.lower()
+
+	data = phoneticize(data, use_human)
+
+	data = accentify(data)
+
+	return data
+
+
+func get_phonetic_syllables(data, use_human=false):
+	data = get_phonetic(data, use_human)
+	var syllables = get_structured_syllables_list(data)
+	return [syllables, data]
+
+
+func _get_weighted_matches(
+		main_ix, subdict, tok, remaining_tokens, depth, skip_vowel=false
+):
+	if tok not in subdict and remaining_tokens.size() == 1:
+		return []
+	if tok not in subdict and (skip_vowel or "ö" not in subdict):
+		return _search_names(main_ix, main_ix, remaining_tokens.slice(1), 0)
+	if tok not in subdict:
+		var sub_names = []
+		for n in subdict["ö"]["_"]:
+			sub_names.push_back([n, depth])
+		return (
+		sub_names
+		+ _search_names(main_ix, subdict["ö"], remaining_tokens.slice(1), depth + 1)
+	)
+	var sub_names = []
+	for n in subdict[tok]["_"]:
+		sub_names.push_back([n, depth*tok.length() + subdict[tok]["$"]])
+	return (
+		sub_names
+		+ _search_names(main_ix, subdict[tok], remaining_tokens.slice(1), depth * tok.length() + 1)
+	)
+
+func vaguify_vowels(data):
+	var v = "[" + "".join(VOWELS) + "]+"
+	var r = RegEx.create_from_string(v)
+	return r.sub(data, "ö")
+
+
+func _search_names(main_ix, subdict, remaining_tokens, depth):
+	if not remaining_tokens:
+		return []
+
+	var tok = remaining_tokens[0]
+
+	var vague_vowel_tok = vaguify_vowels(tok)
+
+	return (
+		_get_weighted_matches(
+			main_ix, subdict, tok, remaining_tokens, depth
+		) + _get_weighted_matches(
+			main_ix, subdict, vague_vowel_tok, remaining_tokens, depth
+		)
+	)
+
+func _flatten_syllables(subtree, cur_tree, trees):
+	if typeof(subtree) == TYPE_STRING:
+		trees.append(cur_tree + [subtree])
+		return
+
+	if subtree.size() == 1:
+		trees.append(cur_tree + subtree.slice(1))
+		return
+
+	if typeof(subtree[1]) == TYPE_STRING:
+		trees.append(cur_tree + subtree.slice(1))
+		return
+
+	for subsub in subtree.slice(1):
+		_flatten_syllables(subsub, cur_tree + [subsub[0]], trees)
+
+
+func flatten_syllables(subtree):
+	var trees = []
+	for root in subtree[0]:
+		_flatten_syllables(root, [root[0]], trees)
+	return trees
+
+func search_name(data):
+	#var orig = data
+	var _phon_ret = get_phonetic_syllables(data)
+	var structured_syllables = _phon_ret[0]
+	var phonetic_name = _phon_ret[1]
+	var comb = flatten_syllables(structured_syllables)
+
+	var matches = []
+
+	var json = JSON.new()
+
+	var index = json.parse(FileAccess.get_file_as_string(name_index))
+
+	for n in comb:
+		matches += _search_names(index, index, n, 0)
+
+
+	var deduped_matches = {}
+	for m in matches:
+		if m[0] not in deduped_matches or deduped_matches[m[0]] < m[1]:
+			deduped_matches[m[0]] = m[1]
+
+	var sorted_matches = []
+	for k in deduped_matches:
+		var v = deduped_matches[k]
+		sorted_matches.push_back([k, v])
+
+	sorted_matches.sort_custom(func(a, b): return b[1] > a[1])
+	#names.sort_custom(func(a, b): return b[6].length() > a[6].length())
+
+	sorted_matches = get_most_letter_overlaps(sorted_matches, phonetic_name)
+	sorted_matches.sort_custom(func(a, b): return b[1] > a[1])
+
+	if sorted_matches.size() > 8:
+		return sorted_matches.slice(0, 9)
+	return sorted_matches
+
+func get_most_letter_overlaps(names, orig):
+	var tally  = {}
+	var letters = []
+	for l in orig:
+		if l not in letters:
+			letters.push_back(l)
+
+	for pair in names:
+		var n = pair[0]
+		var both = []
+		for l in letters:
+			if l in n:
+				both.push_back(l)
+		var count = 0
+		for b in both:
+			if b in VOWELS:
+				count += 1
+			else:
+				count += 2
+		if count not in tally:
+			tally[count] = []
+		tally[count].append(n)
+
+	var seq = tally.keys()
+
+	var best = []
+	var i = 0
+	while i < seq.size():
+		best += tally[seq[i]]
+		i += 1
+	
+	var ret = []
+	for n in names:
+		if n[0] in best:
+			ret.push_back(n)
+	
+	return ret
