@@ -59,77 +59,190 @@ var PATTERN_S = "(s{1,2}z?)|z{1,2}|c"
 var PATTERN_D = "(t?d[dt]{0,2})|(th)|tt?"
 var PATTERN_Y = "y|i|(ee)"
 var PATTERN_E = "[eéèia]{1,3}[y]?"#"[eiaéè]{1,3}[y]?"
-var PATTERN_A = "a"#"[aeieéàáo]{1,3}[wy]?"
+var PATTERN_A = "[aáà]+"#"[aeieéàáo]{1,3}[wy]?"
 var PATTERN_I = "[iìieéè]{1,3}[y]?"
 var PATTERN_U = "[uoùú]{1,3}[wh]?"
 var PATTERN_O = "[oeóòô]{1,3}[wh]?"
+var PATTERN_E_SHORT = "e?"
+var PATTERN_AY = "%s%s?"  % [nc(PATTERN_A), nc(PATTERN_Y)]
+var PATTERN_IY = "%s%s?" % [nc(PATTERN_I), nc(PATTERN_Y)]
+var PATTERN_OY = "%s%s?" % [nc(PATTERN_O), nc(PATTERN_Y)]
+var PATTERN_T = "t{1,2}h?"
+var PATTERN_CH = "(sh)|(ch)|(s{0,2}%ss{0,2})" % nc(PATTERN_K)
+var PATTERN_G = "g{1,2}"
+var PATTERN_H = "h{0,2}"
+var PATTERN_J = "(?:d?j{1,2})|(?:d?g)"
+var PATTERN_MB = nc(PATTERN_M) + nc(PATTERN_B) + "?"
+var PATTERN_MP = nc(PATTERN_M) + nc(PATTERN_P) + "?"
+var PATTERN_MPF = "%s%s%s?%s" % [nc(PATTERN_M), nc(OPT_VOWEL), nc(PATTERN_P), nc(PATTERN_F)]
+var PATTERN_NG = "%s{1,2}g?" % nc(PATTERN_N)
+var PATTERN_NC = "%s{1,2}%s{0,2}|%s{0,2}%s{1,2}" % [nc(PATTERN_N), nc(PATTERN_K), nc(PATTERN_N), nc(PATTERN_K)]
+var PATTERN_ND = "%s[dt]?" % nc(PATTERN_N)
+var PATTERN_PS = "%s?%s" % [nc(PATTERN_P), nc(PATTERN_S)]
+var PATTERN_V = nc(PATTERN_B) + "|" + nc(PATTERN_F) + "|v{1,2}"
+var PATTERN_W = "w{1,2}|v{1,2}"
+var PATTERN_X = "x|[cks]{1,2}"
+var PATTERN_TS = "t*%s" % nc(PATTERN_S)
+
+
+var LETTER_PATTERNS = {
+	"R": PATTERN_R,
+	"L": PATTERN_L,
+	"K": PATTERN_K,
+	"C": PATTERN_C,
+	"M": PATTERN_M,
+	"B": PATTERN_B,
+	"P": PATTERN_P,
+	"F": PATTERN_F,
+	"N": PATTERN_N,
+	"S": PATTERN_S,
+	"D": PATTERN_D,
+	"Y": PATTERN_Y,
+	"E": PATTERN_E,
+	"A": PATTERN_A,
+	"I": PATTERN_I,
+	"U": PATTERN_U,
+	"O": PATTERN_O,
+	"Ê": PATTERN_E_SHORT,
+	"AY": PATTERN_AY,
+	"OY": PATTERN_OY,
+	"T": PATTERN_T,
+	"CH": PATTERN_CH,
+	"G": PATTERN_G,
+	"H": PATTERN_H,
+	"J": PATTERN_J,
+	"MB": PATTERN_MB,
+	"MP": PATTERN_MP,
+	"MPF": PATTERN_MPF,
+	"NG": PATTERN_NG,
+	"NC": PATTERN_NC,
+	"ND": PATTERN_ND,
+	"PS": PATTERN_PS,
+	"V": PATTERN_V,
+	"W": PATTERN_W,
+	"X" : PATTERN_X,
+	"TS": PATTERN_TS,
+	"Ş": PATTERN_S,
+}
+
+var API_LETTERS = {
+	"R": "R",
+	"L": "L",
+	"K": "K",
+	"C": "K",
+	"M": "M",
+	"B": "B",
+	"P": "P",
+	"F": "F",
+	"N": "N",
+	"S": "S",
+	"D": "D",
+	"Y": "Y",
+	"E": "E",
+	"A": "A",
+	"I": "I",
+	"U": "U",
+	"O": "O",
+	"Ê": "",
+	"AY": "E",
+	"OY": "O",
+	"T": "T",
+	"CH": "Ç",
+	"G": "G",
+	"H": "H",
+	"J": "Ş",
+	"MB": "M",
+	"MP": "M",
+	"MPF": "M",
+	"NG": "N",
+	"NC": "N",
+	"ND": "N",
+	"PS": "S",
+	"V": "F",
+	"W": "N",
+	"X" : "S",
+	"TS": "S",
+	"Ş": "Ş",
+}
 
 var graphs = [
-	["e$", "e?"],
-	["ee", PATTERN_I],
-	["ey", PATTERN_E],
-	["ay", PATTERN_E],
-	["ae", PATTERN_A],
-	["aé", PATTERN_A],
-	["áe", PATTERN_A],
-	["áé", PATTERN_A],
-	["e", PATTERN_A],
-	["é", PATTERN_E],
-	["è", PATTERN_E],
-	["a", PATTERN_A],
-	["ay","%s%s?"  % [nc(PATTERN_A), nc(PATTERN_Y)]],
-	["aa", PATTERN_A],
-	["à", PATTERN_A],
-	["á", PATTERN_A],
-	["aw", PATTERN_A],
-	["ah", PATTERN_A],
-	["i", PATTERN_I],
-	["ì", PATTERN_I],
-	["í", PATTERN_I],
-	["iy", "%s%s?" % [nc(PATTERN_I), nc(PATTERN_Y)]],
-	["o", PATTERN_O],
-	["ó", PATTERN_O],
-	["ò", PATTERN_O],
-	["oy", "%s%s?" % [nc(PATTERN_O), nc(PATTERN_Y)]],
-	["u", PATTERN_U],
-	["oo", PATTERN_U],
-	["ou", PATTERN_U],
-	["b", PATTERN_B],
-	["c", PATTERN_C],
-	["t", "t{1,2}h?"],
-	["cc", PATTERN_C],
-	["ch", "(sh)|(ch)|(s{0,2}%ss{0,2})" % nc(PATTERN_K)],
-	["d", PATTERN_D],
-	["dd", PATTERN_D],
-	["f", PATTERN_F],
-	["k", PATTERN_K],
-	["g", "g{1,2}"],
-	["h", "h{0,2}"],
-	["j", "(d?j{1,2})|(d?g)"],
-	["l", PATTERN_L],
-	["l+", PATTERN_L],
-	["m", PATTERN_M],
-	["mb", nc(PATTERN_M) + nc(PATTERN_B) + "?"],
-	["mp", nc(PATTERN_M) + nc(PATTERN_P) + "?"],
-	["mpf", "%s%s%s?%s" % [nc(PATTERN_M), nc(OPT_VOWEL), nc(PATTERN_P), nc(PATTERN_F)]],
-	["n", PATTERN_N],
-	["nn", PATTERN_N],
-	["ng", "%s{1,2}g?" % nc(PATTERN_N)],
-	["nc", "%s{1,2}%s{0,2}|%s{0,2}%s{1,2}" % [nc(PATTERN_N), nc(PATTERN_K), nc(PATTERN_N), nc(PATTERN_K)]],
-	["nd", "%s[dt]?" % nc(PATTERN_N)],
-	["nt", "%s[dt]?" % nc(PATTERN_N)],
-	["p", PATTERN_P],
-	["r", PATTERN_R],
-	["rr", PATTERN_R],
-	["s", PATTERN_S],
-	["ps", "%s?%s}" % [nc(PATTERN_P), nc(PATTERN_S)]],
-	["v", nc(PATTERN_B) + "|" + nc(PATTERN_F) + "|v{1,2}"],
-	["w", "w{1,2}|v{1,2}"],
-	["y", PATTERN_Y],
-	["x", "x|[cks]{1,2}"],
-	["ts", "t*%s" % nc(PATTERN_S)],
-	["tz", "t*%s" % nc(PATTERN_S)],
-	["z", "t?" + nc(PATTERN_S)],
+	["sh", "Ş"],
+	["e$", "Ê"],
+	["ie", "I"],
+	["ii", "I"],
+	["iie", "E"],
+	["ei", "E"],
+	["ai", "A"],
+	["ee", "I"],
+	["ae", "A"],
+	["ea", "A"],
+	["aé", "A"],
+	["áe", "A"],
+	["áé", "A"],
+	["e", "E"],
+	["é", "E"],
+	["è", "E"],
+	["a", "A"],
+	["aa", "A"],
+	["à", "A"],
+	["á", "A"],
+	["aw", "A"],
+	["ew", "U"],
+	["ay", "E"],
+	["ey", "E"],
+	["ah", "A"],
+	["i", "I"],
+	["ì", "I"],
+	["í", "I"],
+	["o", "O"],
+	["ó", "O"],
+	["ò", "O"],
+	["oy", "OY"],
+	["u", "U"],
+	["ue", "E"],
+	["ui", "I"],
+	["uo", "O"],
+	["oo", "U"],
+	["ou", "U"],
+	["b", "B"],
+	["ss", "S"],
+	["c", "C"],
+	["sch", "Ş"],
+	["t", "T"],
+	["cc", "C"],
+	["ch", "Ş"],
+	["d", "D"],
+	["dd", "D"],
+	["f", "F"],
+	["k", "K"],
+	["g", "G"],
+	["h", "H"],
+	["j", "J"],
+	["l", "L"],
+	["l+", "L"],
+	["m", "M"],
+	["mb", "MB"],
+	["mp", "MP"],
+	["mpf", "MPF"],
+	["n", "N"],
+	["nn", "N"],
+	["ng", "NG"],
+	["nc", "NC"],
+	["p", "P"],
+	["r", "R"],
+	["rr", "R"],
+	["s", "S"],
+	["ps", "PS"],
+	["v", "V"],
+	["w", "W"],
+	["x", "X"],
+	["ts", "TS"],
+	["tz", "TS"],
+	["z", "TS"],
+	["th", "S"],
+	["qu", "K"],
+	["q", "K"],
+	["y", "I"],
 ]
 
 func map_str(s, f):
@@ -152,7 +265,7 @@ func get_pattern(data):
 	var already_matched = false
 	for pair in graphs:
 		reg = RegEx.new()
-		reg.compile(pair[1])
+		reg.compile(LETTER_PATTERNS[pair[1]])
 		if not reg.is_valid():
 			print(pair, reg)
 			return ["", ""]
@@ -167,7 +280,7 @@ func get_pattern(data):
 					break
 			if already_matched:
 				continue
-			pattern_pieces[match_obj.get_start() - 1] = nc(pair[1])
+			pattern_pieces[match_obj.get_start() - 1] = nc(LETTER_PATTERNS[pair[1]])
 			if match_obj.get_start() - 1 + 1 == match_obj.get_end() -1:
 				continue
 			for i in range(match_obj.get_start() -1 + 1, match_obj.get_end() - 1):
