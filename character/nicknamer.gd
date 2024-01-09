@@ -34,7 +34,7 @@ func load_names(use_name=your_name):
 	your_name = use_name
 	var nameset = main()
 	if nameset!= null:
-		NAMES = nameset.map(func(x): return x[1])
+		NAMES = nameset.map(func(x): return x[0])
 		for n in NAMES:
 			$RichTextLabel.append_text(n + "\n")
 		$RichTextLabel.visible = true
@@ -639,7 +639,7 @@ func get_final_name_sort(data):
 
 	return final_name_sort
 
-func main():
+func search_by_pattern():
 	graphs.sort_custom(func(a, b): return b[0].length() > a[0].length())
 
 	var data = your_name
@@ -663,11 +663,24 @@ func main():
 
 	return get_best_names(categorized_names)
 
+func main():
+	return search_by_index()
+	
+	# old, working func:
+	# return search_by_pattern()
+
+func search_by_index():
+	var data = your_name
+
+	print(data)
+	
+	return search_name(data)
+
 func phoneticize(data, use_human=false):
 	graphs.sort_custom(func(a, b): return b[0].length() > a[0].length())
 	DE_CONVOLUTE.sort_custom(func(a, b): return b[0].length() > a[0].length())
 
-	data = data.lower()
+	data = data.to_lower()
 	data = data.replace("-", "")
 	data = data.replace(" ", "")
 
@@ -676,11 +689,11 @@ func phoneticize(data, use_human=false):
 	for pair in graphs:
 		data = data.replace(pair[0], API_LETTERS[pair[1]])
 
-	data = data.lower()
+	data = data.to_lower()
 	for pair in DE_CONVOLUTE + (DE_CONVOLUTE_HUMAN if use_human else []):
 		data = data.replace(pair[0], pair[1])
 
-	return data.lower()
+	return data.to_lower()
 
 
 func accentify(data: String):
@@ -706,7 +719,7 @@ func get_phonetic(data, use_human=false):
 	graphs.sort_custom(func(a, b): return b[0].length() > a[0].length())
 	
 
-	data = data.lower()
+	data = data.to_lower()
 
 	data = phoneticize(data, use_human)
 
@@ -798,13 +811,19 @@ func search_name(data):
 
 	var matches = []
 
-	var json = JSON.new()
+	var index_json = JSON.new()
+	
+	var index_raw = FileAccess.get_file_as_string(name_index)
 
-	var index = json.parse(FileAccess.get_file_as_string(name_index))
+	var parse_error = index_json.parse(index_raw)
+	
+	if parse_error != OK:
+		return
+	
+	var index = index_json.data
 
 	for n in comb:
 		matches += _search_names(index, index, n, 0)
-
 
 	var deduped_matches = {}
 	for m in matches:
@@ -816,15 +835,28 @@ func search_name(data):
 		var v = deduped_matches[k]
 		sorted_matches.push_back([k, v])
 
-	sorted_matches.sort_custom(func(a, b): return b[1] > a[1])
+	sorted_matches.sort_custom(func(a, b): return b[1] < a[1])
 	#names.sort_custom(func(a, b): return b[6].length() > a[6].length())
 
 	sorted_matches = get_most_letter_overlaps(sorted_matches, phonetic_name)
-	sorted_matches.sort_custom(func(a, b): return b[1] > a[1])
+	sorted_matches.sort_custom(func(a, b): return b[1] < a[1])
+	
+	sorted_matches = pairs_to_name_case(sorted_matches)
 
-	if sorted_matches.size() > 8:
-		return sorted_matches.slice(0, 9)
+	if sorted_matches.size() > 6:
+		return sorted_matches.slice(0, 6)
 	return sorted_matches
+
+func pairs_to_name_case(pairs):
+	for pair in pairs:
+		var _name = pair[0]
+		_name = _name.capitalize()
+		var parts = _name.split("-")
+		for part in parts:
+			part = part.capitalize()
+		_name = "-".join(parts)
+		pair[0] = _name
+	return pairs
 
 func get_most_letter_overlaps(names, orig):
 	var tally  = {}
