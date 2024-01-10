@@ -254,6 +254,7 @@ var DE_CONVOLUTE = [
 	["oo", "u"],
 	["ii", "i"],
 	["iie", "i"],
+	["ie", "i"],
 	["uu", "u"],
 	["chr", "kr"],
 	["ian", "an"],
@@ -686,8 +687,9 @@ func phoneticize(data, use_human=false):
 
 	for pair in DE_CONVOLUTE + (DE_CONVOLUTE_HUMAN if use_human else []):
 		data = data.replace(pair[0], pair[1])
+
 	for pair in graphs:
-		data = data.replace(pair[0], API_LETTERS[pair[1]])
+		data = data.to_lower().replace(pair[0], API_LETTERS[pair[1]])
 
 	data = data.to_lower()
 	for pair in DE_CONVOLUTE + (DE_CONVOLUTE_HUMAN if use_human else []):
@@ -722,6 +724,7 @@ func get_phonetic(data, use_human=false):
 	data = data.to_lower()
 
 	data = phoneticize(data, use_human)
+	print(data)
 
 	data = accentify(data)
 
