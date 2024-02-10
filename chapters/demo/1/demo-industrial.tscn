@@ -92,9 +92,7 @@ cutscene = ExtResource("12_glt54")
 [node name="TaylorPCB" parent="Events" index="7" instance=ExtResource("5_440p5")]
 cutscene = ExtResource("11_jbyho")
 
-[node name="TaylorGotEmAll" parent="Events" index="8" instance=ExtResource("5_440p5")]
-
-[node name="TakeKey" parent="Events" index="9" instance=ExtResource("5_440p5")]
+[node name="TakeKey" parent="Events" index="8" instance=ExtResource("5_440p5")]
 
 [node name="SetGotKey" parent="Events/TakeKey" index="0" instance=ExtResource("4_gn21l")]
 state_path_slash_delineated = "micro_progress/got_key"

@@ -73,7 +73,7 @@ text = "> \"Oh? You know better than me, do you?\""
 to = NodePath("../../Offense")
 
 [node name="TriggerC1EndIfNeeded" parent="1" index="8" node_paths=PackedStringArray("cutscene") instance=ExtResource("8_g6q54")]
-cutscene = NodePath(".")
+cutscene = NodePath("../..")
 
 [node name="Offense" parent="." index="1" node_paths=PackedStringArray("next") instance=ExtResource("2_auhtm")]
 visible = false

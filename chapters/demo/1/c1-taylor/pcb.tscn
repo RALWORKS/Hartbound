@@ -13,10 +13,10 @@
 [ext_resource type="PackedScene" uid="uid://b031fpm2fu6f1" path="res://cutscene/play_animation_on_start.tscn" id="10_ht627"]
 [ext_resource type="PackedScene" uid="uid://h0r76jyn8lnu" path="res://chapters/demo/1/trigger_c_1_end_if_needed.tscn" id="10_w61i4"]
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_4dp5n"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_ysnef"]
 viewport_path = NodePath("img")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_r2shg"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_v4lpf"]
 viewport_path = NodePath("img")
 
 [sub_resource type="Animation" id="Animation_jy7py"]
@@ -80,10 +80,10 @@ _data = {
 "base": SubResource("Animation_xemg0")
 }
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_xtkr3"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_3riaq"]
 viewport_path = NodePath("img")
 
-[node name="Cutscene" node_paths=PackedStringArray("starting_page") instance=ExtResource("1_v3ngu")]
+[node name="Cutscene2" node_paths=PackedStringArray("starting_page") instance=ExtResource("1_v3ngu")]
 starting_page = NodePath("1")
 
 [node name="1" parent="." index="0" node_paths=PackedStringArray("use_on_start_fn_from") instance=ExtResource("2_qtdqm")]
@@ -143,7 +143,7 @@ to = NodePath("../../2")
 [node name="Profile" parent="1" index="8" instance=ExtResource("6_ingej")]
 position = Vector2(1281, 799)
 scale = Vector2(0.5, 0.5)
-texture = SubResource("ViewportTexture_4dp5n")
+texture = SubResource("ViewportTexture_ysnef")
 with_background = false
 
 [node name="TriggerC1EndIfNeeded" parent="1" index="9" node_paths=PackedStringArray("cutscene") instance=ExtResource("10_w61i4")]
@@ -185,7 +185,7 @@ position = Vector2(889, 5)
 [node name="Profile" parent="2/You" index="2" instance=ExtResource("6_ingej")]
 position = Vector2(1281, 799)
 scale = Vector2(0.5, 0.5)
-texture = SubResource("ViewportTexture_r2shg")
+texture = SubResource("ViewportTexture_v4lpf")
 with_background = false
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="2" index="4"]
@@ -233,7 +233,7 @@ position = Vector2(889, 5)
 [node name="Profile" parent="3/You" index="2" instance=ExtResource("6_ingej")]
 position = Vector2(1281, 799)
 scale = Vector2(0.5, 0.5)
-texture = SubResource("ViewportTexture_xtkr3")
+texture = SubResource("ViewportTexture_3riaq")
 with_background = false
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="3" index="4"]
