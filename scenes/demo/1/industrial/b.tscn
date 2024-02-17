@@ -144,7 +144,7 @@ scale = Vector2(0.6, 0.6)
 texture = ExtResource("11_0g0bb")
 
 [node name="InteractionArea" parent="YSort/Panel C-No-1" index="1" node_paths=PackedStringArray("options_container_node") instance=ExtResource("12_6urft")]
-position = Vector2(17, -24)
+position = Vector2(1043, 501)
 title = "Access Panel"
 reference_id = "panel-c-no-1"
 description = "There's an access panel built into the wall here."
@@ -152,7 +152,7 @@ child_depth = 2
 options_container_node = NodePath("../Actions")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/Panel C-No-1/InteractionArea" index="0"]
-position = Vector2(3, 0)
+position = Vector2(-1020, -511)
 polygon = PackedVector2Array(990, 542, 984, 444, 1062, 493, 1064, 582)
 
 [node name="InteractRangeExtender" parent="YSort/Panel C-No-1" index="2" node_paths=PackedStringArray("interactable") instance=ExtResource("13_6vyp4")]
@@ -184,11 +184,13 @@ to_cutscene = ExtResource("16_k1any")
 title = "Open it anyway (kill yourself)"
 
 [node name="InteractionArea" parent="YSort" index="15" instance=ExtResource("12_6urft")]
+position = Vector2(269, 449)
 title = "Leyline Cross"
 description = "There must be a Leyline nearby--though this probably isn't connected to it. There isn't even any wire left on it."
 child_depth = 2
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/InteractionArea" index="0"]
+position = Vector2(-273, -432)
 polygon = PackedVector2Array(272, 408, 293, 417, 335, 266, 365, 262, 373, 220, 344, 169, 289, 230, 282, 245, 314, 256)
 
 [node name="InteractRangeExtender" parent="YSort/InteractionArea" index="1" node_paths=PackedStringArray("interactable") instance=ExtResource("13_6vyp4")]

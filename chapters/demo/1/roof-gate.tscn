@@ -18,6 +18,7 @@ position = Vector2(-199, 42)
 polygon = PackedVector2Array(136, 13, 76, -98, 277, -197, 364, -112)
 
 [node name="InteractionArea" parent="." node_paths=PackedStringArray("options_container_node") instance=ExtResource("2_6j24u")]
+position = Vector2(27, -211)
 title = "Locked Gate"
 reference_id = "roof_gate"
 description = "A locked gate blocks the way to the roof"
@@ -25,6 +26,7 @@ child_depth = 3
 options_container_node = NodePath("Actions")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="InteractionArea"]
+position = Vector2(-21, 213)
 polygon = PackedVector2Array(-98, -199, -95, -20, 57, -100, 49, -284)
 
 [node name="Actions" type="Node" parent="InteractionArea"]

@@ -33,6 +33,7 @@ polygon = PackedVector2Array(-105, 651, -119, -129, 1897, -138, 1753, 1143, 1595
 polygon = PackedVector2Array(475, -132, 531, 111, 641, 213, 695, 269, 800, 326, 862, 385, 896, 377, 933, 337, 1015, 318, 975, 265, 1014, 252, 1000, 226, 941.135, 212.097, 766, -39)
 
 [node name="Car" type="Sprite2D" parent="Background" index="1"]
+visible = false
 position = Vector2(797, 242)
 texture = ExtResource("3_11dvp")
 
@@ -77,6 +78,7 @@ dest_edge = "West"
 navigation_polygon = SubResource("NavigationPolygon_30nyk")
 
 [node name="MO-Car-Key-B" parent="YSort" index="7" node_paths=PackedStringArray("options_container_node", "get_on_open_from") instance=ExtResource("6_dgxub")]
+position = Vector2(744, 216)
 title = "Ruined Chariot"
 reference_id = "car-key-b"
 description = "A chariot, painted in a festive yellow colour. The windows are long since gone, and you're able to see and even reach inside."
@@ -85,6 +87,7 @@ options_container_node = NodePath("Actions")
 get_on_open_from = NodePath("RefreshCabOptions")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/MO-Car-Key-B" index="0"]
+position = Vector2(-752, -216)
 polygon = PackedVector2Array(816, 330, 841, 224, 861, 231, 892, 215, 716, 101, 677, 113, 654, 129, 644, 204, 657, 224, 690, 245, 705, 273, 774, 318)
 
 [node name="RefreshCabOptions" type="Node" parent="YSort/MO-Car-Key-B" index="1"]
@@ -108,6 +111,7 @@ interactable = NodePath("../MO-Car-Hood-C-Yes-2")
 polygon = PackedVector2Array(795, 338, 853, 392, 909, 390, 943, 351, 1006, 327, 1067, 377, 922, 470, 688, 428)
 
 [node name="MO-Car-Hood-C-Yes-2" parent="YSort" index="9" node_paths=PackedStringArray("options_container_node", "get_on_open_from") instance=ExtResource("6_dgxub")]
+position = Vector2(880, 288)
 title = "Chariot (Under the Hood)"
 reference_id = "car-c-yes-2"
 description = "The hood of the chariot still opens, with a little effort."
@@ -116,6 +120,7 @@ options_container_node = NodePath("Actions")
 get_on_open_from = NodePath("../MO-Car-Key-B/RefreshCabOptions")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/MO-Car-Hood-C-Yes-2" index="0"]
+position = Vector2(-881, -284)
 polygon = PackedVector2Array(825, 330, 844, 231, 864, 240, 897, 218, 936, 242, 946, 273, 931, 323, 918, 345, 889, 348, 855, 345)
 
 [node name="Actions" type="Node" parent="YSort/MO-Car-Hood-C-Yes-2" index="1"]
@@ -146,6 +151,7 @@ item_name = "Alternator"
 title = "Never mind"
 
 [node name="XCar" parent="YSort" index="10" node_paths=PackedStringArray("interactable") instance=ExtResource("7_pif8w")]
+position = Vector2(8, 0)
 interactable = NodePath("../MO-Car-Key-B")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/XCar" index="0"]

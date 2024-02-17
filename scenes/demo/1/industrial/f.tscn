@@ -134,7 +134,7 @@ texture = ExtResource("12_ui4a6")
 offset = Vector2(0, -100)
 
 [node name="InteractionArea" parent="YSort/Meter C-No-3" index="0" node_paths=PackedStringArray("options_container_node") instance=ExtResource("13_80ejq")]
-position = Vector2(-485, -415)
+position = Vector2(1.42853, -77.1428)
 title = "Tithe Collector"
 reference_id = "meter-c-no-3"
 description = "An ancient tithe collecting machine mounted on a post."
@@ -142,6 +142,7 @@ child_depth = 2
 options_container_node = NodePath("Actions")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/Meter C-No-3/InteractionArea" index="0"]
+position = Vector2(-484.285, -331.428)
 polygon = PackedVector2Array(474, 401, 488, 390, 479, 286, 467, 285, 455, 257, 459, 225, 474, 221, 484, 260, 489, 260, 490, 224, 502, 218, 511, 230, 512, 264, 498, 290, 490, 297, 499, 389, 514, 401, 503, 408, 487, 412)
 
 [node name="Actions" type="Node" parent="YSort/Meter C-No-3/InteractionArea" index="1"]
@@ -166,6 +167,7 @@ to_cutscene = ExtResource("16_hbmqc")
 title = "Open it anyway"
 
 [node name="Pole C-No-2" parent="YSort" index="17" node_paths=PackedStringArray("options_container_node") instance=ExtResource("13_80ejq")]
+position = Vector2(1190, 848)
 title = "Fallen Leyline Cross"
 reference_id = "pole-c-no-2"
 description = "A Leyline cross lies fallen on the ground, its cables strewn beside it."
@@ -173,6 +175,7 @@ child_depth = 2
 options_container_node = NodePath("Actions")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/Pole C-No-2" index="0"]
+position = Vector2(-1192, -844)
 polygon = PackedVector2Array(1101, 828, 1121, 916, 1206, 913, 1644, 1088, 1642, 1052, 1415, 947, 1602, 989, 1582, 905, 1424, 899, 1181, 800)
 
 [node name="Actions" type="Node" parent="YSort/Pole C-No-2" index="1"]

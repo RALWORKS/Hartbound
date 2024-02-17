@@ -112,6 +112,7 @@ func _ready():
 	
 	#$char.texture = texture
 	$InteractionArea.title = character_name
+	$InteractionArea.setup_label()
 	$InteractionArea.reference_id = reference_id
 	if $char.hframes == 6 and $char.vframes == 4:
 		_make_walk_animations()

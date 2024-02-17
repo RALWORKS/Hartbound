@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://wwmpe6ttdblv"]
+[gd_scene load_steps=21 format=3 uid="uid://wwmpe6ttdblv"]
 
 [ext_resource type="PackedScene" uid="uid://byrlpmbpj6yr5" path="res://scene.tscn" id="1_3u62o"]
 [ext_resource type="Texture2D" uid="uid://cdm0ewe6djiw" path="res://assets/scenes/demo/1/industrial/a.png" id="2_kjnsv"]
@@ -8,7 +8,6 @@
 [ext_resource type="Texture2D" uid="uid://cxt8h6d0otgpo" path="res://assets/scenes/demo/1/industrial/a-train4.png" id="6_fukre"]
 [ext_resource type="Texture2D" uid="uid://csb12eaiht5tq" path="res://assets/scenes/demo/1/industrial/a-train5.png" id="7_ppj6t"]
 [ext_resource type="PackedScene" uid="uid://dxfuidhlgwthh" path="res://travel/door.tscn" id="8_w73q6"]
-[ext_resource type="PackedScene" uid="uid://cl4heje674d3q" path="res://item/interaction_area.tscn" id="9_immxw"]
 [ext_resource type="Shader" path="res://effects/alpha-mask.gdshader" id="10_lqi68"]
 [ext_resource type="Shader" path="res://scenes/light-path1.gdshader" id="10_r8qs7"]
 [ext_resource type="Texture2D" uid="uid://gqej44bqtstb" path="res://assets/effects/light-fleck-4.png" id="11_jcyyb"]
@@ -190,16 +189,7 @@ vertices = PackedVector2Array(1064, 87, 1170, -4, 1287, 66, 1181, 155, 1181, 155
 [node name="VentC" type="NavigationObstacle2D" parent="YSort" index="14"]
 vertices = PackedVector2Array(1484, 323, 1598, 253, 1679, 323, 1592, 393)
 
-[node name="ScaffoldX" parent="." index="2" instance=ExtResource("9_immxw")]
-position = Vector2(1124, 788)
-scale = Vector2(5, 5)
-title = "Scaffold"
-description = "These scaffolds are set up all around this complex. Perhaps maintenance was underway when it was abandoned. This doesn't look climbable, which is unfortunate, because you'll most likely need a route up and down from the rooves."
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="ScaffoldX" index="0"]
-polygon = PackedVector2Array(-80.2, -108.4, -74.8, -40.8, -45.6001, -32.4, -22.2, -36.2, -19.6001, -104.4, -48.6, -90)
-
-[node name="LightPath" type="Sprite2D" parent="." index="3"]
+[node name="LightPath" type="Sprite2D" parent="." index="2"]
 visible = false
 material = SubResource("ShaderMaterial_xkijc")
 position = Vector2(0, 120)
@@ -233,4 +223,4 @@ offset_bottom = 40.0
 color = Color(0, 1, 1, 0)
 script = ExtResource("12_yf8y7")
 
-[node name="Sprite2D" type="Sprite2D" parent="." index="4"]
+[node name="Sprite2D" type="Sprite2D" parent="." index="3"]

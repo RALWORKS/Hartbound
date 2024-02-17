@@ -8,7 +8,6 @@ extends Area2D
 @export var options_container_node: Node = null
 @export var get_on_open_from: Node
 
-
 var x_cursor = preload("res://cursor.tscn")
 var InteractionModal = preload("res://item/interaction_modal.tscn")
 
@@ -20,8 +19,8 @@ var in_range = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
-
+	setup_indicator()
+	setup_label()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
@@ -34,6 +33,12 @@ func _process(_delta):
 			cur_cursor.set_deferred("visible", false)
 		else:
 			cur_cursor.set_deferred("visible", true)
+	
+	var scout = Input.is_action_pressed("scout")
+	if scout and not $indicator.visible:
+		$indicator.set_deferred("visible", true)
+	elif not scout and $indicator.visible:
+		$indicator.set_deferred("visible", false)
 
 func _close_action_window():
 	if cur_window:
@@ -108,3 +113,20 @@ func interact_range_exited():
 func _on_tree_exiting():
 	if cur_cursor != null:
 		cur_cursor.call_deferred("free")
+
+
+func setup_indicator():
+	$indicator.scale.x = 1.0/global_scale.x
+	$indicator.scale.y = 1.0/global_scale.y
+	$indicator.rotation = 0 - global_rotation
+
+func setup_label():
+	$indicator/RichTextLabel.text = title
+	var label = $indicator/RichTextLabel
+	var overflow = title.length() - 8
+	print(title, overflow)
+	if overflow < 1:
+		return
+	for i in range(overflow):
+		label.size.x += 10
+	
