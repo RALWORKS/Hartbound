@@ -6,17 +6,17 @@
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_idych"]
 content_margin_left = 15.0
 content_margin_top = 2.0
-bg_color = Color(0, 0, 0, 0.588235)
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
+bg_color = Color(0.196078, 0.196078, 0.196078, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
 
 [node name="InteractionArea" type="Area2D"]
 script = ExtResource("1_2nais")
 
 [node name="indicator" type="Sprite2D" parent="."]
-self_modulate = Color(0.882353, 0.87451, 0, 1)
+self_modulate = Color(0.247059, 0.211765, 0.513726, 0.705882)
 z_index = 90
 texture = ExtResource("2_ahyq5")
 
@@ -25,12 +25,12 @@ scale = Vector2(0.6, 0.6)
 texture = ExtResource("2_ahyq5")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="indicator"]
-offset_left = -28.0
+offset_left = -15.0
 offset_top = -15.0
-offset_right = 72.0
+offset_right = 48.0
 offset_bottom = 15.0
 theme_override_styles/normal = SubResource("StyleBoxFlat_idych")
-text = "test test"
+text = "Test"
 
 [connection signal="input_event" from="." to="." method="_on_input_event"]
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]

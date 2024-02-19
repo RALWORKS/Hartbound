@@ -17,6 +17,9 @@ var game = null
 
 var in_range = false
 
+var match_narrow_chars = RegEx.create_from_string("[ ilt]")
+var match_wide_chars = RegEx.create_from_string("[W]")
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	setup_indicator()
@@ -123,10 +126,15 @@ func setup_indicator():
 func setup_label():
 	$indicator/RichTextLabel.text = title
 	var label = $indicator/RichTextLabel
-	var overflow = title.length() - 8
-	print(title, overflow)
+	var len_title = title.length()
+	var overflow = len_title - 4
 	if overflow < 1:
 		return
 	for i in range(overflow):
 		label.size.x += 10
+		
+	var n_narrow = match_narrow_chars.search_all(title).size()
+	var n_wide = match_wide_chars.search_all(title).size()
+
+	label.size.x = label.size.x - (6*n_narrow) + (6*n_wide)
 	
