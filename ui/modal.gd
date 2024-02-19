@@ -50,4 +50,3 @@ func open(g):
 	g.add_modal($".")
 	$".".set_focus_mode(FOCUS_ALL)
 	$".".grab_focus()
-	

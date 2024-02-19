@@ -41,7 +41,10 @@ func refresh_data(character_record=null):
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-	pass
+	if game.chapter != null and game.chapter.cutscene != null and $HideButtonsForCutscene.visible:
+		$HideButtonsForCutscene.set_deferred("visible", false)
+	if game.chapter == null or game.chapter.cutscene == null and not $HideButtonsForCutscene.visible:
+		$HideButtonsForCutscene.set_deferred("visible", true)
 
 
 func _on_profile_btn_pressed():
@@ -62,3 +65,7 @@ func _on_character_record_close_requested():
 
 func _on_character_record_focus_exited():
 	close_character_record()
+
+
+func _on_profile_btn_mouse_entered():
+	pass # Replace with function body.

@@ -37,7 +37,7 @@ func _process(_delta):
 		else:
 			cur_cursor.set_deferred("visible", true)
 	
-	var scout = Input.is_action_pressed("scout")
+	var scout = Input.is_action_pressed("scout") or _get_game().is_scouting
 	if scout and not $indicator.visible:
 		$indicator.set_deferred("visible", true)
 	elif not scout and $indicator.visible:

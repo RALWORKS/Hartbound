@@ -1,15 +1,22 @@
-[gd_scene load_steps=9 format=3 uid="uid://d2tvvel0wxl51"]
+[gd_scene load_steps=12 format=3 uid="uid://d2tvvel0wxl51"]
 
 [ext_resource type="Script" path="res://ui/game_menu.gd" id="1_qi0kv"]
 [ext_resource type="Texture2D" uid="uid://b4qmfyh2beo7n" path="res://assets/menubg.png" id="1_qo3pl"]
 [ext_resource type="Script" path="res://ui/GlobalSaveBtn.gd" id="2_srpx4"]
 [ext_resource type="PackedScene" uid="uid://cemborgcdx75k" path="res://character/profile.tscn" id="3_gksuv"]
+[ext_resource type="Script" path="res://ui/ProfileBtn.gd" id="4_5c32q"]
 [ext_resource type="PackedScene" uid="uid://i6laa1tesr13" path="res://ui/modal.tscn" id="5_jpiq8"]
 [ext_resource type="Theme" uid="uid://bowrqsap2qmsa" path="res://base_theme.tres" id="6_pr2h2"]
 [ext_resource type="PackedScene" uid="uid://cywkpft2hp3p2" path="res://ui/view_leyline_btn.tscn" id="7_2qthx"]
+[ext_resource type="PackedScene" uid="uid://b2s0y0fs6dw7v" path="res://ui/scout_btn.tscn" id="8_4uuuh"]
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_qud10"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_4kbmm"]
 viewport_path = NodePath("img")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xueob"]
+content_margin_left = 45.0
+bg_color = Color(0, 0, 0, 0.815686)
+border_color = Color(0, 0, 0, 1)
 
 [node name="GameMenu" type="Node2D"]
 position = Vector2(1720, 0)
@@ -32,16 +39,18 @@ script = ExtResource("2_srpx4")
 metadata/_edit_use_anchors_ = true
 
 [node name="ProfileBtn" type="Button" parent="."]
+clip_contents = true
 offset_left = 14.0
 offset_top = 14.0
 offset_right = 194.0
 offset_bottom = 204.0
+script = ExtResource("4_5c32q")
 metadata/_edit_use_anchors_ = true
 
 [node name="Profile" parent="ProfileBtn" instance=ExtResource("3_gksuv")]
 position = Vector2(15, 12)
 scale = Vector2(0.38, 0.38)
-texture = SubResource("ViewportTexture_qud10")
+texture = SubResource("ViewportTexture_4kbmm")
 
 [node name="Label" type="Label" parent="ProfileBtn"]
 layout_mode = 1
@@ -55,6 +64,17 @@ text = "Character"
 horizontal_alignment = 1
 clip_text = true
 metadata/_edit_use_anchors_ = true
+
+[node name="ToolTip" type="RichTextLabel" parent="ProfileBtn"]
+offset_left = 5.0
+offset_top = 80.0
+offset_right = 347.0
+offset_bottom = 124.0
+scale = Vector2(0.5, 0.5)
+mouse_filter = 1
+theme_override_font_sizes/normal_font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_xueob")
+text = "Character Record"
 
 [node name="CharacterRecord" parent="." instance=ExtResource("5_jpiq8")]
 visible = false
@@ -117,12 +137,23 @@ theme_override_font_sizes/normal_font_size = 30
 bbcode_enabled = true
 text = "- Story of the character's life"
 
-[node name="ViewLeylineBtn" parent="." instance=ExtResource("7_2qthx")]
-offset_left = 18.0
+[node name="HideButtonsForCutscene" type="Node2D" parent="."]
+
+[node name="ViewLeylineBtn" parent="HideButtonsForCutscene" instance=ExtResource("7_2qthx")]
+offset_left = 22.0
 offset_top = 212.0
-offset_right = 168.0
+offset_right = 172.0
+offset_bottom = 362.0
+scale = Vector2(0.5, 0.5)
+
+[node name="ScoutBtn" parent="HideButtonsForCutscene" instance=ExtResource("8_4uuuh")]
+offset_left = 110.0
+offset_top = 212.0
+offset_right = 260.0
 offset_bottom = 362.0
 scale = Vector2(0.5, 0.5)
 
 [connection signal="pressed" from="GlobalSaveBtn" to="GlobalSaveBtn" method="_on_pressed"]
+[connection signal="mouse_entered" from="ProfileBtn" to="ProfileBtn" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="ProfileBtn" to="ProfileBtn" method="_on_mouse_exited"]
 [connection signal="pressed" from="ProfileBtn" to="." method="_on_profile_btn_pressed"]

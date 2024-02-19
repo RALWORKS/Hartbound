@@ -8,6 +8,7 @@ var started = false
 var paused = false
 var unpausing = false
 var leyline_showing = false
+var is_scouting = false
 
 var MainScreen = preload("res://ui/main_screen.tscn")
 var StartScreen = preload("res://ui/start_screen.tscn")
@@ -287,6 +288,13 @@ func leyline():
 		return
 	if not leyline_showing and $Map != null and $Map.current != null:
 		$Map.current.leyline()
+
+func scout():
+	if is_scouting or chapter != null and chapter.cutscene != null:
+		return
+	is_scouting = true
+	await get_tree().create_timer(3.0).timeout
+	is_scouting = false
 
 func _handle_walk_input(delta):
 	if player == null:
