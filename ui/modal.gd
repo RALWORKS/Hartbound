@@ -2,7 +2,7 @@ extends Panel
 
 @export var is_cached = false
 @export var title = "Window"
-@export var wrapper: Node2D = null
+@export var wrapper: Node = null
 var game = null
 
 # Called when the node enters the scene tree for the first time.

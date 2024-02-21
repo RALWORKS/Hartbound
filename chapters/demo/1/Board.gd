@@ -19,4 +19,5 @@ func _refresh():
 func take():
 	var g = _get_game()
 	g.set_state(["micro_progress", "got_board"], true)
+	g.set_state_push_to_key(["inventory"], "board")
 	call_deferred("free")

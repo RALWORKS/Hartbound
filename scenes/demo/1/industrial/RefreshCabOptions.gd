@@ -20,7 +20,7 @@ func on_open():
 		$"../Actions/TakeKey".enabled = true
 	var taker = $"../../MO-Car-Hood-C-Yes-2/Actions/Harvest/MakeHarvest/Options/Take/TMPTake"
 	var collection = g.get_state(taker.COLLECTION_STATE_PATH)
-	if (collection != null and taker.item_name in collection):
+	if (collection != null and taker.item_id in collection):
 		$"../../MO-Car-Hood-C-Yes-2/Actions/Harvest".enabled = false
 	else:
 		$"../../MO-Car-Hood-C-Yes-2/Actions/Harvest".enabled = true

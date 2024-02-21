@@ -3,9 +3,9 @@ extends Node
 var InteractionModal = preload("res://item/interaction_modal.tscn")
 
 @export var option_to_disable: Node
-@export var item_name: String
+@export var item_id: String
 
-const COLLECTION_STATE_PATH = ["micro_progress", "collected"]
+const COLLECTION_STATE_PATH = ["inventory"]
 
 var game
 
@@ -28,7 +28,7 @@ func action():
 	if option_to_disable != null:
 		option_to_disable.enabled = false
 	var g = _get_game()
-	g.set_state_push_to_key(COLLECTION_STATE_PATH, item_name)
+	g.set_state_push_to_key(COLLECTION_STATE_PATH, item_id)
 	
 	#if g.get_state(COLLECTION_STATE_PATH).size() < 3:
 	#	return

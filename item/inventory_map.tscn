@@ -1,0 +1,21 @@
+[gd_scene load_steps=7 format=3 uid="uid://v8p64d73itjl"]
+
+[ext_resource type="Script" path="res://item/inventory_map.gd" id="1_vf78k"]
+[ext_resource type="PackedScene" uid="uid://c0ofvmhu554kh" path="res://item/inventory_map/car_keys_item.tscn" id="2_sg68w"]
+[ext_resource type="PackedScene" uid="uid://wjycar3we6qf" path="res://item/inventory_map/board_item.tscn" id="3_jxjoh"]
+[ext_resource type="PackedScene" uid="uid://mlwjcbwk5stk" path="res://item/inventory_map/wire_item.tscn" id="4_5p16y"]
+[ext_resource type="PackedScene" uid="uid://dlmm7weocxcgo" path="res://item/inventory_map/pcb_item.tscn" id="5_fqfev"]
+[ext_resource type="PackedScene" uid="uid://byluw1yetduw" path="res://item/inventory_map/alternator_item.tscn" id="6_d8wsj"]
+
+[node name="InventoryMap" type="Node"]
+script = ExtResource("1_vf78k")
+
+[node name="CarKeysItem" parent="." instance=ExtResource("2_sg68w")]
+
+[node name="BoardItem" parent="." instance=ExtResource("3_jxjoh")]
+
+[node name="WireItem" parent="." instance=ExtResource("4_5p16y")]
+
+[node name="PCBItem" parent="." instance=ExtResource("5_fqfev")]
+
+[node name="AlternatorItem" parent="." instance=ExtResource("6_d8wsj")]

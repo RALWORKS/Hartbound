@@ -2,7 +2,16 @@ extends Node
 @export var cutscene: Node
 var next_cutscene = preload("res://chapters/demo/1/c_1_end.tscn")
 
-const COLLECTION_STATE_PATH = ["micro_progress", "collected"]
+const INV_STATE_PATH = ["inventory"]
+const REQUIRED_ITEMS = ["pcb", "wire", "alternator"]
+
+func check_done():
+	var g = _get_game()
+	var items = g.get_state(INV_STATE_PATH)
+	for i in REQUIRED_ITEMS:
+		if i not in items:
+			return false
+	return true
 
 var game
 
@@ -14,11 +23,7 @@ func _get_game():
 func on_start():
 	assert(cutscene != null)
 	
-	var g = _get_game()
-	var prog = g.get_state(COLLECTION_STATE_PATH)
-	if prog == null:
-		return
-	if prog.size() < 3:
+	if not check_done():
 		return
 	
 	cutscene.next_cutscene = next_cutscene

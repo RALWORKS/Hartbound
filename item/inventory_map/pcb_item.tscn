@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://dlmm7weocxcgo"]
+
+[ext_resource type="PackedScene" uid="uid://b26qv8ndwvh7h" path="res://item/inv_item.tscn" id="1_hp18b"]
+[ext_resource type="Texture2D" uid="uid://cfg0j674x06vh" path="res://assets/items/demo-1/pcb.png.png" id="2_dmodd"]
+
+[node name="PCBItem" instance=ExtResource("1_hp18b")]
+id = "pcb"
+title = "PCB"
+icon = ExtResource("2_dmodd")

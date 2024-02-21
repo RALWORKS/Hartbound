@@ -19,7 +19,7 @@ func on_open():
 	
 	var collection = g.get_state(taker.COLLECTION_STATE_PATH)
 
-	if (collection != null and taker.item_name in collection):
+	if (collection != null and taker.item_id in collection):
 		btn.enabled = false
 	else:
 		btn.enabled = true

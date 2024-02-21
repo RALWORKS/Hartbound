@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://d2tvvel0wxl51"]
+[gd_scene load_steps=13 format=3 uid="uid://d2tvvel0wxl51"]
 
 [ext_resource type="Script" path="res://ui/game_menu.gd" id="1_qi0kv"]
 [ext_resource type="Texture2D" uid="uid://b4qmfyh2beo7n" path="res://assets/menubg.png" id="1_qo3pl"]
@@ -9,8 +9,9 @@
 [ext_resource type="Theme" uid="uid://bowrqsap2qmsa" path="res://base_theme.tres" id="6_pr2h2"]
 [ext_resource type="PackedScene" uid="uid://cywkpft2hp3p2" path="res://ui/view_leyline_btn.tscn" id="7_2qthx"]
 [ext_resource type="PackedScene" uid="uid://b2s0y0fs6dw7v" path="res://ui/scout_btn.tscn" id="8_4uuuh"]
+[ext_resource type="PackedScene" uid="uid://xpojrm8dxubm" path="res://ui/inv_btn.tscn" id="10_jbthf"]
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_4kbmm"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_43otg"]
 viewport_path = NodePath("img")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xueob"]
@@ -50,7 +51,7 @@ metadata/_edit_use_anchors_ = true
 [node name="Profile" parent="ProfileBtn" instance=ExtResource("3_gksuv")]
 position = Vector2(15, 12)
 scale = Vector2(0.38, 0.38)
-texture = SubResource("ViewportTexture_4kbmm")
+texture = SubResource("ViewportTexture_43otg")
 
 [node name="Label" type="Label" parent="ProfileBtn"]
 layout_mode = 1
@@ -66,6 +67,7 @@ clip_text = true
 metadata/_edit_use_anchors_ = true
 
 [node name="ToolTip" type="RichTextLabel" parent="ProfileBtn"]
+layout_mode = 0
 offset_left = 5.0
 offset_top = 80.0
 offset_right = 347.0
@@ -85,8 +87,10 @@ anchor_top = 0.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 0.0
-offset_right = -200.0
+offset_right = 0.0
 offset_bottom = 0.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_type_variation = &"ModalBlack"
 title = "Character Record"
 
@@ -141,16 +145,23 @@ text = "- Story of the character's life"
 
 [node name="ViewLeylineBtn" parent="HideButtonsForCutscene" instance=ExtResource("7_2qthx")]
 offset_left = 22.0
-offset_top = 212.0
+offset_top = 302.0
 offset_right = 172.0
-offset_bottom = 362.0
+offset_bottom = 452.0
 scale = Vector2(0.5, 0.5)
 
 [node name="ScoutBtn" parent="HideButtonsForCutscene" instance=ExtResource("8_4uuuh")]
 offset_left = 110.0
-offset_top = 212.0
+offset_top = 302.0
 offset_right = 260.0
-offset_bottom = 362.0
+offset_bottom = 452.0
+scale = Vector2(0.5, 0.5)
+
+[node name="InvBtn" parent="." instance=ExtResource("10_jbthf")]
+offset_left = 22.0
+offset_top = 214.0
+offset_right = 172.0
+offset_bottom = 364.0
 scale = Vector2(0.5, 0.5)
 
 [connection signal="pressed" from="GlobalSaveBtn" to="GlobalSaveBtn" method="_on_pressed"]

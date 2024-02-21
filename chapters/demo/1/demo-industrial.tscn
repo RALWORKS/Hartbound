@@ -99,6 +99,11 @@ state_path_slash_delineated = "micro_progress/got_key"
 data = "true"
 parse_data_as_bool = true
 
+[node name="AddKeyToInv" parent="Events/TakeKey" index="1" instance=ExtResource("4_gn21l")]
+state_path_slash_delineated = "inventory"
+data = "car-keys"
+current_plus_data = true
+
 [node name="Music" parent="." index="1" instance=ExtResource("6_eeti4")]
 stream = ExtResource("7_q6myq")
 

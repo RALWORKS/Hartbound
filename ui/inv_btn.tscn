@@ -1,7 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://b2s0y0fs6dw7v"]
+[gd_scene load_steps=7 format=3 uid="uid://xpojrm8dxubm"]
 
-[ext_resource type="Script" path="res://ui/scout_btn.gd" id="1_lnipf"]
-[ext_resource type="Texture2D" uid="uid://bauoyhnhacidq" path="res://assets/maginfying-glass.png" id="2_5mq1i"]
+[ext_resource type="Script" path="res://ui/inv_btn.gd" id="1_4ff47"]
+[ext_resource type="Texture2D" uid="uid://4crcajdud5af" path="res://assets/sack-icon.png" id="2_ny0tx"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wqxoo"]
 bg_color = Color(0.368627, 0.368627, 0.368627, 1)
@@ -13,35 +13,35 @@ bg_color = Color(1, 1, 1, 1)
 bg_color = Color(0.368627, 0.368627, 0.368627, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xxi2w"]
+content_margin_left = 8.0
 bg_color = Color(0, 0, 0, 0.815686)
 border_color = Color(0, 0, 0, 1)
 
-[node name="ScoutBtn" type="Button"]
+[node name="InvBtn" type="Button"]
 clip_contents = true
 offset_right = 150.0
 offset_bottom = 150.0
 theme_override_styles/normal = SubResource("StyleBoxFlat_wqxoo")
 theme_override_styles/hover = SubResource("StyleBoxFlat_7wnnk")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_wluhk")
-script = ExtResource("1_lnipf")
+script = ExtResource("1_4ff47")
 
 [node name="Icon" type="Sprite2D" parent="."]
-position = Vector2(71, 71)
-rotation = 1.11527
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("2_5mq1i")
+position = Vector2(75, 70)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("2_ny0tx")
 
 [node name="Label" type="Label" parent="."]
 modulate = Color(1, 1, 1, 0.360784)
 layout_mode = 0
-offset_left = 71.0
+offset_left = 121.0
 offset_top = 93.0
-offset_right = 185.0
+offset_right = 164.0
 offset_bottom = 185.0
 scale = Vector2(0.7, 0.7)
 mouse_filter = 1
 theme_override_font_sizes/font_size = 50
-text = "TAB"
+text = "I"
 
 [node name="ToolTip" type="RichTextLabel" parent="."]
 layout_mode = 0
@@ -52,7 +52,7 @@ offset_bottom = 98.0
 mouse_filter = 1
 theme_override_font_sizes/normal_font_size = 30
 theme_override_styles/normal = SubResource("StyleBoxFlat_xxi2w")
-text = "Scout Area"
+text = "Inventory"
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

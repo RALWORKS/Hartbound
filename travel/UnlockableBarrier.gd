@@ -3,6 +3,7 @@ extends Node2D
 @export var UnlockedSprite: Resource
 @export var LockedSprite: Resource
 @export var state_var = ""
+@export var used_item: Node
 
 @export var is_unlocked = false
 var game = null
@@ -46,3 +47,4 @@ func _ready():
 func unlock():
 	set_unlocked_state(true)
 	refresh_unlocked()
+	_get_game().remove_inventory_item(used_item)

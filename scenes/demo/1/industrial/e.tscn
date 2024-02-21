@@ -145,7 +145,7 @@ trigger_name = "TakeAlternator"
 
 [node name="TMPTake" parent="YSort/MO-Car-Hood-C-Yes-2/Actions/Harvest/MakeHarvest/Options/Take" index="0" node_paths=PackedStringArray("option_to_disable") instance=ExtResource("11_u7826")]
 option_to_disable = NodePath("../../../..")
-item_name = "Alternator"
+item_id = "alternator"
 
 [node name="Leave" parent="YSort/MO-Car-Hood-C-Yes-2/Actions" index="1" instance=ExtResource("8_cpq4g")]
 title = "Never mind"

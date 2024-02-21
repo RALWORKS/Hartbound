@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dft6b71mrnjsl"]
+
+[ext_resource type="Script" path="res://item/InvItemUseCase.gd" id="1_pdjfm"]
+
+[node name="InvItemUseCase" type="Node"]
+script = ExtResource("1_pdjfm")

@@ -357,6 +357,14 @@ func _init_quests_if_needed():
 		["quests"],
 		{"active": [], "complete": []},
 	)
+
+func init_inventory_if_needed():
+	var inv = get_state(["inventory"])
+	if inv != null:
+		return
+	set_state(["inventory"], [])
+	#set_state(["inventory"], ["pcb", "wire", "board", "car-keys", "alternator"])
+
 	
 func _init_party_if_needed():
 	var q = get_state(["party"])
@@ -393,3 +401,12 @@ func check_state_for_follower(npc):
 	_init_party_if_needed()
 	var followers = get_state(["party"])
 	return npc.id in followers
+
+func remove_inventory_item(item):
+	init_inventory_if_needed()
+	var new_inventory = get_state(["inventory"]).filter(func(i): return i != item.id)
+	set_state(["inventory"], new_inventory)
+
+func add_inventory_item(item):
+	init_inventory_if_needed()
+	set_state_push_to_key(["inventory"], item.id)

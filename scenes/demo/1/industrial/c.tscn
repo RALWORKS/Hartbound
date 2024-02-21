@@ -106,7 +106,7 @@ trigger_name = "TakeWire"
 
 [node name="TMPTake" parent="Background/Panel-C-Yes-1/InteractionArea/Actions/Harvest/MakeHarvest/Options/Take" index="0" node_paths=PackedStringArray("option_to_disable") instance=ExtResource("8_4rjbx")]
 option_to_disable = NodePath("../../../..")
-item_name = "Black Coated Wires"
+item_id = "wire"
 
 [node name="Leave" parent="Background/Panel-C-Yes-1/InteractionArea/Actions" index="1" instance=ExtResource("5_6s1jt")]
 title = "Never mind"

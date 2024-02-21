@@ -95,7 +95,7 @@ is_close_btn = true
 trigger_name = "TakePCB"
 
 [node name="TMPTake" parent="YSort/Panel-C-Yes-3/InteractionArea/Actions/Harvest/MakeHarvest/Options/Take" index="0" instance=ExtResource("10_mn0pn")]
-item_name = "PCB"
+item_id = "pcb"
 
 [node name="Leave" parent="YSort/Panel-C-Yes-3/InteractionArea/Actions" index="1" instance=ExtResource("7_c1ftg")]
 title = "Never mind"

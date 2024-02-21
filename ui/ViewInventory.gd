@@ -1,0 +1,42 @@
+extends Node
+
+@export var top = 100
+@export var left = 100
+@export var width = 500
+@export var spacing = 130
+
+var game = null
+
+
+func _get_game():
+	if game == null:
+		game = $"/root/Game"
+	return game
+
+var InventoryButton = preload("res://ui/inventory_button.tscn")
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	refresh_inventory()
+
+
+func refresh_inventory():
+	var g = _get_game()
+	
+	for child in $"../Body".get_children():
+		child.queue_free()
+	
+	var x = left
+	var y = top
+	g.init_inventory_if_needed()
+	for item_id in g.get_state(["inventory"]):
+		var item = $"../InventoryMap".data[item_id]
+		var btn = InventoryButton.instantiate()
+		btn.set_item(item)
+		btn.position = Vector2(x, y)
+		$"../Body".add_child(btn)
+		x += spacing
+		if x > width:
+			x = left
+			y += spacing
+		
