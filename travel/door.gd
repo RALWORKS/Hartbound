@@ -11,12 +11,22 @@ var loading = true
 
 var dest
 
+var game
+
+func _get_game():
+	if game == null:
+		game = get_tree().get_root().get_node("Game")
+	return game
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 #	$Spawner.position.x *= scale_spawner_x_position
 #	$Spawner.position.y *= scale_spawner_y_position
 	_enable()
 	dest = load(dest_resource).instantiate()
+	$Pointer.scale.x = 1 / global_scale.x
+	$Pointer.scale.y = 1 / global_scale.y
+	$Pointer/AnimationPlayer.play("blink")
 
 func _enable():
 	await get_tree().create_timer(0.3).timeout
@@ -24,7 +34,11 @@ func _enable():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-	pass
+	var scout = Input.is_action_pressed("scout") or _get_game().is_scouting
+	if scout and not $Pointer.visible:
+		$Pointer.set_deferred("visible", true)
+	elif not scout and $Pointer.visible:
+		$Pointer.set_deferred("visible", false)
 
 
 func _on_hitbox_body_entered(body):

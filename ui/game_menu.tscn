@@ -11,7 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://b2s0y0fs6dw7v" path="res://ui/scout_btn.tscn" id="8_4uuuh"]
 [ext_resource type="PackedScene" uid="uid://xpojrm8dxubm" path="res://ui/inv_btn.tscn" id="10_jbthf"]
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_43otg"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_tr4fp"]
 viewport_path = NodePath("img")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xueob"]
@@ -51,7 +51,7 @@ metadata/_edit_use_anchors_ = true
 [node name="Profile" parent="ProfileBtn" instance=ExtResource("3_gksuv")]
 position = Vector2(15, 12)
 scale = Vector2(0.38, 0.38)
-texture = SubResource("ViewportTexture_43otg")
+texture = SubResource("ViewportTexture_tr4fp")
 
 [node name="Label" type="Label" parent="ProfileBtn"]
 layout_mode = 1
