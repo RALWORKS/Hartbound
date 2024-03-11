@@ -40,7 +40,7 @@ clip_contents = true
 
 [node name="black" type="Sprite2D" parent="Body" index="0"]
 clip_children = 2
-position = Vector2(890.5, 679.5)
+position = Vector2(900.5, 685)
 scale = Vector2(1.29928, 0.992029)
 texture = ExtResource("4_jkebq")
 

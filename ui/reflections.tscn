@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://7ve8ik6l04xc" path="res://intro-story/power_line_globe.tscn" id="2_vrpyl"]
 [ext_resource type="PackedScene" uid="uid://cemborgcdx75k" path="res://character/profile.tscn" id="3_pxws3"]
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_2ikse"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_pu44o"]
 viewport_path = NodePath("img")
 
 [node name="Reflections" instance=ExtResource("1_r40ie")]
@@ -29,7 +29,7 @@ scale = Vector2(1.05, 1.05)
 modulate = Color(0.619608, 0.619608, 0.619608, 1)
 position = Vector2(67, 134)
 scale = Vector2(1.6, 1.6)
-texture = SubResource("ViewportTexture_2ikse")
+texture = SubResource("ViewportTexture_pu44o")
 flip_h = true
 with_background = false
 
