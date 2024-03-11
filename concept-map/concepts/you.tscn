@@ -16,3 +16,15 @@ phrase = "about you"
 
 [node name="ConceptTag3" parent="." index="2" instance=ExtResource("2_11654")]
 phrase = "about npc"
+
+[node name="ConceptTag4" parent="." index="3" instance=ExtResource("2_11654")]
+phrase = "her about herself"
+
+[node name="ConceptTag5" parent="." index="4" instance=ExtResource("2_11654")]
+phrase = "him about himself"
+
+[node name="ConceptTag6" parent="." index="5" instance=ExtResource("2_11654")]
+phrase = "them about themselves"
+
+[node name="ConceptTag7" parent="." index="6" instance=ExtResource("2_11654")]
+phrase = "themself"

@@ -37,10 +37,6 @@ visible = false
 position = Vector2(797, 242)
 texture = ExtResource("3_11dvp")
 
-[node name="FrontWall" type="Sprite2D" parent="." index="1"]
-position = Vector2(801, 879)
-texture = ExtResource("6_isrdr")
-
 [node name="DefaultSpawner" parent="YSort" index="0"]
 position = Vector2(931, 812)
 
@@ -156,6 +152,10 @@ interactable = NodePath("../MO-Car-Key-B")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/XCar" index="0"]
 polygon = PackedVector2Array(562, 217, 599, 182, 671, 252, 686, 282, 784, 332, 688, 412)
+
+[node name="FrontWall" type="Sprite2D" parent="." index="2"]
+position = Vector2(801, 879)
+texture = ExtResource("6_isrdr")
 
 [node name="Vein" type="Polygon2D" parent="." index="3"]
 polygon = PackedVector2Array(-175, 472, 669, -24, 381, -38, -225, 226)

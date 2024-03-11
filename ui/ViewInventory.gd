@@ -23,18 +23,26 @@ func _ready():
 func refresh_inventory():
 	var g = _get_game()
 	
-	for child in $"../Body".get_children():
+	for child in $"../Body/Data".get_children():
 		child.queue_free()
 	
 	var x = left
 	var y = top
 	g.init_inventory_if_needed()
-	for item_id in g.get_state(["inventory"]):
+	
+	var data = g.get_state(["inventory"])
+	
+	if data.size() == 0:
+		$"../Body/EmptyIndicator".visible = true
+	else:
+		$"../Body/EmptyIndicator".visible = false
+	
+	for item_id in data:
 		var item = $"../InventoryMap".data[item_id]
 		var btn = InventoryButton.instantiate()
 		btn.set_item(item)
 		btn.position = Vector2(x, y)
-		$"../Body".add_child(btn)
+		$"../Body/Data".add_child(btn)
 		x += spacing
 		if x > width:
 			x = left

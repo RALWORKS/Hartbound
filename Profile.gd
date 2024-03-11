@@ -1,9 +1,9 @@
 extends Sprite2D
 
 @export var with_background = true
-@export var smile = false
-@export var scowl = false
-@export var frown = false
+@export var start_smile = false
+@export var start_scowl = false
+@export var start_frown = false
 
 func _ready():
 	_set_texture_from_save()
@@ -11,17 +11,28 @@ func _ready():
 	if not with_background:
 		texture = $profileImg.get_texture()
 	
-	if smile:
-		$img/Character.smile()
-	elif frown:
-		$img/Character.frown()
-	elif scowl:
-		$img/Character.scowl()
+	if start_smile:
+		smile()
+	elif start_frown:
+		frown()
+	elif start_scowl:
+		scowl()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	pass
 
+func smile():
+	$img/Character.smile()
+
+func frown():
+	$img/Character.frown()
+
+func scowl():
+	$img/Character.scowl()
+
+func neutral():
+	$img/Character.neutral()
 
 func load_character_texture():
 	return $img/Character.load_texture()

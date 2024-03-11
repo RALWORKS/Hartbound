@@ -8,6 +8,8 @@ var page = null
 @export var npc: CharacterBody2D = null # will auto set if used as npc dialogue
 @export var npc_name = ""
 
+var characters_present = []
+
 @export var main_concepts_page: CutsceneNode
 
 # Called when the node enters the scene tree for the first time.
@@ -34,6 +36,7 @@ func _process(_delta):
 	pass
 
 func start():
+	print(characters_present)
 	if starting_page:
 		starting_page.start()
 

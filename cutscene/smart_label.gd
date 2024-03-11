@@ -4,6 +4,7 @@ extends RichTextLabel
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	print(text)
 	var new_text = $StateTagReplacer.replace(text)
 	$".".clear()
 	$".".append_text(new_text)

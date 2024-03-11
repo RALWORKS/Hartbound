@@ -111,12 +111,21 @@ func _ready():
 		return
 	
 	#$char.texture = texture
-	$InteractionArea.title = character_name
+	$InteractionArea.title = my_name()
 	$InteractionArea.setup_label()
 	$InteractionArea.reference_id = reference_id
 	if $char.hframes == 6 and $char.vframes == 4:
 		_make_walk_animations()
 	play(starting_animaton)
+
+func my_name():
+	var data = $"/root/Game".name_of(id)
+	if data == null:
+		return character_name
+	return data
+
+func refresh_name():
+	$InteractionArea.title = my_name()
 
 func _near(a, b):
 	if null in [a, b]:
@@ -324,6 +333,12 @@ func _on_tree_exited():
 
 
 func _on_tree_entered():
+	$"/root/Game".add_character(self)
+	refresh_name()
 	paused = true
 	await get_tree().create_timer(0.2).timeout
 	paused = false
+
+
+func _on_tree_exiting():
+	$"/root/Game".remove_character(self)

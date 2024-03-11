@@ -20,6 +20,8 @@ var current_music: AudioStreamPlayer = null
 var next_music: AudioStreamPlayer = null
 var old_music = []
 
+var characters_present = []
+
 @export var short_circuit_cutscene: Resource
 
 @export var music_crossfade_speed = 2
@@ -45,6 +47,25 @@ var INITIAL_STATE = {
 }
 
 var STATE = INITIAL_STATE.duplicate(true)
+
+func add_character(c):
+	characters_present.push_back(c.id)
+
+func name_of(c_id):
+	var data = get_state([c_id, "name"])
+	if data != null:
+		return data
+	var concept = $ConceptMap.get_concept(c_id)
+	if concept == null:
+		return null
+	return concept.title
+
+func change_name_of(c_id, new_name):
+	set_state([c_id, "name"], new_name)
+
+func remove_character(c):
+	var ix = characters_present.find(c.id)
+	characters_present.remove_at(ix)
 
 func play_music(n: AudioStreamPlayer, fade_slow=false):
 	next_music = n.duplicate()

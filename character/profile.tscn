@@ -27,10 +27,11 @@ scale = Vector2(0.75, 0.75)
 texture = ExtResource("2_3r2h7")
 centered = false
 
-[node name="Character" parent="img" node_paths=PackedStringArray("profile_head", "profile_face", "profile_hair", "profile_shirt", "profile_features", "character_img") instance=ExtResource("2_qxdjb")]
+[node name="Character" parent="img" node_paths=PackedStringArray("profile_head", "profile_face", "profile_hair", "profile_hair_front", "profile_shirt", "profile_features", "character_img") instance=ExtResource("2_qxdjb")]
 profile_head = NodePath("../../profileImg/head")
 profile_face = NodePath("../../profileImg/face")
 profile_hair = NodePath("../../profileImg/hair")
+profile_hair_front = NodePath("../../profileImg/hair-front")
 profile_shirt = NodePath("../../profileImg/shirt")
 profile_features = NodePath("../../profileImg/features")
 character_img = NodePath("../../profileImg")
@@ -62,4 +63,7 @@ centered = false
 
 [node name="features" type="Sprite2D" parent="profileImg"]
 texture = ExtResource("9_4n3wx")
+centered = false
+
+[node name="hair-front" type="Sprite2D" parent="profileImg"]
 centered = false

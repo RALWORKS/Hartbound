@@ -7,4 +7,6 @@ offset_right = 8.0
 offset_bottom = 8.0
 script = ExtResource("1_ef1ox")
 
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
 [connection signal="pressed" from="." to="." method="_on_pressed"]

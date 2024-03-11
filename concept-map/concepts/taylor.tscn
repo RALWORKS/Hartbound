@@ -6,7 +6,11 @@
 [node name="Taylor" instance=ExtResource("1_s08ed")]
 id = "taylor"
 title = "Taylor"
+flex_title = "<taylor>"
 hide_for_npc_name = "taylor"
 
 [node name="ConceptTag" parent="." index="0" instance=ExtResource("2_20vva")]
 phrase = "taylor"
+
+[node name="ConceptTag2" parent="." index="1" instance=ExtResource("2_20vva")]
+phrase = "ceyntya"

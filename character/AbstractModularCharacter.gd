@@ -8,6 +8,7 @@ extends Sprite2D
 @export var hair_back: Node
 @export var hair_front: Node
 @export var profile_hair: Node
+@export var profile_hair_front: Node
 @export var clothes: Node
 @export var clothes_pattern: Node
 @export var clothes_accent: Node
@@ -272,21 +273,25 @@ var TEXTURES = {
 			null,
 			preload("res://assets/character/hair/v1/locks-long/front/full.png"),
 			preload("res://assets/character/profile/locks.png"),
+			preload("res://assets/character/profile/locks-front.png"),
 		],
 		[
 			preload("res://assets/character/hair/v1/long-back-bun/back/full.png"),
 			preload("res://assets/character/hair/v1/long-back-bun/front/full.png"),
 			preload("res://assets/character/profile/long-bun.png"),
+			preload("res://assets/character/profile/long-bun-front.png"),
 		],
 		[
 			null,
 			preload("res://assets/character/hair/v1/long-braid/front/full.png"),
 			preload("res://assets/character/profile/long-braid.png"),
+			preload("res://assets/character/profile/long-braid-front.png"),
 		],
 		[
 			null,
 			preload("res://assets/character/hair/v1/short-braid/front/full.png"),
 			preload("res://assets/character/profile/short-braid.png"),
+			preload("res://assets/character/profile/short-braid-front.png"),
 		],
 	],
 	"skin": [
@@ -363,6 +368,9 @@ func smile():
 func scowl():
 	_show_expression(3)
 
+func neutral():
+	_show_expression(0)
+
 
 func _refresh_texture_element(key, nodes):
 	var ix = texture_settings[key]
@@ -415,7 +423,6 @@ func _refresh_skin():
 			front_arm,
 			profile_head,
 			profile_face,
-			profile_features,
 		]
 	)
 
@@ -426,14 +433,15 @@ func _refresh_hair():
 			hair_back,
 			hair_front,
 			profile_hair,
+			profile_hair_front
 		]
 	)
 	_refresh_color_element(
 		"hair-color",
 		[
-			
 			hair_front,
 			profile_hair,
+			profile_hair_front
 		]
 	)
 	

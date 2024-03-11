@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://epq5ioa4sayx"]
+[gd_scene load_steps=23 format=3 uid="uid://epq5ioa4sayx"]
 
 [ext_resource type="PackedScene" uid="uid://bp8tsdjdbwj8i" path="res://cutscene/cutscene.tscn" id="1_qv2i1"]
 [ext_resource type="PackedScene" uid="uid://55vflx8ylix1" path="res://cutscene/cutscene_node.tscn" id="2_vonvd"]
@@ -13,6 +13,19 @@
 [ext_resource type="PackedScene" uid="uid://5exo54lvam30" path="res://quests/quests/demo_c_1_regroup_initial.tscn" id="10_j3pmb"]
 [ext_resource type="Texture2D" uid="uid://cwobelc0kaio" path="res://assets/effects/pass-out-1/black.png" id="12_y5u3b"]
 [ext_resource type="Texture2D" uid="uid://dla2rs7rb628l" path="res://ui/leyline-icon.png" id="13_asy10"]
+[ext_resource type="PackedScene" uid="uid://dt7echbw781ww" path="res://quests/quests/demo_c1_summer_solstice/summer_solstice.tscn" id="14_icqmn"]
+[ext_resource type="PackedScene" uid="uid://c7fbcecgq8ibe" path="res://concept-map/concepts/the_saint.tscn" id="15_eo5d7"]
+[ext_resource type="PackedScene" uid="uid://cemborgcdx75k" path="res://character/profile.tscn" id="15_j4j0s"]
+[ext_resource type="PackedScene" uid="uid://cejhnr57j2s6x" path="res://cutscene/change_expression_on_mouse_exited.tscn" id="16_0p62m"]
+[ext_resource type="Texture2D" uid="uid://dl824jdeqsl6p" path="res://assets/npcs/taylor/taylor_neutral_eyes_closed.png" id="16_jhvub"]
+[ext_resource type="PackedScene" uid="uid://d4gnlgciwgovl" path="res://cutscene/character_present_conditional_redirect.tscn" id="16_rl36h"]
+[ext_resource type="Texture2D" uid="uid://c34iv0g17fion" path="res://assets/intro-story/moon.png" id="17_wjevy"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_4kn6g"]
+viewport_path = NodePath("img")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7rj0o"]
+size = Vector2(845, 245)
 
 [node name="Taylor1" node_paths=PackedStringArray("starting_page", "concepts", "default_topics", "main_concepts_page") instance=ExtResource("1_qv2i1")]
 starting_page = NodePath("1")
@@ -321,3 +334,472 @@ offset_right = 1019.0
 offset_bottom = 295.0
 bbcode_enabled = true
 text = "\"All right. Let me know.\""
+
+[node name="SummerSolstice" parent="Concepts" index="24" instance=ExtResource("14_icqmn")]
+
+[node name="CutsceneNode" parent="Concepts/SummerSolstice" index="0" node_paths=PackedStringArray("next") instance=ExtResource("2_vonvd")]
+next = NodePath("../Exposition")
+
+[node name="bg" type="Sprite2D" parent="Concepts/SummerSolstice/CutsceneNode" index="0"]
+position = Vector2(-31, -949)
+scale = Vector2(3, 3)
+texture = ExtResource("3_ney04")
+centered = false
+
+[node name="taylor2" type="Sprite2D" parent="Concepts/SummerSolstice/CutsceneNode" index="1"]
+modulate = Color(0.54902, 0.54902, 0.54902, 1)
+position = Vector2(681, 1908)
+scale = Vector2(2, 2)
+texture = ExtResource("4_bxirh")
+
+[node name="SmartLabel" parent="Concepts/SummerSolstice/CutsceneNode" index="2" instance=ExtResource("5_sc1vl")]
+offset_left = 931.0
+offset_top = 284.0
+offset_right = 1403.0
+offset_bottom = 404.0
+text = "\"Can I tell you a secret, {character,name,elves_call}?"
+
+[node name="SmartLabel2" parent="Concepts/SummerSolstice/CutsceneNode" index="3" instance=ExtResource("5_sc1vl")]
+offset_left = 990.0
+offset_top = 415.0
+offset_right = 1462.0
+offset_bottom = 500.0
+text = "\"I miss Moon Temple."
+
+[node name="SmartLabel3" parent="Concepts/SummerSolstice/CutsceneNode" index="4" instance=ExtResource("5_sc1vl")]
+offset_left = 990.0
+offset_top = 507.0
+offset_right = 1507.0
+offset_bottom = 592.0
+text = "\"I want to leave the human lands."
+
+[node name="SmartLabel4" parent="Concepts/SummerSolstice/CutsceneNode" index="5" instance=ExtResource("5_sc1vl")]
+offset_left = 1055.0
+offset_top = 602.0
+offset_right = 1619.0
+offset_bottom = 687.0
+bbcode_enabled = true
+text = "\"I'm praying for the [i]Saint of Dusk[/i].\""
+
+[node name="Exposition" parent="Concepts/SummerSolstice" index="1" node_paths=PackedStringArray("next") instance=ExtResource("2_vonvd")]
+visible = false
+next = NodePath("../Branch")
+
+[node name="bg" type="Sprite2D" parent="Concepts/SummerSolstice/Exposition" index="0"]
+position = Vector2(-144, -972)
+scale = Vector2(3, 3)
+texture = ExtResource("12_y5u3b")
+centered = false
+
+[node name="SmartLabel" parent="Concepts/SummerSolstice/Exposition" index="1" instance=ExtResource("5_sc1vl")]
+offset_left = 92.0
+offset_top = 203.0
+offset_right = 1996.0
+offset_bottom = 687.0
+bbcode_enabled = true
+text = "The [i]Saint of Dusk?[/i]
+
+She's praying for the next Elven Messiah--the one who purifies the Leyline, freeing it from Demons ...
+and making its power wholly unusable by human hands.
+
+Sun Temple's Generators will stop, the prophecy says, and with them, the machines of conquest and war.
+
+The Age of Humanity will end."
+
+[node name="Branch" parent="Concepts/SummerSolstice" index="2" instance=ExtResource("2_vonvd")]
+is_option_node = true
+
+[node name="bg" type="Sprite2D" parent="Concepts/SummerSolstice/Branch" index="0"]
+position = Vector2(-36, -413)
+scale = Vector2(2, 2)
+texture = ExtResource("3_ney04")
+centered = false
+
+[node name="taylor2" type="Sprite2D" parent="Concepts/SummerSolstice/Branch" index="1"]
+modulate = Color(0.54902, 0.54902, 0.54902, 1)
+position = Vector2(481, 1825)
+scale = Vector2(1.6, 1.6)
+texture = ExtResource("4_bxirh")
+
+[node name="Profile" parent="Concepts/SummerSolstice/Branch" index="2" instance=ExtResource("15_j4j0s")]
+position = Vector2(880, 14)
+scale = Vector2(1.8, 1.8)
+texture = SubResource("ViewportTexture_4kn6g")
+with_background = false
+
+[node name="CutsceneOption" parent="Concepts/SummerSolstice/Branch" index="3" node_paths=PackedStringArray("to", "avatar") instance=ExtResource("8_w0od5")]
+offset_left = 348.0
+offset_top = 826.0
+offset_right = 1170.0
+offset_bottom = 876.0
+text = "> \"You're half human. You're praying for the downfall of your own people?"
+to = NodePath("../../HalfHuman")
+avatar = NodePath("../Profile")
+scowl = true
+
+[node name="CutsceneOption2" parent="Concepts/SummerSolstice/Branch" index="4" node_paths=PackedStringArray("to", "avatar") instance=ExtResource("8_w0od5")]
+offset_left = 347.0
+offset_top = 882.0
+offset_right = 1171.0
+offset_bottom = 932.0
+text = "> \"You are a Medic for Sun Temple. You can't not know how dangerous it is to admit something like that."
+to = NodePath("../../SunTemple")
+avatar = NodePath("../Profile")
+scowl = true
+
+[node name="CutsceneOption3" parent="Concepts/SummerSolstice/Branch" index="5" node_paths=PackedStringArray("to", "avatar") instance=ExtResource("8_w0od5")]
+offset_left = 347.0
+offset_top = 939.0
+offset_right = 1169.0
+offset_bottom = 989.0
+text = "> \"You have a right to your religious beliefs. It doesn't change how I see you."
+to = NodePath("../../Religion")
+avatar = NodePath("../Profile")
+neutral = true
+
+[node name="CutsceneOption4" parent="Concepts/SummerSolstice/Branch" index="6" node_paths=PackedStringArray("to", "avatar") instance=ExtResource("8_w0od5")]
+offset_left = 346.0
+offset_top = 997.0
+offset_right = 1170.0
+offset_bottom = 1047.0
+text = "> \"I'm praying, too, Cousin."
+to = NodePath("../../Cousin")
+avatar = NodePath("../Profile")
+frown = true
+
+[node name="ChangeExpressionOnMouseExited" parent="Concepts/SummerSolstice/Branch" index="7" node_paths=PackedStringArray("avatar") instance=ExtResource("16_0p62m")]
+avatar = NodePath("../Profile")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Concepts/SummerSolstice/Branch/ChangeExpressionOnMouseExited" index="0"]
+position = Vector2(760, 935)
+shape = SubResource("RectangleShape2D_7rj0o")
+
+[node name="HalfHuman" parent="Concepts/SummerSolstice" index="3" instance=ExtResource("2_vonvd")]
+visible = false
+
+[node name="bg" type="Sprite2D" parent="Concepts/SummerSolstice/HalfHuman" index="0"]
+position = Vector2(-36, -413)
+scale = Vector2(2, 2)
+texture = ExtResource("3_ney04")
+centered = false
+
+[node name="taylor2" type="Sprite2D" parent="Concepts/SummerSolstice/HalfHuman" index="1"]
+modulate = Color(0.54902, 0.54902, 0.54902, 1)
+position = Vector2(481, 1825)
+scale = Vector2(1.6, 1.6)
+texture = ExtResource("4_bxirh")
+flip_h = true
+
+[node name="SmartLabel" parent="Concepts/SummerSolstice/HalfHuman" index="2" instance=ExtResource("5_sc1vl")]
+offset_left = 823.0
+offset_top = 250.0
+offset_right = 1414.0
+offset_bottom = 403.0
+text = "\"Half-human. Hah. It's been a while since I heard that. Really brings back my Moon Temple days--"
+
+[node name="SmartLabel2" parent="Concepts/SummerSolstice/HalfHuman" index="3" instance=ExtResource("5_sc1vl")]
+offset_left = 906.0
+offset_top = 426.0
+offset_right = 1497.0
+offset_bottom = 522.0
+bbcode_enabled = true
+text = "\"You know: [i]my entire childhood.[/i]"
+
+[node name="SmartLabel3" parent="Concepts/SummerSolstice/HalfHuman" index="4" instance=ExtResource("5_sc1vl")]
+offset_left = 965.0
+offset_top = 547.0
+offset_right = 1556.0
+offset_bottom = 675.0
+bbcode_enabled = true
+text = "\"{character,name,full}, bless your [i]true Elven soul--[/i]"
+
+[node name="SmartLabel4" parent="Concepts/SummerSolstice/HalfHuman" index="5" instance=ExtResource("5_sc1vl")]
+offset_left = 1031.0
+offset_top = 700.0
+offset_right = 1622.0
+offset_bottom = 828.0
+bbcode_enabled = true
+text = "\"To everyone in Sun Temple, I am [i]Half Elf.[/i]\""
+
+[node name="SunTemple" parent="Concepts/SummerSolstice" index="4" instance=ExtResource("2_vonvd")]
+visible = false
+
+[node name="bg" type="Sprite2D" parent="Concepts/SummerSolstice/SunTemple" index="0"]
+position = Vector2(-20, -949)
+scale = Vector2(3, 3)
+texture = ExtResource("3_ney04")
+centered = false
+
+[node name="taylor2" type="Sprite2D" parent="Concepts/SummerSolstice/SunTemple" index="1"]
+modulate = Color(0.54902, 0.54902, 0.54902, 1)
+position = Vector2(593, 1908)
+scale = Vector2(2, 2)
+texture = ExtResource("4_bxirh")
+
+[node name="SmartLabel" parent="Concepts/SummerSolstice/SunTemple" index="2" instance=ExtResource("5_sc1vl")]
+offset_left = 902.0
+offset_top = 29.0
+offset_right = 1271.0
+offset_bottom = 105.0
+text = "\"Oh, I'm very aware."
+
+[node name="SmartLabel2" parent="Concepts/SummerSolstice/SunTemple" index="3" instance=ExtResource("5_sc1vl")]
+offset_left = 934.0
+offset_top = 118.0
+offset_right = 1417.0
+offset_bottom = 232.0
+text = "\"I thought you'd  be a safe person to tell, because ..."
+
+[node name="SmartLabel3" parent="Concepts/SummerSolstice/SunTemple" index="4" instance=ExtResource("5_sc1vl")]
+offset_left = 1006.0
+offset_top = 245.0
+offset_right = 1631.0
+offset_bottom = 408.0
+bbcode_enabled = true
+text = "... you share this heritage with me. You know what the Saint [i] means[/i], outside of being a Moon Temple battle cry."
+
+[node name="SmartLabel4" parent="Concepts/SummerSolstice/SunTemple" index="5" instance=ExtResource("5_sc1vl")]
+offset_left = 769.0
+offset_top = 760.0
+offset_right = 1061.0
+offset_bottom = 838.0
+bbcode_enabled = true
+text = "\"If I was wrong?"
+
+[node name="SmartLabel5" parent="Concepts/SummerSolstice/SunTemple" index="6" instance=ExtResource("5_sc1vl")]
+offset_left = 847.0
+offset_top = 855.0
+offset_right = 1684.0
+offset_bottom = 971.0
+bbcode_enabled = true
+text = "\"Well in that case, the secret police will be coming to call, won't they?"
+
+[node name="Religion" parent="Concepts/SummerSolstice" index="5" instance=ExtResource("2_vonvd")]
+visible = false
+
+[node name="bg" type="Sprite2D" parent="Concepts/SummerSolstice/Religion" index="0"]
+position = Vector2(-36, -413)
+scale = Vector2(2, 2)
+texture = ExtResource("3_ney04")
+centered = false
+
+[node name="taylor2" type="Sprite2D" parent="Concepts/SummerSolstice/Religion" index="1"]
+modulate = Color(0.54902, 0.54902, 0.54902, 1)
+position = Vector2(481, 1825)
+scale = Vector2(1.6, 1.6)
+texture = ExtResource("4_bxirh")
+flip_h = true
+
+[node name="SmartLabel" parent="Concepts/SummerSolstice/Religion" index="2" instance=ExtResource("5_sc1vl")]
+offset_left = 823.0
+offset_top = 250.0
+offset_right = 958.0
+offset_bottom = 327.0
+text = "\"Huh."
+
+[node name="SmartLabel2" parent="Concepts/SummerSolstice/Religion" index="3" instance=ExtResource("5_sc1vl")]
+offset_left = 845.0
+offset_top = 341.0
+offset_right = 1436.0
+offset_bottom = 501.0
+bbcode_enabled = true
+text = "\"Well thanks, I guess. Most people here would react a lot worse to a statement like that."
+
+[node name="SmartLabel3" parent="Concepts/SummerSolstice/Religion" index="4" instance=ExtResource("5_sc1vl")]
+offset_left = 965.0
+offset_top = 516.0
+offset_right = 1556.0
+offset_bottom = 644.0
+bbcode_enabled = true
+text = "\"It's ... surprising to me if that's all this means to you."
+
+[node name="SmartLabel4" parent="Concepts/SummerSolstice/Religion" index="5" instance=ExtResource("5_sc1vl")]
+offset_left = 1031.0
+offset_top = 658.0
+offset_right = 1622.0
+offset_bottom = 786.0
+bbcode_enabled = true
+text = "\"But then, maybe it's more surprising that it still means this much to me."
+
+[node name="SmartLabel5" parent="Concepts/SummerSolstice/Religion" index="6" instance=ExtResource("5_sc1vl")]
+offset_left = 847.0
+offset_top = 804.0
+offset_right = 1694.0
+offset_bottom = 885.0
+bbcode_enabled = true
+text = "\"We've both been away from Moon Temple a long time.\""
+
+[node name="Cousin" parent="Concepts/SummerSolstice" index="6" instance=ExtResource("2_vonvd")]
+visible = false
+
+[node name="bg" type="Sprite2D" parent="Concepts/SummerSolstice/Cousin" index="0"]
+position = Vector2(-239, -255)
+scale = Vector2(2, 2)
+texture = ExtResource("3_ney04")
+centered = false
+
+[node name="taylor2" type="Sprite2D" parent="Concepts/SummerSolstice/Cousin" index="1"]
+modulate = Color(0.690196, 0.690196, 0.690196, 1)
+position = Vector2(534, 2764)
+scale = Vector2(2.4, 2.4)
+texture = ExtResource("16_jhvub")
+
+[node name="SmartLabel" parent="Concepts/SummerSolstice/Cousin" index="2" instance=ExtResource("5_sc1vl")]
+offset_left = 868.0
+offset_top = 666.0
+offset_right = 1416.0
+offset_bottom = 793.0
+text = "\"Bless your soul, {character,name,full}."
+
+[node name="SmartLabel2" parent="Concepts/SummerSolstice/Cousin" index="3" instance=ExtResource("5_sc1vl")]
+offset_left = 961.0
+offset_top = 816.0
+offset_right = 1509.0
+offset_bottom = 899.0
+text = "\"May the Saint liberate us both.\""
+
+[node name="TheSaint" parent="Concepts" index="25" instance=ExtResource("15_eo5d7")]
+
+[node name="CharacterPresentConditionalRedirect" parent="Concepts/TheSaint" index="1" node_paths=PackedStringArray("next_if_true", "next_if_false") instance=ExtResource("16_rl36h")]
+next_if_true = NodePath("../Abort")
+next_if_false = NodePath("../Play")
+conditional_subject = "brona,jerry,nate"
+
+[node name="Abort" parent="Concepts/TheSaint" index="2" instance=ExtResource("2_vonvd")]
+visible = false
+
+[node name="bg" type="Sprite2D" parent="Concepts/TheSaint/Abort" index="0"]
+position = Vector2(68, -949)
+scale = Vector2(3, 3)
+texture = ExtResource("3_ney04")
+centered = false
+
+[node name="taylor2" type="Sprite2D" parent="Concepts/TheSaint/Abort" index="1"]
+modulate = Color(0.54902, 0.54902, 0.54902, 1)
+position = Vector2(681, 1908)
+scale = Vector2(2, 2)
+texture = ExtResource("4_bxirh")
+
+[node name="SmartLabel" parent="Concepts/TheSaint/Abort" index="2" instance=ExtResource("5_sc1vl")]
+offset_left = 931.0
+offset_top = 284.0
+offset_right = 1403.0
+offset_bottom = 366.0
+text = "{character,name,elves_call} ..."
+
+[node name="SmartLabel2" parent="Concepts/TheSaint/Abort" index="3" instance=ExtResource("5_sc1vl")]
+offset_left = 1027.0
+offset_top = 386.0
+offset_right = 1499.0
+offset_bottom = 500.0
+text = "Be more careful. The others can hear us."
+
+[node name="Play" parent="Concepts/TheSaint" index="3" node_paths=PackedStringArray("next") instance=ExtResource("2_vonvd")]
+visible = false
+next = NodePath("../Play2")
+
+[node name="bg" type="Sprite2D" parent="Concepts/TheSaint/Play" index="0"]
+scale = Vector2(2, 2)
+texture = ExtResource("3_ney04")
+centered = false
+
+[node name="taylor3" type="Sprite2D" parent="Concepts/TheSaint/Play" index="1"]
+modulate = Color(0.627451, 0.627451, 0.627451, 1)
+position = Vector2(663, 1871)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("4_bxirh")
+
+[node name="SmartLabel" parent="Concepts/TheSaint/Play" index="2" instance=ExtResource("5_sc1vl")]
+offset_left = 37.0
+offset_top = 770.0
+offset_right = 793.0
+offset_bottom = 848.0
+bbcode_enabled = true
+text = "\"The Saint of Dusk will end the Plague of Demons;"
+
+[node name="SmartLabel2" parent="Concepts/TheSaint/Play" index="3" instance=ExtResource("5_sc1vl")]
+offset_left = 467.0
+offset_top = 864.0
+offset_right = 1019.0
+offset_bottom = 945.0
+bbcode_enabled = true
+text = "\"End this age of war and strife;"
+
+[node name="SmartLabel3" parent="Concepts/TheSaint/Play" index="4" instance=ExtResource("5_sc1vl")]
+offset_left = 766.0
+offset_top = 960.0
+offset_right = 1318.0
+offset_bottom = 1041.0
+bbcode_enabled = true
+text = "\"End the Age of Humanity."
+
+[node name="Play2" parent="Concepts/TheSaint" index="4" node_paths=PackedStringArray("next") instance=ExtResource("2_vonvd")]
+visible = false
+next = NodePath("../Play3")
+
+[node name="bg" type="Sprite2D" parent="Concepts/TheSaint/Play2" index="0"]
+position = Vector2(-2, -566)
+scale = Vector2(1.3, 1.3)
+texture = ExtResource("17_wjevy")
+centered = false
+
+[node name="taylor2" type="Sprite2D" parent="Concepts/TheSaint/Play2" index="1"]
+modulate = Color(0.462745, 0.462745, 0.462745, 1)
+position = Vector2(663, 1871)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("4_bxirh")
+
+[node name="SmartLabel" parent="Concepts/TheSaint/Play2" index="2" instance=ExtResource("5_sc1vl")]
+offset_left = 70.0
+offset_top = 809.0
+offset_right = 1157.0
+offset_bottom = 887.0
+bbcode_enabled = true
+text = "\"The lights of Sun Temple will go dark; the half-tamed Leyline free at last."
+
+[node name="SmartLabel2" parent="Concepts/TheSaint/Play2" index="3" instance=ExtResource("5_sc1vl")]
+offset_left = 184.0
+offset_top = 896.0
+offset_right = 1446.0
+offset_bottom = 974.0
+bbcode_enabled = true
+text = "\"The warring kings will have no Chariots to ride into battle, nor bombs to lay siege."
+
+[node name="SmartLabel3" parent="Concepts/TheSaint/Play2" index="4" instance=ExtResource("5_sc1vl")]
+offset_left = 745.0
+offset_top = 981.0
+offset_right = 1632.0
+offset_bottom = 1059.0
+bbcode_enabled = true
+text = "\"The world will become small again, as it was meant to be,"
+
+[node name="Play3" parent="Concepts/TheSaint" index="5" instance=ExtResource("2_vonvd")]
+visible = false
+
+[node name="bg" type="Sprite2D" parent="Concepts/TheSaint/Play3" index="0"]
+position = Vector2(-2, -566)
+scale = Vector2(1.3, 1.3)
+texture = ExtResource("17_wjevy")
+centered = false
+
+[node name="taylor2" type="Sprite2D" parent="Concepts/TheSaint/Play3" index="1"]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(663, 1871)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("4_bxirh")
+
+[node name="SmartLabel" parent="Concepts/TheSaint/Play3" index="2" instance=ExtResource("5_sc1vl")]
+offset_left = 697.0
+offset_top = 860.0
+offset_right = 1602.0
+offset_bottom = 943.0
+bbcode_enabled = true
+text = "\"Our children will grow up knowing only peace."
+
+[node name="SmartLabel2" parent="Concepts/TheSaint/Play3" index="3" instance=ExtResource("5_sc1vl")]
+offset_left = 947.0
+offset_top = 965.0
+offset_right = 1602.0
+offset_bottom = 1048.0
+bbcode_enabled = true
+text = "\"And the sprits of our many dead will rest.\""

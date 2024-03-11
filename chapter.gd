@@ -75,6 +75,8 @@ func _process(_delta):
 
 func start_cutscene(cutscene_res, npc=null):
 	cutscene = cutscene_res.instantiate()
+	cutscene.characters_present = game.characters_present.duplicate()
+
 	cur_game = $"../MainScreen/World".get_children()
 	for child in $"../MainScreen/World".get_children():
 		$"../MainScreen/World".call_deferred("remove_child", child)

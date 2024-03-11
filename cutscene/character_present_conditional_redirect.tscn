@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://d4gnlgciwgovl"]
+
+[ext_resource type="PackedScene" uid="uid://bjmrxj4s3l472" path="res://cutscene/conditional_redirect.tscn" id="1_6mhn4"]
+[ext_resource type="Script" path="res://cutscene/IfCharacterPresent.gd" id="2_8vorc"]
+
+[node name="CharacterPresentConditionalRedirect" node_paths=PackedStringArray("get_condition_from") instance=ExtResource("1_6mhn4")]
+get_condition_from = NodePath("IfCharacterPresent")
+
+[node name="IfCharacterPresent" type="Node" parent="." index="0"]
+script = ExtResource("2_8vorc")

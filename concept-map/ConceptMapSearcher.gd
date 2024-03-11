@@ -62,7 +62,7 @@ func _make_btn_array(x, y, data):
 			continue
 		var btn = Button.new()
 		btn.size = Vector2(705, 50)
-		btn.text = $StateTagReplacer.replace(concept.title)
+		btn.text = $StateTagReplacer.replace(concept.flex_title)
 		btn.position = Vector2(x, y)
 		btn.pressed.connect(func(): concept_chosen.emit(concept))
 		$".".add_child(btn)

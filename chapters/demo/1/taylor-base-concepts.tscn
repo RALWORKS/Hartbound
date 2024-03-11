@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://c4nb0ap5n2w2b"]
+[gd_scene load_steps=38 format=3 uid="uid://c4nb0ap5n2w2b"]
 
 [ext_resource type="Script" path="res://cutscene/CutsceneConceptsContainer.gd" id="1_iedjd"]
 [ext_resource type="PackedScene" uid="uid://84etqm7v3b47" path="res://concept-map/concepts/age_of_dusk.tscn" id="1_rendb"]
@@ -31,6 +31,12 @@
 [ext_resource type="PackedScene" uid="uid://dcaa2e368c4ty" path="res://quests/quests/demo_c_1_collecting/c_1_collecting_compenents.tscn" id="30_hcq24"]
 [ext_resource type="Texture2D" uid="uid://dx1wrwvh6nviu" path="res://assets/npcs/taylor/taylor_neutral.png" id="31_kx3if"]
 [ext_resource type="PackedScene" uid="uid://b8pbh10v7uqof" path="res://concept-map/concepts/how_are_you.tscn" id="31_n45ry"]
+[ext_resource type="PackedScene" uid="uid://crgb04l374k4w" path="res://concept-map/concepts/elven_names.tscn" id="32_htti2"]
+[ext_resource type="Texture2D" uid="uid://cwobelc0kaio" path="res://assets/effects/pass-out-1/black.png" id="33_kw712"]
+[ext_resource type="PackedScene" uid="uid://c5favq1j8c2tt" path="res://cutscene/state_equals_conditional_redirect.tscn" id="33_si2l4"]
+[ext_resource type="PackedScene" uid="uid://bmbe0cqkifv4i" path="res://concept-map/concepts/human_names.tscn" id="34_h1peb"]
+[ext_resource type="PackedScene" uid="uid://dyr6qiqfsytk3" path="res://cutscene/rename_character_on_start.tscn" id="34_hn7xy"]
+[ext_resource type="PackedScene" uid="uid://b11g7mb25w5xp" path="res://cutscene/smart_label.tscn" id="35_4myvh"]
 
 [node name="Concepts" type="Node"]
 script = ExtResource("1_iedjd")
@@ -1429,3 +1435,260 @@ offset_bottom = 995.0
 theme = ExtResource("5_yjk2e")
 theme_type_variation = &"VoiceoverBox"
 text = "\"Oh. I'm all right. Thanks for asking.\""
+
+[node name="ElvenNames" parent="." instance=ExtResource("32_htti2")]
+
+[node name="StateEqualsConditionalRedirect" parent="ElvenNames" node_paths=PackedStringArray("next_if_true", "next_if_false") instance=ExtResource("33_si2l4")]
+next_if_true = NodePath("../ElvenNamePost")
+next_if_false = NodePath("../ElvenName")
+conditional_subject = "taylor,name"
+conditional_predicate = "Ceyntya"
+
+[node name="ElvenName" parent="ElvenNames" node_paths=PackedStringArray("next") instance=ExtResource("2_xxf8h")]
+visible = false
+next = NodePath("../ElvenName2")
+
+[node name="bg" type="Sprite2D" parent="ElvenNames/ElvenName"]
+scale = Vector2(1.35, 1.35)
+texture = ExtResource("3_ao1sr")
+centered = false
+
+[node name="taylor2" type="Sprite2D" parent="ElvenNames/ElvenName"]
+position = Vector2(481, 868)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("31_kx3if")
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="ElvenNames/ElvenName"]
+offset_left = 750.0
+offset_top = 93.0
+offset_right = 1054.0
+offset_bottom = 173.0
+theme = ExtResource("5_yjk2e")
+theme_type_variation = &"VoiceoverBox"
+text = "\"My Elven name?"
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="ElvenNames/ElvenName"]
+offset_left = 775.0
+offset_top = 191.0
+offset_right = 1286.0
+offset_bottom = 271.0
+theme = ExtResource("5_yjk2e")
+theme_type_variation = &"VoiceoverBox"
+bbcode_enabled = true
+text = "\"It's [i]Anaem Eon Ril Ceyn Suól.[/i]\""
+
+[node name="ElvenName2" parent="ElvenNames" node_paths=PackedStringArray("next") instance=ExtResource("2_xxf8h")]
+visible = false
+next = NodePath("../ElvenName3")
+
+[node name="bg" type="Sprite2D" parent="ElvenNames/ElvenName2"]
+position = Vector2(0, -30)
+scale = Vector2(1.47246, 1.37174)
+texture = ExtResource("33_kw712")
+centered = false
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="ElvenNames/ElvenName2"]
+offset_left = 745.0
+offset_top = 312.0
+offset_right = 1586.0
+offset_bottom = 540.0
+theme = ExtResource("5_yjk2e")
+theme_type_variation = &"VoiceoverBox"
+text = "That translates to, \"Dancer on the path of threads.\"
+
+No wonder they call her Taylor in the human tongue."
+
+[node name="ElvenName3" parent="ElvenNames" node_paths=PackedStringArray("next") instance=ExtResource("2_xxf8h")]
+visible = false
+next = NodePath("../ElvenNameNo")
+is_option_node = true
+
+[node name="bg" type="Sprite2D" parent="ElvenNames/ElvenName3"]
+scale = Vector2(1.35, 1.35)
+texture = ExtResource("3_ao1sr")
+centered = false
+
+[node name="taylor2" type="Sprite2D" parent="ElvenNames/ElvenName3"]
+position = Vector2(481, 868)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("31_kx3if")
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="ElvenNames/ElvenName3"]
+offset_left = 805.0
+offset_top = 363.0
+offset_right = 1394.0
+offset_bottom = 449.0
+theme = ExtResource("5_yjk2e")
+theme_type_variation = &"VoiceoverBox"
+bbcode_enabled = true
+text = "\"They called me [i]Ceyntya[/i] back home."
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="ElvenNames/ElvenName3"]
+offset_left = 830.0
+offset_top = 465.0
+offset_right = 1341.0
+offset_bottom = 590.0
+theme = ExtResource("5_yjk2e")
+theme_type_variation = &"VoiceoverBox"
+bbcode_enabled = true
+text = "\"You're welcome to do the same. If you want.\""
+
+[node name="CutsceneOption" parent="ElvenNames/ElvenName3" node_paths=PackedStringArray("to") instance=ExtResource("6_es51f")]
+offset_left = 1046.0
+offset_top = 608.0
+offset_right = 1315.0
+offset_bottom = 672.0
+text = "> \"I'll call you Ceyntya.\""
+to = NodePath("../../ElvenNameYes")
+
+[node name="CutsceneOption2" parent="ElvenNames/ElvenName3" node_paths=PackedStringArray("to") instance=ExtResource("6_es51f")]
+offset_left = 1046.0
+offset_top = 681.0
+offset_right = 1315.0
+offset_bottom = 745.0
+text = "> \"Let's stick with Taylor.\""
+to = NodePath("../../ElvenNameNo")
+
+[node name="ElvenNameNo" parent="ElvenNames" instance=ExtResource("2_xxf8h")]
+visible = false
+
+[node name="bg" type="Sprite2D" parent="ElvenNames/ElvenNameNo"]
+scale = Vector2(1.35, 1.35)
+texture = ExtResource("3_ao1sr")
+centered = false
+
+[node name="taylor2" type="Sprite2D" parent="ElvenNames/ElvenNameNo"]
+position = Vector2(481, 868)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("31_kx3if")
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="ElvenNames/ElvenNameNo"]
+offset_left = 606.0
+offset_top = 146.0
+offset_right = 1442.0
+offset_bottom = 298.0
+theme = ExtResource("5_yjk2e")
+theme_type_variation = &"VoiceoverBox"
+bbcode_enabled = true
+text = "\"OK. It's fine either way. Just stick to 'Taylor' when you're talking Jerry and Brona. Calling me Ceyntya will only confuse them.\""
+
+[node name="ElvenNameYes" parent="ElvenNames" node_paths=PackedStringArray("use_on_start_fn_from") instance=ExtResource("2_xxf8h")]
+visible = false
+use_on_start_fn_from = NodePath("RenameCharacterOnStart")
+
+[node name="bg" type="Sprite2D" parent="ElvenNames/ElvenNameYes"]
+scale = Vector2(1.35, 1.35)
+texture = ExtResource("3_ao1sr")
+centered = false
+
+[node name="taylor2" type="Sprite2D" parent="ElvenNames/ElvenNameYes"]
+position = Vector2(481, 868)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("31_kx3if")
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="ElvenNames/ElvenNameYes"]
+offset_left = 606.0
+offset_top = 146.0
+offset_right = 1442.0
+offset_bottom = 298.0
+theme = ExtResource("5_yjk2e")
+theme_type_variation = &"VoiceoverBox"
+bbcode_enabled = true
+text = "\"OK. It's fine either way. Just stick to 'Taylor' when you're talking Jerry and Brona. Calling me Ceyntya will only confuse them.\""
+
+[node name="RenameCharacterOnStart" parent="ElvenNames/ElvenNameYes" instance=ExtResource("34_hn7xy")]
+character_id = "taylor"
+new_name = "Ceyntya"
+
+[node name="ElvenNamePost" parent="ElvenNames" instance=ExtResource("2_xxf8h")]
+visible = false
+
+[node name="bg" type="Sprite2D" parent="ElvenNames/ElvenNamePost"]
+scale = Vector2(1.35, 1.35)
+texture = ExtResource("3_ao1sr")
+centered = false
+
+[node name="taylor2" type="Sprite2D" parent="ElvenNames/ElvenNamePost"]
+position = Vector2(481, 868)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("31_kx3if")
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="ElvenNames/ElvenNamePost"]
+offset_left = 781.0
+offset_top = 131.0
+offset_right = 1292.0
+offset_bottom = 211.0
+theme = ExtResource("5_yjk2e")
+theme_type_variation = &"VoiceoverBox"
+bbcode_enabled = true
+text = "\"I'm [i]Anaem Eon Ril Ceyn Suól.[/i]"
+
+[node name="RichTextLabel4" type="RichTextLabel" parent="ElvenNames/ElvenNamePost"]
+offset_left = 838.0
+offset_top = 229.0
+offset_right = 1349.0
+offset_bottom = 384.0
+theme = ExtResource("5_yjk2e")
+theme_type_variation = &"VoiceoverBox"
+bbcode_enabled = true
+text = "\"You've been calling me Ceyntya, so I'm guessing you haven't forgotten.\""
+
+[node name="RichTextLabel5" type="RichTextLabel" parent="ElvenNames/ElvenNamePost"]
+offset_left = 914.0
+offset_top = 406.0
+offset_right = 1425.0
+offset_bottom = 529.0
+theme = ExtResource("5_yjk2e")
+theme_type_variation = &"VoiceoverBox"
+bbcode_enabled = true
+text = "\"I'm not really sure what you're trying to ask.\""
+
+[node name="HumanNames" parent="." instance=ExtResource("34_h1peb")]
+
+[node name="CutsceneNode" parent="HumanNames" instance=ExtResource("2_xxf8h")]
+visible = false
+
+[node name="bg" type="Sprite2D" parent="HumanNames/CutsceneNode"]
+scale = Vector2(1.35, 1.35)
+texture = ExtResource("3_ao1sr")
+centered = false
+
+[node name="taylor2" type="Sprite2D" parent="HumanNames/CutsceneNode"]
+position = Vector2(481, 868)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("31_kx3if")
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="HumanNames/CutsceneNode"]
+offset_left = 648.0
+offset_top = 163.0
+offset_right = 1399.0
+offset_bottom = 279.0
+theme = ExtResource("5_yjk2e")
+theme_type_variation = &"VoiceoverBox"
+text = "\"My human name is a play on my Elven name's meaning."
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="HumanNames/CutsceneNode"]
+offset_left = 780.0
+offset_top = 308.0
+offset_right = 1531.0
+offset_bottom = 388.0
+theme = ExtResource("5_yjk2e")
+theme_type_variation = &"VoiceoverBox"
+text = "\"Yours has got to be from the sound, right?"
+
+[node name="RichTextLabel5" type="RichTextLabel" parent="HumanNames/CutsceneNode"]
+offset_left = 825.0
+offset_top = 550.0
+offset_right = 1576.0
+offset_bottom = 685.0
+theme = ExtResource("5_yjk2e")
+theme_type_variation = &"VoiceoverBox"
+bbcode_enabled = true
+text = "\"I love how they can't just [i]learn to pronounce a name.[/i] It's not like either of our names is hard."
+
+[node name="SmartLabel" parent="HumanNames/CutsceneNode" instance=ExtResource("35_4myvh")]
+offset_left = 813.0
+offset_top = 410.0
+offset_right = 1624.0
+offset_bottom = 530.0
+text = "\"{character,name,human_short}? From {character,name,elf_short}?"

@@ -536,6 +536,10 @@ var NAME_DATA = {
 	"leín =noun ; laét =noun",
 	"=noun eon il =adjective sul",
 	"=noun eon ; =noun eon",
+	"=noun eon ril =noun suól",
+	"=adjective =noun ril =noun suól",
+	"ril =noun suól laét =deity",
+	"ril =noun suól leín =deity",
 	#"=noun rul =noun ; =1 rul =0",
 	#"rul =noun ; rul =noun",
 	"rul =deity ; rul =blessing",
@@ -1037,6 +1041,13 @@ var NAME_DATA = {
 	  ]
 	},
 	{
+		"mora": "ril",
+		"gloss": "on",
+		"class": [
+			"preposition"
+		]
+	},
+	{
 	  "mora": "saem",
 	  "gloss": "tree",
 	  "class": [
@@ -1112,8 +1123,14 @@ var NAME_DATA = {
 	  "mora": "sul",
 	  "gloss": "path",
 	  "class": [
-		"noun"
-	  ]
+		"noun",
+		"adnoun"
+	  ],
+	  "adnoun": {
+		"mora": "suól",
+		"name": "path",
+		"gloss": "'s path"
+	  }
 	},
 	{
 	  "mora": "ten",

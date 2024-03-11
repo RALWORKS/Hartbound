@@ -1,8 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://b82yg80y2thfp"]
+[gd_scene load_steps=7 format=3 uid="uid://b82yg80y2thfp"]
 
 [ext_resource type="PackedScene" uid="uid://i6laa1tesr13" path="res://ui/modal.tscn" id="1_r0ulf"]
 [ext_resource type="PackedScene" uid="uid://v8p64d73itjl" path="res://item/inventory_map.tscn" id="2_1cn8n"]
 [ext_resource type="Script" path="res://ui/ViewInventory.gd" id="2_dm5bo"]
+[ext_resource type="Texture2D" uid="uid://cwobelc0kaio" path="res://assets/effects/pass-out-1/black.png" id="4_jkebq"]
+[ext_resource type="Texture2D" uid="uid://nwp046lvkv0y" path="res://assets/effects/pass-out-1/star-biggest.png" id="5_auguh"]
+[ext_resource type="PackedScene" uid="uid://b11g7mb25w5xp" path="res://cutscene/smart_label.tscn" id="7_tkxcj"]
 
 [node name="ViewInventory" instance=ExtResource("1_r0ulf")]
 anchors_preset = 0
@@ -31,3 +34,27 @@ offset_left = 85.0
 offset_top = -535.0
 offset_right = 125.0
 offset_bottom = -495.0
+
+[node name="Body" parent="." index="3"]
+clip_contents = true
+
+[node name="black" type="Sprite2D" parent="Body" index="0"]
+clip_children = 2
+position = Vector2(890.5, 679.5)
+scale = Vector2(1.29928, 0.992029)
+texture = ExtResource("4_jkebq")
+
+[node name="purple" type="Sprite2D" parent="Body/black" index="0"]
+position = Vector2(-8.85107, 18.6487)
+scale = Vector2(0.968767, 1.00804)
+texture = ExtResource("5_auguh")
+
+[node name="EmptyIndicator" parent="Body" index="1" instance=ExtResource("7_tkxcj")]
+layout_mode = 0
+offset_left = 48.0
+offset_top = 47.0
+offset_right = 562.0
+offset_bottom = 133.0
+text = "There's nothing here right now."
+
+[node name="Data" type="Node2D" parent="Body" index="2"]

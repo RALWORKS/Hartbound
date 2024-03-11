@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://dt7echbw781ww"]
+
+[ext_resource type="PackedScene" uid="uid://bt0e2jwvmgpgm" path="res://concept-map/concept.tscn" id="1_1s6iv"]
+
+[node name="SummerSolstice" instance=ExtResource("1_1s6iv")]
+id = "c1-summer-solstice"
+title = "Summer Solstice"
