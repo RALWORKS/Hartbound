@@ -7,6 +7,7 @@
 id = "jerry"
 title = "Jerry"
 hide_for_npc_name = "jerry"
+description = "Jerry is a Salvager working for Sun Temple. He's been at this job longer than almost anyone, and he knows it like the back of his hand. He has no tolerance for what he sees as unnecessary risk-taking."
 
 [node name="ConceptTag" parent="." index="0" instance=ExtResource("2_llj1v")]
 phrase = "jerry"

@@ -6,6 +6,9 @@
 [node name="Elves" instance=ExtResource("1_sctw0")]
 id = "elves"
 title = "Elves"
+description = "Elves are a people with an innate connection to Magic. Humans have historically treated them with suspicion and fear, which has led Elves to form their own societies.
+
+In the modern day, the Moon Temple is the centre of Elven culture--though not all Elves follow its ways."
 
 [node name="ConceptTag" parent="." index="0" instance=ExtResource("2_a2ifu")]
 phrase = "elf"

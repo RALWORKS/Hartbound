@@ -5,7 +5,8 @@
 
 [node name="TheSaint" instance=ExtResource("1_5mn0k")]
 id = "the-saint"
-title = "the Saint"
+title = "Saint of Dusk"
+description = "In Moon Temple prophecy, the Saint of Dusk is the Messiah who will bring the Age of Dusk to an end, and usher in the Age of the Moon."
 
 [node name="ConceptTag" parent="." index="0" instance=ExtResource("2_fm5o2")]
 phrase = "saint of dusk"

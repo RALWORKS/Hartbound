@@ -6,6 +6,7 @@
 [node name="HumanNames" instance=ExtResource("1_r2hcr")]
 id = "human-names"
 title = "Human names"
+description = "Human names are usually made up of two or three parts, which may or may not be words in the language the human speaks. One part is often a family identifier, while another one or two parts are personal. The ordering of familial name vs. personal name can vary.  In some groups of humans, the familial identifier is not used at all."
 
 [node name="ConceptTag" parent="." index="0" instance=ExtResource("2_8bewn")]
 phrase = "human name"

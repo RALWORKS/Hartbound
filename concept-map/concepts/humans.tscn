@@ -6,6 +6,7 @@
 [node name="Humans" instance=ExtResource("1_tx4fl")]
 id = "humans"
 title = "Humans"
+description = "Humans are a people without Magic--the descendents of the conquering people who ruled the Age of the Sun."
 
 [node name="ConceptTag" parent="." index="0" instance=ExtResource("2_msvtm")]
 phrase = "humans"

@@ -6,6 +6,11 @@
 [node name="Sun Temple" instance=ExtResource("1_gra4i")]
 id = "sun-temple"
 title = "the Sun Temple"
+description = "Sun Temple, the city where you were raised since 15,  is a major cultural centre of the human lands.
+
+It's built around a collection of Generators, that light and heat it with their weird, ancient power--and that form the centre of the economy.
+
+It has two main enemies: Moon Temple, and the large human city to the west. War is omnipresent."
 
 [node name="ConceptTag" parent="." index="0" instance=ExtResource("2_ed8wo")]
 phrase = "human city"

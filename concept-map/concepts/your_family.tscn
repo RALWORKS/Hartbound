@@ -6,6 +6,7 @@
 [node name="YourFamily" instance=ExtResource("1_ov7n2")]
 id = "your-family"
 title = "Your family"
+description = "You can ask other people about their families. Some will be more eager to talk about this than others."
 
 [node name="ConceptTag" parent="." index="0" instance=ExtResource("2_ik4h3")]
 phrase = "about your family"

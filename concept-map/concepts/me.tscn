@@ -7,6 +7,9 @@
 id = "me"
 as_verb_object = "myself"
 title = "Me ({character,name,short})"
+description = "{character,name,full}, sometimes called {character,name,short}.
+
+Other people may have thoughts about you. You might learn something interesting by asking about it--though you might just get brushed off, as well. The only real expert in you is you, after all."
 
 [node name="ConceptTag" parent="." index="0" instance=ExtResource("2_pr61b")]
 phrase = "of me"

@@ -5,7 +5,10 @@
 
 [node name="Age of Dusk" instance=ExtResource("1_k8psi")]
 id = "age-of-dusk"
-title = "the Age of Dusk"
+title = "Age of Dusk"
+description = "The present Age, according to the Elven Cycle of History.
+
+A time of decline, before darkness comes into its power and glory in the Age of the Moon."
 
 [node name="ConceptTag" parent="." index="0" instance=ExtResource("2_a7ouk")]
 phrase = "age of dusk"

@@ -6,6 +6,7 @@
 [node name="HowAreYou" instance=ExtResource("1_ciemo")]
 id = "how-are-you"
 title = "How are you?"
+description = "Asking people how they're doing can help you get to know them."
 
 [node name="ConceptTag" parent="." index="0" instance=ExtResource("2_y3bd8")]
 phrase = "how are you doing"

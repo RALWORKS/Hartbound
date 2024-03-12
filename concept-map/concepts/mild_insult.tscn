@@ -6,6 +6,7 @@
 [node name="MildInsult" instance=ExtResource("1_ey5ch")]
 id = "mild-insult"
 title = "Say a mild insult"
+description = "You might sometimes feel the need to insult someone. If you do, there may be consequences."
 
 [node name="ConceptTag" parent="." index="0" instance=ExtResource("2_ovlqs")]
 phrase = "fuck"

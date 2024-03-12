@@ -93,7 +93,7 @@ func _get_match_objects(remaining_tokens, depth, sub_index):
 	var i = 0
 
 	for token in remaining_tokens:
-		if i == remaining_tokens.size() - 1 and token.length() > 2:
+		if i == remaining_tokens.size() - 1: #and token.length() > 2:
 			for possibility in sub_index:
 				if possibility.find(token) == 0:
 					new_match_objects.push_back([

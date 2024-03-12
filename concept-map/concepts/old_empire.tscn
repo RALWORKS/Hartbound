@@ -6,6 +6,7 @@
 [node name="Old Emipire" instance=ExtResource("1_lb1ku")]
 id = "old-empire"
 title = "Old Empire"
+description = "The Old Empire governed the world during the Age of the Sun. All the globe was ruled by only a couple of powers, and orders could be sent from one continent to another in the blink of an eye."
 
 [node name="ConceptTag" parent="." index="0" instance=ExtResource("2_ydllb")]
 phrase = "old empire"

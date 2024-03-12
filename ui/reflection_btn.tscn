@@ -1,0 +1,41 @@
+[gd_scene load_steps=6 format=3 uid="uid://dr6wagkjctvpk"]
+
+[ext_resource type="Texture2D" uid="uid://dlckpoglm3oxj" path="res://assets/cog-brain.png" id="1_dlq8e"]
+[ext_resource type="Script" path="res://ui/reflection_btn.gd" id="1_ksp2k"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fqaqi"]
+bg_color = Color(0.368627, 0.368627, 0.368627, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2nfhm"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3b6on"]
+content_margin_left = 8.0
+bg_color = Color(0, 0, 0, 0.815686)
+border_color = Color(0, 0, 0, 1)
+
+[node name="ReflectionBtn" type="Button"]
+offset_right = 150.0
+offset_bottom = 150.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_fqaqi")
+theme_override_styles/hover = SubResource("StyleBoxFlat_2nfhm")
+script = ExtResource("1_ksp2k")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(77, 74)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_dlq8e")
+
+[node name="ToolTip" type="RichTextLabel" parent="."]
+offset_left = -4.0
+offset_top = 54.0
+offset_right = 154.0
+offset_bottom = 98.0
+mouse_filter = 1
+theme_override_font_sizes/normal_font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_3b6on")
+text = "Reflection"
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+[connection signal="pressed" from="." to="." method="_on_pressed"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://d2tvvel0wxl51"]
+[gd_scene load_steps=19 format=3 uid="uid://d2tvvel0wxl51"]
 
 [ext_resource type="Script" path="res://ui/game_menu.gd" id="1_qi0kv"]
 [ext_resource type="Texture2D" uid="uid://b4qmfyh2beo7n" path="res://assets/menubg.png" id="1_qo3pl"]
@@ -11,10 +11,12 @@
 [ext_resource type="Texture2D" uid="uid://cwobelc0kaio" path="res://assets/effects/pass-out-1/black.png" id="7_45e3t"]
 [ext_resource type="PackedScene" uid="uid://b2s0y0fs6dw7v" path="res://ui/scout_btn.tscn" id="8_4uuuh"]
 [ext_resource type="Texture2D" uid="uid://nwp046lvkv0y" path="res://assets/effects/pass-out-1/star-biggest.png" id="8_7cibf"]
+[ext_resource type="Texture2D" uid="uid://dneh40ijxqdeo" path="res://assets/stars-backdrop.png" id="9_st631"]
 [ext_resource type="PackedScene" uid="uid://xpojrm8dxubm" path="res://ui/inv_btn.tscn" id="10_jbthf"]
 [ext_resource type="PackedScene" uid="uid://b11g7mb25w5xp" path="res://cutscene/smart_label.tscn" id="10_wgliq"]
+[ext_resource type="PackedScene" uid="uid://dr6wagkjctvpk" path="res://ui/reflection_btn.tscn" id="13_kv606"]
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_kdo24"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_jdygw"]
 viewport_path = NodePath("img")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xueob"]
@@ -22,7 +24,7 @@ content_margin_left = 45.0
 bg_color = Color(0, 0, 0, 0.815686)
 border_color = Color(0, 0, 0, 1)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_fchmx"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_djkum"]
 viewport_path = NodePath("img")
 
 [node name="GameMenu" type="Node2D"]
@@ -57,7 +59,7 @@ metadata/_edit_use_anchors_ = true
 [node name="Profile" parent="ProfileBtn" instance=ExtResource("3_gksuv")]
 position = Vector2(15, 12)
 scale = Vector2(0.38, 0.38)
-texture = SubResource("ViewportTexture_kdo24")
+texture = SubResource("ViewportTexture_jdygw")
 
 [node name="Label" type="Label" parent="ProfileBtn"]
 layout_mode = 1
@@ -105,15 +107,21 @@ scale = Vector2(1.29928, 0.992029)
 texture = ExtResource("7_45e3t")
 
 [node name="purple" type="Sprite2D" parent="CharacterRecord/black"]
+visible = false
 position = Vector2(-8.85107, 18.6487)
 scale = Vector2(0.968767, 1.00804)
 texture = ExtResource("8_7cibf")
+
+[node name="stars" type="Sprite2D" parent="CharacterRecord/black"]
+scale = Vector2(0.45, 0.45)
+texture = ExtResource("9_st631")
+offset = Vector2(0, -300)
 
 [node name="Profile" parent="CharacterRecord/black" instance=ExtResource("3_gksuv")]
 modulate = Color(0.34902, 0.439216, 0.576471, 1)
 position = Vector2(164.321, -607.341)
 scale = Vector2(1.3, 1.703)
-texture = SubResource("ViewportTexture_fchmx")
+texture = SubResource("ViewportTexture_djkum")
 with_background = false
 
 [node name="FullName" type="RichTextLabel" parent="CharacterRecord"]
@@ -203,6 +211,13 @@ offset_left = 110.0
 offset_top = 302.0
 offset_right = 260.0
 offset_bottom = 452.0
+scale = Vector2(0.5, 0.5)
+
+[node name="ReflectionBtn" parent="HideButtonsForCutscene" instance=ExtResource("13_kv606")]
+offset_left = 110.0
+offset_top = 214.0
+offset_right = 260.0
+offset_bottom = 364.0
 scale = Vector2(0.5, 0.5)
 
 [node name="InvBtn" parent="." instance=ExtResource("10_jbthf")]

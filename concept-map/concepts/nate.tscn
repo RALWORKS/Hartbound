@@ -7,6 +7,7 @@
 id = "nate"
 title = "Nate"
 hide_for_npc_name = "nate"
+description = "Nate is an Engineer trained by Sun Temple. He's blunt, irritable, and at times rude."
 
 [node name="ConceptTag" parent="." index="0" instance=ExtResource("2_fjf81")]
 phrase = "nate"

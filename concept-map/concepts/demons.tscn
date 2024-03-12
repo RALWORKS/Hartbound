@@ -6,6 +6,11 @@
 [node name="Demons" instance=ExtResource("1_04mfi")]
 id = "demons"
 title = "Demons"
+description = "Sometimes called the Guardians of the Leyline, Demons are mysterious entiries that sometimes appear where Leylines run thick.
+
+Their touch can kill--or for the \"lucky\" few, merely curse with the Plague of Dreams.
+
+They're a major force slowing travel and settlement expansion in the modern day, as they pose a serious risk to travellers and explorers."
 
 [node name="ConceptTag" parent="." index="0" instance=ExtResource("2_58yjq")]
 phrase = "demon"

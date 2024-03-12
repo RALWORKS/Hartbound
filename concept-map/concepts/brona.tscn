@@ -7,6 +7,7 @@
 id = "brona"
 title = "Brona"
 hide_for_npc_name = "brona"
+description = "Brona is a salvager from Sun Temple. She likes a good adventure, and doesn't always think before she speaks."
 
 [node name="ConceptTag" parent="." index="0" instance=ExtResource("2_uvdj7")]
 phrase = "brona"

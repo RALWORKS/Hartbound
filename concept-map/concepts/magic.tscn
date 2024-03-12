@@ -6,6 +6,9 @@
 [node name="Magic" instance=ExtResource("1_ccxnm")]
 id = "magic"
 title = "magic"
+description = "Magic is an innate ability of Elves. Most Elves find they have a knack of one kind or another--maybe a talent for healing, or growing plants, or working with machines. Whatever the case, the knack alows them to interface a bit with the Leyline, either drawing power safely from it to empower something else, or connecting mentally to it to gather information.
+
+These knacks, and the discipline of study that's emerged around them, is known as Magic."
 
 [node name="ConceptTag" parent="." index="0" instance=ExtResource("2_cy7a4")]
 phrase = "magic"

@@ -7,6 +7,7 @@
 id = "you"
 as_verb_object = "yourself"
 title = "Tell me about yourself"
+description = "If you want to learn about the people around you, one good way is to ask them about themselves--although some people may not open up when asked so directly."
 
 [node name="ConceptTag" parent="." index="0" instance=ExtResource("2_11654")]
 phrase = "tell me about yourself"

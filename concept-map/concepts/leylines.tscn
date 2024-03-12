@@ -6,6 +6,11 @@
 [node name="Leylines" instance=ExtResource("1_tm62i")]
 id = "leylines"
 title = "Leylines"
+description = "Leylines run under the ground, and through the ancient buildings of the Age of the Sun.
+
+Enormous power flows through them, but it can be difficult to safely harness. Attached electronics become electrified. Plants with intersecting root systems grow stronger.
+
+But the unwary soul who comes into direct contact with the power is shocked rigid by it, and usually ends up dead, or sick with the Plague of Dreams. And even without direct contact, where the Leyline is near the surface, there's always risk of a Demon attack."
 
 [node name="ConceptTag" parent="." index="0" instance=ExtResource("2_pobnc")]
 phrase = "leyline"

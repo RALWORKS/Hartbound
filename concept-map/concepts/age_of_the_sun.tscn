@@ -6,6 +6,11 @@
 [node name="Age of the Sun" instance=ExtResource("1_x7iuk")]
 id = "age-of-the-sun"
 title = "Age of the Sun"
+description = "The previous Age, according to the Elven Cycle of History.
+
+Technology ruled over nature. Magic was not yet born. Humanity had conquered the world. Artificial light had lit up every night.
+
+It was in this Age that Mankind created the Leyline, into which Magic would be born."
 
 [node name="ConceptTag" parent="." index="0" instance=ExtResource("2_v0y5y")]
 phrase = "age of the sun"

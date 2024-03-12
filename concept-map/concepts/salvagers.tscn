@@ -6,6 +6,7 @@
 [node name="Salvagers" instance=ExtResource("1_stdi7")]
 id = "salvagers"
 title = "salvagers"
+description = "Salvagers drive the economy of Sun Temple--and of many places, really. There are many desirable things to be found in the ruins of the Old Empire--electrical components for the Sun Temple engineers; tools; curios. Between the price of the goods, and the hazard pay of wandering through Demon territory, there's a lot of money to be made Salvaging."
 
 [node name="ConceptTag" parent="." index="0" instance=ExtResource("2_qr8d2")]
 phrase = "salvager"

@@ -8,6 +8,7 @@ id = "taylor"
 title = "Taylor"
 flex_title = "<taylor>"
 hide_for_npc_name = "taylor"
+description = "<taylor> is a Medic trained by Sun Temple. Half Elf on her mother's side, she lived at Moon Temple until she was 12 years old."
 
 [node name="ConceptTag" parent="." index="0" instance=ExtResource("2_20vva")]
 phrase = "taylor"

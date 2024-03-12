@@ -6,6 +6,11 @@
 [node name="EndOfTheWorld" instance=ExtResource("1_watdr")]
 id = "end-of-the-world"
 title = "End of the World"
+description = "The end of the Age of the Sun, 100 years ago, is sometimes known as the End of the World.
+
+The sprawling, interconnected human society that had dominated the planet fell apart. The cause is thought to be realted to Demons and the Leyline.
+
+The Age since is known as the Age of Dusk."
 
 [node name="ConceptTag" parent="." index="0" instance=ExtResource("2_2rlqa")]
 phrase = "end of the world"

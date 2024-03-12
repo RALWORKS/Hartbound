@@ -6,6 +6,9 @@
 [node name="Engineers" instance=ExtResource("1_owv38")]
 id = "engineers"
 title = "engineers"
+description = "Engineers are the backbone of Sun Temple--the great city of the human lands.
+
+Their work in the modern day revolves around maintaining tecchnology preserved from the Age of the Sun, and researching ways to approximate it with moderrn resources."
 
 [node name="ConceptTag" parent="." index="0" instance=ExtResource("2_pdwt6")]
 phrase = "engineer"

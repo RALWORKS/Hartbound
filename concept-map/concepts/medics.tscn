@@ -6,6 +6,7 @@
 [node name="Medics" instance=ExtResource("1_hl2yd")]
 id = "medics"
 title = "medics"
+description = "Medics are welcome anywhere. There's always use for someone who knows how to treat the sick and injured."
 
 [node name="ConceptTag" parent="." index="0" instance=ExtResource("2_jklvj")]
 phrase = "medic"

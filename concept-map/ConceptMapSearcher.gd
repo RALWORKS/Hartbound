@@ -82,7 +82,7 @@ func _on_searchbar_text_changed():
 	if query.length() == 0:
 		make_default_buttons()
 	
-	elif query.length() > 1:
+	elif query.length() > 2:
 		search(query)
 	
 	else:

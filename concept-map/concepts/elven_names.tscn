@@ -6,6 +6,9 @@
 [node name="ElvenNames" instance=ExtResource("1_cng0c")]
 id = "elven-names"
 title = "Elven names"
+description = "Elves give names in the form of a sentence, which they then shorten down for day-to-day use.
+
+The long form of the name is mostly used in formal and religious contexts."
 
 [node name="ConceptTag" parent="." index="0" instance=ExtResource("2_d4d0g")]
 phrase = "elven name"

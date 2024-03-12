@@ -6,6 +6,7 @@
 [node name="GeneratorCrews" instance=ExtResource("1_7fjaa")]
 id = "generator-crews"
 title = "Generator crews"
+description = "In Sun Temple slang, Generator Crews are the people who maintain the Generators. Sometimes this is extended out to mean Salvage Crews as well."
 
 [node name="ConceptTag" parent="." index="0" instance=ExtResource("2_g5vsi")]
 phrase = "generator crew"

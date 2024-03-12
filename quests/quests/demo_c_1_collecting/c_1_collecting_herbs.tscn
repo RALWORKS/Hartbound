@@ -1,7 +1,15 @@
-[gd_scene load_steps=2 format=3 uid="uid://b0aqc6k73fj3d"]
+[gd_scene load_steps=3 format=3 uid="uid://b0aqc6k73fj3d"]
 
 [ext_resource type="PackedScene" uid="uid://bt0e2jwvmgpgm" path="res://concept-map/concept.tscn" id="1_ngot5"]
+[ext_resource type="PackedScene" uid="uid://ttnut7gc4m3w" path="res://concept-map/concept_tag.tscn" id="2_hq1ed"]
 
 [node name="C1CollectingHerbs" instance=ExtResource("1_ngot5")]
 id = "c1-collecting-herbs"
 title = "Herbs"
+description = "<taylor>'s going to handle the search for herbs. You can leave it to her."
+
+[node name="ConceptTag" parent="." index="0" instance=ExtResource("2_hq1ed")]
+phrase = "herb"
+
+[node name="ConceptTag2" parent="." index="1" instance=ExtResource("2_hq1ed")]
+phrase = "plant"
