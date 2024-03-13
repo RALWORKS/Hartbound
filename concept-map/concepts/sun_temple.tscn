@@ -5,7 +5,7 @@
 
 [node name="Sun Temple" instance=ExtResource("1_gra4i")]
 id = "sun-temple"
-title = "the Sun Temple"
+title = "Sun Temple"
 description = "Sun Temple, the city where you were raised since 15,  is a major cultural centre of the human lands.
 
 It's built around a collection of Generators, that light and heat it with their weird, ancient power--and that form the centre of the economy.

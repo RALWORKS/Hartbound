@@ -7,7 +7,7 @@
 [ext_resource type="Script" path="res://ui/Codex.gd" id="5_wlvco"]
 [ext_resource type="PackedScene" uid="uid://mqthx6wcxxuo" path="res://ui/state_tag_replacer.tscn" id="6_use4e"]
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_2aisa"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_j520f"]
 viewport_path = NodePath("img")
 
 [node name="Reflections" instance=ExtResource("1_r40ie")]
@@ -32,7 +32,7 @@ scale = Vector2(1.05, 1.05)
 modulate = Color(0.619608, 0.619608, 0.619608, 1)
 position = Vector2(-53, 134)
 scale = Vector2(1.6, 1.6)
-texture = SubResource("ViewportTexture_2aisa")
+texture = SubResource("ViewportTexture_j520f")
 flip_h = true
 with_background = false
 

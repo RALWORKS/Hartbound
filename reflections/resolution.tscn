@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dkdf40bloaki5"]
+
+[ext_resource type="Script" path="res://reflections/Resolution.gd" id="1_rgu6v"]
+
+[node name="Resolution" type="Node"]
+script = ExtResource("1_rgu6v")

@@ -89,9 +89,9 @@ const stop_words = [
 	"theirs",
 ]
 const half_stop_words = [
-	"you",
+	#"you",
 	"yourself",
-	"me",
+	#"me",
 	"i",
 	"your",
 	"about",

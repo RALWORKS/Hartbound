@@ -2,6 +2,7 @@ extends Button
 
 
 @export var to: CutsceneNode
+@export var get_action_from: Node
 @export var sub_node_parent: Node
 
 @export var avatar: Node
@@ -25,6 +26,8 @@ func _on_pressed():
 		return
 	if $"..".just_clicked:
 		return
+	if get_action_from != null:
+		get_action_from.action()
 	$"..".leave()
 	if to != null:
 		to.start()

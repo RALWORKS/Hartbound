@@ -29,6 +29,7 @@ func _on_no_pressed():
 	NAME["elves_call"] = NAME["elf_short"]
 	NAME["humans_call"] = NAME["elf_short"]
 	$"../../Saver".on_name_edited(NAME)
+	$"/root/Game".add_resolution($"../PreferenceSelect/No/UseElvenName".id)
 
 
 func _on_kinda_pressed():
@@ -37,6 +38,7 @@ func _on_kinda_pressed():
 	NAME["elves_call"] = NAME["elf_short"]
 	NAME["humans_call"] = NAME["human_short"]
 	$"../../Saver".on_name_edited(NAME)
+	$"/root/Game".add_resolution($"../PreferenceSelect/Kinda/UseBothNames".id)
 
 
 func _on_yes_pressed():
@@ -45,3 +47,4 @@ func _on_yes_pressed():
 	NAME["elves_call"] = NAME["human_short"]
 	NAME["humans_call"] = NAME["human_short"]
 	$"../../Saver".on_name_edited(NAME)
+	$"/root/Game".add_resolution($"../PreferenceSelect/Yes/UseHumanName".id)

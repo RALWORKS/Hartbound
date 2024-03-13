@@ -431,3 +431,19 @@ func remove_inventory_item(item):
 func add_inventory_item(item):
 	init_inventory_if_needed()
 	set_state_push_to_key(["inventory"], item.id)
+
+func init_resolutions_if_needed():
+	var data = get_state(["resolutions"])
+	if data != null:
+		return data
+	return set_state(["resolutions"], [])
+
+func add_resolution(resolution_id):
+	init_resolutions_if_needed()
+	if has_resolution(resolution_id):
+		return
+	set_state_push_to_key(["resolutions"], resolution_id)
+
+func has_resolution(resolution_id):
+	var data = init_resolutions_if_needed()
+	return resolution_id in data

@@ -45,16 +45,16 @@ position = Vector2(900.5, 685)
 scale = Vector2(1.29928, 0.992029)
 texture = ExtResource("4_jkebq")
 
-[node name="purple" type="Sprite2D" parent="Body/black" index="0"]
+[node name="stars" type="Sprite2D" parent="Body/black" index="0"]
+scale = Vector2(0.45, 0.45)
+texture = ExtResource("6_2snv3")
+offset = Vector2(0, -300)
+
+[node name="purple" type="Sprite2D" parent="Body/black" index="1"]
 visible = false
 position = Vector2(-8.85107, 18.6487)
 scale = Vector2(0.968767, 1.00804)
 texture = ExtResource("5_auguh")
-
-[node name="stars" type="Sprite2D" parent="Body/black" index="1"]
-scale = Vector2(0.45, 0.45)
-texture = ExtResource("6_2snv3")
-offset = Vector2(0, -300)
 
 [node name="EmptyIndicator" parent="Body" index="1" instance=ExtResource("7_tkxcj")]
 layout_mode = 0

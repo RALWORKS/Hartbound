@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://kex3fql26uxy"]
+[gd_scene load_steps=24 format=3 uid="uid://kex3fql26uxy"]
 
 [ext_resource type="PackedScene" uid="uid://bp8tsdjdbwj8i" path="res://cutscene/cutscene.tscn" id="1_ipyp7"]
 [ext_resource type="PackedScene" uid="uid://55vflx8ylix1" path="res://cutscene/cutscene_node.tscn" id="2_wt2i3"]
@@ -15,9 +15,12 @@
 [ext_resource type="FontFile" uid="uid://ebgllykqxqm7" path="res://assets/Georgia.TTF" id="11_hiyv0"]
 [ext_resource type="PackedScene" uid="uid://c3rmyn3jfv53d" path="res://ui/loading.tscn" id="12_mkwkc"]
 [ext_resource type="Script" path="res://character/NicknameLister.gd" id="13_sehjf"]
+[ext_resource type="PackedScene" uid="uid://c8g544n2atsci" path="res://reflections/resolutions/use_elven_name.tscn" id="15_4krrj"]
 [ext_resource type="Script" path="res://character/NamePreferenceChooser.gd" id="15_g6sas"]
 [ext_resource type="PackedScene" uid="uid://b11g7mb25w5xp" path="res://cutscene/smart_label.tscn" id="16_jok5q"]
+[ext_resource type="PackedScene" uid="uid://cbeds48d0eqpg" path="res://reflections/resolutions/use_both_names.tscn" id="16_rn8cd"]
 [ext_resource type="Script" path="res://character/JobChooser.gd" id="16_yduv8"]
+[ext_resource type="PackedScene" uid="uid://dutn8ywfpyov5" path="res://reflections/resolutions/use_human_name.tscn" id="17_x6bbt"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_krm4x"]
 content_margin_left = 20.0
@@ -329,6 +332,8 @@ offset_right = 450.0
 offset_bottom = 219.0
 text = "I insist on {elf_short}"
 
+[node name="UseElvenName" parent="3_6/PreferenceSelect/No" index="0" instance=ExtResource("15_4krrj")]
+
 [node name="Kinda" parent="3_6/PreferenceSelect" index="1" instance=ExtResource("5_wxebt")]
 offset_left = 80.0
 offset_top = 229.0
@@ -336,12 +341,16 @@ offset_right = 450.0
 offset_bottom = 279.0
 text = "I allow humans to call me {human_short}"
 
+[node name="UseBothNames" parent="3_6/PreferenceSelect/Kinda" index="0" instance=ExtResource("16_rn8cd")]
+
 [node name="Yes" parent="3_6/PreferenceSelect" index="2" instance=ExtResource("5_wxebt")]
 offset_left = 80.0
 offset_top = 289.0
 offset_right = 450.0
 offset_bottom = 339.0
 text = "I go by {human_short} generally"
+
+[node name="UseHumanName" parent="3_6/PreferenceSelect/Yes" index="0" instance=ExtResource("17_x6bbt")]
 
 [node name="NamePreferenceChooser" type="Node2D" parent="3_6" index="3"]
 script = ExtResource("15_g6sas")

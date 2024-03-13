@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://dutn8ywfpyov5"]
+
+[ext_resource type="PackedScene" uid="uid://dkdf40bloaki5" path="res://reflections/resolution.tscn" id="1_vemw5"]
+
+[node name="UseHumanName" instance=ExtResource("1_vemw5")]
+id = "use-human-name"
+title = "Human Name"
+description = "You only use your human name"

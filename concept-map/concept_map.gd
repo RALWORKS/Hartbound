@@ -58,6 +58,7 @@ func search(phrase, ix=null):
 
 	var tokens = _get_token_stems(phrase)
 	var match_objects = _get_match_objects(tokens, 0, ix)
+	print(match_objects)
 
 	match_objects.sort_custom(_sort_match_objects)
 	match_objects = _filter_match_0_scores_if_needed(match_objects)

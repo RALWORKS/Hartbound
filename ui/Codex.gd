@@ -8,10 +8,11 @@ func _ready():
 
 
 func load_codex():
+	$Searchbar.text = ""
 	for c in $ScrollContainer/Data.get_children():
 		c.free()
 	for id in concepts.categories:
-		if id in ["Me", "You", "Insult"]:
+		if id in ["You", "Insult"]:
 			continue
 		for data in concepts.categories[id]:
 			_make_btn(data)

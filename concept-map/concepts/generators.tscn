@@ -9,7 +9,7 @@ title = "Generators"
 description = "A few of the great human cities--Sun Temple and a couple others--have what's known among humans as \"power\": they are lit and heated by ancient technologies from the Age of the Sun, and sometimes, they are even able to control the war machines of that Era.
 The Generators are the machines that keep the glowing cities running.
 
-In the glowing cities, the Generators are the centre of all economic activity. Enigneers to maintain them. Salvagers to find parts for them. Even Medics, to tend to the frequent workplace injuries."
+In the glowing cities, the Generators are the centre of all economic activity. Engineers to maintain them. Salvagers to find parts for them. Even Medics, to tend to the frequent workplace injuries."
 
 [node name="ConceptTag" parent="." index="0" instance=ExtResource("2_sypg1")]
 phrase = "generator"

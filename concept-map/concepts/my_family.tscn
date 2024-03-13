@@ -6,7 +6,7 @@
 [node name="MyFamily" instance=ExtResource("1_cxuvp")]
 id = "my-family"
 title = "My ({character,name,short}'s) family"
-description = "Your parents were Elves of a small-rural village, aligned with Moon Temple, but not a part of it. You've lost contact with your extended family since they died.
+description = "Your parents were Elves of a small, rural village, aligned with Moon Temple, but not a part of it. You've lost contact with your extended family since they died.
 
 Maybe you'll meet someone who knows something about them."
 
