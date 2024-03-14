@@ -1,15 +1,21 @@
-[gd_scene load_steps=5 format=3 uid="uid://b057bsb5vxd6f"]
+[gd_scene load_steps=7 format=3 uid="uid://b057bsb5vxd6f"]
 
 [ext_resource type="Script" path="res://reflections/resolution_map.gd" id="1_k43k2"]
+[ext_resource type="PackedScene" uid="uid://bojeot5gobbcy" path="res://reflections/resolutions/taylor_moon_temple_objection.tscn" id="2_d1x1y"]
 [ext_resource type="PackedScene" uid="uid://c8g544n2atsci" path="res://reflections/resolutions/use_elven_name.tscn" id="2_s8eu0"]
 [ext_resource type="PackedScene" uid="uid://dutn8ywfpyov5" path="res://reflections/resolutions/use_human_name.tscn" id="3_gwyje"]
 [ext_resource type="PackedScene" uid="uid://cbeds48d0eqpg" path="res://reflections/resolutions/use_both_names.tscn" id="4_tjgsl"]
+[ext_resource type="PackedScene" uid="uid://dy7jrdc3ss38n" path="res://reflections/resolutions/taylor_moon_temple_concern.tscn" id="6_4l4et"]
 
 [node name="ResolutionMap" type="Node"]
 script = ExtResource("1_k43k2")
+
+[node name="TaylorMoonTempleObjection" parent="." instance=ExtResource("2_d1x1y")]
 
 [node name="UseElvenName" parent="." instance=ExtResource("2_s8eu0")]
 
 [node name="UseHumanName" parent="." instance=ExtResource("3_gwyje")]
 
 [node name="UseBothNames" parent="." instance=ExtResource("4_tjgsl")]
+
+[node name="TaylorMoonTempleConcern" parent="." instance=ExtResource("6_4l4et")]

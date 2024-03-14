@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://bojeot5gobbcy"]
+
+[ext_resource type="PackedScene" uid="uid://dkdf40bloaki5" path="res://reflections/resolution.tscn" id="1_upphf"]
+
+[node name="TaylorMoonTempleObjection" instance=ExtResource("1_upphf")]
+id = "taylor-moon-temple-objection"
+title = "You objected to <taylor>'s Moon Temple loyalties"
+description = "When <taylor> confided to you that she misses Moon Temple and prays for the Saint of Dusk, you disapproved"
+reflection_id = "report-taylor?"

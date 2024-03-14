@@ -447,3 +447,19 @@ func add_resolution(resolution_id):
 func has_resolution(resolution_id):
 	var data = init_resolutions_if_needed()
 	return resolution_id in data
+
+func init_reflections_if_needed():
+	var data = get_state(["reflections"])
+	if data != null:
+		return data
+	return set_state(["reflections"], [])
+
+func add_reflection(reflection_id):
+	init_reflections_if_needed()
+	set_state_push_to_key(["reflections"], reflection_id)
+	
+func resolve_reflection(reflection_id):
+	init_reflections_if_needed()
+	var data = get_state(["reflections"])
+	data = data.filter(func(i): return i != reflection_id)
+	set_state(["reflections"], data)

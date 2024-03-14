@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://b12ok1y3io0vb"]
+[gd_scene load_steps=9 format=3 uid="uid://b12ok1y3io0vb"]
 
 [ext_resource type="PackedScene" uid="uid://i6laa1tesr13" path="res://ui/modal.tscn" id="1_r40ie"]
 [ext_resource type="PackedScene" uid="uid://7ve8ik6l04xc" path="res://intro-story/power_line_globe.tscn" id="2_vrpyl"]
@@ -6,8 +6,9 @@
 [ext_resource type="Script" path="res://ui/Reflections.gd" id="4_81yxt"]
 [ext_resource type="Script" path="res://ui/Codex.gd" id="5_wlvco"]
 [ext_resource type="PackedScene" uid="uid://mqthx6wcxxuo" path="res://ui/state_tag_replacer.tscn" id="6_use4e"]
+[ext_resource type="PackedScene" uid="uid://bxvk8e0eaa0g" path="res://reflections/reflection_map.tscn" id="7_e0t20"]
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_j520f"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_uf5w3"]
 viewport_path = NodePath("img")
 
 [node name="Reflections" instance=ExtResource("1_r40ie")]
@@ -21,7 +22,9 @@ offset_right = 1730.0
 offset_bottom = 1080.0
 title = "Reflections"
 
-[node name="Body" parent="." index="1"]
+[node name="ReflectionMap" parent="." index="0" instance=ExtResource("7_e0t20")]
+
+[node name="Body" parent="." index="2"]
 clip_contents = true
 
 [node name="PowerLineGlobe" parent="Body" index="0" instance=ExtResource("2_vrpyl")]
@@ -32,7 +35,7 @@ scale = Vector2(1.05, 1.05)
 modulate = Color(0.619608, 0.619608, 0.619608, 1)
 position = Vector2(-53, 134)
 scale = Vector2(1.6, 1.6)
-texture = SubResource("ViewportTexture_j520f")
+texture = SubResource("ViewportTexture_uf5w3")
 flip_h = true
 with_background = false
 
@@ -45,14 +48,13 @@ offset_bottom = 988.0
 color = Color(0.196078, 0.196078, 0.196078, 0.847059)
 
 [node name="Reflections" type="Node2D" parent="Body" index="3"]
-visible = false
 position = Vector2(840, 156)
 script = ExtResource("4_81yxt")
 
 [node name="Label" type="Label" parent="Body/Reflections" index="0"]
 offset_left = -3.0
 offset_top = -96.0
-offset_right = 1283.0
+offset_right = 731.0
 offset_bottom = -18.0
 theme_override_font_sizes/font_size = 40
 text = "Reflections"
@@ -65,6 +67,11 @@ text = "Nothing comes to mind for the moment."
 
 [node name="Data" type="Node2D" parent="Body/Reflections" index="2"]
 
+[node name="Button" type="Button" parent="Body/Reflections/Data" index="0"]
+offset_right = 8.0
+offset_bottom = 8.0
+size_flags_horizontal = 3
+
 [node name="ToCodex" type="Button" parent="Body/Reflections" index="3"]
 offset_left = 579.0
 offset_top = -83.0
@@ -74,6 +81,7 @@ theme_override_font_sizes/font_size = 30
 text = "> Codex"
 
 [node name="Codex" type="Node2D" parent="Body" index="4"]
+visible = false
 position = Vector2(840, 156)
 script = ExtResource("5_wlvco")
 
@@ -163,7 +171,7 @@ offset_top = 54.0
 offset_right = 717.0
 offset_bottom = 726.0
 
-[node name="StateTagReplacer" parent="." index="2" instance=ExtResource("6_use4e")]
+[node name="StateTagReplacer" parent="." index="3" instance=ExtResource("6_use4e")]
 
 [connection signal="pressed" from="Body/Reflections/ToCodex" to="Body/Reflections" method="_on_to_codex_pressed"]
 [connection signal="text_changed" from="Body/Codex/Searchbar" to="Body/Codex" method="_on_searchbar_text_changed"]

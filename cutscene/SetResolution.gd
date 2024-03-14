@@ -1,6 +1,8 @@
 extends Node
 
 func action():
-	var data = $"..".get_children()
-	var resolution = data.filter(func (i): return i.id != null)[0]
+	var data = $"..".get_children().filter(func (i): return "id" in i)
+	var resolution = data[0]
 	$"/root/Game".add_resolution(resolution.id)
+	if resolution.reflection_id != "":
+		$"/root/Game".resolve_reflection(resolution.reflection_id)

@@ -3,7 +3,8 @@
 [ext_resource type="PackedScene" uid="uid://yplasm5gtgly" path="res://cutscene/cutscene_option.tscn" id="1_2686w"]
 [ext_resource type="Script" path="res://cutscene/SetResolution.gd" id="2_0qx2k"]
 
-[node name="ResolutionButton" instance=ExtResource("1_2686w")]
+[node name="ResolutionButton" node_paths=PackedStringArray("get_action_from") instance=ExtResource("1_2686w")]
+get_action_from = NodePath("SetResolution")
 
 [node name="SetResolution" type="Node" parent="." index="0"]
 script = ExtResource("2_0qx2k")

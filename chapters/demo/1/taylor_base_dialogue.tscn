@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://epq5ioa4sayx"]
+[gd_scene load_steps=25 format=3 uid="uid://epq5ioa4sayx"]
 
 [ext_resource type="PackedScene" uid="uid://bp8tsdjdbwj8i" path="res://cutscene/cutscene.tscn" id="1_qv2i1"]
 [ext_resource type="PackedScene" uid="uid://55vflx8ylix1" path="res://cutscene/cutscene_node.tscn" id="2_vonvd"]
@@ -19,9 +19,11 @@
 [ext_resource type="PackedScene" uid="uid://cejhnr57j2s6x" path="res://cutscene/change_expression_on_mouse_exited.tscn" id="16_0p62m"]
 [ext_resource type="Texture2D" uid="uid://dl824jdeqsl6p" path="res://assets/npcs/taylor/taylor_neutral_eyes_closed.png" id="16_jhvub"]
 [ext_resource type="PackedScene" uid="uid://d4gnlgciwgovl" path="res://cutscene/character_present_conditional_redirect.tscn" id="16_rl36h"]
+[ext_resource type="PackedScene" uid="uid://cyleyq5ews7aw" path="res://cutscene/reflection_button.tscn" id="16_xvtm1"]
+[ext_resource type="PackedScene" uid="uid://b3dwm2gpu71ys" path="res://reflections/reflections/will_you_report_taylor.tscn" id="17_nrpod"]
 [ext_resource type="Texture2D" uid="uid://c34iv0g17fion" path="res://assets/intro-story/moon.png" id="17_wjevy"]
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_rtb33"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_v2wq3"]
 viewport_path = NodePath("img")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7rj0o"]
@@ -424,7 +426,7 @@ texture = ExtResource("4_bxirh")
 [node name="Profile" parent="Concepts/SummerSolstice/Branch" index="2" instance=ExtResource("15_j4j0s")]
 position = Vector2(880, 14)
 scale = Vector2(1.8, 1.8)
-texture = SubResource("ViewportTexture_rtb33")
+texture = SubResource("ViewportTexture_v2wq3")
 with_background = false
 
 [node name="CutsceneOption" parent="Concepts/SummerSolstice/Branch" index="3" node_paths=PackedStringArray("to", "avatar") instance=ExtResource("8_w0od5")]
@@ -437,7 +439,7 @@ to = NodePath("../../HalfHuman")
 avatar = NodePath("../Profile")
 scowl = true
 
-[node name="CutsceneOption2" parent="Concepts/SummerSolstice/Branch" index="4" node_paths=PackedStringArray("to", "avatar") instance=ExtResource("8_w0od5")]
+[node name="ReflectionButton" parent="Concepts/SummerSolstice/Branch" index="4" node_paths=PackedStringArray("to", "avatar") instance=ExtResource("16_xvtm1")]
 offset_left = 347.0
 offset_top = 882.0
 offset_right = 1171.0
@@ -446,6 +448,8 @@ text = "> \"You are a Medic for Sun Temple. You can't not know how dangerous it 
 to = NodePath("../../SunTemple")
 avatar = NodePath("../Profile")
 scowl = true
+
+[node name="ReportTaylor?" parent="Concepts/SummerSolstice/Branch/ReflectionButton" index="1" instance=ExtResource("17_nrpod")]
 
 [node name="CutsceneOption3" parent="Concepts/SummerSolstice/Branch" index="5" node_paths=PackedStringArray("to", "avatar") instance=ExtResource("8_w0od5")]
 offset_left = 347.0
