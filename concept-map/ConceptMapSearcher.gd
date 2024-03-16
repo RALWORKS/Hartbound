@@ -1,6 +1,7 @@
 extends Node2D
 
 @export var npc_name = ""
+var RoundButton = preload("res://ui/round_button.tscn")
 
 @onready var concepts: Node = get_tree().get_root().get_node("Game/ConceptMap")
 var SmartLable = preload("res://cutscene/smart_label.tscn")
@@ -28,12 +29,13 @@ func set_npc_name(n):
 		_index = concepts.make_custom_npc_index(npc_name)
 	
 
-func make_default_buttons():
+func make_quest_buttons():
 	var data = concepts.get_node("Quest").get_children()
-	_set_results(data)
+	quest_nodes = _make_btn_array($Body/QuickBG/Quick/Data, data)
+	
 	
 func setup():
-	make_default_buttons()
+	make_quest_buttons()
 
 func teardown():
 	for c in quest_nodes:
@@ -47,29 +49,26 @@ func _process(_delta):
 	pass
 
 func _set_results(data):
-	for c in result_nodes + quest_nodes:
+	for c in result_nodes:
 		c.queue_free()
 		
 	var x = BTN_X
 	var y = DEFAULT_BTN_START
 	
-	result_nodes = _make_btn_array(x, y, data)[0]
+	result_nodes = _make_btn_array($Body/Search/Data, data)
 
-func _make_btn_array(x, y, data):
+func _make_btn_array(parent, data):
 	var nodes = []
 	for concept in data:
 		if concept.hide_for_npc_name == npc_name:
 			continue
-		var btn = Button.new()
-		btn.size = Vector2(705, 50)
+		var btn = RoundButton.instantiate()
 		btn.text = $StateTagReplacer.replace(concept.flex_title)
-		btn.position = Vector2(x, y)
 		btn.pressed.connect(func(): concept_chosen.emit(concept))
-		$".".add_child(btn)
+		parent.add_child(btn)
 		nodes.push_back(btn)
-		y += 70
 
-	return [nodes, y]
+	return nodes
 
 func search(query):
 	var data = concepts.search(query, _index)
@@ -78,11 +77,11 @@ func search(query):
 
 func _on_searchbar_text_changed():
 	var query = $Body/Searchbar.text
+	if "\n" in query:
+		$Body/Searchbar.clear()
 	
-	if query.length() == 0:
-		make_default_buttons()
 	
-	elif query.length() > 1:
+	if query.length() > 1:
 		search(query)
 	
 	else:

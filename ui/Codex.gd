@@ -2,6 +2,8 @@ extends Node2D
 
 @onready var concepts: Node = get_tree().get_root().get_node("Game/ConceptMap")
 
+var RoundButton = preload("res://ui/round_button.tscn")
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	load_codex()
@@ -24,8 +26,7 @@ func _on_to_reflections_pressed():
 	$"../Reflections".visible = true
 
 func _make_btn(concept):
-	var btn = Button.new()
-	btn.custom_minimum_size = Vector2(705, 50)
+	var btn = RoundButton.instantiate()
 	btn.text = $"../../StateTagReplacer".replace(concept.flex_title)
 	#btn.position = Vector2(x, y)
 	btn.pressed.connect(func(): _show_detail(concept))

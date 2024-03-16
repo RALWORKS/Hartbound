@@ -2,6 +2,7 @@ extends Node
 
 var game
 
+
 func _get_game():
 	if game == null:
 		game = $"/root/Game"

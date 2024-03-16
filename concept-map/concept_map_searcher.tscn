@@ -1,7 +1,35 @@
-[gd_scene load_steps=3 format=3 uid="uid://b0g14rmlg7vif"]
+[gd_scene load_steps=7 format=3 uid="uid://b0g14rmlg7vif"]
 
 [ext_resource type="Script" path="res://concept-map/ConceptMapSearcher.gd" id="1_xy4jk"]
 [ext_resource type="PackedScene" uid="uid://mqthx6wcxxuo" path="res://ui/state_tag_replacer.tscn" id="2_xkuxc"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8kbkq"]
+bg_color = Color(0, 0, 0, 0)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3ef1c"]
+bg_color = Color(0, 0, 0, 0.254902)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ulh7k"]
+content_margin_left = 10.0
+bg_color = Color(0, 0, 0, 0.388235)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_83akq"]
 
 [node name="ConceptMapSearcher" type="Node2D"]
 z_index = 1000
@@ -18,15 +46,6 @@ offset_right = 1586.0
 offset_bottom = 988.0
 color = Color(0.196078, 0.196078, 0.196078, 0.847059)
 
-[node name="Searchbar" type="TextEdit" parent="Body"]
-offset_left = 840.0
-offset_top = 156.0
-offset_right = 1570.0
-offset_bottom = 212.0
-theme_override_font_sizes/font_size = 30
-placeholder_text = "Type to search discussion topics"
-middle_mouse_paste_enabled = false
-
 [node name="Label" type="Label" parent="Body"]
 offset_left = 837.0
 offset_top = 60.0
@@ -34,5 +53,87 @@ offset_right = 2123.0
 offset_bottom = 138.0
 theme_override_font_sizes/font_size = 40
 text = "What do you want to talk about?"
+
+[node name="QuickBG" type="Panel" parent="Body"]
+offset_left = 853.0
+offset_top = 171.0
+offset_right = 1554.0
+offset_bottom = 469.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_8kbkq")
+
+[node name="Quick" type="ScrollContainer" parent="Body/QuickBG"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 28.0
+offset_top = 34.0
+offset_right = -28.0
+offset_bottom = -13.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="Data" type="VBoxContainer" parent="Body/QuickBG/Quick"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 10
+
+[node name="SearchBG" type="Panel" parent="Body"]
+offset_left = 852.0
+offset_top = 647.0
+offset_right = 1553.0
+offset_bottom = 945.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_3ef1c")
+
+[node name="Searchbar" type="TextEdit" parent="Body"]
+offset_left = 867.0
+offset_top = 573.0
+offset_right = 1533.0
+offset_bottom = 629.0
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_ulh7k")
+placeholder_text = "Type to say something else"
+middle_mouse_paste_enabled = false
+
+[node name="Search" type="ScrollContainer" parent="Body"]
+offset_left = 877.0
+offset_top = 675.0
+offset_right = 1522.0
+offset_bottom = 947.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Data" type="VBoxContainer" parent="Body/Search"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 10
+
+[node name="ColorRect" type="ColorRect" parent="Body"]
+offset_left = 880.0
+offset_top = 168.0
+offset_right = 1070.0
+offset_bottom = 178.0
+color = Color(0.294118, 0.294118, 0.294118, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="QuickTopicsTitle" type="RichTextLabel" parent="Body"]
+offset_left = 884.0
+offset_top = 145.0
+offset_right = 1090.0
+offset_bottom = 196.0
+theme_override_font_sizes/normal_font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxEmpty_83akq")
+text = "Quick Topics"
+
+[node name="Or" type="Label" parent="Body"]
+offset_left = 821.0
+offset_top = 491.0
+offset_right = 1590.0
+offset_bottom = 556.0
+theme_override_font_sizes/font_size = 30
+text = "OR ..."
+horizontal_alignment = 1
 
 [connection signal="text_changed" from="Body/Searchbar" to="." method="_on_searchbar_text_changed"]

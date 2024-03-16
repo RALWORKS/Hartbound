@@ -13,7 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://bojeot5gobbcy" path="res://reflections/resolutions/taylor_moon_temple_objection.tscn" id="10_2h57a"]
 [ext_resource type="Texture2D" uid="uid://dlckpoglm3oxj" path="res://assets/cog-brain.png" id="11_47pon"]
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_b2gkw"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_f0lm1"]
 viewport_path = NodePath("img")
 
 [node name="ReportTaylor?" node_paths=PackedStringArray("starting_page") instance=ExtResource("1_qfmsl")]
@@ -40,7 +40,7 @@ texture = ExtResource("4_opsbq")
 modulate = Color(1, 0.815686, 0.454902, 1)
 position = Vector2(880, 14)
 scale = Vector2(1.8, 1.8)
-texture = SubResource("ViewportTexture_b2gkw")
+texture = SubResource("ViewportTexture_f0lm1")
 with_background = false
 start_scowl = true
 

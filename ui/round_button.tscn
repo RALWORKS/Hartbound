@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://cujwwhvuat4gd"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qem2k"]
+bg_color = Color(0.101961, 0.101961, 0.101961, 0.87451)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4toh0"]
+bg_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[node name="RoundButton" type="Button"]
+custom_minimum_size = Vector2(500, 50)
+offset_right = 20.0
+offset_bottom = 10.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_qem2k")
+theme_override_styles/hover = SubResource("StyleBoxFlat_4toh0")
