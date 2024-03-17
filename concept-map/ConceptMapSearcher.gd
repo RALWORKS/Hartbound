@@ -51,9 +51,6 @@ func _process(_delta):
 func _set_results(data):
 	for c in result_nodes:
 		c.queue_free()
-		
-	var x = BTN_X
-	var y = DEFAULT_BTN_START
 	
 	result_nodes = _make_btn_array($Body/Search/Data, data)
 
