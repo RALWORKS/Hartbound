@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://b057bsb5vxd6f"]
+[gd_scene load_steps=14 format=3 uid="uid://b057bsb5vxd6f"]
 
 [ext_resource type="Script" path="res://reflections/resolution_map.gd" id="1_k43k2"]
 [ext_resource type="PackedScene" uid="uid://bojeot5gobbcy" path="res://reflections/resolutions/taylor_moon_temple_objection.tscn" id="2_d1x1y"]
@@ -6,6 +6,13 @@
 [ext_resource type="PackedScene" uid="uid://dutn8ywfpyov5" path="res://reflections/resolutions/use_human_name.tscn" id="3_gwyje"]
 [ext_resource type="PackedScene" uid="uid://cbeds48d0eqpg" path="res://reflections/resolutions/use_both_names.tscn" id="4_tjgsl"]
 [ext_resource type="PackedScene" uid="uid://dy7jrdc3ss38n" path="res://reflections/resolutions/taylor_moon_temple_concern.tscn" id="6_4l4et"]
+[ext_resource type="PackedScene" uid="uid://c3xcomixriukp" path="res://reflections/resolutions/early-atheist.tscn" id="7_chi76"]
+[ext_resource type="PackedScene" uid="uid://v6en3sbhjp6p" path="res://reflections/resolutions/guarded-moon-sect.tscn" id="8_8pbdf"]
+[ext_resource type="PackedScene" uid="uid://08qmtymg2720" path="res://reflections/resolutions/taylor_is_human.tscn" id="9_kyjrd"]
+[ext_resource type="PackedScene" uid="uid://dmmnrd60id1ec" path="res://reflections/resolutions/taylor_is_elven.tscn" id="10_arv8g"]
+[ext_resource type="PackedScene" uid="uid://d02gfidnpcncf" path="res://reflections/resolutions/initial_atheist.tscn" id="11_xoc0m"]
+[ext_resource type="PackedScene" uid="uid://d2edg054widf7" path="res://reflections/resolutions/initial_moon_sect_adherent.tscn" id="12_njbto"]
+[ext_resource type="PackedScene" uid="uid://c5d3wkf4t3kq4" path="res://reflections/resolutions/initial_culturally_moon_sect.tscn" id="13_6chfb"]
 
 [node name="ResolutionMap" type="Node"]
 script = ExtResource("1_k43k2")
@@ -19,3 +26,17 @@ script = ExtResource("1_k43k2")
 [node name="UseBothNames" parent="." instance=ExtResource("4_tjgsl")]
 
 [node name="TaylorMoonTempleConcern" parent="." instance=ExtResource("6_4l4et")]
+
+[node name="EarlyAtheist" parent="." instance=ExtResource("7_chi76")]
+
+[node name="GuardedMoonSect" parent="." instance=ExtResource("8_8pbdf")]
+
+[node name="TaylorIsHuman" parent="." instance=ExtResource("9_kyjrd")]
+
+[node name="TaylorIsElven" parent="." instance=ExtResource("10_arv8g")]
+
+[node name="InitialAtheist" parent="." instance=ExtResource("11_xoc0m")]
+
+[node name="InitialMoonSectAdherent" parent="." instance=ExtResource("12_njbto")]
+
+[node name="InitialCulturallyMoonSect" parent="." instance=ExtResource("13_6chfb")]

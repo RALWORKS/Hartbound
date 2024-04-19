@@ -11,6 +11,8 @@ signal concept_chosen(concept)
 var result_nodes = []
 var quest_nodes = []
 
+@export var parent_cutscene_node: Node
+
 const DEFAULT_BTN_START = 280
 
 const BTN_X = 850
@@ -83,3 +85,16 @@ func _on_searchbar_text_changed():
 	
 	else:
 		_set_results([])
+
+
+
+func _on_hitbox_mouse_entered():
+	if parent_cutscene_node == null:
+		return
+	parent_cutscene_node.is_option_node = true
+
+
+func _on_hitbox_mouse_exited():
+	if parent_cutscene_node == null:
+		return
+	parent_cutscene_node.is_option_node = false

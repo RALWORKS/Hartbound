@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://d2edg054widf7"]
+
+[ext_resource type="PackedScene" uid="uid://dkdf40bloaki5" path="res://reflections/resolution.tscn" id="1_chnhl"]
+
+[node name="InitialMoonSectAdherent" instance=ExtResource("1_chnhl")]
+id = "initial-moon-sect-adherent"
+title = "You follow the Moon Sect"
+description = "You follow the Moon Sect"
+reflection_id = "initial-religion"

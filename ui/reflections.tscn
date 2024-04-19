@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://mqthx6wcxxuo" path="res://ui/state_tag_replacer.tscn" id="6_use4e"]
 [ext_resource type="PackedScene" uid="uid://bxvk8e0eaa0g" path="res://reflections/reflection_map.tscn" id="7_e0t20"]
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_ujd1y"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_pkgyk"]
 viewport_path = NodePath("img")
 
 [node name="Reflections" instance=ExtResource("1_r40ie")]
@@ -35,7 +35,7 @@ scale = Vector2(1.05, 1.05)
 modulate = Color(0.619608, 0.619608, 0.619608, 1)
 position = Vector2(-53, 134)
 scale = Vector2(1.6, 1.6)
-texture = SubResource("ViewportTexture_ujd1y")
+texture = SubResource("ViewportTexture_pkgyk")
 flip_h = true
 with_background = false
 
@@ -65,20 +65,23 @@ offset_right = 332.0
 offset_bottom = 23.0
 text = "Nothing comes to mind for the moment."
 
-[node name="Data" type="Node2D" parent="Body/Reflections" index="2"]
-
-[node name="Button" type="Button" parent="Body/Reflections/Data" index="0"]
-offset_right = 8.0
-offset_bottom = 8.0
-size_flags_horizontal = 3
-
-[node name="ToCodex" type="Button" parent="Body/Reflections" index="3"]
+[node name="ToCodex" type="Button" parent="Body/Reflections" index="2"]
 offset_left = 579.0
 offset_top = -83.0
 offset_right = 724.0
 offset_bottom = -31.0
 theme_override_font_sizes/font_size = 30
 text = "> Codex"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Body/Reflections" index="3"]
+offset_right = 723.0
+offset_bottom = 801.0
+
+[node name="Data" type="VBoxContainer" parent="Body/Reflections/ScrollContainer" index="0"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 10
 
 [node name="Codex" type="Node2D" parent="Body" index="4"]
 visible = false

@@ -81,9 +81,9 @@ func start_cutscene(cutscene_res, npc=null):
 	for child in $"../MainScreen/World".get_children():
 		$"../MainScreen/World".call_deferred("remove_child", child)
 	
-	$"../MainScreen/World".add_child(cutscene)
+	$"../MainScreen/World".call_deferred("add_child", cutscene)
 	cutscene.npc = npc
-	cutscene.start()
+	cutscene.call_deferred("start")
 
 func end_cutscene():
 	var next_cutscene = cutscene.next_cutscene

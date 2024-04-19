@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://d2tvvel0wxl51"]
+[gd_scene load_steps=18 format=3 uid="uid://d2tvvel0wxl51"]
 
 [ext_resource type="Script" path="res://ui/game_menu.gd" id="1_qi0kv"]
 [ext_resource type="Texture2D" uid="uid://b4qmfyh2beo7n" path="res://assets/menubg.png" id="1_qo3pl"]
@@ -13,10 +13,9 @@
 [ext_resource type="Texture2D" uid="uid://nwp046lvkv0y" path="res://assets/effects/pass-out-1/star-biggest.png" id="8_7cibf"]
 [ext_resource type="Texture2D" uid="uid://dneh40ijxqdeo" path="res://assets/stars-backdrop.png" id="9_st631"]
 [ext_resource type="PackedScene" uid="uid://xpojrm8dxubm" path="res://ui/inv_btn.tscn" id="10_jbthf"]
-[ext_resource type="PackedScene" uid="uid://b11g7mb25w5xp" path="res://cutscene/smart_label.tscn" id="10_wgliq"]
 [ext_resource type="PackedScene" uid="uid://dr6wagkjctvpk" path="res://ui/reflection_btn.tscn" id="13_kv606"]
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_e1u8n"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_bdlr1"]
 viewport_path = NodePath("img")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xueob"]
@@ -24,7 +23,7 @@ content_margin_left = 45.0
 bg_color = Color(0, 0, 0, 0.815686)
 border_color = Color(0, 0, 0, 1)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_y8p1b"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_54e67"]
 viewport_path = NodePath("img")
 
 [node name="GameMenu" type="Node2D"]
@@ -59,7 +58,7 @@ metadata/_edit_use_anchors_ = true
 [node name="Profile" parent="ProfileBtn" instance=ExtResource("3_gksuv")]
 position = Vector2(15, 12)
 scale = Vector2(0.38, 0.38)
-texture = SubResource("ViewportTexture_e1u8n")
+texture = SubResource("ViewportTexture_bdlr1")
 
 [node name="Label" type="Label" parent="ProfileBtn"]
 layout_mode = 1
@@ -121,7 +120,7 @@ offset = Vector2(0, -300)
 modulate = Color(0.34902, 0.439216, 0.576471, 1)
 position = Vector2(164.321, -607.341)
 scale = Vector2(1.3, 1.703)
-texture = SubResource("ViewportTexture_y8p1b")
+texture = SubResource("ViewportTexture_54e67")
 with_background = false
 
 [node name="FullName" type="RichTextLabel" parent="CharacterRecord"]
@@ -182,20 +181,6 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_constants/separation = 20
-
-[node name="SmartLabel" parent="CharacterRecord/StoryContainer/Story" instance=ExtResource("10_wgliq")]
-custom_minimum_size = Vector2(0, 80)
-layout_mode = 2
-text = "check 1, 2
-chel"
-fit_content = true
-
-[node name="SmartLabel2" parent="CharacterRecord/StoryContainer/Story" instance=ExtResource("10_wgliq")]
-custom_minimum_size = Vector2(0, 80)
-layout_mode = 2
-text = "check 1, 2
-chel"
-fit_content = true
 
 [node name="HideButtonsForCutscene" type="Node2D" parent="."]
 

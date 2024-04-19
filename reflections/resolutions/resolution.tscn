@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://cvbxj0w7b3650"]
+
+[ext_resource type="PackedScene" uid="uid://dkdf40bloaki5" path="res://reflections/resolution.tscn" id="1_hon1d"]
+
+[node name="Resolution" instance=ExtResource("1_hon1d")]

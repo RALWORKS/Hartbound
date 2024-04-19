@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://d02gfidnpcncf"]
+
+[ext_resource type="PackedScene" uid="uid://dkdf40bloaki5" path="res://reflections/resolution.tscn" id="1_wguf1"]
+
+[node name="InitialAtheist" instance=ExtResource("1_wguf1")]
+id = "initial-atheist"
+title = "You've fully left the Moon Sect"
+description = "You've fully left the Moon Sect"
+reflection_id = "initial-religion"

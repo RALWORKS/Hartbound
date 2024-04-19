@@ -14,7 +14,7 @@ func _ready():
 		show_codex()
 
 func refresh_reflections():
-	var ids = $"/root/Game".get_state(["reflections"])
+	var ids = $"/root/Game".list_reflections()
 	
 	reflections = []
 	
@@ -23,7 +23,7 @@ func refresh_reflections():
 
 
 func refresh_display():
-	for c in $Data.get_children():
+	for c in $ScrollContainer/Data.get_children():
 		c.free()
 		
 	if reflections.size() == 0:
@@ -45,7 +45,7 @@ func _add_reflection(reflection):
 	btn.description = $"../../StateTagReplacer".replace(reflection.description)
 	btn.refresh()
 	btn.connect("pressed", func(): reflect(reflection))
-	$Data.add_child(btn)
+	$ScrollContainer/Data.add_child(btn)
 
 
 func _on_to_codex_pressed():

@@ -463,3 +463,7 @@ func resolve_reflection(reflection_id):
 	var data = get_state(["reflections"])
 	data = data.filter(func(i): return i != reflection_id)
 	set_state(["reflections"], data)
+
+func list_reflections():
+	init_reflections_if_needed()
+	return get_state(["reflections"])

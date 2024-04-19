@@ -1,0 +1,224 @@
+[gd_scene load_steps=12 format=3 uid="uid://bb7v7dhx45bmi"]
+
+[ext_resource type="PackedScene" uid="uid://bp8tsdjdbwj8i" path="res://cutscene/cutscene.tscn" id="1_ocjcv"]
+[ext_resource type="PackedScene" uid="uid://55vflx8ylix1" path="res://cutscene/cutscene_node.tscn" id="2_ueope"]
+[ext_resource type="Texture2D" uid="uid://c34iv0g17fion" path="res://assets/intro-story/moon.png" id="3_o7ptf"]
+[ext_resource type="PackedScene" uid="uid://b11g7mb25w5xp" path="res://cutscene/smart_label.tscn" id="4_wincy"]
+[ext_resource type="PackedScene" uid="uid://cp5lbi0bmf5vp" path="res://tools/screen-guide-frame.tscn" id="5_dr86g"]
+[ext_resource type="Texture2D" uid="uid://c6ly3f1tekc2t" path="res://assets/intro-story/man-and-elf.png" id="5_oy0ac"]
+[ext_resource type="PackedScene" uid="uid://cg4lrb0g3fkk7" path="res://cutscene/resolution_button.tscn" id="6_3wtak"]
+[ext_resource type="PackedScene" uid="uid://d2edg054widf7" path="res://reflections/resolutions/initial_moon_sect_adherent.tscn" id="7_og2w4"]
+[ext_resource type="PackedScene" uid="uid://c5d3wkf4t3kq4" path="res://reflections/resolutions/initial_culturally_moon_sect.tscn" id="8_p3rll"]
+[ext_resource type="PackedScene" uid="uid://d02gfidnpcncf" path="res://reflections/resolutions/initial_atheist.tscn" id="9_5kxns"]
+[ext_resource type="Texture2D" uid="uid://dlckpoglm3oxj" path="res://assets/cog-brain.png" id="10_vam50"]
+
+[node name="InitialReligionCutscene" node_paths=PackedStringArray("starting_page") instance=ExtResource("1_ocjcv")]
+starting_page = NodePath("1")
+
+[node name="1" parent="." index="0" node_paths=PackedStringArray("next") instance=ExtResource("2_ueope")]
+next = NodePath("../2")
+
+[node name="Moon" type="Sprite2D" parent="1" index="0"]
+position = Vector2(-7, -31)
+texture = ExtResource("3_o7ptf")
+centered = false
+
+[node name="SmartLabel" parent="1" index="1" instance=ExtResource("4_wincy")]
+offset_top = 15.0
+offset_right = 488.0
+offset_bottom = 87.0
+text = "You grew up in the Moon Sect."
+
+[node name="SmartLabel2" parent="1" index="2" instance=ExtResource("4_wincy")]
+offset_left = 54.0
+offset_top = 103.0
+offset_right = 755.0
+offset_bottom = 175.0
+text = "You were taught that time is a series of cycles."
+
+[node name="SmartLabel3" parent="1" index="3" instance=ExtResource("4_wincy")]
+offset_left = 708.0
+offset_top = 904.0
+offset_right = 1516.0
+offset_bottom = 980.0
+text = "The Sun rises, and it sets. The Moon rises, and it sets."
+
+[node name="SmartLabel4" parent="1" index="4" instance=ExtResource("4_wincy")]
+offset_left = 877.0
+offset_top = 997.0
+offset_right = 1747.0
+offset_bottom = 1073.0
+text = "The world belongs to Mortals for a time ..."
+
+[node name="2" parent="." index="1" node_paths=PackedStringArray("next") instance=ExtResource("2_ueope")]
+next = NodePath("../3")
+
+[node name="Moon" type="Sprite2D" parent="2" index="0"]
+position = Vector2(-421, -333)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("3_o7ptf")
+centered = false
+
+[node name="SmartLabel" parent="2" index="1" instance=ExtResource("4_wincy")]
+offset_left = 456.0
+offset_top = 231.0
+offset_right = 945.0
+offset_bottom = 348.0
+text = "And then that Sun sets, and it belongs to the Gods--"
+
+[node name="SmartLabel2" parent="2" index="2" instance=ExtResource("4_wincy")]
+offset_left = 661.0
+offset_top = 378.0
+offset_right = 1150.0
+offset_bottom = 495.0
+bbcode_enabled = true
+text = "--until the [i]Moon[/i] sets, and the Sun rises again."
+
+[node name="3" parent="." index="2" node_paths=PackedStringArray("next") instance=ExtResource("2_ueope")]
+next = NodePath("../4")
+
+[node name="Moon" type="Sprite2D" parent="3" index="0"]
+position = Vector2(-840, -626)
+scale = Vector2(2, 2)
+texture = ExtResource("3_o7ptf")
+centered = false
+
+[node name="Saint" type="Sprite2D" parent="3" index="1"]
+position = Vector2(238, 280)
+texture = ExtResource("5_oy0ac")
+centered = false
+hframes = 2
+
+[node name="Saint2" type="Sprite2D" parent="3" index="2"]
+position = Vector2(421, 256)
+texture = ExtResource("5_oy0ac")
+centered = false
+hframes = 2
+frame = 1
+
+[node name="SmartLabel" parent="3" index="3" instance=ExtResource("4_wincy")]
+offset_left = 351.0
+offset_top = 112.0
+offset_right = 867.0
+offset_bottom = 229.0
+text = "The chosen people who bring in each Age are known as Saints."
+
+[node name="4" parent="." index="3" node_paths=PackedStringArray("next") instance=ExtResource("2_ueope")]
+next = NodePath("../5")
+
+[node name="ColorRect" type="ColorRect" parent="4" index="0"]
+offset_right = 2050.0
+offset_bottom = 1106.0
+color = Color(0, 0, 0, 1)
+
+[node name="SmartLabel" parent="4" index="1" instance=ExtResource("4_wincy")]
+offset_left = 351.0
+offset_top = 112.0
+offset_right = 867.0
+offset_bottom = 229.0
+text = "The chosen people who bring in each Age are known as Saints."
+
+[node name="SmartLabel2" parent="4" index="2" instance=ExtResource("4_wincy")]
+offset_left = 468.0
+offset_top = 259.0
+offset_right = 984.0
+offset_bottom = 343.0
+text = "The priests told you,"
+
+[node name="SmartLabel3" parent="4" index="3" instance=ExtResource("4_wincy")]
+offset_left = 527.0
+offset_top = 366.0
+offset_right = 1295.0
+offset_bottom = 505.0
+theme_override_font_sizes/normal_font_size = 50
+text = "\"The Saint of Dusk is coming to usher in the Age of the Moon."
+
+[node name="SmartLabel4" parent="4" index="4" instance=ExtResource("4_wincy")]
+offset_left = 320.0
+offset_top = 528.0
+offset_right = 1088.0
+offset_bottom = 667.0
+theme_override_font_sizes/normal_font_size = 50
+bbcode_enabled = true
+text = "\"In [i]your generation![/i]"
+
+[node name="SmartLabel5" parent="4" index="5" instance=ExtResource("4_wincy")]
+offset_left = 451.0
+offset_top = 625.0
+offset_right = 1219.0
+offset_bottom = 764.0
+theme_override_font_sizes/normal_font_size = 50
+bbcode_enabled = true
+text = "\"The Saint is coming!"
+
+[node name="SmartLabel6" parent="4" index="6" instance=ExtResource("4_wincy")]
+offset_left = 565.0
+offset_top = 724.0
+offset_right = 1571.0
+offset_bottom = 841.0
+bbcode_enabled = true
+text = "\"There will be no more [i]Demons[/i]! Mankind's [i]war-making[/i] will end!\""
+
+[node name="5" parent="." index="4" instance=ExtResource("2_ueope")]
+is_option_node = true
+
+[node name="ColorRect" type="ColorRect" parent="5" index="0"]
+offset_right = 2050.0
+offset_bottom = 1106.0
+color = Color(0, 0, 0, 1)
+
+[node name="SmartLabel" parent="5" index="1" instance=ExtResource("4_wincy")]
+offset_left = 375.0
+offset_top = 362.0
+offset_right = 891.0
+offset_bottom = 431.0
+text = "Do you still believe?"
+
+[node name="Religious" parent="5" index="2" node_paths=PackedStringArray("to") instance=ExtResource("6_3wtak")]
+offset_left = 402.0
+offset_top = 454.0
+offset_right = 1060.0
+offset_bottom = 497.0
+text = "> \"Yes. I'm still a devout member of the Moon Sect.\""
+to = NodePath("../../End")
+
+[node name="InitialMoonSectAdherent" parent="5/Religious" index="1" instance=ExtResource("7_og2w4")]
+
+[node name="Cultural" parent="5" index="3" node_paths=PackedStringArray("to", "get_action_from") instance=ExtResource("6_3wtak")]
+offset_left = 402.0
+offset_top = 515.0
+offset_right = 1060.0
+offset_bottom = 558.0
+text = "> \"It's still my culture, but I don't really believe in the promised miracles anymore.\""
+to = NodePath("../../End")
+get_action_from = NodePath("../Religious/SetResolution")
+
+[node name="InitialCulturallyMoonSect" parent="5/Cultural" index="1" instance=ExtResource("8_p3rll")]
+
+[node name="Atheist" parent="5" index="4" node_paths=PackedStringArray("to", "get_action_from") instance=ExtResource("6_3wtak")]
+offset_left = 402.0
+offset_top = 575.0
+offset_right = 1063.0
+offset_bottom = 618.0
+text = "> \"No. I don 't believe and I don't observe.\""
+to = NodePath("../../End")
+get_action_from = NodePath("../Religious/SetResolution")
+
+[node name="InitialAtheist" parent="5/Atheist" index="1" instance=ExtResource("9_5kxns")]
+
+[node name="End" parent="." index="5" instance=ExtResource("2_ueope")]
+visible = false
+
+[node name="CogMind" type="Sprite2D" parent="End" index="0"]
+position = Vector2(415, 477)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("10_vam50")
+
+[node name="Title" parent="End" index="1" instance=ExtResource("4_wincy")]
+offset_left = 349.0
+offset_top = 528.0
+offset_right = 1590.0
+offset_bottom = 697.0
+text = "Reflection recorded."
+
+[node name="Frame" parent="." index="6" instance=ExtResource("5_dr86g")]

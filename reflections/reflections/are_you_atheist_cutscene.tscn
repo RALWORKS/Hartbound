@@ -1,0 +1,127 @@
+[gd_scene load_steps=14 format=3 uid="uid://dadf6l5irx2uw"]
+
+[ext_resource type="PackedScene" uid="uid://bp8tsdjdbwj8i" path="res://cutscene/cutscene.tscn" id="1_2hl5b"]
+[ext_resource type="PackedScene" uid="uid://55vflx8ylix1" path="res://cutscene/cutscene_node.tscn" id="2_tlv2u"]
+[ext_resource type="Texture2D" uid="uid://dlfi64p84aoys" path="res://assets/scenes/demo/1/industrial/cutscene/1-ground.png" id="3_mxl3h"]
+[ext_resource type="Texture2D" uid="uid://dx1wrwvh6nviu" path="res://assets/npcs/taylor/taylor_neutral.png" id="4_1ig0x"]
+[ext_resource type="PackedScene" uid="uid://cemborgcdx75k" path="res://character/profile.tscn" id="5_5eo57"]
+[ext_resource type="Texture2D" uid="uid://dbi8xiq42xugf" path="res://memory-border.png" id="6_oerpa"]
+[ext_resource type="PackedScene" uid="uid://b11g7mb25w5xp" path="res://cutscene/smart_label.tscn" id="7_glxpr"]
+[ext_resource type="PackedScene" uid="uid://cg4lrb0g3fkk7" path="res://cutscene/resolution_button.tscn" id="8_miq5h"]
+[ext_resource type="PackedScene" uid="uid://c3xcomixriukp" path="res://reflections/resolutions/early-atheist.tscn" id="9_xfdtv"]
+[ext_resource type="PackedScene" uid="uid://v6en3sbhjp6p" path="res://reflections/resolutions/guarded-moon-sect.tscn" id="10_04d6s"]
+[ext_resource type="Texture2D" uid="uid://dlckpoglm3oxj" path="res://assets/cog-brain.png" id="11_tq5ew"]
+[ext_resource type="PackedScene" uid="uid://cp5lbi0bmf5vp" path="res://tools/screen-guide-frame.tscn" id="12_26k1f"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_6kkn6"]
+viewport_path = NodePath("img")
+
+[node name="AreYouAtheist?" node_paths=PackedStringArray("starting_page") instance=ExtResource("1_2hl5b")]
+starting_page = NodePath("1")
+
+[node name="1" parent="." index="0" node_paths=PackedStringArray("next") instance=ExtResource("2_tlv2u")]
+visible = false
+next = NodePath("../2")
+
+[node name="bg" type="Sprite2D" parent="1" index="0"]
+modulate = Color(1, 0.815686, 0.454902, 1)
+position = Vector2(-36, -413)
+scale = Vector2(2, 2)
+texture = ExtResource("3_mxl3h")
+centered = false
+
+[node name="taylor2" type="Sprite2D" parent="1" index="1"]
+modulate = Color(0.635294, 0.466667, 0, 1)
+position = Vector2(481, 1825)
+scale = Vector2(1.6, 1.6)
+texture = ExtResource("4_1ig0x")
+
+[node name="Profile" parent="1" index="2" instance=ExtResource("5_5eo57")]
+modulate = Color(1, 0.815686, 0.454902, 1)
+position = Vector2(880, 14)
+scale = Vector2(1.8, 1.8)
+texture = SubResource("ViewportTexture_6kkn6")
+with_background = false
+
+[node name="border" type="Sprite2D" parent="1" index="3"]
+position = Vector2(-19, -10)
+scale = Vector2(1.02083, 1.0287)
+texture = ExtResource("6_oerpa")
+centered = false
+
+[node name="SmartLabel" parent="1" index="4" instance=ExtResource("7_glxpr")]
+offset_left = 7.0
+offset_top = 568.0
+offset_right = 998.0
+offset_bottom = 688.0
+text = "When <taylor> told you she was praying for the Saint, and missing Moon Temple, you reacted in a clinical and distancing way."
+
+[node name="SmartLabel2" parent="1" index="5" instance=ExtResource("7_glxpr")]
+offset_left = 316.0
+offset_top = 706.0
+offset_right = 997.0
+offset_bottom = 792.0
+bbcode_enabled = true
+text = "\"You have a right to [i]your[/i] religion,\" you said."
+
+[node name="2" parent="." index="1" node_paths=PackedStringArray("next") instance=ExtResource("2_tlv2u")]
+visible = false
+next = NodePath("../Branch")
+
+[node name="SmartLabel3" parent="2" index="0" instance=ExtResource("7_glxpr")]
+offset_left = 513.0
+offset_top = 816.0
+offset_right = 1118.0
+offset_bottom = 902.0
+bbcode_enabled = true
+text = "But you grew up in the Moon Sect too."
+
+[node name="Branch" parent="." index="2" instance=ExtResource("2_tlv2u")]
+is_option_node = true
+
+[node name="SmartLabel2" parent="Branch" index="0" instance=ExtResource("7_glxpr")]
+offset_left = 345.0
+offset_top = 366.0
+offset_right = 1556.0
+offset_bottom = 508.0
+bbcode_enabled = true
+text = "<taylor>'s probably under the impression  you're no longer an adherent.
+
+Are you?"
+
+[node name="No" parent="Branch" index="1" node_paths=PackedStringArray("to") instance=ExtResource("8_miq5h")]
+offset_left = 360.0
+offset_top = 529.0
+offset_right = 1409.0
+offset_bottom = 598.0
+text = "> \"No. I don't believe. It's been a long time since I have--if I ever really did.\""
+to = NodePath("../../End")
+
+[node name="EarlyAtheist" parent="Branch/No" index="1" instance=ExtResource("9_xfdtv")]
+
+[node name="Yes" parent="Branch" index="2" node_paths=PackedStringArray("to") instance=ExtResource("8_miq5h")]
+offset_left = 360.0
+offset_top = 609.0
+offset_right = 1410.0
+offset_bottom = 678.0
+text = "> \"Yes. I talk that way because I've become guarded about my faith since coming to live with the humans.\""
+to = NodePath("../../End")
+
+[node name="GuardedMoonSect" parent="Branch/Yes" index="1" instance=ExtResource("10_04d6s")]
+
+[node name="End" parent="." index="3" instance=ExtResource("2_tlv2u")]
+visible = false
+
+[node name="CogMind" type="Sprite2D" parent="End" index="0"]
+position = Vector2(415, 477)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("11_tq5ew")
+
+[node name="Title" parent="End" index="1" instance=ExtResource("7_glxpr")]
+offset_left = 349.0
+offset_top = 528.0
+offset_right = 1590.0
+offset_bottom = 697.0
+text = "Reflection recorded."
+
+[node name="Frame" parent="." index="4" instance=ExtResource("12_26k1f")]

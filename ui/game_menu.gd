@@ -48,7 +48,6 @@ func refresh_data(character_record=null):
 		line.custom_minimum_size = Vector2(0, 90)
 		#line.append_text(item["narrative"])
 		line.text = item["narrative"] + ("."	if item["narrative"][-1] not in [".", "!", "?"] else "")
-		print(item, line)
 		full_story.add_child(line)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

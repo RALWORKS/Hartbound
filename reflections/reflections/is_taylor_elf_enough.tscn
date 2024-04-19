@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://cneikpg0arryn"]
+
+[ext_resource type="PackedScene" uid="uid://dedec3bi7bce4" path="res://reflections/reflection.tscn" id="1_fl4k8"]
+[ext_resource type="PackedScene" uid="uid://cw8rcyi0cjw2v" path="res://reflections/reflections/is_taylor_elf_enough_cutscene.tscn" id="2_lhp7y"]
+
+[node name="TaylorElfEnough?" instance=ExtResource("1_fl4k8")]
+id = "taylor-elf-enough?"
+title = "<taylor> seems to consider herself culturally Elven. Do you?"
+description = "When <taylor> told you she was missing Moon Temple and praying for the Saint of Dusk, you first protest was that as a half-human, she shouldn't turn against her own people. Do you stand by this?"
+cutscene = ExtResource("2_lhp7y")

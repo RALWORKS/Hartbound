@@ -6,21 +6,20 @@
 [ext_resource type="PackedScene" uid="uid://yplasm5gtgly" path="res://cutscene/cutscene_option.tscn" id="4_3f5al"]
 
 [node name="ConceptCutsceneNode" node_paths=PackedStringArray("use_on_start_fn_from") instance=ExtResource("1_h71b0")]
-is_option_node = true
 use_on_start_fn_from = NodePath("UseConceptInDialogue")
 
 [node name="UseConceptInDialogue" type="Node" parent="." index="0"]
 script = ExtResource("2_f3ton")
 
-[node name="ConceptMapSearcher" parent="." index="1" instance=ExtResource("3_ajkbx")]
-position = Vector2(0, 50)
+[node name="ConceptMapSearcher" parent="." index="1" node_paths=PackedStringArray("parent_cutscene_node") instance=ExtResource("3_ajkbx")]
+parent_cutscene_node = NodePath("..")
 
 [node name="Skip" parent="." index="2" instance=ExtResource("4_3f5al")]
 z_index = 1000
-offset_left = 819.0
-offset_top = 24.0
-offset_right = 1060.0
-offset_bottom = 76.0
+offset_left = 1343.0
+offset_top = 998.0
+offset_right = 1584.0
+offset_bottom = 1050.0
 text = "> Done talking"
 
 [connection signal="concept_chosen" from="ConceptMapSearcher" to="UseConceptInDialogue" method="_on_concept_map_searcher_concept_chosen"]

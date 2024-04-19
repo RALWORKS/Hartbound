@@ -4,6 +4,7 @@
 [ext_resource type="Script" path="res://ui/reflection_resolver.gd" id="1_amwfm"]
 
 [node name="ReflectionResolver" type="Button"]
+custom_minimum_size = Vector2(0, 110)
 offset_right = 705.0
 offset_bottom = 110.0
 script = ExtResource("1_amwfm")

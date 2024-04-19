@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://v6en3sbhjp6p"]
+
+[ext_resource type="PackedScene" uid="uid://cvbxj0w7b3650" path="res://reflections/resolutions/resolution.tscn" id="1_mdwj8"]
+
+[node name="GuardedMoonSect" instance=ExtResource("1_mdwj8")]
+id = "guarded-moon-sect"
+title = "You follow the Moon Sect, but you're not always open about it"
+description = "You still follow the Moon Sect, even after years among the humans, but you've become guarded about your beliefs."
+reflection_id = "are-you-early-atheist"

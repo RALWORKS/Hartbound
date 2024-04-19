@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://bu8dakumsc3d2"]
+[gd_scene load_steps=20 format=3 uid="uid://bu8dakumsc3d2"]
 
 [ext_resource type="PackedScene" uid="uid://bp8tsdjdbwj8i" path="res://cutscene/cutscene.tscn" id="1_40cws"]
 [ext_resource type="PackedScene" uid="uid://55vflx8ylix1" path="res://cutscene/cutscene_node.tscn" id="2_drt2k"]
@@ -7,18 +7,26 @@
 [ext_resource type="PackedScene" uid="uid://cemborgcdx75k" path="res://character/profile.tscn" id="5_wlujr"]
 [ext_resource type="PackedScene" uid="uid://cp5lbi0bmf5vp" path="res://tools/screen-guide-frame.tscn" id="6_6nrwc"]
 [ext_resource type="PackedScene" uid="uid://b11g7mb25w5xp" path="res://cutscene/smart_label.tscn" id="6_yf4pc"]
+[ext_resource type="Script" path="res://cutscene/AddReflectionOnStart.gd" id="7_qhq2w"]
 [ext_resource type="PackedScene" uid="uid://b031fpm2fu6f1" path="res://cutscene/play_animation_on_start.tscn" id="7_yhnbt"]
+[ext_resource type="PackedScene" uid="uid://p080akcks504" path="res://reflections/reflections/initial_religion.tscn" id="8_qr6bn"]
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_xfmvq"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_r4u86"]
 viewport_path = NodePath("img")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_b7o1q"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_vyk57"]
 viewport_path = NodePath("img")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_0lpc0"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_0a3dh"]
 viewport_path = NodePath("img")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_mrsc3"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_q5i6h"]
+viewport_path = NodePath("img")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_l4ghg"]
+viewport_path = NodePath("img")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_pxba8"]
 viewport_path = NodePath("img")
 
 [sub_resource type="Animation" id="Animation_4yk4d"]
@@ -102,7 +110,7 @@ texture = ExtResource("4_dgw2j")
 modulate = Color(0, 0, 0, 0.768627)
 position = Vector2(111, 425)
 scale = Vector2(1.2, 1.2)
-texture = SubResource("ViewportTexture_xfmvq")
+texture = SubResource("ViewportTexture_r4u86")
 flip_h = true
 with_background = false
 
@@ -127,7 +135,7 @@ texture = ExtResource("4_dgw2j")
 modulate = Color(0, 0, 0, 0.768627)
 position = Vector2(111, 425)
 scale = Vector2(1.2, 1.2)
-texture = SubResource("ViewportTexture_b7o1q")
+texture = SubResource("ViewportTexture_vyk57")
 flip_h = true
 with_background = false
 
@@ -150,47 +158,139 @@ scale = Vector2(0.7, 0.723)
 texture = ExtResource("4_dgw2j")
 flip_h = true
 
-[node name="CutsceneNode3" parent="." index="2" node_paths=PackedStringArray("next") instance=ExtResource("2_drt2k")]
-next = NodePath("../CutsceneNode4")
+[node name="CutsceneNode3" parent="." index="2" node_paths=PackedStringArray("next", "use_on_start_fn_from") instance=ExtResource("2_drt2k")]
+next = NodePath("../CutsceneNode5")
+use_on_start_fn_from = NodePath("AddReflectionOnStart")
 
-[node name="Sprite2D" type="Sprite2D" parent="CutsceneNode3" index="0"]
+[node name="AddReflectionOnStart" type="Node" parent="CutsceneNode3" index="0"]
+script = ExtResource("7_qhq2w")
+
+[node name="InitialReligion" parent="CutsceneNode3/AddReflectionOnStart" index="0" instance=ExtResource("8_qr6bn")]
+
+[node name="Sprite2D" type="Sprite2D" parent="CutsceneNode3" index="1"]
 position = Vector2(-956, 2404)
 scale = Vector2(4, 4)
 texture = ExtResource("3_1255v")
 
-[node name="Sprite2D2" type="Sprite2D" parent="CutsceneNode3" index="1"]
+[node name="Sprite2D2" type="Sprite2D" parent="CutsceneNode3" index="2"]
 modulate = Color(0, 0, 0, 0.768627)
 position = Vector2(1189, 1124)
 scale = Vector2(0.897574, 0.927859)
 texture = ExtResource("4_dgw2j")
 
-[node name="Profile" parent="CutsceneNode3" index="2" instance=ExtResource("5_wlujr")]
+[node name="Profile" parent="CutsceneNode3" index="3" instance=ExtResource("5_wlujr")]
 modulate = Color(0, 0, 0, 0.768627)
 position = Vector2(111, 425)
 scale = Vector2(1.2, 1.2)
-texture = SubResource("ViewportTexture_0lpc0")
+texture = SubResource("ViewportTexture_0a3dh")
 flip_h = true
 with_background = false
 
-[node name="ColorRect" type="ColorRect" parent="CutsceneNode3" index="3"]
+[node name="ColorRect" type="ColorRect" parent="CutsceneNode3" index="4"]
 offset_left = -25.0
 offset_top = 809.0
 offset_right = 1933.0
 offset_bottom = 1146.0
 color = Color(0, 0, 0, 1)
 
-[node name="SmartLabel" parent="CutsceneNode3" index="4" instance=ExtResource("6_yf4pc")]
+[node name="SmartLabel" parent="CutsceneNode3" index="5" instance=ExtResource("6_yf4pc")]
 offset_left = 27.0
-offset_right = 2007.0
+offset_right = 1197.0
 bbcode_enabled = true
-text = "\"Well. I'll gather a bit, and then we can be on our way.\""
+text = "\"Mind if I get personal for a moment?\""
 
-[node name="Sprite2D3" type="Sprite2D" parent="CutsceneNode3" index="5"]
+[node name="Sprite2D3" type="Sprite2D" parent="CutsceneNode3" index="6"]
 position = Vector2(1421, 1486)
 scale = Vector2(0.7, 0.723)
 texture = ExtResource("4_dgw2j")
 
-[node name="CutsceneNode4" parent="." index="3" node_paths=PackedStringArray("use_on_start_fn_from") instance=ExtResource("2_drt2k")]
+[node name="CutsceneNode5" parent="." index="3" node_paths=PackedStringArray("next") instance=ExtResource("2_drt2k")]
+next = NodePath("../CutsceneNode6")
+
+[node name="Sprite2D" type="Sprite2D" parent="CutsceneNode5" index="0"]
+position = Vector2(-956, 2404)
+scale = Vector2(4, 4)
+texture = ExtResource("3_1255v")
+
+[node name="Sprite2D2" type="Sprite2D" parent="CutsceneNode5" index="1"]
+modulate = Color(0, 0, 0, 0.768627)
+position = Vector2(1189, 1124)
+scale = Vector2(0.897574, 0.927859)
+texture = ExtResource("4_dgw2j")
+
+[node name="Profile" parent="CutsceneNode5" index="2" instance=ExtResource("5_wlujr")]
+modulate = Color(0, 0, 0, 0.768627)
+position = Vector2(111, 425)
+scale = Vector2(1.2, 1.2)
+texture = SubResource("ViewportTexture_q5i6h")
+flip_h = true
+with_background = false
+
+[node name="ColorRect" type="ColorRect" parent="CutsceneNode5" index="3"]
+offset_left = -25.0
+offset_top = 809.0
+offset_right = 1933.0
+offset_bottom = 1146.0
+color = Color(0, 0, 0, 1)
+
+[node name="SmartLabel" parent="CutsceneNode5" index="4" instance=ExtResource("6_yf4pc")]
+offset_left = 27.0
+offset_right = 1197.0
+bbcode_enabled = true
+text = "\"I think you've heard before that I'm a half-Elf, right? I grew up at Moon Temple ... in the Moon Sect, naturally. "
+
+[node name="Sprite2D3" type="Sprite2D" parent="CutsceneNode5" index="5"]
+position = Vector2(1421, 1486)
+scale = Vector2(0.7, 0.723)
+texture = ExtResource("4_dgw2j")
+flip_h = true
+
+[node name="CutsceneNode6" parent="." index="4" node_paths=PackedStringArray("next") instance=ExtResource("2_drt2k")]
+next = NodePath("../CutsceneNode4")
+
+[node name="Sprite2D" type="Sprite2D" parent="CutsceneNode6" index="0"]
+position = Vector2(-956, 2404)
+scale = Vector2(4, 4)
+texture = ExtResource("3_1255v")
+
+[node name="Sprite2D2" type="Sprite2D" parent="CutsceneNode6" index="1"]
+modulate = Color(0, 0, 0, 0.768627)
+position = Vector2(1189, 1124)
+scale = Vector2(0.897574, 0.927859)
+texture = ExtResource("4_dgw2j")
+
+[node name="Profile" parent="CutsceneNode6" index="2" instance=ExtResource("5_wlujr")]
+modulate = Color(0, 0, 0, 0.768627)
+position = Vector2(111, 425)
+scale = Vector2(1.2, 1.2)
+texture = SubResource("ViewportTexture_l4ghg")
+flip_h = true
+with_background = false
+
+[node name="ColorRect" type="ColorRect" parent="CutsceneNode6" index="3"]
+offset_left = -25.0
+offset_top = 809.0
+offset_right = 1933.0
+offset_bottom = 1146.0
+color = Color(0, 0, 0, 1)
+
+[node name="SmartLabel" parent="CutsceneNode6" index="4" instance=ExtResource("6_yf4pc")]
+offset_left = -3.0
+offset_top = 837.0
+offset_right = 1239.0
+offset_bottom = 1061.0
+bbcode_enabled = true
+text = "\"The folks here tend to get pretty wigged out when I bring it up, but it was my whole life, up 'til about seven years ago, when I came here.
+
+\"So if you ever want to talk about ... Moon Temple, or Moon Sect, or the rituals, or the holidays, or any of it ... I'd love the chance to reminisce, too.\""
+
+[node name="Sprite2D3" type="Sprite2D" parent="CutsceneNode6" index="5"]
+position = Vector2(1421, 1486)
+scale = Vector2(0.7, 0.723)
+texture = ExtResource("4_dgw2j")
+flip_h = true
+
+[node name="CutsceneNode4" parent="." index="5" node_paths=PackedStringArray("use_on_start_fn_from") instance=ExtResource("2_drt2k")]
 use_on_start_fn_from = NodePath("PlayAnimationOnStart")
 
 [node name="Sprite2D" type="Sprite2D" parent="CutsceneNode4" index="0"]
@@ -208,7 +308,7 @@ texture = ExtResource("4_dgw2j")
 modulate = Color(0, 0, 0, 0.768627)
 position = Vector2(111, 425)
 scale = Vector2(1.2, 1.2)
-texture = SubResource("ViewportTexture_mrsc3")
+texture = SubResource("ViewportTexture_pxba8")
 flip_h = true
 with_background = false
 
@@ -222,8 +322,11 @@ color = Color(0, 0, 0, 1)
 [node name="SmartLabel" parent="CutsceneNode4" index="4" instance=ExtResource("6_yf4pc")]
 offset_left = 27.0
 offset_right = 2007.0
+offset_bottom = 1043.0
 bbcode_enabled = true
-text = "She quickly gathers some berries and branches, then stands to leave."
+text = "\"Anyway. No need to dally here.\"
+
+She quickly gathers some berries and branches, then stands to leave."
 
 [node name="Sprite2D3" type="Sprite2D" parent="CutsceneNode4" index="5"]
 position = Vector2(1421, 1486)
@@ -238,4 +341,4 @@ libraries = {
 [node name="PlayAnimationOnStart" parent="CutsceneNode4" index="6" node_paths=PackedStringArray("player") instance=ExtResource("7_yhnbt")]
 player = NodePath("../Sprite2D3/AnimationPlayer")
 
-[node name="Frame" parent="." index="4" instance=ExtResource("6_6nrwc")]
+[node name="Frame" parent="." index="6" instance=ExtResource("6_6nrwc")]

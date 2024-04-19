@@ -30,7 +30,7 @@ func set_description(d):
 func close():
 	game.remove_modal($".")
 	if wrapper:
-		wrapper.on_close()
+		wrapper.on_clopse()
 	if is_cached:
 		self.visible = false
 	elif wrapper:

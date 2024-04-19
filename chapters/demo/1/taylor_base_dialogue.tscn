@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://epq5ioa4sayx"]
+[gd_scene load_steps=27 format=3 uid="uid://epq5ioa4sayx"]
 
 [ext_resource type="PackedScene" uid="uid://bp8tsdjdbwj8i" path="res://cutscene/cutscene.tscn" id="1_qv2i1"]
 [ext_resource type="PackedScene" uid="uid://55vflx8ylix1" path="res://cutscene/cutscene_node.tscn" id="2_vonvd"]
@@ -21,9 +21,11 @@
 [ext_resource type="PackedScene" uid="uid://d4gnlgciwgovl" path="res://cutscene/character_present_conditional_redirect.tscn" id="16_rl36h"]
 [ext_resource type="PackedScene" uid="uid://cyleyq5ews7aw" path="res://cutscene/reflection_button.tscn" id="16_xvtm1"]
 [ext_resource type="PackedScene" uid="uid://b3dwm2gpu71ys" path="res://reflections/reflections/will_you_report_taylor.tscn" id="17_nrpod"]
+[ext_resource type="PackedScene" uid="uid://cneikpg0arryn" path="res://reflections/reflections/is_taylor_elf_enough.tscn" id="17_tpbfj"]
 [ext_resource type="Texture2D" uid="uid://c34iv0g17fion" path="res://assets/intro-story/moon.png" id="17_wjevy"]
+[ext_resource type="PackedScene" uid="uid://c027ogwxilxsq" path="res://reflections/reflections/are_you_atheist.tscn" id="19_6veqj"]
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_v2wq3"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_ekbef"]
 viewport_path = NodePath("img")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7rj0o"]
@@ -426,20 +428,22 @@ texture = ExtResource("4_bxirh")
 [node name="Profile" parent="Concepts/SummerSolstice/Branch" index="2" instance=ExtResource("15_j4j0s")]
 position = Vector2(880, 14)
 scale = Vector2(1.8, 1.8)
-texture = SubResource("ViewportTexture_v2wq3")
+texture = SubResource("ViewportTexture_ekbef")
 with_background = false
 
-[node name="CutsceneOption" parent="Concepts/SummerSolstice/Branch" index="3" node_paths=PackedStringArray("to", "avatar") instance=ExtResource("8_w0od5")]
+[node name="Human" parent="Concepts/SummerSolstice/Branch" index="3" node_paths=PackedStringArray("to", "avatar") instance=ExtResource("16_xvtm1")]
 offset_left = 348.0
-offset_top = 826.0
+offset_top = 824.0
 offset_right = 1170.0
-offset_bottom = 876.0
+offset_bottom = 874.0
 text = "> \"You're half human. You're praying for the downfall of your own people?"
 to = NodePath("../../HalfHuman")
 avatar = NodePath("../Profile")
 scowl = true
 
-[node name="ReflectionButton" parent="Concepts/SummerSolstice/Branch" index="4" node_paths=PackedStringArray("to", "avatar") instance=ExtResource("16_xvtm1")]
+[node name="TaylorElfEnough?" parent="Concepts/SummerSolstice/Branch/Human" index="1" instance=ExtResource("17_tpbfj")]
+
+[node name="Warning" parent="Concepts/SummerSolstice/Branch" index="4" node_paths=PackedStringArray("to", "avatar") instance=ExtResource("16_xvtm1")]
 offset_left = 347.0
 offset_top = 882.0
 offset_right = 1171.0
@@ -449,17 +453,20 @@ to = NodePath("../../SunTemple")
 avatar = NodePath("../Profile")
 scowl = true
 
-[node name="ReportTaylor?" parent="Concepts/SummerSolstice/Branch/ReflectionButton" index="1" instance=ExtResource("17_nrpod")]
+[node name="ReportTaylor?" parent="Concepts/SummerSolstice/Branch/Warning" index="1" instance=ExtResource("17_nrpod")]
 
-[node name="CutsceneOption3" parent="Concepts/SummerSolstice/Branch" index="5" node_paths=PackedStringArray("to", "avatar") instance=ExtResource("8_w0od5")]
-offset_left = 347.0
+[node name="Religion" parent="Concepts/SummerSolstice/Branch" index="5" node_paths=PackedStringArray("to", "avatar") instance=ExtResource("16_xvtm1")]
+offset_left = 344.0
 offset_top = 939.0
-offset_right = 1169.0
+offset_right = 1168.0
 offset_bottom = 989.0
-text = "> \"You have a right to your religious beliefs. It doesn't change how I see you."
+text = "> \"You have a right to your religious beliefs. It doesn't change how I see you.
+"
 to = NodePath("../../Religion")
 avatar = NodePath("../Profile")
 neutral = true
+
+[node name="AreYouAtheist?" parent="Concepts/SummerSolstice/Branch/Religion" index="1" instance=ExtResource("19_6veqj")]
 
 [node name="CutsceneOption4" parent="Concepts/SummerSolstice/Branch" index="6" node_paths=PackedStringArray("to", "avatar") instance=ExtResource("8_w0od5")]
 offset_left = 346.0
