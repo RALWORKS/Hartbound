@@ -33,6 +33,7 @@ func set_npc_name(n):
 
 func make_quest_buttons():
 	var data = concepts.get_node("Quest").get_children()
+	print(data)
 	quest_nodes = _make_btn_array($Body/QuickBG/Quick/Data, data)
 	
 	

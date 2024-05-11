@@ -4,6 +4,7 @@ var game
 
 
 var Reflections = preload("res://ui/reflections.tscn")
+@export var playing = false
 
 func _ready():
 	$ToolTip.set_deferred("visible", false)
@@ -17,7 +18,17 @@ func _get_game():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-	pass
+	var n_reflections = _get_game().n_reflections()
+	$Circle/Label.text = str(n_reflections)
+	if n_reflections > 0 and not playing:
+		$AnimationPlayer.play("show")
+		$Circle.visible = true
+		playing = true
+		return
+	if playing and n_reflections == 0:
+		$AnimationPlayer.play("RESET")
+		$Circle.visible = false
+		playing = false
 
 
 func _on_pressed():

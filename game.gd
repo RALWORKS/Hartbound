@@ -478,6 +478,9 @@ func init_reflections_if_needed():
 func add_reflection(reflection_id):
 	init_reflections_if_needed()
 	set_state_push_to_key(["reflections"], reflection_id)
+
+func n_reflections():
+	return init_reflections_if_needed().size()
 	
 func resolve_reflection(reflection_id):
 	init_reflections_if_needed()

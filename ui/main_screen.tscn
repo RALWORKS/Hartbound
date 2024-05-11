@@ -1,12 +1,15 @@
-[gd_scene load_steps=4 format=3 uid="uid://cko70dyq2rkxn"]
+[gd_scene load_steps=6 format=3 uid="uid://cko70dyq2rkxn"]
 
 [ext_resource type="PackedScene" uid="uid://d2tvvel0wxl51" path="res://ui/game_menu.tscn" id="1_0wetn"]
 [ext_resource type="Script" path="res://ui/Effects.gd" id="1_3a4ee"]
-[ext_resource type="PackedScene" path="res://effects/black_star_animation.tscn" id="2_ujwrl"]
+[ext_resource type="Script" path="res://ui/main_screen.gd" id="1_dtog3"]
+[ext_resource type="PackedScene" uid="uid://d3sg85ljfgv6k" path="res://effects/black_star_animation.tscn" id="2_ujwrl"]
+[ext_resource type="PackedScene" uid="uid://dn6jytdfpsb1y" path="res://ui/reflection_marker.tscn" id="4_2bnbj"]
 
 [node name="MainScreen" type="SubViewportContainer"]
 offset_right = 1920.0
 offset_bottom = 1080.0
+script = ExtResource("1_dtog3")
 
 [node name="Menu" type="SubViewport" parent="."]
 transparent_bg = true
@@ -32,3 +35,12 @@ handle_input_locally = false
 physics_object_picking = true
 size = Vector2i(1720, 1080)
 render_target_update_mode = 4
+
+[node name="Emotes" type="SubViewport" parent="."]
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(1920, 1080)
+render_target_update_mode = 4
+
+[node name="ReflectionMarker" parent="Emotes" instance=ExtResource("4_2bnbj")]
+position = Vector2(1400, 60)

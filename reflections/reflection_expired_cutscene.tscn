@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://dlckpoglm3oxj" path="res://assets/cog-brain.png" id="6_mgyvi"]
 [ext_resource type="Script" path="res://reflections/expiry_cutscene_data_refresher.gd" id="7_gnyec"]
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_b237t"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_qd31o"]
 viewport_path = NodePath("img")
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_30hjc"]
@@ -28,7 +28,7 @@ scale = Vector2(2, 2)
 [node name="Profile" parent="1" index="1" instance=ExtResource("4_rph0m")]
 position = Vector2(-119, 78)
 scale = Vector2(1.5, 1.5)
-texture = SubResource("ViewportTexture_b237t")
+texture = SubResource("ViewportTexture_qd31o")
 flip_h = true
 with_background = false
 
