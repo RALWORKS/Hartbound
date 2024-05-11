@@ -4,9 +4,13 @@ extends Node2D
 @export var concepts: Node
 @export var default_topics: Node
 @export var next_cutscene: Resource
+@export var cutscene_sequence: Array[Resource] = []
 var page = null
 @export var npc: CharacterBody2D = null # will auto set if used as npc dialogue
 @export var npc_name = ""
+
+var scene_bg = null
+var input_data = null
 
 var characters_present = []
 

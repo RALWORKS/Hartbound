@@ -47,7 +47,9 @@ func start():
 		on_start.call()
 	elif use_on_start_fn_from:
 		use_on_start_fn_from.on_start.call()
-
+	for c in get_children():
+		if "on_start" in c:
+			c.on_start()
 func flip():
 	if is_option_node:
 		return

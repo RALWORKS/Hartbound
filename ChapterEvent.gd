@@ -57,8 +57,12 @@ func rerun():
 	_re_mutate()
 	_play(false)
 
+func _side_effect():
+	pass
+
 
 func play():
+	_side_effect()
 	_mutate()
 	_teleport()
 	_cutscene()

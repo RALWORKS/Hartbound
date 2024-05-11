@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://d6322eeief2g"]
+
+[ext_resource type="Script" path="res://reflection_expiry_event.gd" id="1_a3cad"]
+
+[node name="ReflectionExpiryEvent" type="Node"]
+script = ExtResource("1_a3cad")

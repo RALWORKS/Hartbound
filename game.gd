@@ -10,6 +10,9 @@ var unpausing = false
 var leyline_showing = false
 var is_scouting = false
 
+@export var cheat_mode = true
+@export var cheat_event_trigger_name = ""
+
 var MainScreen = preload("res://ui/main_screen.tscn")
 var StartScreen = preload("res://ui/start_screen.tscn")
 var ConceptMapRes = preload("res://concept-map/concept_map.tscn")
@@ -317,6 +320,9 @@ func scout():
 	await get_tree().create_timer(3.0).timeout
 	is_scouting = false
 
+func _cheat_event():
+	$Chapter.trigger(cheat_event_trigger_name)
+
 func _handle_walk_input(delta):
 	if player == null:
 		return
@@ -324,6 +330,9 @@ func _handle_walk_input(delta):
 	var arrow_keys = Input.get_vector("left", "right", "up", "down")
 	var click = Input.is_action_just_released("click")
 	var ley = Input.is_action_just_released("leyline")
+	var cheat_event = Input.is_action_just_pressed("cheat event")
+	if cheat_event and cheat_mode:
+		_cheat_event()
 
 	if click and _mouse_in_world():
 		player.destination_clicked(delta)

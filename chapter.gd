@@ -11,6 +11,8 @@ var cur_game: Array[Node]
 
 var cutscene
 
+var cached_scene_bg
+
 var game = null
 
 func trigger(trigger_name, e=null):
@@ -73,29 +75,53 @@ func _ready():
 func _process(_delta):
 	pass
 
-func start_cutscene(cutscene_res, npc=null):
+func start_cutscene(
+	cutscene_res,
+	npc=null,
+	next_cutscene=null,
+	cutscene_sequence:Array=[],
+	input_data=null
+):
 	cutscene = cutscene_res.instantiate()
 	cutscene.characters_present = game.characters_present.duplicate()
-
-	cur_game = $"../MainScreen/World".get_children()
-	for child in $"../MainScreen/World".get_children():
-		$"../MainScreen/World".call_deferred("remove_child", child)
+	
+	var world = $"../MainScreen/World".get_children()
+	var bg
+	
+	if world.size() > 0:
+		bg = $"../MainScreen/World".get_children()[0].get_node("Background").texture
+		cached_scene_bg = bg
+		cur_game = world
+		for child in world:
+			$"../MainScreen/World".call_deferred("remove_child", child)
+	else:
+		bg = cached_scene_bg
 	
 	$"../MainScreen/World".call_deferred("add_child", cutscene)
 	cutscene.npc = npc
+	cutscene.scene_bg = bg
+	cutscene.input_data = input_data
+	if cutscene_sequence.size() > 0:
+		cutscene.next_cutscene = cutscene_sequence.pop_front()
+		for c in cutscene_sequence:
+			cutscene.cutscene_sequence.push_back(c)
+	else:
+		cutscene.next_cutscene = next_cutscene
 	cutscene.call_deferred("start")
 
 func end_cutscene():
 	var next_cutscene = cutscene.next_cutscene
 	var npc = cutscene.npc
+	var sequence = cutscene.cutscene_sequence
 	cutscene.call_deferred("free")
-	for child in cur_game:
-		if is_instance_valid(child):
-			$"../MainScreen/World".add_child(child)
 	game.chapter = self
-	if next_cutscene != null:
-		await get_tree().create_timer(0.2).timeout
-		start_cutscene(next_cutscene, npc)
+	if next_cutscene == null:
+		for child in cur_game:
+			if is_instance_valid(child):
+				$"../MainScreen/World".add_child(child)
+		return
+	await get_tree().create_timer(0.1).timeout
+	start_cutscene(next_cutscene, npc, null, sequence)
 
 func update_cutscene_page(p):
 	cutscene.update_page(p)
