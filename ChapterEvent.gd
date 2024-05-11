@@ -49,7 +49,7 @@ func _teleport():
 	var g = _get_game()
 	if to_scene != null:
 		var scene0 = to_scene.instantiate()
-		g.get_node("Map").move_to(scene0)
+		g.get_node("Map").move_to(scene0, false)
 		scene0.spawn(g)
 	
 

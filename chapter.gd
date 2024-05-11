@@ -119,6 +119,8 @@ func end_cutscene():
 		for child in cur_game:
 			if is_instance_valid(child):
 				$"../MainScreen/World".add_child(child)
+		await get_tree().create_timer(0.1).timeout
+		$"/root/Game".move()
 		return
 	await get_tree().create_timer(0.1).timeout
 	start_cutscene(next_cutscene, npc, null, sequence)

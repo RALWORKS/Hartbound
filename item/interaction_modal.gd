@@ -21,6 +21,7 @@ func open(g):
 
 func close():
 	$Modal.close()
+	$"/root/Game".move()
 	
 func set_description(d):
 	$Modal/ExamineBody.append_text(d)

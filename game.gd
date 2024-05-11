@@ -10,8 +10,11 @@ var unpausing = false
 var leyline_showing = false
 var is_scouting = false
 
+var moves = 0
+
 @export var cheat_mode = true
 @export var cheat_event_trigger_name = ""
+@export var cheat_timer_turns = 2
 
 var MainScreen = preload("res://ui/main_screen.tscn")
 var StartScreen = preload("res://ui/start_screen.tscn")
@@ -46,7 +49,9 @@ var INITIAL_STATE = {
 	"position": {
 		"scene_path": null,
 		"entrance_name": null,
-	}
+	},
+	"moves": 0,
+	"timers": [],
 }
 
 var STATE = INITIAL_STATE.duplicate(true)
@@ -136,6 +141,7 @@ func _deep_set(d, ix, val):
 
 func set_state(ix, val):
 	_deep_set(STATE, ix, val)
+	return val
 
 func set_state_push_to_key(ix, val):
 	var cur = get_state(ix)
@@ -322,6 +328,9 @@ func scout():
 
 func _cheat_event():
 	$Chapter.trigger(cheat_event_trigger_name)
+	
+func _cheat_set_timer():
+	add_timer(cheat_timer_turns, cheat_event_trigger_name)
 
 func _handle_walk_input(delta):
 	if player == null:
@@ -331,8 +340,11 @@ func _handle_walk_input(delta):
 	var click = Input.is_action_just_released("click")
 	var ley = Input.is_action_just_released("leyline")
 	var cheat_event = Input.is_action_just_pressed("cheat event")
+	var cheat_timer = Input.is_action_just_pressed("cheat timer")
 	if cheat_event and cheat_mode:
 		_cheat_event()
+	elif cheat_timer and cheat_mode:
+		_cheat_set_timer()
 
 	if click and _mouse_in_world():
 		player.destination_clicked(delta)
@@ -476,3 +488,36 @@ func resolve_reflection(reflection_id):
 func list_reflections():
 	init_reflections_if_needed()
 	return get_state(["reflections"])
+
+func _init_moves_if_needed():
+	var data = get_state(["moves"])
+	if data != null:
+		return data
+	return set_state(["moves"], 0)
+
+func _init_timers_if_needed():
+	var data = get_state(["timers"])
+	if data != null:
+		return data
+	return set_state(["timers"], [])
+
+func add_timer(n, trigger_name):
+	var m = _init_moves_if_needed()
+	var timers = _init_timers_if_needed()
+	set_state(["timers"], timers + [[m + n, trigger_name]])
+
+func check_timers():
+	var m = _init_moves_if_needed()
+	var timers = _init_timers_if_needed()
+	var remaining = []
+	for t in timers:
+		if t[0] <= m:
+			$Chapter.trigger(t[1])
+			continue
+		remaining.push_back(t)
+	set_state(["timers"], remaining)
+
+func move():
+	var m = _init_moves_if_needed()
+	set_state(["moves"], m + 1)
+	check_timers()

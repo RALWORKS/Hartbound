@@ -48,14 +48,15 @@ func _close_action_window():
 		cur_window.close()
 
 func action():
+	var g = _get_game()
+	#g.move()
+	
 	if get_on_open_from != null:
 		get_on_open_from.on_open()
 	if action_source:
 		return action_source.action()
 	if cur_window:
 		return
-
-	var g = _get_game()
 	cur_window = InteractionModal.instantiate()
 	cur_window.target = self
 	cur_window.title = title

@@ -12,10 +12,10 @@ func _ready():
 
 func start(initial, next_chapter):
 	chapter = next_chapter
-	_move_to(initial)
+	_move_to(initial, false)
 
-func move_to(place):
-	_move_to(place)
+func move_to(place, as_move=true):
+	_move_to(place, as_move)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
@@ -28,7 +28,7 @@ func set_contents_node(dest: Node):
 	dest.contents_node = contents
 	
 
-func _move_to(dest: Node):
+func _move_to(dest: Node, as_move: bool = true):
 	$"..".staged_action_node = null
 	var old = current
 	current = dest
@@ -40,15 +40,19 @@ func _move_to(dest: Node):
 	assert(old != $"..")
 	old.call_deferred("free")
 	
+	if as_move:
+		await get_tree().create_timer(0.1).timeout
+		$"..".move()
+	
 
 func load_position(data):
 	var dest = load(data["scene_path"]).instantiate()
-	traverse(dest, data["entrance_name"], false)
+	traverse(dest, data["entrance_name"], false, false)
 	
-func traverse(dest, entrance, save=true):
+func traverse(dest, entrance, save=true, as_move=true):
 	#var dest = load(dest_resource).instantiate()
 	#dest.spawn_at = dest_edge
-	_move_to(dest)
+	_move_to(dest, as_move)
 	dest.get_node("YSort").get_node(entrance).spawn($"..")
 	if save:
 		$"..".save_position(dest.scene_file_path, entrance)
