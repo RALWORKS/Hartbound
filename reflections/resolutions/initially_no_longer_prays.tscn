@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://bat86i7y2t65y"]
+
+[ext_resource type="PackedScene" uid="uid://dkdf40bloaki5" path="res://reflections/resolution.tscn" id="1_j2hwe"]
+
+[node name="InitiallyNoLongerPrays" instance=ExtResource("1_j2hwe")]
+id = "initially-no-longer-prays"
+title = "You no longer pray to the Gods of the Moon Temple"
+description = "You were raised to follow the Moon Sect, but you no longer pray to its Gods"
+reflection_id = "initial-feelings-on-moon-temple"

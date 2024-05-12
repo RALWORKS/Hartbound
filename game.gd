@@ -460,13 +460,15 @@ func init_resolutions_if_needed():
 	return set_state(["resolutions"], [])
 
 func add_resolution(resolution_id):
-	init_resolutions_if_needed()
+	print(init_resolutions_if_needed(), resolution_id)
+	#init_resolutions_if_needed()
 	if has_resolution(resolution_id):
 		return
 	set_state_push_to_key(["resolutions"], resolution_id)
 
 func has_resolution(resolution_id):
 	var data = init_resolutions_if_needed()
+	print(data)
 	return resolution_id in data
 
 func init_reflections_if_needed():

@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://gqiikiv318js"]
+
+[ext_resource type="PackedScene" uid="uid://bjmrxj4s3l472" path="res://cutscene/conditional_redirect.tscn" id="1_scvoc"]
+[ext_resource type="Script" path="res://cutscene/HasResolutionCondition.gd" id="2_pdsys"]
+
+[node name="HasResoultionConditionalRedirect" node_paths=PackedStringArray("get_condition_from") instance=ExtResource("1_scvoc")]
+get_condition_from = NodePath("HasResolutionCondition")
+
+[node name="HasResolutionCondition" type="Node" parent="." index="0"]
+script = ExtResource("2_pdsys")

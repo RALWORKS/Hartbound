@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://b057bsb5vxd6f"]
+[gd_scene load_steps=19 format=3 uid="uid://b057bsb5vxd6f"]
 
 [ext_resource type="Script" path="res://reflections/resolution_map.gd" id="1_k43k2"]
 [ext_resource type="PackedScene" uid="uid://bojeot5gobbcy" path="res://reflections/resolutions/taylor_moon_temple_objection.tscn" id="2_d1x1y"]
@@ -13,6 +13,11 @@
 [ext_resource type="PackedScene" uid="uid://d02gfidnpcncf" path="res://reflections/resolutions/initial_atheist.tscn" id="11_xoc0m"]
 [ext_resource type="PackedScene" uid="uid://d2edg054widf7" path="res://reflections/resolutions/initial_moon_sect_adherent.tscn" id="12_njbto"]
 [ext_resource type="PackedScene" uid="uid://c5d3wkf4t3kq4" path="res://reflections/resolutions/initial_culturally_moon_sect.tscn" id="13_6chfb"]
+[ext_resource type="PackedScene" uid="uid://bhel4gbden7eo" path="res://reflections/resolutions/initially_still_prays.tscn" id="14_eo07b"]
+[ext_resource type="PackedScene" uid="uid://dpmve8wiiul5u" path="res://reflections/resolutions/initially_not_sure_about_moon_sect.tscn" id="15_oqhmb"]
+[ext_resource type="PackedScene" uid="uid://bat86i7y2t65y" path="res://reflections/resolutions/initially_no_longer_prays.tscn" id="16_vssk0"]
+[ext_resource type="PackedScene" uid="uid://c0gk4eq06qyd0" path="res://reflections/resolutions/initially_sides_with_elves.tscn" id="17_yrhv3"]
+[ext_resource type="PackedScene" uid="uid://d177laawa12ih" path="res://reflections/resolutions/initially_sides_with_the_humans.tscn" id="18_nckqk"]
 
 [node name="ResolutionMap" type="Node"]
 script = ExtResource("1_k43k2")
@@ -40,3 +45,13 @@ script = ExtResource("1_k43k2")
 [node name="InitialMoonSectAdherent" parent="." instance=ExtResource("12_njbto")]
 
 [node name="InitialCulturallyMoonSect" parent="." instance=ExtResource("13_6chfb")]
+
+[node name="InitiallyStillPrays" parent="." instance=ExtResource("14_eo07b")]
+
+[node name="InitiallyNotSureAboutMoonSect" parent="." instance=ExtResource("15_oqhmb")]
+
+[node name="InitiallyNoLongerPrays" parent="." instance=ExtResource("16_vssk0")]
+
+[node name="InitiallySidesWithElves" parent="." instance=ExtResource("17_yrhv3")]
+
+[node name="InitiallySidesWithTheHumans" parent="." instance=ExtResource("18_nckqk")]

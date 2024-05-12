@@ -5,6 +5,8 @@ extends Button
 @export var get_action_from: Node
 @export var sub_node_parent: Node
 
+@export var data: Node
+
 @export var avatar: Node
 @export var smile = false
 @export var frown = false

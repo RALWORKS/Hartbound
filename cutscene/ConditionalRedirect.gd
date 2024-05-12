@@ -1,4 +1,4 @@
-extends Node2D
+extends "res://cutscene/CutsceneNode.gd"
 
 @export var next_if_true: Node
 @export var next_if_false: Node
@@ -11,6 +11,8 @@ extends Node2D
 
 func start():
 	var is_true = get_condition_from.condition(conditional_subject, conditional_predicate)
+	
+	print(conditional_subject, is_true)
 	
 	if is_true:
 		next_if_true.start()

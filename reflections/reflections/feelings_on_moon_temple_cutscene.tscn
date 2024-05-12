@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://b3vx47wljcfp7"]
+[gd_scene load_steps=20 format=3 uid="uid://b3vx47wljcfp7"]
 
 [ext_resource type="PackedScene" uid="uid://bp8tsdjdbwj8i" path="res://cutscene/cutscene.tscn" id="1_h8r2d"]
 [ext_resource type="PackedScene" uid="uid://55vflx8ylix1" path="res://cutscene/cutscene_node.tscn" id="2_tgpuw"]
@@ -8,6 +8,29 @@
 [ext_resource type="PackedScene" uid="uid://b11g7mb25w5xp" path="res://cutscene/smart_label.tscn" id="4_t01j7"]
 [ext_resource type="PackedScene" uid="uid://7vlh2at8ts65" path="res://cutscene/play_animation_on_ready.tscn" id="5_uxkid"]
 [ext_resource type="PackedScene" uid="uid://6isxi1ooddns" path="res://character/dad_praying_1.tscn" id="5_xvye5"]
+[ext_resource type="PackedScene" uid="uid://cg4lrb0g3fkk7" path="res://cutscene/resolution_button.tscn" id="9_02uum"]
+[ext_resource type="PackedScene" uid="uid://bhel4gbden7eo" path="res://reflections/resolutions/initially_still_prays.tscn" id="10_4xir3"]
+[ext_resource type="PackedScene" uid="uid://bat86i7y2t65y" path="res://reflections/resolutions/initially_no_longer_prays.tscn" id="11_bjl4o"]
+[ext_resource type="PackedScene" uid="uid://dpmve8wiiul5u" path="res://reflections/resolutions/initially_not_sure_about_moon_sect.tscn" id="12_4wd6f"]
+[ext_resource type="Texture2D" uid="uid://dlckpoglm3oxj" path="res://assets/cog-brain.png" id="13_wmcv2"]
+[ext_resource type="PackedScene" uid="uid://c0gk4eq06qyd0" path="res://reflections/resolutions/initially_sides_with_elves.tscn" id="14_7vu0r"]
+[ext_resource type="PackedScene" uid="uid://d177laawa12ih" path="res://reflections/resolutions/initially_sides_with_the_humans.tscn" id="15_xlw1i"]
+[ext_resource type="PackedScene" uid="uid://gqiikiv318js" path="res://cutscene/has_resoultion_conditional_redirect.tscn" id="16_al3l1"]
+
+[sub_resource type="Animation" id="Animation_8fje6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("bg:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-171, -449)]
+}
 
 [sub_resource type="Animation" id="Animation_edoph"]
 resource_name = "pan"
@@ -25,21 +48,6 @@ tracks/0/keys = {
 "values": [Vector2(-171, -449), Vector2(-19, -1.00003)]
 }
 
-[sub_resource type="Animation" id="Animation_8fje6"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("bg:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-171, -449)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_5mx8g"]
 _data = {
 "RESET": SubResource("Animation_8fje6"),
@@ -50,6 +58,7 @@ _data = {
 starting_page = NodePath("1")
 
 [node name="1" parent="." index="0" node_paths=PackedStringArray("next") instance=ExtResource("2_tgpuw")]
+visible = false
 next = NodePath("../2")
 
 [node name="bg" type="Sprite2D" parent="1" index="0"]
@@ -76,6 +85,7 @@ libraries = {
 }
 
 [node name="2" parent="." index="1" node_paths=PackedStringArray("next") instance=ExtResource("2_tgpuw")]
+visible = false
 next = NodePath("../3")
 
 [node name="bg" type="Sprite2D" parent="2" index="0"]
@@ -110,6 +120,7 @@ libraries = {
 }
 
 [node name="3" parent="." index="2" node_paths=PackedStringArray("next") instance=ExtResource("2_tgpuw")]
+visible = false
 next = NodePath("../4")
 
 [node name="bg" type="Sprite2D" parent="3" index="0"]
@@ -133,6 +144,7 @@ offset_bottom = 226.0
 text = "Nothing like the sprawling mountain cathedral city that comes to mind for so many people--even urbanite Elves--when they see your pointed ears."
 
 [node name="4" parent="." index="3" node_paths=PackedStringArray("next") instance=ExtResource("2_tgpuw")]
+visible = false
 next = NodePath("../5")
 
 [node name="bg" type="Sprite2D" parent="4" index="0"]
@@ -226,6 +238,7 @@ offset_bottom = 686.0
 text = "Your father taught you to pray."
 
 [node name="6" parent="." index="7" node_paths=PackedStringArray("next") instance=ExtResource("2_tgpuw")]
+visible = false
 next = NodePath("../7")
 
 [node name="SmartLabel" parent="6" index="0" instance=ExtResource("4_t01j7")]
@@ -235,8 +248,9 @@ offset_right = 1029.0
 offset_bottom = 1030.0
 text = "And since that was how you were raised, you did pray--every day--"
 
-[node name="7" parent="." index="8" instance=ExtResource("2_tgpuw")]
+[node name="7" parent="." index="8" node_paths=PackedStringArray("next") instance=ExtResource("2_tgpuw")]
 visible = false
+next = NodePath("../ChooseReligion")
 
 [node name="bg" type="Sprite2D" parent="7" index="0"]
 modulate = Color(0.733333, 0, 0.0627451, 1)
@@ -251,3 +265,315 @@ offset_top = 507.0
 offset_right = 1081.0
 offset_bottom = 585.0
 text = "--until the Demon wiped that woodland village off the map."
+
+[node name="ChooseReligion" parent="." index="9" instance=ExtResource("2_tgpuw")]
+visible = false
+is_option_node = true
+
+[node name="SmartLabel" parent="ChooseReligion" index="0" instance=ExtResource("4_t01j7")]
+offset_left = 111.0
+offset_top = 167.0
+offset_right = 1192.0
+offset_bottom = 245.0
+text = "What about now? Do you still pray to the Gods of the Moon Temple?"
+
+[node name="Yes" parent="ChooseReligion" index="1" node_paths=PackedStringArray("to", "data") instance=ExtResource("9_02uum")]
+offset_left = 144.0
+offset_top = 248.0
+offset_right = 544.0
+offset_bottom = 296.0
+text = "> Yes"
+to = NodePath("../../ReligionYes")
+data = NodePath("InitiallyStillPrays")
+
+[node name="InitiallyStillPrays" parent="ChooseReligion/Yes" index="1" instance=ExtResource("10_4xir3")]
+
+[node name="No" parent="ChooseReligion" index="2" node_paths=PackedStringArray("to") instance=ExtResource("9_02uum")]
+offset_left = 144.0
+offset_top = 312.0
+offset_right = 544.0
+offset_bottom = 360.0
+text = "> No"
+to = NodePath("../../ReligionNo")
+
+[node name="InitiallyNoLongerPrays" parent="ChooseReligion/No" index="1" instance=ExtResource("11_bjl4o")]
+
+[node name="IDK" parent="ChooseReligion" index="3" node_paths=PackedStringArray("to") instance=ExtResource("9_02uum")]
+offset_left = 144.0
+offset_top = 377.0
+offset_right = 544.0
+offset_bottom = 425.0
+text = "> I'm don't know what to believe anymore."
+to = NodePath("../../ReligionIDK")
+
+[node name="InitiallyNotSureAboutMoonSect" parent="ChooseReligion/IDK" index="1" instance=ExtResource("12_4wd6f")]
+
+[node name="ReligionYes" parent="." index="10" node_paths=PackedStringArray("next") instance=ExtResource("2_tgpuw")]
+visible = false
+next = NodePath("../ChoosePolitics")
+
+[node name="SmartLabel" parent="ReligionYes" index="0" instance=ExtResource("4_t01j7")]
+offset_left = 136.0
+offset_top = 452.0
+offset_right = 1217.0
+offset_bottom = 568.0
+text = "Of course you do.
+How could you not?"
+
+[node name="CogMind" type="Sprite2D" parent="ReligionYes" index="1"]
+position = Vector2(199, 925)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("13_wmcv2")
+
+[node name="Title" parent="ReligionYes" index="2" instance=ExtResource("4_t01j7")]
+offset_left = 133.0
+offset_top = 976.0
+offset_right = 1374.0
+offset_bottom = 1145.0
+text = "Reflection recorded."
+
+[node name="ReligionNo" parent="." index="11" node_paths=PackedStringArray("next") instance=ExtResource("2_tgpuw")]
+visible = false
+next = NodePath("../ChoosePolitics")
+
+[node name="SmartLabel" parent="ReligionNo" index="0" instance=ExtResource("4_t01j7")]
+offset_left = 136.0
+offset_top = 452.0
+offset_right = 1217.0
+offset_bottom = 604.0
+text = "You've learned.
+You've seen the world.
+You've changed."
+
+[node name="CogMind" type="Sprite2D" parent="ReligionNo" index="1"]
+position = Vector2(199, 925)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("13_wmcv2")
+
+[node name="Title" parent="ReligionNo" index="2" instance=ExtResource("4_t01j7")]
+offset_left = 133.0
+offset_top = 976.0
+offset_right = 1374.0
+offset_bottom = 1145.0
+text = "Reflection recorded."
+
+[node name="ReligionIDK" parent="." index="12" node_paths=PackedStringArray("next") instance=ExtResource("2_tgpuw")]
+visible = false
+next = NodePath("../ChoosePolitics")
+
+[node name="SmartLabel" parent="ReligionIDK" index="0" instance=ExtResource("4_t01j7")]
+offset_left = 136.0
+offset_top = 452.0
+offset_right = 1217.0
+offset_bottom = 604.0
+text = "Hah!
+Does anyone, really?"
+
+[node name="CogMind" type="Sprite2D" parent="ReligionIDK" index="1"]
+position = Vector2(199, 925)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("13_wmcv2")
+
+[node name="Title" parent="ReligionIDK" index="2" instance=ExtResource("4_t01j7")]
+offset_left = 133.0
+offset_top = 976.0
+offset_right = 1374.0
+offset_bottom = 1145.0
+text = "Reflection recorded."
+
+[node name="ChoosePolitics" parent="." index="13" instance=ExtResource("2_tgpuw")]
+visible = false
+is_option_node = true
+
+[node name="SmartLabel" parent="ChoosePolitics" index="0" instance=ExtResource("4_t01j7")]
+offset_left = 111.0
+offset_top = 167.0
+offset_right = 1192.0
+offset_bottom = 424.0
+text = "But even aside from that, there's the politics of it.
+
+Broadly, the Elves want to stamp out industrialization for good, while the Humans want to see it returned to its full glory.
+
+As it stands now, on this issue, you side with ..."
+
+[node name="Elves" parent="ChoosePolitics" index="1" node_paths=PackedStringArray("to") instance=ExtResource("9_02uum")]
+offset_left = 144.0
+offset_top = 464.0
+offset_right = 544.0
+offset_bottom = 512.0
+text = "> The Elves"
+to = NodePath("../../ElvesCheckPray")
+
+[node name="InitiallySidesWithElves" parent="ChoosePolitics/Elves" index="1" instance=ExtResource("14_7vu0r")]
+
+[node name="Humans" parent="ChoosePolitics" index="2" node_paths=PackedStringArray("to") instance=ExtResource("9_02uum")]
+offset_left = 144.0
+offset_top = 528.0
+offset_right = 544.0
+offset_bottom = 576.0
+text = "> The Humans"
+to = NodePath("../../HumansCheckPray")
+
+[node name="InitiallySidesWithTheHumans" parent="ChoosePolitics/Humans" index="1" instance=ExtResource("15_xlw1i")]
+
+[node name="PrayElves" parent="." index="14" instance=ExtResource("2_tgpuw")]
+visible = false
+
+[node name="SmartLabel" parent="PrayElves" index="0" instance=ExtResource("4_t01j7")]
+offset_left = 136.0
+offset_top = 452.0
+offset_right = 1217.0
+offset_bottom = 604.0
+text = "It's only natural. As a Moon Sect adherent, there's no other way to look at it. The world has been out of balance for a long time. The healing that began when the Age of the Sun ended must reach its conclusion."
+
+[node name="CogMind" type="Sprite2D" parent="PrayElves" index="1"]
+position = Vector2(199, 925)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("13_wmcv2")
+
+[node name="Title" parent="PrayElves" index="2" instance=ExtResource("4_t01j7")]
+offset_left = 133.0
+offset_top = 976.0
+offset_right = 1374.0
+offset_bottom = 1145.0
+text = "Reflection recorded."
+
+[node name="PrayHumans" parent="." index="15" instance=ExtResource("2_tgpuw")]
+visible = false
+
+[node name="SmartLabel" parent="PrayHumans" index="0" instance=ExtResource("4_t01j7")]
+offset_left = 136.0
+offset_top = 452.0
+offset_right = 1217.0
+offset_bottom = 676.0
+bbcode_enabled = true
+text = "Sometimes it's hard to look a fellow believer in the eye. The Moon Sect understands some [b]spiritual[/b] truth--but most of them have never [b]lived[/b] with electric light and central heating. You have, since you came to Sun Temple--and you can't bring yourself to pray that the children of the future will grow up in the dark."
+
+[node name="CogMind" type="Sprite2D" parent="PrayHumans" index="1"]
+position = Vector2(199, 925)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("13_wmcv2")
+
+[node name="Title" parent="PrayHumans" index="2" instance=ExtResource("4_t01j7")]
+offset_left = 133.0
+offset_top = 976.0
+offset_right = 1374.0
+offset_bottom = 1145.0
+text = "Reflection recorded."
+
+[node name="NoPrayElves" parent="." index="16" instance=ExtResource("2_tgpuw")]
+visible = false
+
+[node name="SmartLabel" parent="NoPrayElves" index="0" instance=ExtResource("4_t01j7")]
+offset_left = 136.0
+offset_top = 452.0
+offset_right = 1217.0
+offset_bottom = 676.0
+bbcode_enabled = true
+text = "You don't have to be religious to see the damage that the Great Age of Humanity did to the planet.
+
+Industrialization had its chance. That's over now."
+
+[node name="CogMind" type="Sprite2D" parent="NoPrayElves" index="1"]
+position = Vector2(199, 925)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("13_wmcv2")
+
+[node name="Title" parent="NoPrayElves" index="2" instance=ExtResource("4_t01j7")]
+offset_left = 133.0
+offset_top = 976.0
+offset_right = 1374.0
+offset_bottom = 1145.0
+text = "Reflection recorded."
+
+[node name="NoPrayHumans" parent="." index="17" instance=ExtResource("2_tgpuw")]
+visible = false
+
+[node name="SmartLabel" parent="NoPrayHumans" index="0" instance=ExtResource("4_t01j7")]
+offset_left = 136.0
+offset_top = 452.0
+offset_right = 1217.0
+offset_bottom = 676.0
+bbcode_enabled = true
+text = "Of course you side with the Humans. You've seen Sun Temple. You've experienced the marvels of central heating and electric light. Why, aside from Moon Sect dogma, would anyone want to damn the children of the future to a life in the dark?"
+
+[node name="CogMind" type="Sprite2D" parent="NoPrayHumans" index="1"]
+position = Vector2(199, 925)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("13_wmcv2")
+
+[node name="Title" parent="NoPrayHumans" index="2" instance=ExtResource("4_t01j7")]
+offset_left = 133.0
+offset_top = 976.0
+offset_right = 1374.0
+offset_bottom = 1145.0
+text = "Reflection recorded."
+
+[node name="IDKElves" parent="." index="18" instance=ExtResource("2_tgpuw")]
+visible = false
+
+[node name="SmartLabel" parent="IDKElves" index="0" instance=ExtResource("4_t01j7")]
+offset_left = 136.0
+offset_top = 452.0
+offset_right = 1217.0
+offset_bottom = 676.0
+bbcode_enabled = true
+text = "Of course you do.
+You haven't turned your back on the teachings of your people entirely--you just have a more complex perspective now."
+
+[node name="CogMind" type="Sprite2D" parent="IDKElves" index="1"]
+position = Vector2(199, 925)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("13_wmcv2")
+
+[node name="Title" parent="IDKElves" index="2" instance=ExtResource("4_t01j7")]
+offset_left = 133.0
+offset_top = 976.0
+offset_right = 1374.0
+offset_bottom = 1145.0
+text = "Reflection recorded."
+
+[node name="IDKHumans" parent="." index="19" instance=ExtResource("2_tgpuw")]
+
+[node name="SmartLabel" parent="IDKHumans" index="0" instance=ExtResource("4_t01j7")]
+offset_left = 136.0
+offset_top = 452.0
+offset_right = 1217.0
+offset_bottom = 676.0
+bbcode_enabled = true
+text = "You're not sure where you stand with regard to religious belief, but your time with the humans has taught you better than to shun industrialization outright. Warmth in the winter and light in the dark are things everyone should have."
+
+[node name="CogMind" type="Sprite2D" parent="IDKHumans" index="1"]
+position = Vector2(199, 925)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("13_wmcv2")
+
+[node name="Title" parent="IDKHumans" index="2" instance=ExtResource("4_t01j7")]
+offset_left = 133.0
+offset_top = 976.0
+offset_right = 1374.0
+offset_bottom = 1145.0
+text = "Reflection recorded."
+
+[node name="ElvesCheckPray" parent="." index="20" node_paths=PackedStringArray("next_if_true", "next_if_false") instance=ExtResource("16_al3l1")]
+next_if_true = NodePath("../PrayElves")
+next_if_false = NodePath("../ElvesCheckNoPray")
+conditional_subject = "initially-still-prays"
+
+[node name="HumansCheckPray" parent="." index="21" node_paths=PackedStringArray("next_if_true", "next_if_false", "get_condition_from") instance=ExtResource("16_al3l1")]
+next_if_true = NodePath("../PrayHumans")
+next_if_false = NodePath("../HumansCheckNoPray")
+get_condition_from = NodePath("../ElvesCheckPray/HasResolutionCondition")
+conditional_subject = "initially-still-prays"
+
+[node name="ElvesCheckNoPray" parent="." index="22" node_paths=PackedStringArray("next_if_true", "next_if_false", "get_condition_from") instance=ExtResource("16_al3l1")]
+next_if_true = NodePath("../NoPrayElves")
+next_if_false = NodePath("../IDKElves")
+get_condition_from = NodePath("../ElvesCheckPray/HasResolutionCondition")
+conditional_subject = "initially-no-longer-prays"
+
+[node name="HumansCheckNoPray" parent="." index="23" node_paths=PackedStringArray("next_if_true", "next_if_false", "get_condition_from") instance=ExtResource("16_al3l1")]
+next_if_true = NodePath("../NoPrayHumans")
+next_if_false = NodePath("../IDKHumans")
+get_condition_from = NodePath("../ElvesCheckPray/HasResolutionCondition")
+conditional_subject = "initially-no-longer-prays"

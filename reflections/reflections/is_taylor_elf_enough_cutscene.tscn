@@ -13,7 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://dlckpoglm3oxj" path="res://assets/cog-brain.png" id="11_4ei5h"]
 [ext_resource type="PackedScene" uid="uid://cp5lbi0bmf5vp" path="res://tools/screen-guide-frame.tscn" id="12_k05nv"]
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_sccgw"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_ruoju"]
 viewport_path = NodePath("img")
 
 [node name="TaylorElfEnough?" node_paths=PackedStringArray("starting_page") instance=ExtResource("1_8sqmg")]
@@ -39,7 +39,7 @@ texture = ExtResource("4_1lnv3")
 modulate = Color(1, 0.815686, 0.454902, 1)
 position = Vector2(880, 14)
 scale = Vector2(1.8, 1.8)
-texture = SubResource("ViewportTexture_sccgw")
+texture = SubResource("ViewportTexture_ruoju")
 with_background = false
 start_scowl = true
 
