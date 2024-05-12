@@ -1,14 +1,16 @@
-[gd_scene load_steps=6 format=3 uid="uid://bf5tgkn1gp54s"]
+[gd_scene load_steps=7 format=3 uid="uid://bf5tgkn1gp54s"]
 
 [ext_resource type="PackedScene" uid="uid://c73d3oyuv6sau" path="res://character/mom.tscn" id="1_u22ow"]
 [ext_resource type="Texture2D" uid="uid://qskvisnl1gw0" path="res://assets/npcs/mother/laugh-1/hair.png" id="2_kjcdf"]
 [ext_resource type="Texture2D" uid="uid://ca07tcpda5owt" path="res://assets/npcs/mother/laugh-1/skin.png" id="3_w1o1a"]
+[ext_resource type="Texture2D" uid="uid://blqjlsdus12cl" path="res://assets/npcs/mother/laugh-1/clothes.png" id="4_8fs16"]
 [ext_resource type="Texture2D" uid="uid://dvdufxj57cgoc" path="res://assets/npcs/mother/laugh-1/highlights.png" id="4_jk7fb"]
 [ext_resource type="Texture2D" uid="uid://bdg3fwds7tlm" path="res://assets/npcs/mother/laugh-1/outline.png" id="5_0vvl6"]
 
 [node name="MomLaughing1" type="Node2D"]
 
 [node name="bg" type="ColorRect" parent="."]
+visible = false
 offset_right = 1916.0
 offset_bottom = 1076.0
 color = Color(0.603922, 0.788235, 0.921569, 1)
@@ -29,9 +31,13 @@ texture = ExtResource("2_kjcdf")
 [node name="Skin" type="Sprite2D" parent="Sprite/Mod"]
 texture = ExtResource("3_w1o1a")
 
+[node name="Clothes" type="Sprite2D" parent="Sprite"]
+modulate = Color(0.603922, 0.788235, 0.921569, 1)
+scale = Vector2(1, 1)
+texture = ExtResource("4_8fs16")
+
 [node name="Highlights" type="Sprite2D" parent="Sprite"]
 modulate = Color(1, 1, 1, 0.384314)
-scale = Vector2(1, 1)
 texture = ExtResource("4_jk7fb")
 
 [node name="Outline" type="Sprite2D" parent="Sprite"]
