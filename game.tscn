@@ -78,7 +78,7 @@ max_size = Vector2i(1920, 1080)
 content_scale_aspect = 1
 theme_type_variation = &"default"
 script = ExtResource("1_0h5ve")
-cheat_event_trigger_name = "FakeExpire"
+cheat_event_trigger_name = "DemoParents"
 
 [node name="ThemeMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_jx83x")

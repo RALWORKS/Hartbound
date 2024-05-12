@@ -21,6 +21,7 @@ extends Sprite2D
 
 @export var frame_spacing: float = 0.3
 
+var SkinAndHairData = preload("res://character/skin_and_hair_data.tscn").instantiate()
 var game = null
 var world = null
 
@@ -188,25 +189,8 @@ var texture_settings = {
 	
 var N_PATTERNS = 3
 var TEXTURES = {
-	"skin-color": [
-		"#b47a50",
-		"#945a30",
-		"#904a37",
-		"#9a6050",
-		"#cf8583",
-		"#dfa5a3",
-		"#ffc0a3",
-	],
-	"hair-color": [
-		"#21222b",
-		"#01323b",
-		"#42111b",
-		"#b75a1b",
-		"#b77a3b",
-		"#bc9f70",
-		"#eccf70",
-		"#47280e",
-	],
+	"skin-color": SkinAndHairData.SKIN_COLOURS,
+	"hair-color": SkinAndHairData.HAIR_COLOURS,
 	"outfit-color-1": [
 		"#666602", # olive
 		"#76962b", # spring

@@ -1,0 +1,34 @@
+[gd_scene load_steps=6 format=3 uid="uid://b3vx47wljcfp7"]
+
+[ext_resource type="PackedScene" uid="uid://bp8tsdjdbwj8i" path="res://cutscene/cutscene.tscn" id="1_h8r2d"]
+[ext_resource type="PackedScene" uid="uid://55vflx8ylix1" path="res://cutscene/cutscene_node.tscn" id="2_tgpuw"]
+[ext_resource type="PackedScene" uid="uid://bf5tgkn1gp54s" path="res://character/mom_laughing_1.tscn" id="3_gfkop"]
+[ext_resource type="PackedScene" uid="uid://b11g7mb25w5xp" path="res://cutscene/smart_label.tscn" id="4_t01j7"]
+[ext_resource type="PackedScene" uid="uid://6isxi1ooddns" path="res://character/dad_praying_1.tscn" id="5_xvye5"]
+
+[node name="FeelingsOnMoonTempleCutscene" node_paths=PackedStringArray("starting_page") instance=ExtResource("1_h8r2d")]
+starting_page = NodePath("Demo")
+
+[node name="Demo" parent="." index="0" node_paths=PackedStringArray("next") instance=ExtResource("2_tgpuw")]
+next = NodePath("../Demo2")
+
+[node name="MomLaughing1" parent="Demo" index="0" instance=ExtResource("3_gfkop")]
+position = Vector2(-100, 0)
+
+[node name="SmartLabel" parent="Demo" index="1" instance=ExtResource("4_t01j7")]
+offset_left = 75.0
+offset_top = 566.0
+offset_right = 454.0
+offset_bottom = 686.0
+text = "Your mother sang you the cycles,"
+
+[node name="Demo2" parent="." index="1" instance=ExtResource("2_tgpuw")]
+
+[node name="DadPraying1" parent="Demo2" index="0" instance=ExtResource("5_xvye5")]
+
+[node name="SmartLabel" parent="Demo2" index="1" instance=ExtResource("4_t01j7")]
+offset_left = 75.0
+offset_top = 566.0
+offset_right = 454.0
+offset_bottom = 686.0
+text = "Your father taught you to pray."
