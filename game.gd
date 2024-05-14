@@ -56,6 +56,13 @@ var INITIAL_STATE = {
 
 var STATE = INITIAL_STATE.duplicate(true)
 
+func get_state_default(ix):
+	return _get_state(ix, {
+		"taylor": {
+			"calls_me": get_state(["character", "name", "elves_call"], false)
+		}
+	})
+
 func add_character(c):
 	characters_present.push_back(c.id)
 
@@ -128,8 +135,11 @@ func _get_state(ix, d):
 
 	return _get_state(ix.slice(1), d[ix[0]])
 
-func get_state(ix):
-	return _get_state(ix, STATE)
+func get_state(ix, defaults=true):
+	var data = _get_state(ix, STATE)
+	if data == null and defaults:
+		return get_state_default(ix)
+	return data
 
 func _deep_set(d, ix, val):
 	if not ix[0] in d:
@@ -273,6 +283,7 @@ func _ready():
 	world = get_node_or_null("MainScreen/World")
 
 	if short_circuit_cutscene != null:
+		$Blackout.visible = true
 		start_new()
 		$Chapter.cutscene.page.leave()
 		#$Chapter.end_cutscene()

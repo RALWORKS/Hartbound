@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://6fu7pdr16rjk"]
+
+[ext_resource type="PackedScene" uid="uid://mqthx6wcxxuo" path="res://ui/state_tag_replacer.tscn" id="1_owsvy"]
+[ext_resource type="Script" path="res://cutscene/smart_button.gd" id="1_x8wk2"]
+
+[node name="SmartButton" type="Button"]
+offset_right = 20.0
+offset_bottom = 10.0
+script = ExtResource("1_x8wk2")
+
+[node name="StateTagReplacer" parent="." instance=ExtResource("1_owsvy")]
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

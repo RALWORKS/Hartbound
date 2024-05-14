@@ -89,8 +89,9 @@ func start_cutscene(
 	var bg
 	
 	if world.size() > 0:
-		bg = $"../MainScreen/World".get_children()[0].get_node("Background").texture
-		cached_scene_bg = bg
+		bg = $"../MainScreen/World".get_children()[0].get_node_or_null("Background")
+		if bg:
+			cached_scene_bg = bg.texture
 		cur_game = world
 		for child in world:
 			$"../MainScreen/World".call_deferred("remove_child", child)

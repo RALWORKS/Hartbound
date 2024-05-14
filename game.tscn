@@ -92,6 +92,11 @@ libraries = {
 
 [node name="StartScreen" parent="." instance=ExtResource("3_0jlt3")]
 
+[node name="Blackout" type="Sprite2D" parent="."]
+visible = false
+modulate = Color(0.113725, 0.113725, 0.113725, 1)
+scale = Vector2(3, 3)
+
 [node name="Map" type="Node" parent="."]
 script = ExtResource("2_vy8bn")
 

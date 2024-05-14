@@ -24,6 +24,9 @@ func _process(_delta):
 
 
 func _on_pressed():
+	click()
+
+func click():
 	if disabled:
 		return
 	if $"..".just_clicked:
@@ -35,8 +38,7 @@ func _on_pressed():
 		to.start()
 	else:
 		$"/root/Game/Chapter".end_cutscene()
-
-
+	
 func react():
 	if avatar == null:
 		return

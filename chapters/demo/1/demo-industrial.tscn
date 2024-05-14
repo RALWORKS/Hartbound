@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://cj4mq4w13vijs"]
+[gd_scene load_steps=31 format=3 uid="uid://cj4mq4w13vijs"]
 
 [ext_resource type="PackedScene" uid="uid://bh1yfkyt3u44i" path="res://chapter.tscn" id="1_abxn2"]
 [ext_resource type="PackedScene" uid="uid://qhhv4s8njcrp" path="res://scenes/demo/1/industrial/b.tscn" id="2_x5gxs"]
@@ -11,24 +11,21 @@
 [ext_resource type="PackedScene" uid="uid://ds2vclbf4raug" path="res://chapter_event_quest_switcher.tscn" id="6_hjem6"]
 [ext_resource type="PackedScene" uid="uid://mcph6fai6ep6" path="res://chapter_event_remove_chapterNode.tscn" id="6_xlrko"]
 [ext_resource type="AudioStream" uid="uid://cj5m4rj3aoeck" path="res://assets/music/maybe-saint-lvl1-bg.ogg" id="7_q6myq"]
-[ext_resource type="PackedScene" uid="uid://b3n7g5jnnronf" path="res://reflections/reflection_expiry.tscn" id="8_38n7t"]
 [ext_resource type="PackedScene" uid="uid://b0abqxb7m84t5" path="res://chapters/demo/1/c1-taylor/train-car-herbs.tscn" id="8_otud4"]
 [ext_resource type="PackedScene" uid="uid://5exo54lvam30" path="res://quests/quests/demo_c_1_regroup_initial.tscn" id="8_qoif5"]
 [ext_resource type="Script" path="res://chapters/demo/1/DemoChapterScript.gd" id="8_up1b2"]
-[ext_resource type="PackedScene" uid="uid://cneikpg0arryn" path="res://reflections/reflections/is_taylor_elf_enough.tscn" id="9_7j3s0"]
 [ext_resource type="PackedScene" uid="uid://bvpctsj7kdhr1" path="res://chapters/demo/1/c1-taylor/apartment-herbs.tscn" id="9_qplrx"]
 [ext_resource type="PackedScene" uid="uid://uc3gpi8pp0cj" path="res://chapters/demo/1/brona.tscn" id="9_x8k8q"]
 [ext_resource type="PackedScene" uid="uid://bu8dakumsc3d2" path="res://chapters/demo/1/c1-taylor/tracks-herbs.tscn" id="10_5t2ub"]
 [ext_resource type="PackedScene" uid="uid://d0q6kg3spk25s" path="res://chapters/demo/1/jerry.tscn" id="10_ccv0d"]
-[ext_resource type="PackedScene" uid="uid://p080akcks504" path="res://reflections/reflections/initial_religion.tscn" id="10_f61yc"]
 [ext_resource type="PackedScene" uid="uid://dglus7hp2oh6x" path="res://chapters/demo/1/c1-taylor/alternator.tscn" id="11_3siyo"]
 [ext_resource type="PackedScene" uid="uid://bii8gdmkfiy5x" path="res://chapters/demo/1/taylor.tscn" id="11_fc7l2"]
-[ext_resource type="PackedScene" uid="uid://b3dwm2gpu71ys" path="res://reflections/reflections/will_you_report_taylor.tscn" id="11_g6dcx"]
 [ext_resource type="PackedScene" uid="uid://dyu2rup7cahp1" path="res://chapters/demo/1/c1-taylor/pcb.tscn" id="11_jbyho"]
 [ext_resource type="PackedScene" uid="uid://in7v8nsvojyp" path="res://chapters/demo/1/nate.tscn" id="12_fj03t"]
 [ext_resource type="PackedScene" uid="uid://wmgbcyrkpe3r" path="res://chapters/demo/1/c1-taylor/wire.tscn" id="12_glt54"]
 [ext_resource type="Script" path="res://chapters/demo/1/LeaveCamp1.gd" id="15_lcypw"]
 [ext_resource type="PackedScene" uid="uid://b3vx47wljcfp7" path="res://reflections/reflections/feelings_on_moon_temple_cutscene.tscn" id="16_sq2gq"]
+[ext_resource type="PackedScene" uid="uid://bbi0ayu331dr0" path="res://chapters/demo/1/c1-taylor/taylor_roof_entrance.tscn" id="17_egr4i"]
 [ext_resource type="Script" path="res://chapters/demo/1/LeaveC1.gd" id="18_ufifv"]
 [ext_resource type="Script" path="res://chapters/demo/1/CrossEWest.gd" id="19_6dtsk"]
 [ext_resource type="Script" path="res://chapters/demo/1/PutBoardOverChasm.gd" id="25_b7c5u"]
@@ -113,14 +110,7 @@ data = "car-keys"
 current_plus_data = true
 
 [node name="FakeExpire" parent="Events" index="10" instance=ExtResource("5_440p5")]
-
-[node name="ReflectionExpiry" parent="Events/FakeExpire" index="0" instance=ExtResource("8_38n7t")]
-
-[node name="TaylorElfEnough?" parent="Events/FakeExpire/ReflectionExpiry" index="0" instance=ExtResource("9_7j3s0")]
-
-[node name="InitialReligion" parent="Events/FakeExpire/ReflectionExpiry" index="1" instance=ExtResource("10_f61yc")]
-
-[node name="ReportTaylor?" parent="Events/FakeExpire/ReflectionExpiry" index="2" instance=ExtResource("11_g6dcx")]
+cutscene = ExtResource("17_egr4i")
 
 [node name="Music" parent="." index="1" instance=ExtResource("6_eeti4")]
 stream = ExtResource("7_q6myq")
@@ -191,4 +181,4 @@ event_name = "TakeKey"
 
 [node name="DemoParents" type="Node" parent="Triggers" index="11"]
 script = ExtResource("19_6dtsk")
-event_name = "DemoParents"
+event_name = "FakeExpire"

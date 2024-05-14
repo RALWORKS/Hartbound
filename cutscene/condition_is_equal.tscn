@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dyo3i1jt2ombv"]
+
+[ext_resource type="Script" path="res://cutscene/condition_is_equal.gd" id="1_7jttn"]
+
+[node name="ConditionStateIsEqual" type="Node"]
+script = ExtResource("1_7jttn")

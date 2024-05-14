@@ -27,6 +27,7 @@ func replace(t):
 		if not t.contains(tag):
 			continue
 		value = g.get_state(tag.replace("{", "").replace("}", "").split(","))
+		print(tag)
 		t = t.replace(tag, value)
 
 	for match_obj in name_matches:

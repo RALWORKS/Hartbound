@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://d0cxxrt2xgtnr"]
+
+[ext_resource type="Script" path="res://cutscene/set_state_on_start.gd" id="1_rvu5d"]
+
+[node name="SetStateOnStart" type="Node"]
+script = ExtResource("1_rvu5d")
