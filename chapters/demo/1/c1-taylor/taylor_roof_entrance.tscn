@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://bbi0ayu331dr0"]
+[gd_scene load_steps=23 format=3 uid="uid://bbi0ayu331dr0"]
 
 [ext_resource type="PackedScene" uid="uid://bp8tsdjdbwj8i" path="res://cutscene/cutscene.tscn" id="1_lutdq"]
 [ext_resource type="PackedScene" uid="uid://55vflx8ylix1" path="res://cutscene/cutscene_node.tscn" id="2_3thgf"]
@@ -13,12 +13,127 @@
 [ext_resource type="Texture2D" uid="uid://w800mtmjii1y" path="res://assets/white-scene.png" id="8_h0a8w"]
 [ext_resource type="PackedScene" uid="uid://cemborgcdx75k" path="res://character/profile.tscn" id="11_bgt36"]
 [ext_resource type="PackedScene" uid="uid://d0cxxrt2xgtnr" path="res://cutscene/set_state_on_start.tscn" id="11_jgydu"]
+[ext_resource type="PackedScene" uid="uid://yplasm5gtgly" path="res://cutscene/cutscene_option.tscn" id="13_55ajo"]
+[ext_resource type="PackedScene" uid="uid://b031fpm2fu6f1" path="res://cutscene/play_animation_on_start.tscn" id="14_wby13"]
+[ext_resource type="Texture2D" uid="uid://dl824jdeqsl6p" path="res://assets/npcs/taylor/taylor_neutral_eyes_closed.png" id="15_0cfxb"]
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_t6q7i"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_53saf"]
 viewport_path = NodePath("img")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_4ondv"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_3ovb4"]
 viewport_path = NodePath("img")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_mg8vv"]
+viewport_path = NodePath("img")
+
+[sub_resource type="Animation" id="Animation_51dhc"]
+resource_name = "base"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Container:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(487, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Container/Profile:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Container/taylor:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Container/taylor:texture")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("5_5x3a8"), ExtResource("15_0cfxb")]
+}
+
+[sub_resource type="Animation" id="Animation_4s4xb"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Container:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Container/Profile:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Container/taylor:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Container/taylor:texture")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("5_5x3a8")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_skdxr"]
+_data = {
+"RESET": SubResource("Animation_4s4xb"),
+"base": SubResource("Animation_51dhc")
+}
 
 [node name="TaylorRoofEntrance" node_paths=PackedStringArray("starting_page") instance=ExtResource("1_lutdq")]
 starting_page = NodePath("0")
@@ -112,7 +227,7 @@ to = NodePath("../../1")
 [node name="Profile" parent="Has1Name" index="6" instance=ExtResource("11_bgt36")]
 position = Vector2(703, 413)
 scale = Vector2(1.2, 1.2)
-texture = SubResource("ViewportTexture_t6q7i")
+texture = SubResource("ViewportTexture_53saf")
 with_background = false
 
 [node name="Has2Names" parent="." index="3" instance=ExtResource("2_3thgf")]
@@ -171,7 +286,7 @@ to = NodePath("../../UseHumanName")
 [node name="Profile" parent="Has2Names" index="7" instance=ExtResource("11_bgt36")]
 position = Vector2(703, 413)
 scale = Vector2(1.2, 1.2)
-texture = SubResource("ViewportTexture_4ondv")
+texture = SubResource("ViewportTexture_3ovb4")
 with_background = false
 
 [node name="UseHumanName" parent="." index="4" node_paths=PackedStringArray("next") instance=ExtResource("2_3thgf")]
@@ -426,8 +541,8 @@ offset_right = 1344.0
 offset_bottom = 397.0
 text = "\"I just--"
 
-[node name="4" parent="." index="9" instance=ExtResource("2_3thgf")]
-visible = false
+[node name="4" parent="." index="9" node_paths=PackedStringArray("next") instance=ExtResource("2_3thgf")]
+next = NodePath("../6")
 
 [node name="bg" type="Sprite2D" parent="4" index="0"]
 modulate = Color(0.145098, 0.145098, 0.145098, 1)
@@ -464,4 +579,216 @@ offset_right = 1582.0
 offset_bottom = 576.0
 text = "\"for running my mouth again.\""
 
-[node name="Frame" parent="." index="10" instance=ExtResource("7_cbclh")]
+[node name="6" parent="." index="10" instance=ExtResource("2_3thgf")]
+is_option_node = true
+
+[node name="bg" type="Sprite2D" parent="6" index="0"]
+modulate = Color(0.145098, 0.145098, 0.145098, 1)
+position = Vector2(-126, -83)
+scale = Vector2(1.415, 1)
+texture = ExtResource("8_h0a8w")
+centered = false
+
+[node name="taylor" type="Sprite2D" parent="6" index="1"]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(258, 2151)
+scale = Vector2(2, 2)
+texture = ExtResource("5_5x3a8")
+flip_h = true
+
+[node name="Profile" parent="6" index="2" instance=ExtResource("11_bgt36")]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(757, -71)
+scale = Vector2(2, 2)
+texture = SubResource("ViewportTexture_mg8vv")
+with_background = false
+
+[node name="Condemn" parent="6" index="3" node_paths=PackedStringArray("to") instance=ExtResource("13_55ajo")]
+offset_left = 143.0
+offset_top = 276.0
+offset_right = 943.0
+offset_bottom = 353.0
+text = "> \"Good. Be sorry. If I ever hear this nonsense from you again I'm going right to Jerry."
+to = NodePath("../../7")
+
+[node name="Agree" parent="6" index="4" node_paths=PackedStringArray("to") instance=ExtResource("7_lwqtt")]
+offset_left = 143.0
+offset_top = 374.0
+offset_right = 943.0
+offset_bottom = 451.0
+text = "> \"<taylor>, I'm just thanking the Gods someone understands. I've been feeling the same for years."
+to = NodePath("../../9")
+
+[node name="Secret" parent="6" index="5" node_paths=PackedStringArray("to") instance=ExtResource("13_55ajo")]
+offset_left = 143.0
+offset_top = 470.0
+offset_right = 943.0
+offset_bottom = 547.0
+text = "> \"It's OK. Your secret is safe with me."
+to = NodePath("../../8")
+
+[node name="7" parent="." index="11" instance=ExtResource("2_3thgf")]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="7" index="0"]
+speed_scale = 2.0
+libraries = {
+"": SubResource("AnimationLibrary_skdxr")
+}
+
+[node name="bg" type="Sprite2D" parent="7" index="1"]
+modulate = Color(0.145098, 0.145098, 0.145098, 1)
+position = Vector2(-126, -83)
+scale = Vector2(1.415, 1)
+texture = ExtResource("8_h0a8w")
+centered = false
+
+[node name="Container" type="Node2D" parent="7" index="2"]
+
+[node name="taylor" type="Sprite2D" parent="7/Container" index="0"]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(258, 2151)
+scale = Vector2(2, 2)
+texture = ExtResource("5_5x3a8")
+flip_h = true
+
+[node name="Profile" parent="7/Container" index="1" instance=ExtResource("11_bgt36")]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(757, -71)
+scale = Vector2(2, 2)
+texture = SubResource("ViewportTexture_mg8vv")
+with_background = false
+
+[node name="PlayAnimationOnStart" parent="7" index="3" node_paths=PackedStringArray("player") instance=ExtResource("14_wby13")]
+player = NodePath("../AnimationPlayer")
+
+[node name="SmartLabel" parent="7" index="4" instance=ExtResource("6_yclqv")]
+offset_left = 1215.0
+offset_top = 439.0
+offset_right = 1354.0
+offset_bottom = 516.0
+text = "\"Yeah."
+
+[node name="SmartLabel2" parent="7" index="5" instance=ExtResource("6_yclqv")]
+offset_left = 1269.0
+offset_top = 539.0
+offset_right = 1487.0
+offset_bottom = 616.0
+text = "\"Of course."
+
+[node name="SmartLabel3" parent="7" index="6" instance=ExtResource("6_yclqv")]
+offset_left = 1310.0
+offset_top = 637.0
+offset_right = 1623.0
+offset_bottom = 760.0
+text = "\"Don't know what I was thinking."
+
+[node name="SmartLabel4" parent="7" index="7" instance=ExtResource("6_yclqv")]
+offset_left = 1383.0
+offset_top = 776.0
+offset_right = 1644.0
+offset_bottom = 899.0
+text = "\"Won't happen again."
+
+[node name="8" parent="." index="12" instance=ExtResource("2_3thgf")]
+
+[node name="bg" type="Sprite2D" parent="8" index="0"]
+position = Vector2(-3615, -3673)
+scale = Vector2(4, 4)
+texture = ExtResource("3_s645d")
+centered = false
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="8" index="1"]
+speed_scale = 2.0
+libraries = {
+"": SubResource("AnimationLibrary_skdxr")
+}
+
+[node name="Container" type="Node2D" parent="8" index="2"]
+
+[node name="taylor" type="Sprite2D" parent="8/Container" index="0"]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(258, 2151)
+scale = Vector2(2, 2)
+texture = ExtResource("5_5x3a8")
+flip_h = true
+
+[node name="Profile" parent="8/Container" index="1" instance=ExtResource("11_bgt36")]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(757, -71)
+scale = Vector2(2, 2)
+texture = SubResource("ViewportTexture_mg8vv")
+with_background = false
+
+[node name="PlayAnimationOnStart" parent="8" index="3" node_paths=PackedStringArray("player") instance=ExtResource("14_wby13")]
+player = NodePath("../AnimationPlayer")
+
+[node name="SmartLabel" parent="8" index="4" instance=ExtResource("6_yclqv")]
+offset_left = 1215.0
+offset_top = 439.0
+offset_right = 1530.0
+offset_bottom = 559.0
+text = "\"That means a lot, {taylor,calls_me}."
+
+[node name="SmartLabel3" parent="8" index="5" instance=ExtResource("6_yclqv")]
+offset_left = 1295.0
+offset_top = 577.0
+offset_right = 1608.0
+offset_bottom = 660.0
+text = "\"I appreciate it.\""
+
+[node name="9" parent="." index="13" instance=ExtResource("2_3thgf")]
+
+[node name="bg" type="Sprite2D" parent="9" index="0"]
+position = Vector2(-3615, -3673)
+scale = Vector2(4, 4)
+texture = ExtResource("3_s645d")
+centered = false
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="9" index="1"]
+speed_scale = 2.0
+libraries = {
+"": SubResource("AnimationLibrary_skdxr")
+}
+
+[node name="Container" type="Node2D" parent="9" index="2"]
+
+[node name="taylor" type="Sprite2D" parent="9/Container" index="0"]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(258, 2151)
+scale = Vector2(2, 2)
+texture = ExtResource("5_5x3a8")
+flip_h = true
+
+[node name="Profile" parent="9/Container" index="1" instance=ExtResource("11_bgt36")]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(757, -71)
+scale = Vector2(2, 2)
+texture = SubResource("ViewportTexture_mg8vv")
+with_background = false
+
+[node name="PlayAnimationOnStart" parent="9" index="3" node_paths=PackedStringArray("player") instance=ExtResource("14_wby13")]
+player = NodePath("../AnimationPlayer")
+
+[node name="SmartLabel2" parent="9" index="4" instance=ExtResource("6_yclqv")]
+offset_left = 1213.0
+offset_top = 439.0
+offset_right = 1523.0
+offset_bottom = 559.0
+bbcode_enabled = true
+text = "\"[i]Rihimayas[/i] be with you, Cousin,"
+
+[node name="SmartLabel" parent="9" index="5" instance=ExtResource("6_yclqv")]
+offset_left = 1147.0
+offset_top = 347.0
+offset_right = 1378.0
+offset_bottom = 419.0
+text = "\"In that case,"
+
+[node name="SmartLabel3" parent="9" index="6" instance=ExtResource("6_yclqv")]
+offset_left = 1295.0
+offset_top = 579.0
+offset_right = 1705.0
+offset_bottom = 697.0
+text = "\"And may we live to greet the Saint.\""
+
+[node name="Frame" parent="." index="14" instance=ExtResource("7_cbclh")]
