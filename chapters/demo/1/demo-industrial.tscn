@@ -109,7 +109,7 @@ state_path_slash_delineated = "inventory"
 data = "car-keys"
 current_plus_data = true
 
-[node name="FakeExpire" parent="Events" index="10" instance=ExtResource("5_440p5")]
+[node name="TaylorRoofEntrance" parent="Events" index="10" instance=ExtResource("5_440p5")]
 cutscene = ExtResource("17_egr4i")
 
 [node name="Music" parent="." index="1" instance=ExtResource("6_eeti4")]
@@ -179,6 +179,6 @@ event_name = "TakeBoard"
 script = ExtResource("19_6dtsk")
 event_name = "TakeKey"
 
-[node name="DemoParents" type="Node" parent="Triggers" index="11"]
+[node name="TaylorRoofEntrance" type="Node" parent="Triggers" index="11"]
 script = ExtResource("19_6dtsk")
-event_name = "FakeExpire"
+event_name = "TaylorRoofEntrance"

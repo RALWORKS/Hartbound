@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://bhfuxxbxxm52q"]
+[gd_scene load_steps=17 format=3 uid="uid://bhfuxxbxxm52q"]
 
 [ext_resource type="PackedScene" uid="uid://byrlpmbpj6yr5" path="res://scene.tscn" id="1_80s2n"]
 [ext_resource type="Texture2D" uid="uid://bjerew5lp6nnj" path="res://assets/scenes/demo/1/industrial/d.png" id="2_f3skq"]
@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://bl1tryhrv1urn" path="res://assets/scenes/demo/1/industrial/roof-gate/fence-right.png" id="10_ki3ey"]
 [ext_resource type="Texture2D" uid="uid://bpt2b5ckp8am2" path="res://assets/scenes/demo/1/industrial/roof-gate/fence-left.png" id="11_0jbps"]
 [ext_resource type="Script" path="res://scenes/demo/1/industrial/d-StairsSwitchScript.gd" id="11_cpite"]
+[ext_resource type="PackedScene" uid="uid://blhapbv7bnq0p" path="res://quests/quest_boundary.tscn" id="12_ab41j"]
 [ext_resource type="PackedScene" uid="uid://bk6k14tnei0bm" path="res://chapters/demo/1/smart_roof_gate.tscn" id="14_r85h7"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_xwl0q"]
@@ -127,6 +128,13 @@ dest_resource = "res://scenes/demo/1/industrial/d-right.tscn"
 dest_edge = "WestDoor"
 disabled = true
 follower_offset = Vector2(30, 0)
+
+[node name="QuestBoundary" parent="YSort" index="14" node_paths=PackedStringArray("wall_area_node") instance=ExtResource("12_ab41j")]
+wall_area_node = NodePath("../fence-right/StaticBody2D/CollisionPolygon2D")
+trigger_name = "TaylorRoofEntrance"
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/QuestBoundary" index="1"]
+polygon = PackedVector2Array(448, 1219, 721, 1078, 868, 1035, 919, 1157, 646, 1225)
 
 [node name="StairsSwitchScript" type="Node" parent="." index="2"]
 script = ExtResource("11_cpite")

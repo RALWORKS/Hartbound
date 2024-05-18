@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://bbi0ayu331dr0"]
+[gd_scene load_steps=26 format=3 uid="uid://bbi0ayu331dr0"]
 
 [ext_resource type="PackedScene" uid="uid://bp8tsdjdbwj8i" path="res://cutscene/cutscene.tscn" id="1_lutdq"]
 [ext_resource type="PackedScene" uid="uid://55vflx8ylix1" path="res://cutscene/cutscene_node.tscn" id="2_3thgf"]
@@ -17,14 +17,65 @@
 [ext_resource type="PackedScene" uid="uid://b031fpm2fu6f1" path="res://cutscene/play_animation_on_start.tscn" id="14_wby13"]
 [ext_resource type="Texture2D" uid="uid://dl824jdeqsl6p" path="res://assets/npcs/taylor/taylor_neutral_eyes_closed.png" id="15_0cfxb"]
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_53saf"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_5r3la"]
 viewport_path = NodePath("img")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_3ovb4"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_lfutn"]
 viewport_path = NodePath("img")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_mg8vv"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_w68of"]
 viewport_path = NodePath("img")
+
+[sub_resource type="Animation" id="Animation_4s4xb"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Container:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Container/Profile:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Container/taylor:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Container/taylor:texture")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("5_5x3a8")]
+}
 
 [sub_resource type="Animation" id="Animation_51dhc"]
 resource_name = "base"
@@ -78,62 +129,20 @@ tracks/3/keys = {
 "values": [ExtResource("5_5x3a8"), ExtResource("15_0cfxb")]
 }
 
-[sub_resource type="Animation" id="Animation_4s4xb"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Container:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Container/Profile:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(0, 0, 0, 1)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Container/taylor:modulate")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(0, 0, 0, 1)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Container/taylor:texture")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("5_5x3a8")]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_skdxr"]
 _data = {
 "RESET": SubResource("Animation_4s4xb"),
 "base": SubResource("Animation_51dhc")
 }
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_ey58i"]
+viewport_path = NodePath("img")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_gpxv8"]
+viewport_path = NodePath("img")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_4ejiy"]
+viewport_path = NodePath("img")
 
 [node name="TaylorRoofEntrance" node_paths=PackedStringArray("starting_page") instance=ExtResource("1_lutdq")]
 starting_page = NodePath("0")
@@ -227,7 +236,7 @@ to = NodePath("../../1")
 [node name="Profile" parent="Has1Name" index="6" instance=ExtResource("11_bgt36")]
 position = Vector2(703, 413)
 scale = Vector2(1.2, 1.2)
-texture = SubResource("ViewportTexture_53saf")
+texture = SubResource("ViewportTexture_5r3la")
 with_background = false
 
 [node name="Has2Names" parent="." index="3" instance=ExtResource("2_3thgf")]
@@ -286,7 +295,7 @@ to = NodePath("../../UseHumanName")
 [node name="Profile" parent="Has2Names" index="7" instance=ExtResource("11_bgt36")]
 position = Vector2(703, 413)
 scale = Vector2(1.2, 1.2)
-texture = SubResource("ViewportTexture_3ovb4")
+texture = SubResource("ViewportTexture_lfutn")
 with_background = false
 
 [node name="UseHumanName" parent="." index="4" node_paths=PackedStringArray("next") instance=ExtResource("2_3thgf")]
@@ -600,7 +609,7 @@ flip_h = true
 modulate = Color(0, 0, 0, 1)
 position = Vector2(757, -71)
 scale = Vector2(2, 2)
-texture = SubResource("ViewportTexture_mg8vv")
+texture = SubResource("ViewportTexture_w68of")
 with_background = false
 
 [node name="Condemn" parent="6" index="3" node_paths=PackedStringArray("to") instance=ExtResource("13_55ajo")]
@@ -655,7 +664,7 @@ flip_h = true
 modulate = Color(0, 0, 0, 1)
 position = Vector2(757, -71)
 scale = Vector2(2, 2)
-texture = SubResource("ViewportTexture_mg8vv")
+texture = SubResource("ViewportTexture_ey58i")
 with_background = false
 
 [node name="PlayAnimationOnStart" parent="7" index="3" node_paths=PackedStringArray("player") instance=ExtResource("14_wby13")]
@@ -716,7 +725,7 @@ flip_h = true
 modulate = Color(0, 0, 0, 1)
 position = Vector2(757, -71)
 scale = Vector2(2, 2)
-texture = SubResource("ViewportTexture_mg8vv")
+texture = SubResource("ViewportTexture_gpxv8")
 with_background = false
 
 [node name="PlayAnimationOnStart" parent="8" index="3" node_paths=PackedStringArray("player") instance=ExtResource("14_wby13")]
@@ -763,7 +772,7 @@ flip_h = true
 modulate = Color(0, 0, 0, 1)
 position = Vector2(757, -71)
 scale = Vector2(2, 2)
-texture = SubResource("ViewportTexture_mg8vv")
+texture = SubResource("ViewportTexture_4ejiy")
 with_background = false
 
 [node name="PlayAnimationOnStart" parent="9" index="3" node_paths=PackedStringArray("player") instance=ExtResource("14_wby13")]
