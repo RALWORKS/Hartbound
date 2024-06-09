@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://c0vsa31kgtvm5"]
+[gd_scene load_steps=6 format=3 uid="uid://c0vsa31kgtvm5"]
 
 [ext_resource type="Script" path="res://quests/quest-map.gd" id="1_kp1r4"]
 [ext_resource type="PackedScene" uid="uid://5exo54lvam30" path="res://quests/quests/demo_c_1_regroup_initial.tscn" id="2_ei1e3"]
 [ext_resource type="PackedScene" uid="uid://cn48xheq2neu1" path="res://quests/quests/demo_c_1_collecting_eng.tscn" id="3_rgy47"]
 [ext_resource type="PackedScene" uid="uid://bchils5r28umj" path="res://quests/quests/demo_c_1_summer_solstice.tscn" id="4_sit7n"]
+[ext_resource type="PackedScene" uid="uid://bh2iakatlmblw" path="res://quests/quests/reminisce_with_taylor.tscn" id="5_pwltj"]
 
 [node name="QuestMap" type="Node"]
 script = ExtResource("1_kp1r4")
@@ -13,3 +14,5 @@ script = ExtResource("1_kp1r4")
 [node name="DemoC1CollectingEng" parent="." instance=ExtResource("3_rgy47")]
 
 [node name="DemoC1SummerSolstice" parent="." instance=ExtResource("4_sit7n")]
+
+[node name="ReminisceWithTaylor" parent="." instance=ExtResource("5_pwltj")]

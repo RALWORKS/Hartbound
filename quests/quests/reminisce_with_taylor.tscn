@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=3 uid="uid://bh2iakatlmblw"]
+
+[ext_resource type="PackedScene" uid="uid://df648eobw25cw" path="res://quests/quest.tscn" id="1_yrpjh"]
+[ext_resource type="PackedScene" uid="uid://gwqqok3xieho" path="res://concept-map/concepts/my_hometown.tscn" id="2_85lkv"]
+[ext_resource type="PackedScene" uid="uid://pgm63ijam86e" path="res://concept-map/concepts/moon_temple.tscn" id="3_p5278"]
+
+[node name="ReminisceWithTaylor" instance=ExtResource("1_yrpjh")]
+id = "reminisce-with-taylor"
+headline = "Reminisce with <taylor>"
+
+[node name="MyHometown" parent="QuestConceptCategory" index="0" instance=ExtResource("2_85lkv")]
+
+[node name="MoonTemple" parent="QuestConceptCategory" index="1" instance=ExtResource("3_p5278")]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://bu8dakumsc3d2"]
+[gd_scene load_steps=22 format=3 uid="uid://bu8dakumsc3d2"]
 
 [ext_resource type="PackedScene" uid="uid://bp8tsdjdbwj8i" path="res://cutscene/cutscene.tscn" id="1_40cws"]
 [ext_resource type="PackedScene" uid="uid://55vflx8ylix1" path="res://cutscene/cutscene_node.tscn" id="2_drt2k"]
@@ -7,26 +7,28 @@
 [ext_resource type="PackedScene" uid="uid://cemborgcdx75k" path="res://character/profile.tscn" id="5_wlujr"]
 [ext_resource type="PackedScene" uid="uid://cp5lbi0bmf5vp" path="res://tools/screen-guide-frame.tscn" id="6_6nrwc"]
 [ext_resource type="PackedScene" uid="uid://b11g7mb25w5xp" path="res://cutscene/smart_label.tscn" id="6_yf4pc"]
+[ext_resource type="PackedScene" uid="uid://dpvfe6h3mx7x8" path="res://cutscene/quest_on_start.tscn" id="7_e33vw"]
 [ext_resource type="Script" path="res://cutscene/AddReflectionOnStart.gd" id="7_qhq2w"]
 [ext_resource type="PackedScene" uid="uid://b031fpm2fu6f1" path="res://cutscene/play_animation_on_start.tscn" id="7_yhnbt"]
+[ext_resource type="PackedScene" uid="uid://bh2iakatlmblw" path="res://quests/quests/reminisce_with_taylor.tscn" id="8_2co5u"]
 [ext_resource type="PackedScene" uid="uid://bxflra082b2is" path="res://reflections/reflections/initial_feelings_on_moon_temple.tscn" id="8_d31e5"]
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_cc5hy"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_qj876"]
 viewport_path = NodePath("img")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_3eqw4"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_pke25"]
 viewport_path = NodePath("img")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_tewue"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_dw7cj"]
 viewport_path = NodePath("img")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_gbsp3"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_3lckg"]
 viewport_path = NodePath("img")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_ouu5t"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_0ilyk"]
 viewport_path = NodePath("img")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_1ereb"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_cxj6x"]
 viewport_path = NodePath("img")
 
 [sub_resource type="Animation" id="Animation_4yk4d"]
@@ -110,12 +112,16 @@ texture = ExtResource("4_dgw2j")
 modulate = Color(0, 0, 0, 0.768627)
 position = Vector2(111, 425)
 scale = Vector2(1.2, 1.2)
-texture = SubResource("ViewportTexture_cc5hy")
+texture = SubResource("ViewportTexture_qj876")
 flip_h = true
 with_background = false
 
 [node name="SmartLabel" parent="CutsceneNode" index="3" instance=ExtResource("6_yf4pc")]
 text = "Taylor crouches to look at some herbs growing on the tracks. You pause to wait."
+
+[node name="QuestOnStart" parent="CutsceneNode" index="4" instance=ExtResource("7_e33vw")]
+
+[node name="ReminisceWithTaylor" parent="CutsceneNode/QuestOnStart" index="0" instance=ExtResource("8_2co5u")]
 
 [node name="CutsceneNode2" parent="." index="1" node_paths=PackedStringArray("next") instance=ExtResource("2_drt2k")]
 next = NodePath("../CutsceneNode3")
@@ -135,7 +141,7 @@ texture = ExtResource("4_dgw2j")
 modulate = Color(0, 0, 0, 0.768627)
 position = Vector2(111, 425)
 scale = Vector2(1.2, 1.2)
-texture = SubResource("ViewportTexture_3eqw4")
+texture = SubResource("ViewportTexture_pke25")
 flip_h = true
 with_background = false
 
@@ -182,7 +188,7 @@ texture = ExtResource("4_dgw2j")
 modulate = Color(0, 0, 0, 0.768627)
 position = Vector2(111, 425)
 scale = Vector2(1.2, 1.2)
-texture = SubResource("ViewportTexture_tewue")
+texture = SubResource("ViewportTexture_dw7cj")
 flip_h = true
 with_background = false
 
@@ -222,7 +228,7 @@ texture = ExtResource("4_dgw2j")
 modulate = Color(0, 0, 0, 0.768627)
 position = Vector2(111, 425)
 scale = Vector2(1.2, 1.2)
-texture = SubResource("ViewportTexture_gbsp3")
+texture = SubResource("ViewportTexture_3lckg")
 flip_h = true
 with_background = false
 
@@ -263,7 +269,7 @@ texture = ExtResource("4_dgw2j")
 modulate = Color(0, 0, 0, 0.768627)
 position = Vector2(111, 425)
 scale = Vector2(1.2, 1.2)
-texture = SubResource("ViewportTexture_ouu5t")
+texture = SubResource("ViewportTexture_0ilyk")
 flip_h = true
 with_background = false
 
@@ -308,7 +314,7 @@ texture = ExtResource("4_dgw2j")
 modulate = Color(0, 0, 0, 0.768627)
 position = Vector2(111, 425)
 scale = Vector2(1.2, 1.2)
-texture = SubResource("ViewportTexture_1ereb")
+texture = SubResource("ViewportTexture_cxj6x")
 flip_h = true
 with_background = false
 
