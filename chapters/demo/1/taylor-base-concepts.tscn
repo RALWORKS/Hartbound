@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://c4nb0ap5n2w2b"]
+[gd_scene load_steps=39 format=3 uid="uid://c4nb0ap5n2w2b"]
 
 [ext_resource type="Script" path="res://cutscene/CutsceneConceptsContainer.gd" id="1_iedjd"]
 [ext_resource type="PackedScene" uid="uid://84etqm7v3b47" path="res://concept-map/concepts/age_of_dusk.tscn" id="1_rendb"]
@@ -16,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://dn77d8pdelpv5" path="res://assets/npcs/taylor/taylor_irritated.png" id="13_j3tip"]
 [ext_resource type="PackedScene" uid="uid://pgm63ijam86e" path="res://concept-map/concepts/moon_temple.tscn" id="15_rb8eg"]
 [ext_resource type="PackedScene" uid="uid://cpcg5ug3rutlq" path="res://concept-map/concepts/salvagers.tscn" id="16_2qebk"]
+[ext_resource type="Texture2D" uid="uid://dl824jdeqsl6p" path="res://assets/npcs/taylor/taylor_neutral_eyes_closed.png" id="16_4086h"]
 [ext_resource type="PackedScene" uid="uid://2jrq48rwuyls" path="res://concept-map/concepts/medics.tscn" id="17_j8no1"]
 [ext_resource type="PackedScene" uid="uid://dsv37l7unrm2e" path="res://concept-map/concepts/engineers.tscn" id="18_mve8y"]
 [ext_resource type="PackedScene" uid="uid://d0r7la835u7wq" path="res://concept-map/concepts/taylor.tscn" id="21_dgpl7"]
@@ -700,14 +701,44 @@ scale = Vector2(0.7, 0.7)
 texture = ExtResource("31_kx3if")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="MoonTemple/CutsceneNode"]
-offset_left = -1.0
-offset_top = 903.0
-offset_right = 1979.0
-offset_bottom = 1026.0
+offset_left = 861.0
+offset_top = 278.0
+offset_right = 1485.0
+offset_bottom = 441.0
 theme = ExtResource("5_yjk2e")
 theme_type_variation = &"VoiceoverBox"
-text = "\"I only lived there until I was about five, so I don't remember everything. I know it's not as big as
-Sun Temple. It's all Elves, of course. And lots of priests and monks and churches.\""
+bbcode_enabled = true
+text = "\"Moon Temple's a lot smaller than Sun Temple, for one thing. I thought I knew what a big city was, but I [i]really[/i] didn't."
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="MoonTemple/CutsceneNode"]
+offset_left = 717.0
+offset_top = 84.0
+offset_right = 1250.0
+offset_bottom = 247.0
+theme = ExtResource("5_yjk2e")
+theme_type_variation = &"VoiceoverBox"
+bbcode_enabled = true
+text = "\"I only lived there until I was about twelve, but it was quite the culture shock coming here. "
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="MoonTemple/CutsceneNode"]
+offset_left = 813.0
+offset_top = 473.0
+offset_right = 1624.0
+offset_bottom = 596.0
+theme = ExtResource("5_yjk2e")
+theme_type_variation = &"VoiceoverBox"
+bbcode_enabled = true
+text = "\"It's all Elves, for another. I wouldn't have guessed it would make much difference. People are people, right?"
+
+[node name="RichTextLabel4" type="RichTextLabel" parent="MoonTemple/CutsceneNode"]
+offset_left = 816.0
+offset_top = 627.0
+offset_right = 1627.0
+offset_bottom = 809.0
+theme = ExtResource("5_yjk2e")
+theme_type_variation = &"VoiceoverBox"
+bbcode_enabled = true
+text = "\"But cultures can have [i]very[/i] different values, and I wish I could have learned that [i]fascinating[/i] truth in a [i]gentler[/i] way.\""
 
 [node name="CutsceneNode2" parent="MoonTemple" node_paths=PackedStringArray("next") instance=ExtResource("2_xxf8h")]
 visible = false
@@ -724,15 +755,49 @@ scale = Vector2(0.7, 0.7)
 texture = ExtResource("31_kx3if")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="MoonTemple/CutsceneNode2"]
-offset_left = -1.0
-offset_top = 867.0
-offset_right = 1979.0
-offset_bottom = 1026.0
+offset_left = 695.0
+offset_top = 80.0
+offset_right = 1233.0
+offset_bottom = 276.0
 theme = ExtResource("5_yjk2e")
 theme_type_variation = &"VoiceoverBox"
-text = "\"The 'Temple' in Sun Temple is a metaphor. The 'Temple' in Moon Temple is a sprawling
-cathedral built into a mountainside. I was inside, once. My Blessing Day. I suppose you must
-have been, too, now that I think of it."
+text = "\"The 'Temple' in Sun Temple is a metaphor. The 'Temple' in Moon Temple is a sprawling cathedral built into a mountainside."
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="MoonTemple/CutsceneNode2"]
+offset_left = 845.0
+offset_top = 299.0
+offset_right = 1375.0
+offset_bottom = 420.0
+theme = ExtResource("5_yjk2e")
+theme_type_variation = &"VoiceoverBox"
+text = "\"That highlights the crux of that difference quite well, doesn't it?"
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="MoonTemple/CutsceneNode2"]
+offset_left = 925.0
+offset_top = 444.0
+offset_right = 1559.0
+offset_bottom = 640.0
+theme = ExtResource("5_yjk2e")
+theme_type_variation = &"VoiceoverBox"
+text = "\"Holiness is still real to the Elves. In human kingdoms--or at Sun Temple, at least, 'sacred' is a concept that's only ever used metaphorically."
+
+[node name="RichTextLabel4" type="RichTextLabel" parent="MoonTemple/CutsceneNode2"]
+offset_left = 834.0
+offset_top = 663.0
+offset_right = 1468.0
+offset_bottom = 784.0
+theme = ExtResource("5_yjk2e")
+theme_type_variation = &"VoiceoverBox"
+text = "\"If a human says, 'trust is sacred', they mean trust is a deeply held value of theirs."
+
+[node name="RichTextLabel5" type="RichTextLabel" parent="MoonTemple/CutsceneNode2"]
+offset_left = 943.0
+offset_top = 805.0
+offset_right = 1577.0
+offset_bottom = 926.0
+theme = ExtResource("5_yjk2e")
+theme_type_variation = &"VoiceoverBox"
+text = "\"But an Elf hears, 'Trust is a sacrament of one or more Gods.\""
 
 [node name="CutsceneNode3" parent="MoonTemple" instance=ExtResource("2_xxf8h")]
 visible = false
@@ -745,17 +810,25 @@ centered = false
 [node name="taylor2" type="Sprite2D" parent="MoonTemple/CutsceneNode3"]
 position = Vector2(481, 868)
 scale = Vector2(0.7, 0.7)
-texture = ExtResource("31_kx3if")
+texture = ExtResource("16_4086h")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="MoonTemple/CutsceneNode3"]
-offset_left = -1.0
-offset_top = 867.0
-offset_right = 1979.0
-offset_bottom = 992.0
+offset_left = 840.0
+offset_top = 356.0
+offset_right = 1349.0
+offset_bottom = 510.0
 theme = ExtResource("5_yjk2e")
 theme_type_variation = &"VoiceoverBox"
-text = "\"You should really just cut me off when I'm telling you things you already know.
-There's no need to indulge my rambling.\""
+text = "\"Go ahead and cut me off when I run my mouth. I'm unlikely to ever stop of my own accord.\""
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="MoonTemple/CutsceneNode3"]
+offset_left = 723.0
+offset_top = 249.0
+offset_right = 1136.0
+offset_bottom = 334.0
+theme = ExtResource("5_yjk2e")
+theme_type_variation = &"VoiceoverBox"
+text = "\"I'm rambling again."
 
 [node name="Salvagers" parent="." instance=ExtResource("16_2qebk")]
 
