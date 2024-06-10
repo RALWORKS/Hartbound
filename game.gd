@@ -537,3 +537,18 @@ func move():
 	var m = _init_moves_if_needed()
 	set_state(["moves"], m + 1)
 	check_timers()
+
+func _init_played_cutscenes_if_needed():
+	var data = get_state(["played_cutscenes"])
+	if data != null:
+		return data
+	return set_state(["played_cutscenes"], [])
+
+
+func is_cutscene_section_already_played(section_id):
+	var played = _init_played_cutscenes_if_needed()
+	return section_id in played
+
+func mark_cutscene_section_played(section_id):
+	_init_played_cutscenes_if_needed()
+	set_state_push_to_key(["played_cutscenes"], section_id)

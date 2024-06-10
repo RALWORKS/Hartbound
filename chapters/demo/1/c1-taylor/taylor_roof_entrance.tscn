@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://bbi0ayu331dr0"]
+[gd_scene load_steps=27 format=3 uid="uid://bbi0ayu331dr0"]
 
 [ext_resource type="PackedScene" uid="uid://bp8tsdjdbwj8i" path="res://cutscene/cutscene.tscn" id="1_lutdq"]
 [ext_resource type="PackedScene" uid="uid://55vflx8ylix1" path="res://cutscene/cutscene_node.tscn" id="2_3thgf"]
@@ -16,14 +16,15 @@
 [ext_resource type="PackedScene" uid="uid://yplasm5gtgly" path="res://cutscene/cutscene_option.tscn" id="13_55ajo"]
 [ext_resource type="PackedScene" uid="uid://b031fpm2fu6f1" path="res://cutscene/play_animation_on_start.tscn" id="14_wby13"]
 [ext_resource type="Texture2D" uid="uid://dl824jdeqsl6p" path="res://assets/npcs/taylor/taylor_neutral_eyes_closed.png" id="15_0cfxb"]
+[ext_resource type="PackedScene" uid="uid://b1lrqpjjqlqjg" path="res://cutscene/cutscene_controlled_section.tscn" id="16_g12yw"]
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_5r3la"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_oxo0c"]
 viewport_path = NodePath("img")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_lfutn"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_umw10"]
 viewport_path = NodePath("img")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_w68of"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_l7pku"]
 viewport_path = NodePath("img")
 
 [sub_resource type="Animation" id="Animation_4s4xb"]
@@ -31,7 +32,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Container:position")
+tracks/0/path = NodePath("../Agree/Container:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -43,7 +44,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Container/Profile:modulate")
+tracks/1/path = NodePath("../Agree/Container/Profile:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -55,7 +56,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Container/taylor:modulate")
+tracks/2/path = NodePath("../Agree/Container/taylor:modulate")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -67,7 +68,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Container/taylor:texture")
+tracks/3/path = NodePath("../Agree/Container/taylor:texture")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -83,7 +84,7 @@ length = 2.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Container:position")
+tracks/0/path = NodePath("../Agree/Container:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -95,7 +96,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Container/Profile:modulate")
+tracks/1/path = NodePath("../Agree/Container/Profile:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -107,7 +108,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Container/taylor:modulate")
+tracks/2/path = NodePath("../Agree/Container/taylor:modulate")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -119,7 +120,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Container/taylor:texture")
+tracks/3/path = NodePath("../Agree/Container/taylor:texture")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -135,13 +136,13 @@ _data = {
 "base": SubResource("Animation_51dhc")
 }
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_ey58i"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_1mjdv"]
 viewport_path = NodePath("img")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_gpxv8"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_x31mr"]
 viewport_path = NodePath("img")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_4ejiy"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_ycumr"]
 viewport_path = NodePath("img")
 
 [node name="TaylorRoofEntrance" node_paths=PackedStringArray("starting_page") instance=ExtResource("1_lutdq")]
@@ -236,7 +237,7 @@ to = NodePath("../../1")
 [node name="Profile" parent="Has1Name" index="6" instance=ExtResource("11_bgt36")]
 position = Vector2(703, 413)
 scale = Vector2(1.2, 1.2)
-texture = SubResource("ViewportTexture_5r3la")
+texture = SubResource("ViewportTexture_oxo0c")
 with_background = false
 
 [node name="Has2Names" parent="." index="3" instance=ExtResource("2_3thgf")]
@@ -295,7 +296,7 @@ to = NodePath("../../UseHumanName")
 [node name="Profile" parent="Has2Names" index="7" instance=ExtResource("11_bgt36")]
 position = Vector2(703, 413)
 scale = Vector2(1.2, 1.2)
-texture = SubResource("ViewportTexture_lfutn")
+texture = SubResource("ViewportTexture_umw10")
 with_background = false
 
 [node name="UseHumanName" parent="." index="4" node_paths=PackedStringArray("next") instance=ExtResource("2_3thgf")]
@@ -609,7 +610,7 @@ flip_h = true
 modulate = Color(0, 0, 0, 1)
 position = Vector2(757, -71)
 scale = Vector2(2, 2)
-texture = SubResource("ViewportTexture_w68of")
+texture = SubResource("ViewportTexture_l7pku")
 with_background = false
 
 [node name="Condemn" parent="6" index="3" node_paths=PackedStringArray("to") instance=ExtResource("13_55ajo")]
@@ -618,7 +619,7 @@ offset_top = 276.0
 offset_right = 943.0
 offset_bottom = 353.0
 text = "> \"Good. Be sorry. If I ever hear this nonsense from you again I'm going right to Jerry."
-to = NodePath("../../7")
+to = NodePath("../../Condemn")
 
 [node name="Agree" parent="6" index="4" node_paths=PackedStringArray("to") instance=ExtResource("7_lwqtt")]
 offset_left = 143.0
@@ -626,7 +627,7 @@ offset_top = 374.0
 offset_right = 943.0
 offset_bottom = 451.0
 text = "> \"<taylor>, I'm just thanking the Gods someone understands. I've been feeling the same for years."
-to = NodePath("../../9")
+to = NodePath("../../Agree")
 
 [node name="Secret" parent="6" index="5" node_paths=PackedStringArray("to") instance=ExtResource("13_55ajo")]
 offset_left = 143.0
@@ -634,151 +635,162 @@ offset_top = 470.0
 offset_right = 943.0
 offset_bottom = 547.0
 text = "> \"It's OK. Your secret is safe with me."
-to = NodePath("../../8")
+to = NodePath("../../Secret")
 
-[node name="7" parent="." index="11" instance=ExtResource("2_3thgf")]
+[node name="Condemn" parent="." index="11" instance=ExtResource("16_g12yw")]
+section_id = "taylor-dont-make-me-report-you-for-treason"
+allow_repeats = true
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="7" index="0"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Condemn" index="0"]
+root_node = NodePath("")
 speed_scale = 2.0
 libraries = {
 "": SubResource("AnimationLibrary_skdxr")
 }
 
-[node name="bg" type="Sprite2D" parent="7" index="1"]
+[node name="bg" type="Sprite2D" parent="Condemn" index="1"]
 modulate = Color(0.145098, 0.145098, 0.145098, 1)
 position = Vector2(-126, -83)
 scale = Vector2(1.415, 1)
 texture = ExtResource("8_h0a8w")
 centered = false
 
-[node name="Container" type="Node2D" parent="7" index="2"]
+[node name="Container" type="Node2D" parent="Condemn" index="2"]
 
-[node name="taylor" type="Sprite2D" parent="7/Container" index="0"]
+[node name="taylor" type="Sprite2D" parent="Condemn/Container" index="0"]
 modulate = Color(0, 0, 0, 1)
 position = Vector2(258, 2151)
 scale = Vector2(2, 2)
 texture = ExtResource("5_5x3a8")
 flip_h = true
 
-[node name="Profile" parent="7/Container" index="1" instance=ExtResource("11_bgt36")]
+[node name="Profile" parent="Condemn/Container" index="1" instance=ExtResource("11_bgt36")]
 modulate = Color(0, 0, 0, 1)
 position = Vector2(757, -71)
 scale = Vector2(2, 2)
-texture = SubResource("ViewportTexture_ey58i")
+texture = SubResource("ViewportTexture_1mjdv")
 with_background = false
 
-[node name="PlayAnimationOnStart" parent="7" index="3" node_paths=PackedStringArray("player") instance=ExtResource("14_wby13")]
+[node name="PlayAnimationOnStart" parent="Condemn" index="3" node_paths=PackedStringArray("player") instance=ExtResource("14_wby13")]
 player = NodePath("../AnimationPlayer")
 
-[node name="SmartLabel" parent="7" index="4" instance=ExtResource("6_yclqv")]
+[node name="SmartLabel" parent="Condemn" index="4" instance=ExtResource("6_yclqv")]
 offset_left = 1215.0
 offset_top = 439.0
 offset_right = 1354.0
 offset_bottom = 516.0
 text = "\"Yeah."
 
-[node name="SmartLabel2" parent="7" index="5" instance=ExtResource("6_yclqv")]
+[node name="SmartLabel2" parent="Condemn" index="5" instance=ExtResource("6_yclqv")]
 offset_left = 1269.0
 offset_top = 539.0
 offset_right = 1487.0
 offset_bottom = 616.0
 text = "\"Of course."
 
-[node name="SmartLabel3" parent="7" index="6" instance=ExtResource("6_yclqv")]
+[node name="SmartLabel3" parent="Condemn" index="6" instance=ExtResource("6_yclqv")]
 offset_left = 1310.0
 offset_top = 637.0
 offset_right = 1623.0
 offset_bottom = 760.0
 text = "\"Don't know what I was thinking."
 
-[node name="SmartLabel4" parent="7" index="7" instance=ExtResource("6_yclqv")]
+[node name="SmartLabel4" parent="Condemn" index="7" instance=ExtResource("6_yclqv")]
 offset_left = 1383.0
 offset_top = 776.0
 offset_right = 1644.0
 offset_bottom = 899.0
 text = "\"Won't happen again."
 
-[node name="8" parent="." index="12" instance=ExtResource("2_3thgf")]
+[node name="Secret" parent="." index="12" instance=ExtResource("16_g12yw")]
+visible = false
+section_id = "taylor-i-wont-tell-anyone-youre-leaving"
+allow_repeats = true
 
-[node name="bg" type="Sprite2D" parent="8" index="0"]
+[node name="bg" type="Sprite2D" parent="Secret" index="0"]
 position = Vector2(-3615, -3673)
 scale = Vector2(4, 4)
 texture = ExtResource("3_s645d")
 centered = false
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="8" index="1"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Secret" index="1"]
+root_node = NodePath("")
 speed_scale = 2.0
 libraries = {
 "": SubResource("AnimationLibrary_skdxr")
 }
 
-[node name="Container" type="Node2D" parent="8" index="2"]
+[node name="Container" type="Node2D" parent="Secret" index="2"]
 
-[node name="taylor" type="Sprite2D" parent="8/Container" index="0"]
+[node name="taylor" type="Sprite2D" parent="Secret/Container" index="0"]
 modulate = Color(0, 0, 0, 1)
 position = Vector2(258, 2151)
 scale = Vector2(2, 2)
 texture = ExtResource("5_5x3a8")
 flip_h = true
 
-[node name="Profile" parent="8/Container" index="1" instance=ExtResource("11_bgt36")]
+[node name="Profile" parent="Secret/Container" index="1" instance=ExtResource("11_bgt36")]
 modulate = Color(0, 0, 0, 1)
 position = Vector2(757, -71)
 scale = Vector2(2, 2)
-texture = SubResource("ViewportTexture_gpxv8")
+texture = SubResource("ViewportTexture_x31mr")
 with_background = false
 
-[node name="PlayAnimationOnStart" parent="8" index="3" node_paths=PackedStringArray("player") instance=ExtResource("14_wby13")]
+[node name="PlayAnimationOnStart" parent="Secret" index="3" node_paths=PackedStringArray("player") instance=ExtResource("14_wby13")]
 player = NodePath("../AnimationPlayer")
 
-[node name="SmartLabel" parent="8" index="4" instance=ExtResource("6_yclqv")]
+[node name="SmartLabel" parent="Secret" index="4" instance=ExtResource("6_yclqv")]
 offset_left = 1215.0
 offset_top = 439.0
 offset_right = 1530.0
 offset_bottom = 559.0
 text = "\"That means a lot, {taylor,calls_me}."
 
-[node name="SmartLabel3" parent="8" index="5" instance=ExtResource("6_yclqv")]
+[node name="SmartLabel3" parent="Secret" index="5" instance=ExtResource("6_yclqv")]
 offset_left = 1295.0
 offset_top = 577.0
 offset_right = 1608.0
 offset_bottom = 660.0
 text = "\"I appreciate it.\""
 
-[node name="9" parent="." index="13" instance=ExtResource("2_3thgf")]
+[node name="Agree" parent="." index="13" instance=ExtResource("16_g12yw")]
+visible = false
+section_id = "taylor-i-want-to-escape-too"
+allow_repeats = true
 
-[node name="bg" type="Sprite2D" parent="9" index="0"]
+[node name="bg" type="Sprite2D" parent="Agree" index="0"]
 position = Vector2(-3615, -3673)
 scale = Vector2(4, 4)
 texture = ExtResource("3_s645d")
 centered = false
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="9" index="1"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Agree" index="1"]
+root_node = NodePath("")
 speed_scale = 2.0
 libraries = {
 "": SubResource("AnimationLibrary_skdxr")
 }
 
-[node name="Container" type="Node2D" parent="9" index="2"]
+[node name="Container" type="Node2D" parent="Agree" index="2"]
 
-[node name="taylor" type="Sprite2D" parent="9/Container" index="0"]
+[node name="taylor" type="Sprite2D" parent="Agree/Container" index="0"]
 modulate = Color(0, 0, 0, 1)
 position = Vector2(258, 2151)
 scale = Vector2(2, 2)
 texture = ExtResource("5_5x3a8")
 flip_h = true
 
-[node name="Profile" parent="9/Container" index="1" instance=ExtResource("11_bgt36")]
+[node name="Profile" parent="Agree/Container" index="1" instance=ExtResource("11_bgt36")]
 modulate = Color(0, 0, 0, 1)
 position = Vector2(757, -71)
 scale = Vector2(2, 2)
-texture = SubResource("ViewportTexture_4ejiy")
+texture = SubResource("ViewportTexture_ycumr")
 with_background = false
 
-[node name="PlayAnimationOnStart" parent="9" index="3" node_paths=PackedStringArray("player") instance=ExtResource("14_wby13")]
+[node name="PlayAnimationOnStart" parent="Agree" index="3" node_paths=PackedStringArray("player") instance=ExtResource("14_wby13")]
 player = NodePath("../AnimationPlayer")
 
-[node name="SmartLabel2" parent="9" index="4" instance=ExtResource("6_yclqv")]
+[node name="SmartLabel2" parent="Agree" index="4" instance=ExtResource("6_yclqv")]
 offset_left = 1213.0
 offset_top = 439.0
 offset_right = 1523.0
@@ -786,14 +798,14 @@ offset_bottom = 559.0
 bbcode_enabled = true
 text = "\"[i]Rihimayas[/i] be with you, Cousin,"
 
-[node name="SmartLabel" parent="9" index="5" instance=ExtResource("6_yclqv")]
+[node name="SmartLabel" parent="Agree" index="5" instance=ExtResource("6_yclqv")]
 offset_left = 1147.0
 offset_top = 347.0
 offset_right = 1378.0
 offset_bottom = 419.0
 text = "\"In that case,"
 
-[node name="SmartLabel3" parent="9" index="6" instance=ExtResource("6_yclqv")]
+[node name="SmartLabel3" parent="Agree" index="6" instance=ExtResource("6_yclqv")]
 offset_left = 1295.0
 offset_top = 579.0
 offset_right = 1705.0

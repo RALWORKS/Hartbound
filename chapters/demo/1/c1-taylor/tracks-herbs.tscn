@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://bu8dakumsc3d2"]
+[gd_scene load_steps=23 format=3 uid="uid://bu8dakumsc3d2"]
 
 [ext_resource type="PackedScene" uid="uid://bp8tsdjdbwj8i" path="res://cutscene/cutscene.tscn" id="1_40cws"]
 [ext_resource type="PackedScene" uid="uid://55vflx8ylix1" path="res://cutscene/cutscene_node.tscn" id="2_drt2k"]
@@ -12,23 +12,24 @@
 [ext_resource type="PackedScene" uid="uid://b031fpm2fu6f1" path="res://cutscene/play_animation_on_start.tscn" id="7_yhnbt"]
 [ext_resource type="PackedScene" uid="uid://bh2iakatlmblw" path="res://quests/quests/reminisce_with_taylor.tscn" id="8_2co5u"]
 [ext_resource type="PackedScene" uid="uid://bxflra082b2is" path="res://reflections/reflections/initial_feelings_on_moon_temple.tscn" id="8_d31e5"]
+[ext_resource type="PackedScene" uid="uid://b1lrqpjjqlqjg" path="res://cutscene/cutscene_controlled_section.tscn" id="11_d0v4l"]
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_qj876"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_ejcqu"]
 viewport_path = NodePath("img")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_pke25"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_86geg"]
 viewport_path = NodePath("img")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_dw7cj"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_344s8"]
 viewport_path = NodePath("img")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_3lckg"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_4k825"]
 viewport_path = NodePath("img")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_0ilyk"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_6oliq"]
 viewport_path = NodePath("img")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_cxj6x"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_ptt5i"]
 viewport_path = NodePath("img")
 
 [sub_resource type="Animation" id="Animation_4yk4d"]
@@ -112,7 +113,7 @@ texture = ExtResource("4_dgw2j")
 modulate = Color(0, 0, 0, 0.768627)
 position = Vector2(111, 425)
 scale = Vector2(1.2, 1.2)
-texture = SubResource("ViewportTexture_qj876")
+texture = SubResource("ViewportTexture_ejcqu")
 flip_h = true
 with_background = false
 
@@ -141,7 +142,7 @@ texture = ExtResource("4_dgw2j")
 modulate = Color(0, 0, 0, 0.768627)
 position = Vector2(111, 425)
 scale = Vector2(1.2, 1.2)
-texture = SubResource("ViewportTexture_pke25")
+texture = SubResource("ViewportTexture_86geg")
 flip_h = true
 with_background = false
 
@@ -188,7 +189,7 @@ texture = ExtResource("4_dgw2j")
 modulate = Color(0, 0, 0, 0.768627)
 position = Vector2(111, 425)
 scale = Vector2(1.2, 1.2)
-texture = SubResource("ViewportTexture_dw7cj")
+texture = SubResource("ViewportTexture_344s8")
 flip_h = true
 with_background = false
 
@@ -228,7 +229,7 @@ texture = ExtResource("4_dgw2j")
 modulate = Color(0, 0, 0, 0.768627)
 position = Vector2(111, 425)
 scale = Vector2(1.2, 1.2)
-texture = SubResource("ViewportTexture_3lckg")
+texture = SubResource("ViewportTexture_4k825")
 flip_h = true
 with_background = false
 
@@ -252,7 +253,7 @@ texture = ExtResource("4_dgw2j")
 flip_h = true
 
 [node name="CutsceneNode6" parent="." index="4" node_paths=PackedStringArray("next") instance=ExtResource("2_drt2k")]
-next = NodePath("../CutsceneNode4")
+next = NodePath("../4")
 
 [node name="Sprite2D" type="Sprite2D" parent="CutsceneNode6" index="0"]
 position = Vector2(-956, 2404)
@@ -269,7 +270,7 @@ texture = ExtResource("4_dgw2j")
 modulate = Color(0, 0, 0, 0.768627)
 position = Vector2(111, 425)
 scale = Vector2(1.2, 1.2)
-texture = SubResource("ViewportTexture_0ilyk")
+texture = SubResource("ViewportTexture_6oliq")
 flip_h = true
 with_background = false
 
@@ -296,36 +297,37 @@ scale = Vector2(0.7, 0.723)
 texture = ExtResource("4_dgw2j")
 flip_h = true
 
-[node name="CutsceneNode4" parent="." index="5" node_paths=PackedStringArray("use_on_start_fn_from") instance=ExtResource("2_drt2k")]
+[node name="4" parent="." index="5" node_paths=PackedStringArray("use_on_start_fn_from") instance=ExtResource("11_d0v4l")]
+section_id = "taylor-said-she-wanted-to-share-elf-memories"
 use_on_start_fn_from = NodePath("PlayAnimationOnStart")
 
-[node name="Sprite2D" type="Sprite2D" parent="CutsceneNode4" index="0"]
+[node name="Sprite2D" type="Sprite2D" parent="4" index="0"]
 position = Vector2(-956, 2404)
 scale = Vector2(4, 4)
 texture = ExtResource("3_1255v")
 
-[node name="Sprite2D2" type="Sprite2D" parent="CutsceneNode4" index="1"]
+[node name="Sprite2D2" type="Sprite2D" parent="4" index="1"]
 modulate = Color(0, 0, 0, 0.768627)
 position = Vector2(1189, 1124)
 scale = Vector2(0.897574, 0.927859)
 texture = ExtResource("4_dgw2j")
 
-[node name="Profile" parent="CutsceneNode4" index="2" instance=ExtResource("5_wlujr")]
+[node name="Profile" parent="4" index="2" instance=ExtResource("5_wlujr")]
 modulate = Color(0, 0, 0, 0.768627)
 position = Vector2(111, 425)
 scale = Vector2(1.2, 1.2)
-texture = SubResource("ViewportTexture_cxj6x")
+texture = SubResource("ViewportTexture_ptt5i")
 flip_h = true
 with_background = false
 
-[node name="ColorRect" type="ColorRect" parent="CutsceneNode4" index="3"]
+[node name="ColorRect" type="ColorRect" parent="4" index="3"]
 offset_left = -25.0
 offset_top = 809.0
 offset_right = 1933.0
 offset_bottom = 1146.0
 color = Color(0, 0, 0, 1)
 
-[node name="SmartLabel" parent="CutsceneNode4" index="4" instance=ExtResource("6_yf4pc")]
+[node name="SmartLabel" parent="4" index="4" instance=ExtResource("6_yf4pc")]
 offset_left = 27.0
 offset_right = 2007.0
 offset_bottom = 1043.0
@@ -334,17 +336,17 @@ text = "\"Anyway. No need to dally here.\"
 
 She quickly gathers some berries and branches, then stands to leave."
 
-[node name="Sprite2D3" type="Sprite2D" parent="CutsceneNode4" index="5"]
+[node name="Sprite2D3" type="Sprite2D" parent="4" index="5"]
 position = Vector2(1421, 1486)
 scale = Vector2(0.7, 0.723)
 texture = ExtResource("4_dgw2j")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="CutsceneNode4/Sprite2D3" index="0"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="4/Sprite2D3" index="0"]
 libraries = {
 "": SubResource("AnimationLibrary_dhxe8")
 }
 
-[node name="PlayAnimationOnStart" parent="CutsceneNode4" index="6" node_paths=PackedStringArray("player") instance=ExtResource("7_yhnbt")]
+[node name="PlayAnimationOnStart" parent="4" index="6" node_paths=PackedStringArray("player") instance=ExtResource("7_yhnbt")]
 player = NodePath("../Sprite2D3/AnimationPlayer")
 
 [node name="Frame" parent="." index="6" instance=ExtResource("6_6nrwc")]
