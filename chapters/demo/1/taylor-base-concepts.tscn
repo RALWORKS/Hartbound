@@ -1416,6 +1416,7 @@ text = "\"... never ceases to amaze me.\""
 [node name="HowAreYou" parent="." instance=ExtResource("31_n45ry")]
 
 [node name="CutsceneNode" parent="HowAreYou" instance=ExtResource("2_xxf8h")]
+visible = false
 
 [node name="bg" type="Sprite2D" parent="HowAreYou/CutsceneNode"]
 scale = Vector2(1.35, 1.35)

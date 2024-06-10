@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://jb6f6hijmwsr"]
+
+[ext_resource type="Texture2D" uid="uid://dn77d8pdelpv5" path="res://assets/npcs/taylor/taylor_irritated.png" id="1_horja"]
+
+[node name="TaylorFright" type="Sprite2D"]
+position = Vector2(324, 1365)
+texture = ExtResource("1_horja")
+flip_h = true
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+color = Color(0.807843, 0.65098, 0.584314, 1)
+polygon = PackedVector2Array(51, -947, 37, -898, -11, -915, -8, -989, 36, -990, 90, -1007, 118, -992, 177, -985, 167, -889, 86, -923)
+
+[node name="Polygon2D2" type="Polygon2D" parent="."]
+position = Vector2(0, -2)
+color = Color(0.101961, 0, 0.298039, 1)
+polygon = PackedVector2Array(-8, -986, -16, -950, -15, -921, -16, -858, 24, -824, 4, -907, 38, -934, 45, -876, 61, -948, 67, -970, 91, -930, 105, -918, 127, -914, 157, -929, 168, -942, 178, -936, 180, -991, 141, -990, 117, -993, 90, -1011, 79, -1045, 75, -1025, 60, -1007, 37, -995, 21, -990, -8, -989)
