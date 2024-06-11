@@ -44,7 +44,7 @@
 [ext_resource type="Texture2D" uid="uid://du538lgom8gn2" path="res://assets/splash/home-village.png" id="42_gmm22"]
 [ext_resource type="Shader" path="res://effects/bluescale.gdshader" id="43_fub5w"]
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_5sjws"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_oqoru"]
 viewport_path = NodePath("img")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_weoi2"]
@@ -59,7 +59,7 @@ shader_parameter/tint = Vector4(0.6, 0.83, 0.97, 1)
 shader_parameter/highlight = Vector4(0.8, 0.85, 0.6, 1)
 shader_parameter/alpha = 1.0
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_7bx74"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_rwj18"]
 viewport_path = NodePath("img")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_d26op"]
@@ -74,7 +74,7 @@ shader_parameter/tint = Vector4(0.6, 0.83, 0.97, 1)
 shader_parameter/highlight = Vector4(0.8, 0.85, 0.6, 1)
 shader_parameter/alpha = 1.0
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_bwwhc"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_3yr5c"]
 viewport_path = NodePath("img")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_j2nwn"]
@@ -89,7 +89,7 @@ shader_parameter/tint = Vector4(0.4, 0.4, 0.4, 1)
 shader_parameter/highlight = Vector4(0.5, 0.5, 0.5, 1)
 shader_parameter/alpha = 1.0
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_g0vsv"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_dqlew"]
 viewport_path = NodePath("img")
 
 [node name="Concepts" type="Node"]
@@ -1879,7 +1879,7 @@ texture = ExtResource("31_kx3if")
 [node name="Profile" parent="MyHometown/NewMemory" instance=ExtResource("41_8awtg")]
 position = Vector2(912, 105)
 scale = Vector2(2, 2)
-texture = SubResource("ViewportTexture_5sjws")
+texture = SubResource("ViewportTexture_oqoru")
 with_background = false
 
 [node name="RichTextLabel2" type="RichTextLabel" parent="MyHometown/NewMemory"]
@@ -1921,7 +1921,7 @@ texture = ExtResource("31_kx3if")
 material = SubResource("ShaderMaterial_k6to6")
 position = Vector2(912, 105)
 scale = Vector2(2, 2)
-texture = SubResource("ViewportTexture_7bx74")
+texture = SubResource("ViewportTexture_rwj18")
 with_background = false
 
 [node name="RichTextLabel2" type="RichTextLabel" parent="MyHometown/NewMemory2"]
@@ -1954,7 +1954,6 @@ bbcode_enabled = true
 text = "\"I was Named under the moonlight, as our ancestors were."
 
 [node name="NewMemory4" parent="MyHometown" node_paths=PackedStringArray("next") instance=ExtResource("2_xxf8h")]
-visible = false
 next = NodePath("../NewMemory3")
 
 [node name="bg" type="Sprite2D" parent="MyHometown/NewMemory4"]
@@ -1973,7 +1972,7 @@ texture = ExtResource("31_kx3if")
 material = SubResource("ShaderMaterial_n2xtb")
 position = Vector2(912, 105)
 scale = Vector2(2, 2)
-texture = SubResource("ViewportTexture_bwwhc")
+texture = SubResource("ViewportTexture_3yr5c")
 with_background = false
 
 [node name="RichTextLabel5" type="RichTextLabel" parent="MyHometown/NewMemory4"]
@@ -2007,6 +2006,7 @@ bbcode_enabled = true
 text = "\"We ran into [i]bears[/i] more often than we did outsiders. Those forty-odd faces that I saw every day made up the world as I knew it."
 
 [node name="NewMemory3" parent="MyHometown" node_paths=PackedStringArray("next") instance=ExtResource("2_xxf8h")]
+visible = false
 next = NodePath("../NewMemory5")
 
 [node name="bg" type="Sprite2D" parent="MyHometown/NewMemory3"]
@@ -2025,7 +2025,7 @@ texture = ExtResource("31_kx3if")
 material = SubResource("ShaderMaterial_hxgt3")
 position = Vector2(912, 105)
 scale = Vector2(2, 2)
-texture = SubResource("ViewportTexture_g0vsv")
+texture = SubResource("ViewportTexture_dqlew")
 with_background = false
 
 [node name="RichTextLabel7" type="RichTextLabel" parent="MyHometown/NewMemory3"]
@@ -2039,6 +2039,7 @@ bbcode_enabled = true
 text = "\"And now it's all gone.\""
 
 [node name="NewMemory5" parent="MyHometown" node_paths=PackedStringArray("next") instance=ExtResource("2_xxf8h")]
+visible = false
 next = NodePath("../NewMemory6")
 
 [node name="bg" type="Sprite2D" parent="MyHometown/NewMemory5"]
@@ -2084,6 +2085,7 @@ bbcode_enabled = true
 text = "\"You have my ... solidarity, for what it's worth."
 
 [node name="NewMemory6" parent="MyHometown" instance=ExtResource("2_xxf8h")]
+visible = false
 
 [node name="bg" type="Sprite2D" parent="MyHometown/NewMemory6"]
 scale = Vector2(1.35, 1.35)
