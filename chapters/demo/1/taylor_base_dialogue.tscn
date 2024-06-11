@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://epq5ioa4sayx"]
+[gd_scene load_steps=40 format=3 uid="uid://epq5ioa4sayx"]
 
 [ext_resource type="PackedScene" uid="uid://bp8tsdjdbwj8i" path="res://cutscene/cutscene.tscn" id="1_qv2i1"]
 [ext_resource type="PackedScene" uid="uid://b1lrqpjjqlqjg" path="res://cutscene/cutscene_controlled_section.tscn" id="2_f4kae"]
@@ -16,6 +16,7 @@
 [ext_resource type="Shader" path="res://character/flat-color.gdshader" id="10_5w37n"]
 [ext_resource type="PackedScene" uid="uid://5exo54lvam30" path="res://quests/quests/demo_c_1_regroup_initial.tscn" id="10_j3pmb"]
 [ext_resource type="Texture2D" uid="uid://qvvgmwv71yw6" path="res://assets/intro-story/elf-and-child.png" id="11_omnnc"]
+[ext_resource type="Shader" path="res://effects/bluescale.gdshader" id="11_vxkm4"]
 [ext_resource type="Texture2D" uid="uid://cwobelc0kaio" path="res://assets/effects/pass-out-1/black.png" id="12_y5u3b"]
 [ext_resource type="Texture2D" uid="uid://dla2rs7rb628l" path="res://ui/leyline-icon.png" id="13_asy10"]
 [ext_resource type="Texture2D" uid="uid://cwj2cjot1bdfr" path="res://assets/npcs/taylor/taylor_smile.png" id="13_mqlh0"]
@@ -103,7 +104,13 @@ shader_parameter/contrast = 0.0
 shader_parameter/opacity = 1.0
 shader_parameter/fade = 0.0
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_cbh1a"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fr1dw"]
+shader = ExtResource("11_vxkm4")
+shader_parameter/tint = Vector4(0.5, 0.73, 0.87, 1)
+shader_parameter/highlight = Vector4(0.7, 0.75, 0.5, 1)
+shader_parameter/alpha = 1.0
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_cabff"]
 viewport_path = NodePath("img")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7rj0o"]
@@ -117,6 +124,7 @@ npc_name = "taylor"
 main_concepts_page = NodePath("ConceptCutsceneNode")
 
 [node name="CTRLArrivalMemory" parent="." index="0" node_paths=PackedStringArray("else_go", "next") instance=ExtResource("2_f4kae")]
+visible = false
 section_id = "taylor-asks-how-you-adapted-to-human-notions-of-age"
 prerequisite_id = "taylor-said-she-wanted-to-share-elf-memories"
 disqualifier_id = "taylor-dont-make-me-report-you-for-treason"
@@ -148,6 +156,7 @@ offset_bottom = 390.0
 text = "\"Was it hard for you to try and grow up as fast as the humans expected?\""
 
 [node name="ArrivalMemory2" parent="." index="1" node_paths=PackedStringArray("next", "use_on_start_fn_from") instance=ExtResource("2_vonvd")]
+visible = false
 next = NodePath("../ArrivalMemory3")
 use_on_start_fn_from = NodePath("PlayAnimationOnStart")
 
@@ -202,16 +211,15 @@ texture = ExtResource("7_bq1om")
 centered = false
 
 [node name="taylor4" type="Sprite2D" parent="ArrivalMemory3" index="2"]
-modulate = Color(0, 0, 0, 1)
 material = SubResource("ShaderMaterial_v772u")
 position = Vector2(472, 1387)
 texture = ExtResource("16_jhvub")
 flip_h = true
 
 [node name="taylor3" type="Sprite2D" parent="ArrivalMemory3" index="3"]
-modulate = Color(1, 1, 1, 0.12549)
+material = SubResource("ShaderMaterial_fr1dw")
 position = Vector2(472, 1383)
-texture = ExtResource("16_jhvub")
+texture = ExtResource("4_bxirh")
 flip_h = true
 
 [node name="SmartLabel3" parent="ArrivalMemory3" index="4" instance=ExtResource("5_sc1vl")]
@@ -229,6 +237,7 @@ offset_bottom = 183.0
 text = "\"Me?"
 
 [node name="ArrivalMemory4" parent="." index="3" node_paths=PackedStringArray("next") instance=ExtResource("2_vonvd")]
+visible = false
 next = NodePath("../ArrivalMemory5")
 
 [node name="bg2" type="Sprite2D" parent="ArrivalMemory4" index="0"]
@@ -238,20 +247,13 @@ scale = Vector2(1.35, 1.35)
 texture = ExtResource("7_bq1om")
 centered = false
 
-[node name="taylor2" type="Sprite2D" parent="ArrivalMemory4" index="1"]
-modulate = Color(0, 0, 0, 1)
-material = SubResource("ShaderMaterial_v772u")
-position = Vector2(472, 1387)
-texture = ExtResource("16_jhvub")
-flip_h = true
-
-[node name="taylor3" type="Sprite2D" parent="ArrivalMemory4" index="2"]
-modulate = Color(1, 1, 1, 0.12549)
+[node name="taylor3" type="Sprite2D" parent="ArrivalMemory4" index="1"]
+material = SubResource("ShaderMaterial_fr1dw")
 position = Vector2(472, 1383)
 texture = ExtResource("4_bxirh")
 flip_h = true
 
-[node name="parentandchild" type="Sprite2D" parent="ArrivalMemory4" index="3"]
+[node name="parentandchild" type="Sprite2D" parent="ArrivalMemory4" index="2"]
 modulate = Color(0, 0, 0, 1)
 material = SubResource("ShaderMaterial_v772u")
 position = Vector2(1178, 802)
@@ -260,14 +262,14 @@ scale = Vector2(1.2, 1.2)
 texture = ExtResource("11_omnnc")
 flip_h = true
 
-[node name="SmartLabel4" parent="ArrivalMemory4" index="4" instance=ExtResource("5_sc1vl")]
+[node name="SmartLabel4" parent="ArrivalMemory4" index="3" instance=ExtResource("5_sc1vl")]
 offset_left = 18.0
 offset_top = 17.0
 offset_right = 1104.0
 offset_bottom = 106.0
 text = "\"Twleve years old? My mother was still singing me to sleep at that age."
 
-[node name="SmartLabel6" parent="ArrivalMemory4" index="5" instance=ExtResource("5_sc1vl")]
+[node name="SmartLabel6" parent="ArrivalMemory4" index="4" instance=ExtResource("5_sc1vl")]
 offset_left = 254.0
 offset_top = 117.0
 offset_right = 1645.0
@@ -275,6 +277,7 @@ offset_bottom = 203.0
 text = "\"Then I was sent to my father's people, and suddenly I was too old even to cry of homesickness."
 
 [node name="ArrivalMemory5" parent="." index="4" instance=ExtResource("2_vonvd")]
+visible = false
 is_option_node = true
 
 [node name="bg" type="Sprite2D" parent="ArrivalMemory5" index="0"]
@@ -335,6 +338,7 @@ text = "> \"I found the experience freeing. Things were stifling back home."
 to = NodePath("../../ArrivalMemoryHurt")
 
 [node name="ArrivalMemoryHurt" parent="." index="5" node_paths=PackedStringArray("next") instance=ExtResource("2_vonvd")]
+visible = false
 next = NodePath("../ConceptCutsceneNode")
 
 [node name="bg" type="Sprite2D" parent="ArrivalMemoryHurt" index="0"]
@@ -362,6 +366,7 @@ offset_bottom = 439.0
 text = "\"Oh."
 
 [node name="ArrivalMemoryHappy" parent="." index="6" node_paths=PackedStringArray("next") instance=ExtResource("2_vonvd")]
+visible = false
 next = NodePath("../ConceptCutsceneNode")
 
 [node name="bg" type="Sprite2D" parent="ArrivalMemoryHappy" index="0"]
@@ -389,6 +394,7 @@ offset_bottom = 439.0
 text = "\"Thanks."
 
 [node name="ArrivalMemoryWorried" parent="." index="7" node_paths=PackedStringArray("next") instance=ExtResource("2_vonvd")]
+visible = false
 next = NodePath("../ConceptCutsceneNode")
 
 [node name="bg" type="Sprite2D" parent="ArrivalMemoryWorried" index="0"]
@@ -814,7 +820,7 @@ texture = ExtResource("4_bxirh")
 [node name="Profile" parent="Concepts/SummerSolstice/Branch" index="2" instance=ExtResource("15_j4j0s")]
 position = Vector2(880, 14)
 scale = Vector2(1.8, 1.8)
-texture = SubResource("ViewportTexture_cbh1a")
+texture = SubResource("ViewportTexture_cabff")
 with_background = false
 
 [node name="Human" parent="Concepts/SummerSolstice/Branch" index="3" node_paths=PackedStringArray("to", "avatar") instance=ExtResource("16_xvtm1")]

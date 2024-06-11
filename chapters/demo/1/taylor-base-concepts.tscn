@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://c4nb0ap5n2w2b"]
+[gd_scene load_steps=54 format=3 uid="uid://c4nb0ap5n2w2b"]
 
 [ext_resource type="Script" path="res://cutscene/CutsceneConceptsContainer.gd" id="1_iedjd"]
 [ext_resource type="PackedScene" uid="uid://84etqm7v3b47" path="res://concept-map/concepts/age_of_dusk.tscn" id="1_rendb"]
@@ -41,8 +41,55 @@
 [ext_resource type="PackedScene" uid="uid://gwqqok3xieho" path="res://concept-map/concepts/my_hometown.tscn" id="39_rnabr"]
 [ext_resource type="PackedScene" uid="uid://b1lrqpjjqlqjg" path="res://cutscene/cutscene_controlled_section.tscn" id="40_7birv"]
 [ext_resource type="PackedScene" uid="uid://cemborgcdx75k" path="res://character/profile.tscn" id="41_8awtg"]
+[ext_resource type="Texture2D" uid="uid://du538lgom8gn2" path="res://assets/splash/home-village.png" id="42_gmm22"]
+[ext_resource type="Shader" path="res://effects/bluescale.gdshader" id="43_fub5w"]
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_c3tg3"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_5sjws"]
+viewport_path = NodePath("img")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_weoi2"]
+shader = ExtResource("43_fub5w")
+shader_parameter/tint = Vector4(0.6, 0.83, 0.97, 1)
+shader_parameter/highlight = Vector4(0.8, 0.85, 0.6, 1)
+shader_parameter/alpha = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_k6to6"]
+shader = ExtResource("43_fub5w")
+shader_parameter/tint = Vector4(0.6, 0.83, 0.97, 1)
+shader_parameter/highlight = Vector4(0.8, 0.85, 0.6, 1)
+shader_parameter/alpha = 1.0
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_7bx74"]
+viewport_path = NodePath("img")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_d26op"]
+shader = ExtResource("43_fub5w")
+shader_parameter/tint = Vector4(0.6, 0.83, 0.97, 1)
+shader_parameter/highlight = Vector4(0.8, 0.85, 0.6, 1)
+shader_parameter/alpha = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_n2xtb"]
+shader = ExtResource("43_fub5w")
+shader_parameter/tint = Vector4(0.6, 0.83, 0.97, 1)
+shader_parameter/highlight = Vector4(0.8, 0.85, 0.6, 1)
+shader_parameter/alpha = 1.0
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_bwwhc"]
+viewport_path = NodePath("img")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_j2nwn"]
+shader = ExtResource("43_fub5w")
+shader_parameter/tint = Vector4(0.3, 0.3, 0.3, 1)
+shader_parameter/highlight = Vector4(0.5, 0.5, 0.5, 1)
+shader_parameter/alpha = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hxgt3"]
+shader = ExtResource("43_fub5w")
+shader_parameter/tint = Vector4(0.4, 0.4, 0.4, 1)
+shader_parameter/highlight = Vector4(0.5, 0.5, 0.5, 1)
+shader_parameter/alpha = 1.0
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_g0vsv"]
 viewport_path = NodePath("img")
 
 [node name="Concepts" type="Node"]
@@ -1726,6 +1773,7 @@ text = "\"I'm not really sure what you're trying to ask.\""
 [node name="HumanNames" parent="." instance=ExtResource("34_h1peb")]
 
 [node name="CutsceneNode" parent="HumanNames" instance=ExtResource("2_xxf8h")]
+visible = false
 
 [node name="bg" type="Sprite2D" parent="HumanNames/CutsceneNode"]
 scale = Vector2(1.35, 1.35)
@@ -1775,6 +1823,7 @@ text = "\"{character,name,human_short}? From {character,name,elf_short}?"
 [node name="MyHometown" parent="." instance=ExtResource("39_rnabr")]
 
 [node name="AfterMemory" parent="MyHometown" node_paths=PackedStringArray("else_go") instance=ExtResource("40_7birv")]
+visible = false
 section_id = "telling-taylor-about-hometown-for-the-second-time"
 prerequisite_id = "telling-taylor-about-hometown-for-the-first-time"
 else_go = NodePath("../NewMemory")
@@ -1809,12 +1858,13 @@ theme_type_variation = &"VoiceoverBox"
 bbcode_enabled = true
 text = "\"I hope you can meet others who remember it someday.\""
 
-[node name="NewMemory" parent="MyHometown" node_paths=PackedStringArray("else_go") instance=ExtResource("40_7birv")]
+[node name="NewMemory" parent="MyHometown" node_paths=PackedStringArray("else_go", "next") instance=ExtResource("40_7birv")]
 visible = false
 section_id = "telling-taylor-about-hometown-for-the-first-time"
 prerequisite_id = "taylor-said-she-wanted-to-share-elf-memories"
 else_go = NodePath("../Default")
 allow_repeats = true
+next = NodePath("../NewMemory2")
 
 [node name="bg" type="Sprite2D" parent="MyHometown/NewMemory"]
 scale = Vector2(1.35, 1.35)
@@ -1825,6 +1875,12 @@ centered = false
 position = Vector2(481, 868)
 scale = Vector2(0.7, 0.7)
 texture = ExtResource("31_kx3if")
+
+[node name="Profile" parent="MyHometown/NewMemory" instance=ExtResource("41_8awtg")]
+position = Vector2(912, 105)
+scale = Vector2(2, 2)
+texture = SubResource("ViewportTexture_5sjws")
+with_background = false
 
 [node name="RichTextLabel2" type="RichTextLabel" parent="MyHometown/NewMemory"]
 offset_left = 386.0
@@ -1845,11 +1901,209 @@ theme_type_variation = &"VoiceoverBox"
 bbcode_enabled = true
 text = "\"Its name was [i]Fin Soen Li Yen[/i]: Grove of the Seven Ferns."
 
-[node name="Profile" parent="MyHometown/NewMemory" instance=ExtResource("41_8awtg")]
+[node name="NewMemory2" parent="MyHometown" node_paths=PackedStringArray("next") instance=ExtResource("2_xxf8h")]
+visible = false
+next = NodePath("../NewMemory4")
+
+[node name="bg" type="Sprite2D" parent="MyHometown/NewMemory2"]
+position = Vector2(-70, -432)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("42_gmm22")
+centered = false
+
+[node name="taylor2" type="Sprite2D" parent="MyHometown/NewMemory2"]
+material = SubResource("ShaderMaterial_weoi2")
+position = Vector2(481, 868)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("31_kx3if")
+
+[node name="Profile" parent="MyHometown/NewMemory2" instance=ExtResource("41_8awtg")]
+material = SubResource("ShaderMaterial_k6to6")
 position = Vector2(912, 105)
 scale = Vector2(2, 2)
-texture = SubResource("ViewportTexture_c3tg3")
+texture = SubResource("ViewportTexture_7bx74")
 with_background = false
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="MyHometown/NewMemory2"]
+offset_left = 10.0
+offset_top = 773.0
+offset_right = 864.0
+offset_bottom = 893.0
+theme = ExtResource("5_yjk2e")
+theme_type_variation = &"VoiceoverBox"
+text = "\"It was almost as different from Moon Temple as Moon Temple is from the human lands."
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="MyHometown/NewMemory2"]
+offset_left = 12.0
+offset_top = 903.0
+offset_right = 1241.0
+offset_bottom = 981.0
+theme = ExtResource("5_yjk2e")
+theme_type_variation = &"VoiceoverBox"
+bbcode_enabled = true
+text = "\"Not even one church in town. We prayed in the clearing at the centre of the village."
+
+[node name="RichTextLabel4" type="RichTextLabel" parent="MyHometown/NewMemory2"]
+offset_left = 12.0
+offset_top = 992.0
+offset_right = 942.0
+offset_bottom = 1070.0
+theme = ExtResource("5_yjk2e")
+theme_type_variation = &"VoiceoverBox"
+bbcode_enabled = true
+text = "\"I was Named under the moonlight, as our ancestors were."
+
+[node name="NewMemory4" parent="MyHometown" node_paths=PackedStringArray("next") instance=ExtResource("2_xxf8h")]
+visible = false
+next = NodePath("../NewMemory3")
+
+[node name="bg" type="Sprite2D" parent="MyHometown/NewMemory4"]
+position = Vector2(-70, -432)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("42_gmm22")
+centered = false
+
+[node name="taylor2" type="Sprite2D" parent="MyHometown/NewMemory4"]
+material = SubResource("ShaderMaterial_d26op")
+position = Vector2(481, 868)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("31_kx3if")
+
+[node name="Profile" parent="MyHometown/NewMemory4" instance=ExtResource("41_8awtg")]
+material = SubResource("ShaderMaterial_n2xtb")
+position = Vector2(912, 105)
+scale = Vector2(2, 2)
+texture = SubResource("ViewportTexture_bwwhc")
+with_background = false
+
+[node name="RichTextLabel5" type="RichTextLabel" parent="MyHometown/NewMemory4"]
+offset_left = 12.0
+offset_top = 727.0
+offset_right = 991.0
+offset_bottom = 805.0
+theme = ExtResource("5_yjk2e")
+theme_type_variation = &"VoiceoverBox"
+bbcode_enabled = true
+text = "\"I chased chickens and drew up water from the well with a bucket."
+
+[node name="RichTextLabel6" type="RichTextLabel" parent="MyHometown/NewMemory4"]
+offset_left = 12.0
+offset_top = 817.0
+offset_right = 1218.0
+offset_bottom = 931.0
+theme = ExtResource("5_yjk2e")
+theme_type_variation = &"VoiceoverBox"
+bbcode_enabled = true
+text = "\"We grew up pestering the shopkeeper of that single general store in town to show us what the traders brought in, so we could beg our parents for trinkets."
+
+[node name="RichTextLabel7" type="RichTextLabel" parent="MyHometown/NewMemory4"]
+offset_left = 12.0
+offset_top = 943.0
+offset_right = 1050.0
+offset_bottom = 1066.0
+theme = ExtResource("5_yjk2e")
+theme_type_variation = &"VoiceoverBox"
+bbcode_enabled = true
+text = "\"We ran into [i]bears[/i] more often than we did outsiders. Those forty-odd faces that I saw every day made up the world as I knew it."
+
+[node name="NewMemory3" parent="MyHometown" node_paths=PackedStringArray("next") instance=ExtResource("2_xxf8h")]
+next = NodePath("../NewMemory5")
+
+[node name="bg" type="Sprite2D" parent="MyHometown/NewMemory3"]
+position = Vector2(-70, -432)
+scale = Vector2(1.47681, 1.2)
+texture = ExtResource("33_kw712")
+centered = false
+
+[node name="taylor2" type="Sprite2D" parent="MyHometown/NewMemory3"]
+material = SubResource("ShaderMaterial_j2nwn")
+position = Vector2(481, 868)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("31_kx3if")
+
+[node name="Profile" parent="MyHometown/NewMemory3" instance=ExtResource("41_8awtg")]
+material = SubResource("ShaderMaterial_hxgt3")
+position = Vector2(912, 105)
+scale = Vector2(2, 2)
+texture = SubResource("ViewportTexture_g0vsv")
+with_background = false
+
+[node name="RichTextLabel7" type="RichTextLabel" parent="MyHometown/NewMemory3"]
+offset_left = 650.0
+offset_top = 696.0
+offset_right = 1024.0
+offset_bottom = 772.0
+theme = ExtResource("5_yjk2e")
+theme_type_variation = &"VoiceoverBox"
+bbcode_enabled = true
+text = "\"And now it's all gone.\""
+
+[node name="NewMemory5" parent="MyHometown" node_paths=PackedStringArray("next") instance=ExtResource("2_xxf8h")]
+next = NodePath("../NewMemory6")
+
+[node name="bg" type="Sprite2D" parent="MyHometown/NewMemory5"]
+position = Vector2(-70, -432)
+scale = Vector2(1.47681, 1.2)
+texture = ExtResource("33_kw712")
+centered = false
+
+[node name="taylor2" type="Sprite2D" parent="MyHometown/NewMemory5"]
+material = SubResource("ShaderMaterial_j2nwn")
+position = Vector2(481, 868)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("16_4086h")
+
+[node name="RichTextLabel7" type="RichTextLabel" parent="MyHometown/NewMemory5"]
+offset_left = 742.0
+offset_top = 184.0
+offset_right = 1332.0
+offset_bottom = 345.0
+theme = ExtResource("5_yjk2e")
+theme_type_variation = &"VoiceoverBox"
+bbcode_enabled = true
+text = "\"You hear those stories more than you used to these days. It's dark times."
+
+[node name="RichTextLabel8" type="RichTextLabel" parent="MyHometown/NewMemory5"]
+offset_left = 850.0
+offset_top = 357.0
+offset_right = 1375.0
+offset_bottom = 518.0
+theme = ExtResource("5_yjk2e")
+theme_type_variation = &"VoiceoverBox"
+bbcode_enabled = true
+text = "\"But all the same, I don't like hearing one from a friend."
+
+[node name="RichTextLabel9" type="RichTextLabel" parent="MyHometown/NewMemory5"]
+offset_left = 967.0
+offset_top = 523.0
+offset_right = 1492.0
+offset_bottom = 684.0
+theme = ExtResource("5_yjk2e")
+theme_type_variation = &"VoiceoverBox"
+bbcode_enabled = true
+text = "\"You have my ... solidarity, for what it's worth."
+
+[node name="NewMemory6" parent="MyHometown" instance=ExtResource("2_xxf8h")]
+
+[node name="bg" type="Sprite2D" parent="MyHometown/NewMemory6"]
+scale = Vector2(1.35, 1.35)
+texture = ExtResource("3_ao1sr")
+centered = false
+
+[node name="taylor2" type="Sprite2D" parent="MyHometown/NewMemory6"]
+position = Vector2(481, 868)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("31_kx3if")
+
+[node name="RichTextLabel7" type="RichTextLabel" parent="MyHometown/NewMemory6"]
+offset_left = 742.0
+offset_top = 184.0
+offset_right = 1332.0
+offset_bottom = 305.0
+theme = ExtResource("5_yjk2e")
+theme_type_variation = &"VoiceoverBox"
+bbcode_enabled = true
+text = "\"Here's to a future that's brighter than the past I guess.\""
 
 [node name="Default" parent="MyHometown" instance=ExtResource("2_xxf8h")]
 visible = false
