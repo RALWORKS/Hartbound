@@ -103,7 +103,7 @@ shader_parameter/contrast = 0.0
 shader_parameter/opacity = 1.0
 shader_parameter/fade = 0.0
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_y0t8d"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_cbh1a"]
 viewport_path = NodePath("img")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7rj0o"]
@@ -814,7 +814,7 @@ texture = ExtResource("4_bxirh")
 [node name="Profile" parent="Concepts/SummerSolstice/Branch" index="2" instance=ExtResource("15_j4j0s")]
 position = Vector2(880, 14)
 scale = Vector2(1.8, 1.8)
-texture = SubResource("ViewportTexture_y0t8d")
+texture = SubResource("ViewportTexture_cbh1a")
 with_background = false
 
 [node name="Human" parent="Concepts/SummerSolstice/Branch" index="3" node_paths=PackedStringArray("to", "avatar") instance=ExtResource("16_xvtm1")]

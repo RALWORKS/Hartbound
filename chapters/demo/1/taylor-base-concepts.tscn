@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://c4nb0ap5n2w2b"]
+[gd_scene load_steps=43 format=3 uid="uid://c4nb0ap5n2w2b"]
 
 [ext_resource type="Script" path="res://cutscene/CutsceneConceptsContainer.gd" id="1_iedjd"]
 [ext_resource type="PackedScene" uid="uid://84etqm7v3b47" path="res://concept-map/concepts/age_of_dusk.tscn" id="1_rendb"]
@@ -38,6 +38,12 @@
 [ext_resource type="PackedScene" uid="uid://bmbe0cqkifv4i" path="res://concept-map/concepts/human_names.tscn" id="34_h1peb"]
 [ext_resource type="PackedScene" uid="uid://dyr6qiqfsytk3" path="res://cutscene/rename_character_on_start.tscn" id="34_hn7xy"]
 [ext_resource type="PackedScene" uid="uid://b11g7mb25w5xp" path="res://cutscene/smart_label.tscn" id="35_4myvh"]
+[ext_resource type="PackedScene" uid="uid://gwqqok3xieho" path="res://concept-map/concepts/my_hometown.tscn" id="39_rnabr"]
+[ext_resource type="PackedScene" uid="uid://b1lrqpjjqlqjg" path="res://cutscene/cutscene_controlled_section.tscn" id="40_7birv"]
+[ext_resource type="PackedScene" uid="uid://cemborgcdx75k" path="res://character/profile.tscn" id="41_8awtg"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_c3tg3"]
+viewport_path = NodePath("img")
 
 [node name="Concepts" type="Node"]
 script = ExtResource("1_iedjd")
@@ -1720,7 +1726,6 @@ text = "\"I'm not really sure what you're trying to ask.\""
 [node name="HumanNames" parent="." instance=ExtResource("34_h1peb")]
 
 [node name="CutsceneNode" parent="HumanNames" instance=ExtResource("2_xxf8h")]
-visible = false
 
 [node name="bg" type="Sprite2D" parent="HumanNames/CutsceneNode"]
 scale = Vector2(1.35, 1.35)
@@ -1766,3 +1771,115 @@ offset_top = 410.0
 offset_right = 1624.0
 offset_bottom = 530.0
 text = "\"{character,name,human_short}? From {character,name,elf_short}?"
+
+[node name="MyHometown" parent="." instance=ExtResource("39_rnabr")]
+
+[node name="AfterMemory" parent="MyHometown" node_paths=PackedStringArray("else_go") instance=ExtResource("40_7birv")]
+section_id = "telling-taylor-about-hometown-for-the-second-time"
+prerequisite_id = "telling-taylor-about-hometown-for-the-first-time"
+else_go = NodePath("../NewMemory")
+allow_repeats = true
+
+[node name="bg" type="Sprite2D" parent="MyHometown/AfterMemory"]
+scale = Vector2(1.35, 1.35)
+texture = ExtResource("3_ao1sr")
+centered = false
+
+[node name="taylor2" type="Sprite2D" parent="MyHometown/AfterMemory"]
+position = Vector2(481, 868)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("31_kx3if")
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="MyHometown/AfterMemory"]
+offset_left = 684.0
+offset_top = 145.0
+offset_right = 1248.0
+offset_bottom = 234.0
+theme = ExtResource("5_yjk2e")
+theme_type_variation = &"VoiceoverBox"
+text = "\"I bet your town was beautiful."
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="MyHometown/AfterMemory"]
+offset_left = 806.0
+offset_top = 254.0
+offset_right = 1370.0
+offset_bottom = 383.0
+theme = ExtResource("5_yjk2e")
+theme_type_variation = &"VoiceoverBox"
+bbcode_enabled = true
+text = "\"I hope you can meet others who remember it someday.\""
+
+[node name="NewMemory" parent="MyHometown" node_paths=PackedStringArray("else_go") instance=ExtResource("40_7birv")]
+visible = false
+section_id = "telling-taylor-about-hometown-for-the-first-time"
+prerequisite_id = "taylor-said-she-wanted-to-share-elf-memories"
+else_go = NodePath("../Default")
+allow_repeats = true
+
+[node name="bg" type="Sprite2D" parent="MyHometown/NewMemory"]
+scale = Vector2(1.35, 1.35)
+texture = ExtResource("3_ao1sr")
+centered = false
+
+[node name="taylor2" type="Sprite2D" parent="MyHometown/NewMemory"]
+position = Vector2(481, 868)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("31_kx3if")
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="MyHometown/NewMemory"]
+offset_left = 386.0
+offset_top = 789.0
+offset_right = 950.0
+offset_bottom = 878.0
+theme = ExtResource("5_yjk2e")
+theme_type_variation = &"VoiceoverBox"
+text = "\"I was born in a village in the woods. "
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="MyHometown/NewMemory"]
+offset_left = 387.0
+offset_top = 896.0
+offset_right = 951.0
+offset_bottom = 1025.0
+theme = ExtResource("5_yjk2e")
+theme_type_variation = &"VoiceoverBox"
+bbcode_enabled = true
+text = "\"Its name was [i]Fin Soen Li Yen[/i]: Grove of the Seven Ferns."
+
+[node name="Profile" parent="MyHometown/NewMemory" instance=ExtResource("41_8awtg")]
+position = Vector2(912, 105)
+scale = Vector2(2, 2)
+texture = SubResource("ViewportTexture_c3tg3")
+with_background = false
+
+[node name="Default" parent="MyHometown" instance=ExtResource("2_xxf8h")]
+visible = false
+
+[node name="bg" type="Sprite2D" parent="MyHometown/Default"]
+scale = Vector2(1.35, 1.35)
+texture = ExtResource("3_ao1sr")
+centered = false
+
+[node name="taylor2" type="Sprite2D" parent="MyHometown/Default"]
+position = Vector2(481, 868)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("31_kx3if")
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="MyHometown/Default"]
+offset_left = 648.0
+offset_top = 163.0
+offset_right = 1154.0
+offset_bottom = 253.0
+theme = ExtResource("5_yjk2e")
+theme_type_variation = &"VoiceoverBox"
+bbcode_enabled = true
+text = "\"A town called [i]Fin Soen Li Yen[/i]?"
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="MyHometown/Default"]
+offset_left = 828.0
+offset_top = 278.0
+offset_right = 1240.0
+offset_bottom = 368.0
+theme = ExtResource("5_yjk2e")
+theme_type_variation = &"VoiceoverBox"
+bbcode_enabled = true
+text = "\"I'm not familiar, sorry.\""

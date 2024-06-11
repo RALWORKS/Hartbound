@@ -63,8 +63,13 @@ func talk_about(concept):
 	page.leave()
 	var pages = nodes[0].get_children().filter(_filter_not_tag)
 	pages[0].start()
-	if not pages[-1].end and main_concepts_page:
-		pages[-1].next = main_concepts_page
+	
+	for page in pages:
+		if page.next == null and not page.end and main_concepts_page:
+			page.next = main_concepts_page
+	
+	#if not pages[-1].end and main_concepts_page:
+	#	pages[-1].next = main_concepts_page
 	
 	
 

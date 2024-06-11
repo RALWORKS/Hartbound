@@ -10,3 +10,9 @@ description = "You were born in a small, rural village, aligned with Moon Temple
 
 [node name="ConceptTag" parent="." index="0" instance=ExtResource("2_ivmd1")]
 phrase = "my hometown home town village"
+
+[node name="ConceptTag2" parent="." index="1" instance=ExtResource("2_ivmd1")]
+phrase = "fin soen li yen"
+
+[node name="ConceptTag3" parent="." index="2" instance=ExtResource("2_ivmd1")]
+phrase = "grove of the seven ferns"
