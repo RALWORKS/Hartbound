@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://dglus7hp2oh6x"]
+[gd_scene load_steps=11 format=3 uid="uid://dglus7hp2oh6x"]
 
 [ext_resource type="PackedScene" uid="uid://bp8tsdjdbwj8i" path="res://cutscene/cutscene.tscn" id="1_25pdv"]
 [ext_resource type="PackedScene" uid="uid://55vflx8ylix1" path="res://cutscene/cutscene_node.tscn" id="2_7fri2"]
+[ext_resource type="PackedScene" uid="uid://b1lrqpjjqlqjg" path="res://cutscene/cutscene_controlled_section.tscn" id="2_o3h18"]
 [ext_resource type="Texture2D" uid="uid://bgosew3t2w5s6" path="res://assets/scenes/demo/1/industrial/e.png" id="3_lo7rq"]
 [ext_resource type="Texture2D" uid="uid://dx1wrwvh6nviu" path="res://assets/npcs/taylor/taylor_neutral.png" id="4_eg6o7"]
 [ext_resource type="Texture2D" uid="uid://bfmygrdvdfbag" path="res://assets/items/demo-1/alternator-large.png" id="6_f1yqh"]
@@ -11,9 +12,19 @@
 [ext_resource type="PackedScene" uid="uid://cp5lbi0bmf5vp" path="res://tools/screen-guide-frame.tscn" id="11_g20mn"]
 
 [node name="Cutscene" node_paths=PackedStringArray("starting_page") instance=ExtResource("1_25pdv")]
-starting_page = NodePath("1")
+starting_page = NodePath("IHateTaylor")
 
-[node name="1" parent="." index="0" node_paths=PackedStringArray("use_on_start_fn_from") instance=ExtResource("2_7fri2")]
+[node name="IHateTaylor" parent="." index="0" node_paths=PackedStringArray("else_go") instance=ExtResource("2_o3h18")]
+section_id = "i-hate-taylor-taking-the-alternator-from-the-yellow-car"
+prerequisite_id = "taylor-dont-make-me-report-you-for-treason"
+else_go = NodePath("../1")
+direct_to_next = true
+
+[node name="TriggerC1EndIfNeeded" parent="IHateTaylor" index="0" node_paths=PackedStringArray("cutscene") instance=ExtResource("8_4m1vh")]
+cutscene = NodePath("../..")
+
+[node name="1" parent="." index="1" node_paths=PackedStringArray("use_on_start_fn_from") instance=ExtResource("2_7fri2")]
+visible = false
 is_option_node = true
 use_on_start_fn_from = NodePath("TriggerC1EndIfNeeded")
 
@@ -81,7 +92,8 @@ to = NodePath("../../Elaborate")
 [node name="TriggerC1EndIfNeeded" parent="1" index="9" node_paths=PackedStringArray("cutscene") instance=ExtResource("8_4m1vh")]
 cutscene = NodePath("../..")
 
-[node name="NVM" parent="." index="1" instance=ExtResource("2_7fri2")]
+[node name="NVM" parent="." index="2" instance=ExtResource("2_7fri2")]
+visible = false
 
 [node name="bg" type="Sprite2D" parent="NVM" index="0"]
 position = Vector2(864, 2476)
@@ -101,7 +113,8 @@ offset_right = 891.0
 offset_bottom = 317.0
 text = "\"Never mind. Just running my mouth as usual. Shall we carry on?\""
 
-[node name="Elaborate" parent="." index="2" instance=ExtResource("2_7fri2")]
+[node name="Elaborate" parent="." index="3" instance=ExtResource("2_7fri2")]
+visible = false
 
 [node name="bg" type="Sprite2D" parent="Elaborate" index="0"]
 position = Vector2(864, 2476)
@@ -134,4 +147,4 @@ offset_right = 1293.0
 offset_bottom = 661.0
 text = "\"Anyhow, if we've got what we need, there's no reason for me to delay you here. Shall we carry on?\""
 
-[node name="Frame" parent="." index="3" instance=ExtResource("11_g20mn")]
+[node name="Frame" parent="." index="4" instance=ExtResource("11_g20mn")]

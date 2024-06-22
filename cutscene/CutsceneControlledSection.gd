@@ -6,6 +6,7 @@ extends "res://cutscene/CutsceneNode.gd"
 @export_multiline var disqualifier_id = ""
 @export var else_go: CutsceneNode
 @export var allow_repeats = false
+@export var direct_to_next = false
 
 
 func check_should_play():
@@ -31,5 +32,9 @@ func start():
 		next = old_next
 		return
 	$"/root/Game".mark_cutscene_section_played(section_id)
+	if direct_to_next:
+		super.start()
+		super.flip()
+		return
 	super.start()
 	
