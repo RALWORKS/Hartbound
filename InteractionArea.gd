@@ -3,6 +3,8 @@ extends Area2D
 @export var title: String
 @export var reference_id: String
 @export_multiline var description: String
+@export var cutscene: Resource
+@export var cutscene_character: Node
 @export var action_source: Node
 @export var child_depth = 0
 @export var options_container_node: Node = null
@@ -51,6 +53,9 @@ func action():
 	var g = _get_game()
 	#g.move()
 	
+	if cutscene:
+		$"/root/Game/Chapter".start_cutscene(cutscene, cutscene_character)
+		return
 	if get_on_open_from != null:
 		get_on_open_from.on_open()
 	if action_source:

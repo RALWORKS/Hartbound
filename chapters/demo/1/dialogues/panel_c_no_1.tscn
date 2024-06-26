@@ -1,0 +1,173 @@
+[gd_scene load_steps=16 format=3 uid="uid://b5ibfeuvnnobf"]
+
+[ext_resource type="PackedScene" uid="uid://bp8tsdjdbwj8i" path="res://cutscene/cutscene.tscn" id="1_skmmg"]
+[ext_resource type="PackedScene" uid="uid://55vflx8ylix1" path="res://cutscene/cutscene_node.tscn" id="2_bsufs"]
+[ext_resource type="Texture2D" uid="uid://dobfgkrdvoy5g" path="res://assets/scenes/demo/1/industrial/b.png" id="3_8m4q5"]
+[ext_resource type="Texture2D" uid="uid://cucflpddlqdqp" path="res://assets/scenery/left-panel-situation-1.png" id="4_5ij54"]
+[ext_resource type="PackedScene" uid="uid://b11g7mb25w5xp" path="res://cutscene/smart_label.tscn" id="5_707ft"]
+[ext_resource type="PackedScene" uid="uid://cemborgcdx75k" path="res://character/profile.tscn" id="6_2v65a"]
+[ext_resource type="Shader" path="res://character/flat-color.gdshader" id="7_3c6w2"]
+[ext_resource type="PackedScene" uid="uid://cp5lbi0bmf5vp" path="res://tools/screen-guide-frame.tscn" id="8_dw25p"]
+[ext_resource type="PackedScene" uid="uid://yplasm5gtgly" path="res://cutscene/cutscene_option.tscn" id="8_h6uoh"]
+[ext_resource type="Shader" path="res://effects/leyline-shader-v2.gdshader" id="9_0v0dc"]
+[ext_resource type="PackedScene" uid="uid://ddhdd81qyis1b" path="res://cutscene/electrocuted_end.tscn" id="10_5f2ao"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_skswr"]
+shader = ExtResource("7_3c6w2")
+shader_parameter/color = Vector4(0, 0, 0, 0)
+shader_parameter/angle = -0.9
+shader_parameter/divisions = 100.0
+shader_parameter/stripe_bias = 2.0
+shader_parameter/contrast = 0.03
+shader_parameter/opacity = 0.7
+shader_parameter/fade = 0.0
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_u2eji"]
+viewport_path = NodePath("img")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4rog7"]
+shader = ExtResource("9_0v0dc")
+shader_parameter/blur_radius = 100.0
+shader_parameter/n_steps = 100.0
+shader_parameter/bg_alpha = 0.3
+shader_parameter/invert = false
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_hip58"]
+viewport_path = NodePath("img")
+
+[node name="PanelC-No-1" node_paths=PackedStringArray("starting_page") instance=ExtResource("1_skmmg")]
+starting_page = NodePath("1")
+
+[node name="1" parent="." index="0" instance=ExtResource("2_bsufs")]
+is_option_node = true
+
+[node name="bg" type="Sprite2D" parent="1" index="0"]
+position = Vector2(797, 895)
+scale = Vector2(3, 3)
+texture = ExtResource("3_8m4q5")
+
+[node name="Panel" type="Sprite2D" parent="1/bg" index="0"]
+position = Vector2(255, -133)
+scale = Vector2(0.666667, 0.666667)
+texture = ExtResource("4_5ij54")
+
+[node name="Shadow" type="Node2D" parent="1/bg" index="1"]
+position = Vector2(-165.667, -270.667)
+scale = Vector2(0.233333, 0.233333)
+
+[node name="Polygon2D" type="Polygon2D" parent="1/bg/Shadow" index="0"]
+color = Color(0, 0, 0, 0.701961)
+polygon = PackedVector2Array(1550, 692, 1580, 1137.14, 1324.29, 1731.43, 347.143, 1701.43, 1110, 974.286, 1144, 692)
+
+[node name="Profile" parent="1/bg/Shadow" index="1" instance=ExtResource("6_2v65a")]
+material = SubResource("ShaderMaterial_skswr")
+position = Vector2(1042, 92)
+texture = SubResource("ViewportTexture_u2eji")
+flip_h = true
+with_background = false
+
+[node name="ColorRect" type="ColorRect" parent="1" index="1"]
+offset_right = 948.0
+offset_bottom = 1586.0
+color = Color(0, 0, 0, 1)
+
+[node name="Title" parent="1" index="2" instance=ExtResource("5_707ft")]
+offset_left = 141.0
+offset_top = 131.0
+offset_right = 703.0
+offset_bottom = 251.0
+theme_override_font_sizes/normal_font_size = 50
+text = "Access Panel:"
+
+[node name="Body" parent="1" index="3" instance=ExtResource("5_707ft")]
+offset_left = 141.0
+offset_top = 223.0
+offset_right = 575.0
+offset_bottom = 343.0
+text = "There's an access panel built into the wall here."
+
+[node name="Open" parent="1" index="4" node_paths=PackedStringArray("to") instance=ExtResource("8_h6uoh")]
+offset_left = 158.0
+offset_top = 351.0
+offset_right = 494.0
+offset_bottom = 418.0
+text = "> [ENGINEER] Unscrew the panel"
+to = NodePath("../../2")
+
+[node name="Leave" parent="1" index="5" instance=ExtResource("8_h6uoh")]
+offset_left = 158.0
+offset_top = 438.0
+offset_right = 494.0
+offset_bottom = 505.0
+text = "> Leave"
+
+[node name="2" parent="." index="1" instance=ExtResource("2_bsufs")]
+is_option_node = true
+
+[node name="bg" type="Sprite2D" parent="2" index="0"]
+position = Vector2(797, 895)
+scale = Vector2(3, 3)
+texture = ExtResource("3_8m4q5")
+
+[node name="Panel" type="Sprite2D" parent="2/bg" index="0"]
+position = Vector2(255, -133)
+scale = Vector2(0.666667, 0.666667)
+texture = ExtResource("4_5ij54")
+
+[node name="Polygon2D" type="Polygon2D" parent="2/bg" index="1"]
+material = SubResource("ShaderMaterial_4rog7")
+position = Vector2(-265.667, -298.333)
+scale = Vector2(0.333333, 0.333333)
+polygon = PackedVector2Array(1458, -160, 1476, 861, 1137, 1135, 1466, 1124, 1650, 932, 1661, -158)
+
+[node name="Shadow" type="Node2D" parent="2/bg" index="2"]
+position = Vector2(-165.667, -270.667)
+scale = Vector2(0.233333, 0.233333)
+
+[node name="Polygon2D" type="Polygon2D" parent="2/bg/Shadow" index="0"]
+color = Color(0, 0, 0, 0.701961)
+polygon = PackedVector2Array(1550, 692, 1580, 1137.14, 1324.29, 1731.43, 347.143, 1701.43, 1110, 974.286, 1144, 692)
+
+[node name="Profile" parent="2/bg/Shadow" index="1" instance=ExtResource("6_2v65a")]
+material = SubResource("ShaderMaterial_skswr")
+position = Vector2(1042, 92)
+texture = SubResource("ViewportTexture_hip58")
+flip_h = true
+with_background = false
+
+[node name="ColorRect" type="ColorRect" parent="2" index="1"]
+offset_right = 948.0
+offset_bottom = 1586.0
+color = Color(0, 0, 0, 1)
+
+[node name="Title" parent="2" index="2" instance=ExtResource("5_707ft")]
+offset_left = 141.0
+offset_top = 131.0
+offset_right = 703.0
+offset_bottom = 251.0
+theme_override_font_sizes/normal_font_size = 50
+text = "Access Panel:"
+
+[node name="Body" parent="2" index="3" instance=ExtResource("5_707ft")]
+offset_left = 141.0
+offset_top = 223.0
+offset_right = 575.0
+offset_bottom = 519.0
+text = "When you touch it, you find that the panel is ... vibrating slightly. That's because it's on top of a Leyline. Opening this will electrocute you--possibly to death."
+
+[node name="NeverMind" parent="2" index="4" instance=ExtResource("8_h6uoh")]
+offset_left = 158.0
+offset_top = 538.0
+offset_right = 494.0
+offset_bottom = 605.0
+text = "> Never mind"
+
+[node name="OpenIt" parent="2" index="5" instance=ExtResource("8_h6uoh")]
+offset_left = 158.0
+offset_top = 625.0
+offset_right = 494.0
+offset_bottom = 692.0
+text = "> Open it anyway (kill yourself)"
+to_cutscene = ExtResource("10_5f2ao")
+
+[node name="Frame" parent="." index="2" instance=ExtResource("8_dw25p")]

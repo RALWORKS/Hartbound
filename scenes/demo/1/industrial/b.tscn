@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://qhhv4s8njcrp"]
+[gd_scene load_steps=19 format=3 uid="uid://qhhv4s8njcrp"]
 
 [ext_resource type="PackedScene" uid="uid://byrlpmbpj6yr5" path="res://scene.tscn" id="1_4su6i"]
 [ext_resource type="Texture2D" uid="uid://dobfgkrdvoy5g" path="res://assets/scenes/demo/1/industrial/b.png" id="2_beatb"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://b7bo0oyjlmq03" path="res://assets/scenes/demo/1/industrial/b-treetop.png" id="4_jobxl"]
 [ext_resource type="Texture2D" uid="uid://c6dbijn80ep15" path="res://assets/scenes/demo/1/industrial/b-vent-tree.png" id="5_ij0re"]
 [ext_resource type="PackedScene" uid="uid://dxfuidhlgwthh" path="res://travel/door.tscn" id="6_dl5dw"]
+[ext_resource type="PackedScene" uid="uid://b5ibfeuvnnobf" path="res://chapters/demo/1/dialogues/panel_c_no_1.tscn" id="9_uuj28"]
 [ext_resource type="Texture2D" uid="uid://cucflpddlqdqp" path="res://assets/scenery/left-panel-situation-1.png" id="11_0g0bb"]
 [ext_resource type="PackedScene" uid="uid://cl4heje674d3q" path="res://item/interaction_area.tscn" id="12_6urft"]
 [ext_resource type="PackedScene" uid="uid://bkyp4rqktyinq" path="res://item/interact_range_extender.tscn" id="13_6vyp4"]
@@ -148,6 +149,7 @@ position = Vector2(1043, 501)
 title = "Access Panel"
 reference_id = "panel-c-no-1"
 description = "There's an access panel built into the wall here."
+cutscene = ExtResource("9_uuj28")
 child_depth = 2
 options_container_node = NodePath("../Actions")
 

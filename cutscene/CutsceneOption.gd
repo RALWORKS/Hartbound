@@ -1,7 +1,7 @@
 extends Button
 
-
 @export var to: CutsceneNode
+@export var to_cutscene: Resource
 @export var get_action_from: Node
 @export var sub_node_parent: Node
 
@@ -34,6 +34,8 @@ func click():
 	if get_action_from != null:
 		get_action_from.action()
 	$"..".leave()
+	if to_cutscene != null:
+		$"/root/Game/Chapter".cutscene.next_cutscene = to_cutscene
 	if to != null:
 		to.start()
 	else:

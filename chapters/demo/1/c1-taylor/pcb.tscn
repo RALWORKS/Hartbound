@@ -14,10 +14,10 @@
 [ext_resource type="PackedScene" uid="uid://b031fpm2fu6f1" path="res://cutscene/play_animation_on_start.tscn" id="10_ht627"]
 [ext_resource type="PackedScene" uid="uid://h0r76jyn8lnu" path="res://chapters/demo/1/trigger_c_1_end_if_needed.tscn" id="10_w61i4"]
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_dyskd"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_f5hj7"]
 viewport_path = NodePath("img")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_1l8mk"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_a2tc1"]
 viewport_path = NodePath("img")
 
 [sub_resource type="Animation" id="Animation_jy7py"]
@@ -81,7 +81,7 @@ _data = {
 "base": SubResource("Animation_xemg0")
 }
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_t502c"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_yt0pn"]
 viewport_path = NodePath("img")
 
 [node name="Cutscene2" node_paths=PackedStringArray("starting_page") instance=ExtResource("1_v3ngu")]
@@ -153,7 +153,7 @@ to = NodePath("../../2")
 [node name="Profile" parent="1" index="8" instance=ExtResource("6_ingej")]
 position = Vector2(1281, 799)
 scale = Vector2(0.5, 0.5)
-texture = SubResource("ViewportTexture_dyskd")
+texture = SubResource("ViewportTexture_f5hj7")
 with_background = false
 
 [node name="TriggerC1EndIfNeeded" parent="1" index="9" node_paths=PackedStringArray("cutscene") instance=ExtResource("10_w61i4")]
@@ -195,7 +195,7 @@ position = Vector2(889, 5)
 [node name="Profile" parent="2/You" index="2" instance=ExtResource("6_ingej")]
 position = Vector2(1281, 799)
 scale = Vector2(0.5, 0.5)
-texture = SubResource("ViewportTexture_1l8mk")
+texture = SubResource("ViewportTexture_a2tc1")
 with_background = false
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="2" index="4"]
@@ -243,7 +243,7 @@ position = Vector2(889, 5)
 [node name="Profile" parent="3/You" index="2" instance=ExtResource("6_ingej")]
 position = Vector2(1281, 799)
 scale = Vector2(0.5, 0.5)
-texture = SubResource("ViewportTexture_t502c")
+texture = SubResource("ViewportTexture_yt0pn")
 with_background = false
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="3" index="4"]
