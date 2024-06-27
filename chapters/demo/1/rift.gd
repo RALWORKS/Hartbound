@@ -15,3 +15,4 @@ func _refresh():
 	var got_board = g.get_state(["micro_progress", "got_board"])
 	if got_board:
 		$Actions/PutBoard.enabled = true
+

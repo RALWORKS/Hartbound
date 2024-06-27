@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://ds44yda8wedm6"]
+[gd_scene load_steps=6 format=3 uid="uid://ds44yda8wedm6"]
 
 [ext_resource type="Texture2D" uid="uid://bu6tdd8acmvax" path="res://assets/items/demo-1/board.png" id="1_uw52h"]
 [ext_resource type="Script" path="res://chapters/demo/1/Board.gd" id="2_30jfv"]
 [ext_resource type="PackedScene" uid="uid://cl4heje674d3q" path="res://item/interaction_area.tscn" id="3_6whgd"]
+[ext_resource type="PackedScene" uid="uid://dt17ml37kilvj" path="res://chapters/demo/1/dialogues/board.tscn" id="4_35j0f"]
 [ext_resource type="PackedScene" uid="uid://cpbg7yuq873y5" path="res://item/interaction_action.tscn" id="4_b5tws"]
 
 [node name="Board" type="Sprite2D"]
@@ -12,12 +13,12 @@ texture = ExtResource("1_uw52h")
 offset = Vector2(0, -200)
 script = ExtResource("2_30jfv")
 
-[node name="InteractionArea" parent="." node_paths=PackedStringArray("options_container_node") instance=ExtResource("3_6whgd")]
+[node name="InteractionArea" parent="." instance=ExtResource("3_6whgd")]
 title = "Wooden Board"
 reference_id = "board"
 description = "A wooden board leans against the metal machine."
+cutscene = ExtResource("4_35j0f")
 child_depth = 2
-options_container_node = NodePath("Action")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="InteractionArea"]
 polygon = PackedVector2Array(-150, -40.0001, 59.9999, -395, 135, -340, -65.0001, -7.50006)
@@ -29,3 +30,5 @@ title = "Take the board"
 is_close_btn = true
 trigger_name = "TakeBoard"
 item = NodePath("../../..")
+
+[connection signal="tree_entered" from="." to="." method="_on_tree_entered"]

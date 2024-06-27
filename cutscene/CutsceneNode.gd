@@ -51,12 +51,14 @@ func start():
 		for c in get_children():
 			if "on_start" in c:
 				c.on_start()
-func flip():
-	if is_option_node:
+func flip(kwargs: Dictionary = {}):
+	var to = kwargs.get("to", next)
+	var force = kwargs.get("force", false)
+	if is_option_node and not force:
 		return
 	self.leave()
-	if next != null:
-		next.start()
+	if to != null:
+		to.start()
 	else:
 		$"/root/Game/Chapter".end_cutscene()
 

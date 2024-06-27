@@ -15,3 +15,5 @@ sprite = NodePath("Rift")
 [node name="Rift" parent="." index="0" instance=ExtResource("3_b8te8")]
 
 [node name="BoardItem" parent="." index="1" instance=ExtResource("4_ggq3x")]
+
+[connection signal="tree_entered" from="." to="." method="_on_tree_entered"]

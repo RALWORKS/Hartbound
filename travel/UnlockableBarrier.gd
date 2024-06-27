@@ -48,3 +48,7 @@ func unlock():
 	set_unlocked_state(true)
 	refresh_unlocked()
 	_get_game().remove_inventory_item(used_item)
+
+
+func _on_tree_entered():
+	refresh_unlocked()

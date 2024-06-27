@@ -26,10 +26,7 @@ func check_should_play():
 
 func start():
 	if not check_should_play():
-		var old_next = next
-		next = else_go
-		super.flip()
-		next = old_next
+		super.flip({"to": else_go, "force": true})
 		return
 	$"/root/Game".mark_cutscene_section_played(section_id)
 	if direct_to_next:

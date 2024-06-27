@@ -21,3 +21,7 @@ func take():
 	g.set_state(["micro_progress", "got_board"], true)
 	g.set_state_push_to_key(["inventory"], "board")
 	call_deferred("free")
+
+
+func _on_tree_entered():
+	_refresh()

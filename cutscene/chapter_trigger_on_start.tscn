@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cgt4nlo7shdrb"]
+
+[ext_resource type="Script" path="res://cutscene/ChapterTriggerOnStart.gd" id="1_7d6pe"]
+
+[node name="ChapterTriggerOnStart" type="Node"]
+script = ExtResource("1_7d6pe")

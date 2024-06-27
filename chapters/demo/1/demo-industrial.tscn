@@ -112,6 +112,14 @@ current_plus_data = true
 [node name="TaylorRoofEntrance" parent="Events" index="10" instance=ExtResource("5_440p5")]
 cutscene = ExtResource("17_egr4i")
 
+[node name="PutBoardOverChasm" parent="Events" index="11" instance=ExtResource("5_440p5")]
+effect = "PutBoardOverChasm"
+
+[node name="Save" parent="Events/PutBoardOverChasm" index="0" instance=ExtResource("4_gn21l")]
+state_path_slash_delineated = "micro_progress/c_bridge_unlocked"
+data = "true"
+parse_data_as_bool = true
+
 [node name="Music" parent="." index="1" instance=ExtResource("6_eeti4")]
 stream = ExtResource("7_q6myq")
 
@@ -163,22 +171,22 @@ event_name = "TaylorAlternator"
 script = ExtResource("19_6dtsk")
 event_name = "TaylorPCB"
 
-[node name="PutBoardOverChasm" type="Node" parent="Triggers" index="7"]
-script = ExtResource("25_b7c5u")
-event_name = "PutBoardOverChasm"
-
-[node name="UnlockGate" type="Node" parent="Triggers" index="8"]
+[node name="UnlockGate" type="Node" parent="Triggers" index="7"]
 script = ExtResource("25_b7c5u")
 event_name = "UnlockGate"
 
-[node name="TakeBoard" type="Node" parent="Triggers" index="9"]
+[node name="TakeBoard" type="Node" parent="Triggers" index="8"]
 script = ExtResource("26_xevkv")
 event_name = "TakeBoard"
+
+[node name="TaylorRoofEntrance" type="Node" parent="Triggers" index="9"]
+script = ExtResource("19_6dtsk")
+event_name = "TaylorRoofEntrance"
 
 [node name="TakeKey" type="Node" parent="Triggers" index="10"]
 script = ExtResource("19_6dtsk")
 event_name = "TakeKey"
 
-[node name="TaylorRoofEntrance" type="Node" parent="Triggers" index="11"]
+[node name="PutBoardOverChasm" type="Node" parent="Triggers" index="11"]
 script = ExtResource("19_6dtsk")
-event_name = "TaylorRoofEntrance"
+event_name = "PutBoardOverChasm"
