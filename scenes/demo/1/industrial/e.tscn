@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://dpgus4q55ghrs"]
+[gd_scene load_steps=17 format=3 uid="uid://dpgus4q55ghrs"]
 
 [ext_resource type="PackedScene" uid="uid://byrlpmbpj6yr5" path="res://scene.tscn" id="1_4aibn"]
 [ext_resource type="Texture2D" uid="uid://bgosew3t2w5s6" path="res://assets/scenes/demo/1/industrial/e.png" id="2_lmy4c"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://bkyp4rqktyinq" path="res://item/interact_range_extender.tscn" id="7_pif8w"]
 [ext_resource type="Script" path="res://scenes/demo/1/industrial/RefreshCabOptions.gd" id="7_vfw5n"]
 [ext_resource type="PackedScene" uid="uid://cpbg7yuq873y5" path="res://item/interaction_action.tscn" id="8_cpq4g"]
+[ext_resource type="PackedScene" uid="uid://pf0aq1m4qlsc" path="res://chapters/demo/1/dialogues/car_cab.tscn" id="8_xtv0r"]
 [ext_resource type="PackedScene" uid="uid://dh1scrjroovcn" path="res://item/interaction_modal_maker.tscn" id="9_fletx"]
 [ext_resource type="Texture2D" uid="uid://bfmygrdvdfbag" path="res://assets/items/demo-1/alternator-large.png" id="10_ytopt"]
 [ext_resource type="PackedScene" uid="uid://btcaowwqv7a55" path="res://chapters/demo/1/tmp_take.tscn" id="11_u7826"]
@@ -73,14 +74,13 @@ dest_edge = "West"
 [node name="NavigationAll" type="NavigationRegion2D" parent="YSort" index="6"]
 navigation_polygon = SubResource("NavigationPolygon_30nyk")
 
-[node name="MO-Car-Key-B" parent="YSort" index="7" node_paths=PackedStringArray("options_container_node", "get_on_open_from") instance=ExtResource("6_dgxub")]
+[node name="MO-Car-Key-B" parent="YSort" index="7" instance=ExtResource("6_dgxub")]
 position = Vector2(744, 216)
 title = "Ruined Chariot"
 reference_id = "car-key-b"
 description = "A chariot, painted in a festive yellow colour. The windows are long since gone, and you're able to see and even reach inside."
+cutscene = ExtResource("8_xtv0r")
 child_depth = 2
-options_container_node = NodePath("Actions")
-get_on_open_from = NodePath("RefreshCabOptions")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/MO-Car-Key-B" index="0"]
 position = Vector2(-752, -216)
@@ -159,3 +159,5 @@ texture = ExtResource("6_isrdr")
 
 [node name="Vein" type="Polygon2D" parent="." index="3"]
 polygon = PackedVector2Array(-175, 472, 669, -24, 381, -38, -225, 226)
+
+[connection signal="tree_entered" from="YSort/MO-Car-Key-B" to="YSort/MO-Car-Key-B" method="_on_tree_entered"]

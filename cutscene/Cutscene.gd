@@ -40,7 +40,6 @@ func _process(_delta):
 	pass
 
 func start():
-	print(characters_present)
 	if starting_page:
 		starting_page.start()
 

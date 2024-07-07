@@ -1,0 +1,130 @@
+[gd_scene load_steps=9 format=3 uid="uid://pf0aq1m4qlsc"]
+
+[ext_resource type="PackedScene" uid="uid://bp8tsdjdbwj8i" path="res://cutscene/cutscene.tscn" id="1_6co5b"]
+[ext_resource type="PackedScene" uid="uid://c5favq1j8c2tt" path="res://cutscene/state_equals_conditional_redirect.tscn" id="2_lhirv"]
+[ext_resource type="PackedScene" uid="uid://55vflx8ylix1" path="res://cutscene/cutscene_node.tscn" id="3_6h3xx"]
+[ext_resource type="Texture2D" uid="uid://bgosew3t2w5s6" path="res://assets/scenes/demo/1/industrial/e.png" id="4_iwktc"]
+[ext_resource type="PackedScene" uid="uid://b11g7mb25w5xp" path="res://cutscene/smart_label.tscn" id="6_yqae1"]
+[ext_resource type="PackedScene" uid="uid://yplasm5gtgly" path="res://cutscene/cutscene_option.tscn" id="7_pifg8"]
+[ext_resource type="PackedScene" uid="uid://cgt4nlo7shdrb" path="res://cutscene/chapter_trigger_on_start.tscn" id="7_w4ep3"]
+[ext_resource type="PackedScene" uid="uid://cp5lbi0bmf5vp" path="res://tools/screen-guide-frame.tscn" id="8_jt4mc"]
+
+[node name="CarCab" node_paths=PackedStringArray("starting_page") instance=ExtResource("1_6co5b")]
+starting_page = NodePath("Check")
+
+[node name="Check" parent="." index="0" node_paths=PackedStringArray("next_if_true", "next_if_false") instance=ExtResource("2_lhirv")]
+next_if_true = NodePath("../AlreadyDone")
+next_if_false = NodePath("../OfferToTakeKeys")
+conditional_subject = "micro_progress,got_key"
+conditional_predicate = "true"
+bool_predicate = true
+
+[node name="OfferToTakeKeys" parent="." index="1" instance=ExtResource("3_6h3xx")]
+is_option_node = true
+
+[node name="bg" type="Sprite2D" parent="OfferToTakeKeys" index="0"]
+position = Vector2(1367, 1542)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("4_iwktc")
+
+[node name="ColorRect" type="ColorRect" parent="OfferToTakeKeys" index="1"]
+offset_right = 948.0
+offset_bottom = 1586.0
+color = Color(0, 0, 0, 1)
+
+[node name="Title" parent="OfferToTakeKeys" index="2" instance=ExtResource("6_yqae1")]
+offset_left = 141.0
+offset_top = 131.0
+offset_right = 703.0
+offset_bottom = 251.0
+theme_override_font_sizes/normal_font_size = 50
+text = "Ruined Chariot:"
+
+[node name="Body" parent="OfferToTakeKeys" index="3" instance=ExtResource("6_yqae1")]
+offset_left = 141.0
+offset_top = 223.0
+offset_right = 667.0
+offset_bottom = 452.0
+text = "A chariot, painted in a festive yellow colour. The windows are long since gone, and you're able to see and even reach inside."
+
+[node name="Take" parent="OfferToTakeKeys" index="4" node_paths=PackedStringArray("to") instance=ExtResource("7_pifg8")]
+offset_left = 158.0
+offset_top = 540.0
+offset_right = 494.0
+offset_bottom = 607.0
+text = "> Take the ring of keys hanging from the slot below the window"
+to = NodePath("../../TakingKeys")
+
+[node name="Leave" parent="OfferToTakeKeys" index="5" instance=ExtResource("7_pifg8")]
+offset_left = 158.0
+offset_top = 457.0
+offset_right = 667.0
+offset_bottom = 524.0
+text = "> Leave"
+
+[node name="TakingKeys" parent="." index="2" instance=ExtResource("3_6h3xx")]
+
+[node name="bg" type="Sprite2D" parent="TakingKeys" index="0"]
+position = Vector2(1367, 1542)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("4_iwktc")
+
+[node name="ColorRect" type="ColorRect" parent="TakingKeys" index="1"]
+offset_right = 948.0
+offset_bottom = 1586.0
+color = Color(0, 0, 0, 1)
+
+[node name="Title" parent="TakingKeys" index="2" instance=ExtResource("6_yqae1")]
+offset_left = 141.0
+offset_top = 131.0
+offset_right = 703.0
+offset_bottom = 251.0
+theme_override_font_sizes/normal_font_size = 50
+text = "Ruined Chariot:"
+
+[node name="Body" parent="TakingKeys" index="3" instance=ExtResource("6_yqae1")]
+offset_left = 148.0
+offset_top = 223.0
+offset_right = 674.0
+offset_bottom = 452.0
+text = "You take the keys."
+
+[node name="ChapterTriggerOnStart" parent="TakingKeys" index="4" instance=ExtResource("7_w4ep3")]
+trigger_name = "TakeKey"
+
+[node name="AlreadyDone" parent="." index="3" instance=ExtResource("3_6h3xx")]
+is_option_node = true
+
+[node name="bg" type="Sprite2D" parent="AlreadyDone" index="0"]
+position = Vector2(1367, 1542)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("4_iwktc")
+
+[node name="ColorRect" type="ColorRect" parent="AlreadyDone" index="1"]
+offset_right = 948.0
+offset_bottom = 1586.0
+color = Color(0, 0, 0, 1)
+
+[node name="Title" parent="AlreadyDone" index="2" instance=ExtResource("6_yqae1")]
+offset_left = 141.0
+offset_top = 131.0
+offset_right = 703.0
+offset_bottom = 251.0
+theme_override_font_sizes/normal_font_size = 50
+text = "Ruined Chariot:"
+
+[node name="Body" parent="AlreadyDone" index="3" instance=ExtResource("6_yqae1")]
+offset_left = 141.0
+offset_top = 223.0
+offset_right = 667.0
+offset_bottom = 452.0
+text = "A chariot, painted in a festive yellow colour. The windows are long since gone, and you're able to see and even reach inside."
+
+[node name="Leave" parent="AlreadyDone" index="4" instance=ExtResource("7_pifg8")]
+offset_left = 158.0
+offset_top = 457.0
+offset_right = 667.0
+offset_bottom = 524.0
+text = "> Leave"
+
+[node name="Frame" parent="." index="4" instance=ExtResource("8_jt4mc")]

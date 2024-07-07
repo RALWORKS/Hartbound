@@ -36,6 +36,7 @@ func click():
 	$"..".leave()
 	if to_cutscene != null:
 		$"/root/Game/Chapter".cutscene.next_cutscene = to_cutscene
+	print($"..".name, name, to)
 	if to != null:
 		to.start()
 	else:

@@ -464,6 +464,10 @@ func add_inventory_item(item):
 	init_inventory_if_needed()
 	set_state_push_to_key(["inventory"], item.id)
 
+func inventory_contains(item_id):
+	init_inventory_if_needed()
+	return item_id in get_state(["inventory"])
+
 func init_resolutions_if_needed():
 	var data = get_state(["resolutions"])
 	if data != null:
@@ -552,3 +556,7 @@ func is_cutscene_section_already_played(section_id):
 func mark_cutscene_section_played(section_id):
 	_init_played_cutscenes_if_needed()
 	set_state_push_to_key(["played_cutscenes"], section_id)
+
+func free_world():
+	for c in world.get_children():
+		c.call_deferred("free")

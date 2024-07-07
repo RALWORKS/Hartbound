@@ -22,7 +22,7 @@ shader_parameter/contrast = 0.03
 shader_parameter/opacity = 0.7
 shader_parameter/fade = 0.0
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_rrgev"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_lb34w"]
 viewport_path = NodePath("img")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_4rog7"]
@@ -32,7 +32,7 @@ shader_parameter/n_steps = 100.0
 shader_parameter/bg_alpha = 0.3
 shader_parameter/invert = false
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_fvfah"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_nrefx"]
 viewport_path = NodePath("img")
 
 [node name="PanelC-No-1" node_paths=PackedStringArray("starting_page") instance=ExtResource("1_skmmg")]
@@ -62,7 +62,7 @@ polygon = PackedVector2Array(1550, 692, 1580, 1137.14, 1324.29, 1731.43, 347.143
 [node name="Profile" parent="1/bg/Shadow" index="1" instance=ExtResource("6_2v65a")]
 material = SubResource("ShaderMaterial_skswr")
 position = Vector2(1042, 92)
-texture = SubResource("ViewportTexture_rrgev")
+texture = SubResource("ViewportTexture_lb34w")
 flip_h = true
 with_background = false
 
@@ -131,7 +131,7 @@ polygon = PackedVector2Array(1550, 692, 1580, 1137.14, 1324.29, 1731.43, 347.143
 [node name="Profile" parent="2/bg/Shadow" index="1" instance=ExtResource("6_2v65a")]
 material = SubResource("ShaderMaterial_skswr")
 position = Vector2(1042, 92)
-texture = SubResource("ViewportTexture_fvfah")
+texture = SubResource("ViewportTexture_nrefx")
 flip_h = true
 with_background = false
 

@@ -82,6 +82,7 @@ func start_cutscene(
 	cutscene_sequence:Array=[],
 	input_data=null
 ):
+	
 	cutscene = cutscene_res.instantiate()
 	cutscene.characters_present = game.characters_present.duplicate()
 	
@@ -115,6 +116,7 @@ func end_cutscene():
 	var npc = cutscene.npc
 	var sequence = cutscene.cutscene_sequence
 	cutscene.call_deferred("free")
+	#game.free_world()
 	game.chapter = self
 	if next_cutscene == null:
 		for child in cur_game:

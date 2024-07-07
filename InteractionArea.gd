@@ -51,6 +51,7 @@ func _close_action_window():
 
 func action():
 	var g = _get_game()
+	g.unstage_action_node(self)
 	#g.move()
 	
 	if cutscene:
@@ -144,3 +145,6 @@ func setup_label():
 
 	label.size.x = label.size.x - (6*n_narrow) + (6*n_wide)
 	
+
+func _on_tree_entered():
+	pass
