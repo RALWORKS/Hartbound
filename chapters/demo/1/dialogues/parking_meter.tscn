@@ -1,0 +1,124 @@
+[gd_scene load_steps=11 format=3 uid="uid://b0s5na6qe26yx"]
+
+[ext_resource type="PackedScene" uid="uid://bp8tsdjdbwj8i" path="res://cutscene/cutscene.tscn" id="1_lyxy8"]
+[ext_resource type="PackedScene" uid="uid://55vflx8ylix1" path="res://cutscene/cutscene_node.tscn" id="2_h0k2u"]
+[ext_resource type="Texture2D" uid="uid://b03p7gc1dm2aq" path="res://assets/scenes/demo/1/industrial/f.png" id="3_ykufx"]
+[ext_resource type="PackedScene" uid="uid://b11g7mb25w5xp" path="res://cutscene/smart_label.tscn" id="4_ghooy"]
+[ext_resource type="Texture2D" uid="uid://nuwof75ndlee" path="res://assets/items/demo-1/meter-a-large.png" id="4_qf2yi"]
+[ext_resource type="PackedScene" uid="uid://yplasm5gtgly" path="res://cutscene/cutscene_option.tscn" id="5_3xcha"]
+[ext_resource type="PackedScene" uid="uid://cp5lbi0bmf5vp" path="res://tools/screen-guide-frame.tscn" id="6_8vuf3"]
+[ext_resource type="Shader" path="res://effects/leyline-shader-v2.gdshader" id="7_4p72n"]
+[ext_resource type="PackedScene" uid="uid://ddhdd81qyis1b" path="res://cutscene/electrocuted_end.tscn" id="8_a45dc"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hce25"]
+shader = ExtResource("7_4p72n")
+shader_parameter/blur_radius = 100.0
+shader_parameter/n_steps = 100.0
+shader_parameter/bg_alpha = 0.3
+shader_parameter/invert = false
+
+[node name="ParkingMeter" node_paths=PackedStringArray("starting_page") instance=ExtResource("1_lyxy8")]
+starting_page = NodePath("Open?")
+
+[node name="Open?" parent="." index="0" instance=ExtResource("2_h0k2u")]
+is_option_node = true
+
+[node name="bg" type="Sprite2D" parent="Open?" index="0"]
+position = Vector2(2145, 883.25)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("3_ykufx")
+
+[node name="meter" type="Sprite2D" parent="Open?" index="1"]
+position = Vector2(1438, 482)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("4_qf2yi")
+
+[node name="ColorRect" type="ColorRect" parent="Open?" index="2"]
+offset_right = 948.0
+offset_bottom = 1586.0
+color = Color(0, 0, 0, 1)
+
+[node name="Title" parent="Open?" index="3" instance=ExtResource("4_ghooy")]
+offset_left = 141.0
+offset_top = 131.0
+offset_right = 703.0
+offset_bottom = 251.0
+theme_override_font_sizes/normal_font_size = 50
+text = "Tithe Collector:"
+
+[node name="Body" parent="Open?" index="4" instance=ExtResource("4_ghooy")]
+offset_left = 141.0
+offset_top = 223.0
+offset_right = 667.0
+offset_bottom = 348.0
+text = "An ancient tithe collecting machine mounted on a post.
+"
+
+[node name="Take" parent="Open?" index="5" node_paths=PackedStringArray("to") instance=ExtResource("5_3xcha")]
+offset_left = 158.0
+offset_top = 431.0
+offset_right = 667.0
+offset_bottom = 498.0
+text = "> [ENGINEER] Open the casing"
+to = NodePath("../../Really?")
+
+[node name="Leave" parent="Open?" index="6" instance=ExtResource("5_3xcha")]
+offset_left = 158.0
+offset_top = 348.0
+offset_right = 667.0
+offset_bottom = 415.0
+text = "> Leave"
+
+[node name="Really?" parent="." index="1" instance=ExtResource("2_h0k2u")]
+is_option_node = true
+
+[node name="bg" type="Sprite2D" parent="Really?" index="0"]
+position = Vector2(2145, 883.25)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("3_ykufx")
+
+[node name="leyline" type="Polygon2D" parent="Really?" index="1"]
+material = SubResource("ShaderMaterial_hce25")
+polygon = PackedVector2Array(854, 756, 1932, 28, 1947, 553, 1779, 658, 2001, 790, 2042, 977, 1653, 732, 983, 1166, 807, 1142)
+
+[node name="meter" type="Sprite2D" parent="Really?" index="2"]
+position = Vector2(1438, 482)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("4_qf2yi")
+
+[node name="ColorRect" type="ColorRect" parent="Really?" index="3"]
+offset_right = 948.0
+offset_bottom = 1586.0
+color = Color(0, 0, 0, 1)
+
+[node name="Title" parent="Really?" index="4" instance=ExtResource("4_ghooy")]
+offset_left = 141.0
+offset_top = 131.0
+offset_right = 703.0
+offset_bottom = 251.0
+theme_override_font_sizes/normal_font_size = 50
+text = "Tithe Collector:"
+
+[node name="Body" parent="Really?" index="5" instance=ExtResource("4_ghooy")]
+offset_left = 141.0
+offset_top = 223.0
+offset_right = 667.0
+offset_bottom = 427.0
+text = "The screwdriver sparks a little as it contacts the screw. Good thing it's insulated--this is definitely still posessed by the Leyline."
+
+[node name="Take" parent="Really?" index="6" instance=ExtResource("5_3xcha")]
+offset_left = 158.0
+offset_top = 500.0
+offset_right = 667.0
+offset_bottom = 567.0
+text = "> Open it anyway"
+to_cutscene = ExtResource("8_a45dc")
+
+[node name="Leave" parent="Really?" index="7" instance=ExtResource("5_3xcha")]
+offset_left = 158.0
+offset_top = 417.0
+offset_right = 667.0
+offset_bottom = 484.0
+text = "> Leave"
+
+[node name="Frame" parent="." index="2" instance=ExtResource("6_8vuf3")]

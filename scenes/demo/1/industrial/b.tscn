@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://qhhv4s8njcrp"]
+[gd_scene load_steps=20 format=3 uid="uid://qhhv4s8njcrp"]
 
 [ext_resource type="PackedScene" uid="uid://byrlpmbpj6yr5" path="res://scene.tscn" id="1_4su6i"]
 [ext_resource type="Texture2D" uid="uid://dobfgkrdvoy5g" path="res://assets/scenes/demo/1/industrial/b.png" id="2_beatb"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://cucflpddlqdqp" path="res://assets/scenery/left-panel-situation-1.png" id="11_0g0bb"]
 [ext_resource type="PackedScene" uid="uid://cl4heje674d3q" path="res://item/interaction_area.tscn" id="12_6urft"]
 [ext_resource type="PackedScene" uid="uid://bkyp4rqktyinq" path="res://item/interact_range_extender.tscn" id="13_6vyp4"]
+[ext_resource type="PackedScene" uid="uid://b2jx8i1f87s2x" path="res://chapters/demo/1/dialogues/leyline_cross.tscn" id="14_qhsme"]
 [ext_resource type="PackedScene" uid="uid://cpbg7yuq873y5" path="res://item/interaction_action.tscn" id="14_v06dg"]
 [ext_resource type="PackedScene" uid="uid://dh1scrjroovcn" path="res://item/interaction_modal_maker.tscn" id="15_s4ofs"]
 [ext_resource type="PackedScene" uid="uid://ddhdd81qyis1b" path="res://cutscene/electrocuted_end.tscn" id="16_k1any"]
@@ -144,14 +145,13 @@ position = Vector2(1049, 483)
 scale = Vector2(0.6, 0.6)
 texture = ExtResource("11_0g0bb")
 
-[node name="InteractionArea" parent="YSort/Panel C-No-1" index="1" node_paths=PackedStringArray("options_container_node") instance=ExtResource("12_6urft")]
+[node name="InteractionArea" parent="YSort/Panel C-No-1" index="1" instance=ExtResource("12_6urft")]
 position = Vector2(1043, 501)
 title = "Access Panel"
 reference_id = "panel-c-no-1"
 description = "There's an access panel built into the wall here."
 cutscene = ExtResource("9_uuj28")
 child_depth = 2
-options_container_node = NodePath("../Actions")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/Panel C-No-1/InteractionArea" index="0"]
 position = Vector2(-1020, -511)
@@ -189,6 +189,7 @@ title = "Open it anyway (kill yourself)"
 position = Vector2(269, 449)
 title = "Leyline Cross"
 description = "There must be a Leyline nearby--though this probably isn't connected to it. There isn't even any wire left on it."
+cutscene = ExtResource("14_qhsme")
 child_depth = 2
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/InteractionArea" index="0"]
@@ -199,7 +200,7 @@ polygon = PackedVector2Array(272, 408, 293, 417, 335, 266, 365, 262, 373, 220, 3
 interactable = NodePath("..")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/InteractionArea/InteractRangeExtender" index="0"]
-polygon = PackedVector2Array(269, 514, 325, 480, 356, 533, 289, 561)
+polygon = PackedVector2Array(-96, 1, 63, 11, 147, 46, -60, 179)
 
 [node name="QuestBoundary" parent="YSort" index="16" node_paths=PackedStringArray("wall_area_node", "blockade_quests_container", "threshold_quests_container") instance=ExtResource("17_hmbms")]
 wall_area_node = NodePath("stop")

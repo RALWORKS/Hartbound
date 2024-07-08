@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://cckqtpr4xqdv1"]
+[gd_scene load_steps=23 format=3 uid="uid://cckqtpr4xqdv1"]
 
 [ext_resource type="PackedScene" uid="uid://byrlpmbpj6yr5" path="res://scene.tscn" id="1_d7mn4"]
 [ext_resource type="Texture2D" uid="uid://b03p7gc1dm2aq" path="res://assets/scenes/demo/1/industrial/f.png" id="2_u64ec"]
@@ -14,9 +14,11 @@
 [ext_resource type="Texture2D" uid="uid://bw40tyqi0m237" path="res://assets/scenery/parking-meter-a.png" id="12_ui4a6"]
 [ext_resource type="PackedScene" uid="uid://cl4heje674d3q" path="res://item/interaction_area.tscn" id="13_80ejq"]
 [ext_resource type="PackedScene" uid="uid://cpbg7yuq873y5" path="res://item/interaction_action.tscn" id="14_hojlb"]
+[ext_resource type="PackedScene" uid="uid://b0s5na6qe26yx" path="res://chapters/demo/1/dialogues/parking_meter.tscn" id="14_j8nb8"]
 [ext_resource type="PackedScene" uid="uid://dh1scrjroovcn" path="res://item/interaction_modal_maker.tscn" id="15_4rgmo"]
 [ext_resource type="PackedScene" uid="uid://ddhdd81qyis1b" path="res://cutscene/electrocuted_end.tscn" id="16_hbmqc"]
 [ext_resource type="PackedScene" uid="uid://blhapbv7bnq0p" path="res://quests/quest_boundary.tscn" id="17_kvixi"]
+[ext_resource type="PackedScene" uid="uid://bce28mr5fq6en" path="res://chapters/demo/1/dialogues/fallen_leyline_cross.tscn" id="18_26cye"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_kqse4"]
 vertices = PackedVector2Array(17, 704, 682, 333, 857, 446, 254, 817, 96, 817, -14, 831)
@@ -133,13 +135,13 @@ scale = Vector2(0.7, 0.7)
 texture = ExtResource("12_ui4a6")
 offset = Vector2(0, -100)
 
-[node name="InteractionArea" parent="YSort/Meter C-No-3" index="0" node_paths=PackedStringArray("options_container_node") instance=ExtResource("13_80ejq")]
+[node name="InteractionArea" parent="YSort/Meter C-No-3" index="0" instance=ExtResource("13_80ejq")]
 position = Vector2(1.42853, -77.1428)
 title = "Tithe Collector"
 reference_id = "meter-c-no-3"
 description = "An ancient tithe collecting machine mounted on a post."
+cutscene = ExtResource("14_j8nb8")
 child_depth = 2
-options_container_node = NodePath("Actions")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/Meter C-No-3/InteractionArea" index="0"]
 position = Vector2(-484.285, -331.428)
@@ -166,13 +168,13 @@ is_close_btn = true
 to_cutscene = ExtResource("16_hbmqc")
 title = "Open it anyway"
 
-[node name="Pole C-No-2" parent="YSort" index="17" node_paths=PackedStringArray("options_container_node") instance=ExtResource("13_80ejq")]
+[node name="Pole C-No-2" parent="YSort" index="17" instance=ExtResource("13_80ejq")]
 position = Vector2(1190, 848)
 title = "Fallen Leyline Cross"
 reference_id = "pole-c-no-2"
 description = "A Leyline cross lies fallen on the ground, its cables strewn beside it."
+cutscene = ExtResource("18_26cye")
 child_depth = 2
-options_container_node = NodePath("Actions")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/Pole C-No-2" index="0"]
 position = Vector2(-1192, -844)
