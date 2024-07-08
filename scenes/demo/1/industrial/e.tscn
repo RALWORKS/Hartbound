@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://dpgus4q55ghrs"]
+[gd_scene load_steps=18 format=3 uid="uid://dpgus4q55ghrs"]
 
 [ext_resource type="PackedScene" uid="uid://byrlpmbpj6yr5" path="res://scene.tscn" id="1_4aibn"]
 [ext_resource type="Texture2D" uid="uid://bgosew3t2w5s6" path="res://assets/scenes/demo/1/industrial/e.png" id="2_lmy4c"]
@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://dh1scrjroovcn" path="res://item/interaction_modal_maker.tscn" id="9_fletx"]
 [ext_resource type="Texture2D" uid="uid://bfmygrdvdfbag" path="res://assets/items/demo-1/alternator-large.png" id="10_ytopt"]
 [ext_resource type="PackedScene" uid="uid://btcaowwqv7a55" path="res://chapters/demo/1/tmp_take.tscn" id="11_u7826"]
+[ext_resource type="PackedScene" uid="uid://cskb4b7di5efb" path="res://chapters/demo/1/dialogues/car_hood.tscn" id="13_f16l7"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_30nyk"]
 vertices = PackedVector2Array(1091, 341, 986, -1, 1634, -44, 1612, 694, 995, 986, 916, 451, 579, 1090, 84, 822, 25, 7, 449, 13, 715, 431)
@@ -106,13 +107,13 @@ interactable = NodePath("../MO-Car-Hood-C-Yes-2")
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/XHood" index="0"]
 polygon = PackedVector2Array(795, 338, 853, 392, 909, 390, 943, 351, 1006, 327, 1067, 377, 922, 470, 688, 428)
 
-[node name="MO-Car-Hood-C-Yes-2" parent="YSort" index="9" node_paths=PackedStringArray("options_container_node", "get_on_open_from") instance=ExtResource("6_dgxub")]
+[node name="MO-Car-Hood-C-Yes-2" parent="YSort" index="9" node_paths=PackedStringArray("get_on_open_from") instance=ExtResource("6_dgxub")]
 position = Vector2(880, 288)
 title = "Chariot (Under the Hood)"
 reference_id = "car-c-yes-2"
 description = "The hood of the chariot still opens, with a little effort."
+cutscene = ExtResource("13_f16l7")
 child_depth = 2
-options_container_node = NodePath("Actions")
 get_on_open_from = NodePath("../MO-Car-Key-B/RefreshCabOptions")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/MO-Car-Hood-C-Yes-2" index="0"]
