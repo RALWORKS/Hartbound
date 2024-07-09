@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://cj4mq4w13vijs"]
+[gd_scene load_steps=27 format=3 uid="uid://cj4mq4w13vijs"]
 
 [ext_resource type="PackedScene" uid="uid://bh1yfkyt3u44i" path="res://chapter.tscn" id="1_abxn2"]
 [ext_resource type="PackedScene" uid="uid://qhhv4s8njcrp" path="res://scenes/demo/1/industrial/b.tscn" id="2_x5gxs"]
@@ -19,7 +19,6 @@
 [ext_resource type="PackedScene" uid="uid://bu8dakumsc3d2" path="res://chapters/demo/1/c1-taylor/tracks-herbs.tscn" id="10_5t2ub"]
 [ext_resource type="PackedScene" uid="uid://d0q6kg3spk25s" path="res://chapters/demo/1/jerry.tscn" id="10_ccv0d"]
 [ext_resource type="PackedScene" uid="uid://bii8gdmkfiy5x" path="res://chapters/demo/1/taylor.tscn" id="11_fc7l2"]
-[ext_resource type="PackedScene" uid="uid://dyu2rup7cahp1" path="res://chapters/demo/1/c1-taylor/pcb.tscn" id="11_jbyho"]
 [ext_resource type="PackedScene" uid="uid://in7v8nsvojyp" path="res://chapters/demo/1/nate.tscn" id="12_fj03t"]
 [ext_resource type="Script" path="res://chapters/demo/1/LeaveCamp1.gd" id="15_lcypw"]
 [ext_resource type="PackedScene" uid="uid://b3vx47wljcfp7" path="res://reflections/reflections/feelings_on_moon_temple_cutscene.tscn" id="16_sq2gq"]
@@ -96,8 +95,12 @@ state_path_slash_delineated = "inventory"
 data = "wire"
 current_plus_data = true
 
-[node name="TaylorPCB" parent="Events" index="7" instance=ExtResource("5_440p5")]
-cutscene = ExtResource("11_jbyho")
+[node name="TakePCB" parent="Events" index="7" instance=ExtResource("5_440p5")]
+
+[node name="AddKeyToInv" parent="Events/TakePCB" index="0" instance=ExtResource("4_gn21l")]
+state_path_slash_delineated = "inventory"
+data = "pcb"
+current_plus_data = true
 
 [node name="DemoParents" parent="Events" index="8" instance=ExtResource("5_440p5")]
 cutscene = ExtResource("16_sq2gq")
@@ -180,7 +183,7 @@ event_name = "Alternator"
 
 [node name="TakePCB" type="Node" parent="Triggers" index="6"]
 script = ExtResource("19_6dtsk")
-event_name = "TaylorPCB"
+event_name = "TakePCB"
 
 [node name="TakeBoard" type="Node" parent="Triggers" index="7"]
 script = ExtResource("26_xevkv")

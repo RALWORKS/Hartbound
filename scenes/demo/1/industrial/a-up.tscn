@@ -1,10 +1,11 @@
-[gd_scene load_steps=15 format=3 uid="uid://boyehw32k8kxm"]
+[gd_scene load_steps=16 format=3 uid="uid://boyehw32k8kxm"]
 
 [ext_resource type="PackedScene" uid="uid://byrlpmbpj6yr5" path="res://scene.tscn" id="1_bloo2"]
 [ext_resource type="Texture2D" uid="uid://dxx8elpxnjmnl" path="res://assets/scenes/demo/1/industrial/a-up.png" id="2_w11ia"]
 [ext_resource type="PackedScene" uid="uid://dxfuidhlgwthh" path="res://travel/door.tscn" id="3_o1pgk"]
 [ext_resource type="Texture2D" uid="uid://cucflpddlqdqp" path="res://assets/scenery/left-panel-situation-1.png" id="4_npvx6"]
 [ext_resource type="Script" path="res://chapters/demo/1/RefreshPanelCY1Options.gd" id="5_gwxvy"]
+[ext_resource type="PackedScene" uid="uid://y08v55l1qtex" path="res://chapters/demo/1/dialogues/pcb.tscn" id="6_8beht"]
 [ext_resource type="PackedScene" uid="uid://cl4heje674d3q" path="res://item/interaction_area.tscn" id="6_wus5v"]
 [ext_resource type="PackedScene" uid="uid://cpbg7yuq873y5" path="res://item/interaction_action.tscn" id="7_c1ftg"]
 [ext_resource type="PackedScene" uid="uid://dh1scrjroovcn" path="res://item/interaction_modal_maker.tscn" id="8_2gbrc"]
@@ -62,12 +63,12 @@ script = ExtResource("5_gwxvy")
 taker = NodePath("../InteractionArea/Actions/Harvest/MakeHarvest/Options/Take/TMPTake")
 btn = NodePath("../InteractionArea/Actions/Harvest")
 
-[node name="InteractionArea" parent="YSort/Panel-C-Yes-3" index="1" node_paths=PackedStringArray("options_container_node", "get_on_open_from") instance=ExtResource("6_wus5v")]
+[node name="InteractionArea" parent="YSort/Panel-C-Yes-3" index="1" node_paths=PackedStringArray("get_on_open_from") instance=ExtResource("6_wus5v")]
 title = "Access Panel"
 reference_id = "panel-c-yes-3"
 description = "There's an access panel built into the wall here."
+cutscene = ExtResource("6_8beht")
 child_depth = 2
-options_container_node = NodePath("Actions")
 get_on_open_from = NodePath("../RefreshPanelOptions")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/Panel-C-Yes-3/InteractionArea" index="0"]

@@ -70,6 +70,7 @@ offset_bottom = 415.0
 text = "> Leave"
 
 [node name="GetWire2" parent="." index="2" instance=ExtResource("3_g3udu")]
+visible = false
 is_option_node = true
 
 [node name="bg" type="Sprite2D" parent="GetWire2" index="0"]
@@ -137,6 +138,7 @@ offset_bottom = 645.0
 text = "> Leave"
 
 [node name="Taking" parent="." index="3" instance=ExtResource("3_g3udu")]
+visible = false
 
 [node name="bg" type="Sprite2D" parent="Taking" index="0"]
 position = Vector2(1256, 659)
@@ -186,6 +188,7 @@ cutscene = NodePath("../..")
 next = ExtResource("11_0d7wp")
 
 [node name="AlreadyGot" parent="." index="4" instance=ExtResource("3_g3udu")]
+visible = false
 is_option_node = true
 
 [node name="bg2" type="Sprite2D" parent="AlreadyGot" index="0"]
