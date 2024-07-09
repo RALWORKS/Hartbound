@@ -5,3 +5,7 @@ extends Node
 
 func on_start():
 	$"/root/Game/Chapter".trigger(trigger_name)
+
+
+func _on_tree_exiting():
+	pass # Replace with function body.

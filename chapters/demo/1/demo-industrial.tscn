@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://cj4mq4w13vijs"]
+[gd_scene load_steps=28 format=3 uid="uid://cj4mq4w13vijs"]
 
 [ext_resource type="PackedScene" uid="uid://bh1yfkyt3u44i" path="res://chapter.tscn" id="1_abxn2"]
 [ext_resource type="PackedScene" uid="uid://qhhv4s8njcrp" path="res://scenes/demo/1/industrial/b.tscn" id="2_x5gxs"]
@@ -21,7 +21,6 @@
 [ext_resource type="PackedScene" uid="uid://bii8gdmkfiy5x" path="res://chapters/demo/1/taylor.tscn" id="11_fc7l2"]
 [ext_resource type="PackedScene" uid="uid://dyu2rup7cahp1" path="res://chapters/demo/1/c1-taylor/pcb.tscn" id="11_jbyho"]
 [ext_resource type="PackedScene" uid="uid://in7v8nsvojyp" path="res://chapters/demo/1/nate.tscn" id="12_fj03t"]
-[ext_resource type="PackedScene" uid="uid://wmgbcyrkpe3r" path="res://chapters/demo/1/c1-taylor/wire.tscn" id="12_glt54"]
 [ext_resource type="Script" path="res://chapters/demo/1/LeaveCamp1.gd" id="15_lcypw"]
 [ext_resource type="PackedScene" uid="uid://b3vx47wljcfp7" path="res://reflections/reflections/feelings_on_moon_temple_cutscene.tscn" id="16_sq2gq"]
 [ext_resource type="PackedScene" uid="uid://bbi0ayu331dr0" path="res://chapters/demo/1/c1-taylor/taylor_roof_entrance.tscn" id="17_egr4i"]
@@ -90,8 +89,12 @@ state_path_slash_delineated = "inventory"
 data = "alternator"
 current_plus_data = true
 
-[node name="TaylorWire" parent="Events" index="6" instance=ExtResource("5_440p5")]
-cutscene = ExtResource("12_glt54")
+[node name="TakeWire" parent="Events" index="6" instance=ExtResource("5_440p5")]
+
+[node name="AddToInv" parent="Events/TakeWire" index="0" instance=ExtResource("4_gn21l")]
+state_path_slash_delineated = "inventory"
+data = "wire"
+current_plus_data = true
 
 [node name="TaylorPCB" parent="Events" index="7" instance=ExtResource("5_440p5")]
 cutscene = ExtResource("11_jbyho")
@@ -169,7 +172,7 @@ event_name = "TaylorCorridorHerbs"
 
 [node name="TakeWire" type="Node" parent="Triggers" index="4"]
 script = ExtResource("19_6dtsk")
-event_name = "TaylorWire"
+event_name = "TakeWire"
 
 [node name="TakeAlternator" type="Node" parent="Triggers" index="5"]
 script = ExtResource("19_6dtsk")

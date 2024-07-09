@@ -4,7 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://d32jvkfa3c6py" path="res://cutscene/has_item_conditional_redirect.tscn" id="2_kmtgf"]
 [ext_resource type="PackedScene" uid="uid://55vflx8ylix1" path="res://cutscene/cutscene_node.tscn" id="3_ttrgc"]
 
-[node name="PCB" instance=ExtResource("1_aa2nf")]
+[node name="PCB" node_paths=PackedStringArray("starting_page") instance=ExtResource("1_aa2nf")]
+starting_page = NodePath("HasPCB?")
 
 [node name="HasPCB?" parent="." index="0" node_paths=PackedStringArray("next_if_true", "next_if_false") instance=ExtResource("2_kmtgf")]
 next_if_true = NodePath("../AlreadyGotPCB")

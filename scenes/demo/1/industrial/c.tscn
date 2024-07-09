@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://c61y5cf8qd8vl"]
+[gd_scene load_steps=29 format=3 uid="uid://c61y5cf8qd8vl"]
 
 [ext_resource type="PackedScene" uid="uid://byrlpmbpj6yr5" path="res://scene.tscn" id="1_c5dv2"]
 [ext_resource type="Texture2D" uid="uid://bdh1dphfwy4ng" path="res://assets/scenes/demo/1/industrial/c.png" id="2_7kp15"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://y8do164lafek" path="res://assets/scenes/demo/1/industrial/c-back-ledge-a.png" id="3_s3o6l"]
 [ext_resource type="PackedScene" uid="uid://cl4heje674d3q" path="res://item/interaction_area.tscn" id="4_ev54w"]
 [ext_resource type="Texture2D" uid="uid://bmubpntnl3s4m" path="res://assets/scenes/demo/1/industrial/c-front-ledge.png" id="4_wlth3"]
+[ext_resource type="PackedScene" uid="uid://cirs377vxg3dw" path="res://chapters/demo/1/dialogues/wire.tscn" id="5_00sk4"]
 [ext_resource type="PackedScene" uid="uid://cpbg7yuq873y5" path="res://item/interaction_action.tscn" id="5_6s1jt"]
 [ext_resource type="Script" path="res://chapters/demo/1/RefreshPanelCY1Options.gd" id="5_ojue2"]
 [ext_resource type="PackedScene" uid="uid://dxfuidhlgwthh" path="res://travel/door.tscn" id="5_opb7a"]
@@ -68,12 +69,12 @@ position = Vector2(951, 651)
 scale = Vector2(0.6, 0.6)
 texture = ExtResource("3_hjm7p")
 
-[node name="InteractionArea" parent="Background/Panel-C-Yes-1" index="0" node_paths=PackedStringArray("options_container_node", "get_on_open_from") instance=ExtResource("4_ev54w")]
+[node name="InteractionArea" parent="Background/Panel-C-Yes-1" index="0" node_paths=PackedStringArray("get_on_open_from") instance=ExtResource("4_ev54w")]
 title = "Access Panel"
 reference_id = "panel-c-yes-1"
 description = "There's an access panel built into the roof here."
+cutscene = ExtResource("5_00sk4")
 child_depth = 2
-options_container_node = NodePath("Actions")
 get_on_open_from = NodePath("RefreshPanelOptions")
 
 [node name="RefreshPanelOptions" type="Node" parent="Background/Panel-C-Yes-1/InteractionArea" index="0" node_paths=PackedStringArray("taker", "btn")]
