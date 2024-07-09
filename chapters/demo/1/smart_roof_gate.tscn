@@ -13,3 +13,5 @@ sprite = NodePath("gate")
 [node name="gate" parent="." index="0" instance=ExtResource("2_fa78m")]
 
 [node name="CarKeysItem" parent="." index="1" instance=ExtResource("3_6a0ca")]
+
+[connection signal="tree_entered" from="." to="." method="_on_tree_entered"]
