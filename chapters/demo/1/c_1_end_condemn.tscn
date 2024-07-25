@@ -1,0 +1,576 @@
+[gd_scene load_steps=22 format=3 uid="uid://b1iitutmiqrgt"]
+
+[ext_resource type="PackedScene" uid="uid://bp8tsdjdbwj8i" path="res://cutscene/cutscene.tscn" id="1_xtuqw"]
+[ext_resource type="PackedScene" uid="uid://55vflx8ylix1" path="res://cutscene/cutscene_node.tscn" id="2_e4o2s"]
+[ext_resource type="Texture2D" uid="uid://dlfi64p84aoys" path="res://assets/scenes/demo/1/industrial/cutscene/1-ground.png" id="3_f65xa"]
+[ext_resource type="PackedScene" uid="uid://c5cgc0mqgy65h" path="res://character/taylor_hesitant.tscn" id="4_ecw63"]
+[ext_resource type="Texture2D" uid="uid://dx1wrwvh6nviu" path="res://assets/npcs/taylor/taylor_neutral.png" id="4_std1i"]
+[ext_resource type="PackedScene" uid="uid://b11g7mb25w5xp" path="res://cutscene/smart_label.tscn" id="5_1qq82"]
+[ext_resource type="Texture2D" uid="uid://cwobelc0kaio" path="res://assets/effects/pass-out-1/black.png" id="6_cukuw"]
+[ext_resource type="PackedScene" uid="uid://cemborgcdx75k" path="res://character/profile.tscn" id="6_vfsqc"]
+[ext_resource type="PackedScene" uid="uid://yplasm5gtgly" path="res://cutscene/cutscene_option.tscn" id="7_ip8ig"]
+[ext_resource type="Texture2D" uid="uid://w800mtmjii1y" path="res://assets/white-scene.png" id="9_gox04"]
+[ext_resource type="PackedScene" uid="uid://gqiikiv318js" path="res://cutscene/has_resoultion_conditional_redirect.tscn" id="11_2bv1v"]
+[ext_resource type="PackedScene" uid="uid://cp5lbi0bmf5vp" path="res://tools/screen-guide-frame.tscn" id="11_lx3pb"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_u1h4m"]
+viewport_path = NodePath("img")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xh2qm"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_52qgv"]
+viewport_path = NodePath("img")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_d3kqo"]
+viewport_path = NodePath("img")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_01vqw"]
+viewport_path = NodePath("img")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_36ju6"]
+viewport_path = NodePath("img")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_s87o3"]
+viewport_path = NodePath("img")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_kkal6"]
+viewport_path = NodePath("img")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_qxra0"]
+viewport_path = NodePath("img")
+
+[node name="C1EndCondemn" instance=ExtResource("1_xtuqw")]
+
+[node name="1" parent="." index="0" instance=ExtResource("2_e4o2s")]
+
+[node name="bg" type="Sprite2D" parent="1" index="0"]
+scale = Vector2(1.35, 1.35)
+texture = ExtResource("3_f65xa")
+centered = false
+
+[node name="taylor" parent="1" index="1" instance=ExtResource("4_ecw63")]
+position = Vector2(931, 848)
+scale = Vector2(0.7, 0.7)
+
+[node name="SmartLabel" parent="1" index="2" instance=ExtResource("5_1qq82")]
+offset_left = 235.0
+offset_top = 48.0
+offset_right = 587.0
+offset_bottom = 133.0
+text = "\"Back to Jerry, then."
+
+[node name="SmartLabel2" parent="1" index="3" instance=ExtResource("5_1qq82")]
+offset_left = 379.0
+offset_top = 157.0
+offset_right = 731.0
+offset_bottom = 285.0
+text = "\"Tell me, {taylor,calls_me}:"
+
+[node name="SmartLabel3" parent="1" index="4" instance=ExtResource("5_1qq82")]
+offset_left = 1196.0
+offset_top = 365.0
+offset_right = 1548.0
+offset_bottom = 565.0
+text = "\"Should I expect to return to Sun Temple bound in the back of the cart?\""
+
+[node name="Q" parent="." index="1" instance=ExtResource("2_e4o2s")]
+
+[node name="bg" type="Sprite2D" parent="Q" index="0"]
+scale = Vector2(1.45072, 1.35)
+texture = ExtResource("6_cukuw")
+centered = false
+
+[node name="SmartLabel" parent="Q" index="1" instance=ExtResource("5_1qq82")]
+offset_left = 168.0
+offset_top = 443.0
+offset_right = 1246.0
+offset_bottom = 528.0
+text = "She wants to know if you're going to report her for treason. Are you?"
+
+[node name="Yes" parent="Q" index="2" instance=ExtResource("7_ip8ig")]
+offset_left = 192.0
+offset_top = 535.0
+offset_right = 351.0
+offset_bottom = 587.0
+text = "Yes"
+
+[node name="No" parent="Q" index="3" instance=ExtResource("7_ip8ig")]
+offset_left = 192.0
+offset_top = 604.0
+offset_right = 351.0
+offset_bottom = 656.0
+text = "No"
+
+[node name="Yes1" parent="." index="2" instance=ExtResource("2_e4o2s")]
+visible = false
+
+[node name="bg" type="Sprite2D" parent="Yes1" index="0"]
+scale = Vector2(1.35, 1.35)
+texture = ExtResource("3_f65xa")
+centered = false
+
+[node name="taylor" parent="Yes1" index="1" instance=ExtResource("4_ecw63")]
+position = Vector2(1203, 848)
+scale = Vector2(0.7, 0.7)
+
+[node name="Profile" parent="Yes1" index="2" instance=ExtResource("6_vfsqc")]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(-11, 139)
+scale = Vector2(1.8, 1.8)
+texture = SubResource("ViewportTexture_u1h4m")
+flip_h = true
+with_background = false
+
+[node name="SmartLabel" parent="Yes1" index="3" instance=ExtResource("5_1qq82")]
+offset_left = 475.0
+offset_top = 917.0
+offset_right = 2038.0
+offset_bottom = 1002.0
+text = "\"How Jerry manages the traitor on his team is up to him.\""
+
+[node name="Yes2" parent="." index="3" node_paths=PackedStringArray("next") instance=ExtResource("2_e4o2s")]
+visible = false
+next = NodePath("../YesSidesElves?")
+
+[node name="bg" type="Sprite2D" parent="Yes2" index="0"]
+modulate = Color(0.196078, 0.196078, 0.196078, 1)
+scale = Vector2(1.45072, 1.35)
+texture = ExtResource("9_gox04")
+centered = false
+
+[node name="taylor" type="Sprite2D" parent="Yes2" index="1"]
+modulate = Color(0, 0, 0, 0.529412)
+material = SubResource("ShaderMaterial_xh2qm")
+position = Vector2(977, 1607)
+scale = Vector2(1.45072, 1.35)
+texture = ExtResource("4_std1i")
+
+[node name="SmartLabel" parent="Yes2" index="2" instance=ExtResource("5_1qq82")]
+offset_left = 236.0
+offset_top = 660.0
+offset_right = 829.0
+offset_bottom = 745.0
+text = "\"You're the traitor, {taylor,calls_me}.\""
+
+[node name="YesSidesElves?" parent="." index="4" node_paths=PackedStringArray("next_if_true", "next_if_false") instance=ExtResource("11_2bv1v")]
+visible = false
+next_if_true = NodePath("../YesElvesAndElves?")
+next_if_false = NodePath("../YesHumansAndHumans?")
+conditional_subject = "initially-sides-with-the-elves"
+
+[node name="YesElvesAndElves?" parent="." index="5" node_paths=PackedStringArray("next_if_true", "next_if_false") instance=ExtResource("11_2bv1v")]
+visible = false
+next_if_true = NodePath("../YesFullyBelieves")
+next_if_false = NodePath("../YesHalfBelieves")
+conditional_subject = "initially-still-prays"
+
+[node name="YesHumansAndHumans?" parent="." index="6" node_paths=PackedStringArray("next_if_true", "next_if_false") instance=ExtResource("11_2bv1v")]
+visible = false
+next_if_true = NodePath("../YesNoBelief")
+next_if_false = NodePath("../YesHalfBelieves")
+conditional_subject = "initially-no-longer-prays"
+
+[node name="YesFullyBelieves" parent="." index="7" node_paths=PackedStringArray("next") instance=ExtResource("2_e4o2s")]
+visible = false
+next = NodePath("../YesEnd")
+
+[node name="bg" type="Sprite2D" parent="YesFullyBelieves" index="0"]
+modulate = Color(0.196078, 0.196078, 0.196078, 1)
+scale = Vector2(1.45072, 1.35)
+texture = ExtResource("9_gox04")
+centered = false
+
+[node name="taylor" type="Sprite2D" parent="YesFullyBelieves" index="1"]
+modulate = Color(0, 0, 0, 0.529412)
+material = SubResource("ShaderMaterial_xh2qm")
+position = Vector2(977, 1607)
+scale = Vector2(1.45072, 1.35)
+texture = ExtResource("4_std1i")
+
+[node name="Profile" parent="YesFullyBelieves" index="2" instance=ExtResource("6_vfsqc")]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(-11, 139)
+scale = Vector2(1.8, 1.8)
+texture = SubResource("ViewportTexture_52qgv")
+flip_h = true
+with_background = false
+
+[node name="SmartLabel" parent="YesFullyBelieves" index="3" instance=ExtResource("5_1qq82")]
+offset_left = 516.0
+offset_top = 61.0
+offset_right = 970.0
+offset_bottom = 186.0
+text = "\"I pray to the same gods as you and seek the same ends. "
+
+[node name="SmartLabel2" parent="YesFullyBelieves" index="4" instance=ExtResource("5_1qq82")]
+offset_left = 520.0
+offset_top = 205.0
+offset_right = 1221.0
+offset_bottom = 330.0
+bbcode_enabled = true
+text = "\"But I am not such an ungrateful child as to shun the humans who raised us [i]both.[/i]"
+
+[node name="SmartLabel3" parent="YesFullyBelieves" index="5" instance=ExtResource("5_1qq82")]
+offset_left = 589.0
+offset_top = 595.0
+offset_right = 1506.0
+offset_bottom = 788.0
+bbcode_enabled = true
+text = "\"Betray the home of my birth, or the home that taught me my trade? It's not an easy position you've put me in, <taylor>. Did you stop and think about what would happen to me if you left, and the Secret Police suspected I'd known?
+"
+
+[node name="SmartLabel5" parent="YesFullyBelieves" index="6" instance=ExtResource("5_1qq82")]
+offset_left = -10.0
+offset_top = 810.0
+offset_right = 1952.0
+offset_bottom = 942.0
+bbcode_enabled = true
+text = "\"If you think they're suspicious of [i]Half-Elves[/i], imagine how they treat [i]me.[/i] If you wanted to leave, you should
+have [i]kept that to yourself.[/i] Instead, you implicated me."
+
+[node name="SmartLabel4" parent="YesFullyBelieves" index="7" instance=ExtResource("5_1qq82")]
+offset_left = -10.0
+offset_top = 964.0
+offset_right = 1952.0
+offset_bottom = 1096.0
+bbcode_enabled = true
+text = "\"Flee to Moon Temple with you, or rat you out. That's what my options collapse down to, if I want to
+guarantee my own safety. You've [i]forced[/i] me to make a move. This is the move I'm choosing.\""
+
+[node name="YesHalfBelieves" parent="." index="8" node_paths=PackedStringArray("next") instance=ExtResource("2_e4o2s")]
+visible = false
+next = NodePath("../YesEnd")
+
+[node name="bg" type="Sprite2D" parent="YesHalfBelieves" index="0"]
+modulate = Color(0.196078, 0.196078, 0.196078, 1)
+scale = Vector2(1.45072, 1.35)
+texture = ExtResource("9_gox04")
+centered = false
+
+[node name="taylor" type="Sprite2D" parent="YesHalfBelieves" index="1"]
+modulate = Color(0, 0, 0, 0.529412)
+material = SubResource("ShaderMaterial_xh2qm")
+position = Vector2(977, 1607)
+scale = Vector2(1.45072, 1.35)
+texture = ExtResource("4_std1i")
+
+[node name="Profile" parent="YesHalfBelieves" index="2" instance=ExtResource("6_vfsqc")]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(-11, 139)
+scale = Vector2(1.8, 1.8)
+texture = SubResource("ViewportTexture_d3kqo")
+flip_h = true
+with_background = false
+
+[node name="SmartLabel" parent="YesHalfBelieves" index="3" instance=ExtResource("5_1qq82")]
+offset_left = 503.0
+offset_top = 568.0
+offset_right = 968.0
+offset_bottom = 693.0
+text = "\"I still have my ties to the ways of my people,"
+
+[node name="SmartLabel2" parent="YesHalfBelieves" index="4" instance=ExtResource("5_1qq82")]
+offset_left = 617.0
+offset_top = 716.0
+offset_right = 1318.0
+offset_bottom = 841.0
+bbcode_enabled = true
+text = "\"But I am not such an ungrateful child as to shun the humans who raised us [i]both.[/i]\""
+
+[node name="SmartLabel3" parent="YesHalfBelieves" index="5" instance=ExtResource("5_1qq82")]
+offset_left = 4.0
+offset_top = 861.0
+offset_right = 1946.0
+offset_bottom = 1082.0
+bbcode_enabled = true
+text = "\"Would Moon Temple take me, if I was deported? I don't know. I'm an  Elf, but I've wandered from the Way.
+Did you stop and think about what would happen to me if you left, and the Secret Police suspected I'd known?
+If you think they're suspicious of [i]Half-Elves[/i], imagine how they treat [i]me.[/i] If you wanted to leave, you should
+have [i]kept that to yourself.[/i] Instead, you implicated me. And I have a lot to lose."
+
+[node name="YesNoBelief" parent="." index="9" node_paths=PackedStringArray("next") instance=ExtResource("2_e4o2s")]
+visible = false
+next = NodePath("../YesEnd")
+
+[node name="bg" type="Sprite2D" parent="YesNoBelief" index="0"]
+modulate = Color(0.196078, 0.196078, 0.196078, 1)
+scale = Vector2(1.45072, 1.35)
+texture = ExtResource("9_gox04")
+centered = false
+
+[node name="taylor" type="Sprite2D" parent="YesNoBelief" index="1"]
+modulate = Color(0, 0, 0, 0.529412)
+material = SubResource("ShaderMaterial_xh2qm")
+position = Vector2(977, 1607)
+scale = Vector2(1.45072, 1.35)
+texture = ExtResource("4_std1i")
+
+[node name="Profile" parent="YesNoBelief" index="2" instance=ExtResource("6_vfsqc")]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(-11, 139)
+scale = Vector2(1.8, 1.8)
+texture = SubResource("ViewportTexture_01vqw")
+flip_h = true
+with_background = false
+
+[node name="SmartLabel" parent="YesNoBelief" index="3" instance=ExtResource("5_1qq82")]
+offset_left = 503.0
+offset_top = 567.0
+offset_right = 968.0
+offset_bottom = 692.0
+text = "\"I have long since left the ways of the Elves behind."
+
+[node name="SmartLabel2" parent="YesNoBelief" index="4" instance=ExtResource("5_1qq82")]
+offset_left = 573.0
+offset_top = 714.0
+offset_right = 1411.0
+offset_bottom = 839.0
+bbcode_enabled = true
+text = "\"I would be even [i]more[/i] of a traitor if I stood silent while you turned your back on the people who raised us both.\""
+
+[node name="SmartLabel3" parent="YesNoBelief" index="5" instance=ExtResource("5_1qq82")]
+offset_left = 4.0
+offset_top = 861.0
+offset_right = 1946.0
+offset_bottom = 1082.0
+bbcode_enabled = true
+text = "\"I have no home but Sun Temple, <taylor>, and you're putting my place here in jeopardy.
+Did you stop and think about what would happen to me if you left, and the Secret Police suspected I'd known?
+If you think they're suspicious of [i]Half-Elves[/i], imagine how they treat [i]me.[/i] If you wanted to leave, you should
+have [i]kept that to yourself.[/i] Instead, you implicated me. What choice do I have now?"
+
+[node name="YesEnd" parent="." index="10" instance=ExtResource("2_e4o2s")]
+visible = false
+
+[node name="bg" type="Sprite2D" parent="YesEnd" index="0"]
+scale = Vector2(1.35, 1.35)
+texture = ExtResource("3_f65xa")
+centered = false
+
+[node name="taylor2" parent="YesEnd" index="1" instance=ExtResource("4_ecw63")]
+position = Vector2(927, 1723)
+scale = Vector2(1.5, 1.5)
+
+[node name="SmartLabel" parent="YesEnd" index="2" instance=ExtResource("5_1qq82")]
+offset_left = 157.0
+offset_top = 146.0
+offset_right = 539.0
+offset_bottom = 271.0
+text = "\"I don't want to hear it, {taylor,calls_me}."
+
+[node name="SmartLabel2" parent="YesEnd" index="3" instance=ExtResource("5_1qq82")]
+offset_left = 341.0
+offset_top = 296.0
+offset_right = 656.0
+offset_bottom = 421.0
+text = "\"Thanks for the warning, I guess."
+
+[node name="SmartLabel3" parent="YesEnd" index="4" instance=ExtResource("5_1qq82")]
+offset_left = 1368.0
+offset_top = 926.0
+offset_right = 1573.0
+offset_bottom = 1013.0
+text = "\"Let's go.\""
+
+[node name="No" parent="." index="11" node_paths=PackedStringArray("next") instance=ExtResource("2_e4o2s")]
+visible = false
+next = NodePath("../NoSidesElves?")
+
+[node name="bg" type="Sprite2D" parent="No" index="0"]
+scale = Vector2(1.35, 1.35)
+texture = ExtResource("3_f65xa")
+centered = false
+
+[node name="taylor" parent="No" index="1" instance=ExtResource("4_ecw63")]
+position = Vector2(931, 848)
+scale = Vector2(0.7, 0.7)
+
+[node name="Profile" parent="No" index="2" instance=ExtResource("6_vfsqc")]
+position = Vector2(-11, 104)
+scale = Vector2(1.8, 1.8)
+texture = SubResource("ViewportTexture_36ju6")
+flip_h = true
+with_background = false
+
+[node name="SmartLabel3" parent="No" index="3" instance=ExtResource("5_1qq82")]
+offset_left = -3.0
+offset_top = 765.0
+offset_right = 1929.0
+offset_bottom = 851.0
+text = "\"I'm not going to report you. I was never going to report you."
+
+[node name="SmartLabel4" parent="No" index="4" instance=ExtResource("5_1qq82")]
+offset_left = -3.0
+offset_top = 862.0
+offset_right = 1929.0
+offset_bottom = 948.0
+text = "\"But I want you to think about what it does to me if you leave, and it comes out somehow that I knew."
+
+[node name="SmartLabel5" parent="No" index="5" instance=ExtResource("5_1qq82")]
+offset_left = -3.0
+offset_top = 959.0
+offset_right = 1929.0
+offset_bottom = 1101.0
+bbcode_enabled = true
+text = "\"They will ask, you know. I was close enough to you. And if you think they gave [i]you[/i] a hard time for your
+heritage, imagine how it was for me.\""
+
+[node name="NoSidesElves?" parent="." index="12" instance=ExtResource("11_2bv1v")]
+visible = false
+conditional_subject = "initially-sides-with-the-elves"
+
+[node name="NoElvesAndElves?" parent="." index="13" node_paths=PackedStringArray("next_if_true", "next_if_false") instance=ExtResource("11_2bv1v")]
+visible = false
+next_if_true = NodePath("../NoFullBelief")
+next_if_false = NodePath("../NoSomeBelief")
+conditional_subject = "initially-still-prays"
+
+[node name="NoHumansAndHumans?" parent="." index="14" node_paths=PackedStringArray("next_if_true", "next_if_false") instance=ExtResource("11_2bv1v")]
+visible = false
+next_if_true = NodePath("../NoNoBelief")
+next_if_false = NodePath("../NoSomeBelief")
+conditional_subject = "initially-no-longer-prays"
+
+[node name="NoNoBelief" parent="." index="15" node_paths=PackedStringArray("next") instance=ExtResource("2_e4o2s")]
+visible = false
+next = NodePath("../NoEnd")
+
+[node name="bg" type="Sprite2D" parent="NoNoBelief" index="0"]
+scale = Vector2(1.35, 1.35)
+texture = ExtResource("3_f65xa")
+centered = false
+
+[node name="taylor" parent="NoNoBelief" index="1" instance=ExtResource("4_ecw63")]
+position = Vector2(931, 848)
+scale = Vector2(0.7, 0.7)
+
+[node name="Profile" parent="NoNoBelief" index="2" instance=ExtResource("6_vfsqc")]
+position = Vector2(-11, 104)
+scale = Vector2(1.8, 1.8)
+texture = SubResource("ViewportTexture_s87o3")
+flip_h = true
+with_background = false
+
+[node name="SmartLabel3" parent="NoNoBelief" index="3" instance=ExtResource("5_1qq82")]
+offset_left = -3.0
+offset_top = 838.0
+offset_right = 1927.0
+offset_bottom = 962.0
+text = "\"I don't follow the old ways--not the politics or the faith. My town is gone, and there's no place for me at
+Moon Temple."
+
+[node name="SmartLabel4" parent="NoNoBelief" index="4" instance=ExtResource("5_1qq82")]
+offset_left = -3.0
+offset_top = 974.0
+offset_right = 1927.0
+offset_bottom = 1060.0
+text = "\"I'm risking the only home I have, keeping your secret. But I'll keep it. Please don't take that for granted.\""
+
+[node name="NoSomeBelief" parent="." index="16" node_paths=PackedStringArray("next") instance=ExtResource("2_e4o2s")]
+visible = false
+next = NodePath("../NoEnd")
+
+[node name="bg" type="Sprite2D" parent="NoSomeBelief" index="0"]
+scale = Vector2(1.35, 1.35)
+texture = ExtResource("3_f65xa")
+centered = false
+
+[node name="taylor" parent="NoSomeBelief" index="1" instance=ExtResource("4_ecw63")]
+position = Vector2(931, 848)
+scale = Vector2(0.7, 0.7)
+
+[node name="Profile" parent="NoSomeBelief" index="2" instance=ExtResource("6_vfsqc")]
+position = Vector2(-11, 104)
+scale = Vector2(1.8, 1.8)
+texture = SubResource("ViewportTexture_kkal6")
+flip_h = true
+with_background = false
+
+[node name="SmartLabel3" parent="NoSomeBelief" index="3" instance=ExtResource("5_1qq82")]
+offset_left = -3.0
+offset_top = 838.0
+offset_right = 1927.0
+offset_bottom = 989.0
+text = "\"I've changed since I left home. I'm still an Elf, but I've taken some of the Human ways to heart. My town is
+gone, and I don't know how readily Moon Temple would accept me as I am now. I know I have a place
+here, for now ..."
+
+[node name="SmartLabel4" parent="NoSomeBelief" index="4" instance=ExtResource("5_1qq82")]
+offset_left = -3.0
+offset_top = 1002.0
+offset_right = 1927.0
+offset_bottom = 1088.0
+bbcode_enabled = true
+text = "\"And I know I'm putting that at risk, keeping your secret. I [i]will[/i] keep it. But please don't take that for granted.\""
+
+[node name="NoFullBelief" parent="." index="17" node_paths=PackedStringArray("next") instance=ExtResource("2_e4o2s")]
+visible = false
+next = NodePath("../NoEnd")
+
+[node name="bg" type="Sprite2D" parent="NoFullBelief" index="0"]
+scale = Vector2(1.35, 1.35)
+texture = ExtResource("3_f65xa")
+centered = false
+
+[node name="taylor" parent="NoFullBelief" index="1" instance=ExtResource("4_ecw63")]
+position = Vector2(931, 848)
+scale = Vector2(0.7, 0.7)
+
+[node name="Profile" parent="NoFullBelief" index="2" instance=ExtResource("6_vfsqc")]
+position = Vector2(-11, 104)
+scale = Vector2(1.8, 1.8)
+texture = SubResource("ViewportTexture_qxra0")
+flip_h = true
+with_background = false
+
+[node name="SmartLabel3" parent="NoFullBelief" index="3" instance=ExtResource("5_1qq82")]
+offset_left = -5.0
+offset_top = 724.0
+offset_right = 1925.0
+offset_bottom = 850.0
+text = "\"At the risk of committing my own act of treason ... you made the right guess about where my loyalties lie.
+I am an Elf, after all, and my parents raised me well."
+
+[node name="SmartLabel5" parent="NoFullBelief" index="4" instance=ExtResource("5_1qq82")]
+offset_left = -5.0
+offset_top = 864.0
+offset_right = 1925.0
+offset_bottom = 990.0
+text = "\"When you leave, be careful about it--for my sake too. If you implicate me somehow, and they interrogate me ...
+well, I have secrets of my own to keep. "
+
+[node name="SmartLabel4" parent="NoFullBelief" index="5" instance=ExtResource("5_1qq82")]
+offset_left = -3.0
+offset_top = 1004.0
+offset_right = 1927.0
+offset_bottom = 1090.0
+bbcode_enabled = true
+text = "\"Keeping yours as well is no small ask. Don't take it for granted.\""
+
+[node name="NoEnd" parent="." index="18" instance=ExtResource("2_e4o2s")]
+visible = false
+
+[node name="bg" type="Sprite2D" parent="NoEnd" index="0"]
+scale = Vector2(1.35, 1.35)
+texture = ExtResource("3_f65xa")
+centered = false
+
+[node name="taylor" parent="NoEnd" index="1" instance=ExtResource("4_ecw63")]
+position = Vector2(931, 848)
+scale = Vector2(0.7, 0.7)
+
+[node name="SmartLabel3" parent="NoEnd" index="2" instance=ExtResource("5_1qq82")]
+offset_left = 245.0
+offset_top = 400.0
+offset_right = 893.0
+offset_bottom = 562.0
+text = "\"I understand. I'm sorry. I wasn't thinking. But you're right--I should have been. I'll be more careful from now on."
+
+[node name="SmartLabel4" parent="NoEnd" index="3" instance=ExtResource("5_1qq82")]
+offset_left = 696.0
+offset_top = 582.0
+offset_right = 1297.0
+offset_bottom = 677.0
+text = "\"Let's go. I won't keep you any longer.\""
+
+[node name="Frame" parent="." index="19" instance=ExtResource("11_lx3pb")]

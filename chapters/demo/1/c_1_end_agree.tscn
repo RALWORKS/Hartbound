@@ -1,0 +1,350 @@
+[gd_scene load_steps=18 format=3 uid="uid://ssp8yf808jyf"]
+
+[ext_resource type="PackedScene" uid="uid://bp8tsdjdbwj8i" path="res://cutscene/cutscene.tscn" id="1_j6s24"]
+[ext_resource type="PackedScene" uid="uid://55vflx8ylix1" path="res://cutscene/cutscene_node.tscn" id="2_8b8lo"]
+[ext_resource type="PackedScene" uid="uid://gqiikiv318js" path="res://cutscene/has_resoultion_conditional_redirect.tscn" id="3_888y0"]
+[ext_resource type="Texture2D" uid="uid://dlfi64p84aoys" path="res://assets/scenes/demo/1/industrial/cutscene/1-ground.png" id="3_t1am5"]
+[ext_resource type="PackedScene" uid="uid://c5cgc0mqgy65h" path="res://character/taylor_hesitant.tscn" id="4_fl887"]
+[ext_resource type="PackedScene" uid="uid://cp5lbi0bmf5vp" path="res://tools/screen-guide-frame.tscn" id="4_voeim"]
+[ext_resource type="PackedScene" uid="uid://b11g7mb25w5xp" path="res://cutscene/smart_label.tscn" id="5_gpox3"]
+[ext_resource type="Texture2D" uid="uid://dx1wrwvh6nviu" path="res://assets/npcs/taylor/taylor_neutral.png" id="6_jffnu"]
+[ext_resource type="PackedScene" uid="uid://yplasm5gtgly" path="res://cutscene/cutscene_option.tscn" id="7_s0uu8"]
+[ext_resource type="PackedScene" uid="uid://cemborgcdx75k" path="res://character/profile.tscn" id="9_1dapo"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0o0tw"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_lvnj4"]
+viewport_path = NodePath("img")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_agjuh"]
+viewport_path = NodePath("img")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_c3fuh"]
+viewport_path = NodePath("img")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_4e3yp"]
+viewport_path = NodePath("img")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_rk0rv"]
+viewport_path = NodePath("img")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_4afen"]
+viewport_path = NodePath("img")
+
+[node name="C1EndAgree" instance=ExtResource("1_j6s24")]
+
+[node name="1" parent="." index="0" node_paths=PackedStringArray("next") instance=ExtResource("2_8b8lo")]
+next = NodePath("../Q")
+
+[node name="bg" type="Sprite2D" parent="1" index="0"]
+scale = Vector2(1.35, 1.35)
+texture = ExtResource("3_t1am5")
+centered = false
+
+[node name="taylor" parent="1" index="1" instance=ExtResource("4_fl887")]
+position = Vector2(931, 848)
+scale = Vector2(0.7, 0.7)
+
+[node name="SmartLabel" parent="1" index="2" instance=ExtResource("5_gpox3")]
+offset_left = 235.0
+offset_top = 48.0
+offset_right = 532.0
+offset_bottom = 133.0
+text = "\"Hey, you know,"
+
+[node name="SmartLabel2" parent="1" index="3" instance=ExtResource("5_gpox3")]
+offset_left = 379.0
+offset_top = 157.0
+offset_right = 682.0
+offset_bottom = 285.0
+text = "\"I have something to ask.\""
+
+[node name="Q" parent="." index="1" instance=ExtResource("2_8b8lo")]
+is_option_node = true
+
+[node name="bg" type="Sprite2D" parent="Q" index="0"]
+scale = Vector2(1.35, 1.35)
+texture = ExtResource("3_t1am5")
+centered = false
+
+[node name="Sprite2D" type="Sprite2D" parent="Q" index="1"]
+position = Vector2(933, 849)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("6_jffnu")
+
+[node name="SmartLabel" parent="Q" index="2" instance=ExtResource("5_gpox3")]
+offset_left = 1109.0
+offset_top = 227.0
+offset_right = 1406.0
+offset_bottom = 312.0
+text = "\"When I leave,"
+
+[node name="SmartLabel2" parent="Q" index="3" instance=ExtResource("5_gpox3")]
+offset_left = 1253.0
+offset_top = 336.0
+offset_right = 1556.0
+offset_bottom = 464.0
+text = "\"Do you want to come with me?\""
+
+[node name="Yes" parent="Q" index="4" node_paths=PackedStringArray("to") instance=ExtResource("7_s0uu8")]
+offset_left = 63.0
+offset_top = 848.0
+offset_right = 1863.0
+offset_bottom = 930.0
+text = "> \"Yes.\""
+to = NodePath("../../YesSideElves?")
+
+[node name="No" parent="Q" index="5" node_paths=PackedStringArray("to") instance=ExtResource("7_s0uu8")]
+offset_left = 63.0
+offset_top = 947.0
+offset_right = 1863.0
+offset_bottom = 1029.0
+text = "> \"No.\""
+to = NodePath("../../NoSideElves?")
+
+[node name="YesSideElves?" parent="." index="2" node_paths=PackedStringArray("next_if_true", "next_if_false") instance=ExtResource("3_888y0")]
+next_if_true = NodePath("../YesElvesAndElves?")
+next_if_false = NodePath("../YesHumansAndHumans?")
+conditional_subject = "initially-sides-with-the-elves"
+
+[node name="YesElvesAndElves?" parent="." index="3" node_paths=PackedStringArray("next_if_true", "next_if_false") instance=ExtResource("3_888y0")]
+next_if_true = NodePath("../YesFullyBelieves")
+next_if_false = NodePath("../YesHalfBelieves")
+conditional_subject = "initially-still-prays"
+
+[node name="YesHumansAndHumans?" parent="." index="4" node_paths=PackedStringArray("next_if_true", "next_if_false") instance=ExtResource("3_888y0")]
+next_if_true = NodePath("../YesDisBelieves")
+next_if_false = NodePath("../YesHalfBelieves")
+conditional_subject = "initially-no-longer-prays"
+
+[node name="YesFullyBelieves" parent="." index="5" node_paths=PackedStringArray("next") instance=ExtResource("2_8b8lo")]
+next = NodePath("../YesSegue")
+
+[node name="bg" type="Sprite2D" parent="YesFullyBelieves" index="0"]
+position = Vector2(-250, -74)
+scale = Vector2(2, 2)
+texture = ExtResource("3_t1am5")
+centered = false
+
+[node name="taylor" type="Sprite2D" parent="YesFullyBelieves" index="1"]
+material = SubResource("ShaderMaterial_0o0tw")
+position = Vector2(1211, 1607)
+scale = Vector2(1.45072, 1.35)
+texture = ExtResource("6_jffnu")
+flip_h = true
+
+[node name="Profile" parent="YesFullyBelieves" index="2" instance=ExtResource("9_1dapo")]
+position = Vector2(0, 73)
+scale = Vector2(2, 2)
+texture = SubResource("ViewportTexture_lvnj4")
+
+[node name="SmartLabel" parent="YesFullyBelieves" index="3" instance=ExtResource("5_gpox3")]
+offset_top = 829.0
+offset_right = 1939.0
+offset_bottom = 949.0
+text = "\"I'm done living among Humans while praying for their fall. Let's leave this place together.\""
+
+[node name="YesHalfBelieves" parent="." index="6" node_paths=PackedStringArray("next") instance=ExtResource("2_8b8lo")]
+next = NodePath("../YesSegue")
+
+[node name="bg" type="Sprite2D" parent="YesHalfBelieves" index="0"]
+position = Vector2(-250, -74)
+scale = Vector2(2, 2)
+texture = ExtResource("3_t1am5")
+centered = false
+
+[node name="taylor" type="Sprite2D" parent="YesHalfBelieves" index="1"]
+material = SubResource("ShaderMaterial_0o0tw")
+position = Vector2(1211, 1607)
+scale = Vector2(1.45072, 1.35)
+texture = ExtResource("6_jffnu")
+flip_h = true
+
+[node name="Profile" parent="YesHalfBelieves" index="2" instance=ExtResource("9_1dapo")]
+position = Vector2(0, 73)
+scale = Vector2(2, 2)
+texture = SubResource("ViewportTexture_agjuh")
+
+[node name="SmartLabel" parent="YesHalfBelieves" index="3" instance=ExtResource("5_gpox3")]
+offset_top = 829.0
+offset_right = 1939.0
+offset_bottom = 949.0
+text = "\"I'm not quite the paragon of Elven values you might be hoping, but I still long to be among my own people.\""
+metadata/_edit_use_anchors_ = true
+
+[node name="YesDisBelieves" parent="." index="7" node_paths=PackedStringArray("next") instance=ExtResource("2_8b8lo")]
+next = NodePath("../YesDisBelieves2")
+
+[node name="ColorRect" type="ColorRect" parent="YesDisBelieves" index="0"]
+offset_left = -43.0
+offset_top = -19.0
+offset_right = 1976.0
+offset_bottom = 1129.0
+color = Color(0, 0, 0, 1)
+
+[node name="SmartLabel" parent="YesDisBelieves" index="1" instance=ExtResource("5_gpox3")]
+offset_left = 98.0
+offset_top = 131.0
+offset_right = 1853.0
+offset_bottom = 783.0
+bbcode_enabled = true
+text = "Yes?
+
+You want to leave with Taylor, even though you align sprititually [i]and[/i] politically with
+Sun Temple?
+
+Well. You said it and you meant it, didn't you? No sense in taking it back.
+But you're going to have some things to think about."
+
+[node name="YesDisBelieves2" parent="." index="8" node_paths=PackedStringArray("next") instance=ExtResource("2_8b8lo")]
+next = NodePath("../YesSegue")
+
+[node name="bg" type="Sprite2D" parent="YesDisBelieves2" index="0"]
+position = Vector2(-250, -74)
+scale = Vector2(2, 2)
+texture = ExtResource("3_t1am5")
+centered = false
+
+[node name="taylor" type="Sprite2D" parent="YesDisBelieves2" index="1"]
+material = SubResource("ShaderMaterial_0o0tw")
+position = Vector2(1211, 1607)
+scale = Vector2(1.45072, 1.35)
+texture = ExtResource("6_jffnu")
+flip_h = true
+
+[node name="Profile" parent="YesDisBelieves2" index="2" instance=ExtResource("9_1dapo")]
+position = Vector2(0, 73)
+scale = Vector2(2, 2)
+texture = SubResource("ViewportTexture_c3fuh")
+
+[node name="SmartLabel" parent="YesDisBelieves2" index="3" instance=ExtResource("5_gpox3")]
+offset_top = 829.0
+offset_right = 1939.0
+offset_bottom = 949.0
+text = "\"Yes. Please take me with you when you go.\""
+
+[node name="YesSegue" parent="." index="9" instance=ExtResource("2_8b8lo")]
+
+[node name="bg" type="Sprite2D" parent="YesSegue" index="0"]
+position = Vector2(-250, -74)
+scale = Vector2(2, 2)
+texture = ExtResource("3_t1am5")
+centered = false
+
+[node name="taylor" type="Sprite2D" parent="YesSegue" index="1"]
+material = SubResource("ShaderMaterial_0o0tw")
+position = Vector2(1211, 1607)
+scale = Vector2(1.45072, 1.35)
+texture = ExtResource("6_jffnu")
+flip_h = true
+
+[node name="SmartLabel" parent="YesSegue" index="2" instance=ExtResource("5_gpox3")]
+offset_left = 478.0
+offset_top = 313.0
+offset_right = 606.0
+offset_bottom = 391.0
+text = "\"OK."
+
+[node name="SmartLabel2" parent="YesSegue" index="3" instance=ExtResource("5_gpox3")]
+offset_left = 540.0
+offset_top = 404.0
+offset_right = 976.0
+offset_bottom = 563.0
+text = "\"Then I'll let you know as soon as the plan starts to come together.\""
+
+[node name="NoSideElves?" parent="." index="10" node_paths=PackedStringArray("next_if_true", "next_if_false") instance=ExtResource("3_888y0")]
+next_if_true = NodePath("../NoElvesAndElves?")
+next_if_false = NodePath("../NoHumansAndHumans?")
+conditional_subject = "initially-sides-with-the-elves"
+
+[node name="NoElvesAndElves?" parent="." index="11" node_paths=PackedStringArray("next_if_true", "next_if_false") instance=ExtResource("3_888y0")]
+next_if_true = NodePath("../NoFullyBelieves")
+next_if_false = NodePath("../NoHalfBelieves")
+conditional_subject = "initially-still-prays"
+
+[node name="NoHumansAndHumans?" parent="." index="12" node_paths=PackedStringArray("next_if_true", "next_if_false") instance=ExtResource("3_888y0")]
+next_if_true = NodePath("../NoDisBelieves")
+next_if_false = NodePath("../NoHalfBelieves")
+conditional_subject = "initially-no-longer-prays"
+
+[node name="NoFullyBelieves" parent="." index="13" instance=ExtResource("2_8b8lo")]
+
+[node name="bg" type="Sprite2D" parent="NoFullyBelieves" index="0"]
+position = Vector2(-250, -74)
+scale = Vector2(2, 2)
+texture = ExtResource("3_t1am5")
+centered = false
+
+[node name="taylor2" parent="NoFullyBelieves" index="1" instance=ExtResource("4_fl887")]
+position = Vector2(1205, 1696)
+scale = Vector2(1.5, 1.5)
+
+[node name="Profile" parent="NoFullyBelieves" index="2" instance=ExtResource("9_1dapo")]
+position = Vector2(0, 73)
+scale = Vector2(2, 2)
+texture = SubResource("ViewportTexture_4e3yp")
+
+[node name="SmartLabel" parent="NoFullyBelieves" index="3" instance=ExtResource("5_gpox3")]
+offset_top = 829.0
+offset_right = 1939.0
+offset_bottom = 949.0
+text = "\"I know exactly how you feel, but it's not the right time for me to leave.\""
+metadata/_edit_use_anchors_ = true
+
+[node name="NoHalfBelieves" parent="." index="14" instance=ExtResource("2_8b8lo")]
+
+[node name="bg" type="Sprite2D" parent="NoHalfBelieves" index="0"]
+position = Vector2(-250, -74)
+scale = Vector2(2, 2)
+texture = ExtResource("3_t1am5")
+centered = false
+
+[node name="taylor2" parent="NoHalfBelieves" index="1" instance=ExtResource("4_fl887")]
+position = Vector2(1205, 1696)
+scale = Vector2(1.5, 1.5)
+
+[node name="Profile" parent="NoHalfBelieves" index="2" instance=ExtResource("9_1dapo")]
+position = Vector2(0, 73)
+scale = Vector2(2, 2)
+texture = SubResource("ViewportTexture_rk0rv")
+
+[node name="SmartLabel" parent="NoHalfBelieves" index="3" instance=ExtResource("5_gpox3")]
+offset_left = 0.0
+offset_top = 829.0
+offset_right = 1940.0
+offset_bottom = 1009.0
+bbcode_enabled = true
+text = "\"I'm a little different from you <taylor>. I've settled a little more into the Human ways. Sun Temple isn't home.
+But will Moon Temple be any different, now that I've been among humans for all these years? I need more time to
+figure myself out before I can run off--[i]if[/i] I run off at all."
+metadata/_edit_use_anchors_ = true
+
+[node name="NoDisBelieves" parent="." index="15" instance=ExtResource("2_8b8lo")]
+
+[node name="bg" type="Sprite2D" parent="NoDisBelieves" index="0"]
+position = Vector2(-250, -74)
+scale = Vector2(2, 2)
+texture = ExtResource("3_t1am5")
+centered = false
+
+[node name="taylor2" parent="NoDisBelieves" index="1" instance=ExtResource("4_fl887")]
+position = Vector2(1205, 1696)
+scale = Vector2(1.5, 1.5)
+
+[node name="Profile" parent="NoDisBelieves" index="2" instance=ExtResource("9_1dapo")]
+position = Vector2(0, 73)
+scale = Vector2(2, 2)
+texture = SubResource("ViewportTexture_4afen")
+
+[node name="SmartLabel" parent="NoDisBelieves" index="3" instance=ExtResource("5_gpox3")]
+offset_left = 0.0
+offset_top = 829.0
+offset_right = 1940.0
+offset_bottom = 1009.0
+bbcode_enabled = true
+text = "\"When I said I don't feel at home in Sun Temple ... all that really means is that I haven't quite lost my sense of
+being an outsider. I ... don't really follow the Elven ways anymore. Running away to Moon Temple is still
+enticing somehow, but I would feel [i]much[/i] more out of place there than I do here. I have no doubt of it.\""
+metadata/_edit_use_anchors_ = true
+
+[node name="Frame" parent="." index="16" instance=ExtResource("4_voeim")]

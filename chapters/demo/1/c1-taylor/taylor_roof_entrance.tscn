@@ -18,13 +18,13 @@
 [ext_resource type="Texture2D" uid="uid://dl824jdeqsl6p" path="res://assets/npcs/taylor/taylor_neutral_eyes_closed.png" id="15_0cfxb"]
 [ext_resource type="PackedScene" uid="uid://b1lrqpjjqlqjg" path="res://cutscene/cutscene_controlled_section.tscn" id="16_g12yw"]
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_wbwoc"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_vj5ix"]
 viewport_path = NodePath("img")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_a1erh"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_33euu"]
 viewport_path = NodePath("img")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_s2l3k"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_fghs6"]
 viewport_path = NodePath("img")
 
 [sub_resource type="Animation" id="Animation_4s4xb"]
@@ -136,13 +136,13 @@ _data = {
 "base": SubResource("Animation_51dhc")
 }
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_nfotr"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_qm1um"]
 viewport_path = NodePath("img")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_y3n8u"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_m5s4c"]
 viewport_path = NodePath("img")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_gacca"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_8k5md"]
 viewport_path = NodePath("img")
 
 [node name="TaylorRoofEntrance" node_paths=PackedStringArray("starting_page") instance=ExtResource("1_lutdq")]
@@ -237,7 +237,7 @@ to = NodePath("../../1")
 [node name="Profile" parent="Has1Name" index="6" instance=ExtResource("11_bgt36")]
 position = Vector2(703, 413)
 scale = Vector2(1.2, 1.2)
-texture = SubResource("ViewportTexture_wbwoc")
+texture = SubResource("ViewportTexture_vj5ix")
 with_background = false
 
 [node name="Has2Names" parent="." index="3" instance=ExtResource("2_3thgf")]
@@ -296,7 +296,7 @@ to = NodePath("../../UseHumanName")
 [node name="Profile" parent="Has2Names" index="7" instance=ExtResource("11_bgt36")]
 position = Vector2(703, 413)
 scale = Vector2(1.2, 1.2)
-texture = SubResource("ViewportTexture_a1erh")
+texture = SubResource("ViewportTexture_33euu")
 with_background = false
 
 [node name="UseHumanName" parent="." index="4" node_paths=PackedStringArray("next") instance=ExtResource("2_3thgf")]
@@ -610,7 +610,7 @@ flip_h = true
 modulate = Color(0, 0, 0, 1)
 position = Vector2(757, -71)
 scale = Vector2(2, 2)
-texture = SubResource("ViewportTexture_s2l3k")
+texture = SubResource("ViewportTexture_fghs6")
 with_background = false
 
 [node name="Condemn" parent="6" index="3" node_paths=PackedStringArray("to") instance=ExtResource("13_55ajo")]
@@ -668,7 +668,7 @@ flip_h = true
 modulate = Color(0, 0, 0, 1)
 position = Vector2(757, -71)
 scale = Vector2(2, 2)
-texture = SubResource("ViewportTexture_nfotr")
+texture = SubResource("ViewportTexture_qm1um")
 with_background = false
 
 [node name="PlayAnimationOnStart" parent="Condemn" index="3" node_paths=PackedStringArray("player") instance=ExtResource("14_wby13")]
@@ -733,7 +733,7 @@ flip_h = true
 modulate = Color(0, 0, 0, 1)
 position = Vector2(757, -71)
 scale = Vector2(2, 2)
-texture = SubResource("ViewportTexture_y3n8u")
+texture = SubResource("ViewportTexture_m5s4c")
 with_background = false
 
 [node name="PlayAnimationOnStart" parent="Secret" index="3" node_paths=PackedStringArray("player") instance=ExtResource("14_wby13")]
@@ -784,7 +784,7 @@ flip_h = true
 modulate = Color(0, 0, 0, 1)
 position = Vector2(757, -71)
 scale = Vector2(2, 2)
-texture = SubResource("ViewportTexture_gacca")
+texture = SubResource("ViewportTexture_8k5md")
 with_background = false
 
 [node name="PlayAnimationOnStart" parent="Agree" index="3" node_paths=PackedStringArray("player") instance=ExtResource("14_wby13")]

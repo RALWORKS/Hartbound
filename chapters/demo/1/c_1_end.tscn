@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://cemborgcdx75k" path="res://character/profile.tscn" id="6_7gdxr"]
 [ext_resource type="PackedScene" uid="uid://cbobuwybuv22l" path="res://cutscene/die_on_start.tscn" id="7_0puay"]
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_p6igk"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_xbfkq"]
 viewport_path = NodePath("img")
 
 [node name="C1End" node_paths=PackedStringArray("starting_page") instance=ExtResource("1_aiv4b")]
@@ -44,11 +44,12 @@ text = "\"That's all I needed to gather for the day.\""
 [node name="Profile" parent="1" index="4" instance=ExtResource("6_7gdxr")]
 position = Vector2(-81.9999, 671)
 scale = Vector2(0.8, 0.8)
-texture = SubResource("ViewportTexture_p6igk")
+texture = SubResource("ViewportTexture_xbfkq")
 flip_h = true
 with_background = false
 
 [node name="2" parent="." index="1" node_paths=PackedStringArray("next") instance=ExtResource("2_wm812")]
+visible = false
 next = NodePath("../3")
 
 [node name="bg" type="Sprite2D" parent="2" index="0"]

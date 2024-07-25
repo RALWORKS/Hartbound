@@ -14,22 +14,22 @@
 [ext_resource type="PackedScene" uid="uid://bxflra082b2is" path="res://reflections/reflections/initial_feelings_on_moon_temple.tscn" id="8_d31e5"]
 [ext_resource type="PackedScene" uid="uid://b1lrqpjjqlqjg" path="res://cutscene/cutscene_controlled_section.tscn" id="11_d0v4l"]
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_hv3wh"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_5rruu"]
 viewport_path = NodePath("img")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_ianhi"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_j6up3"]
 viewport_path = NodePath("img")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_0rcm6"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_enkgx"]
 viewport_path = NodePath("img")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_4ticl"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_or0ey"]
 viewport_path = NodePath("img")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_3hpxe"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_gaywo"]
 viewport_path = NodePath("img")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_met1d"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_88jcu"]
 viewport_path = NodePath("img")
 
 [sub_resource type="Animation" id="Animation_4yk4d"]
@@ -113,7 +113,7 @@ texture = ExtResource("4_dgw2j")
 modulate = Color(0, 0, 0, 0.768627)
 position = Vector2(111, 425)
 scale = Vector2(1.2, 1.2)
-texture = SubResource("ViewportTexture_hv3wh")
+texture = SubResource("ViewportTexture_5rruu")
 flip_h = true
 with_background = false
 
@@ -142,7 +142,7 @@ texture = ExtResource("4_dgw2j")
 modulate = Color(0, 0, 0, 0.768627)
 position = Vector2(111, 425)
 scale = Vector2(1.2, 1.2)
-texture = SubResource("ViewportTexture_ianhi")
+texture = SubResource("ViewportTexture_j6up3")
 flip_h = true
 with_background = false
 
@@ -189,7 +189,7 @@ texture = ExtResource("4_dgw2j")
 modulate = Color(0, 0, 0, 0.768627)
 position = Vector2(111, 425)
 scale = Vector2(1.2, 1.2)
-texture = SubResource("ViewportTexture_0rcm6")
+texture = SubResource("ViewportTexture_enkgx")
 flip_h = true
 with_background = false
 
@@ -229,7 +229,7 @@ texture = ExtResource("4_dgw2j")
 modulate = Color(0, 0, 0, 0.768627)
 position = Vector2(111, 425)
 scale = Vector2(1.2, 1.2)
-texture = SubResource("ViewportTexture_4ticl")
+texture = SubResource("ViewportTexture_or0ey")
 flip_h = true
 with_background = false
 
@@ -270,7 +270,7 @@ texture = ExtResource("4_dgw2j")
 modulate = Color(0, 0, 0, 0.768627)
 position = Vector2(111, 425)
 scale = Vector2(1.2, 1.2)
-texture = SubResource("ViewportTexture_3hpxe")
+texture = SubResource("ViewportTexture_gaywo")
 flip_h = true
 with_background = false
 
@@ -316,7 +316,7 @@ texture = ExtResource("4_dgw2j")
 modulate = Color(0, 0, 0, 0.768627)
 position = Vector2(111, 425)
 scale = Vector2(1.2, 1.2)
-texture = SubResource("ViewportTexture_met1d")
+texture = SubResource("ViewportTexture_88jcu")
 flip_h = true
 with_background = false
 
