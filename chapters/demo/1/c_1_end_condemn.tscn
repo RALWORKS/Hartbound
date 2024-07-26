@@ -1,7 +1,8 @@
-[gd_scene load_steps=22 format=3 uid="uid://b1iitutmiqrgt"]
+[gd_scene load_steps=23 format=3 uid="uid://b1iitutmiqrgt"]
 
 [ext_resource type="PackedScene" uid="uid://bp8tsdjdbwj8i" path="res://cutscene/cutscene.tscn" id="1_xtuqw"]
 [ext_resource type="PackedScene" uid="uid://55vflx8ylix1" path="res://cutscene/cutscene_node.tscn" id="2_e4o2s"]
+[ext_resource type="PackedScene" uid="uid://cjdmjg15tmyyr" path="res://chapters/demo/1/c_2_segue.tscn" id="2_qh3w4"]
 [ext_resource type="Texture2D" uid="uid://dlfi64p84aoys" path="res://assets/scenes/demo/1/industrial/cutscene/1-ground.png" id="3_f65xa"]
 [ext_resource type="PackedScene" uid="uid://c5cgc0mqgy65h" path="res://character/taylor_hesitant.tscn" id="4_ecw63"]
 [ext_resource type="Texture2D" uid="uid://dx1wrwvh6nviu" path="res://assets/npcs/taylor/taylor_neutral.png" id="4_std1i"]
@@ -13,33 +14,34 @@
 [ext_resource type="PackedScene" uid="uid://gqiikiv318js" path="res://cutscene/has_resoultion_conditional_redirect.tscn" id="11_2bv1v"]
 [ext_resource type="PackedScene" uid="uid://cp5lbi0bmf5vp" path="res://tools/screen-guide-frame.tscn" id="11_lx3pb"]
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_u1h4m"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_3tst5"]
 viewport_path = NodePath("img")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_xh2qm"]
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_52qgv"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_8gd5d"]
 viewport_path = NodePath("img")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_d3kqo"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_wuhnr"]
 viewport_path = NodePath("img")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_01vqw"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_yiacn"]
 viewport_path = NodePath("img")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_36ju6"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_yxkyk"]
 viewport_path = NodePath("img")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_s87o3"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_8srkx"]
 viewport_path = NodePath("img")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_kkal6"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_lopr1"]
 viewport_path = NodePath("img")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_qxra0"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_bqyhi"]
 viewport_path = NodePath("img")
 
 [node name="C1EndCondemn" instance=ExtResource("1_xtuqw")]
+next_cutscene = ExtResource("2_qh3w4")
 
 [node name="1" parent="." index="0" instance=ExtResource("2_e4o2s")]
 
@@ -117,7 +119,7 @@ scale = Vector2(0.7, 0.7)
 modulate = Color(0, 0, 0, 1)
 position = Vector2(-11, 139)
 scale = Vector2(1.8, 1.8)
-texture = SubResource("ViewportTexture_u1h4m")
+texture = SubResource("ViewportTexture_3tst5")
 flip_h = true
 with_background = false
 
@@ -191,7 +193,7 @@ texture = ExtResource("4_std1i")
 modulate = Color(0, 0, 0, 1)
 position = Vector2(-11, 139)
 scale = Vector2(1.8, 1.8)
-texture = SubResource("ViewportTexture_52qgv")
+texture = SubResource("ViewportTexture_8gd5d")
 flip_h = true
 with_background = false
 
@@ -258,7 +260,7 @@ texture = ExtResource("4_std1i")
 modulate = Color(0, 0, 0, 1)
 position = Vector2(-11, 139)
 scale = Vector2(1.8, 1.8)
-texture = SubResource("ViewportTexture_d3kqo")
+texture = SubResource("ViewportTexture_wuhnr")
 flip_h = true
 with_background = false
 
@@ -309,7 +311,7 @@ texture = ExtResource("4_std1i")
 modulate = Color(0, 0, 0, 1)
 position = Vector2(-11, 139)
 scale = Vector2(1.8, 1.8)
-texture = SubResource("ViewportTexture_01vqw")
+texture = SubResource("ViewportTexture_yiacn")
 flip_h = true
 with_background = false
 
@@ -388,7 +390,7 @@ scale = Vector2(0.7, 0.7)
 [node name="Profile" parent="No" index="2" instance=ExtResource("6_vfsqc")]
 position = Vector2(-11, 104)
 scale = Vector2(1.8, 1.8)
-texture = SubResource("ViewportTexture_36ju6")
+texture = SubResource("ViewportTexture_yxkyk")
 flip_h = true
 with_background = false
 
@@ -447,7 +449,7 @@ scale = Vector2(0.7, 0.7)
 [node name="Profile" parent="NoNoBelief" index="2" instance=ExtResource("6_vfsqc")]
 position = Vector2(-11, 104)
 scale = Vector2(1.8, 1.8)
-texture = SubResource("ViewportTexture_s87o3")
+texture = SubResource("ViewportTexture_8srkx")
 flip_h = true
 with_background = false
 
@@ -482,7 +484,7 @@ scale = Vector2(0.7, 0.7)
 [node name="Profile" parent="NoSomeBelief" index="2" instance=ExtResource("6_vfsqc")]
 position = Vector2(-11, 104)
 scale = Vector2(1.8, 1.8)
-texture = SubResource("ViewportTexture_kkal6")
+texture = SubResource("ViewportTexture_lopr1")
 flip_h = true
 with_background = false
 
@@ -519,7 +521,7 @@ scale = Vector2(0.7, 0.7)
 [node name="Profile" parent="NoFullBelief" index="2" instance=ExtResource("6_vfsqc")]
 position = Vector2(-11, 104)
 scale = Vector2(1.8, 1.8)
-texture = SubResource("ViewportTexture_qxra0")
+texture = SubResource("ViewportTexture_bqyhi")
 flip_h = true
 with_background = false
 

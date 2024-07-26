@@ -1,7 +1,8 @@
-[gd_scene load_steps=18 format=3 uid="uid://ssp8yf808jyf"]
+[gd_scene load_steps=19 format=3 uid="uid://ssp8yf808jyf"]
 
 [ext_resource type="PackedScene" uid="uid://bp8tsdjdbwj8i" path="res://cutscene/cutscene.tscn" id="1_j6s24"]
 [ext_resource type="PackedScene" uid="uid://55vflx8ylix1" path="res://cutscene/cutscene_node.tscn" id="2_8b8lo"]
+[ext_resource type="PackedScene" uid="uid://cjdmjg15tmyyr" path="res://chapters/demo/1/c_2_segue.tscn" id="2_k7ov4"]
 [ext_resource type="PackedScene" uid="uid://gqiikiv318js" path="res://cutscene/has_resoultion_conditional_redirect.tscn" id="3_888y0"]
 [ext_resource type="Texture2D" uid="uid://dlfi64p84aoys" path="res://assets/scenes/demo/1/industrial/cutscene/1-ground.png" id="3_t1am5"]
 [ext_resource type="PackedScene" uid="uid://c5cgc0mqgy65h" path="res://character/taylor_hesitant.tscn" id="4_fl887"]
@@ -13,25 +14,26 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0o0tw"]
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_lvnj4"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_8mel7"]
 viewport_path = NodePath("img")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_agjuh"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_8alj7"]
 viewport_path = NodePath("img")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_c3fuh"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_35eus"]
 viewport_path = NodePath("img")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_4e3yp"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_5rtw7"]
 viewport_path = NodePath("img")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_rk0rv"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_fg6vy"]
 viewport_path = NodePath("img")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_4afen"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_yirdg"]
 viewport_path = NodePath("img")
 
 [node name="C1EndAgree" instance=ExtResource("1_j6s24")]
+next_cutscene = ExtResource("2_k7ov4")
 
 [node name="1" parent="." index="0" node_paths=PackedStringArray("next") instance=ExtResource("2_8b8lo")]
 next = NodePath("../Q")
@@ -136,7 +138,7 @@ flip_h = true
 [node name="Profile" parent="YesFullyBelieves" index="2" instance=ExtResource("9_1dapo")]
 position = Vector2(0, 73)
 scale = Vector2(2, 2)
-texture = SubResource("ViewportTexture_lvnj4")
+texture = SubResource("ViewportTexture_8mel7")
 
 [node name="SmartLabel" parent="YesFullyBelieves" index="3" instance=ExtResource("5_gpox3")]
 offset_top = 829.0
@@ -163,7 +165,7 @@ flip_h = true
 [node name="Profile" parent="YesHalfBelieves" index="2" instance=ExtResource("9_1dapo")]
 position = Vector2(0, 73)
 scale = Vector2(2, 2)
-texture = SubResource("ViewportTexture_agjuh")
+texture = SubResource("ViewportTexture_8alj7")
 
 [node name="SmartLabel" parent="YesHalfBelieves" index="3" instance=ExtResource("5_gpox3")]
 offset_top = 829.0
@@ -215,7 +217,7 @@ flip_h = true
 [node name="Profile" parent="YesDisBelieves2" index="2" instance=ExtResource("9_1dapo")]
 position = Vector2(0, 73)
 scale = Vector2(2, 2)
-texture = SubResource("ViewportTexture_c3fuh")
+texture = SubResource("ViewportTexture_35eus")
 
 [node name="SmartLabel" parent="YesDisBelieves2" index="3" instance=ExtResource("5_gpox3")]
 offset_top = 829.0
@@ -282,7 +284,7 @@ scale = Vector2(1.5, 1.5)
 [node name="Profile" parent="NoFullyBelieves" index="2" instance=ExtResource("9_1dapo")]
 position = Vector2(0, 73)
 scale = Vector2(2, 2)
-texture = SubResource("ViewportTexture_4e3yp")
+texture = SubResource("ViewportTexture_5rtw7")
 
 [node name="SmartLabel" parent="NoFullyBelieves" index="3" instance=ExtResource("5_gpox3")]
 offset_top = 829.0
@@ -306,7 +308,7 @@ scale = Vector2(1.5, 1.5)
 [node name="Profile" parent="NoHalfBelieves" index="2" instance=ExtResource("9_1dapo")]
 position = Vector2(0, 73)
 scale = Vector2(2, 2)
-texture = SubResource("ViewportTexture_rk0rv")
+texture = SubResource("ViewportTexture_fg6vy")
 
 [node name="SmartLabel" parent="NoHalfBelieves" index="3" instance=ExtResource("5_gpox3")]
 offset_left = 0.0
@@ -334,7 +336,7 @@ scale = Vector2(1.5, 1.5)
 [node name="Profile" parent="NoDisBelieves" index="2" instance=ExtResource("9_1dapo")]
 position = Vector2(0, 73)
 scale = Vector2(2, 2)
-texture = SubResource("ViewportTexture_4afen")
+texture = SubResource("ViewportTexture_yirdg")
 
 [node name="SmartLabel" parent="NoDisBelieves" index="3" instance=ExtResource("5_gpox3")]
 offset_left = 0.0

@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://b0s36ygh6l0np"]
+[gd_scene load_steps=13 format=3 uid="uid://b0s36ygh6l0np"]
 
 [ext_resource type="PackedScene" uid="uid://bp8tsdjdbwj8i" path="res://cutscene/cutscene.tscn" id="1_aiv4b"]
 [ext_resource type="PackedScene" uid="uid://55vflx8ylix1" path="res://cutscene/cutscene_node.tscn" id="2_wm812"]
@@ -6,16 +6,20 @@
 [ext_resource type="Texture2D" uid="uid://dx1wrwvh6nviu" path="res://assets/npcs/taylor/taylor_neutral.png" id="4_m4vue"]
 [ext_resource type="PackedScene" uid="uid://b11g7mb25w5xp" path="res://cutscene/smart_label.tscn" id="5_g5iif"]
 [ext_resource type="PackedScene" uid="uid://cemborgcdx75k" path="res://character/profile.tscn" id="6_7gdxr"]
-[ext_resource type="PackedScene" uid="uid://cbobuwybuv22l" path="res://cutscene/die_on_start.tscn" id="7_0puay"]
+[ext_resource type="PackedScene" uid="uid://ln052q6vf1yr" path="res://cutscene/set_next_on_start.tscn" id="7_x2im7"]
+[ext_resource type="PackedScene" uid="uid://b1lrqpjjqlqjg" path="res://cutscene/cutscene_controlled_section.tscn" id="7_xuarx"]
+[ext_resource type="PackedScene" uid="uid://b1iitutmiqrgt" path="res://chapters/demo/1/c_1_end_condemn.tscn" id="8_fyyde"]
+[ext_resource type="PackedScene" uid="uid://da4krrusgxivu" path="res://chapters/demo/1/c_1_end_secret.tscn" id="9_un4fp"]
+[ext_resource type="PackedScene" uid="uid://ssp8yf808jyf" path="res://chapters/demo/1/c_1_end_agree.tscn" id="10_s8adc"]
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_xbfkq"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_1yiak"]
 viewport_path = NodePath("img")
 
 [node name="C1End" node_paths=PackedStringArray("starting_page") instance=ExtResource("1_aiv4b")]
 starting_page = NodePath("1")
 
 [node name="1" parent="." index="0" node_paths=PackedStringArray("next") instance=ExtResource("2_wm812")]
-next = NodePath("../2")
+next = NodePath("../Condemn?")
 
 [node name="bg" type="Sprite2D" parent="1" index="0"]
 scale = Vector2(1.35, 1.35)
@@ -44,63 +48,94 @@ text = "\"That's all I needed to gather for the day.\""
 [node name="Profile" parent="1" index="4" instance=ExtResource("6_7gdxr")]
 position = Vector2(-81.9999, 671)
 scale = Vector2(0.8, 0.8)
-texture = SubResource("ViewportTexture_xbfkq")
+texture = SubResource("ViewportTexture_1yiak")
 flip_h = true
 with_background = false
 
-[node name="2" parent="." index="1" node_paths=PackedStringArray("next") instance=ExtResource("2_wm812")]
-visible = false
-next = NodePath("../3")
+[node name="Condemn?" parent="." index="1" node_paths=PackedStringArray("else_go", "next") instance=ExtResource("7_xuarx")]
+section_id = "check-condemned-taylor-for-c1-final"
+prerequisite_id = "taylor-dont-make-me-report-you-for-treason"
+else_go = NodePath("../Agree?")
+allow_repeats = true
+direct_to_next = true
+next = NodePath("../SegueCondemn")
 
-[node name="bg" type="Sprite2D" parent="2" index="0"]
+[node name="Agree?" parent="." index="2" node_paths=PackedStringArray("else_go", "next") instance=ExtResource("7_xuarx")]
+section_id = "check-agreed-taylor-for-c1-final"
+prerequisite_id = "taylor-i-want-to-escape-too"
+else_go = NodePath("../SegueSecret")
+allow_repeats = true
+direct_to_next = true
+next = NodePath("../SegueAgree")
+
+[node name="SegueCondemn" parent="." index="3" instance=ExtResource("2_wm812")]
+
+[node name="SetNextOnStart" parent="SegueCondemn" index="0" node_paths=PackedStringArray("cutscene") instance=ExtResource("7_x2im7")]
+cutscene = NodePath("../..")
+next = ExtResource("8_fyyde")
+
+[node name="bg" type="Sprite2D" parent="SegueCondemn" index="1"]
 scale = Vector2(1.35, 1.35)
 texture = ExtResource("3_bgol6")
 centered = false
 
-[node name="taylor2" type="Sprite2D" parent="2" index="1"]
+[node name="taylor2" type="Sprite2D" parent="SegueCondemn" index="2"]
 position = Vector2(455, 850)
 scale = Vector2(0.7, 0.7)
 texture = ExtResource("4_m4vue")
 
-[node name="SmartLabel" parent="2" index="2" instance=ExtResource("5_g5iif")]
+[node name="SmartLabel" parent="SegueCondemn" index="3" instance=ExtResource("5_g5iif")]
 offset_left = 645.0
 offset_top = 95.0
 offset_right = 1302.0
 offset_bottom = 209.0
 text = "\"I'm good to call it a day, too,\" Taylor says.
-\"I'll radio Jerry to set up a rendezvous.\""
+\"But hold up a minute?\""
 
-[node name="3" parent="." index="2" node_paths=PackedStringArray("next") instance=ExtResource("2_wm812")]
-visible = false
-next = NodePath("../4")
+[node name="SegueSecret" parent="." index="4" instance=ExtResource("2_wm812")]
 
-[node name="ColorRect" type="ColorRect" parent="3" index="0"]
-offset_left = -71.0
-offset_top = -34.0
-offset_right = 2825.0
-offset_bottom = 1392.0
-color = Color(0, 0, 0, 1)
+[node name="bg" type="Sprite2D" parent="SegueSecret" index="0"]
+scale = Vector2(1.35, 1.35)
+texture = ExtResource("3_bgol6")
+centered = false
 
-[node name="SmartLabel" parent="3" index="1" instance=ExtResource("5_g5iif")]
-offset_left = 223.0
-offset_top = 261.0
-offset_right = 1520.0
-offset_bottom = 807.0
-text = "Checkpoint complete.
+[node name="taylor2" type="Sprite2D" parent="SegueSecret" index="1"]
+position = Vector2(455, 850)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("4_m4vue")
 
-Taylor radios Jerry, and you set up a rendezvous.
+[node name="SmartLabel" parent="SegueSecret" index="2" instance=ExtResource("5_g5iif")]
+offset_left = 645.0
+offset_top = 95.0
+offset_right = 1302.0
+offset_bottom = 209.0
+text = "\"I'm good to call it a day, too,\" Taylor says.
+\"But hold up a minute?\""
 
+[node name="SetNextOnStart" parent="SegueSecret" index="3" node_paths=PackedStringArray("cutscene") instance=ExtResource("7_x2im7")]
+cutscene = NodePath("../..")
+next = ExtResource("9_un4fp")
 
+[node name="SegueAgree" parent="." index="5" instance=ExtResource("2_wm812")]
 
-Coming Soon:
+[node name="bg" type="Sprite2D" parent="SegueAgree" index="0"]
+scale = Vector2(1.35, 1.35)
+texture = ExtResource("3_bgol6")
+centered = false
 
-You'll head out into the woods to regroup with the others, and scout out a place to camp for the final night of the salvaging trip.
+[node name="taylor2" type="Sprite2D" parent="SegueAgree" index="1"]
+position = Vector2(455, 850)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("4_m4vue")
 
-But you won't make it home easily."
+[node name="SmartLabel" parent="SegueAgree" index="2" instance=ExtResource("5_g5iif")]
+offset_left = 645.0
+offset_top = 95.0
+offset_right = 1302.0
+offset_bottom = 209.0
+text = "\"I'm good to call it a day, too,\" Taylor says.
+\"But hold up a minute?\""
 
-[node name="4" parent="." index="3" node_paths=PackedStringArray("next", "use_on_start_fn_from") instance=ExtResource("2_wm812")]
-visible = false
-next = NodePath("../2")
-use_on_start_fn_from = NodePath("DieOnStart")
-
-[node name="DieOnStart" parent="4" index="0" instance=ExtResource("7_0puay")]
+[node name="SetNextOnStart" parent="SegueAgree" index="3" node_paths=PackedStringArray("cutscene") instance=ExtResource("7_x2im7")]
+cutscene = NodePath("../..")
+next = ExtResource("10_s8adc")
