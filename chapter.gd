@@ -108,7 +108,7 @@ func start_cutscene(
 		for c in cutscene_sequence:
 			cutscene.cutscene_sequence.push_back(c)
 	else:
-		cutscene.next_cutscene = next_cutscene
+		cutscene.next_cutscene = next_cutscene if next_cutscene else cutscene.next_cutscene
 	cutscene.call_deferred("start")
 
 func end_cutscene():

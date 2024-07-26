@@ -12,7 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://da4krrusgxivu" path="res://chapters/demo/1/c_1_end_secret.tscn" id="9_un4fp"]
 [ext_resource type="PackedScene" uid="uid://ssp8yf808jyf" path="res://chapters/demo/1/c_1_end_agree.tscn" id="10_s8adc"]
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_1yiak"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_cs6k8"]
 viewport_path = NodePath("img")
 
 [node name="C1End" node_paths=PackedStringArray("starting_page") instance=ExtResource("1_aiv4b")]
@@ -48,7 +48,7 @@ text = "\"That's all I needed to gather for the day.\""
 [node name="Profile" parent="1" index="4" instance=ExtResource("6_7gdxr")]
 position = Vector2(-81.9999, 671)
 scale = Vector2(0.8, 0.8)
-texture = SubResource("ViewportTexture_1yiak")
+texture = SubResource("ViewportTexture_cs6k8")
 flip_h = true
 with_background = false
 

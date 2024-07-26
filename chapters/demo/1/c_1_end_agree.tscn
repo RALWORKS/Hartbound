@@ -14,25 +14,26 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0o0tw"]
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_8mel7"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_teqha"]
 viewport_path = NodePath("img")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_8alj7"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_ppyqe"]
 viewport_path = NodePath("img")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_35eus"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_pxatr"]
 viewport_path = NodePath("img")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_5rtw7"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_4bm60"]
 viewport_path = NodePath("img")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_fg6vy"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_6u8fq"]
 viewport_path = NodePath("img")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_yirdg"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_ck5kj"]
 viewport_path = NodePath("img")
 
-[node name="C1EndAgree" instance=ExtResource("1_j6s24")]
+[node name="C1EndAgree" node_paths=PackedStringArray("starting_page") instance=ExtResource("1_j6s24")]
+starting_page = NodePath("1")
 next_cutscene = ExtResource("2_k7ov4")
 
 [node name="1" parent="." index="0" node_paths=PackedStringArray("next") instance=ExtResource("2_8b8lo")]
@@ -91,7 +92,7 @@ text = "\"Do you want to come with me?\""
 [node name="Yes" parent="Q" index="4" node_paths=PackedStringArray("to") instance=ExtResource("7_s0uu8")]
 offset_left = 63.0
 offset_top = 848.0
-offset_right = 1863.0
+offset_right = 1663.0
 offset_bottom = 930.0
 text = "> \"Yes.\""
 to = NodePath("../../YesSideElves?")
@@ -99,7 +100,7 @@ to = NodePath("../../YesSideElves?")
 [node name="No" parent="Q" index="5" node_paths=PackedStringArray("to") instance=ExtResource("7_s0uu8")]
 offset_left = 63.0
 offset_top = 947.0
-offset_right = 1863.0
+offset_right = 1663.0
 offset_bottom = 1029.0
 text = "> \"No.\""
 to = NodePath("../../NoSideElves?")
@@ -136,9 +137,11 @@ texture = ExtResource("6_jffnu")
 flip_h = true
 
 [node name="Profile" parent="YesFullyBelieves" index="2" instance=ExtResource("9_1dapo")]
-position = Vector2(0, 73)
-scale = Vector2(2, 2)
-texture = SubResource("ViewportTexture_8mel7")
+position = Vector2(-200, 100)
+scale = Vector2(1.8, 1.8)
+texture = SubResource("ViewportTexture_teqha")
+flip_h = true
+with_background = false
 
 [node name="SmartLabel" parent="YesFullyBelieves" index="3" instance=ExtResource("5_gpox3")]
 offset_top = 829.0
@@ -163,9 +166,11 @@ texture = ExtResource("6_jffnu")
 flip_h = true
 
 [node name="Profile" parent="YesHalfBelieves" index="2" instance=ExtResource("9_1dapo")]
-position = Vector2(0, 73)
-scale = Vector2(2, 2)
-texture = SubResource("ViewportTexture_8alj7")
+position = Vector2(-200, 100)
+scale = Vector2(1.8, 1.8)
+texture = SubResource("ViewportTexture_ppyqe")
+flip_h = true
+with_background = false
 
 [node name="SmartLabel" parent="YesHalfBelieves" index="3" instance=ExtResource("5_gpox3")]
 offset_top = 829.0
@@ -215,9 +220,12 @@ texture = ExtResource("6_jffnu")
 flip_h = true
 
 [node name="Profile" parent="YesDisBelieves2" index="2" instance=ExtResource("9_1dapo")]
-position = Vector2(0, 73)
-scale = Vector2(2, 2)
-texture = SubResource("ViewportTexture_35eus")
+position = Vector2(-200, 100)
+scale = Vector2(1.8, 1.8)
+texture = SubResource("ViewportTexture_pxatr")
+flip_h = true
+with_background = false
+start_frown = true
 
 [node name="SmartLabel" parent="YesDisBelieves2" index="3" instance=ExtResource("5_gpox3")]
 offset_top = 829.0
@@ -282,9 +290,12 @@ position = Vector2(1205, 1696)
 scale = Vector2(1.5, 1.5)
 
 [node name="Profile" parent="NoFullyBelieves" index="2" instance=ExtResource("9_1dapo")]
-position = Vector2(0, 73)
-scale = Vector2(2, 2)
-texture = SubResource("ViewportTexture_5rtw7")
+position = Vector2(-200, 100)
+scale = Vector2(1.8, 1.8)
+texture = SubResource("ViewportTexture_4bm60")
+flip_h = true
+with_background = false
+start_frown = true
 
 [node name="SmartLabel" parent="NoFullyBelieves" index="3" instance=ExtResource("5_gpox3")]
 offset_top = 829.0
@@ -306,9 +317,12 @@ position = Vector2(1205, 1696)
 scale = Vector2(1.5, 1.5)
 
 [node name="Profile" parent="NoHalfBelieves" index="2" instance=ExtResource("9_1dapo")]
-position = Vector2(0, 73)
-scale = Vector2(2, 2)
-texture = SubResource("ViewportTexture_fg6vy")
+position = Vector2(-200, 100)
+scale = Vector2(1.8, 1.8)
+texture = SubResource("ViewportTexture_6u8fq")
+flip_h = true
+with_background = false
+start_frown = true
 
 [node name="SmartLabel" parent="NoHalfBelieves" index="3" instance=ExtResource("5_gpox3")]
 offset_left = 0.0
@@ -316,7 +330,7 @@ offset_top = 829.0
 offset_right = 1940.0
 offset_bottom = 1009.0
 bbcode_enabled = true
-text = "\"I'm a little different from you <taylor>. I've settled a little more into the Human ways. Sun Temple isn't home.
+text = "\"I'm a little different from you, <taylor>. I've settled a little more into the Human ways. Sun Temple isn't home.
 But will Moon Temple be any different, now that I've been among humans for all these years? I need more time to
 figure myself out before I can run off--[i]if[/i] I run off at all."
 metadata/_edit_use_anchors_ = true
@@ -334,9 +348,11 @@ position = Vector2(1205, 1696)
 scale = Vector2(1.5, 1.5)
 
 [node name="Profile" parent="NoDisBelieves" index="2" instance=ExtResource("9_1dapo")]
-position = Vector2(0, 73)
-scale = Vector2(2, 2)
-texture = SubResource("ViewportTexture_yirdg")
+position = Vector2(-200, 100)
+scale = Vector2(1.8, 1.8)
+texture = SubResource("ViewportTexture_ck5kj")
+with_background = false
+start_frown = true
 
 [node name="SmartLabel" parent="NoDisBelieves" index="3" instance=ExtResource("5_gpox3")]
 offset_left = 0.0

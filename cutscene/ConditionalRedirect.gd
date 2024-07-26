@@ -11,7 +11,7 @@ extends "res://cutscene/CutsceneNode.gd"
 
 
 func start():
-	
+	print(name)
 	var p = conditional_predicate
 	if bool_predicate:
 		p = _str_to_bool(p)

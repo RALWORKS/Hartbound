@@ -14,36 +14,38 @@
 [ext_resource type="PackedScene" uid="uid://gqiikiv318js" path="res://cutscene/has_resoultion_conditional_redirect.tscn" id="11_2bv1v"]
 [ext_resource type="PackedScene" uid="uid://cp5lbi0bmf5vp" path="res://tools/screen-guide-frame.tscn" id="11_lx3pb"]
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_3tst5"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_njahl"]
 viewport_path = NodePath("img")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_xh2qm"]
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_8gd5d"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_xrr23"]
 viewport_path = NodePath("img")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_wuhnr"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_sillq"]
 viewport_path = NodePath("img")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_yiacn"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_jhio4"]
 viewport_path = NodePath("img")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_yxkyk"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_ebq3w"]
 viewport_path = NodePath("img")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_8srkx"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_whcu5"]
 viewport_path = NodePath("img")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_lopr1"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_8te48"]
 viewport_path = NodePath("img")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_bqyhi"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_ng4lm"]
 viewport_path = NodePath("img")
 
-[node name="C1EndCondemn" instance=ExtResource("1_xtuqw")]
+[node name="C1EndCondemn" node_paths=PackedStringArray("starting_page") instance=ExtResource("1_xtuqw")]
+starting_page = NodePath("1")
 next_cutscene = ExtResource("2_qh3w4")
 
-[node name="1" parent="." index="0" instance=ExtResource("2_e4o2s")]
+[node name="1" parent="." index="0" node_paths=PackedStringArray("next") instance=ExtResource("2_e4o2s")]
+next = NodePath("../Q")
 
 [node name="bg" type="Sprite2D" parent="1" index="0"]
 scale = Vector2(1.35, 1.35)
@@ -76,6 +78,7 @@ offset_bottom = 565.0
 text = "\"Should I expect to return to Sun Temple bound in the back of the cart?\""
 
 [node name="Q" parent="." index="1" instance=ExtResource("2_e4o2s")]
+is_option_node = true
 
 [node name="bg" type="Sprite2D" parent="Q" index="0"]
 scale = Vector2(1.45072, 1.35)
@@ -89,19 +92,21 @@ offset_right = 1246.0
 offset_bottom = 528.0
 text = "She wants to know if you're going to report her for treason. Are you?"
 
-[node name="Yes" parent="Q" index="2" instance=ExtResource("7_ip8ig")]
+[node name="Yes" parent="Q" index="2" node_paths=PackedStringArray("to") instance=ExtResource("7_ip8ig")]
 offset_left = 192.0
 offset_top = 535.0
 offset_right = 351.0
 offset_bottom = 587.0
 text = "Yes"
+to = NodePath("../../YesSidesElves?")
 
-[node name="No" parent="Q" index="3" instance=ExtResource("7_ip8ig")]
+[node name="No" parent="Q" index="3" node_paths=PackedStringArray("to") instance=ExtResource("7_ip8ig")]
 offset_left = 192.0
 offset_top = 604.0
 offset_right = 351.0
 offset_bottom = 656.0
 text = "No"
+to = NodePath("../../NoSidesElves?")
 
 [node name="Yes1" parent="." index="2" instance=ExtResource("2_e4o2s")]
 visible = false
@@ -119,7 +124,7 @@ scale = Vector2(0.7, 0.7)
 modulate = Color(0, 0, 0, 1)
 position = Vector2(-11, 139)
 scale = Vector2(1.8, 1.8)
-texture = SubResource("ViewportTexture_3tst5")
+texture = SubResource("ViewportTexture_njahl")
 flip_h = true
 with_background = false
 
@@ -191,9 +196,9 @@ texture = ExtResource("4_std1i")
 
 [node name="Profile" parent="YesFullyBelieves" index="2" instance=ExtResource("6_vfsqc")]
 modulate = Color(0, 0, 0, 1)
-position = Vector2(-11, 139)
-scale = Vector2(1.8, 1.8)
-texture = SubResource("ViewportTexture_8gd5d")
+position = Vector2(-226, 139)
+scale = Vector2(1.5, 1.5)
+texture = SubResource("ViewportTexture_xrr23")
 flip_h = true
 with_background = false
 
@@ -258,9 +263,9 @@ texture = ExtResource("4_std1i")
 
 [node name="Profile" parent="YesHalfBelieves" index="2" instance=ExtResource("6_vfsqc")]
 modulate = Color(0, 0, 0, 1)
-position = Vector2(-11, 139)
-scale = Vector2(1.8, 1.8)
-texture = SubResource("ViewportTexture_wuhnr")
+position = Vector2(-226, 139)
+scale = Vector2(1.5, 1.5)
+texture = SubResource("ViewportTexture_sillq")
 flip_h = true
 with_background = false
 
@@ -309,9 +314,9 @@ texture = ExtResource("4_std1i")
 
 [node name="Profile" parent="YesNoBelief" index="2" instance=ExtResource("6_vfsqc")]
 modulate = Color(0, 0, 0, 1)
-position = Vector2(-11, 139)
-scale = Vector2(1.8, 1.8)
-texture = SubResource("ViewportTexture_yiacn")
+position = Vector2(-226, 139)
+scale = Vector2(1.5, 1.5)
+texture = SubResource("ViewportTexture_jhio4")
 flip_h = true
 with_background = false
 
@@ -390,7 +395,7 @@ scale = Vector2(0.7, 0.7)
 [node name="Profile" parent="No" index="2" instance=ExtResource("6_vfsqc")]
 position = Vector2(-11, 104)
 scale = Vector2(1.8, 1.8)
-texture = SubResource("ViewportTexture_yxkyk")
+texture = SubResource("ViewportTexture_ebq3w")
 flip_h = true
 with_background = false
 
@@ -417,8 +422,10 @@ bbcode_enabled = true
 text = "\"They will ask, you know. I was close enough to you. And if you think they gave [i]you[/i] a hard time for your
 heritage, imagine how it was for me.\""
 
-[node name="NoSidesElves?" parent="." index="12" instance=ExtResource("11_2bv1v")]
+[node name="NoSidesElves?" parent="." index="12" node_paths=PackedStringArray("next_if_true", "next_if_false") instance=ExtResource("11_2bv1v")]
 visible = false
+next_if_true = NodePath("../NoElvesAndElves?")
+next_if_false = NodePath("../NoHumansAndHumans?")
 conditional_subject = "initially-sides-with-the-elves"
 
 [node name="NoElvesAndElves?" parent="." index="13" node_paths=PackedStringArray("next_if_true", "next_if_false") instance=ExtResource("11_2bv1v")]
@@ -447,11 +454,12 @@ position = Vector2(931, 848)
 scale = Vector2(0.7, 0.7)
 
 [node name="Profile" parent="NoNoBelief" index="2" instance=ExtResource("6_vfsqc")]
-position = Vector2(-11, 104)
-scale = Vector2(1.8, 1.8)
-texture = SubResource("ViewportTexture_8srkx")
+position = Vector2(-226, 128)
+scale = Vector2(1.5, 1.5)
+texture = SubResource("ViewportTexture_whcu5")
 flip_h = true
 with_background = false
+start_frown = true
 
 [node name="SmartLabel3" parent="NoNoBelief" index="3" instance=ExtResource("5_1qq82")]
 offset_left = -3.0
@@ -482,11 +490,12 @@ position = Vector2(931, 848)
 scale = Vector2(0.7, 0.7)
 
 [node name="Profile" parent="NoSomeBelief" index="2" instance=ExtResource("6_vfsqc")]
-position = Vector2(-11, 104)
-scale = Vector2(1.8, 1.8)
-texture = SubResource("ViewportTexture_lopr1")
+position = Vector2(-226, 128)
+scale = Vector2(1.5, 1.5)
+texture = SubResource("ViewportTexture_8te48")
 flip_h = true
 with_background = false
+start_frown = true
 
 [node name="SmartLabel3" parent="NoSomeBelief" index="3" instance=ExtResource("5_1qq82")]
 offset_left = -3.0
@@ -506,7 +515,6 @@ bbcode_enabled = true
 text = "\"And I know I'm putting that at risk, keeping your secret. I [i]will[/i] keep it. But please don't take that for granted.\""
 
 [node name="NoFullBelief" parent="." index="17" node_paths=PackedStringArray("next") instance=ExtResource("2_e4o2s")]
-visible = false
 next = NodePath("../NoEnd")
 
 [node name="bg" type="Sprite2D" parent="NoFullBelief" index="0"]
@@ -519,11 +527,12 @@ position = Vector2(931, 848)
 scale = Vector2(0.7, 0.7)
 
 [node name="Profile" parent="NoFullBelief" index="2" instance=ExtResource("6_vfsqc")]
-position = Vector2(-11, 104)
-scale = Vector2(1.8, 1.8)
-texture = SubResource("ViewportTexture_bqyhi")
+position = Vector2(-226, 128)
+scale = Vector2(1.5, 1.5)
+texture = SubResource("ViewportTexture_ng4lm")
 flip_h = true
 with_background = false
+start_frown = true
 
 [node name="SmartLabel3" parent="NoFullBelief" index="3" instance=ExtResource("5_1qq82")]
 offset_left = -5.0
