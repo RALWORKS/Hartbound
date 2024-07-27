@@ -14,30 +14,30 @@
 [ext_resource type="PackedScene" uid="uid://gqiikiv318js" path="res://cutscene/has_resoultion_conditional_redirect.tscn" id="11_2bv1v"]
 [ext_resource type="PackedScene" uid="uid://cp5lbi0bmf5vp" path="res://tools/screen-guide-frame.tscn" id="11_lx3pb"]
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_njahl"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_cvg83"]
 viewport_path = NodePath("img")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_xh2qm"]
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_xrr23"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_svmto"]
 viewport_path = NodePath("img")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_sillq"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_2a3el"]
 viewport_path = NodePath("img")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_jhio4"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_5p3g8"]
 viewport_path = NodePath("img")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_ebq3w"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_q8me5"]
 viewport_path = NodePath("img")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_whcu5"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_754mh"]
 viewport_path = NodePath("img")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_8te48"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_5vlyy"]
 viewport_path = NodePath("img")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_ng4lm"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_q1kxj"]
 viewport_path = NodePath("img")
 
 [node name="C1EndCondemn" node_paths=PackedStringArray("starting_page") instance=ExtResource("1_xtuqw")]
@@ -124,7 +124,7 @@ scale = Vector2(0.7, 0.7)
 modulate = Color(0, 0, 0, 1)
 position = Vector2(-11, 139)
 scale = Vector2(1.8, 1.8)
-texture = SubResource("ViewportTexture_njahl")
+texture = SubResource("ViewportTexture_cvg83")
 flip_h = true
 with_background = false
 
@@ -198,7 +198,7 @@ texture = ExtResource("4_std1i")
 modulate = Color(0, 0, 0, 1)
 position = Vector2(-226, 139)
 scale = Vector2(1.5, 1.5)
-texture = SubResource("ViewportTexture_xrr23")
+texture = SubResource("ViewportTexture_svmto")
 flip_h = true
 with_background = false
 
@@ -265,7 +265,7 @@ texture = ExtResource("4_std1i")
 modulate = Color(0, 0, 0, 1)
 position = Vector2(-226, 139)
 scale = Vector2(1.5, 1.5)
-texture = SubResource("ViewportTexture_sillq")
+texture = SubResource("ViewportTexture_2a3el")
 flip_h = true
 with_background = false
 
@@ -316,7 +316,7 @@ texture = ExtResource("4_std1i")
 modulate = Color(0, 0, 0, 1)
 position = Vector2(-226, 139)
 scale = Vector2(1.5, 1.5)
-texture = SubResource("ViewportTexture_jhio4")
+texture = SubResource("ViewportTexture_5p3g8")
 flip_h = true
 with_background = false
 
@@ -370,14 +370,7 @@ offset_left = 341.0
 offset_top = 296.0
 offset_right = 656.0
 offset_bottom = 421.0
-text = "\"Thanks for the warning, I guess."
-
-[node name="SmartLabel3" parent="YesEnd" index="4" instance=ExtResource("5_1qq82")]
-offset_left = 1368.0
-offset_top = 926.0
-offset_right = 1573.0
-offset_bottom = 1013.0
-text = "\"Let's go.\""
+text = "\"Thanks for the warning, I guess--"
 
 [node name="No" parent="." index="11" node_paths=PackedStringArray("next") instance=ExtResource("2_e4o2s")]
 visible = false
@@ -395,7 +388,7 @@ scale = Vector2(0.7, 0.7)
 [node name="Profile" parent="No" index="2" instance=ExtResource("6_vfsqc")]
 position = Vector2(-11, 104)
 scale = Vector2(1.8, 1.8)
-texture = SubResource("ViewportTexture_ebq3w")
+texture = SubResource("ViewportTexture_q8me5")
 flip_h = true
 with_background = false
 
@@ -456,7 +449,7 @@ scale = Vector2(0.7, 0.7)
 [node name="Profile" parent="NoNoBelief" index="2" instance=ExtResource("6_vfsqc")]
 position = Vector2(-226, 128)
 scale = Vector2(1.5, 1.5)
-texture = SubResource("ViewportTexture_whcu5")
+texture = SubResource("ViewportTexture_754mh")
 flip_h = true
 with_background = false
 start_frown = true
@@ -492,7 +485,7 @@ scale = Vector2(0.7, 0.7)
 [node name="Profile" parent="NoSomeBelief" index="2" instance=ExtResource("6_vfsqc")]
 position = Vector2(-226, 128)
 scale = Vector2(1.5, 1.5)
-texture = SubResource("ViewportTexture_8te48")
+texture = SubResource("ViewportTexture_5vlyy")
 flip_h = true
 with_background = false
 start_frown = true
@@ -529,7 +522,7 @@ scale = Vector2(0.7, 0.7)
 [node name="Profile" parent="NoFullBelief" index="2" instance=ExtResource("6_vfsqc")]
 position = Vector2(-226, 128)
 scale = Vector2(1.5, 1.5)
-texture = SubResource("ViewportTexture_ng4lm")
+texture = SubResource("ViewportTexture_q1kxj")
 flip_h = true
 with_background = false
 start_frown = true
@@ -575,13 +568,6 @@ offset_left = 245.0
 offset_top = 400.0
 offset_right = 893.0
 offset_bottom = 562.0
-text = "\"I understand. I'm sorry. I wasn't thinking. But you're right--I should have been. I'll be more careful from now on."
-
-[node name="SmartLabel4" parent="NoEnd" index="3" instance=ExtResource("5_1qq82")]
-offset_left = 696.0
-offset_top = 582.0
-offset_right = 1297.0
-offset_bottom = 677.0
-text = "\"Let's go. I won't keep you any longer.\""
+text = "\"I understand. I'm sorry. I wasn't thinking. But you're right--I should have been. I'll be more careful from now on--"
 
 [node name="Frame" parent="." index="19" instance=ExtResource("11_lx3pb")]

@@ -12,7 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://da4krrusgxivu" path="res://chapters/demo/1/c_1_end_secret.tscn" id="9_un4fp"]
 [ext_resource type="PackedScene" uid="uid://ssp8yf808jyf" path="res://chapters/demo/1/c_1_end_agree.tscn" id="10_s8adc"]
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_cs6k8"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_s2frd"]
 viewport_path = NodePath("img")
 
 [node name="C1End" node_paths=PackedStringArray("starting_page") instance=ExtResource("1_aiv4b")]
@@ -48,7 +48,7 @@ text = "\"That's all I needed to gather for the day.\""
 [node name="Profile" parent="1" index="4" instance=ExtResource("6_7gdxr")]
 position = Vector2(-81.9999, 671)
 scale = Vector2(0.8, 0.8)
-texture = SubResource("ViewportTexture_cs6k8")
+texture = SubResource("ViewportTexture_s2frd")
 flip_h = true
 with_background = false
 
@@ -88,9 +88,8 @@ texture = ExtResource("4_m4vue")
 offset_left = 645.0
 offset_top = 95.0
 offset_right = 1302.0
-offset_bottom = 209.0
-text = "\"I'm good to call it a day, too,\" Taylor says.
-\"But hold up a minute?\""
+offset_bottom = 179.0
+text = "\"I'm good to call it a day, too,\" Taylor says."
 
 [node name="SegueSecret" parent="." index="4" instance=ExtResource("2_wm812")]
 
@@ -108,15 +107,15 @@ texture = ExtResource("4_m4vue")
 offset_left = 645.0
 offset_top = 95.0
 offset_right = 1302.0
-offset_bottom = 209.0
-text = "\"I'm good to call it a day, too,\" Taylor says.
-\"But hold up a minute?\""
+offset_bottom = 179.0
+text = "\"I'm good to call it a day, too,\" Taylor says."
 
 [node name="SetNextOnStart" parent="SegueSecret" index="3" node_paths=PackedStringArray("cutscene") instance=ExtResource("7_x2im7")]
 cutscene = NodePath("../..")
 next = ExtResource("9_un4fp")
 
 [node name="SegueAgree" parent="." index="5" instance=ExtResource("2_wm812")]
+visible = false
 
 [node name="bg" type="Sprite2D" parent="SegueAgree" index="0"]
 scale = Vector2(1.35, 1.35)
@@ -128,14 +127,13 @@ position = Vector2(455, 850)
 scale = Vector2(0.7, 0.7)
 texture = ExtResource("4_m4vue")
 
-[node name="SmartLabel" parent="SegueAgree" index="2" instance=ExtResource("5_g5iif")]
+[node name="SetNextOnStart" parent="SegueAgree" index="2" node_paths=PackedStringArray("cutscene") instance=ExtResource("7_x2im7")]
+cutscene = NodePath("../..")
+next = ExtResource("10_s8adc")
+
+[node name="SmartLabel" parent="SegueAgree" index="3" instance=ExtResource("5_g5iif")]
 offset_left = 645.0
 offset_top = 95.0
 offset_right = 1302.0
-offset_bottom = 209.0
-text = "\"I'm good to call it a day, too,\" Taylor says.
-\"But hold up a minute?\""
-
-[node name="SetNextOnStart" parent="SegueAgree" index="3" node_paths=PackedStringArray("cutscene") instance=ExtResource("7_x2im7")]
-cutscene = NodePath("../..")
-next = ExtResource("10_s8adc")
+offset_bottom = 179.0
+text = "\"I'm good to call it a day, too,\" Taylor says."

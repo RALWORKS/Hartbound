@@ -14,22 +14,22 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0o0tw"]
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_teqha"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_qrqcs"]
 viewport_path = NodePath("img")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_ppyqe"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_ds6c2"]
 viewport_path = NodePath("img")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_pxatr"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_h5ckk"]
 viewport_path = NodePath("img")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_4bm60"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_i4yl4"]
 viewport_path = NodePath("img")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_6u8fq"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_frsg7"]
 viewport_path = NodePath("img")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_ck5kj"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_16xvy"]
 viewport_path = NodePath("img")
 
 [node name="C1EndAgree" node_paths=PackedStringArray("starting_page") instance=ExtResource("1_j6s24")]
@@ -121,7 +121,7 @@ next_if_false = NodePath("../YesHalfBelieves")
 conditional_subject = "initially-no-longer-prays"
 
 [node name="YesFullyBelieves" parent="." index="5" node_paths=PackedStringArray("next") instance=ExtResource("2_8b8lo")]
-next = NodePath("../YesSegue")
+next = NodePath("")
 
 [node name="bg" type="Sprite2D" parent="YesFullyBelieves" index="0"]
 position = Vector2(-250, -74)
@@ -139,7 +139,7 @@ flip_h = true
 [node name="Profile" parent="YesFullyBelieves" index="2" instance=ExtResource("9_1dapo")]
 position = Vector2(-200, 100)
 scale = Vector2(1.8, 1.8)
-texture = SubResource("ViewportTexture_teqha")
+texture = SubResource("ViewportTexture_qrqcs")
 flip_h = true
 with_background = false
 
@@ -150,7 +150,7 @@ offset_bottom = 949.0
 text = "\"I'm done living among Humans while praying for their fall. Let's leave this place together.\""
 
 [node name="YesHalfBelieves" parent="." index="6" node_paths=PackedStringArray("next") instance=ExtResource("2_8b8lo")]
-next = NodePath("../YesSegue")
+next = NodePath("")
 
 [node name="bg" type="Sprite2D" parent="YesHalfBelieves" index="0"]
 position = Vector2(-250, -74)
@@ -168,7 +168,7 @@ flip_h = true
 [node name="Profile" parent="YesHalfBelieves" index="2" instance=ExtResource("9_1dapo")]
 position = Vector2(-200, 100)
 scale = Vector2(1.8, 1.8)
-texture = SubResource("ViewportTexture_ppyqe")
+texture = SubResource("ViewportTexture_ds6c2")
 flip_h = true
 with_background = false
 
@@ -204,7 +204,7 @@ Well. You said it and you meant it, didn't you? No sense in taking it back.
 But you're going to have some things to think about."
 
 [node name="YesDisBelieves2" parent="." index="8" node_paths=PackedStringArray("next") instance=ExtResource("2_8b8lo")]
-next = NodePath("../YesSegue")
+next = NodePath("")
 
 [node name="bg" type="Sprite2D" parent="YesDisBelieves2" index="0"]
 position = Vector2(-250, -74)
@@ -222,7 +222,7 @@ flip_h = true
 [node name="Profile" parent="YesDisBelieves2" index="2" instance=ExtResource("9_1dapo")]
 position = Vector2(-200, 100)
 scale = Vector2(1.8, 1.8)
-texture = SubResource("ViewportTexture_pxatr")
+texture = SubResource("ViewportTexture_h5ckk")
 flip_h = true
 with_background = false
 start_frown = true
@@ -233,51 +233,26 @@ offset_right = 1939.0
 offset_bottom = 949.0
 text = "\"Yes. Please take me with you when you go.\""
 
-[node name="YesSegue" parent="." index="9" instance=ExtResource("2_8b8lo")]
-
-[node name="bg" type="Sprite2D" parent="YesSegue" index="0"]
-position = Vector2(-250, -74)
-scale = Vector2(2, 2)
-texture = ExtResource("3_t1am5")
-centered = false
-
-[node name="taylor" type="Sprite2D" parent="YesSegue" index="1"]
-material = SubResource("ShaderMaterial_0o0tw")
-position = Vector2(1211, 1607)
-scale = Vector2(1.45072, 1.35)
-texture = ExtResource("6_jffnu")
-flip_h = true
-
-[node name="SmartLabel" parent="YesSegue" index="2" instance=ExtResource("5_gpox3")]
-offset_left = 478.0
-offset_top = 313.0
-offset_right = 606.0
-offset_bottom = 391.0
-text = "\"OK."
-
-[node name="SmartLabel2" parent="YesSegue" index="3" instance=ExtResource("5_gpox3")]
-offset_left = 540.0
-offset_top = 404.0
-offset_right = 976.0
-offset_bottom = 563.0
-text = "\"Then I'll let you know as soon as the plan starts to come together.\""
-
-[node name="NoSideElves?" parent="." index="10" node_paths=PackedStringArray("next_if_true", "next_if_false") instance=ExtResource("3_888y0")]
+[node name="NoSideElves?" parent="." index="9" node_paths=PackedStringArray("next_if_true", "next_if_false") instance=ExtResource("3_888y0")]
+visible = false
 next_if_true = NodePath("../NoElvesAndElves?")
 next_if_false = NodePath("../NoHumansAndHumans?")
 conditional_subject = "initially-sides-with-the-elves"
 
-[node name="NoElvesAndElves?" parent="." index="11" node_paths=PackedStringArray("next_if_true", "next_if_false") instance=ExtResource("3_888y0")]
+[node name="NoElvesAndElves?" parent="." index="10" node_paths=PackedStringArray("next_if_true", "next_if_false") instance=ExtResource("3_888y0")]
+visible = false
 next_if_true = NodePath("../NoFullyBelieves")
 next_if_false = NodePath("../NoHalfBelieves")
 conditional_subject = "initially-still-prays"
 
-[node name="NoHumansAndHumans?" parent="." index="12" node_paths=PackedStringArray("next_if_true", "next_if_false") instance=ExtResource("3_888y0")]
+[node name="NoHumansAndHumans?" parent="." index="11" node_paths=PackedStringArray("next_if_true", "next_if_false") instance=ExtResource("3_888y0")]
+visible = false
 next_if_true = NodePath("../NoDisBelieves")
 next_if_false = NodePath("../NoHalfBelieves")
 conditional_subject = "initially-no-longer-prays"
 
-[node name="NoFullyBelieves" parent="." index="13" instance=ExtResource("2_8b8lo")]
+[node name="NoFullyBelieves" parent="." index="12" instance=ExtResource("2_8b8lo")]
+visible = false
 
 [node name="bg" type="Sprite2D" parent="NoFullyBelieves" index="0"]
 position = Vector2(-250, -74)
@@ -292,7 +267,7 @@ scale = Vector2(1.5, 1.5)
 [node name="Profile" parent="NoFullyBelieves" index="2" instance=ExtResource("9_1dapo")]
 position = Vector2(-200, 100)
 scale = Vector2(1.8, 1.8)
-texture = SubResource("ViewportTexture_4bm60")
+texture = SubResource("ViewportTexture_i4yl4")
 flip_h = true
 with_background = false
 start_frown = true
@@ -304,7 +279,8 @@ offset_bottom = 949.0
 text = "\"I know exactly how you feel, but it's not the right time for me to leave.\""
 metadata/_edit_use_anchors_ = true
 
-[node name="NoHalfBelieves" parent="." index="14" instance=ExtResource("2_8b8lo")]
+[node name="NoHalfBelieves" parent="." index="13" instance=ExtResource("2_8b8lo")]
+visible = false
 
 [node name="bg" type="Sprite2D" parent="NoHalfBelieves" index="0"]
 position = Vector2(-250, -74)
@@ -319,7 +295,7 @@ scale = Vector2(1.5, 1.5)
 [node name="Profile" parent="NoHalfBelieves" index="2" instance=ExtResource("9_1dapo")]
 position = Vector2(-200, 100)
 scale = Vector2(1.8, 1.8)
-texture = SubResource("ViewportTexture_6u8fq")
+texture = SubResource("ViewportTexture_frsg7")
 flip_h = true
 with_background = false
 start_frown = true
@@ -335,7 +311,8 @@ But will Moon Temple be any different, now that I've been among humans for all t
 figure myself out before I can run off--[i]if[/i] I run off at all."
 metadata/_edit_use_anchors_ = true
 
-[node name="NoDisBelieves" parent="." index="15" instance=ExtResource("2_8b8lo")]
+[node name="NoDisBelieves" parent="." index="14" instance=ExtResource("2_8b8lo")]
+visible = false
 
 [node name="bg" type="Sprite2D" parent="NoDisBelieves" index="0"]
 position = Vector2(-250, -74)
@@ -350,7 +327,7 @@ scale = Vector2(1.5, 1.5)
 [node name="Profile" parent="NoDisBelieves" index="2" instance=ExtResource("9_1dapo")]
 position = Vector2(-200, 100)
 scale = Vector2(1.8, 1.8)
-texture = SubResource("ViewportTexture_ck5kj")
+texture = SubResource("ViewportTexture_16xvy")
 with_background = false
 start_frown = true
 
@@ -365,4 +342,4 @@ being an outsider. I ... don't really follow the Elven ways anymore. Running awa
 enticing somehow, but I would feel [i]much[/i] more out of place there than I do here. I have no doubt of it.\""
 metadata/_edit_use_anchors_ = true
 
-[node name="Frame" parent="." index="16" instance=ExtResource("4_voeim")]
+[node name="Frame" parent="." index="15" instance=ExtResource("4_voeim")]
