@@ -82,23 +82,33 @@ func remove_character(c):
 	var ix = characters_present.find(c.id)
 	characters_present.remove_at(ix)
 
-func play_music(n: AudioStreamPlayer, fade_slow=false):
+func play_music(n: AudioStreamPlayer, fade_slow=false, scale=music_crossfade_speed, softstart=false):
 	next_music = n.duplicate()
 	$DynamicMusic.add_child(next_music)
 	if current_music != null:
 		if current_music.get_node("Fader") != null:
-			current_music.get_node("Fader").play("fadeout", -1, music_crossfade_speed)
+			current_music.get_node("Fader").play("fadeout", -1, scale)
 		else:
 			current_music.playing = false
 	if next_music.get_node("Fader") != null:
-		if fade_slow:
-			next_music.get_node("Fader").play("fadein", -1, music_crossfade_speed)
+		if softstart:
+			next_music.get_node("Fader").play("softstart", -1, scale)
+		elif fade_slow:
+			next_music.get_node("Fader").play("fadein", -1, scale)
 		else:
-			next_music.get_node("Fader").play("faston", -1, music_crossfade_speed)
+			next_music.get_node("Fader").play("faston", -1, scale)
 	else:
 		next_music.playing = true
 	old_music.push_back(current_music)
 	current_music = next_music
+
+func fade_music_out():
+	if current_music == null:
+		return
+	current_music.get_node("Fader").play("fadeout", -1, music_crossfade_speed)
+	old_music.push_back(current_music)
+	current_music = null
+	
 
 func _not_null(item):
 	if item == null:

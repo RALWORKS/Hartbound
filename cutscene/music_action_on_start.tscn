@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://c8bs6a6aivmt"]
+
+[ext_resource type="Script" path="res://cutscene/music_action_on_start.gd" id="1_87vda"]
+
+[node name="MusicActionOnStart" type="Node"]
+script = ExtResource("1_87vda")

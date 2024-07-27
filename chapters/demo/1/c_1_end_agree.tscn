@@ -14,22 +14,22 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0o0tw"]
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_qrqcs"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_mpb12"]
 viewport_path = NodePath("img")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_ds6c2"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_jl7la"]
 viewport_path = NodePath("img")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_h5ckk"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_deo5d"]
 viewport_path = NodePath("img")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_i4yl4"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_iy3qi"]
 viewport_path = NodePath("img")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_frsg7"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_v1ybh"]
 viewport_path = NodePath("img")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_16xvy"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_mtfp8"]
 viewport_path = NodePath("img")
 
 [node name="C1EndAgree" node_paths=PackedStringArray("starting_page") instance=ExtResource("1_j6s24")]
@@ -120,8 +120,7 @@ next_if_true = NodePath("../YesDisBelieves")
 next_if_false = NodePath("../YesHalfBelieves")
 conditional_subject = "initially-no-longer-prays"
 
-[node name="YesFullyBelieves" parent="." index="5" node_paths=PackedStringArray("next") instance=ExtResource("2_8b8lo")]
-next = NodePath("")
+[node name="YesFullyBelieves" parent="." index="5" instance=ExtResource("2_8b8lo")]
 
 [node name="bg" type="Sprite2D" parent="YesFullyBelieves" index="0"]
 position = Vector2(-250, -74)
@@ -139,7 +138,7 @@ flip_h = true
 [node name="Profile" parent="YesFullyBelieves" index="2" instance=ExtResource("9_1dapo")]
 position = Vector2(-200, 100)
 scale = Vector2(1.8, 1.8)
-texture = SubResource("ViewportTexture_qrqcs")
+texture = SubResource("ViewportTexture_mpb12")
 flip_h = true
 with_background = false
 
@@ -149,8 +148,7 @@ offset_right = 1939.0
 offset_bottom = 949.0
 text = "\"I'm done living among Humans while praying for their fall. Let's leave this place together.\""
 
-[node name="YesHalfBelieves" parent="." index="6" node_paths=PackedStringArray("next") instance=ExtResource("2_8b8lo")]
-next = NodePath("")
+[node name="YesHalfBelieves" parent="." index="6" instance=ExtResource("2_8b8lo")]
 
 [node name="bg" type="Sprite2D" parent="YesHalfBelieves" index="0"]
 position = Vector2(-250, -74)
@@ -168,7 +166,7 @@ flip_h = true
 [node name="Profile" parent="YesHalfBelieves" index="2" instance=ExtResource("9_1dapo")]
 position = Vector2(-200, 100)
 scale = Vector2(1.8, 1.8)
-texture = SubResource("ViewportTexture_ds6c2")
+texture = SubResource("ViewportTexture_jl7la")
 flip_h = true
 with_background = false
 
@@ -203,8 +201,7 @@ Sun Temple?
 Well. You said it and you meant it, didn't you? No sense in taking it back.
 But you're going to have some things to think about."
 
-[node name="YesDisBelieves2" parent="." index="8" node_paths=PackedStringArray("next") instance=ExtResource("2_8b8lo")]
-next = NodePath("")
+[node name="YesDisBelieves2" parent="." index="8" instance=ExtResource("2_8b8lo")]
 
 [node name="bg" type="Sprite2D" parent="YesDisBelieves2" index="0"]
 position = Vector2(-250, -74)
@@ -222,7 +219,7 @@ flip_h = true
 [node name="Profile" parent="YesDisBelieves2" index="2" instance=ExtResource("9_1dapo")]
 position = Vector2(-200, 100)
 scale = Vector2(1.8, 1.8)
-texture = SubResource("ViewportTexture_h5ckk")
+texture = SubResource("ViewportTexture_deo5d")
 flip_h = true
 with_background = false
 start_frown = true
@@ -267,7 +264,7 @@ scale = Vector2(1.5, 1.5)
 [node name="Profile" parent="NoFullyBelieves" index="2" instance=ExtResource("9_1dapo")]
 position = Vector2(-200, 100)
 scale = Vector2(1.8, 1.8)
-texture = SubResource("ViewportTexture_i4yl4")
+texture = SubResource("ViewportTexture_iy3qi")
 flip_h = true
 with_background = false
 start_frown = true
@@ -295,7 +292,7 @@ scale = Vector2(1.5, 1.5)
 [node name="Profile" parent="NoHalfBelieves" index="2" instance=ExtResource("9_1dapo")]
 position = Vector2(-200, 100)
 scale = Vector2(1.8, 1.8)
-texture = SubResource("ViewportTexture_frsg7")
+texture = SubResource("ViewportTexture_v1ybh")
 flip_h = true
 with_background = false
 start_frown = true
@@ -327,7 +324,7 @@ scale = Vector2(1.5, 1.5)
 [node name="Profile" parent="NoDisBelieves" index="2" instance=ExtResource("9_1dapo")]
 position = Vector2(-200, 100)
 scale = Vector2(1.8, 1.8)
-texture = SubResource("ViewportTexture_16xvy")
+texture = SubResource("ViewportTexture_mtfp8")
 with_background = false
 start_frown = true
 

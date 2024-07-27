@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://cjdmjg15tmyyr"]
+[gd_scene load_steps=27 format=3 uid="uid://cjdmjg15tmyyr"]
 
 [ext_resource type="PackedScene" uid="uid://bp8tsdjdbwj8i" path="res://cutscene/cutscene.tscn" id="1_qv58e"]
 [ext_resource type="PackedScene" uid="uid://55vflx8ylix1" path="res://cutscene/cutscene_node.tscn" id="2_tauh5"]
@@ -10,6 +10,9 @@
 [ext_resource type="PackedScene" uid="uid://c5cgc0mqgy65h" path="res://character/taylor_hesitant.tscn" id="6_q7706"]
 [ext_resource type="Texture2D" uid="uid://s0ah5pljwjc8" path="res://assets/npcs/brona/happy.png" id="6_yxecs"]
 [ext_resource type="PackedScene" uid="uid://b11g7mb25w5xp" path="res://cutscene/smart_label.tscn" id="7_qim78"]
+[ext_resource type="PackedScene" uid="uid://c8bs6a6aivmt" path="res://cutscene/music_action_on_start.tscn" id="8_4p86d"]
+[ext_resource type="PackedScene" uid="uid://bcinc4blag4el" path="res://music.tscn" id="9_gh7we"]
+[ext_resource type="AudioStream" uid="uid://dsb6gxixks1dv" path="res://assets/music/intro-story-3.ogg" id="9_oh5uo"]
 [ext_resource type="PackedScene" uid="uid://b031fpm2fu6f1" path="res://cutscene/play_animation_on_start.tscn" id="10_717ca"]
 [ext_resource type="PackedScene" uid="uid://cbobuwybuv22l" path="res://cutscene/die_on_start.tscn" id="10_wutod"]
 [ext_resource type="FontFile" uid="uid://1hwyo0mraq4u" path="res://assets/Georgiaz.TTF" id="11_h3pkc"]
@@ -443,33 +446,41 @@ player = NodePath("../AnimationPlayer")
 [node name="2" parent="." index="1" node_paths=PackedStringArray("next") instance=ExtResource("2_tauh5")]
 next = NodePath("../3")
 
-[node name="bg" type="Sprite2D" parent="2" index="0"]
+[node name="MusicActionOnStart" parent="2" index="0" node_paths=PackedStringArray("crossfade_to") instance=ExtResource("8_4p86d")]
+crossfade_to = NodePath("Music")
+fade_speed = 5
+softstart = true
+
+[node name="Music" parent="2/MusicActionOnStart" index="0" instance=ExtResource("9_gh7we")]
+stream = ExtResource("9_oh5uo")
+
+[node name="bg" type="Sprite2D" parent="2" index="1"]
 position = Vector2(-250, -215)
 scale = Vector2(2, 2)
 texture = ExtResource("3_s5kji")
 centered = false
 
-[node name="taylorCalm" type="Sprite2D" parent="2" index="1"]
+[node name="taylorCalm" type="Sprite2D" parent="2" index="2"]
 position = Vector2(1226, 1872)
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("4_msbib")
 
-[node name="TaylorFright" parent="2" index="2" instance=ExtResource("5_f3mil")]
+[node name="TaylorFright" parent="2" index="3" instance=ExtResource("5_f3mil")]
 position = Vector2(1091, 1861)
 scale = Vector2(1.5, 1.5)
 
-[node name="brona" type="Sprite2D" parent="2" index="3"]
+[node name="brona" type="Sprite2D" parent="2" index="4"]
 position = Vector2(449, 889)
 scale = Vector2(0.9, 0.9)
 texture = ExtResource("5_8nblr")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="2" index="4"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="2" index="5"]
 speed_scale = 1.3
 libraries = {
 "": SubResource("AnimationLibrary_sy4hf")
 }
 
-[node name="thankfuck" parent="2" index="5" instance=ExtResource("7_qim78")]
+[node name="thankfuck" parent="2" index="6" instance=ExtResource("7_qim78")]
 offset_left = 499.0
 offset_top = 47.0
 offset_right = 794.0
@@ -479,7 +490,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_dhrpj")
 bbcode_enabled = true
 text = "\"Hey!"
 
-[node name="yourebothstill" parent="2" index="6" instance=ExtResource("7_qim78")]
+[node name="yourebothstill" parent="2" index="7" instance=ExtResource("7_qim78")]
 offset_left = 573.0
 offset_top = 204.0
 offset_right = 962.0
@@ -487,7 +498,7 @@ offset_bottom = 281.0
 bbcode_enabled = true
 text = "\"You're alive. Good."
 
-[node name="damnradio" parent="2" index="7" instance=ExtResource("7_qim78")]
+[node name="damnradio" parent="2" index="8" instance=ExtResource("7_qim78")]
 offset_left = 732.0
 offset_top = 293.0
 offset_right = 1756.0
@@ -497,7 +508,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_dhrpj")
 bbcode_enabled = true
 text = "\"Answer your damn radio.\""
 
-[node name="PlayAnimationOnStart" parent="2" index="8" node_paths=PackedStringArray("player") instance=ExtResource("10_717ca")]
+[node name="PlayAnimationOnStart" parent="2" index="9" node_paths=PackedStringArray("player") instance=ExtResource("10_717ca")]
 player = NodePath("../AnimationPlayer")
 
 [node name="3" parent="." index="2" node_paths=PackedStringArray("next") instance=ExtResource("2_tauh5")]
@@ -587,5 +598,6 @@ scroll_active = false
 [node name="5" parent="." index="4" instance=ExtResource("2_tauh5")]
 
 [node name="DieOnStart" parent="5" index="0" instance=ExtResource("10_wutod")]
+keep_music = true
 
 [node name="Frame" parent="." index="5" instance=ExtResource("6_4xmnc")]

@@ -14,30 +14,30 @@
 [ext_resource type="PackedScene" uid="uid://gqiikiv318js" path="res://cutscene/has_resoultion_conditional_redirect.tscn" id="11_2bv1v"]
 [ext_resource type="PackedScene" uid="uid://cp5lbi0bmf5vp" path="res://tools/screen-guide-frame.tscn" id="11_lx3pb"]
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_cvg83"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_hepvn"]
 viewport_path = NodePath("img")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_xh2qm"]
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_svmto"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_osgdh"]
 viewport_path = NodePath("img")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_2a3el"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_03mrj"]
 viewport_path = NodePath("img")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_5p3g8"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_ckeju"]
 viewport_path = NodePath("img")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_q8me5"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_jl8hi"]
 viewport_path = NodePath("img")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_754mh"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_3qk3d"]
 viewport_path = NodePath("img")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_5vlyy"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_hi8vg"]
 viewport_path = NodePath("img")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_q1kxj"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_ijvas"]
 viewport_path = NodePath("img")
 
 [node name="C1EndCondemn" node_paths=PackedStringArray("starting_page") instance=ExtResource("1_xtuqw")]
@@ -124,7 +124,7 @@ scale = Vector2(0.7, 0.7)
 modulate = Color(0, 0, 0, 1)
 position = Vector2(-11, 139)
 scale = Vector2(1.8, 1.8)
-texture = SubResource("ViewportTexture_cvg83")
+texture = SubResource("ViewportTexture_hepvn")
 flip_h = true
 with_background = false
 
@@ -198,7 +198,7 @@ texture = ExtResource("4_std1i")
 modulate = Color(0, 0, 0, 1)
 position = Vector2(-226, 139)
 scale = Vector2(1.5, 1.5)
-texture = SubResource("ViewportTexture_svmto")
+texture = SubResource("ViewportTexture_osgdh")
 flip_h = true
 with_background = false
 
@@ -265,7 +265,7 @@ texture = ExtResource("4_std1i")
 modulate = Color(0, 0, 0, 1)
 position = Vector2(-226, 139)
 scale = Vector2(1.5, 1.5)
-texture = SubResource("ViewportTexture_2a3el")
+texture = SubResource("ViewportTexture_03mrj")
 flip_h = true
 with_background = false
 
@@ -316,7 +316,7 @@ texture = ExtResource("4_std1i")
 modulate = Color(0, 0, 0, 1)
 position = Vector2(-226, 139)
 scale = Vector2(1.5, 1.5)
-texture = SubResource("ViewportTexture_5p3g8")
+texture = SubResource("ViewportTexture_ckeju")
 flip_h = true
 with_background = false
 
@@ -388,7 +388,7 @@ scale = Vector2(0.7, 0.7)
 [node name="Profile" parent="No" index="2" instance=ExtResource("6_vfsqc")]
 position = Vector2(-11, 104)
 scale = Vector2(1.8, 1.8)
-texture = SubResource("ViewportTexture_q8me5")
+texture = SubResource("ViewportTexture_jl8hi")
 flip_h = true
 with_background = false
 
@@ -449,7 +449,7 @@ scale = Vector2(0.7, 0.7)
 [node name="Profile" parent="NoNoBelief" index="2" instance=ExtResource("6_vfsqc")]
 position = Vector2(-226, 128)
 scale = Vector2(1.5, 1.5)
-texture = SubResource("ViewportTexture_754mh")
+texture = SubResource("ViewportTexture_3qk3d")
 flip_h = true
 with_background = false
 start_frown = true
@@ -485,7 +485,7 @@ scale = Vector2(0.7, 0.7)
 [node name="Profile" parent="NoSomeBelief" index="2" instance=ExtResource("6_vfsqc")]
 position = Vector2(-226, 128)
 scale = Vector2(1.5, 1.5)
-texture = SubResource("ViewportTexture_5vlyy")
+texture = SubResource("ViewportTexture_hi8vg")
 flip_h = true
 with_background = false
 start_frown = true
@@ -522,7 +522,7 @@ scale = Vector2(0.7, 0.7)
 [node name="Profile" parent="NoFullBelief" index="2" instance=ExtResource("6_vfsqc")]
 position = Vector2(-226, 128)
 scale = Vector2(1.5, 1.5)
-texture = SubResource("ViewportTexture_q1kxj")
+texture = SubResource("ViewportTexture_ijvas")
 flip_h = true
 with_background = false
 start_frown = true

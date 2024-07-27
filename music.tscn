@@ -1,4 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://bcinc4blag4el"]
+[gd_scene load_steps=8 format=3 uid="uid://bcinc4blag4el"]
+
+[ext_resource type="Script" path="res://music.gd" id="1_wdhjy"]
 
 [sub_resource type="Animation" id="Animation_b1yeb"]
 length = 0.001
@@ -107,15 +109,45 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 5)
 }
 
+[sub_resource type="Animation" id="Animation_bnsx7"]
+resource_name = "softstart"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:playing")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0001),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:volume_db")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-30.0, 0.0]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_vnxa0"]
 _data = {
 "RESET": SubResource("Animation_b1yeb"),
 "fadein": SubResource("Animation_1a63g"),
 "fadeout": SubResource("Animation_yt0f5"),
-"faston": SubResource("Animation_6r8s5")
+"faston": SubResource("Animation_6r8s5"),
+"softstart": SubResource("Animation_bnsx7")
 }
 
 [node name="Music" type="AudioStreamPlayer"]
+script = ExtResource("1_wdhjy")
 
 [node name="Fader" type="AnimationPlayer" parent="."]
 libraries = {

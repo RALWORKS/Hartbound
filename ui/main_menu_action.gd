@@ -19,5 +19,6 @@ func _process(_delta):
 
 func action():
 	var g = _get_game()
-	g.play_music($Music)
+	if not $"..".keep_music:
+		g.play_music($Music)
 	g.main_menu()
