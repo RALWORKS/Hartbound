@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://dpgus4q55ghrs"]
+[gd_scene load_steps=22 format=3 uid="uid://dpgus4q55ghrs"]
 
 [ext_resource type="PackedScene" uid="uid://byrlpmbpj6yr5" path="res://scene.tscn" id="1_4aibn"]
 [ext_resource type="Texture2D" uid="uid://bgosew3t2w5s6" path="res://assets/scenes/demo/1/industrial/e.png" id="2_lmy4c"]
@@ -16,6 +16,10 @@
 [ext_resource type="Texture2D" uid="uid://bfmygrdvdfbag" path="res://assets/items/demo-1/alternator-large.png" id="10_ytopt"]
 [ext_resource type="PackedScene" uid="uid://btcaowwqv7a55" path="res://chapters/demo/1/tmp_take.tscn" id="11_u7826"]
 [ext_resource type="PackedScene" uid="uid://cskb4b7di5efb" path="res://chapters/demo/1/dialogues/car_hood.tscn" id="13_f16l7"]
+[ext_resource type="Texture2D" uid="uid://nwsqvjdnlosw" path="res://assets/scenery/extra-tree-coloured-bright/trees-and-broken-stone.png" id="16_4xksy"]
+[ext_resource type="Texture2D" uid="uid://g8hwe8sg2o1" path="res://assets/scenery/extra-tree-coloured-bright/bright-young-tree.png" id="16_bkli5"]
+[ext_resource type="Texture2D" uid="uid://bthiiqiqte0bc" path="res://assets/scenery/extra-tree-coloured-bright/pair-of-pines.png" id="17_axc27"]
+[ext_resource type="Texture2D" uid="uid://dwvf22vxkob24" path="res://assets/scenery/extra-tree-coloured-bright/forest-cluster.png" id="17_uhg3g"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_30nyk"]
 vertices = PackedVector2Array(1091, 341, 986, -1, 1634, -44, 1612, 694, 995, 986, 916, 451, 579, 1090, 84, 822, 25, 7, 449, 13, 715, 431)
@@ -29,7 +33,7 @@ vein_node = NodePath("Vein")
 texture = ExtResource("2_lmy4c")
 
 [node name="edge" type="CollisionPolygon2D" parent="Background/StaticBody2D" index="0"]
-polygon = PackedVector2Array(-105, 651, -119, -129, 1897, -138, 1753, 1143, 1595, 1214, 1600, 9, 16, 15, 14, 739, 537, 1158, 1716, 1228, 1725, 1313, -66, 1307)
+polygon = PackedVector2Array(-105, 651, -119, -129, 1897, -138, 1753, 1143, 1595, 1214, 1600, 9, 16, 15, 18, 716, 572, 1086, 1716, 1228, 1725, 1313, -66, 1307)
 
 [node name="rubble" type="CollisionPolygon2D" parent="Background/StaticBody2D" index="1"]
 polygon = PackedVector2Array(475, -132, 531, 111, 641, 213, 695, 269, 800, 326, 862, 385, 896, 377, 933, 337, 1015, 318, 975, 265, 1014, 252, 1000, 226, 941.135, 212.097, 766, -39)
@@ -154,11 +158,47 @@ interactable = NodePath("../MO-Car-Key-B")
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/XCar" index="0"]
 polygon = PackedVector2Array(562, 217, 599, 182, 671, 252, 686, 282, 784, 332, 688, 412)
 
-[node name="FrontWall" type="Sprite2D" parent="." index="2"]
+[node name="tree4" type="Sprite2D" parent="YSort" index="11"]
+modulate = Color(0.890196, 0.866667, 0.847059, 1)
+position = Vector2(1364, 1143)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("16_bkli5")
+offset = Vector2(0, -450)
+
+[node name="tree5" type="Sprite2D" parent="YSort" index="12"]
+modulate = Color(0.890196, 0.866667, 0.847059, 1)
+position = Vector2(758, 335)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("16_bkli5")
+offset = Vector2(0, -450)
+
+[node name="tree6" type="Sprite2D" parent="YSort" index="13"]
+modulate = Color(0.890196, 0.866667, 0.847059, 1)
+position = Vector2(621, 294)
+rotation = -0.237365
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("17_axc27")
+offset = Vector2(0, -450)
+hframes = 2
+
+[node name="tree" type="Sprite2D" parent="." index="2"]
+modulate = Color(0.890196, 0.866667, 0.847059, 1)
+position = Vector2(784, 947)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("16_4xksy")
+
+[node name="tree2" type="Sprite2D" parent="." index="3"]
+modulate = Color(0.890196, 0.866667, 0.847059, 1)
+position = Vector2(199, 831)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("17_uhg3g")
+flip_h = true
+
+[node name="FrontWall" type="Sprite2D" parent="." index="4"]
 position = Vector2(801, 879)
 texture = ExtResource("6_isrdr")
 
-[node name="Vein" type="Polygon2D" parent="." index="3"]
+[node name="Vein" type="Polygon2D" parent="." index="5"]
 polygon = PackedVector2Array(-175, 472, 669, -24, 381, -38, -225, 226)
 
 [connection signal="tree_entered" from="YSort/MO-Car-Key-B" to="YSort/MO-Car-Key-B" method="_on_tree_entered"]

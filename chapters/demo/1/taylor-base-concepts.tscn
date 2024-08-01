@@ -44,7 +44,7 @@
 [ext_resource type="Texture2D" uid="uid://du538lgom8gn2" path="res://assets/splash/home-village.png" id="42_gmm22"]
 [ext_resource type="Shader" path="res://effects/bluescale.gdshader" id="43_fub5w"]
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_xtjrn"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_jywdu"]
 viewport_path = NodePath("img")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_weoi2"]
@@ -59,7 +59,7 @@ shader_parameter/tint = Vector4(0.6, 0.83, 0.97, 1)
 shader_parameter/highlight = Vector4(0.8, 0.85, 0.6, 1)
 shader_parameter/alpha = 1.0
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_p3ohd"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_8djca"]
 viewport_path = NodePath("img")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_d26op"]
@@ -74,7 +74,7 @@ shader_parameter/tint = Vector4(0.6, 0.83, 0.97, 1)
 shader_parameter/highlight = Vector4(0.8, 0.85, 0.6, 1)
 shader_parameter/alpha = 1.0
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_466dg"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_c8xcl"]
 viewport_path = NodePath("img")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_j2nwn"]
@@ -89,7 +89,7 @@ shader_parameter/tint = Vector4(0.4, 0.4, 0.4, 1)
 shader_parameter/highlight = Vector4(0.5, 0.5, 0.5, 1)
 shader_parameter/alpha = 1.0
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_cbfyi"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_8dybk"]
 viewport_path = NodePath("img")
 
 [node name="Concepts" type="Node"]
@@ -112,9 +112,9 @@ scale = Vector2(0.7, 0.7)
 texture = ExtResource("31_kx3if")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Age of Dusk/AOD1"]
-offset_left = -1.0
+offset_left = 124.0
 offset_top = 875.0
-offset_right = 1944.0
+offset_right = 2069.0
 offset_bottom = 995.0
 theme = ExtResource("5_yjk2e")
 theme_type_variation = &"VoiceoverBox"
@@ -135,9 +135,9 @@ scale = Vector2(0.7, 0.7)
 texture = ExtResource("31_kx3if")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Age of Dusk/AOD2"]
-offset_left = -1.0
+offset_left = 124.0
 offset_top = 875.0
-offset_right = 1944.0
+offset_right = 2069.0
 offset_bottom = 995.0
 theme = ExtResource("5_yjk2e")
 theme_type_variation = &"VoiceoverBox"
@@ -265,9 +265,9 @@ scale = Vector2(0.7, 0.7)
 texture = ExtResource("31_kx3if")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Age of the Sun/AOS1"]
-offset_left = -1.0
+offset_left = 124.0
 offset_top = 875.0
-offset_right = 1944.0
+offset_right = 2069.0
 offset_bottom = 995.0
 theme = ExtResource("5_yjk2e")
 theme_type_variation = &"VoiceoverBox"
@@ -288,9 +288,9 @@ scale = Vector2(0.7, 0.7)
 texture = ExtResource("31_kx3if")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Age of the Sun/AOS2"]
-offset_left = -1.0
+offset_left = 124.0
 offset_top = 855.0
-offset_right = 1944.0
+offset_right = 2069.0
 offset_bottom = 1007.0
 theme = ExtResource("5_yjk2e")
 theme_type_variation = &"VoiceoverBox"
@@ -313,9 +313,9 @@ scale = Vector2(0.7, 0.7)
 texture = ExtResource("31_kx3if")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Age of the Sun/AOS3"]
-offset_left = -1.0
+offset_left = 124.0
 offset_top = 875.0
-offset_right = 1944.0
+offset_right = 2069.0
 offset_bottom = 995.0
 theme = ExtResource("5_yjk2e")
 theme_type_variation = &"VoiceoverBox"
@@ -533,9 +533,9 @@ scale = Vector2(0.7, 0.7)
 texture = ExtResource("31_kx3if")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Sun Temple/SunTemple1"]
-offset_left = -1.0
+offset_left = 124.0
 offset_top = 875.0
-offset_right = 1944.0
+offset_right = 2069.0
 offset_bottom = 995.0
 theme = ExtResource("5_yjk2e")
 theme_type_variation = &"VoiceoverBox"
@@ -557,9 +557,9 @@ scale = Vector2(0.7, 0.7)
 texture = ExtResource("31_kx3if")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Sun Temple/SunTemple2"]
-offset_left = -1.0
+offset_left = 124.0
 offset_top = 875.0
-offset_right = 1944.0
+offset_right = 2069.0
 offset_bottom = 995.0
 theme = ExtResource("5_yjk2e")
 theme_type_variation = &"VoiceoverBox"
@@ -1143,9 +1143,9 @@ scale = Vector2(0.7, 0.7)
 texture = ExtResource("31_kx3if")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="EndOfTheWorld/CutsceneNode"]
-offset_left = -1.0
+offset_left = 124.0
 offset_top = 833.0
-offset_right = 1979.0
+offset_right = 2104.0
 offset_bottom = 995.0
 theme = ExtResource("5_yjk2e")
 theme_type_variation = &"VoiceoverBox"
@@ -1357,14 +1357,14 @@ scale = Vector2(0.7, 0.7)
 texture = ExtResource("31_kx3if")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Demons/CutsceneNode"]
-offset_left = -1.0
+offset_left = 124.0
 offset_top = 875.0
-offset_right = 1979.0
+offset_right = 2104.0
 offset_bottom = 995.0
 theme = ExtResource("5_yjk2e")
 theme_type_variation = &"VoiceoverBox"
 text = "\"The Sentinels of the Leyline, the Elves teach. Perhaps. But they say the Leyline was once Man's
-creation. Who is to say it's not Man's right to try and reclaim it.\""
+creation. Who is to say it's not Man's right to try and reclaim it?\""
 
 [node name="GeneratorCrews" parent="." instance=ExtResource("27_v2sg7")]
 
@@ -1388,9 +1388,9 @@ scale = Vector2(0.7, 0.7)
 texture = ExtResource("31_kx3if")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Generators/CutsceneNode"]
-offset_left = -1.0
+offset_left = 124.0
 offset_top = 875.0
-offset_right = 1979.0
+offset_right = 2104.0
 offset_bottom = 995.0
 theme = ExtResource("5_yjk2e")
 theme_type_variation = &"VoiceoverBox"
@@ -1879,7 +1879,7 @@ texture = ExtResource("31_kx3if")
 [node name="Profile" parent="MyHometown/NewMemory" instance=ExtResource("41_8awtg")]
 position = Vector2(912, 105)
 scale = Vector2(2, 2)
-texture = SubResource("ViewportTexture_xtjrn")
+texture = SubResource("ViewportTexture_jywdu")
 with_background = false
 
 [node name="RichTextLabel2" type="RichTextLabel" parent="MyHometown/NewMemory"]
@@ -1921,22 +1921,22 @@ texture = ExtResource("31_kx3if")
 material = SubResource("ShaderMaterial_k6to6")
 position = Vector2(912, 105)
 scale = Vector2(2, 2)
-texture = SubResource("ViewportTexture_p3ohd")
+texture = SubResource("ViewportTexture_8djca")
 with_background = false
 
 [node name="RichTextLabel2" type="RichTextLabel" parent="MyHometown/NewMemory2"]
-offset_left = 10.0
+offset_left = 124.0
 offset_top = 773.0
-offset_right = 864.0
+offset_right = 978.0
 offset_bottom = 893.0
 theme = ExtResource("5_yjk2e")
 theme_type_variation = &"VoiceoverBox"
 text = "\"It was almost as different from Moon Temple as Moon Temple is from the human lands."
 
 [node name="RichTextLabel3" type="RichTextLabel" parent="MyHometown/NewMemory2"]
-offset_left = 12.0
+offset_left = 124.0
 offset_top = 903.0
-offset_right = 1241.0
+offset_right = 1353.0
 offset_bottom = 981.0
 theme = ExtResource("5_yjk2e")
 theme_type_variation = &"VoiceoverBox"
@@ -1944,9 +1944,9 @@ bbcode_enabled = true
 text = "\"Not even one church in town. We prayed in the clearing at the centre of the village."
 
 [node name="RichTextLabel4" type="RichTextLabel" parent="MyHometown/NewMemory2"]
-offset_left = 12.0
+offset_left = 124.0
 offset_top = 992.0
-offset_right = 942.0
+offset_right = 1054.0
 offset_bottom = 1070.0
 theme = ExtResource("5_yjk2e")
 theme_type_variation = &"VoiceoverBox"
@@ -1973,13 +1973,13 @@ texture = ExtResource("31_kx3if")
 material = SubResource("ShaderMaterial_n2xtb")
 position = Vector2(912, 105)
 scale = Vector2(2, 2)
-texture = SubResource("ViewportTexture_466dg")
+texture = SubResource("ViewportTexture_c8xcl")
 with_background = false
 
 [node name="RichTextLabel5" type="RichTextLabel" parent="MyHometown/NewMemory4"]
-offset_left = 12.0
+offset_left = 124.0
 offset_top = 727.0
-offset_right = 991.0
+offset_right = 1103.0
 offset_bottom = 805.0
 theme = ExtResource("5_yjk2e")
 theme_type_variation = &"VoiceoverBox"
@@ -1987,9 +1987,9 @@ bbcode_enabled = true
 text = "\"I chased chickens and drew up water from the well with a bucket."
 
 [node name="RichTextLabel6" type="RichTextLabel" parent="MyHometown/NewMemory4"]
-offset_left = 12.0
+offset_left = 124.0
 offset_top = 817.0
-offset_right = 1218.0
+offset_right = 1330.0
 offset_bottom = 931.0
 theme = ExtResource("5_yjk2e")
 theme_type_variation = &"VoiceoverBox"
@@ -1997,9 +1997,9 @@ bbcode_enabled = true
 text = "\"We grew up pestering the shopkeeper of that single general store in town to show us what the traders brought in, so we could beg our parents for trinkets."
 
 [node name="RichTextLabel7" type="RichTextLabel" parent="MyHometown/NewMemory4"]
-offset_left = 12.0
+offset_left = 124.0
 offset_top = 943.0
-offset_right = 1050.0
+offset_right = 1162.0
 offset_bottom = 1066.0
 theme = ExtResource("5_yjk2e")
 theme_type_variation = &"VoiceoverBox"
@@ -2026,7 +2026,7 @@ texture = ExtResource("31_kx3if")
 material = SubResource("ShaderMaterial_hxgt3")
 position = Vector2(912, 105)
 scale = Vector2(2, 2)
-texture = SubResource("ViewportTexture_cbfyi")
+texture = SubResource("ViewportTexture_8dybk")
 with_background = false
 
 [node name="RichTextLabel7" type="RichTextLabel" parent="MyHometown/NewMemory3"]

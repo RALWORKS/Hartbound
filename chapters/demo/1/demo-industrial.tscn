@@ -145,18 +145,18 @@ script = ExtResource("8_up1b2")
 [node name="IndustrialBContents" type="Node2D" parent="." index="4"]
 
 [node name="Brona" parent="IndustrialBContents" index="0" instance=ExtResource("9_x8k8q")]
-position = Vector2(413, 525)
+position = Vector2(338, 662)
 starting_animaton = "down-right-stopped"
 
 [node name="Jerry" parent="IndustrialBContents" index="1" instance=ExtResource("10_ccv0d")]
-position = Vector2(538, 525)
+position = Vector2(452, 669)
 starting_animaton = "down-left-stopped"
 
 [node name="Taylor" parent="IndustrialBContents" index="2" instance=ExtResource("11_fc7l2")]
-position = Vector2(719, 504)
+position = Vector2(569, 623)
 
 [node name="Nate" parent="IndustrialBContents" index="3" instance=ExtResource("12_fj03t")]
-position = Vector2(933, 609)
+position = Vector2(931, 638)
 starting_animaton = "right-stopped"
 
 [node name="LeaveCamp1" type="Node" parent="Triggers" index="0"]

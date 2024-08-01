@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://wwmpe6ttdblv"]
+[gd_scene load_steps=25 format=3 uid="uid://wwmpe6ttdblv"]
 
 [ext_resource type="PackedScene" uid="uid://byrlpmbpj6yr5" path="res://scene.tscn" id="1_3u62o"]
 [ext_resource type="Texture2D" uid="uid://cdm0ewe6djiw" path="res://assets/scenes/demo/1/industrial/a.png" id="2_kjnsv"]
@@ -8,16 +8,20 @@
 [ext_resource type="Texture2D" uid="uid://cxt8h6d0otgpo" path="res://assets/scenes/demo/1/industrial/a-train4.png" id="6_fukre"]
 [ext_resource type="Texture2D" uid="uid://csb12eaiht5tq" path="res://assets/scenes/demo/1/industrial/a-train5.png" id="7_ppj6t"]
 [ext_resource type="PackedScene" uid="uid://dxfuidhlgwthh" path="res://travel/door.tscn" id="8_w73q6"]
+[ext_resource type="Texture2D" uid="uid://dmk3dxuo4q0ie" path="res://assets/scenery/extra-tree-coloured-bright/pedestal-pine.png" id="9_ivviy"]
+[ext_resource type="Texture2D" uid="uid://cnlclj8g0tyiw" path="res://assets/scenery/extra-tree-coloured-bright/stone-trio.png" id="10_12vjm"]
 [ext_resource type="Shader" path="res://effects/alpha-mask.gdshader" id="10_lqi68"]
 [ext_resource type="Shader" path="res://scenes/light-path1.gdshader" id="10_r8qs7"]
 [ext_resource type="Texture2D" uid="uid://gqej44bqtstb" path="res://assets/effects/light-fleck-4.png" id="11_jcyyb"]
 [ext_resource type="Texture2D" uid="uid://cyh1dw8ebawi7" path="res://assets/scenes/demo/1/industrial/a-light-test.png" id="11_riryp"]
+[ext_resource type="Texture2D" uid="uid://ba8f8jn3sykc5" path="res://assets/scenery/extra-tree-coloured-bright/pine-trio.png" id="12_t0d60"]
 [ext_resource type="Script" path="res://scenes/demo/1/industrial/LightPathMaterial.gd" id="12_yf8y7"]
+[ext_resource type="Texture2D" uid="uid://bbqm52i4cxyix" path="res://assets/scenery/extra-tree-coloured-bright/great-oak.png" id="13_2q8x4"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_awuu0"]
-vertices = PackedVector2Array(214, 824, 926, 1243, 325, 1233, 137, 1121, 106, 631, 231, 620, 244, 540, 621, 760, 1412, 1288, 848, 614, 981, 648, 1056, 633, 1687, 1000, 1691, 1243)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(0, 3, 4, 5), PackedInt32Array(5, 4, 6), PackedInt32Array(5, 6, 7, 8), PackedInt32Array(8, 7, 9, 10), PackedInt32Array(8, 10, 11, 12, 13)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(137, 1121, 106, 631, 244, 540, 621, 760, 848, 614, 981, 648, 1056, 633, 1687, 1000, 1691, 1243, 1412, 1288, 231, 620, 214, 824, 926, 1243, 325, 1233)])
+vertices = PackedVector2Array(593, 1108, 926, 1243, 325, 1233, 357, 994, 137, 1121, 214, 824, 106, 631, 269, 669, 249, 520, 625, 733, 1412, 1288, 750, 720, 951, 764, 1235, 748, 1687, 1000, 1691, 1243)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2), PackedInt32Array(3, 0, 2, 4), PackedInt32Array(5, 3, 4), PackedInt32Array(5, 4, 6), PackedInt32Array(7, 5, 6, 8), PackedInt32Array(7, 8, 9, 10), PackedInt32Array(10, 9, 11, 12), PackedInt32Array(10, 12, 13, 14, 15)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(137, 1121, 106, 631, 249, 520, 625, 733, 750, 720, 951, 764, 1235, 748, 1687, 1000, 1691, 1243, 1412, 1288, 269, 669, 214, 824, 357, 994, 593, 1108, 926, 1243, 325, 1233)])
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_ds4b2"]
 vertices = PackedVector2Array(1607, 115, 1683, 13, 1689, 532, 1475, 321, 1426, 393, 1401, 257, 1526, 73, 175, 7, 1443, 3, 1119, 215, 797, 208, 598, 295, 979, 297, 1219, 285)
@@ -86,12 +90,12 @@ texture = ExtResource("2_kjnsv")
 [node name="wall" type="CollisionPolygon2D" parent="Background/StaticBody2D" index="0"]
 position = Vector2(30.3537, 38.5654)
 scale = Vector2(1.42972, 1.34205)
-polygon = PackedVector2Array(-15, 431, 96.9744, 340.103, 355.766, 501.796, 511, 408, 610, 435, 681, 428, 718, 468, 791, 524, 835, 540, 824, 555, 881, 561, 952, 608, 1096, 679, 1102, 398, 850, 264, 893, 228, 908, 204, 826, 203, 794.316, 220.882, 694.296, 164.997, 597.074, 223.117, 485.863, 147.859, 343.178, 230.568, -17.7334, -13.0884)
+polygon = PackedVector2Array(-15, 431, 96.9744, 340.103, 355.766, 501.796, 437.601, 487.638, 562.8, 521.169, 726.468, 523.404, 791, 524, 835, 540, 824, 555, 881, 561, 952, 608, 1096, 679, 1102, 398, 850, 264, 893, 228, 908, 204, 826, 203, 794.316, 220.882, 694.296, 164.997, 597.074, 223.117, 485.863, 147.859, 343.178, 230.568, -17.7334, -13.0884)
 
 [node name="train" type="CollisionPolygon2D" parent="Background/StaticBody2D" index="1"]
 position = Vector2(-31.9161, 59.4315)
 scale = Vector2(1.33703, 1.34928)
-polygon = PackedVector2Array(705.982, 872.737, 156.254, 565.166, 153.263, 516.992, 153.263, 476.23, 188.415, 442.879, 945.319, 872.737)
+polygon = PackedVector2Array(705.982, 872.737, 166.725, 567.39, 153.263, 516.992, 165.229, 482.901, 203.373, 459.926, 945.319, 872.737)
 
 [node name="edge" type="CollisionPolygon2D" parent="Background/StaticBody2D" index="2"]
 position = Vector2(82.5004, 12.9295)
@@ -117,7 +121,7 @@ polygon = PackedVector2Array(1028, 67, 1029, 90, 1084, 125, 1132, 86, 1125, 53, 
 position = Vector2(-85, -3)
 
 [node name="DefaultSpawner" parent="YSort" index="0"]
-position = Vector2(1060, 677)
+position = Vector2(910, 813)
 
 [node name="train-a" type="Sprite2D" parent="YSort" index="1"]
 position = Vector2(392, 803)
@@ -188,6 +192,41 @@ vertices = PackedVector2Array(1064, 87, 1170, -4, 1287, 66, 1181, 155, 1181, 155
 
 [node name="VentC" type="NavigationObstacle2D" parent="YSort" index="14"]
 vertices = PackedVector2Array(1484, 323, 1598, 253, 1679, 323, 1592, 393)
+
+[node name="tree1" type="Sprite2D" parent="YSort" index="15"]
+modulate = Color(0.890196, 0.866667, 0.847059, 1)
+position = Vector2(850, 672)
+scale = Vector2(0.4, 0.5)
+texture = ExtResource("9_ivviy")
+offset = Vector2(0, -250)
+
+[node name="tree2" type="Sprite2D" parent="YSort" index="16"]
+modulate = Color(0.890196, 0.866667, 0.847059, 1)
+position = Vector2(1006, 688)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("10_12vjm")
+offset = Vector2(0, -250)
+
+[node name="tree6" type="Sprite2D" parent="YSort" index="17"]
+modulate = Color(0.890196, 0.866667, 0.847059, 1)
+position = Vector2(284, 795)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("12_t0d60")
+offset = Vector2(0, -250)
+
+[node name="tree7" type="Sprite2D" parent="YSort" index="18"]
+modulate = Color(0.890196, 0.866667, 0.847059, 1)
+position = Vector2(675, 1006)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("12_t0d60")
+offset = Vector2(0, -250)
+
+[node name="tree4" type="Sprite2D" parent="YSort" index="19"]
+modulate = Color(0.890196, 0.866667, 0.847059, 1)
+position = Vector2(922, 1177)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("13_2q8x4")
+offset = Vector2(0, -250)
 
 [node name="LightPath" type="Sprite2D" parent="." index="2"]
 visible = false

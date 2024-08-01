@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://cg4pd3bho5745"]
+
+[ext_resource type="Texture2D" uid="uid://g8hwe8sg2o1" path="res://assets/scenery/extra-tree-coloured/bright-young-tree.png" id="1_wp6m2"]
+
+[node name="YoungTree" type="Sprite2D"]
+modulate = Color(0.858824, 0.858824, 0.858824, 1)
+position = Vector2(294, 784)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("1_wp6m2")
+offset = Vector2(0, -500)

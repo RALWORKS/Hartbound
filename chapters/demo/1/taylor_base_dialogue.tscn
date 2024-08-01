@@ -111,7 +111,7 @@ shader_parameter/tint = Vector4(0.5, 0.73, 0.87, 1)
 shader_parameter/highlight = Vector4(0.7, 0.75, 0.5, 1)
 shader_parameter/alpha = 1.0
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_q7cod"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_48av1"]
 viewport_path = NodePath("img")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7rj0o"]
@@ -844,7 +844,7 @@ texture = ExtResource("4_bxirh")
 [node name="Profile" parent="Concepts/SummerSolstice/Branch" index="2" instance=ExtResource("15_j4j0s")]
 position = Vector2(880, 14)
 scale = Vector2(1.8, 1.8)
-texture = SubResource("ViewportTexture_q7cod")
+texture = SubResource("ViewportTexture_48av1")
 with_background = false
 
 [node name="Human" parent="Concepts/SummerSolstice/Branch" index="3" node_paths=PackedStringArray("to", "avatar") instance=ExtResource("16_xvtm1")]
@@ -1137,9 +1137,9 @@ scale = Vector2(1.5, 1.5)
 texture = ExtResource("4_bxirh")
 
 [node name="SmartLabel" parent="Concepts/TheSaint/Play" index="2" instance=ExtResource("5_sc1vl")]
-offset_left = 37.0
+offset_left = 124.0
 offset_top = 770.0
-offset_right = 793.0
+offset_right = 880.0
 offset_bottom = 848.0
 bbcode_enabled = true
 text = "\"The Saint of Dusk will end the Plague of Demons;"
@@ -1177,9 +1177,9 @@ scale = Vector2(1.5, 1.5)
 texture = ExtResource("4_bxirh")
 
 [node name="SmartLabel" parent="Concepts/TheSaint/Play2" index="2" instance=ExtResource("5_sc1vl")]
-offset_left = 70.0
+offset_left = 124.0
 offset_top = 809.0
-offset_right = 1157.0
+offset_right = 1211.0
 offset_bottom = 887.0
 bbcode_enabled = true
 text = "\"The lights of Sun Temple will go dark; the half-tamed Leyline free at last."

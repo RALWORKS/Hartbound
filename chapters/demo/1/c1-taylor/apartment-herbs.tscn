@@ -214,9 +214,9 @@ position = Vector2(958, 1338)
 texture = ExtResource("4_4001k")
 
 [node name="SmartLabel2" parent="CutsceneNode5" index="2" instance=ExtResource("5_3xlti")]
-offset_left = 1382.0
+offset_left = 1282.0
 offset_top = 484.0
-offset_right = 1664.0
+offset_right = 1564.0
 offset_bottom = 601.0
 text = "\"OK. That's all I needed,\""
 

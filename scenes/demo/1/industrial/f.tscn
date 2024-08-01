@@ -1,10 +1,12 @@
-[gd_scene load_steps=23 format=3 uid="uid://cckqtpr4xqdv1"]
+[gd_scene load_steps=26 format=3 uid="uid://cckqtpr4xqdv1"]
 
 [ext_resource type="PackedScene" uid="uid://byrlpmbpj6yr5" path="res://scene.tscn" id="1_d7mn4"]
 [ext_resource type="Texture2D" uid="uid://b03p7gc1dm2aq" path="res://assets/scenes/demo/1/industrial/f.png" id="2_u64ec"]
+[ext_resource type="Texture2D" uid="uid://nwsqvjdnlosw" path="res://assets/scenery/extra-tree-coloured-bright/trees-and-broken-stone.png" id="3_4fuvy"]
 [ext_resource type="Texture2D" uid="uid://c3snxdvwxp5ff" path="res://assets/scenes/demo/1/industrial/f-rubble-a.png" id="3_roxx8"]
 [ext_resource type="Texture2D" uid="uid://dcrdxmqhn1yjw" path="res://assets/scenes/demo/1/industrial/f-rubble-b.png" id="4_2wv8o"]
 [ext_resource type="Texture2D" uid="uid://cmods1er0qqvf" path="res://assets/scenes/demo/1/industrial/f-rubble-c.png" id="5_1squk"]
+[ext_resource type="Texture2D" uid="uid://ba8f8jn3sykc5" path="res://assets/scenery/extra-tree-coloured-bright/pine-trio.png" id="5_c5ka5"]
 [ext_resource type="Texture2D" uid="uid://dovr5wfqkehpv" path="res://assets/scenes/demo/1/industrial/f-fence-a.png" id="6_lq2a6"]
 [ext_resource type="Texture2D" uid="uid://c5w7s5mupae7l" path="res://assets/scenes/demo/1/industrial/f-fence-b.png" id="7_mlmr4"]
 [ext_resource type="Texture2D" uid="uid://b4qwxwyic0a4r" path="res://assets/scenes/demo/1/industrial/f-fence-c.png" id="8_fyemp"]
@@ -19,6 +21,7 @@
 [ext_resource type="PackedScene" uid="uid://ddhdd81qyis1b" path="res://cutscene/electrocuted_end.tscn" id="16_hbmqc"]
 [ext_resource type="PackedScene" uid="uid://blhapbv7bnq0p" path="res://quests/quest_boundary.tscn" id="17_kvixi"]
 [ext_resource type="PackedScene" uid="uid://bce28mr5fq6en" path="res://chapters/demo/1/dialogues/fallen_leyline_cross.tscn" id="18_26cye"]
+[ext_resource type="Texture2D" uid="uid://dwvf22vxkob24" path="res://assets/scenery/extra-tree-coloured-bright/forest-cluster.png" id="23_0sf55"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_kqse4"]
 vertices = PackedVector2Array(17, 704, 682, 333, 857, 446, 254, 817, 96, 817, -14, 831)
@@ -42,7 +45,7 @@ vein_node = NodePath("Vein")
 texture = ExtResource("2_u64ec")
 
 [node name="barriers" type="CollisionPolygon2D" parent="Background/StaticBody2D" index="0"]
-polygon = PackedVector2Array(-84, 52, 300, -93, 542, -115, 604, 101, 1136, 433, 1676, 671, 1676, 845, 1104, 529, 1048, 582, 982, 606, 940, 634, 922, 684, 840, 768, 795.29, 777.011, 582, 820, 534, 920, 460, 996, 436, 1056, 400, 1106, 408, 1234, -36, 1248, -22, 996, 194, 972, 378, 796, 562, 746, 770, 620, 1010, 477, 668, 293, 526, 360, 222, 520, -48, 664)
+polygon = PackedVector2Array(-84, 52, 300, -93, 542, -115, 604, 101, 1136, 433, 1676, 671, 1676, 845, 1260, 593, 1048, 582, 982, 606, 940, 634, 922, 684, 840, 768, 795.29, 777.011, 582, 820, 534, 920, 460, 996, 436, 1056, 400, 1106, 408, 1234, -36, 1248, -22, 996, 194, 972, 378, 796, 562, 746, 770, 620, 1010, 477, 890, 452, 728, 494, 618, 496, 452, 451, 222, 520, -48, 664)
 
 [node name="post" type="CollisionPolygon2D" parent="Background/StaticBody2D" index="1"]
 polygon = PackedVector2Array(1770, 1130, 1164, 882, 1140, 934, 1114, 894, 1138, 862, 1108, 826, 1154, 846, 1166, 814, 1192, 824, 1180, 860)
@@ -50,87 +53,101 @@ polygon = PackedVector2Array(1770, 1130, 1164, 882, 1140, 934, 1114, 894, 1138, 
 [node name="edge" type="CollisionPolygon2D" parent="Background/StaticBody2D" index="2"]
 polygon = PackedVector2Array(-580, 586, -20, 455, 32, 39, 1588, 15, 1588, 727, 1476, 1215, 16, 1223, 20, 499, -520, 623, -164, 1475, 2076, 1451, 2040, -361, -676, -197)
 
-[node name="DefaultSpawner" parent="YSort" index="0"]
+[node name="tree2" type="Sprite2D" parent="YSort" index="0"]
+modulate = Color(0.890196, 0.866667, 0.847059, 1)
+position = Vector2(708, 435)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_4fuvy")
+offset = Vector2(0, -400)
+
+[node name="tree3" type="Sprite2D" parent="YSort" index="1"]
+modulate = Color(0.890196, 0.866667, 0.847059, 1)
+position = Vector2(1177, 554)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("5_c5ka5")
+offset = Vector2(0, -250)
+
+[node name="DefaultSpawner" parent="YSort" index="2"]
 position = Vector2(1116, 179)
 
-[node name="RubbleA" type="Sprite2D" parent="YSort" index="1"]
+[node name="RubbleA" type="Sprite2D" parent="YSort" index="3"]
 position = Vector2(890, 515.5)
 texture = ExtResource("3_roxx8")
 offset = Vector2(0, -20)
 
-[node name="RubbleB" type="Sprite2D" parent="YSort" index="2"]
+[node name="RubbleB" type="Sprite2D" parent="YSort" index="4"]
 position = Vector2(640, 733.5)
 texture = ExtResource("4_2wv8o")
 offset = Vector2(0, -20)
 
-[node name="RubbleC" type="Sprite2D" parent="YSort" index="3"]
+[node name="RubbleC" type="Sprite2D" parent="YSort" index="5"]
 position = Vector2(184, 991)
 texture = ExtResource("5_1squk")
 offset = Vector2(0, -20)
 
-[node name="Fence1" type="Sprite2D" parent="YSort" index="4"]
+[node name="Fence1" type="Sprite2D" parent="YSort" index="6"]
 position = Vector2(652, 212)
 texture = ExtResource("6_lq2a6")
 offset = Vector2(0, -60)
 
-[node name="Fence2" type="Sprite2D" parent="YSort" index="5"]
+[node name="Fence2" type="Sprite2D" parent="YSort" index="7"]
 position = Vector2(878, 309)
 texture = ExtResource("7_mlmr4")
 offset = Vector2(0, -60)
 
-[node name="Fence3" type="Sprite2D" parent="YSort" index="6"]
+[node name="Fence3" type="Sprite2D" parent="YSort" index="8"]
 position = Vector2(1064, 423)
 texture = ExtResource("8_fyemp")
 offset = Vector2(0, -60)
 
-[node name="Fence4" type="Sprite2D" parent="YSort" index="7"]
+[node name="Fence4" type="Sprite2D" parent="YSort" index="9"]
 position = Vector2(1234, 529)
 texture = ExtResource("9_lvfnb")
 offset = Vector2(0, -60)
 
-[node name="Fence5" type="Sprite2D" parent="YSort" index="8"]
+[node name="Fence5" type="Sprite2D" parent="YSort" index="10"]
 position = Vector2(1462, 645)
 texture = ExtResource("10_wkart")
 offset = Vector2(0, -60)
 
-[node name="West" parent="YSort" index="9" instance=ExtResource("11_523ee")]
+[node name="West" parent="YSort" index="11" instance=ExtResource("11_523ee")]
 position = Vector2(24, 800)
 rotation = -1.5708
 scale = Vector2(3, 1)
 dest_resource = "res://scenes/demo/1/industrial/e.tscn"
 dest_edge = "NorthWest"
 
-[node name="TracksNorth" parent="YSort" index="10" instance=ExtResource("11_523ee")]
+[node name="TracksNorth" parent="YSort" index="12" instance=ExtResource("11_523ee")]
 position = Vector2(985, 32)
 scale = Vector2(6, 0.6)
 dest_resource = "res://scenes/demo/1/industrial/a.tscn"
 dest_edge = "TracksSouth"
 
-[node name="TracksEast" parent="YSort" index="11" instance=ExtResource("11_523ee")]
+[node name="TracksEast" parent="YSort" index="13" instance=ExtResource("11_523ee")]
 position = Vector2(1584, 392)
 rotation = 1.5708
 scale = Vector2(4, 0.6)
 dest_resource = "res://scenes/demo/1/industrial/c.tscn"
 dest_edge = "TracksWest"
 
-[node name="South" parent="YSort" index="12" instance=ExtResource("11_523ee")]
-position = Vector2(940, 1212)
+[node name="South" parent="YSort" index="14" instance=ExtResource("11_523ee")]
+position = Vector2(1276, 1212)
 rotation = 3.14159
-scale = Vector2(8, 0.6)
+scale = Vector2(6, 0.45)
 dest_resource = "res://scenes/demo/1/industrial/e.tscn"
 dest_edge = "NorthEast"
 
-[node name="NavigationMiddle" type="NavigationRegion2D" parent="YSort" index="13"]
+[node name="NavigationMiddle" type="NavigationRegion2D" parent="YSort" index="15"]
 navigation_polygon = SubResource("NavigationPolygon_kqse4")
 
-[node name="NavigationBack" type="NavigationRegion2D" parent="YSort" index="14"]
+[node name="NavigationBack" type="NavigationRegion2D" parent="YSort" index="16"]
 navigation_polygon = SubResource("NavigationPolygon_ws03c")
 
-[node name="NavigationFront" type="NavigationRegion2D" parent="YSort" index="15"]
+[node name="NavigationFront" type="NavigationRegion2D" parent="YSort" index="17"]
 navigation_polygon = SubResource("NavigationPolygon_3nelf")
 
-[node name="Meter C-No-3" type="Sprite2D" parent="YSort" index="16"]
-position = Vector2(511, 536)
+[node name="Meter C-No-3" type="Sprite2D" parent="YSort" index="18"]
+position = Vector2(394, 608)
 scale = Vector2(0.7, 0.7)
 texture = ExtResource("12_ui4a6")
 offset = Vector2(0, -100)
@@ -168,7 +185,7 @@ is_close_btn = true
 to_cutscene = ExtResource("16_hbmqc")
 title = "Open it anyway"
 
-[node name="Pole C-No-2" parent="YSort" index="17" instance=ExtResource("13_80ejq")]
+[node name="Pole C-No-2" parent="YSort" index="19" instance=ExtResource("13_80ejq")]
 position = Vector2(1190, 848)
 title = "Fallen Leyline Cross"
 reference_id = "pole-c-no-2"
@@ -205,18 +222,26 @@ title = "Yes, I'm sure. Harvest the cable."
 title = "Never mind"
 is_close_btn = true
 
-[node name="NorthTrigger" parent="YSort" index="18" instance=ExtResource("17_kvixi")]
+[node name="NorthTrigger" parent="YSort" index="20" instance=ExtResource("17_kvixi")]
 trigger_name = "EnterF-North"
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/NorthTrigger" index="1"]
 polygon = PackedVector2Array(854, 310, 1653, 149, 1417, 119, 565, 119)
 
-[node name="WestTrigger" parent="YSort" index="19" instance=ExtResource("17_kvixi")]
+[node name="WestTrigger" parent="YSort" index="21" instance=ExtResource("17_kvixi")]
 trigger_name = "EnterF-West"
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/WestTrigger" index="1"]
 position = Vector2(-723, 423)
 polygon = PackedVector2Array(1100, 459, 1275, 329, 988, 42, 769, 142)
 
-[node name="Vein" type="Polygon2D" parent="." index="2"]
+[node name="tree5" type="Sprite2D" parent="." index="2"]
+modulate = Color(0.890196, 0.866667, 0.847059, 1)
+position = Vector2(795, 1264)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("23_0sf55")
+offset = Vector2(0, -250)
+flip_h = true
+
+[node name="Vein" type="Polygon2D" parent="." index="3"]
 polygon = PackedVector2Array(-63, 767, 1025, 137, 753, -33, 945, -33, 1713, 391, 1707, 501, 1157, 221, 723, 493, 1279, 855, 1655, 1065, 1165, 939, 1147, 811, 671, 521, 11, 917)

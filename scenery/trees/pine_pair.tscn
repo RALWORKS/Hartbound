@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://bp5q2v0qni20y"]
+
+[ext_resource type="Texture2D" uid="uid://bthiiqiqte0bc" path="res://assets/scenery/extra-tree-coloured/pair-of-pines.png" id="1_mf85i"]
+
+[node name="PinePair" type="Sprite2D"]
+modulate = Color(0.87451, 0.85098, 0.752941, 1)
+position = Vector2(784, 608)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("1_mf85i")
+offset = Vector2(0, -400)
