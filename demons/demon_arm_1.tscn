@@ -1,0 +1,84 @@
+[gd_scene load_steps=5 format=3 uid="uid://bytdfdn3e1k7o"]
+
+[ext_resource type="Texture2D" uid="uid://rihk6hc1ij3l" path="res://demons/1-spritesheet-blur-1.png" id="1_iq58c"]
+
+[sub_resource type="Animation" id="Animation_ecavk"]
+length = 0.1
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Area2D/CollisionPolygon2D:polygon")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [PackedVector2Array(85, 117, 117, 222, 74, 348, 129, 351, 159, 230, 125, 111, 142, 80, 124, 45, 99, 43, 107, 79, 87, 99, 67, 85)]
+}
+
+[sub_resource type="Animation" id="Animation_0ral0"]
+resource_name = "base"
+length = 1.8
+loop_mode = 2
+step = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6, 0.9, 1.2, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 4, 5, 6]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Area2D/CollisionPolygon2D:polygon")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6, 0.9, 1.2, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [PackedVector2Array(85, 117, 92, 198, 74, 348, 129, 351, 133, 211, 125, 111, 157, 64, 153, 32, 129, 17, 107, 79, 97, 76, 83, 44), PackedVector2Array(85, 117, 117, 222, 74, 348, 129, 351, 159, 230, 125, 111, 157, 64, 136, 30, 106, 32, 107, 79, 97, 76, 72, 61), PackedVector2Array(85, 117, 117, 222, 74, 348, 129, 351, 159, 230, 125, 111, 142, 80, 124, 45, 99, 43, 107, 79, 87, 99, 67, 85), PackedVector2Array(73, 168, 104, 242, 74, 348, 129, 351, 152, 252, 90, 138, 72, 94, 36, 93, 14, 117, 43, 133, 54, 155, 25, 166), PackedVector2Array(84, 216, 117, 268, 83, 350, 144, 349, 172, 267, 97, 170, 48, 145, 13, 162, 10, 188, 34, 185, 62, 200, 45, 221), PackedVector2Array(109, 249, 141, 287, 109, 348, 164, 352, 191, 281, 106, 188, 57, 171, 18, 196, 30, 230, 61, 216, 87, 226, 68, 255)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4s6vh"]
+_data = {
+"RESET": SubResource("Animation_ecavk"),
+"base": SubResource("Animation_0ral0")
+}
+
+[node name="DemonArm1" type="Sprite2D"]
+texture = ExtResource("1_iq58c")
+centered = false
+hframes = 7
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+speed_scale = 1.5
+libraries = {
+"": SubResource("AnimationLibrary_4s6vh")
+}
+
+[node name="Area2D" type="Area2D" parent="."]
+visible = false
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+polygon = PackedVector2Array(85, 117, 117, 222, 74, 348, 129, 351, 159, 230, 125, 111, 142, 80, 124, 45, 99, 43, 107, 79, 87, 99, 67, 85)

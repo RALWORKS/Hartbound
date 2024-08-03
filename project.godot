@@ -13,6 +13,7 @@ config_version=5
 config/name="Saint of Mazes; Age of Dusk"
 run/main_scene="res://game.tscn"
 config/features=PackedStringArray("4.1", "Forward Plus")
+boot_splash/bg_color=Color(0.141176, 0.141176, 0.141176, 1)
 config/icon="res://icon.svg"
 
 [display]
@@ -91,4 +92,4 @@ scout={
 
 [rendering]
 
-environment/defaults/default_clear_color=Color(0, 0, 0, 1)
+environment/defaults/default_clear_color=Color(0.239216, 0.239216, 0.239216, 1)

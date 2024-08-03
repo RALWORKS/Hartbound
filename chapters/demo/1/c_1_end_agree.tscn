@@ -14,22 +14,22 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0o0tw"]
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_p1bbh"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_veri7"]
 viewport_path = NodePath("img")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_4dnax"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_kh1uq"]
 viewport_path = NodePath("img")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_xwa7k"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_pr20f"]
 viewport_path = NodePath("img")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_u3q1h"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_groyb"]
 viewport_path = NodePath("img")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_rd64h"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_v2u0r"]
 viewport_path = NodePath("img")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_gnc4l"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_q06ui"]
 viewport_path = NodePath("img")
 
 [node name="C1EndAgree" node_paths=PackedStringArray("starting_page") instance=ExtResource("1_j6s24")]
@@ -138,7 +138,7 @@ flip_h = true
 [node name="Profile" parent="YesFullyBelieves" index="2" instance=ExtResource("9_1dapo")]
 position = Vector2(-200, 100)
 scale = Vector2(1.8, 1.8)
-texture = SubResource("ViewportTexture_p1bbh")
+texture = SubResource("ViewportTexture_veri7")
 flip_h = true
 with_background = false
 
@@ -166,7 +166,7 @@ flip_h = true
 [node name="Profile" parent="YesHalfBelieves" index="2" instance=ExtResource("9_1dapo")]
 position = Vector2(-200, 100)
 scale = Vector2(1.8, 1.8)
-texture = SubResource("ViewportTexture_4dnax")
+texture = SubResource("ViewportTexture_kh1uq")
 flip_h = true
 with_background = false
 
@@ -219,7 +219,7 @@ flip_h = true
 [node name="Profile" parent="YesDisBelieves2" index="2" instance=ExtResource("9_1dapo")]
 position = Vector2(-200, 100)
 scale = Vector2(1.8, 1.8)
-texture = SubResource("ViewportTexture_xwa7k")
+texture = SubResource("ViewportTexture_pr20f")
 flip_h = true
 with_background = false
 start_frown = true
@@ -264,7 +264,7 @@ scale = Vector2(1.5, 1.5)
 [node name="Profile" parent="NoFullyBelieves" index="2" instance=ExtResource("9_1dapo")]
 position = Vector2(-200, 100)
 scale = Vector2(1.8, 1.8)
-texture = SubResource("ViewportTexture_u3q1h")
+texture = SubResource("ViewportTexture_groyb")
 flip_h = true
 with_background = false
 start_frown = true
@@ -292,7 +292,7 @@ scale = Vector2(1.5, 1.5)
 [node name="Profile" parent="NoHalfBelieves" index="2" instance=ExtResource("9_1dapo")]
 position = Vector2(-200, 100)
 scale = Vector2(1.8, 1.8)
-texture = SubResource("ViewportTexture_rd64h")
+texture = SubResource("ViewportTexture_v2u0r")
 flip_h = true
 with_background = false
 start_frown = true
@@ -324,7 +324,7 @@ scale = Vector2(1.5, 1.5)
 [node name="Profile" parent="NoDisBelieves" index="2" instance=ExtResource("9_1dapo")]
 position = Vector2(-200, 100)
 scale = Vector2(1.8, 1.8)
-texture = SubResource("ViewportTexture_gnc4l")
+texture = SubResource("ViewportTexture_q06ui")
 with_background = false
 start_frown = true
 
