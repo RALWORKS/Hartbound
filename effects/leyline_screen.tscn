@@ -8,6 +8,10 @@ shader = ExtResource("1_w5hno")
 shader_parameter/blur_radius = 50.0
 shader_parameter/n_steps = 5.0
 shader_parameter/bg_alpha = 0.0
+shader_parameter/colour_mod = 0.0
+shader_parameter/colour_mod_r = 0.0
+shader_parameter/colour_mod_g = 0.0
+shader_parameter/colour_mod_b = 0.0
 shader_parameter/invert = true
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_rq2gs"]
@@ -55,6 +59,10 @@ shader = ExtResource("1_w5hno")
 shader_parameter/blur_radius = 50.0
 shader_parameter/n_steps = 5.0
 shader_parameter/bg_alpha = 0.8
+shader_parameter/colour_mod = 0.0
+shader_parameter/colour_mod_r = 0.0
+shader_parameter/colour_mod_g = 0.0
+shader_parameter/colour_mod_b = 0.0
 shader_parameter/invert = false
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_3vmal"]
@@ -118,3 +126,5 @@ size = Vector2i(1600, 1237)
 [node name="ExampleVein" type="Polygon2D" parent="Texture"]
 visible = false
 polygon = PackedVector2Array(-41, 881, 237, 810, 505, 601, 881, 535, 1203, 183, 1307, -49, 1513, -67, 1350, 326, 1241, 486, 1292, 546, 1972, 513, 1995, 708, 1231, 651, 1134, 526, 924, 697, 521, 797, -30, 1283, -89, 1150)
+
+[connection signal="child_exiting_tree" from="." to="." method="_on_child_exiting_tree"]

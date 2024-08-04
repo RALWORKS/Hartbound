@@ -1,0 +1,247 @@
+[gd_scene load_steps=26 format=3 uid="uid://cckqtpr4xqdv1"]
+
+[ext_resource type="PackedScene" uid="uid://byrlpmbpj6yr5" path="res://scene.tscn" id="1_d7mn4"]
+[ext_resource type="Texture2D" uid="uid://b03p7gc1dm2aq" path="res://assets/scenes/demo/1/industrial/f.png" id="2_u64ec"]
+[ext_resource type="Texture2D" uid="uid://nwsqvjdnlosw" path="res://assets/scenery/extra-tree-coloured-bright/trees-and-broken-stone.png" id="3_4fuvy"]
+[ext_resource type="Texture2D" uid="uid://c3snxdvwxp5ff" path="res://assets/scenes/demo/1/industrial/f-rubble-a.png" id="3_roxx8"]
+[ext_resource type="Texture2D" uid="uid://dcrdxmqhn1yjw" path="res://assets/scenes/demo/1/industrial/f-rubble-b.png" id="4_2wv8o"]
+[ext_resource type="Texture2D" uid="uid://cmods1er0qqvf" path="res://assets/scenes/demo/1/industrial/f-rubble-c.png" id="5_1squk"]
+[ext_resource type="Texture2D" uid="uid://ba8f8jn3sykc5" path="res://assets/scenery/extra-tree-coloured-bright/pine-trio.png" id="5_c5ka5"]
+[ext_resource type="Texture2D" uid="uid://dovr5wfqkehpv" path="res://assets/scenes/demo/1/industrial/f-fence-a.png" id="6_lq2a6"]
+[ext_resource type="Texture2D" uid="uid://c5w7s5mupae7l" path="res://assets/scenes/demo/1/industrial/f-fence-b.png" id="7_mlmr4"]
+[ext_resource type="Texture2D" uid="uid://b4qwxwyic0a4r" path="res://assets/scenes/demo/1/industrial/f-fence-c.png" id="8_fyemp"]
+[ext_resource type="Texture2D" uid="uid://dnse2uc1ils34" path="res://assets/scenes/demo/1/industrial/f-fence-d.png" id="9_lvfnb"]
+[ext_resource type="Texture2D" uid="uid://5wynkhavuwwe" path="res://assets/scenes/demo/1/industrial/f-fence-e.png" id="10_wkart"]
+[ext_resource type="PackedScene" uid="uid://dxfuidhlgwthh" path="res://travel/door.tscn" id="11_523ee"]
+[ext_resource type="Texture2D" uid="uid://bw40tyqi0m237" path="res://assets/scenery/parking-meter-a.png" id="12_ui4a6"]
+[ext_resource type="PackedScene" uid="uid://cl4heje674d3q" path="res://item/interaction_area.tscn" id="13_80ejq"]
+[ext_resource type="PackedScene" uid="uid://cpbg7yuq873y5" path="res://item/interaction_action.tscn" id="14_hojlb"]
+[ext_resource type="PackedScene" uid="uid://b0s5na6qe26yx" path="res://chapters/demo/1/dialogues/parking_meter.tscn" id="14_j8nb8"]
+[ext_resource type="PackedScene" uid="uid://dh1scrjroovcn" path="res://item/interaction_modal_maker.tscn" id="15_4rgmo"]
+[ext_resource type="PackedScene" uid="uid://ddhdd81qyis1b" path="res://cutscene/electrocuted_end.tscn" id="16_hbmqc"]
+[ext_resource type="PackedScene" uid="uid://blhapbv7bnq0p" path="res://quests/quest_boundary.tscn" id="17_kvixi"]
+[ext_resource type="PackedScene" uid="uid://bce28mr5fq6en" path="res://chapters/demo/1/dialogues/fallen_leyline_cross.tscn" id="18_26cye"]
+[ext_resource type="Texture2D" uid="uid://dwvf22vxkob24" path="res://assets/scenery/extra-tree-coloured-bright/forest-cluster.png" id="23_0sf55"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_kqse4"]
+vertices = PackedVector2Array(17, 704, 682, 333, 857, 446, 254, 817, 96, 817, -14, 831)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4), PackedInt32Array(5, 0, 4)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-14, 831, 96, 817, 254, 817, 857, 446, 682, 333, 17, 704)])
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_ws03c"]
+vertices = PackedVector2Array(1589, 50, 1612, 619, 1044, 327, 583, 25)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(583, 25, 1044, 327, 1612, 619, 1589, 50)])
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_3nelf"]
+vertices = PackedVector2Array(1450, 1141, 495, 1248, 467, 1098, 631, 856, 930, 784, 1532, 827, 1105, 592)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4, 5), PackedInt32Array(5, 4, 6)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(495, 1248, 467, 1098, 631, 856, 930, 784, 1105, 592, 1532, 827, 1450, 1141)])
+
+[node name="Scene" node_paths=PackedStringArray("vein_node") instance=ExtResource("1_d7mn4")]
+vein_node = NodePath("Vein")
+
+[node name="Background" parent="." index="0"]
+texture = ExtResource("2_u64ec")
+
+[node name="barriers" type="CollisionPolygon2D" parent="Background/StaticBody2D" index="0"]
+polygon = PackedVector2Array(-84, 52, 300, -93, 542, -115, 604, 101, 1136, 433, 1676, 671, 1676, 845, 1260, 593, 1048, 582, 982, 606, 940, 634, 922, 684, 840, 768, 795.29, 777.011, 582, 820, 534, 920, 460, 996, 436, 1056, 400, 1106, 408, 1234, -36, 1248, -22, 996, 194, 972, 378, 796, 562, 746, 770, 620, 1010, 477, 890, 452, 728, 494, 618, 496, 452, 451, 222, 520, -48, 664)
+
+[node name="post" type="CollisionPolygon2D" parent="Background/StaticBody2D" index="1"]
+polygon = PackedVector2Array(1770, 1130, 1164, 882, 1140, 934, 1114, 894, 1138, 862, 1108, 826, 1154, 846, 1166, 814, 1192, 824, 1180, 860)
+
+[node name="edge" type="CollisionPolygon2D" parent="Background/StaticBody2D" index="2"]
+polygon = PackedVector2Array(-580, 586, -20, 455, 32, 39, 1588, 15, 1588, 727, 1476, 1215, 16, 1223, 20, 499, -520, 623, -164, 1475, 2076, 1451, 2040, -361, -676, -197)
+
+[node name="tree2" type="Sprite2D" parent="YSort" index="0"]
+modulate = Color(0.890196, 0.866667, 0.847059, 1)
+position = Vector2(708, 435)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_4fuvy")
+offset = Vector2(0, -400)
+
+[node name="tree3" type="Sprite2D" parent="YSort" index="1"]
+modulate = Color(0.890196, 0.866667, 0.847059, 1)
+position = Vector2(1177, 554)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("5_c5ka5")
+offset = Vector2(0, -250)
+
+[node name="DefaultSpawner" parent="YSort" index="2"]
+position = Vector2(1116, 179)
+
+[node name="RubbleA" type="Sprite2D" parent="YSort" index="3"]
+position = Vector2(890, 515.5)
+texture = ExtResource("3_roxx8")
+offset = Vector2(0, -20)
+
+[node name="RubbleB" type="Sprite2D" parent="YSort" index="4"]
+position = Vector2(640, 733.5)
+texture = ExtResource("4_2wv8o")
+offset = Vector2(0, -20)
+
+[node name="RubbleC" type="Sprite2D" parent="YSort" index="5"]
+position = Vector2(184, 991)
+texture = ExtResource("5_1squk")
+offset = Vector2(0, -20)
+
+[node name="Fence1" type="Sprite2D" parent="YSort" index="6"]
+position = Vector2(652, 212)
+texture = ExtResource("6_lq2a6")
+offset = Vector2(0, -60)
+
+[node name="Fence2" type="Sprite2D" parent="YSort" index="7"]
+position = Vector2(878, 309)
+texture = ExtResource("7_mlmr4")
+offset = Vector2(0, -60)
+
+[node name="Fence3" type="Sprite2D" parent="YSort" index="8"]
+position = Vector2(1064, 423)
+texture = ExtResource("8_fyemp")
+offset = Vector2(0, -60)
+
+[node name="Fence4" type="Sprite2D" parent="YSort" index="9"]
+position = Vector2(1234, 529)
+texture = ExtResource("9_lvfnb")
+offset = Vector2(0, -60)
+
+[node name="Fence5" type="Sprite2D" parent="YSort" index="10"]
+position = Vector2(1462, 645)
+texture = ExtResource("10_wkart")
+offset = Vector2(0, -60)
+
+[node name="West" parent="YSort" index="11" instance=ExtResource("11_523ee")]
+position = Vector2(24, 800)
+rotation = -1.5708
+scale = Vector2(3, 1)
+dest_resource = "res://scenes/demo/1/industrial/e.tscn"
+dest_edge = "NorthWest"
+
+[node name="TracksNorth" parent="YSort" index="12" instance=ExtResource("11_523ee")]
+position = Vector2(985, 32)
+scale = Vector2(6, 0.6)
+dest_resource = "res://scenes/demo/1/industrial/a.tscn"
+dest_edge = "TracksSouth"
+
+[node name="TracksEast" parent="YSort" index="13" instance=ExtResource("11_523ee")]
+position = Vector2(1584, 392)
+rotation = 1.5708
+scale = Vector2(4, 0.6)
+dest_resource = "res://scenes/demo/1/industrial/c.tscn"
+dest_edge = "TracksWest"
+
+[node name="South" parent="YSort" index="14" instance=ExtResource("11_523ee")]
+position = Vector2(1276, 1212)
+rotation = 3.14159
+scale = Vector2(6, 0.45)
+dest_resource = "res://scenes/demo/1/industrial/e.tscn"
+dest_edge = "NorthEast"
+
+[node name="NavigationMiddle" type="NavigationRegion2D" parent="YSort" index="15"]
+navigation_polygon = SubResource("NavigationPolygon_kqse4")
+
+[node name="NavigationBack" type="NavigationRegion2D" parent="YSort" index="16"]
+navigation_polygon = SubResource("NavigationPolygon_ws03c")
+
+[node name="NavigationFront" type="NavigationRegion2D" parent="YSort" index="17"]
+navigation_polygon = SubResource("NavigationPolygon_3nelf")
+
+[node name="Meter C-No-3" type="Sprite2D" parent="YSort" index="18"]
+position = Vector2(394, 608)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("12_ui4a6")
+offset = Vector2(0, -100)
+
+[node name="InteractionArea" parent="YSort/Meter C-No-3" index="0" instance=ExtResource("13_80ejq")]
+position = Vector2(1.42853, -77.1428)
+title = "Tithe Collector"
+reference_id = "meter-c-no-3"
+description = "An ancient tithe collecting machine mounted on a post."
+cutscene = ExtResource("14_j8nb8")
+child_depth = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/Meter C-No-3/InteractionArea" index="0"]
+position = Vector2(-484.285, -331.428)
+polygon = PackedVector2Array(474, 401, 488, 390, 479, 286, 467, 285, 455, 257, 459, 225, 474, 221, 484, 260, 489, 260, 490, 224, 502, 218, 511, 230, 512, 264, 498, 290, 490, 297, 499, 389, 514, 401, 503, 408, 487, 412)
+
+[node name="Actions" type="Node" parent="YSort/Meter C-No-3/InteractionArea" index="1"]
+
+[node name="Open" parent="YSort/Meter C-No-3/InteractionArea/Actions" index="0" node_paths=PackedStringArray("to_modal_maker") instance=ExtResource("14_hojlb")]
+to_modal_maker = NodePath("OpenModalMaker")
+title = "[ENGINEER] Open the casing"
+
+[node name="OpenModalMaker" parent="YSort/Meter C-No-3/InteractionArea/Actions/Open" index="0" node_paths=PackedStringArray("options_container_node") instance=ExtResource("15_4rgmo")]
+title = "Access Panel"
+description = "The screwdriver sparks a little as it contacts the screw. Good thing it's insulated--this is definitely still posessed by the Leyline."
+options_container_node = NodePath("Actions")
+
+[node name="Actions" type="Node" parent="YSort/Meter C-No-3/InteractionArea/Actions/Open/OpenModalMaker" index="0"]
+
+[node name="Leave" parent="YSort/Meter C-No-3/InteractionArea/Actions/Open/OpenModalMaker/Actions" index="0" instance=ExtResource("14_hojlb")]
+title = "Never mind"
+is_close_btn = true
+
+[node name="ReallyOpen" parent="YSort/Meter C-No-3/InteractionArea/Actions/Open/OpenModalMaker/Actions" index="1" instance=ExtResource("14_hojlb")]
+to_cutscene = ExtResource("16_hbmqc")
+title = "Open it anyway"
+
+[node name="Pole C-No-2" parent="YSort" index="19" instance=ExtResource("13_80ejq")]
+position = Vector2(1190, 848)
+title = "Fallen Leyline Cross"
+reference_id = "pole-c-no-2"
+description = "A Leyline cross lies fallen on the ground, its cables strewn beside it."
+cutscene = ExtResource("18_26cye")
+child_depth = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/Pole C-No-2" index="0"]
+position = Vector2(-1192, -844)
+polygon = PackedVector2Array(1101, 828, 1121, 916, 1206, 913, 1644, 1088, 1642, 1052, 1415, 947, 1602, 989, 1582, 905, 1424, 899, 1181, 800)
+
+[node name="Actions" type="Node" parent="YSort/Pole C-No-2" index="1"]
+
+[node name="Open" parent="YSort/Pole C-No-2/Actions" index="0" node_paths=PackedStringArray("to_modal_maker") instance=ExtResource("14_hojlb")]
+to_modal_maker = NodePath("OpenModalMaker")
+title = "[ENGINEER] Harvest cable"
+
+[node name="OpenModalMaker" parent="YSort/Pole C-No-2/Actions/Open" index="0" node_paths=PackedStringArray("options_container_node") instance=ExtResource("15_4rgmo")]
+title = "Access Panel"
+description = "Are you absolutely sure? If you're on top of a Leyline right now, trying that will kill you. If you don't have a way to check at the moment, maybe err on the side of caution."
+options_container_node = NodePath("Actions")
+
+[node name="Actions" type="Node" parent="YSort/Pole C-No-2/Actions/Open/OpenModalMaker" index="0"]
+
+[node name="Leave" parent="YSort/Pole C-No-2/Actions/Open/OpenModalMaker/Actions" index="0" instance=ExtResource("14_hojlb")]
+title = "Never mind"
+is_close_btn = true
+
+[node name="ReallyOpen" parent="YSort/Pole C-No-2/Actions/Open/OpenModalMaker/Actions" index="1" instance=ExtResource("14_hojlb")]
+to_cutscene = ExtResource("16_hbmqc")
+title = "Yes, I'm sure. Harvest the cable."
+
+[node name="Leave" parent="YSort/Pole C-No-2/Actions" index="1" instance=ExtResource("14_hojlb")]
+title = "Never mind"
+is_close_btn = true
+
+[node name="NorthTrigger" parent="YSort" index="20" instance=ExtResource("17_kvixi")]
+trigger_name = "EnterF-North"
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/NorthTrigger" index="1"]
+polygon = PackedVector2Array(854, 310, 1653, 149, 1417, 119, 565, 119)
+
+[node name="WestTrigger" parent="YSort" index="21" instance=ExtResource("17_kvixi")]
+trigger_name = "EnterF-West"
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/WestTrigger" index="1"]
+position = Vector2(-723, 423)
+polygon = PackedVector2Array(1100, 459, 1275, 329, 988, 42, 769, 142)
+
+[node name="tree5" type="Sprite2D" parent="." index="2"]
+modulate = Color(0.890196, 0.866667, 0.847059, 1)
+position = Vector2(795, 1264)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("23_0sf55")
+offset = Vector2(0, -250)
+flip_h = true
+
+[node name="Vein" type="Polygon2D" parent="." index="3"]
+polygon = PackedVector2Array(-63, 767, 1025, 137, 753, -33, 945, -33, 1713, 391, 1707, 501, 1157, 221, 723, 493, 1279, 855, 1655, 1065, 1165, 939, 1147, 811, 671, 521, 11, 917)

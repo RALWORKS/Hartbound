@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://bctl3hbuganql"]
+
+[ext_resource type="PackedScene" uid="uid://bh1yfkyt3u44i" path="res://chapter.tscn" id="1_a6kau"]
+[ext_resource type="PackedScene" uid="uid://qhhv4s8njcrp" path="res://scenes/demo/2/b.tscn" id="2_mt4w0"]
+
+[node name="Chapter" instance=ExtResource("1_a6kau")]
+starting_scene = ExtResource("2_mt4w0")

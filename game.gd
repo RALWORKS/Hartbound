@@ -36,7 +36,8 @@ var CHAPTERS = {
 	"intro": preload("res://intro-story/intro_story_chapter.tscn"),
 	"create": preload("res://character/character_creator.tscn"),
 	"test0": preload("res://chapters/demo/0/chapter_test.tscn"),
-	"demo1": preload("res://chapters/demo/1/demo-industrial.tscn")
+	"demo1": preload("res://chapters/demo/1/demo-industrial.tscn"),
+	"demo2": preload("res://chapters/demo/2/chapter-2.tscn"),
 }
 @export var FIRST_CHAPTER = "demo1"
 

@@ -38,6 +38,16 @@ func run(parent):
 	g.leyline_showing = false
 	
 
+func run_black(parent):
+	var g = _get_game()
+	if g == null:
+		return
+	g.leyline_showing = true
+	$Leyline.material.set_shader_parameter("colour_mod", float(-1.0))
+	$Leyline.material.set_shader_parameter("colour_mod_red", float(0.5))
+	$Leyline.material.set_shader_parameter("colour_mod_green", float(-1.0))
+
+
 func set_vein_node(n):
 	if n == null:
 		return
@@ -50,3 +60,10 @@ func raise(parent):
 	remove_child(dark)
 	parent.add_child(dark)
 	parent.move_child(dark, -1)
+
+
+func _on_child_exiting_tree(node):
+	var g = _get_game()
+	if g == null:
+		return
+	g.leyline_showing = false

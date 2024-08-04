@@ -3,6 +3,10 @@ shader_type canvas_item;
 uniform float blur_radius = 100.0;
 uniform float n_steps = 100.0;
 uniform float bg_alpha = 0.3;
+uniform float colour_mod = 0;
+uniform float colour_mod_r = 0;
+uniform float colour_mod_g = 0;
+uniform float colour_mod_b = 0;
 
 uniform bool invert = false;
 
@@ -36,9 +40,9 @@ void fragment() {
 		COLOR.a = (1.0 - pow(avg.a, 4)) * bg_alpha;
 	}
 	else {
-		COLOR.r = sin((pow(UV.x, 3) + TIME) * 10.0);
-		COLOR.g = 1.0 - sin(TIME) * 0.2;
-		COLOR.b = 0.5 - cos(TIME) * 0.2;
+		COLOR.r = colour_mod + colour_mod_r + sin((pow(UV.x, 3) + TIME) * 10.0);
+		COLOR.g = colour_mod + colour_mod_g + (1.0 - sin(TIME) * 0.2);
+		COLOR.b = colour_mod + colour_mod_b + (0.5 - cos(TIME) * 0.2);
 	
 		COLOR.a = pow(avg.a, 4) * bg_alpha;
 	}
