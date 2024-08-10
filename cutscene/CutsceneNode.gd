@@ -59,10 +59,8 @@ func flip(kwargs: Dictionary = {}):
 	print(name, to)
 	self.leave()
 	if to != null:
-		print("START REALLY", to)
 		to.start()
 	else:
-		print("END END END")
 		$"/root/Game/Chapter".end_cutscene()
 		
 

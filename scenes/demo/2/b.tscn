@@ -37,6 +37,7 @@ outlines = Array[PackedVector2Array]([PackedVector2Array(9, 227, 358, 39, 546, 1
 
 [node name="IndustrialB" node_paths=PackedStringArray("vein_node") instance=ExtResource("1_4su6i")]
 vein_node = NodePath("Vein")
+use_black_leyline = true
 
 [node name="Background" parent="." index="0"]
 texture = ExtResource("2_beatb")
@@ -310,22 +311,22 @@ offset = Vector2(0, -100)
 
 [node name="Sprite2D" type="Sprite2D" parent="." index="6"]
 
-[node name="DemonArn1" parent="." index="7" instance=ExtResource("24_4eclu")]
+[node name="Vein" type="Polygon2D" parent="." index="7"]
+polygon = PackedVector2Array(76, 1425, 778, 1097, 464, 837, 981, 619, 993, 237, 1898, -187, 1966, -113, 1080, 277, 1072, 659, 622, 862, 959, 1123, 156, 1491)
+
+[node name="DemonArn1" parent="Vein" index="0" instance=ExtResource("24_4eclu")]
 position = Vector2(573, 809)
 rotation = -0.785398
 scale = Vector2(0.7, 0.7)
 
-[node name="DemonArn2" parent="." index="8" instance=ExtResource("24_4eclu")]
+[node name="DemonArn2" parent="Vein" index="1" instance=ExtResource("24_4eclu")]
 position = Vector2(809, 691)
 rotation = 2.35619
 scale = Vector2(0.45, -0.6)
 skew = -0.420624
 
-[node name="DemonArn3" parent="." index="9" instance=ExtResource("24_4eclu")]
+[node name="DemonArn3" parent="Vein" index="2" instance=ExtResource("24_4eclu")]
 position = Vector2(915, 654)
 rotation = -0.785398
 scale = Vector2(0.375, 0.5)
 skew = -0.729548
-
-[node name="Vein" type="Polygon2D" parent="." index="10"]
-polygon = PackedVector2Array(76, 1425, 778, 1097, 464, 837, 981, 619, 993, 237, 1898, -187, 1966, -113, 1080, 277, 1072, 659, 622, 862, 959, 1123, 156, 1491)

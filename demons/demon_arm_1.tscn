@@ -1,8 +1,8 @@
 [gd_scene load_steps=7 format=3 uid="uid://bytdfdn3e1k7o"]
 
 [ext_resource type="Texture2D" uid="uid://crwgsbucxyldl" path="res://assets/circle.png" id="1_g0fr8"]
-[ext_resource type="Texture2D" uid="uid://rihk6hc1ij3l" path="res://demons/1-spritesheet-blur-1.png" id="1_iq58c"]
 [ext_resource type="Script" path="res://demons/demon_arm_1.gd" id="2_b57ut"]
+[ext_resource type="Texture2D" uid="uid://bm7dfi4d8eu5b" path="res://assets/demons/1-spritesheet.png" id="3_plp36"]
 
 [sub_resource type="Animation" id="Animation_ecavk"]
 length = 0.1
@@ -124,7 +124,7 @@ script = ExtResource("2_b57ut")
 
 [node name="arm" type="Sprite2D" parent="."]
 position = Vector2(-72, -312)
-texture = ExtResource("1_iq58c")
+texture = ExtResource("3_plp36")
 centered = false
 hframes = 7
 
