@@ -17,6 +17,8 @@ var game = null
 
 func trigger(trigger_name, e=null):
 	var t = $Triggers.get_node(trigger_name)
+	if t == null:
+		return
 	t.action(e)
 	
 func get_next_event():

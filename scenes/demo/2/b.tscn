@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://qhhv4s8njcrp"]
+[gd_scene load_steps=21 format=3 uid="uid://cutjuxuo3n1wc"]
 
 [ext_resource type="PackedScene" uid="uid://byrlpmbpj6yr5" path="res://scene.tscn" id="1_4su6i"]
 [ext_resource type="Texture2D" uid="uid://dobfgkrdvoy5g" path="res://assets/scenes/demo/1/industrial/b.png" id="2_beatb"]
@@ -6,23 +6,17 @@
 [ext_resource type="Texture2D" uid="uid://b7bo0oyjlmq03" path="res://assets/scenes/demo/1/industrial/b-treetop.png" id="4_jobxl"]
 [ext_resource type="Texture2D" uid="uid://c6dbijn80ep15" path="res://assets/scenes/demo/1/industrial/b-vent-tree.png" id="5_ij0re"]
 [ext_resource type="PackedScene" uid="uid://dxfuidhlgwthh" path="res://travel/door.tscn" id="6_dl5dw"]
-[ext_resource type="PackedScene" uid="uid://b5ibfeuvnnobf" path="res://chapters/demo/1/dialogues/panel_c_no_1.tscn" id="9_uuj28"]
-[ext_resource type="Texture2D" uid="uid://cucflpddlqdqp" path="res://assets/scenery/left-panel-situation-1.png" id="11_0g0bb"]
 [ext_resource type="PackedScene" uid="uid://cl4heje674d3q" path="res://item/interaction_area.tscn" id="12_6urft"]
 [ext_resource type="PackedScene" uid="uid://bkyp4rqktyinq" path="res://item/interact_range_extender.tscn" id="13_6vyp4"]
 [ext_resource type="PackedScene" uid="uid://b2jx8i1f87s2x" path="res://chapters/demo/1/dialogues/leyline_cross.tscn" id="14_qhsme"]
-[ext_resource type="PackedScene" uid="uid://cpbg7yuq873y5" path="res://item/interaction_action.tscn" id="14_v06dg"]
-[ext_resource type="PackedScene" uid="uid://dh1scrjroovcn" path="res://item/interaction_modal_maker.tscn" id="15_s4ofs"]
 [ext_resource type="PackedScene" uid="uid://cg4pd3bho5745" path="res://scenery/trees/young_tree.tscn" id="16_4rt0h"]
-[ext_resource type="PackedScene" uid="uid://ddhdd81qyis1b" path="res://cutscene/electrocuted_end.tscn" id="16_k1any"]
 [ext_resource type="PackedScene" uid="uid://bp5q2v0qni20y" path="res://scenery/trees/pine_pair.tscn" id="17_bd47t"]
-[ext_resource type="PackedScene" uid="uid://blhapbv7bnq0p" path="res://quests/quest_boundary.tscn" id="17_hmbms"]
 [ext_resource type="PackedScene" uid="uid://cqv8vs3o2qua4" path="res://chapters/demo/1/jerry_says_no_leavng_alone.tscn" id="18_h44q5"]
 [ext_resource type="PackedScene" uid="uid://5exo54lvam30" path="res://quests/quests/demo_c_1_regroup_initial.tscn" id="18_i73ob"]
-[ext_resource type="Texture2D" uid="uid://chq6q6xttvwfi" path="res://assets/scenery/extra-tree-coloured-bright/tree-family.png" id="19_d5wrl"]
-[ext_resource type="Texture2D" uid="uid://cnlclj8g0tyiw" path="res://assets/scenery/extra-tree-coloured-bright/stone-trio.png" id="19_hnywh"]
-[ext_resource type="Texture2D" uid="uid://ba8f8jn3sykc5" path="res://assets/scenery/extra-tree-coloured-bright/pine-trio.png" id="20_uwtq4"]
-[ext_resource type="Texture2D" uid="uid://dwvf22vxkob24" path="res://assets/scenery/extra-tree-coloured-bright/forest-cluster.png" id="22_56ef0"]
+[ext_resource type="Texture2D" uid="uid://chq6q6xttvwfi" path="res://assets/scenery/extra-tree-coloured/tree-family.png" id="19_d5wrl"]
+[ext_resource type="Texture2D" uid="uid://cnlclj8g0tyiw" path="res://assets/scenery/extra-tree-coloured/stone-trio.png" id="19_hnywh"]
+[ext_resource type="Texture2D" uid="uid://ba8f8jn3sykc5" path="res://assets/scenery/extra-tree-coloured/pine-trio.png" id="20_uwtq4"]
+[ext_resource type="Texture2D" uid="uid://dwvf22vxkob24" path="res://assets/scenery/extra-tree-coloured/forest-cluster.png" id="22_56ef0"]
 [ext_resource type="PackedScene" uid="uid://bytdfdn3e1k7o" path="res://demons/demon_arm_1.tscn" id="24_4eclu"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_2fe48"]
@@ -163,54 +157,7 @@ vertices = PackedVector2Array(1313, 227, 1403, 173, 1494, 229, 1405, 319, 1310, 
 [node name="VentD" type="NavigationObstacle2D" parent="YSort" index="14"]
 vertices = PackedVector2Array(1510, 361, 1596, 320, 1600, 446, 1510, 403)
 
-[node name="Panel C-No-1" type="Node2D" parent="YSort" index="15"]
-
-[node name="Sprite2D" type="Sprite2D" parent="YSort/Panel C-No-1" index="0"]
-position = Vector2(1049, 483)
-scale = Vector2(0.6, 0.6)
-texture = ExtResource("11_0g0bb")
-
-[node name="InteractionArea" parent="YSort/Panel C-No-1" index="1" instance=ExtResource("12_6urft")]
-position = Vector2(1043, 501)
-title = "Access Panel"
-reference_id = "panel-c-no-1"
-description = "There's an access panel built into the wall here."
-cutscene = ExtResource("9_uuj28")
-child_depth = 2
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/Panel C-No-1/InteractionArea" index="0"]
-position = Vector2(-1020, -511)
-polygon = PackedVector2Array(990, 542, 984, 444, 1062, 493, 1064, 582)
-
-[node name="InteractRangeExtender" parent="YSort/Panel C-No-1" index="2" node_paths=PackedStringArray("interactable") instance=ExtResource("13_6vyp4")]
-position = Vector2(17, 17)
-interactable = NodePath("../InteractionArea")
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/Panel C-No-1/InteractRangeExtender" index="0"]
-polygon = PackedVector2Array(901, 637, 933, 614, 1034, 684, 996, 707)
-
-[node name="Actions" type="Node" parent="YSort/Panel C-No-1" index="3"]
-
-[node name="Open" parent="YSort/Panel C-No-1/Actions" index="0" node_paths=PackedStringArray("to_modal_maker") instance=ExtResource("14_v06dg")]
-to_modal_maker = NodePath("OpenModalMaker")
-title = "[ENGINEER] Unscrew the panel"
-
-[node name="OpenModalMaker" parent="YSort/Panel C-No-1/Actions/Open" index="0" node_paths=PackedStringArray("options_container_node") instance=ExtResource("15_s4ofs")]
-title = "Access Panel"
-description = "When you touch it, you find that the panel is ... vibrating slightly. That's because it's on top of a Leyline. Opening this will electrocute you--possibly to death."
-options_container_node = NodePath("Actions")
-
-[node name="Actions" type="Node" parent="YSort/Panel C-No-1/Actions/Open/OpenModalMaker" index="0"]
-
-[node name="Leave" parent="YSort/Panel C-No-1/Actions/Open/OpenModalMaker/Actions" index="0" instance=ExtResource("14_v06dg")]
-title = "Never mind"
-is_close_btn = true
-
-[node name="ReallyOpen" parent="YSort/Panel C-No-1/Actions/Open/OpenModalMaker/Actions" index="1" instance=ExtResource("14_v06dg")]
-to_cutscene = ExtResource("16_k1any")
-title = "Open it anyway (kill yourself)"
-
-[node name="InteractionArea" parent="YSort" index="16" instance=ExtResource("12_6urft")]
+[node name="InteractionArea" parent="YSort" index="15" instance=ExtResource("12_6urft")]
 position = Vector2(269, 449)
 title = "Leyline Cross"
 description = "There must be a Leyline nearby--though this probably isn't connected to it. There isn't even any wire left on it."
@@ -227,53 +174,29 @@ interactable = NodePath("..")
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/InteractionArea/InteractRangeExtender" index="0"]
 polygon = PackedVector2Array(-96, 1, 63, 11, 147, 46, -60, 179)
 
-[node name="QuestBoundary" parent="YSort" index="17" node_paths=PackedStringArray("wall_area_node", "blockade_quests_container", "threshold_quests_container") instance=ExtResource("17_hmbms")]
-wall_area_node = NodePath("stop")
-blockade_quests_container = NodePath("../../BlockadeQuests")
-threshold_quests_container = NodePath("../../ThresholdQuests")
-trigger_name = "LeaveCamp1"
-
-[node name="interact" type="CollisionPolygon2D" parent="YSort/QuestBoundary" index="1"]
-polygon = PackedVector2Array(-48, 674, 96, 583, 98, 1130, -56, 981)
-
-[node name="stop" type="CollisionPolygon2D" parent="YSort/QuestBoundary" index="2"]
-polygon = PackedVector2Array(55, 588, 53, 1110, -8, 1064, -5, 616)
-
-[node name="QuestBoundary2" parent="YSort" index="18" node_paths=PackedStringArray("wall_area_node", "blockade_quests_container") instance=ExtResource("17_hmbms")]
-wall_area_node = NodePath("stop")
-blockade_quests_container = NodePath("../../BlockadeQuests")
-trigger_name = "LeaveCamp1"
-
-[node name="interact" type="CollisionPolygon2D" parent="YSort/QuestBoundary2" index="1"]
-position = Vector2(719, 95)
-polygon = PackedVector2Array(-321, 1022, 904, 972, 987, 1148, -286, 1171)
-
-[node name="stop" type="CollisionPolygon2D" parent="YSort/QuestBoundary2" index="2"]
-polygon = PackedVector2Array(1628, 1138, 1628, 1233, 476, 1266, 446, 1170)
-
-[node name="NorthDoor1" parent="YSort" index="19" instance=ExtResource("6_dl5dw")]
+[node name="NorthDoor1" parent="YSort" index="16" instance=ExtResource("6_dl5dw")]
 position = Vector2(1039, 11)
 rotation = -0.148353
 scale = Vector2(5, 0.5)
-dest_resource = "res://scenes/demo/1/industrial/b-up.tscn"
+dest_resource = "res://scenes/demo/2/b-up.tscn"
 dest_edge = "SouthDoor1"
 
-[node name="NorthDoor2" parent="YSort" index="20" instance=ExtResource("6_dl5dw")]
+[node name="NorthDoor2" parent="YSort" index="17" instance=ExtResource("6_dl5dw")]
 position = Vector2(239, 25)
 rotation = 0.223402
 scale = Vector2(4, 0.5)
 dest_resource = "res://scenes/demo/1/industrial/b-up.tscn"
 dest_edge = "SouthDoor2"
 
-[node name="YoungTree" parent="YSort" index="21" instance=ExtResource("16_4rt0h")]
+[node name="YoungTree" parent="YSort" index="18" instance=ExtResource("16_4rt0h")]
 modulate = Color(1, 0.976471, 0.792157, 1)
 position = Vector2(97.0001, 1180)
 
-[node name="PinePair" parent="YSort" index="22" instance=ExtResource("17_bd47t")]
+[node name="PinePair" parent="YSort" index="19" instance=ExtResource("17_bd47t")]
 modulate = Color(0.89, 0.866267, 0.8455, 1)
 position = Vector2(1318, 1031)
 
-[node name="trees" type="Sprite2D" parent="YSort" index="23"]
+[node name="trees" type="Sprite2D" parent="YSort" index="20"]
 modulate = Color(0.890196, 0.866667, 0.847059, 1)
 position = Vector2(1120, 939)
 scale = Vector2(0.5, 0.5)
@@ -281,7 +204,7 @@ texture = ExtResource("19_d5wrl")
 offset = Vector2(0, -300)
 flip_h = true
 
-[node name="trees2" type="Sprite2D" parent="YSort" index="24"]
+[node name="trees2" type="Sprite2D" parent="YSort" index="21"]
 modulate = Color(0.89, 0.866267, 0.8455, 1)
 position = Vector2(980, 888)
 scale = Vector2(0.3, 0.3)
@@ -315,18 +238,58 @@ offset = Vector2(0, -100)
 polygon = PackedVector2Array(76, 1425, 778, 1097, 464, 837, 981, 619, 993, 237, 1898, -187, 1966, -113, 1080, 277, 1072, 659, 622, 862, 959, 1123, 156, 1491)
 
 [node name="DemonArn1" parent="Vein" index="0" instance=ExtResource("24_4eclu")]
-position = Vector2(573, 809)
+position = Vector2(526, 796)
 rotation = -0.785398
 scale = Vector2(0.7, 0.7)
+animation_offset = 0.2
 
 [node name="DemonArn2" parent="Vein" index="1" instance=ExtResource("24_4eclu")]
-position = Vector2(809, 691)
+position = Vector2(703, 710)
 rotation = 2.35619
-scale = Vector2(0.45, -0.6)
+scale = Vector2(0.6, -0.8)
 skew = -0.420624
 
 [node name="DemonArn3" parent="Vein" index="2" instance=ExtResource("24_4eclu")]
-position = Vector2(915, 654)
+position = Vector2(870, 665)
 rotation = -0.785398
-scale = Vector2(0.375, 0.5)
+scale = Vector2(0.45, 0.6)
 skew = -0.729548
+animation_offset = 0.9
+
+[node name="DemonArn4" parent="Vein" index="3" instance=ExtResource("24_4eclu")]
+position = Vector2(896.671, 1054.01)
+rotation = 0.53058
+scale = Vector2(0.7, 0.7)
+animation_offset = 0.2
+
+[node name="DemonArn5" parent="Vein" index="4" instance=ExtResource("24_4eclu")]
+position = Vector2(681, 916)
+rotation = -1.60047
+scale = Vector2(0.6, -0.8)
+skew = -0.420624
+
+[node name="DemonArn6" parent="Vein" index="5" instance=ExtResource("24_4eclu")]
+position = Vector2(819, 1011)
+rotation = 0.53058
+scale = Vector2(0.45, 0.6)
+skew = -0.729548
+animation_offset = 0.9
+
+[node name="DemonArn7" parent="Vein" index="6" instance=ExtResource("24_4eclu")]
+position = Vector2(954, 332)
+rotation = -1.26536
+scale = Vector2(0.7, 0.7)
+animation_offset = 0.2
+
+[node name="DemonArn8" parent="Vein" index="7" instance=ExtResource("24_4eclu")]
+position = Vector2(1220, 240)
+rotation = -0.591667
+scale = Vector2(0.6, -0.8)
+skew = -0.420624
+
+[node name="DemonArn9" parent="Vein" index="8" instance=ExtResource("24_4eclu")]
+position = Vector2(947, 473)
+rotation = -1.26536
+scale = Vector2(0.6, 0.8)
+skew = -0.729548
+animation_offset = 0.9

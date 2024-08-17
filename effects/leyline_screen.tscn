@@ -5,6 +5,7 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_psm2n"]
 shader = ExtResource("1_w5hno")
+shader_parameter/alpha_pulse = 0.0
 shader_parameter/blur_radius = 50.0
 shader_parameter/n_steps = 5.0
 shader_parameter/bg_alpha = 0.0
@@ -56,9 +57,10 @@ _data = {
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_2u3gd"]
 shader = ExtResource("1_w5hno")
+shader_parameter/alpha_pulse = 0.0
 shader_parameter/blur_radius = 50.0
 shader_parameter/n_steps = 5.0
-shader_parameter/bg_alpha = 0.8
+shader_parameter/bg_alpha = 0.3
 shader_parameter/colour_mod = 0.0
 shader_parameter/colour_mod_r = 0.0
 shader_parameter/colour_mod_g = 0.0

@@ -28,6 +28,10 @@ func run(parent):
 		return
 	g.leyline_showing = true
 	raise(parent)
+	$Leyline.material.set_shader_parameter("blur_radius", 50)
+	$Leyline.material.set_shader_parameter("bg_alpha", 0)
+	$Leyline.material.set_shader_parameter("colour_mod", float(0))
+	$Leyline.material.set_shader_parameter("alpha_pulse", 0)
 	dark.get_node("AnimationPlayer").play("show")
 	line.get_node("AnimationPlayer").play("show")
 	await get_tree().create_timer(animation_length).timeout
@@ -43,9 +47,11 @@ func run_black(parent):
 	if g == null:
 		return
 	g.leyline_showing = true
-	$Leyline.material.set_shader_parameter("colour_mod", float(-1.0))
-	$Leyline.material.set_shader_parameter("colour_mod_red", float(0.5))
-	$Leyline.material.set_shader_parameter("colour_mod_green", float(-1.0))
+	raise(parent)
+	$Leyline.material.set_shader_parameter("blur_radius", 15)
+	$Leyline.material.set_shader_parameter("bg_alpha", 0.6)
+	$Leyline.material.set_shader_parameter("alpha_pulse", 0.2)
+	$Leyline.material.set_shader_parameter("colour_mod", float(-2.0))
 
 
 func set_vein_node(n):
