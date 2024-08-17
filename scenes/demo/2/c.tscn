@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3]
+[gd_scene load_steps=32 format=3 uid="uid://dyu6qqbjhcau6"]
 
 [ext_resource type="PackedScene" uid="uid://byrlpmbpj6yr5" path="res://scene.tscn" id="1_c5dv2"]
 [ext_resource type="Texture2D" uid="uid://bdh1dphfwy4ng" path="res://assets/scenes/demo/1/industrial/c.png" id="2_7kp15"]
@@ -177,7 +177,7 @@ offset = Vector2(0, -130)
 position = Vector2(1576, 896)
 rotation = 1.5708
 scale = Vector2(3, 1)
-dest_resource = "res://scenes/demo/1/industrial/c-right.tscn"
+dest_resource = "res://scenes/demo/2/c-right.tscn"
 dest_edge = "WestRoofSouth"
 disabled = true
 follower_offset = Vector2(30, 0)
@@ -186,20 +186,20 @@ follower_offset = Vector2(30, 0)
 position = Vector2(230, 1181)
 rotation = 3.24457
 scale = Vector2(8, 1)
-dest_resource = "res://scenes/demo/1/industrial/d.tscn"
+dest_resource = "res://scenes/demo/2/d.tscn"
 dest_edge = "NorthGround"
 
 [node name="NorthGround" parent="YSort" index="10" instance=ExtResource("5_opb7a")]
 position = Vector2(856, 10)
 scale = Vector2(8, 1)
-dest_resource = "res://scenes/demo/1/industrial/b.tscn"
+dest_resource = "res://scenes/demo/2/b.tscn"
 dest_edge = "EastGround"
 
 [node name="TracksWest" parent="YSort" index="11" instance=ExtResource("5_opb7a")]
 position = Vector2(20, 257)
 rotation = -1.5708
 scale = Vector2(4, 0.6)
-dest_resource = "res://scenes/demo/1/industrial/f.tscn"
+dest_resource = "res://scenes/demo/2/f.tscn"
 dest_edge = "TracksEast"
 
 [node name="back-train-b" type="Sprite2D" parent="YSort" index="12"]
@@ -274,14 +274,14 @@ polygon = PackedVector2Array(-154, 1027, 1026, 1148, 1026, 1182, -160, 1061)
 position = Vector2(1159, 458)
 rotation = 2.61799
 scale = Vector2(2, 1)
-dest_resource = "res://scenes/demo/1/industrial/c-right.tscn"
+dest_resource = "res://scenes/demo/2/c-right.tscn"
 dest_edge = "Tunnel"
 
 [node name="NorthRoof" parent="YSort" index="28" instance=ExtResource("5_opb7a")]
 position = Vector2(1565, 259)
 rotation = 1.3439
 scale = Vector2(4, 0.6)
-dest_resource = "res://scenes/demo/1/industrial/c-right.tscn"
+dest_resource = "res://scenes/demo/2/c-right.tscn"
 dest_edge = "WestRoofNorth"
 disabled = true
 

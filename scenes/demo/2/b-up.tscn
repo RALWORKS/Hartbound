@@ -42,14 +42,14 @@ navigation_polygon = SubResource("NavigationPolygon_pxuxe")
 position = Vector2(-2, 876)
 rotation = -1.5708
 scale = Vector2(3, 1)
-dest_resource = "res://scenes/demo/1/industrial/a-up.tscn"
+dest_resource = "res://scenes/demo/2/a-up.tscn"
 dest_edge = "EastDoor"
 
 [node name="SouthDoor1" parent="YSort" index="3" instance=ExtResource("3_6bk73")]
 position = Vector2(1196, 1235)
 rotation = 3.14159
 scale = Vector2(5.5, 1)
-dest_resource = "res://scenes/demo/1/industrial/b.tscn"
+dest_resource = "res://scenes/demo/2/b.tscn"
 dest_edge = "NorthDoor1"
 follower_offset = Vector2(30, 0)
 
@@ -57,7 +57,7 @@ follower_offset = Vector2(30, 0)
 position = Vector2(420, 1235)
 rotation = 3.14159
 scale = Vector2(5.5, 1)
-dest_resource = "res://scenes/demo/1/industrial/b.tscn"
+dest_resource = "res://scenes/demo/2/b.tscn"
 dest_edge = "NorthDoor2"
 
 [node name="Vein" type="Polygon2D" parent="." index="2"]

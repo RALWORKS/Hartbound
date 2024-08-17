@@ -116,7 +116,7 @@ position = Vector2(972, 1063)
 position = Vector2(680, 1204)
 rotation = 3.14159
 scale = Vector2(10, 1)
-dest_resource = "res://scenes/demo/1/industrial/a.tscn"
+dest_resource = "res://scenes/demo/2/a.tscn"
 dest_edge = "NorthRoof"
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="YSort" index="3"]
@@ -126,7 +126,7 @@ navigation_polygon = SubResource("NavigationPolygon_gwtsa")
 position = Vector2(1555, 829)
 rotation = 1.5708
 scale = Vector2(4, 1)
-dest_resource = "res://scenes/demo/1/industrial/b-up.tscn"
+dest_resource = "res://scenes/demo/2/b-up.tscn"
 dest_edge = "WestDoor"
 
 [node name="Vein" type="Polygon2D" parent="." index="2"]

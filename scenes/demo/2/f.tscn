@@ -114,27 +114,27 @@ offset = Vector2(0, -60)
 position = Vector2(24, 800)
 rotation = -1.5708
 scale = Vector2(3, 1)
-dest_resource = "res://scenes/demo/1/industrial/e.tscn"
+dest_resource = "res://scenes/demo/2/e.tscn"
 dest_edge = "NorthWest"
 
 [node name="TracksNorth" parent="YSort" index="12" instance=ExtResource("11_523ee")]
 position = Vector2(985, 32)
 scale = Vector2(6, 0.6)
-dest_resource = "res://scenes/demo/1/industrial/a.tscn"
+dest_resource = "res://scenes/demo/2/a.tscn"
 dest_edge = "TracksSouth"
 
 [node name="TracksEast" parent="YSort" index="13" instance=ExtResource("11_523ee")]
 position = Vector2(1584, 392)
 rotation = 1.5708
 scale = Vector2(4, 0.6)
-dest_resource = "res://scenes/demo/1/industrial/c.tscn"
+dest_resource = "res://scenes/demo/2/c.tscn"
 dest_edge = "TracksWest"
 
 [node name="South" parent="YSort" index="14" instance=ExtResource("11_523ee")]
 position = Vector2(1276, 1212)
 rotation = 3.14159
 scale = Vector2(6, 0.45)
-dest_resource = "res://scenes/demo/1/industrial/e.tscn"
+dest_resource = "res://scenes/demo/2/e.tscn"
 dest_edge = "NorthEast"
 
 [node name="NavigationMiddle" type="NavigationRegion2D" parent="YSort" index="15"]

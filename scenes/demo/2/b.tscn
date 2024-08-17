@@ -13,10 +13,10 @@
 [ext_resource type="PackedScene" uid="uid://bp5q2v0qni20y" path="res://scenery/trees/pine_pair.tscn" id="17_bd47t"]
 [ext_resource type="PackedScene" uid="uid://cqv8vs3o2qua4" path="res://chapters/demo/1/jerry_says_no_leavng_alone.tscn" id="18_h44q5"]
 [ext_resource type="PackedScene" uid="uid://5exo54lvam30" path="res://quests/quests/demo_c_1_regroup_initial.tscn" id="18_i73ob"]
-[ext_resource type="Texture2D" uid="uid://chq6q6xttvwfi" path="res://assets/scenery/extra-tree-coloured/tree-family.png" id="19_d5wrl"]
-[ext_resource type="Texture2D" uid="uid://cnlclj8g0tyiw" path="res://assets/scenery/extra-tree-coloured/stone-trio.png" id="19_hnywh"]
-[ext_resource type="Texture2D" uid="uid://ba8f8jn3sykc5" path="res://assets/scenery/extra-tree-coloured/pine-trio.png" id="20_uwtq4"]
-[ext_resource type="Texture2D" uid="uid://dwvf22vxkob24" path="res://assets/scenery/extra-tree-coloured/forest-cluster.png" id="22_56ef0"]
+[ext_resource type="Texture2D" uid="uid://chq6q6xttvwfi" path="res://assets/scenery/extra-tree-coloured-bright/tree-family.png" id="19_d5wrl"]
+[ext_resource type="Texture2D" uid="uid://cnlclj8g0tyiw" path="res://assets/scenery/extra-tree-coloured-bright/stone-trio.png" id="19_hnywh"]
+[ext_resource type="Texture2D" uid="uid://ba8f8jn3sykc5" path="res://assets/scenery/extra-tree-coloured-bright/pine-trio.png" id="20_uwtq4"]
+[ext_resource type="Texture2D" uid="uid://dwvf22vxkob24" path="res://assets/scenery/extra-tree-coloured-bright/forest-cluster.png" id="22_56ef0"]
 [ext_resource type="PackedScene" uid="uid://bytdfdn3e1k7o" path="res://demons/demon_arm_1.tscn" id="24_4eclu"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_2fe48"]
@@ -115,28 +115,28 @@ offset = Vector2(0, -100)
 position = Vector2(7, 122)
 rotation = -1.5708
 scale = Vector2(1.9, 1)
-dest_resource = "res://scenes/demo/1/industrial/a.tscn"
+dest_resource = "res://scenes/demo/2/a.tscn"
 dest_edge = "EastRoof"
 
 [node name="EastRoof" parent="YSort" index="6" instance=ExtResource("6_dl5dw")]
 position = Vector2(1588, 427)
 rotation = 1.5708
 scale = Vector2(5, 1.2)
-dest_resource = "res://scenes/demo/1/industrial/b-right.tscn"
+dest_resource = "res://scenes/demo/2/b-right.tscn"
 dest_edge = "WestDoor"
 
 [node name="EastGround" parent="YSort" index="7" instance=ExtResource("6_dl5dw")]
 position = Vector2(1025, 1220)
 rotation = -3.14159
 scale = Vector2(9, 0.8)
-dest_resource = "res://scenes/demo/1/industrial/c.tscn"
+dest_resource = "res://scenes/demo/2/c.tscn"
 dest_edge = "NorthGround"
 
 [node name="WestGround" parent="YSort" index="8" instance=ExtResource("6_dl5dw")]
 position = Vector2(8, 857)
 rotation = -1.5708
 scale = Vector2(3, 1)
-dest_resource = "res://scenes/demo/1/industrial/a.tscn"
+dest_resource = "res://scenes/demo/2/a.tscn"
 dest_edge = "EastGround"
 
 [node name="NavigationGround" type="NavigationRegion2D" parent="YSort" index="9"]
@@ -185,7 +185,7 @@ dest_edge = "SouthDoor1"
 position = Vector2(239, 25)
 rotation = 0.223402
 scale = Vector2(4, 0.5)
-dest_resource = "res://scenes/demo/1/industrial/b-up.tscn"
+dest_resource = "res://scenes/demo/2/b-up.tscn"
 dest_edge = "SouthDoor2"
 
 [node name="YoungTree" parent="YSort" index="18" instance=ExtResource("16_4rt0h")]

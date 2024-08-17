@@ -77,14 +77,14 @@ offset = Vector2(0, 50)
 [node name="NorthGround" parent="YSort" index="6" instance=ExtResource("9_yk81u")]
 position = Vector2(975, 32)
 scale = Vector2(9, 1)
-dest_resource = "res://scenes/demo/1/industrial/c.tscn"
+dest_resource = "res://scenes/demo/2/c.tscn"
 dest_edge = "SouthGround"
 
 [node name="WestGround" parent="YSort" index="7" instance=ExtResource("9_yk81u")]
 position = Vector2(24, 785)
 rotation = -1.5708
 scale = Vector2(9, 1)
-dest_resource = "res://scenes/demo/1/industrial/e.tscn"
+dest_resource = "res://scenes/demo/2/e.tscn"
 dest_edge = "East"
 
 [node name="StairsSwitch" parent="YSort" index="8" node_paths=PackedStringArray("on_off_script", "extend_off_switch") instance=ExtResource("10_5eqo1")]
@@ -137,7 +137,7 @@ polygon = PackedVector2Array(75.0001, 73, 52, -56, 331, -167, 380, -129, 414, -1
 position = Vector2(1589, 519)
 rotation = 1.5708
 scale = Vector2(6, 1)
-dest_resource = "res://scenes/demo/1/industrial/d-right.tscn"
+dest_resource = "res://scenes/demo/2/d-right.tscn"
 dest_edge = "WestDoor"
 disabled = true
 follower_offset = Vector2(30, 0)

@@ -60,20 +60,20 @@ offset = Vector2(0, 10)
 position = Vector2(1590, 693)
 rotation = 1.5708
 scale = Vector2(8, 1)
-dest_resource = "res://scenes/demo/1/industrial/d.tscn"
+dest_resource = "res://scenes/demo/2/d.tscn"
 dest_edge = "WestGround"
 follower_offset = Vector2(30, 0)
 
 [node name="NorthEast" parent="YSort" index="4" instance=ExtResource("6_wa5ko")]
 position = Vector2(1187, 17)
 scale = Vector2(5, 0.6)
-dest_resource = "res://scenes/demo/1/industrial/f.tscn"
+dest_resource = "res://scenes/demo/2/f.tscn"
 dest_edge = "South"
 
 [node name="NorthWest" parent="YSort" index="5" instance=ExtResource("6_wa5ko")]
 position = Vector2(262, 20)
 scale = Vector2(4, 0.6)
-dest_resource = "res://scenes/demo/1/industrial/f.tscn"
+dest_resource = "res://scenes/demo/2/f.tscn"
 dest_edge = "West"
 
 [node name="NavigationAll" type="NavigationRegion2D" parent="YSort" index="6"]

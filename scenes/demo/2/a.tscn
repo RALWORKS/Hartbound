@@ -152,14 +152,14 @@ offset = Vector2(0, -30)
 [node name="NorthRoof" parent="YSort" index="6" instance=ExtResource("8_w73q6")]
 position = Vector2(788, 8)
 scale = Vector2(11, 1)
-dest_resource = "res://scenes/demo/1/industrial/a-up.tscn"
+dest_resource = "res://scenes/demo/2/a-up.tscn"
 dest_edge = "SouthDoor"
 
 [node name="EastRoof" parent="YSort" index="7" instance=ExtResource("8_w73q6")]
 position = Vector2(1685, 198)
 rotation = 1.5708
 scale = Vector2(5, 1)
-dest_resource = "res://scenes/demo/1/industrial/b.tscn"
+dest_resource = "res://scenes/demo/2/b.tscn"
 dest_edge = "WestRoof"
 follower_offset = Vector2(30, 0)
 
@@ -167,7 +167,7 @@ follower_offset = Vector2(30, 0)
 position = Vector2(1572, 1136)
 rotation = 2.40855
 scale = Vector2(3, 1)
-dest_resource = "res://scenes/demo/1/industrial/b.tscn"
+dest_resource = "res://scenes/demo/2/b.tscn"
 dest_edge = "WestGround"
 follower_offset = Vector2(30, 0)
 
@@ -175,7 +175,7 @@ follower_offset = Vector2(30, 0)
 position = Vector2(637, 1234)
 rotation = 3.14159
 scale = Vector2(5, 0.6)
-dest_resource = "res://scenes/demo/1/industrial/f.tscn"
+dest_resource = "res://scenes/demo/2/f.tscn"
 dest_edge = "TracksNorth"
 
 [node name="NavigationGround" type="NavigationRegion2D" parent="YSort" index="10"]
