@@ -13,3 +13,8 @@ func _process(_delta):
 		$Menu2/ColorRect.visible = true
 	else:
 		$Menu2/ColorRect.visible = false
+	
+	if get_parent().cur_modal:
+		$PostProcessing.visible = false
+	else:
+		$PostProcessing.visible = true
