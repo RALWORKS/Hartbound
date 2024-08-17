@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://c61y5cf8qd8vl"]
+[gd_scene load_steps=32 format=3]
 
 [ext_resource type="PackedScene" uid="uid://byrlpmbpj6yr5" path="res://scene.tscn" id="1_c5dv2"]
 [ext_resource type="Texture2D" uid="uid://bdh1dphfwy4ng" path="res://assets/scenes/demo/1/industrial/c.png" id="2_7kp15"]
