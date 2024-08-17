@@ -48,6 +48,7 @@ func run_black(parent):
 		return
 	g.leyline_showing = true
 	raise(parent)
+	dark.material.set_shader_parameter("bg_alpha", 0)
 	$Leyline.material.set_shader_parameter("blur_radius", 15)
 	$Leyline.material.set_shader_parameter("bg_alpha", 0.6)
 	$Leyline.material.set_shader_parameter("alpha_pulse", 0.2)
@@ -68,7 +69,7 @@ func raise(parent):
 	parent.move_child(dark, -1)
 
 
-func _on_child_exiting_tree(node):
+func _on_tree_exiting():
 	var g = _get_game()
 	if g == null:
 		return
