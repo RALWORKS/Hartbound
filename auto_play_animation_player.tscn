@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://dn0427twbvo2f"]
+
+[ext_resource type="Script" path="res://auto_play_animation_player.gd" id="1_wpgnt"]
+
+[sub_resource type="Animation" id="Animation_u8yan"]
+length = 0.001
+
+[sub_resource type="Animation" id="Animation_wj3wo"]
+resource_name = "base"
+length = 15.0
+loop_mode = 1
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3aqjd"]
+_data = {
+"RESET": SubResource("Animation_u8yan"),
+"base": SubResource("Animation_wj3wo")
+}
+
+[node name="AutoplayAnimationPlayer" type="AnimationPlayer"]
+root_node = NodePath("../../..")
+speed_scale = 2.0
+libraries = {
+"": SubResource("AnimationLibrary_3aqjd")
+}
+script = ExtResource("1_wpgnt")

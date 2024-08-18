@@ -1,4 +1,4 @@
-extends SubViewport
+extends CanvasLayer
 
 var EFFECTS
 

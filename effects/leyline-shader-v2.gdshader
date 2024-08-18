@@ -11,6 +11,16 @@ uniform float colour_mod_b = 0;
 
 uniform bool invert = false;
 
+float hueness(vec4 color) {
+	float d = 0.0;
+	
+	d = abs(color.r - color.b) + abs(color.r - color.g) + abs(color.b - color.g);
+	
+	d = d/3.0;
+	
+	return d;
+}
+
 vec4 neighbour(vec2 pixel_size, sampler2D cur_texture, vec2 cur_uv, float offset) {
 	return texture(cur_texture, cur_uv + pixel_size * offset);
 }
@@ -29,6 +39,8 @@ vec4 averager(vec2 pixel_size, sampler2D cur_texture, vec2 cur_uv) {
 }
 
 void fragment() {
+	vec4 old_color = texture(TEXTURE, UV);
+	float texture_hueness = hueness(old_color);
 	vec2 pixel_size = 1.0/vec2(textureSize(TEXTURE, 0));
 	
 	vec4 avg = (
@@ -45,11 +57,16 @@ void fragment() {
 		COLOR.g = colour_mod + colour_mod_g + (1.0 - sin(TIME) * 0.2);
 		COLOR.b = colour_mod + colour_mod_b + (0.5 - cos(TIME) * 0.2);
 		
+		
 		if (avg.a > 0.0) {
 			COLOR.a = pow(avg.a, 4) * (bg_alpha - (sin(pow(UV.x*2.0, 3) + TIME) * alpha_pulse));
 		}
 		else {
 			COLOR.a = 0.0;
+		}
+		
+		if (texture_hueness > 0.0) {
+			COLOR.a = COLOR.a - (pow(old_color.g, 2.0) * 1.5);
 		}
 		
 	}

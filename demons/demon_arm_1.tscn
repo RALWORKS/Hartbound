@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://bytdfdn3e1k7o"]
+[gd_scene load_steps=8 format=3 uid="uid://bytdfdn3e1k7o"]
 
 [ext_resource type="Texture2D" uid="uid://crwgsbucxyldl" path="res://assets/circle.png" id="1_g0fr8"]
 [ext_resource type="Script" path="res://demons/demon_arm_1.gd" id="2_b57ut"]
 [ext_resource type="Texture2D" uid="uid://bm7dfi4d8eu5b" path="res://assets/demons/1-spritesheet.png" id="3_plp36"]
+[ext_resource type="PackedScene" uid="uid://ds4250x72dke" path="res://demons/demon_hazard.tscn" id="4_5050k"]
 
 [sub_resource type="Animation" id="Animation_ecavk"]
 length = 0.1
@@ -138,4 +139,8 @@ libraries = {
 visible = false
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="arm/Area2D"]
+visible = false
 polygon = PackedVector2Array(85, 117, 117, 222, 74, 348, 129, 351, 159, 230, 125, 111, 142, 80, 124, 45, 99, 43, 107, 79, 87, 99, 67, 85)
+
+[node name="DemonHazard" parent="." node_paths=PackedStringArray("collider") instance=ExtResource("4_5050k")]
+collider = NodePath("../arm/Area2D")

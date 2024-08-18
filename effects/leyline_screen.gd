@@ -47,6 +47,7 @@ func run_black(parent):
 	if g == null:
 		return
 	g.leyline_showing = true
+	g.get_node("MainScreen").run_black()
 	raise(parent)
 	dark.material.set_shader_parameter("bg_alpha", 0)
 	$Leyline.material.set_shader_parameter("blur_radius", 15)

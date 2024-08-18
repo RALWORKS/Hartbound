@@ -11,6 +11,8 @@ var footstep_waiting = false
 var disable_all = false
 var paused = false
 
+var immune = false
+
 @onready var navigation_agent: NavigationAgent2D = $NavigationAgent2D
 
 var DestinationMarker = preload("res://ui/destination_arrow.tscn")

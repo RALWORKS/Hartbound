@@ -61,9 +61,9 @@ func _on_hitbox_body_entered(body):
 	if dest_resource:
 		map.traverse(dest, dest_edge)
 
-func spawn(g):
+func spawn(g, x=null, y=null):
 	$Spawner.follower_offset = follower_offset
-	$Spawner.spawn(g)
+	$Spawner.spawn(g, x, y)
 
 
 func _on_hitbox_body_exited(_body):

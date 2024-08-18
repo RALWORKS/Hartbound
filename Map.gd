@@ -29,6 +29,8 @@ func set_contents_node(dest: Node):
 	
 
 func _move_to(dest: Node, as_move: bool = true):
+	$"..".get_node("MainScreen").clear_postprocessing()
+	
 	$"..".staged_action_node = null
 	var old = current
 	current = dest
@@ -47,12 +49,17 @@ func _move_to(dest: Node, as_move: bool = true):
 
 func load_position(data):
 	var dest = load(data["scene_path"]).instantiate()
-	traverse(dest, data["entrance_name"], false, false)
 	
-func traverse(dest, entrance, save=true, as_move=true):
+	if "x" in data and "y" in data:
+		traverse(dest, data["entrance_name"], false, false, data.x, data.y)
+	else:
+		traverse(dest, data["entrance_name"], false, false)
+	
+func traverse(dest, entrance, save=true, as_move=true, x=null, y=null):
 	#var dest = load(dest_resource).instantiate()
 	#dest.spawn_at = dest_edge
 	_move_to(dest, as_move)
-	dest.get_node("YSort").get_node(entrance).spawn($"..")
+	var next_entrance: Node2D = dest.get_node("YSort").get_node(entrance)
+	next_entrance.spawn($"..", x, y)
 	if save:
-		$"..".save_position(dest.scene_file_path, entrance)
+		$"..".save_room(dest.scene_file_path, entrance)

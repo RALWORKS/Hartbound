@@ -5,21 +5,21 @@
 [ext_resource type="Script" path="res://ui/main_screen.gd" id="1_dtog3"]
 [ext_resource type="PackedScene" uid="uid://d3sg85ljfgv6k" path="res://effects/black_star_animation.tscn" id="2_ujwrl"]
 [ext_resource type="PackedScene" uid="uid://dn6jytdfpsb1y" path="res://ui/reflection_marker.tscn" id="4_2bnbj"]
-[ext_resource type="Shader" path="res://effects/desaturate-1.gdshader" id="5_jyksg"]
+[ext_resource type="Shader" path="res://effects/demon-vignette.gdshader" id="5_htkuq"]
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_dx05k"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_4n4me"]
 viewport_path = NodePath("World")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_p13e7"]
 resource_local_to_scene = true
-shader = ExtResource("5_jyksg")
+shader = ExtResource("5_htkuq")
 shader_parameter/mul_r = 0.7
 shader_parameter/mul_g = 0.3
 shader_parameter/mul_b = 0.1
-shader_parameter/base_mod = 0.1
+shader_parameter/base_mod = 0.2
 shader_parameter/gradient_mod = 3.0
 shader_parameter/gradient_mul = 2.3
-shader_parameter/screen_texture = SubResource("ViewportTexture_dx05k")
+shader_parameter/screen_texture = SubResource("ViewportTexture_4n4me")
 
 [node name="MainScreen" type="SubViewportContainer"]
 offset_right = 1920.0
@@ -34,17 +34,6 @@ render_target_update_mode = 4
 
 [node name="GameMenu" parent="Menu" instance=ExtResource("1_0wetn")]
 
-[node name="Effects" type="SubViewport" parent="."]
-transparent_bg = true
-handle_input_locally = false
-gui_disable_input = true
-size = Vector2i(1720, 1080)
-render_target_update_mode = 4
-script = ExtResource("1_3a4ee")
-
-[node name="BlackStarAnimation" parent="Effects" instance=ExtResource("2_ujwrl")]
-visible = false
-
 [node name="World" type="SubViewport" parent="."]
 handle_input_locally = false
 physics_object_picking = true
@@ -53,20 +42,23 @@ render_target_update_mode = 4
 
 [node name="PostProcessing" type="CanvasLayer" parent="."]
 
-[node name="ColorRect" type="ColorRect" parent="PostProcessing"]
+[node name="Filter" type="ColorRect" parent="PostProcessing"]
 material = SubResource("ShaderMaterial_p13e7")
 offset_left = 2.0
 offset_right = 1720.0
 offset_bottom = 1087.0
+mouse_filter = 2
 
-[node name="Emotes" type="SubViewport" parent="."]
-transparent_bg = true
-handle_input_locally = false
-size = Vector2i(1920, 1080)
-render_target_update_mode = 4
+[node name="Emotes" type="CanvasLayer" parent="."]
 
 [node name="ReflectionMarker" parent="Emotes" instance=ExtResource("4_2bnbj")]
 position = Vector2(1400, 60)
+
+[node name="Effects" type="CanvasLayer" parent="."]
+script = ExtResource("1_3a4ee")
+
+[node name="BlackStarAnimation" parent="Effects" instance=ExtResource("2_ujwrl")]
+visible = false
 
 [node name="Menu2" type="CanvasLayer" parent="."]
 

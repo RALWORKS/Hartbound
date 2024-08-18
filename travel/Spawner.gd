@@ -20,7 +20,8 @@ func _ready():
 func _process(_delta):
 	pass
 
-func _spawn(c, shift):
+func _spawn(c, shift, x, y):
+	print(x, y)
 	var position_x = $".".position.x
 	var position_y = $".".position.y
 	
@@ -36,6 +37,9 @@ func _spawn(c, shift):
 		position_y += outer.position.y + shift.y
 	
 	var child = c.instantiate()
+	if x != null and y != null:
+		position_x = x
+		position_y = y
 	child.position.x = position_x + shift.x
 	child.position.y = position_y + shift.y
 	
@@ -45,10 +49,10 @@ func _spawn(c, shift):
 	return child
 
 
-func spawn(g):
-	var character_instance = _spawn(character, Vector2(0, 0))
+func spawn(g, x=null, y=null):
+	var character_instance = _spawn(character, Vector2(0, 0), x, y)
 	g.set_player(character_instance)
 	follower = character_instance.get_follower(g)
 	if follower:
-		follower_instance = _spawn(follower, follower_offset)
+		follower_instance = _spawn(follower, follower_offset, x, y)
 		follower_instance.start_following(g)

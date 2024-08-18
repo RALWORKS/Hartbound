@@ -9,6 +9,7 @@ var paused = false
 var unpausing = false
 var leyline_showing = false
 var is_scouting = false
+var dying = false
 
 var moves = 0
 
@@ -175,7 +176,6 @@ func set_state_push_to_key(ix, val):
 func set_player(some_player):
 	player = some_player
 
-
 func start_from_state(s):
 	STATE = s	#screen.get_node("World").add_child(ch)
 
@@ -191,6 +191,9 @@ func start_from_state(s):
 	var p = get_state(["position"])
 	if p != null and p["scene_path"] != null:
 		$Map.load_position(p)
+	elif "x" in p and "y" in p:
+		player.position.x = p.x
+		player.position.y = p.y
 	
 	load_quests()
 	
@@ -357,6 +360,10 @@ func _cheat_set_timer():
 func _handle_walk_input(delta):
 	if player == null:
 		return
+	
+	if dying:
+		player.velocity = Vector2(0, 0)
+		return
 
 	var arrow_keys = Input.get_vector("left", "right", "up", "down")
 	var click = Input.is_action_just_released("click")
@@ -399,11 +406,32 @@ func remove_modal(some_modal):
 	if cur_modal == some_modal:
 		cur_modal = null
 
-func save_position(scene_path, entrance_name=null):
+func save_room(scene_path, entrance_name=null):
+	var data = {"scene_path": scene_path, "entrance_name": entrance_name, "x": null, "y": null}
+	
 	set_state(
 		["position"],
-		{"scene_path": scene_path, "entrance_name": entrance_name}
+		data
 	)
+
+func save_position():
+	var data = get_state(["position"])
+	data.x = player.position.x
+	data.y = player.position.y
+	set_state(["position"], data)
+
+func respawn_player():
+	var data = get_state(["position"])
+	
+	var p = Vector2(500, 500)
+	if data.entrance_name != null:
+		p = $"MainScreen/World".get_child(0).get_node("YSort").get_node(data.entrance_name).position
+	elif "x" in data and "y" in data:
+		p = Vector2(data.x, data.y)
+	else:
+		p = $"MainScreen/World".get_child(0).get_node("YSort").get_node("DefaultSpawner").position
+	
+	player.position = p
 
 func load_quests():
 	_init_quests_if_needed()
