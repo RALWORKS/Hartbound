@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3]
+[gd_scene load_steps=25 format=3 uid="uid://blbodu4jt1xk2"]
 
 [ext_resource type="PackedScene" uid="uid://byrlpmbpj6yr5" path="res://scene.tscn" id="1_3u62o"]
 [ext_resource type="Texture2D" uid="uid://cdm0ewe6djiw" path="res://assets/scenes/demo/1/industrial/a.png" id="2_kjnsv"]
@@ -83,6 +83,7 @@ shader_parameter/wave_rotation = 1.0
 shader_parameter/particle_texture = ExtResource("11_jcyyb")
 
 [node name="Scene" instance=ExtResource("1_3u62o")]
+use_black_leyline = true
 
 [node name="Background" parent="." index="0"]
 texture = ExtResource("2_kjnsv")

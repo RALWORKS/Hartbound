@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3]
+[gd_scene load_steps=19 format=3 uid="uid://b4xwjn8x6p8nm"]
 
 [ext_resource type="PackedScene" uid="uid://byrlpmbpj6yr5" path="res://scene.tscn" id="1_80s2n"]
 [ext_resource type="Texture2D" uid="uid://bjerew5lp6nnj" path="res://assets/scenes/demo/1/industrial/d.png" id="2_f3skq"]
@@ -15,7 +15,6 @@
 [ext_resource type="Script" path="res://scenes/demo/1/industrial/d-StairsSwitchScript.gd" id="11_cpite"]
 [ext_resource type="PackedScene" uid="uid://blhapbv7bnq0p" path="res://quests/quest_boundary.tscn" id="12_ab41j"]
 [ext_resource type="Texture2D" uid="uid://dwvf22vxkob24" path="res://assets/scenery/extra-tree-coloured-bright/forest-cluster.png" id="13_3jq76"]
-[ext_resource type="PackedScene" uid="uid://bk6k14tnei0bm" path="res://chapters/demo/1/smart_roof_gate.tscn" id="14_r85h7"]
 [ext_resource type="Texture2D" uid="uid://nwsqvjdnlosw" path="res://assets/scenery/extra-tree-coloured-bright/trees-and-broken-stone.png" id="14_ru3hw"]
 [ext_resource type="Texture2D" uid="uid://g8hwe8sg2o1" path="res://assets/scenery/extra-tree-coloured-bright/bright-young-tree.png" id="15_y6csg"]
 
@@ -25,6 +24,7 @@ polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Arr
 outlines = Array[PackedVector2Array]([PackedVector2Array(1632, 276, 1158, 646, 967, 1189, 906, 1196, 573, 1066, 561, 874, 660, 431, 1580, 9, 867, 16, 613, 342, 287, 514, 47, 1124, 474, 1152, 806, 1253, 942, 1267, 1038, 1206, 1259, 704, 1590, 893)])
 
 [node name="Scene" instance=ExtResource("1_80s2n")]
+use_black_leyline = true
 
 [node name="Background" parent="." index="0"]
 texture = ExtResource("2_f3skq")
@@ -142,8 +142,7 @@ dest_edge = "WestDoor"
 disabled = true
 follower_offset = Vector2(30, 0)
 
-[node name="QuestBoundary" parent="YSort" index="14" node_paths=PackedStringArray("wall_area_node") instance=ExtResource("12_ab41j")]
-wall_area_node = NodePath("")
+[node name="QuestBoundary" parent="YSort" index="14" instance=ExtResource("12_ab41j")]
 trigger_name = "TaylorRoofEntrance"
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/QuestBoundary" index="1"]
@@ -173,9 +172,7 @@ offset = Vector2(0, -250)
 [node name="StairsSwitchScript" type="Node" parent="." index="2"]
 script = ExtResource("11_cpite")
 
-[node name="SmartRoofGate" parent="." index="3" instance=ExtResource("14_r85h7")]
-
-[node name="rubble" type="Sprite2D" parent="." index="4"]
+[node name="rubble" type="Sprite2D" parent="." index="3"]
 position = Vector2(353, 1106)
 texture = ExtResource("7_uju8i")
 offset = Vector2(0, 50)

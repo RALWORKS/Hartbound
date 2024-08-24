@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3]
+[gd_scene load_steps=17 format=3 uid="uid://c3pl0lskyfe06"]
 
 [ext_resource type="PackedScene" uid="uid://byrlpmbpj6yr5" path="res://scene.tscn" id="1_bloo2"]
 [ext_resource type="Texture2D" uid="uid://dxx8elpxnjmnl" path="res://assets/scenes/demo/1/industrial/a-up.png" id="2_w11ia"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://b88ukj7qtchlg" path="res://assets/items/demo-1/pcb-large.png" id="9_k38kp"]
 [ext_resource type="PackedScene" uid="uid://btcaowwqv7a55" path="res://chapters/demo/1/tmp_take.tscn" id="10_mn0pn"]
 [ext_resource type="PackedScene" uid="uid://bkyp4rqktyinq" path="res://item/interact_range_extender.tscn" id="11_2jlwx"]
+[ext_resource type="PackedScene" uid="uid://ds4250x72dke" path="res://demons/demon_hazard.tscn" id="13_osl6i"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mo65n"]
 size = Vector2(1613, 63.5)
@@ -26,6 +27,7 @@ outlines = Array[PackedVector2Array]([PackedVector2Array(-18, 1063, 506, 1135, 1
 
 [node name="Scene" node_paths=PackedStringArray("vein_node") instance=ExtResource("1_bloo2")]
 vein_node = NodePath("Vein")
+use_black_leyline = true
 
 [node name="Background" parent="." index="0"]
 texture = ExtResource("2_w11ia")
@@ -130,4 +132,12 @@ dest_resource = "res://scenes/demo/2/b-up.tscn"
 dest_edge = "WestDoor"
 
 [node name="Vein" type="Polygon2D" parent="." index="2"]
+polygon = PackedVector2Array(848, 657, 1131, 473, 1371, 607, 1602, 419, 1993, 589, 1985, 730, 1620, 495, 1426, 650, 1216, 534, 852, 777)
+
+[node name="DemonHazard" parent="Vein" index="0" node_paths=PackedStringArray("collider") instance=ExtResource("13_osl6i")]
+collider = NodePath("../Area2D")
+
+[node name="Area2D" type="Area2D" parent="Vein" index="1"]
+
+[node name="Collision" type="CollisionPolygon2D" parent="Vein/Area2D" index="0"]
 polygon = PackedVector2Array(848, 657, 1131, 473, 1371, 607, 1602, 419, 1993, 589, 1985, 730, 1620, 495, 1426, 650, 1216, 534, 852, 777)

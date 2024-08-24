@@ -17,6 +17,7 @@ outlines = Array[PackedVector2Array]([PackedVector2Array(22, 841, 155, 908, 486,
 
 [node name="Scene" node_paths=PackedStringArray("vein_node") instance=ExtResource("1_cbi4r")]
 vein_node = NodePath("Vein")
+use_black_leyline = true
 
 [node name="Background" parent="." index="0"]
 texture = ExtResource("2_yfd11")

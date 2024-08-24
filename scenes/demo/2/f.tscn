@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3]
+[gd_scene load_steps=27 format=3 uid="uid://cfos0tyacvmrl"]
 
 [ext_resource type="PackedScene" uid="uid://byrlpmbpj6yr5" path="res://scene.tscn" id="1_d7mn4"]
 [ext_resource type="Texture2D" uid="uid://b03p7gc1dm2aq" path="res://assets/scenes/demo/1/industrial/f.png" id="2_u64ec"]
@@ -22,6 +22,7 @@
 [ext_resource type="PackedScene" uid="uid://blhapbv7bnq0p" path="res://quests/quest_boundary.tscn" id="17_kvixi"]
 [ext_resource type="PackedScene" uid="uid://bce28mr5fq6en" path="res://chapters/demo/1/dialogues/fallen_leyline_cross.tscn" id="18_26cye"]
 [ext_resource type="Texture2D" uid="uid://dwvf22vxkob24" path="res://assets/scenery/extra-tree-coloured-bright/forest-cluster.png" id="23_0sf55"]
+[ext_resource type="PackedScene" uid="uid://ds4250x72dke" path="res://demons/demon_hazard.tscn" id="23_q1sac"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_kqse4"]
 vertices = PackedVector2Array(17, 704, 682, 333, 857, 446, 254, 817, 96, 817, -14, 831)
@@ -40,6 +41,7 @@ outlines = Array[PackedVector2Array]([PackedVector2Array(495, 1248, 467, 1098, 6
 
 [node name="Scene" node_paths=PackedStringArray("vein_node") instance=ExtResource("1_d7mn4")]
 vein_node = NodePath("Vein")
+use_black_leyline = true
 
 [node name="Background" parent="." index="0"]
 texture = ExtResource("2_u64ec")
@@ -244,4 +246,13 @@ offset = Vector2(0, -250)
 flip_h = true
 
 [node name="Vein" type="Polygon2D" parent="." index="3"]
-polygon = PackedVector2Array(-63, 767, 1025, 137, 753, -33, 945, -33, 1713, 391, 1707, 501, 1157, 221, 723, 493, 1279, 855, 1655, 1065, 1165, 939, 1147, 811, 671, 521, 11, 917)
+color = Color(0, 0, 0, 1)
+polygon = PackedVector2Array(-45, 801, 1055, 172, 753, -33, 945, -33, 1713, 391, 1707, 501, 1157, 221, 723, 493, 1279, 855, 1655, 1065, 1165, 939, 1147, 811, 671, 521, 11, 917)
+
+[node name="DemonHazard" parent="Vein" index="0" node_paths=PackedStringArray("collider") instance=ExtResource("23_q1sac")]
+collider = NodePath("../Area2D")
+
+[node name="Area2D" type="Area2D" parent="Vein" index="1"]
+
+[node name="Collision" type="CollisionPolygon2D" parent="Vein/Area2D" index="0"]
+polygon = PackedVector2Array(-45, 801, 1055, 172, 753, -33, 945, -33, 1713, 391, 1707, 501, 1157, 221, 723, 493, 1279, 855, 1655, 1065, 1165, 939, 1147, 811, 671, 521, 11, 917)

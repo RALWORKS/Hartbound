@@ -21,11 +21,10 @@ func _ready():
 	add_chapter_contents()
 	$\"/root/Game/MainScreen\".clear_postprocessing()
 	
-	if vein_node != null:
-		if use_black_leyline:
-			black_leyline()
-		else:
-			leyline()
+	if use_black_leyline:
+		black_leyline()
+	elif vein_node != null:
+		leyline()
 
 func leyline():
 	var ley = LeylineScreen.instantiate()

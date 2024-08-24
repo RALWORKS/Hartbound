@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3]
+[gd_scene load_steps=20 format=3 uid="uid://bdvh11t83sp45"]
 
 [ext_resource type="PackedScene" uid="uid://byrlpmbpj6yr5" path="res://scene.tscn" id="1_i6you"]
 [ext_resource type="Texture2D" uid="uid://dti5uo654ufji" path="res://assets/scenes/demo/1/industrial/c-right.png" id="2_ahqd6"]
@@ -6,6 +6,10 @@
 [ext_resource type="Script" path="res://scenes/demo/1/industrial/CRightLevelSwitch.gd" id="4_idnxo"]
 [ext_resource type="Texture2D" uid="uid://bb8rvi5dnp2hl" path="res://assets/scenes/demo/1/industrial/c-right-overhang.png" id="5_fn4e1"]
 [ext_resource type="PackedScene" uid="uid://dxfuidhlgwthh" path="res://travel/door.tscn" id="5_og1dx"]
+[ext_resource type="PackedScene" uid="uid://ds4250x72dke" path="res://demons/demon_hazard.tscn" id="7_yb548"]
+[ext_resource type="PackedScene" uid="uid://bytdfdn3e1k7o" path="res://demons/demon_arm_1.tscn" id="8_3vafe"]
+[ext_resource type="PackedScene" uid="uid://cqawk7uxxcpu0" path="res://demons/hole.tscn" id="9_0vwre"]
+[ext_resource type="Script" path="res://auto_play_animation_player.gd" id="10_1ui8a"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u8ti4"]
 size = Vector2(1287, 120)
@@ -31,8 +35,47 @@ vertices = PackedVector2Array(963, 700, 906, 421, 1134, 616, 1083, 1044, 1428, 1
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(3, 4, 5, 6), PackedInt32Array(3, 6, 0)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(1314, 1311, 594, 959, 963, 700, 906, 421, 1134, 616, 1083, 1044, 1428, 1281)])
 
+[sub_resource type="Animation" id="Animation_j6riu"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(588, 947)]
+}
+
+[sub_resource type="Animation" id="Animation_qhnal"]
+resource_name = "base"
+length = 12.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5, 5, 7, 9, 9.1, 9.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(588, 947), Vector2(588, 947), Vector2(1058, 537), Vector2(1841, -323), Vector2(1841, -323), Vector2(1841, 1500), Vector2(301.793, 1536.93)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_klfc5"]
+_data = {
+"RESET": SubResource("Animation_j6riu"),
+"base": SubResource("Animation_qhnal")
+}
+
 [node name="Scene" node_paths=PackedStringArray("vein_node") instance=ExtResource("1_i6you")]
 vein_node = NodePath("Vein")
+use_black_leyline = true
 
 [node name="Background" parent="." index="0"]
 texture = ExtResource("2_ahqd6")
@@ -130,4 +173,61 @@ position = Vector2(449, 970)
 texture = ExtResource("5_fn4e1")
 
 [node name="Vein" type="Polygon2D" parent="." index="3"]
+color = Color(0, 0, 0, 1)
 polygon = PackedVector2Array(1562, -102, 1086, 203, 1081, 407, 937, 485, 1068, 593, 458, 976, 549, 1039, 1234, 604, 1098, 503, 1159, 473, 1171, 243, 1642, -36)
+
+[node name="DemonHazard" parent="Vein" index="0" node_paths=PackedStringArray("collider") instance=ExtResource("7_yb548")]
+collider = NodePath("../Area2D")
+
+[node name="Area2D" type="Area2D" parent="Vein" index="1"]
+
+[node name="Collision" type="CollisionPolygon2D" parent="Vein/Area2D" index="0"]
+polygon = PackedVector2Array(1562, -102, 1086, 203, 1081, 407, 937, 485, 1068, 593, 473, 967, 566, 1027, 1234, 604, 1098, 503, 1159, 473, 1171, 243, 1642, -36)
+
+[node name="DemonArn1" parent="Vein" index="2" instance=ExtResource("8_3vafe")]
+position = Vector2(1123, 683)
+rotation = -4.016
+scale = Vector2(0.4, 0.4)
+animation_offset = 0.1
+
+[node name="DemonArn2" parent="Vein" index="3" instance=ExtResource("8_3vafe")]
+position = Vector2(1054, 572)
+rotation = 2.35619
+scale = Vector2(0.45, -0.6)
+skew = -0.420624
+
+[node name="DemonArn3" parent="Vein" index="4" instance=ExtResource("8_3vafe")]
+position = Vector2(1023, 437)
+rotation = -0.785398
+scale = Vector2(0.45, 0.6)
+skew = -0.729548
+animation_offset = 0.9
+
+[node name="DemonArn4" parent="Vein" index="5" instance=ExtResource("8_3vafe")]
+position = Vector2(995, 771)
+rotation = -4.016
+scale = Vector2(0.7, 0.7)
+animation_offset = 0.2
+
+[node name="DemonArn5" parent="Vein" index="6" instance=ExtResource("8_3vafe")]
+position = Vector2(666, 988)
+rotation = -0.18675
+scale = Vector2(0.6, -0.8)
+skew = -0.420624
+animation_offset = 0.7
+
+[node name="DemonArn6" parent="Vein" index="7" instance=ExtResource("8_3vafe")]
+position = Vector2(780, 898)
+rotation = -4.016
+scale = Vector2(0.45, 0.6)
+skew = -0.729548
+animation_offset = 0.5
+
+[node name="Hole" parent="Vein" index="8" instance=ExtResource("9_0vwre")]
+position = Vector2(588, 947)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Vein/Hole" index="1"]
+libraries = {
+"": SubResource("AnimationLibrary_klfc5")
+}
+script = ExtResource("10_1ui8a")

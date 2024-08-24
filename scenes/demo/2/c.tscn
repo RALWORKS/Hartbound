@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://dyu6qqbjhcau6"]
+[gd_scene load_steps=39 format=3 uid="uid://dyu6qqbjhcau6"]
 
 [ext_resource type="PackedScene" uid="uid://byrlpmbpj6yr5" path="res://scene.tscn" id="1_c5dv2"]
 [ext_resource type="Texture2D" uid="uid://bdh1dphfwy4ng" path="res://assets/scenes/demo/1/industrial/c.png" id="2_7kp15"]
@@ -25,9 +25,13 @@
 [ext_resource type="Texture2D" uid="uid://dwvf22vxkob24" path="res://assets/scenery/extra-tree-coloured-bright/forest-cluster.png" id="14_v7w74"]
 [ext_resource type="Texture2D" uid="uid://bthiiqiqte0bc" path="res://assets/scenery/extra-tree-coloured-bright/pair-of-pines.png" id="15_45n1x"]
 [ext_resource type="PackedScene" uid="uid://blhapbv7bnq0p" path="res://quests/quest_boundary.tscn" id="20_r0xd4"]
-[ext_resource type="PackedScene" uid="uid://ds44yda8wedm6" path="res://chapters/demo/1/board.tscn" id="21_l2bfj"]
 [ext_resource type="PackedScene" uid="uid://yr12jpup84d6" path="res://chapters/demo/1/smart_rift.tscn" id="22_1sprg"]
 [ext_resource type="Texture2D" uid="uid://nwsqvjdnlosw" path="res://assets/scenery/extra-tree-coloured-bright/trees-and-broken-stone.png" id="26_xxmrh"]
+[ext_resource type="PackedScene" uid="uid://ds4250x72dke" path="res://demons/demon_hazard.tscn" id="29_c8q52"]
+[ext_resource type="PackedScene" uid="uid://bytdfdn3e1k7o" path="res://demons/demon_arm_1.tscn" id="29_wmagc"]
+[ext_resource type="PackedScene" uid="uid://cqawk7uxxcpu0" path="res://demons/hole.tscn" id="30_ene8c"]
+[ext_resource type="Script" path="res://auto_play_animation_player.gd" id="31_2vj2f"]
+[ext_resource type="Script" path="res://demons/mask.gd" id="32_7fxgk"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_i64kx"]
 vertices = PackedVector2Array(30, 1215, 60, 687, 214, 996, 512, 2, 1379, 2, 1268, 93, 784, 282, 1151, 273, 787, 430, 741, 1106, 751, 1207, 227, 1009, 409, 825, 425, 839, 603, 582, 309, 682, 627, 758)
@@ -44,8 +48,47 @@ vertices = PackedVector2Array(1608, 1227, 1404, 1234, 1585, 1085, 1626, 796, 154
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2), PackedInt32Array(3, 0, 2), PackedInt32Array(4, 5, 6, 7), PackedInt32Array(8, 3, 2, 9, 10), PackedInt32Array(4, 7, 11, 12), PackedInt32Array(13, 12, 11, 14), PackedInt32Array(10, 13, 14, 8), PackedInt32Array(10, 9, 15)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(920, 670, 1023, 599, 1117, 647, 1520, 355, 1550, 287, 1545, 95, 1452, 30, 1507, -1, 1606, -1, 1588, 329, 1525, 481, 1306, 632, 1626, 796, 1608, 1227, 1404, 1234, 1585, 1085)])
 
+[sub_resource type="Animation" id="Animation_4qt74"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-37, 75)]
+}
+
+[sub_resource type="Animation" id="Animation_8cw14"]
+resource_name = "base"
+length = 7.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2, 3, 4, 5, 7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-37, 75), Vector2(302, 269), Vector2(523, 447), Vector2(763, 445), Vector2(968, 582), Vector2(1159, 698), Vector2(1159, 698)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_es5i7"]
+_data = {
+"RESET": SubResource("Animation_4qt74"),
+"base": SubResource("Animation_8cw14")
+}
+
 [node name="Scene" node_paths=PackedStringArray("vein_node") instance=ExtResource("1_c5dv2")]
 vein_node = NodePath("Vein")
+use_black_leyline = true
 
 [node name="Background" parent="." index="0"]
 texture = ExtResource("2_7kp15")
@@ -116,6 +159,7 @@ item_id = "wire"
 title = "Never mind"
 
 [node name="SmartRift" parent="." index="1" instance=ExtResource("22_1sprg")]
+is_unlocked = true
 
 [node name="tree2" type="Sprite2D" parent="YSort" index="0"]
 modulate = Color(0.890196, 0.866667, 0.847059, 1)
@@ -262,22 +306,20 @@ navigation_polygon = SubResource("NavigationPolygon_j5vyj")
 [node name="NavigationRoof" type="NavigationRegion2D" parent="YSort" index="24"]
 navigation_polygon = SubResource("NavigationPolygon_wbapc")
 
-[node name="Board" parent="YSort" index="25" instance=ExtResource("21_l2bfj")]
-
-[node name="QuestBoundary" parent="YSort" index="26" instance=ExtResource("20_r0xd4")]
+[node name="QuestBoundary" parent="YSort" index="25" instance=ExtResource("20_r0xd4")]
 trigger_name = "LeaveC1"
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/QuestBoundary" index="1"]
 polygon = PackedVector2Array(-154, 1027, 1026, 1148, 1026, 1182, -160, 1061)
 
-[node name="Tunnel" parent="YSort" index="27" instance=ExtResource("5_opb7a")]
+[node name="Tunnel" parent="YSort" index="26" instance=ExtResource("5_opb7a")]
 position = Vector2(1159, 458)
 rotation = 2.61799
 scale = Vector2(2, 1)
 dest_resource = "res://scenes/demo/2/c-right.tscn"
 dest_edge = "Tunnel"
 
-[node name="NorthRoof" parent="YSort" index="28" instance=ExtResource("5_opb7a")]
+[node name="NorthRoof" parent="YSort" index="27" instance=ExtResource("5_opb7a")]
 position = Vector2(1565, 259)
 rotation = 1.3439
 scale = Vector2(4, 0.6)
@@ -289,4 +331,68 @@ disabled = true
 script = ExtResource("13_thh61")
 
 [node name="Vein" type="Polygon2D" parent="." index="4"]
+color = Color(0, 0, 0, 1)
 polygon = PackedVector2Array(-145, -4, 312, 211, 730, -127, 858, -143, 322, 299, 602, 455, 682, 405, 900, 517, 824, 553, 692, 483, 616, 541, 216, 325, 274, 263, -138, 77)
+
+[node name="DemonHazard" parent="Vein" index="0" node_paths=PackedStringArray("collider") instance=ExtResource("29_c8q52")]
+collider = NodePath("../Area2D")
+
+[node name="Area2D" type="Area2D" parent="Vein" index="1"]
+
+[node name="Collision" type="CollisionPolygon2D" parent="Vein/Area2D" index="0"]
+polygon = PackedVector2Array(-145, -4, 312, 211, 730, -127, 858, -143, 322, 299, 602, 455, 682, 405, 883, 507, 815, 548, 692, 483, 616, 541, 216, 325, 274, 263, -138, 77)
+
+[node name="DemonArn1" parent="Vein" index="2" instance=ExtResource("29_wmagc")]
+position = Vector2(232, 253)
+rotation = -2.46091
+scale = Vector2(0.7, 0.7)
+animation_offset = 0.1
+
+[node name="DemonArn2" parent="Vein" index="3" instance=ExtResource("29_wmagc")]
+position = Vector2(875, 480)
+rotation = -2.46091
+scale = Vector2(0.6, -0.8)
+skew = -0.420624
+
+[node name="DemonArn3" parent="Vein" index="4" instance=ExtResource("29_wmagc")]
+position = Vector2(703.107, 503.177)
+rotation = -2.46091
+scale = Vector2(0.45, 0.476417)
+skew = -0.729548
+animation_offset = 0.9
+
+[node name="DemonArn4" parent="Vein" index="5" instance=ExtResource("29_wmagc")]
+position = Vector2(616, 540)
+rotation = -2.46091
+scale = Vector2(0.7, 0.7)
+animation_offset = 0.2
+
+[node name="DemonArn5" parent="Vein" index="6" instance=ExtResource("29_wmagc")]
+position = Vector2(305, 388)
+rotation = -2.46091
+scale = Vector2(0.4, 0.4)
+animation_offset = 0.2
+
+[node name="Hole" parent="Vein" index="7" instance=ExtResource("30_ene8c")]
+position = Vector2(-37, 75)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Vein/Hole" index="1"]
+speed_scale = 0.5
+libraries = {
+"": SubResource("AnimationLibrary_es5i7")
+}
+script = ExtResource("31_2vj2f")
+
+[node name="Mask1" type="Polygon2D" parent="Vein" index="8" node_paths=PackedStringArray("area")]
+color = Color(0, 1, 0, 1)
+polygon = PackedVector2Array(716, 622, 989, 452, 1087, 490, 1160, 862)
+script = ExtResource("32_7fxgk")
+area = NodePath("Area2D")
+
+[node name="Area2D" type="Area2D" parent="Vein/Mask1" index="0"]
+
+[node name="Collision" type="CollisionPolygon2D" parent="Vein/Mask1/Area2D" index="0"]
+polygon = PackedVector2Array(716, 622, 989, 452, 1087, 490, 1160, 862)
+
+[connection signal="body_entered" from="Vein/Mask1/Area2D" to="Vein/Mask1" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Vein/Mask1/Area2D" to="Vein/Hole" method="_on_area_2d_body_exited"]
