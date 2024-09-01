@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://cfos0tyacvmrl"]
+[gd_scene load_steps=24 format=3 uid="uid://cfos0tyacvmrl"]
 
 [ext_resource type="PackedScene" uid="uid://byrlpmbpj6yr5" path="res://scene.tscn" id="1_d7mn4"]
 [ext_resource type="Texture2D" uid="uid://b03p7gc1dm2aq" path="res://assets/scenes/demo/1/industrial/f.png" id="2_u64ec"]
@@ -14,13 +14,10 @@
 [ext_resource type="Texture2D" uid="uid://5wynkhavuwwe" path="res://assets/scenes/demo/1/industrial/f-fence-e.png" id="10_wkart"]
 [ext_resource type="PackedScene" uid="uid://dxfuidhlgwthh" path="res://travel/door.tscn" id="11_523ee"]
 [ext_resource type="Texture2D" uid="uid://bw40tyqi0m237" path="res://assets/scenery/parking-meter-a.png" id="12_ui4a6"]
-[ext_resource type="PackedScene" uid="uid://cl4heje674d3q" path="res://item/interaction_area.tscn" id="13_80ejq"]
-[ext_resource type="PackedScene" uid="uid://cpbg7yuq873y5" path="res://item/interaction_action.tscn" id="14_hojlb"]
-[ext_resource type="PackedScene" uid="uid://b0s5na6qe26yx" path="res://chapters/demo/1/dialogues/parking_meter.tscn" id="14_j8nb8"]
-[ext_resource type="PackedScene" uid="uid://dh1scrjroovcn" path="res://item/interaction_modal_maker.tscn" id="15_4rgmo"]
-[ext_resource type="PackedScene" uid="uid://ddhdd81qyis1b" path="res://cutscene/electrocuted_end.tscn" id="16_hbmqc"]
-[ext_resource type="PackedScene" uid="uid://blhapbv7bnq0p" path="res://quests/quest_boundary.tscn" id="17_kvixi"]
-[ext_resource type="PackedScene" uid="uid://bce28mr5fq6en" path="res://chapters/demo/1/dialogues/fallen_leyline_cross.tscn" id="18_26cye"]
+[ext_resource type="PackedScene" uid="uid://uc3gpi8pp0cj" path="res://chapters/demo/1/brona.tscn" id="15_1htu0"]
+[ext_resource type="PackedScene" uid="uid://bii8gdmkfiy5x" path="res://chapters/demo/1/taylor.tscn" id="16_pevi7"]
+[ext_resource type="PackedScene" uid="uid://dml0lh7hb3rg2" path="res://character/static_character.tscn" id="17_2bqiq"]
+[ext_resource type="PackedScene" uid="uid://bytdfdn3e1k7o" path="res://demons/demon_arm_1.tscn" id="20_iqabj"]
 [ext_resource type="Texture2D" uid="uid://dwvf22vxkob24" path="res://assets/scenery/extra-tree-coloured-bright/forest-cluster.png" id="23_0sf55"]
 [ext_resource type="PackedScene" uid="uid://ds4250x72dke" path="res://demons/demon_hazard.tscn" id="23_q1sac"]
 
@@ -54,6 +51,12 @@ polygon = PackedVector2Array(1770, 1130, 1164, 882, 1140, 934, 1114, 894, 1138, 
 
 [node name="edge" type="CollisionPolygon2D" parent="Background/StaticBody2D" index="2"]
 polygon = PackedVector2Array(-580, 586, -20, 455, 32, 39, 1588, 15, 1588, 727, 1476, 1215, 16, 1223, 20, 499, -520, 623, -164, 1475, 2076, 1451, 2040, -361, -676, -197)
+
+[node name="StaticCharacter2" parent="." index="1" instance=ExtResource("17_2bqiq")]
+position = Vector2(1094, 925)
+rotation = -2.24275
+scale = Vector2(0.75, 0.75)
+animation = "down-right-stopped"
 
 [node name="tree2" type="Sprite2D" parent="YSort" index="0"]
 modulate = Color(0.890196, 0.866667, 0.847059, 1)
@@ -154,100 +157,24 @@ scale = Vector2(0.7, 0.7)
 texture = ExtResource("12_ui4a6")
 offset = Vector2(0, -100)
 
-[node name="InteractionArea" parent="YSort/Meter C-No-3" index="0" instance=ExtResource("13_80ejq")]
-position = Vector2(1.42853, -77.1428)
-title = "Tithe Collector"
-reference_id = "meter-c-no-3"
-description = "An ancient tithe collecting machine mounted on a post."
-cutscene = ExtResource("14_j8nb8")
-child_depth = 2
+[node name="Brona" parent="YSort" index="19" instance=ExtResource("15_1htu0")]
+position = Vector2(702, 812)
+starting_animaton = "down-right-stopped"
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/Meter C-No-3/InteractionArea" index="0"]
-position = Vector2(-484.285, -331.428)
-polygon = PackedVector2Array(474, 401, 488, 390, 479, 286, 467, 285, 455, 257, 459, 225, 474, 221, 484, 260, 489, 260, 490, 224, 502, 218, 511, 230, 512, 264, 498, 290, 490, 297, 499, 389, 514, 401, 503, 408, 487, 412)
+[node name="Taylor" parent="YSort" index="20" instance=ExtResource("16_pevi7")]
+position = Vector2(734, 802)
 
-[node name="Actions" type="Node" parent="YSort/Meter C-No-3/InteractionArea" index="1"]
-
-[node name="Open" parent="YSort/Meter C-No-3/InteractionArea/Actions" index="0" node_paths=PackedStringArray("to_modal_maker") instance=ExtResource("14_hojlb")]
-to_modal_maker = NodePath("OpenModalMaker")
-title = "[ENGINEER] Open the casing"
-
-[node name="OpenModalMaker" parent="YSort/Meter C-No-3/InteractionArea/Actions/Open" index="0" node_paths=PackedStringArray("options_container_node") instance=ExtResource("15_4rgmo")]
-title = "Access Panel"
-description = "The screwdriver sparks a little as it contacts the screw. Good thing it's insulated--this is definitely still posessed by the Leyline."
-options_container_node = NodePath("Actions")
-
-[node name="Actions" type="Node" parent="YSort/Meter C-No-3/InteractionArea/Actions/Open/OpenModalMaker" index="0"]
-
-[node name="Leave" parent="YSort/Meter C-No-3/InteractionArea/Actions/Open/OpenModalMaker/Actions" index="0" instance=ExtResource("14_hojlb")]
-title = "Never mind"
-is_close_btn = true
-
-[node name="ReallyOpen" parent="YSort/Meter C-No-3/InteractionArea/Actions/Open/OpenModalMaker/Actions" index="1" instance=ExtResource("14_hojlb")]
-to_cutscene = ExtResource("16_hbmqc")
-title = "Open it anyway"
-
-[node name="Pole C-No-2" parent="YSort" index="19" instance=ExtResource("13_80ejq")]
-position = Vector2(1190, 848)
-title = "Fallen Leyline Cross"
-reference_id = "pole-c-no-2"
-description = "A Leyline cross lies fallen on the ground, its cables strewn beside it."
-cutscene = ExtResource("18_26cye")
-child_depth = 2
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/Pole C-No-2" index="0"]
-position = Vector2(-1192, -844)
-polygon = PackedVector2Array(1101, 828, 1121, 916, 1206, 913, 1644, 1088, 1642, 1052, 1415, 947, 1602, 989, 1582, 905, 1424, 899, 1181, 800)
-
-[node name="Actions" type="Node" parent="YSort/Pole C-No-2" index="1"]
-
-[node name="Open" parent="YSort/Pole C-No-2/Actions" index="0" node_paths=PackedStringArray("to_modal_maker") instance=ExtResource("14_hojlb")]
-to_modal_maker = NodePath("OpenModalMaker")
-title = "[ENGINEER] Harvest cable"
-
-[node name="OpenModalMaker" parent="YSort/Pole C-No-2/Actions/Open" index="0" node_paths=PackedStringArray("options_container_node") instance=ExtResource("15_4rgmo")]
-title = "Access Panel"
-description = "Are you absolutely sure? If you're on top of a Leyline right now, trying that will kill you. If you don't have a way to check at the moment, maybe err on the side of caution."
-options_container_node = NodePath("Actions")
-
-[node name="Actions" type="Node" parent="YSort/Pole C-No-2/Actions/Open/OpenModalMaker" index="0"]
-
-[node name="Leave" parent="YSort/Pole C-No-2/Actions/Open/OpenModalMaker/Actions" index="0" instance=ExtResource("14_hojlb")]
-title = "Never mind"
-is_close_btn = true
-
-[node name="ReallyOpen" parent="YSort/Pole C-No-2/Actions/Open/OpenModalMaker/Actions" index="1" instance=ExtResource("14_hojlb")]
-to_cutscene = ExtResource("16_hbmqc")
-title = "Yes, I'm sure. Harvest the cable."
-
-[node name="Leave" parent="YSort/Pole C-No-2/Actions" index="1" instance=ExtResource("14_hojlb")]
-title = "Never mind"
-is_close_btn = true
-
-[node name="NorthTrigger" parent="YSort" index="20" instance=ExtResource("17_kvixi")]
-trigger_name = "EnterF-North"
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/NorthTrigger" index="1"]
-polygon = PackedVector2Array(854, 310, 1653, 149, 1417, 119, 565, 119)
-
-[node name="WestTrigger" parent="YSort" index="21" instance=ExtResource("17_kvixi")]
-trigger_name = "EnterF-West"
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/WestTrigger" index="1"]
-position = Vector2(-723, 423)
-polygon = PackedVector2Array(1100, 459, 1275, 329, 988, 42, 769, 142)
-
-[node name="tree5" type="Sprite2D" parent="." index="2"]
+[node name="tree5" type="Sprite2D" parent="." index="3"]
 modulate = Color(0.890196, 0.866667, 0.847059, 1)
-position = Vector2(795, 1264)
+position = Vector2(802, 1308)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("23_0sf55")
 offset = Vector2(0, -250)
 flip_h = true
 
-[node name="Vein" type="Polygon2D" parent="." index="3"]
+[node name="Vein" type="Polygon2D" parent="." index="4"]
 color = Color(0, 0, 0, 1)
-polygon = PackedVector2Array(-45, 801, 1055, 172, 753, -33, 945, -33, 1713, 391, 1707, 501, 1157, 221, 723, 493, 1279, 855, 1655, 1065, 1165, 939, 1147, 811, 671, 521, 11, 917)
+polygon = PackedVector2Array(-45, 801, 1055, 172, 753, -33, 945, -33, 1713, 391, 1707, 501, 1157, 221, 723, 493, 1279, 855, 1655, 1065, 1291, 942, 1205, 908, 1150, 923, 1059, 932, 1126, 878, 1173, 853, 671, 521, 11, 917)
 
 [node name="DemonHazard" parent="Vein" index="0" node_paths=PackedStringArray("collider") instance=ExtResource("23_q1sac")]
 collider = NodePath("../Area2D")
@@ -255,4 +182,133 @@ collider = NodePath("../Area2D")
 [node name="Area2D" type="Area2D" parent="Vein" index="1"]
 
 [node name="Collision" type="CollisionPolygon2D" parent="Vein/Area2D" index="0"]
-polygon = PackedVector2Array(-45, 801, 1055, 172, 753, -33, 945, -33, 1713, 391, 1707, 501, 1157, 221, 723, 493, 1279, 855, 1655, 1065, 1165, 939, 1147, 811, 671, 521, 11, 917)
+polygon = PackedVector2Array(-45, 801, 1055, 172, 753, -33, 945, -33, 1713, 391, 1707, 501, 1157, 221, 723, 493, 1279, 855, 1655, 1065, 1253.54, 961.768, 1128, 983, 1095, 959, 1165, 939, 1147, 811, 671, 521, 11, 917)
+
+[node name="DemonArm1" parent="Vein" index="2" instance=ExtResource("20_iqabj")]
+position = Vector2(1155, 872)
+rotation = -2.13105
+scale = Vector2(0.5, 0.5)
+
+[node name="DemonArm2" parent="Vein" index="3" instance=ExtResource("20_iqabj")]
+position = Vector2(1196.1, 912.864)
+rotation = -2.13105
+scale = Vector2(0.3, 0.5)
+animation_offset = 1.2
+
+[node name="DemonArm3" parent="Vein" index="4" instance=ExtResource("20_iqabj")]
+position = Vector2(1109.1, 924.864)
+rotation = -2.13105
+scale = Vector2(0.3, 0.5)
+animation_offset = 0.9
+
+[node name="DemonArm15" parent="Vein" index="5" instance=ExtResource("20_iqabj")]
+position = Vector2(1237, 942)
+rotation = -2.72969
+scale = Vector2(0.3, 0.5)
+animation_offset = 1.2
+
+[node name="DemonArm16" parent="Vein" index="6" instance=ExtResource("20_iqabj")]
+position = Vector2(1204, 918)
+rotation = -2.72969
+scale = Vector2(0.3, 0.5)
+animation_offset = 0.5
+
+[node name="DemonArm4" parent="Vein" index="7" instance=ExtResource("20_iqabj")]
+position = Vector2(798, 580)
+rotation = -3.68614
+scale = Vector2(0.5, 0.5)
+
+[node name="DemonArm5" parent="Vein" index="8" instance=ExtResource("20_iqabj")]
+position = Vector2(888.539, 657.516)
+rotation = -3.68614
+scale = Vector2(0.3, 0.5)
+animation_offset = 1.2
+
+[node name="DemonArm6" parent="Vein" index="9" instance=ExtResource("20_iqabj")]
+position = Vector2(1141, 850)
+rotation = -1.55509
+scale = Vector2(0.3, 0.5)
+animation_offset = 0.9
+
+[node name="DemonArm13" parent="Vein" index="10" instance=ExtResource("20_iqabj")]
+position = Vector2(1105, 834)
+rotation = -2.13105
+scale = Vector2(0.5, 0.5)
+animation_offset = 1.0
+
+[node name="DemonArm14" parent="Vein" index="11" instance=ExtResource("20_iqabj")]
+position = Vector2(1076, 802)
+rotation = -1.55509
+scale = Vector2(0.3, 0.3)
+animation_offset = 0.9
+
+[node name="DemonArm7" parent="Vein" index="12" instance=ExtResource("20_iqabj")]
+position = Vector2(409, 677)
+rotation = -4.35983
+scale = Vector2(0.5, 0.5)
+animation_offset = 0.2
+
+[node name="DemonArm9" parent="Vein" index="13" instance=ExtResource("20_iqabj")]
+position = Vector2(885, 385)
+rotation = -2.90074
+scale = Vector2(0.5, 0.5)
+animation_offset = 0.9
+
+[node name="DemonArm10" parent="Vein" index="14" instance=ExtResource("20_iqabj")]
+position = Vector2(1348, 310)
+rotation = -2.45219
+scale = Vector2(0.5, 0.5)
+
+[node name="DemonArm12" parent="Vein" index="15" instance=ExtResource("20_iqabj")]
+position = Vector2(1171, 231)
+rotation = -3.23759
+scale = Vector2(0.5, 0.5)
+animation_offset = 0.2
+
+[node name="DemonArm11" parent="Vein" index="16" instance=ExtResource("20_iqabj")]
+position = Vector2(1450, 379)
+rotation = -2.45219
+scale = Vector2(0.3, 0.5)
+animation_offset = 1.0
+
+[node name="DemonArm8" parent="Vein" index="17" instance=ExtResource("20_iqabj")]
+position = Vector2(564, 592)
+rotation = -3.68614
+scale = Vector2(0.3, 0.5)
+animation_offset = 1.2
+
+[node name="DemonArm17" parent="Vein" index="18" instance=ExtResource("20_iqabj")]
+position = Vector2(482.956, 630.105)
+rotation = -4.35983
+scale = Vector2(0.5, 0.5)
+animation_offset = 0.7
+
+[node name="DemonArm18" parent="Vein" index="19" instance=ExtResource("20_iqabj")]
+position = Vector2(637.956, 545.105)
+rotation = -3.68614
+scale = Vector2(0.3, 0.5)
+animation_offset = 1.5
+
+[node name="DemonArm21" parent="Vein" index="20" instance=ExtResource("20_iqabj")]
+position = Vector2(686, 528)
+rotation = -3.57443
+scale = Vector2(0.3, 0.5)
+animation_offset = 1.0
+
+[node name="DemonArm22" parent="Vein" index="21" instance=ExtResource("20_iqabj")]
+position = Vector2(697, 522)
+rotation = -3.68614
+scale = Vector2(0.3, 0.5)
+animation_offset = 0.4
+
+[node name="DemonArm19" parent="Vein" index="22" instance=ExtResource("20_iqabj")]
+position = Vector2(283.956, 756.105)
+rotation = -4.35983
+scale = Vector2(0.5, 0.5)
+animation_offset = 0.5
+
+[node name="DemonArm20" parent="Vein" index="23" instance=ExtResource("20_iqabj")]
+position = Vector2(438.956, 671.105)
+rotation = -3.68614
+scale = Vector2(0.3, 0.5)
+animation_offset = 1.2

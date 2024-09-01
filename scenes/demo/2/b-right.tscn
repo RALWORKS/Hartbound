@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://c3xu2a7bqitmv"]
+[gd_scene load_steps=9 format=3 uid="uid://c3xu2a7bqitmv"]
 
 [ext_resource type="PackedScene" uid="uid://byrlpmbpj6yr5" path="res://scene.tscn" id="1_2prvm"]
 [ext_resource type="Texture2D" uid="uid://c5pa6jussdfxh" path="res://assets/scenes/demo/1/industrial/b-right.png" id="2_fvmbq"]
 [ext_resource type="PackedScene" uid="uid://dxfuidhlgwthh" path="res://travel/door.tscn" id="3_140tg"]
 [ext_resource type="PackedScene" uid="uid://ds4250x72dke" path="res://demons/demon_hazard.tscn" id="4_5cr2v"]
+[ext_resource type="PackedScene" uid="uid://bytdfdn3e1k7o" path="res://demons/demon_arm_1.tscn" id="5_47aq3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qited"]
 size = Vector2(123, 1319)
@@ -57,12 +58,91 @@ scale = Vector2(6, 1)
 dest_resource = "res://scenes/demo/2/c-right.tscn"
 
 [node name="Vein" type="Polygon2D" parent="." index="2"]
+color = Color(0, 0, 0, 1)
 polygon = PackedVector2Array(-87, 30, 799, 537, 702, 607, 485, 486, 402, 434, -320, 816, -230, 905, 487, 497, 762, 654, 864, 578, 1658, 1033, 1651, 955, -55, -31)
 
-[node name="DemonHazard" parent="Vein" index="0" node_paths=PackedStringArray("collider") instance=ExtResource("4_5cr2v")]
+[node name="DemonArn11" parent="Vein" index="0" instance=ExtResource("5_47aq3")]
+position = Vector2(1085, 703)
+rotation = -2.64068
+scale = Vector2(0.2, 0.2)
+animation_offset = 0.2
+
+[node name="DemonArn12" parent="Vein" index="1" instance=ExtResource("5_47aq3")]
+position = Vector2(1337, 845)
+rotation = -2.64068
+scale = Vector2(0.473436, 0.2)
+animation_offset = 0.9
+
+[node name="DemonHazard" parent="Vein" index="2" node_paths=PackedStringArray("collider") instance=ExtResource("4_5cr2v")]
 collider = NodePath("../Area2D")
 
-[node name="Area2D" type="Area2D" parent="Vein" index="1"]
+[node name="Area2D" type="Area2D" parent="Vein" index="3"]
 
 [node name="Collision" type="CollisionPolygon2D" parent="Vein/Area2D" index="0"]
-polygon = PackedVector2Array(-87, 30, 799, 537, 702, 607, 485, 486, 402, 434, -320, 816, -230, 905, 487, 497, 762, 654, 864, 578, 1658, 1033, 1651, 955, -55, -31)
+polygon = PackedVector2Array(-87, 30, 799, 537, 702, 607, 485, 486, 402, 434, -272, 798, -230, 905, 487, 497, 762, 654, 864, 578, 1658, 1033, 1651, 955, -55, -31)
+
+[node name="DemonArn1" parent="Vein" index="4" instance=ExtResource("5_47aq3")]
+position = Vector2(387, 559)
+rotation = 2.26719
+scale = Vector2(0.4, 0.4)
+animation_offset = 0.5
+
+[node name="DemonArn4" parent="Vein" index="5" instance=ExtResource("5_47aq3")]
+position = Vector2(249, 642)
+rotation = 2.26719
+scale = Vector2(0.7, 0.7)
+animation_offset = 0.9
+
+[node name="DemonArn5" parent="Vein" index="6" instance=ExtResource("5_47aq3")]
+position = Vector2(65, 751)
+rotation = 2.26719
+scale = Vector2(0.7, 0.7)
+animation_offset = 0.5
+
+[node name="DemonArn2" parent="Vein" index="7" instance=ExtResource("5_47aq3")]
+position = Vector2(603, 348)
+rotation = 1.06291
+scale = Vector2(0.16, 0.16)
+animation_offset = 0.1
+
+[node name="DemonArn6" parent="Vein" index="8" instance=ExtResource("5_47aq3")]
+position = Vector2(300, 168)
+rotation = 1.06291
+scale = Vector2(0.28, 0.28)
+animation_offset = 0.2
+
+[node name="DemonArn7" parent="Vein" index="9" instance=ExtResource("5_47aq3")]
+position = Vector2(198, 99.0001)
+rotation = 1.06291
+scale = Vector2(0.28, 0.28)
+animation_offset = 0.9
+
+[node name="DemonArn3" parent="Vein" index="10" instance=ExtResource("5_47aq3")]
+position = Vector2(839, 484)
+rotation = -5.51349
+scale = Vector2(0.2, 0.2)
+animation_offset = 0.1
+
+[node name="DemonArn8" parent="Vein" index="11" instance=ExtResource("5_47aq3")]
+position = Vector2(991, 567)
+rotation = -5.51349
+scale = Vector2(0.2, 0.2)
+animation_offset = 0.2
+
+[node name="DemonArn9" parent="Vein" index="12" instance=ExtResource("5_47aq3")]
+position = Vector2(1198, 686)
+rotation = -5.51349
+scale = Vector2(0.2, 0.2)
+animation_offset = 0.2
+
+[node name="DemonArn10" parent="Vein" index="13" instance=ExtResource("5_47aq3")]
+position = Vector2(367, 293)
+rotation = -2.64068
+scale = Vector2(0.2, 0.2)
+animation_offset = 0.1
+
+[node name="DemonArn13" parent="Vein" index="14" instance=ExtResource("5_47aq3")]
+position = Vector2(211, 530)
+rotation = -0.87441
+scale = Vector2(0.4, 0.4)
+animation_offset = 0.1
