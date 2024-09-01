@@ -1,0 +1,64 @@
+[gd_scene load_steps=8 format=3 uid="uid://4t38efl4x8ua"]
+
+[ext_resource type="PackedScene" uid="uid://byrlpmbpj6yr5" path="res://scene.tscn" id="1_xr5ne"]
+[ext_resource type="Texture2D" uid="uid://cdm0ewe6djiw" path="res://assets/scenes/demo/1/industrial/a.png" id="2_4a77s"]
+[ext_resource type="PackedScene" uid="uid://hkvbe74sc3cw" path="res://effects/maze_bg.tscn" id="2_eclob"]
+[ext_resource type="Texture2D" uid="uid://eao24wrjq532" path="res://assets/maze-concept-foreground.png" id="3_egq5v"]
+[ext_resource type="Texture2D" uid="uid://ctxw7gjxkefbl" path="res://assets/maze-concept-foreground-path.png" id="4_dgenn"]
+[ext_resource type="PackedScene" uid="uid://dxfuidhlgwthh" path="res://travel/door.tscn" id="4_e5h1d"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4lvb1"]
+size = Vector2(206, 436)
+
+[node name="Scene" instance=ExtResource("1_xr5ne")]
+
+[node name="reality" type="Sprite2D" parent="Background" index="0"]
+position = Vector2(0, -358)
+texture = ExtResource("2_4a77s")
+centered = false
+
+[node name="fg" type="Sprite2D" parent="Background" index="1"]
+self_modulate = Color(1, 1, 1, 0.85098)
+texture = ExtResource("3_egq5v")
+centered = false
+
+[node name="MazeBG" parent="Background" index="2" instance=ExtResource("2_eclob")]
+modulate = Color(1, 1, 1, 0.560784)
+
+[node name="fg2" type="Sprite2D" parent="Background" index="3"]
+texture = ExtResource("4_dgenn")
+centered = false
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Background/StaticBody2D" index="0"]
+polygon = PackedVector2Array(751, 438, 1716, -131, 740, -176, 40, -131, -90, -68)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Background/StaticBody2D" index="1"]
+polygon = PackedVector2Array(-145, 33, 330, 302, -224, 642)
+
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="Background/StaticBody2D" index="2"]
+polygon = PackedVector2Array(1691, 8, 876, 492, 1818, 1049)
+
+[node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="Background/StaticBody2D" index="3"]
+polygon = PackedVector2Array(-270, 769, 423, 373, 1877, 1204, 1676, 1269, 415, 1230, 1077.04, 871.067, 539, 554, -40, 882, -186, 1346)
+
+[node name="CollisionPolygon2D5" type="CollisionPolygon2D" parent="Background/StaticBody2D" index="4"]
+polygon = PackedVector2Array(-5, 8, 1600, 14, 1609, 1236, 2, 1238, -3, 101, -387, 175, -266, 1436, 2082, 1394, 2079, -170, -288, -139, -237, -9)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Background/StaticBody2D" index="5"]
+position = Vector2(-103, 135)
+shape = SubResource("RectangleShape2D_4lvb1")
+
+[node name="DefaultSpawner" parent="YSort" index="0"]
+position = Vector2(779, 498)
+
+[node name="LeftSlash" parent="YSort" index="1" instance=ExtResource("4_e5h1d")]
+position = Vector2(30, 55)
+rotation = -0.897099
+dest_resource = "res://scenes/demo/2/maze-demo-1.tscn"
+dest_edge = "RightSlash"
+
+[node name="RightSlash" parent="YSort" index="2" instance=ExtResource("4_e5h1d")]
+position = Vector2(1601, 991)
+rotation = -4.03869
+dest_resource = "res://scenes/demo/2/maze-demo-1.tscn"
+dest_edge = "LeftSlash"

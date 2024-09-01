@@ -15,3 +15,6 @@ func close():
 
 func open():
 	$AnimationPlayer.play_backwards("Close")
+	
+func loop():
+	$AnimationPlayer.play("Loop")
