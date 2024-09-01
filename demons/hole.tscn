@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://demons/hole.gd" id="2_al50d"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_28a63"]
-radius = 161.5
+radius = 142.071
 
 [node name="Hole" type="Sprite2D"]
 scale = Vector2(2, 2)

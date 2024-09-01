@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://cutjuxuo3n1wc"]
+[gd_scene load_steps=22 format=3 uid="uid://cutjuxuo3n1wc"]
 
 [ext_resource type="PackedScene" uid="uid://byrlpmbpj6yr5" path="res://scene.tscn" id="1_4su6i"]
 [ext_resource type="Texture2D" uid="uid://dobfgkrdvoy5g" path="res://assets/scenes/demo/1/industrial/b.png" id="2_beatb"]
@@ -6,13 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://b7bo0oyjlmq03" path="res://assets/scenes/demo/1/industrial/b-treetop.png" id="4_jobxl"]
 [ext_resource type="Texture2D" uid="uid://c6dbijn80ep15" path="res://assets/scenes/demo/1/industrial/b-vent-tree.png" id="5_ij0re"]
 [ext_resource type="PackedScene" uid="uid://dxfuidhlgwthh" path="res://travel/door.tscn" id="6_dl5dw"]
-[ext_resource type="PackedScene" uid="uid://cl4heje674d3q" path="res://item/interaction_area.tscn" id="12_6urft"]
-[ext_resource type="PackedScene" uid="uid://bkyp4rqktyinq" path="res://item/interact_range_extender.tscn" id="13_6vyp4"]
-[ext_resource type="PackedScene" uid="uid://b2jx8i1f87s2x" path="res://chapters/demo/1/dialogues/leyline_cross.tscn" id="14_qhsme"]
 [ext_resource type="PackedScene" uid="uid://cg4pd3bho5745" path="res://scenery/trees/young_tree.tscn" id="16_4rt0h"]
 [ext_resource type="PackedScene" uid="uid://bp5q2v0qni20y" path="res://scenery/trees/pine_pair.tscn" id="17_bd47t"]
-[ext_resource type="PackedScene" uid="uid://cqv8vs3o2qua4" path="res://chapters/demo/1/jerry_says_no_leavng_alone.tscn" id="18_h44q5"]
-[ext_resource type="PackedScene" uid="uid://5exo54lvam30" path="res://quests/quests/demo_c_1_regroup_initial.tscn" id="18_i73ob"]
 [ext_resource type="PackedScene" uid="uid://ds4250x72dke" path="res://demons/demon_hazard.tscn" id="18_nc738"]
 [ext_resource type="Texture2D" uid="uid://chq6q6xttvwfi" path="res://assets/scenery/extra-tree-coloured-bright/tree-family.png" id="19_d5wrl"]
 [ext_resource type="Texture2D" uid="uid://cnlclj8g0tyiw" path="res://assets/scenery/extra-tree-coloured-bright/stone-trio.png" id="19_hnywh"]
@@ -198,46 +193,29 @@ vertices = PackedVector2Array(1313, 227, 1403, 173, 1494, 229, 1405, 319, 1310, 
 [node name="VentD" type="NavigationObstacle2D" parent="YSort" index="14"]
 vertices = PackedVector2Array(1510, 361, 1596, 320, 1600, 446, 1510, 403)
 
-[node name="InteractionArea" parent="YSort" index="15" instance=ExtResource("12_6urft")]
-position = Vector2(269, 449)
-title = "Leyline Cross"
-description = "There must be a Leyline nearby--though this probably isn't connected to it. There isn't even any wire left on it."
-cutscene = ExtResource("14_qhsme")
-child_depth = 2
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/InteractionArea" index="0"]
-position = Vector2(-273, -432)
-polygon = PackedVector2Array(272, 408, 293, 417, 335, 266, 365, 262, 373, 220, 344, 169, 289, 230, 282, 245, 314, 256)
-
-[node name="InteractRangeExtender" parent="YSort/InteractionArea" index="1" node_paths=PackedStringArray("interactable") instance=ExtResource("13_6vyp4")]
-interactable = NodePath("..")
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/InteractionArea/InteractRangeExtender" index="0"]
-polygon = PackedVector2Array(-96, 1, 63, 11, 147, 46, -60, 179)
-
-[node name="NorthDoor1" parent="YSort" index="16" instance=ExtResource("6_dl5dw")]
+[node name="NorthDoor1" parent="YSort" index="15" instance=ExtResource("6_dl5dw")]
 position = Vector2(1039, 11)
 rotation = -0.148353
 scale = Vector2(5, 0.5)
 dest_resource = "res://scenes/demo/2/b-up.tscn"
 dest_edge = "SouthDoor1"
 
-[node name="NorthDoor2" parent="YSort" index="17" instance=ExtResource("6_dl5dw")]
+[node name="NorthDoor2" parent="YSort" index="16" instance=ExtResource("6_dl5dw")]
 position = Vector2(239, 25)
 rotation = 0.223402
 scale = Vector2(4, 0.5)
 dest_resource = "res://scenes/demo/2/b-up.tscn"
 dest_edge = "SouthDoor2"
 
-[node name="YoungTree" parent="YSort" index="18" instance=ExtResource("16_4rt0h")]
+[node name="YoungTree" parent="YSort" index="17" instance=ExtResource("16_4rt0h")]
 modulate = Color(1, 0.976471, 0.792157, 1)
 position = Vector2(97.0001, 1180)
 
-[node name="PinePair" parent="YSort" index="19" instance=ExtResource("17_bd47t")]
+[node name="PinePair" parent="YSort" index="18" instance=ExtResource("17_bd47t")]
 modulate = Color(0.89, 0.866267, 0.8455, 1)
 position = Vector2(1318, 1031)
 
-[node name="trees" type="Sprite2D" parent="YSort" index="20"]
+[node name="trees" type="Sprite2D" parent="YSort" index="19"]
 modulate = Color(0.890196, 0.866667, 0.847059, 1)
 position = Vector2(1120, 939)
 scale = Vector2(0.5, 0.5)
@@ -245,7 +223,7 @@ texture = ExtResource("19_d5wrl")
 offset = Vector2(0, -300)
 flip_h = true
 
-[node name="trees2" type="Sprite2D" parent="YSort" index="21"]
+[node name="trees2" type="Sprite2D" parent="YSort" index="20"]
 modulate = Color(0.89, 0.866267, 0.8455, 1)
 position = Vector2(980, 888)
 scale = Vector2(0.3, 0.3)
@@ -253,14 +231,7 @@ texture = ExtResource("20_uwtq4")
 offset = Vector2(0, -300)
 flip_h = true
 
-[node name="ThresholdQuests" type="Node" parent="." index="2"]
-
-[node name="BlockadeQuests" type="Node" parent="." index="3"]
-
-[node name="DemoC1RegroupInitial" parent="BlockadeQuests" index="0" instance=ExtResource("18_i73ob")]
-data_resource = ExtResource("18_h44q5")
-
-[node name="tree6" type="Sprite2D" parent="." index="4"]
+[node name="tree6" type="Sprite2D" parent="." index="2"]
 modulate = Color(0.929412, 0.917647, 0.819608, 1)
 position = Vector2(427, 1243)
 scale = Vector2(0.4, 0.4)
@@ -268,14 +239,14 @@ texture = ExtResource("22_56ef0")
 offset = Vector2(0, -500)
 flip_h = true
 
-[node name="pipe" type="Sprite2D" parent="." index="5"]
+[node name="pipe" type="Sprite2D" parent="." index="3"]
 position = Vector2(255, 1243)
 texture = ExtResource("3_r4qbj")
 offset = Vector2(0, -100)
 
-[node name="Sprite2D" type="Sprite2D" parent="." index="6"]
+[node name="Sprite2D" type="Sprite2D" parent="." index="4"]
 
-[node name="Vein" type="Polygon2D" parent="." index="7"]
+[node name="Vein" type="Polygon2D" parent="." index="5"]
 color = Color(0, 0, 0, 1)
 polygon = PackedVector2Array(76, 1425, 778, 1097, 464, 837, 981, 619, 993, 237, 1898, -187, 1966, -113, 1080, 277, 1072, 659, 622, 862, 959, 1123, 156, 1491)
 
