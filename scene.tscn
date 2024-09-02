@@ -10,6 +10,7 @@ script/source = "extends Node2D
 @export var contents_node: Node2D
 @export var vein_node: Node
 @export var use_black_leyline = false
+@export var use_violet_leyline = false
 
 var LeylineScreen = preload(\"res://effects/leyline_screen.tscn\")
 
@@ -21,7 +22,9 @@ func _ready():
 	add_chapter_contents()
 	$\"/root/Game/MainScreen\".clear_postprocessing()
 	
-	if use_black_leyline:
+	if use_violet_leyline:
+		violet_leyline()
+	elif use_black_leyline:
 		black_leyline()
 	elif vein_node != null:
 		leyline()
@@ -39,6 +42,13 @@ func black_leyline():
 	add_child(ley)
 	move_child(ley, $YSort.get_index())
 	ley.run_black(self)
+
+func violet_leyline():
+	var ley = LeylineScreen.instantiate()
+	ley.set_vein_node(vein_node)
+	add_child(ley)
+	move_child(ley, $YSort.get_index())
+	ley.run_violet(self)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):

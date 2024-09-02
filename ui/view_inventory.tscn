@@ -58,10 +58,11 @@ texture = ExtResource("5_auguh")
 
 [node name="EmptyIndicator" parent="Body" index="1" instance=ExtResource("7_tkxcj")]
 layout_mode = 0
-offset_left = 48.0
+offset_left = 180.0
 offset_top = 47.0
-offset_right = 562.0
+offset_right = 694.0
 offset_bottom = 133.0
 text = "There's nothing here right now."
 
 [node name="Data" type="Node2D" parent="Body" index="2"]
+position = Vector2(132, 0)

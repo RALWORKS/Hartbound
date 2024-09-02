@@ -17,15 +17,19 @@ position = Vector2(0, -358)
 texture = ExtResource("2_4a77s")
 centered = false
 
-[node name="fg" type="Sprite2D" parent="Background" index="1"]
+[node name="Polygon2D" type="Polygon2D" parent="Background" index="1"]
+color = Color(0.376471, 0.376471, 0.376471, 1)
+polygon = PackedVector2Array(751, 445, 1528, -19, 1611, 2, 1665, 1249, -23, 1337, -46, -1, 5, 4)
+
+[node name="fg" type="Sprite2D" parent="Background" index="2"]
 self_modulate = Color(1, 1, 1, 0.85098)
 texture = ExtResource("3_egq5v")
 centered = false
 
-[node name="MazeBG" parent="Background" index="2" instance=ExtResource("2_eclob")]
+[node name="MazeBG" parent="Background" index="3" instance=ExtResource("2_eclob")]
 modulate = Color(1, 1, 1, 0.560784)
 
-[node name="fg2" type="Sprite2D" parent="Background" index="3"]
+[node name="fg2" type="Sprite2D" parent="Background" index="4"]
 texture = ExtResource("4_dgenn")
 centered = false
 
