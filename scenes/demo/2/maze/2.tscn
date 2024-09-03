@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://btgyg4qbip07e"]
+
+[ext_resource type="PackedScene" uid="uid://c8dvlsyrphnoc" path="res://scenes/demo/2/maze/base.tscn" id="1_1a6p4"]
+[ext_resource type="Texture2D" uid="uid://evyb5x6lar88" path="res://assets/scenes/demo/1/industrial/b-up.png" id="2_l2p8q"]
+[ext_resource type="Texture2D" uid="uid://cheh7j1cmyou5" path="res://assets/scenes/demo/maze/2.png" id="3_2ymrl"]
+[ext_resource type="Texture2D" uid="uid://43gri4dgmh4l" path="res://assets/scenes/demo/maze/2-path.png" id="4_j3heq"]
+
+[node name="MazeScene" instance=ExtResource("1_1a6p4")]
+
+[node name="reality" parent="Background" index="0"]
+texture = ExtResource("2_l2p8q")
+
+[node name="bg" parent="Background" index="1"]
+texture = ExtResource("3_2ymrl")
+
+[node name="path" parent="Background" index="3"]
+texture = ExtResource("4_j3heq")
+
+[node name="DefaultSpawner" parent="YSort" index="0"]
+position = Vector2(534, 785)
