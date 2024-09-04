@@ -32,15 +32,23 @@ position = Vector2(1292, 691)
 [node name="Top" parent="YSort" index="1" instance=ExtResource("5_cwc0r")]
 position = Vector2(561, 32)
 rotation = -1.12225
+dest_resource = "res://scenes/demo/2/maze/5.tscn"
+dest_edge = "Bottom"
 
 [node name="Left" parent="YSort" index="2" instance=ExtResource("5_cwc0r")]
 position = Vector2(19, 818)
 rotation = -2.13105
+dest_resource = "res://scenes/demo/2/maze/2.tscn"
+dest_edge = "TopRight"
 
 [node name="Bottom" parent="YSort" index="3" instance=ExtResource("5_cwc0r")]
 position = Vector2(359, 1227)
 rotation = -2.13105
+dest_resource = "res://scenes/demo/2/maze/2.tscn"
+dest_edge = "MiddleRight"
 
 [node name="Right" parent="YSort" index="4" instance=ExtResource("5_cwc0r")]
 position = Vector2(1604, 864)
 rotation = 2.01935
+dest_resource = "res://scenes/demo/2/maze/8.tscn"
+dest_edge = "Left"

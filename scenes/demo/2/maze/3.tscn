@@ -20,7 +20,7 @@ polygon = PackedVector2Array(418, -109, 14, 121, 553, 427, 21, 752, 331, 941, 17
 polygon = PackedVector2Array(550, -101, 206, 125, 738, 438, 214, 748, 527, 929, 206, 1126, 569, 1322, 757, 1303, 448, 1118, 769, 937, 550, 805, 1199, 442, 550, 72, 757, -56)
 
 [node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="Background/StaticBody2D" index="6"]
-polygon = PackedVector2Array(961, -71, 746, 68, 1392, 446, 754, 808, 965, 937, 644, 1118, 878, 1265, 1139, 1277, 874, 1118, 1192, 937, 973, 820, 1735, 359)
+polygon = PackedVector2Array(961, -71, 746, 68, 1392, 446, 754, 808, 965, 937, 644, 1118, 878, 1265, 1139, 1277, 874, 1118, 1192, 937, 973, 820, 1724, 363)
 
 [node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="Background/StaticBody2D" index="7"]
 polygon = PackedVector2Array(1229, -37, 1637, 212, 1909, 382, 1176, 812, 1384, 933, 1071, 1114, 1452, 1352, 1637, 1314, 1301, 1122, 1656, 914, 2441, 401, 1509, -79)
@@ -32,27 +32,53 @@ position = Vector2(620, 434)
 position = Vector2(1598, 1118)
 rotation = 1.5708
 scale = Vector2(2.2, 1)
+dest_resource = "res://scenes/demo/2/maze/4.tscn"
+dest_edge = "BottomLeft"
 
 [node name="BottomCenterRight" parent="YSort" index="2" instance=ExtResource("4_hw0cf")]
 position = Vector2(1126, 1227)
 rotation = 2.25147
+dest_resource = "res://scenes/demo/2/maze/5.tscn"
+dest_edge = "TopRight"
 
 [node name="BottomCenterLeft" parent="YSort" index="3" instance=ExtResource("4_hw0cf")]
 position = Vector2(709, 1216)
 rotation = 2.14675
+dest_resource = "res://scenes/demo/2/maze/5.tscn"
+dest_edge = "TopCenter"
 
 [node name="BottomLeft" parent="YSort" index="4" instance=ExtResource("4_hw0cf")]
 position = Vector2(260, 1219)
 rotation = 2.14675
+dest_resource = "res://scenes/demo/2/maze/5.tscn"
+dest_edge = "TopLeft"
 
 [node name="TopLeft" parent="YSort" index="5" instance=ExtResource("4_hw0cf")]
 position = Vector2(276, 6.99999)
 rotation = 0.855211
+dest_resource = "res://scenes/demo/2/maze/1.tscn"
+dest_edge = "BottomLeft"
 
-[node name="TopMiddle" parent="YSort" index="6" instance=ExtResource("4_hw0cf")]
+[node name="TopCenter" parent="YSort" index="6" instance=ExtResource("4_hw0cf")]
 position = Vector2(742, 1.99999)
 rotation = 0.767945
+dest_resource = "res://scenes/demo/2/maze/1.tscn"
+dest_edge = "BottomCenter"
 
 [node name="TopRight" parent="YSort" index="7" instance=ExtResource("4_hw0cf")]
 position = Vector2(1244, 14.0001)
 rotation = -0.883137
+dest_resource = "res://scenes/demo/2/maze/1.tscn"
+dest_edge = "BottomRight"
+
+[node name="UpperMiddleRight" parent="YSort" index="8" instance=ExtResource("4_hw0cf")]
+position = Vector2(1599, 243)
+rotation = 2.14675
+dest_resource = "res://scenes/demo/2/maze/4.tscn"
+dest_edge = "TopLeft"
+
+[node name="LowerMiddleRight" parent="YSort" index="9" instance=ExtResource("4_hw0cf")]
+position = Vector2(1588, 506)
+rotation = 1.02451
+dest_resource = "res://scenes/demo/2/maze/4.tscn"
+dest_edge = "MiddleLeft"

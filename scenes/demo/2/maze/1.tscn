@@ -35,26 +35,38 @@ position = Vector2(774, 740)
 [node name="TopLeft" parent="YSort" index="1" instance=ExtResource("5_5763l")]
 position = Vector2(25, 325)
 rotation = -1.01055
+dest_resource = "res://scenes/demo/2/maze/8.tscn"
+dest_edge = "Right"
 
 [node name="MiddleLeft" parent="YSort" index="2" instance=ExtResource("5_5763l")]
 position = Vector2(5, 559)
 rotation = -1.01055
+dest_resource = "res://scenes/demo/2/maze/8.tscn"
+dest_edge = "Bottom"
 
 [node name="TopRight" parent="YSort" index="3" instance=ExtResource("5_5763l")]
 position = Vector2(1608, 247)
 rotation = 1.0088
+dest_resource = "res://scenes/demo/2/maze/2.tscn"
+dest_edge = "TopLeft"
 
 [node name="BottomLeft" parent="YSort" index="4" instance=ExtResource("5_5763l")]
 position = Vector2(351, 1241)
 rotation = -2.58134
 scale = Vector2(1, 1)
+dest_resource = "res://scenes/demo/2/maze/3.tscn"
+dest_edge = "TopLeft"
 
 [node name="BottomCenter" parent="YSort" index="5" instance=ExtResource("5_5763l")]
 position = Vector2(797, 1228)
 rotation = -2.24449
 scale = Vector2(1, 1)
+dest_resource = "res://scenes/demo/2/maze/3.tscn"
+dest_edge = "TopCenter"
 
 [node name="BottomRight" parent="YSort" index="6" instance=ExtResource("5_5763l")]
 position = Vector2(1235, 1220)
 rotation = -2.24449
 scale = Vector2(1, 1)
+dest_resource = "res://scenes/demo/2/maze/3.tscn"
+dest_edge = "TopRight"
