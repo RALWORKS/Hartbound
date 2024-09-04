@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://vbb4sdxsn3xc"]
+[gd_scene load_steps=5 format=3 uid="uid://vbb4sdxsn3xc"]
 
 [ext_resource type="PackedScene" uid="uid://c8dvlsyrphnoc" path="res://scenes/demo/2/maze/base.tscn" id="1_6m3rx"]
 [ext_resource type="Texture2D" uid="uid://c4r0q381qblvi" path="res://assets/scenes/demo/maze/3.png" id="2_g17mw"]
 [ext_resource type="Texture2D" uid="uid://cl01oywk3ah6c" path="res://assets/scenes/demo/maze/3-path.png" id="3_db8th"]
+[ext_resource type="PackedScene" uid="uid://dxfuidhlgwthh" path="res://travel/door.tscn" id="4_hw0cf"]
 
 [node name="MazeScene" instance=ExtResource("1_6m3rx")]
 
@@ -12,5 +13,46 @@ texture = ExtResource("2_g17mw")
 [node name="path" parent="Background" index="3"]
 texture = ExtResource("3_db8th")
 
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Background/StaticBody2D" index="4"]
+polygon = PackedVector2Array(418, -109, 14, 121, 553, 427, 21, 752, 331, 941, 17, 1126, 214, 1243, 199, 1337, -100, 1329, -81, -200)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Background/StaticBody2D" index="5"]
+polygon = PackedVector2Array(550, -101, 206, 125, 738, 438, 214, 748, 527, 929, 206, 1126, 569, 1322, 757, 1303, 448, 1118, 769, 937, 550, 805, 1199, 442, 550, 72, 757, -56)
+
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="Background/StaticBody2D" index="6"]
+polygon = PackedVector2Array(961, -71, 746, 68, 1392, 446, 754, 808, 965, 937, 644, 1118, 878, 1265, 1139, 1277, 874, 1118, 1192, 937, 973, 820, 1735, 359)
+
+[node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="Background/StaticBody2D" index="7"]
+polygon = PackedVector2Array(1229, -37, 1637, 212, 1909, 382, 1176, 812, 1384, 933, 1071, 1114, 1452, 1352, 1637, 1314, 1301, 1122, 1656, 914, 2441, 401, 1509, -79)
+
 [node name="DefaultSpawner" parent="YSort" index="0"]
 position = Vector2(620, 434)
+
+[node name="BottomRight" parent="YSort" index="1" instance=ExtResource("4_hw0cf")]
+position = Vector2(1598, 1118)
+rotation = 1.5708
+scale = Vector2(2.2, 1)
+
+[node name="BottomCenterRight" parent="YSort" index="2" instance=ExtResource("4_hw0cf")]
+position = Vector2(1126, 1227)
+rotation = 2.25147
+
+[node name="BottomCenterLeft" parent="YSort" index="3" instance=ExtResource("4_hw0cf")]
+position = Vector2(709, 1216)
+rotation = 2.14675
+
+[node name="BottomLeft" parent="YSort" index="4" instance=ExtResource("4_hw0cf")]
+position = Vector2(260, 1219)
+rotation = 2.14675
+
+[node name="TopLeft" parent="YSort" index="5" instance=ExtResource("4_hw0cf")]
+position = Vector2(276, 6.99999)
+rotation = 0.855211
+
+[node name="TopMiddle" parent="YSort" index="6" instance=ExtResource("4_hw0cf")]
+position = Vector2(742, 1.99999)
+rotation = 0.767945
+
+[node name="TopRight" parent="YSort" index="7" instance=ExtResource("4_hw0cf")]
+position = Vector2(1244, 14.0001)
+rotation = -0.883137

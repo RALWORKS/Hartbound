@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://majci84s3wrv"]
+[gd_scene load_steps=6 format=3 uid="uid://majci84s3wrv"]
 
 [ext_resource type="PackedScene" uid="uid://c8dvlsyrphnoc" path="res://scenes/demo/2/maze/base.tscn" id="1_i8qv5"]
 [ext_resource type="Texture2D" uid="uid://dobfgkrdvoy5g" path="res://assets/scenes/demo/1/industrial/b.png" id="2_qknke"]
 [ext_resource type="Texture2D" uid="uid://tlp442j8wdv4" path="res://assets/scenes/demo/maze/4.png" id="3_u5ydc"]
 [ext_resource type="Texture2D" uid="uid://bo8tgbug3i62f" path="res://assets/scenes/demo/maze/4-path.png" id="4_2r55r"]
+[ext_resource type="PackedScene" uid="uid://dxfuidhlgwthh" path="res://travel/door.tscn" id="5_1d80a"]
 
 [node name="MazeScene" instance=ExtResource("1_i8qv5")]
 
@@ -16,5 +17,28 @@ texture = ExtResource("3_u5ydc")
 [node name="path" parent="Background" index="3"]
 texture = ExtResource("4_2r55r")
 
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Background/StaticBody2D" index="4"]
+polygon = PackedVector2Array(-283, 130, 121, 368, -265, 593, -198, 669, 229, 431, 1849, 1370, 314, 1361, 871, 1055, 341, 750, -292, 1118, -481, 535)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Background/StaticBody2D" index="5"]
+polygon = PackedVector2Array(-193, 68, 440, 445, 1369, -94, 1409, -58, 1405, -4, 538, 494, 1800, 1221, 1755, -516, -229, -413)
+
 [node name="DefaultSpawner" parent="YSort" index="0"]
 position = Vector2(465, 494)
+
+[node name="BottomLeft" parent="YSort" index="1" instance=ExtResource("5_1d80a")]
+position = Vector2(260, 1208)
+rotation = -2.91819
+scale = Vector2(5, 1)
+
+[node name="BottomRight" parent="YSort" index="2" instance=ExtResource("5_1d80a")]
+position = Vector2(1586, 1168)
+rotation = 2.17468
+
+[node name="TopRight" parent="YSort" index="3" instance=ExtResource("5_1d80a")]
+position = Vector2(19, 248)
+rotation = -0.984366
+
+[node name="TopLeft" parent="YSort" index="4" instance=ExtResource("5_1d80a")]
+position = Vector2(1267, 19)
+rotation = 1.00531

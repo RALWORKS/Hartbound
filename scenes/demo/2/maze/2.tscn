@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://btgyg4qbip07e"]
+[gd_scene load_steps=6 format=3 uid="uid://btgyg4qbip07e"]
 
 [ext_resource type="PackedScene" uid="uid://c8dvlsyrphnoc" path="res://scenes/demo/2/maze/base.tscn" id="1_1a6p4"]
 [ext_resource type="Texture2D" uid="uid://evyb5x6lar88" path="res://assets/scenes/demo/1/industrial/b-up.png" id="2_l2p8q"]
 [ext_resource type="Texture2D" uid="uid://cheh7j1cmyou5" path="res://assets/scenes/demo/maze/2.png" id="3_2ymrl"]
 [ext_resource type="Texture2D" uid="uid://43gri4dgmh4l" path="res://assets/scenes/demo/maze/2-path.png" id="4_j3heq"]
+[ext_resource type="PackedScene" uid="uid://dxfuidhlgwthh" path="res://travel/door.tscn" id="5_fk4ei"]
 
 [node name="MazeScene" instance=ExtResource("1_1a6p4")]
 
@@ -16,5 +17,27 @@ texture = ExtResource("3_2ymrl")
 [node name="path" parent="Background" index="3"]
 texture = ExtResource("4_j3heq")
 
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Background/StaticBody2D" index="4"]
+polygon = PackedVector2Array(1288, 1284, 750, 989, 535, 1113, 29, 800, 546, 502, 1071, 804, 863, 932, 1494, 1295, 1675, 1294, 1614, 607, 976, 245, 761, 373, 327, 124, -43, 335, -66, 1306)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Background/StaticBody2D" index="5"]
+polygon = PackedVector2Array(1645, 513, 1074, 196, 1482, -46, 1252, -31, 769, 245, 334, 3, -43, 234, -43, -114, 1705, -125)
+
 [node name="DefaultSpawner" parent="YSort" index="0"]
 position = Vector2(534, 785)
+
+[node name="TopLeft" parent="YSort" index="1" instance=ExtResource("5_fk4ei")]
+position = Vector2(34, 238)
+rotation = -2.13105
+
+[node name="TopRight" parent="YSort" index="2" instance=ExtResource("5_fk4ei")]
+position = Vector2(1254, 29.9999)
+rotation = -5.2133
+
+[node name="MiddleRight" parent="YSort" index="3" instance=ExtResource("5_fk4ei")]
+position = Vector2(1575, 530)
+rotation = -4.20275
+
+[node name="BottomRight" parent="YSort" index="4" instance=ExtResource("5_fk4ei")]
+position = Vector2(1258, 1213)
+rotation = -4.20275

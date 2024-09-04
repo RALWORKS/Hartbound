@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://ck813q22kxx74"]
+[gd_scene load_steps=6 format=3 uid="uid://ck813q22kxx74"]
 
 [ext_resource type="PackedScene" uid="uid://c8dvlsyrphnoc" path="res://scenes/demo/2/maze/base.tscn" id="1_mpv8w"]
 [ext_resource type="Texture2D" uid="uid://dxx8elpxnjmnl" path="res://assets/scenes/demo/1/industrial/a-up.png" id="2_ijcaq"]
 [ext_resource type="Texture2D" uid="uid://ciks3m7xkplg8" path="res://assets/scenes/demo/maze/1.png" id="3_757pm"]
 [ext_resource type="Texture2D" uid="uid://dkgyili3ajxfi" path="res://assets/scenes/demo/maze/1-path.png" id="4_hgitl"]
+[ext_resource type="PackedScene" uid="uid://dxfuidhlgwthh" path="res://travel/door.tscn" id="5_5763l"]
 
 [node name="MazeScene" instance=ExtResource("1_mpv8w")]
 
@@ -16,5 +17,44 @@ texture = ExtResource("3_757pm")
 [node name="path" parent="Background" index="3"]
 texture = ExtResource("4_hgitl")
 
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Background/StaticBody2D" index="4"]
+polygon = PackedVector2Array(-19, 484, 1062, 1116, 843, 1245, 1072, 1250, 1299, 1109, -14, 363)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Background/StaticBody2D" index="5"]
+polygon = PackedVector2Array(-19, 615, 318, 809, 6, 988, 344, 1183, 225, 1240, 1268, 1242, 1495, 1121, 840, 738, 1662, 275, 1657, 1280, -54, 1283)
+
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="Background/StaticBody2D" index="6"]
+polygon = PackedVector2Array(-37, 236, 757, 689, 1672, 158, 1669, -57, -87, -44)
+
+[node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="Background/StaticBody2D" index="7"]
+polygon = PackedVector2Array(331, 1274, 528, 1181, 208, 999, 427, 868, 858, 1120, 654, 1249)
+
 [node name="DefaultSpawner" parent="YSort" index="0"]
 position = Vector2(774, 740)
+
+[node name="TopLeft" parent="YSort" index="1" instance=ExtResource("5_5763l")]
+position = Vector2(25, 325)
+rotation = -1.01055
+
+[node name="MiddleLeft" parent="YSort" index="2" instance=ExtResource("5_5763l")]
+position = Vector2(5, 559)
+rotation = -1.01055
+
+[node name="TopRight" parent="YSort" index="3" instance=ExtResource("5_5763l")]
+position = Vector2(1608, 247)
+rotation = 1.0088
+
+[node name="BottomLeft" parent="YSort" index="4" instance=ExtResource("5_5763l")]
+position = Vector2(351, 1241)
+rotation = -2.58134
+scale = Vector2(1, 1)
+
+[node name="BottomCenter" parent="YSort" index="5" instance=ExtResource("5_5763l")]
+position = Vector2(797, 1228)
+rotation = -2.24449
+scale = Vector2(1, 1)
+
+[node name="BottomRight" parent="YSort" index="6" instance=ExtResource("5_5763l")]
+position = Vector2(1235, 1220)
+rotation = -2.24449
+scale = Vector2(1, 1)

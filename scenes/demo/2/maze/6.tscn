@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://c3dktuvf1kswv"]
+[gd_scene load_steps=6 format=3 uid="uid://c3dktuvf1kswv"]
 
 [ext_resource type="PackedScene" uid="uid://c8dvlsyrphnoc" path="res://scenes/demo/2/maze/base.tscn" id="1_th33q"]
 [ext_resource type="Texture2D" uid="uid://bdh1dphfwy4ng" path="res://assets/scenes/demo/1/industrial/c.png" id="2_ma5bp"]
 [ext_resource type="Texture2D" uid="uid://hk04f8yttgyl" path="res://assets/scenes/demo/maze/6.png" id="3_7svse"]
 [ext_resource type="Texture2D" uid="uid://c3a1kp5d18pn2" path="res://assets/scenes/demo/maze/6-path.png" id="4_3dlsh"]
+[ext_resource type="PackedScene" uid="uid://dxfuidhlgwthh" path="res://travel/door.tscn" id="5_oabgw"]
 
 [node name="MazeScene" instance=ExtResource("1_th33q")]
 
@@ -16,5 +17,31 @@ texture = ExtResource("3_7svse")
 [node name="path" parent="Background" index="3"]
 texture = ExtResource("4_3dlsh")
 
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Background/StaticBody2D" index="4"]
+polygon = PackedVector2Array(-224, -103, 229, 188, 331, 124, 553, 252, 229, 441, -24, 294, -24, 418, 225, 562, 652, 313, 1312, 686, 882, 939, 1180, 1124, 878, 1313, -39, 785, -24, 913, 587, 1268, -198, 1279)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Background/StaticBody2D" index="5"]
+polygon = PackedVector2Array(1124, 1290, 1384, 1132, 1082, 939, 1512, 694, 444, 60, 825, -148, 1769, -159, 1807, 1260)
+
 [node name="DefaultSpawner" parent="YSort" index="0"]
 position = Vector2(624, 256)
+
+[node name="Top" parent="YSort" index="1" instance=ExtResource("5_oabgw")]
+position = Vector2(265, -19)
+scale = Vector2(4, 1)
+
+[node name="UpperMiddleLeft" parent="YSort" index="2" instance=ExtResource("5_oabgw")]
+position = Vector2(12, 369)
+rotation = -0.977384
+
+[node name="LowerMiddleLeft" parent="YSort" index="3" instance=ExtResource("5_oabgw")]
+position = Vector2(3, 864)
+rotation = -1.01229
+
+[node name="BottomLeft" parent="YSort" index="4" instance=ExtResource("5_oabgw")]
+position = Vector2(555, 1193)
+rotation = -4.10152
+
+[node name="BottomRight" parent="YSort" index="5" instance=ExtResource("5_oabgw")]
+position = Vector2(1136, 1209)
+rotation = -2.07694
