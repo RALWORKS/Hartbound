@@ -66,3 +66,9 @@ position = Vector2(1601, 991)
 rotation = -4.03869
 dest_resource = "res://scenes/demo/2/maze-demo-1.tscn"
 dest_edge = "LeftSlash"
+
+[node name="Maze" parent="YSort" index="3" instance=ExtResource("4_e5h1d")]
+position = Vector2(63, 530)
+rotation = -2.24275
+dest_resource = "res://scenes/demo/2/maze/1.tscn"
+dest_edge = "TopLeft"

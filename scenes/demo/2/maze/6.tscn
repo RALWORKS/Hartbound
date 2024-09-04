@@ -45,12 +45,13 @@ dest_resource = "res://scenes/demo/2/maze/5.tscn"
 dest_edge = "LowerMiddleRight"
 
 [node name="BottomLeft" parent="YSort" index="4" instance=ExtResource("5_oabgw")]
-position = Vector2(555, 1193)
+position = Vector2(621, 1233)
 rotation = -4.10152
 dest_resource = "res://scenes/demo/2/maze/8.tscn"
 dest_edge = "TopLeft"
 
 [node name="BottomRight" parent="YSort" index="5" instance=ExtResource("5_oabgw")]
-position = Vector2(1136, 1209)
+position = Vector2(1110, 1226)
 rotation = -2.07694
 dest_resource = "res://scenes/demo/2/maze/8.tscn"
+dest_edge = "TopRight"
