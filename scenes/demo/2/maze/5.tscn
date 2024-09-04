@@ -1,10 +1,25 @@
-[gd_scene load_steps=6 format=3 uid="uid://620krx2pbo5n"]
+[gd_scene load_steps=9 format=3 uid="uid://620krx2pbo5n"]
 
 [ext_resource type="PackedScene" uid="uid://c8dvlsyrphnoc" path="res://scenes/demo/2/maze/base.tscn" id="1_ouxyy"]
 [ext_resource type="Texture2D" uid="uid://b03p7gc1dm2aq" path="res://assets/scenes/demo/1/industrial/f.png" id="2_3p2mj"]
 [ext_resource type="Texture2D" uid="uid://7jd78itglsq5" path="res://assets/scenes/demo/maze/5.png" id="3_q17i6"]
 [ext_resource type="Texture2D" uid="uid://s1uhka7bontv" path="res://assets/scenes/demo/maze/5-path.png" id="4_ojtq3"]
 [ext_resource type="PackedScene" uid="uid://dxfuidhlgwthh" path="res://travel/door.tscn" id="5_c3ena"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_2ynbq"]
+vertices = PackedVector2Array(368, 63, 259, -1, 323, -16, 455, 52, 146, 241, 89, 241, 844, 701, 848, 660, 1584, 343, 1596, 407, 1505, 350, 1509, 286)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(0, 3, 4, 5), PackedInt32Array(6, 5, 4, 7), PackedInt32Array(8, 9, 10, 11), PackedInt32Array(10, 6, 7, 11)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(259, -1, 368, 63, 89, 241, 844, 701, 1505, 350, 1596, 407, 1584, 343, 1509, 286, 848, 660, 146, 241, 455, 52, 323, -16)])
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_mkrwo"]
+vertices = PackedVector2Array(1354, 124, 1116, -24, 1192, -24, 1433, 127, 957, 399, 969, 354, 803, 71, 652, -35, 727, -50, 874, 67, 678, 184, 591, 192)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(0, 3, 4, 5), PackedInt32Array(6, 7, 8, 9), PackedInt32Array(6, 9, 10, 11), PackedInt32Array(4, 11, 10, 5)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(652, -35, 803, 71, 591, 192, 957, 399, 1433, 127, 1192, -24, 1116, -24, 1354, 124, 969, 354, 678, 184, 874, 67, 727, -50)])
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_suqud"]
+vertices = PackedVector2Array(474, 1162, 587, 1256, 486, 1275, 361, 1184, 1290, 656, 1286, 697, 1614, 845, 1614, 905)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(0, 3, 4, 5), PackedInt32Array(6, 7, 5, 4)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(486, 1275, 361, 1184, 1290, 656, 1614, 845, 1614, 905, 1286, 697, 474, 1162, 587, 1256)])
 
 [node name="MazeScene" instance=ExtResource("1_ouxyy")]
 
@@ -67,3 +82,12 @@ position = Vector2(1235, 34.0001)
 rotation = -1.06116
 dest_resource = "res://scenes/demo/2/maze/3.tscn"
 dest_edge = "BottomCenterRight"
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="YSort" index="7"]
+navigation_polygon = SubResource("NavigationPolygon_2ynbq")
+
+[node name="NavigationRegion2D2" type="NavigationRegion2D" parent="YSort" index="8"]
+navigation_polygon = SubResource("NavigationPolygon_mkrwo")
+
+[node name="NavigationRegion2D3" type="NavigationRegion2D" parent="YSort" index="9"]
+navigation_polygon = SubResource("NavigationPolygon_suqud")

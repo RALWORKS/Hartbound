@@ -1,10 +1,20 @@
-[gd_scene load_steps=6 format=3 uid="uid://majci84s3wrv"]
+[gd_scene load_steps=8 format=3 uid="uid://majci84s3wrv"]
 
 [ext_resource type="PackedScene" uid="uid://c8dvlsyrphnoc" path="res://scenes/demo/2/maze/base.tscn" id="1_i8qv5"]
 [ext_resource type="Texture2D" uid="uid://dobfgkrdvoy5g" path="res://assets/scenes/demo/1/industrial/b.png" id="2_qknke"]
 [ext_resource type="Texture2D" uid="uid://tlp442j8wdv4" path="res://assets/scenes/demo/maze/4.png" id="3_u5ydc"]
 [ext_resource type="Texture2D" uid="uid://bo8tgbug3i62f" path="res://assets/scenes/demo/maze/4-path.png" id="4_2r55r"]
 [ext_resource type="PackedScene" uid="uid://dxfuidhlgwthh" path="res://travel/door.tscn" id="5_1d80a"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_eap1r"]
+vertices = PackedVector2Array(1286, -18, 1353, -9, 473, 490, 442, 472, 1766, 1248, 1766, 1307, 190, 395, -52, 175, 141, 359, -39, 552, -47, 503, -70, 225)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(2, 4, 5, 6, 3), PackedInt32Array(7, 3, 6, 8), PackedInt32Array(6, 9, 10, 8), PackedInt32Array(11, 7, 8)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-70, 225, 141, 359, -47, 503, -39, 552, 190, 395, 1766, 1307, 1766, 1248, 473, 490, 1353, -9, 1286, -18, 442, 472, -52, 175)])
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_8usua"]
+vertices = PackedVector2Array(20, 975, 343, 781, 810, 1051, 505, 1235, 20, 1208)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(20, 975, 343, 781, 810, 1051, 505, 1235, 20, 1208)])
 
 [node name="MazeScene" instance=ExtResource("1_i8qv5")]
 
@@ -56,3 +66,9 @@ position = Vector2(1267, 19)
 rotation = 1.00531
 dest_resource = "res://scenes/demo/2/maze/2.tscn"
 dest_edge = "BottomRight"
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="YSort" index="6"]
+navigation_polygon = SubResource("NavigationPolygon_eap1r")
+
+[node name="NavigationRegion2D2" type="NavigationRegion2D" parent="YSort" index="7"]
+navigation_polygon = SubResource("NavigationPolygon_8usua")
