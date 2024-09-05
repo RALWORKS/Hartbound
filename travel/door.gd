@@ -59,6 +59,7 @@ func _on_hitbox_body_entered(body):
 	
 	var map = get_node("/root/Game/Map")
 	if dest_resource:
+		on_traverse()
 		map.traverse(dest, dest_edge)
 
 func spawn(g, x=null, y=null):
@@ -68,3 +69,8 @@ func spawn(g, x=null, y=null):
 
 func _on_hitbox_body_exited(_body):
 	entered = false
+
+func on_traverse():
+	for c in get_children():
+		if c.has_method("action"):
+			c.call("action")

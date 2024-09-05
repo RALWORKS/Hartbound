@@ -1,15 +1,20 @@
-[gd_scene load_steps=9 format=3 uid="uid://620krx2pbo5n"]
+[gd_scene load_steps=14 format=3 uid="uid://620krx2pbo5n"]
 
 [ext_resource type="PackedScene" uid="uid://c8dvlsyrphnoc" path="res://scenes/demo/2/maze/base.tscn" id="1_ouxyy"]
 [ext_resource type="Texture2D" uid="uid://b03p7gc1dm2aq" path="res://assets/scenes/demo/1/industrial/f.png" id="2_3p2mj"]
+[ext_resource type="PackedScene" uid="uid://uc3gpi8pp0cj" path="res://chapters/demo/1/brona.tscn" id="3_3ebjb"]
 [ext_resource type="Texture2D" uid="uid://7jd78itglsq5" path="res://assets/scenes/demo/maze/5.png" id="3_q17i6"]
+[ext_resource type="PackedScene" uid="uid://bii8gdmkfiy5x" path="res://chapters/demo/1/taylor.tscn" id="4_4niaj"]
+[ext_resource type="Texture2D" uid="uid://gp04chjausu3" path="res://assets/scenery/maze-stairs.png" id="4_el8qq"]
 [ext_resource type="Texture2D" uid="uid://s1uhka7bontv" path="res://assets/scenes/demo/maze/5-path.png" id="4_ojtq3"]
 [ext_resource type="PackedScene" uid="uid://dxfuidhlgwthh" path="res://travel/door.tscn" id="5_c3ena"]
+[ext_resource type="Texture2D" uid="uid://d0fs143ocfa80" path="res://assets/green-blur-circle.png" id="5_ybfya"]
+[ext_resource type="Script" path="res://scenes/demo/2/maze/MakeGhost.gd" id="10_dguho"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_2ynbq"]
-vertices = PackedVector2Array(368, 63, 259, -1, 323, -16, 455, 52, 146, 241, 89, 241, 844, 701, 848, 660, 1584, 343, 1596, 407, 1505, 350, 1509, 286)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(0, 3, 4, 5), PackedInt32Array(6, 5, 4, 7), PackedInt32Array(8, 9, 10, 11), PackedInt32Array(10, 6, 7, 11)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(259, -1, 368, 63, 89, 241, 844, 701, 1505, 350, 1596, 407, 1584, 343, 1509, 286, 848, 660, 146, 241, 455, 52, 323, -16)])
+vertices = PackedVector2Array(368, 63, 259, -1, 323, -16, 455, 52, 146, 241, 89, 241, 403.902, 432.861, 848, 660, 1584, 343, 1596, 407, 1505, 350, 1509, 286, 844, 701, 441.623, 455.843, 173, 883, 154, 873)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(0, 3, 4, 5), PackedInt32Array(6, 5, 4, 7), PackedInt32Array(8, 9, 10, 11), PackedInt32Array(7, 11, 10, 12), PackedInt32Array(7, 12, 13, 6), PackedInt32Array(14, 15, 6, 13)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(259, -1, 368, 63, 89, 241, 403.902, 432.861, 154, 873, 173, 883, 441.623, 455.843, 844, 701, 1505, 350, 1596, 407, 1584, 343, 1509, 286, 848, 660, 146, 241, 455, 52, 323, -16)])
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_mkrwo"]
 vertices = PackedVector2Array(1354, 124, 1116, -24, 1192, -24, 1433, 127, 957, 399, 969, 354, 803, 71, 652, -35, 727, -50, 874, 67, 678, 184, 591, 192)
@@ -26,14 +31,36 @@ outlines = Array[PackedVector2Array]([PackedVector2Array(486, 1275, 361, 1184, 1
 [node name="reality" parent="Background" index="0"]
 texture = ExtResource("2_3p2mj")
 
-[node name="bg" parent="Background" index="1"]
+[node name="Brona" parent="Background" index="1" instance=ExtResource("3_3ebjb")]
+position = Vector2(647, 823)
+disabled = true
+starting_animaton = "down-right-stopped"
+
+[node name="Taylor" parent="Background" index="2" instance=ExtResource("4_4niaj")]
+position = Vector2(702, 816)
+disabled = true
+
+[node name="bg" parent="Background" index="3"]
 texture = ExtResource("3_q17i6")
 
-[node name="path" parent="Background" index="3"]
+[node name="Stairs" type="Sprite2D" parent="Background" index="5"]
+position = Vector2(296, 697)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("4_el8qq")
+flip_h = true
+
+[node name="Dark" type="Sprite2D" parent="Background" index="6"]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(175, 906)
+scale = Vector2(3, 4)
+texture = ExtResource("5_ybfya")
+flip_h = true
+
+[node name="path" parent="Background" index="7"]
 texture = ExtResource("4_ojtq3")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Background/StaticBody2D" index="4"]
-polygon = PackedVector2Array(119, -58, 334, 67, 36, 252, 856, 739, 1516, 369, 1626, 441, 1641, 830, 1286, 629, 319, 1181, 436, 1249, 414, 1298, -69, 1286, -73, -61)
+polygon = PackedVector2Array(119, -58, 334, 67, 36, 252, 373.843, 452.646, 51, 991, 131, 1036, 445, 492, 856, 739, 1516, 369, 1626, 441, 1641, 830, 1286, 629, 319, 1181, 436, 1249, 414, 1298, -69, 1286, -73, -61)
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Background/StaticBody2D" index="5"]
 polygon = PackedVector2Array(727, 1305, 527, 1184, 1305, 747, 1618, 939, 1641, 1313)
@@ -83,11 +110,20 @@ rotation = -1.06116
 dest_resource = "res://scenes/demo/2/maze/3.tscn"
 dest_edge = "BottomCenterRight"
 
-[node name="NavigationRegion2D" type="NavigationRegion2D" parent="YSort" index="7"]
+[node name="Exit" parent="YSort" index="7" instance=ExtResource("5_c3ena")]
+position = Vector2(159, 901)
+rotation = 3.70882
+dest_resource = "res://scenes/demo/2/e.tscn"
+dest_edge = "NorthEast"
+
+[node name="MakeGhost" type="Node" parent="YSort/Exit" index="3"]
+script = ExtResource("10_dguho")
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="YSort" index="8"]
 navigation_polygon = SubResource("NavigationPolygon_2ynbq")
 
-[node name="NavigationRegion2D2" type="NavigationRegion2D" parent="YSort" index="8"]
+[node name="NavigationRegion2D2" type="NavigationRegion2D" parent="YSort" index="9"]
 navigation_polygon = SubResource("NavigationPolygon_mkrwo")
 
-[node name="NavigationRegion2D3" type="NavigationRegion2D" parent="YSort" index="9"]
+[node name="NavigationRegion2D3" type="NavigationRegion2D" parent="YSort" index="10"]
 navigation_polygon = SubResource("NavigationPolygon_suqud")

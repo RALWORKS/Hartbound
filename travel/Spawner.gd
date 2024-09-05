@@ -51,6 +51,9 @@ func _spawn(c, shift, x, y):
 
 func spawn(g, x=null, y=null):
 	var character_instance = _spawn(character, Vector2(0, 0), x, y)
+	var player_displays = g.get_active_player_display_modes()
+	for mode in player_displays:
+		character_instance.call(mode)
 	g.set_player(character_instance)
 	follower = character_instance.get_follower(g)
 	if follower:

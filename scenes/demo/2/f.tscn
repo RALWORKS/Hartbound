@@ -159,10 +159,12 @@ offset = Vector2(0, -100)
 
 [node name="Brona" parent="YSort" index="19" instance=ExtResource("15_1htu0")]
 position = Vector2(702, 812)
+disabled = true
 starting_animaton = "down-right-stopped"
 
 [node name="Taylor" parent="YSort" index="20" instance=ExtResource("16_pevi7")]
 position = Vector2(734, 802)
+disabled = true
 
 [node name="tree5" type="Sprite2D" parent="." index="3"]
 modulate = Color(0.890196, 0.866667, 0.847059, 1)

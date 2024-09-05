@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+@export var disabled = false
+
 @export var id = ""
 @export var starting_animaton = "down-stopped"
 @export var speed = 150
@@ -318,7 +320,7 @@ func start_following(g):
 	g.set_state(["party"], [self.id])
 
 func action():
-	if process_mode == Node.PROCESS_MODE_DISABLED:
+	if process_mode == Node.PROCESS_MODE_DISABLED or disabled:
 		return
 	if not paused and base_dialogue != null:
 		$"/root/Game/Chapter".start_cutscene(base_dialogue, self)

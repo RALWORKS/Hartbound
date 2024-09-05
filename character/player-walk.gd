@@ -49,6 +49,9 @@ var PRONOUNS = {
 	"NB": PRONOUNS_NB,
 }
 
+func ghost_mode():
+	$char.modulate = "#ffffff88"
+
 func is_player():
 	return true
 

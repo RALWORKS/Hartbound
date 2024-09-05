@@ -599,3 +599,12 @@ func mark_cutscene_section_played(section_id):
 func free_world():
 	for c in world.get_children():
 		c.call_deferred("free")
+
+func set_player_display_modes(mode_names: Array):
+	return set_state(["player_display_modes"], mode_names)
+
+func get_active_player_display_modes():
+	var modes = get_state(["player_display_modes"])
+	if modes == null:
+		return []
+	return modes
