@@ -50,13 +50,15 @@ func _on_hitbox_body_entered(body):
 	
 	if disabled:
 		return
-
 		
 	if not body.has_method("is_player") or not body.is_player():
 		return
 		
 	entered = true
 	
+	go()
+
+func go():
 	var map = get_node("/root/Game/Map")
 	if dest_resource:
 		on_traverse()

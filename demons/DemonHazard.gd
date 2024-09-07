@@ -1,5 +1,7 @@
 extends Node
 
+@export var parent_ref = ".."
+
 @export var collider: Area2D
 
 # Called when the node enters the scene tree for the first time.
@@ -12,17 +14,25 @@ func _process(_delta):
 	pass
 
 func collide(body):
-	var g = $"/root/Game/"
 	
 	if not "is_player" in body or not body.is_player():
 		return
 	
 	if body.immune:
 		return
+	var g = $"/root/Game/"
+	var callback = g.respawn_player
+	var parent = get_node(parent_ref) 
+	if "door" in parent:
+		callback = parent.door.go
+	die(callback)
 	
+
+func die(callback):
+	var g = $"/root/Game/"
 	g.dying = true
 	$"/root/Game/MainScreen/Effects".play("pass out")
 	await get_tree().create_timer(2).timeout
 	g.dying = false
-	g.respawn_player()
-	
+	#g.respawn_player()
+	callback.call()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://b4xwjn8x6p8nm"]
+[gd_scene load_steps=28 format=3 uid="uid://b4xwjn8x6p8nm"]
 
 [ext_resource type="PackedScene" uid="uid://byrlpmbpj6yr5" path="res://scene.tscn" id="1_80s2n"]
 [ext_resource type="Texture2D" uid="uid://bjerew5lp6nnj" path="res://assets/scenes/demo/1/industrial/d.png" id="2_f3skq"]
@@ -16,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://dwvf22vxkob24" path="res://assets/scenery/extra-tree-coloured-bright/forest-cluster.png" id="13_3jq76"]
 [ext_resource type="Texture2D" uid="uid://nwsqvjdnlosw" path="res://assets/scenery/extra-tree-coloured-bright/trees-and-broken-stone.png" id="14_ru3hw"]
 [ext_resource type="Texture2D" uid="uid://g8hwe8sg2o1" path="res://assets/scenery/extra-tree-coloured-bright/bright-young-tree.png" id="15_y6csg"]
+[ext_resource type="Script" path="res://scenes/demo/2/d-Leyline.gd" id="17_pe5gb"]
 [ext_resource type="Script" path="res://auto_play_animation_player.gd" id="18_38fqd"]
 [ext_resource type="PackedScene" uid="uid://bytdfdn3e1k7o" path="res://demons/demon_arm_1.tscn" id="18_qpg0j"]
 [ext_resource type="PackedScene" uid="uid://ds4250x72dke" path="res://demons/demon_hazard.tscn" id="19_b7kgb"]
@@ -240,7 +241,9 @@ position = Vector2(353, 1106)
 texture = ExtResource("7_uju8i")
 offset = Vector2(0, 50)
 
-[node name="Leyline" type="Node2D" parent="." index="4"]
+[node name="Leyline" type="Node2D" parent="." index="4" node_paths=PackedStringArray("door")]
+script = ExtResource("17_pe5gb")
+door = NodePath("Door")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Leyline" index="0"]
 libraries = {
@@ -296,6 +299,11 @@ rotation = 0.785398
 [node name="Polygon2D" type="Polygon2D" parent="Leyline" index="10"]
 color = Color(0, 0, 0, 1)
 polygon = PackedVector2Array(2177, 1346, 1090, 1323, 390, 1066, 257, 958, 364, 775, 463, 794, 616, 755, 602, 790, 619, 806, 528, 885, 633, 961, 1402, 1001, 1390, 1159, 1585, 1049, 1543, 1204, 1778, 1170)
+
+[node name="Door" parent="Leyline" index="11" instance=ExtResource("9_yk81u")]
+position = Vector2(-588, 0)
+dest_resource = "res://scenes/demo/2/maze/2.tscn"
+dest_edge = "TopRight"
 
 [node name="tree4" type="Sprite2D" parent="." index="5"]
 modulate = Color(0.890196, 0.866667, 0.847059, 1)

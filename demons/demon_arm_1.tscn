@@ -143,4 +143,5 @@ visible = false
 polygon = PackedVector2Array(85, 117, 117, 222, 74, 348, 129, 351, 159, 230, 125, 111, 142, 80, 124, 45, 99, 43, 107, 79, 87, 99, 67, 85)
 
 [node name="DemonHazard" parent="." node_paths=PackedStringArray("collider") instance=ExtResource("4_5050k")]
+parent_ref = "../.."
 collider = NodePath("../arm/Area2D")
