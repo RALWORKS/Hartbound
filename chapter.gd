@@ -116,10 +116,14 @@ func start_cutscene(
 func end_cutscene():
 	var next_cutscene = cutscene.next_cutscene
 	var npc = cutscene.npc
+	var next_chapter = cutscene.to_chapter
 	var sequence = cutscene.cutscene_sequence
 	cutscene.call_deferred("free")
 	#game.free_world()
 	game.chapter = self
+	if next_chapter != "":
+		$"/root/Game".to_chapter(next_chapter)
+		return
 	if next_cutscene == null:
 		for child in cur_game:
 			if is_instance_valid(child):

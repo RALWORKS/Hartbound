@@ -28,6 +28,7 @@ texture = ExtResource("2_3r2h7")
 centered = false
 
 [node name="Character" parent="img" node_paths=PackedStringArray("profile_head", "profile_face", "profile_hair", "profile_hair_front", "profile_shirt", "profile_features", "character_img") instance=ExtResource("2_qxdjb")]
+position = Vector2(250, 550)
 profile_head = NodePath("../../profileImg/head")
 profile_face = NodePath("../../profileImg/face")
 profile_hair = NodePath("../../profileImg/hair")
@@ -41,7 +42,7 @@ disable_3d = true
 transparent_bg = true
 handle_input_locally = false
 gui_disable_input = true
-size = Vector2i(600, 600)
+size = Vector2i(600, 1200)
 size_2d_override = Vector2i(768, 1024)
 
 [node name="head" type="Sprite2D" parent="profileImg"]

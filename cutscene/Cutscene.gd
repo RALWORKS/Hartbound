@@ -1,5 +1,6 @@
 extends Node2D
 
+@export var to_chapter: String = ""
 @export var starting_page: CutsceneNode
 @export var concepts: Node
 @export var default_topics: Node

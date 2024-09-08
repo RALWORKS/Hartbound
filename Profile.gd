@@ -149,9 +149,9 @@ var TEXTURES = {
 		"99ffff",
 	],
 	"shot": [
-		[Vector2(1, 1), Vector2(250, 250), 0],
-		[Vector2(1.1, 1.1), Vector2(300, 300), 0.05*PI],
-		[Vector2(1.1, 1.1), Vector2(300, 250), -0.1*PI],
+		[Vector2(1, 1), Vector2(250, 550), 0],
+		[Vector2(1.1, 1.1), Vector2(300, 600), 0.05*PI],
+		[Vector2(1.1, 1.1), Vector2(300, 550), -0.1*PI],
 	],
 }
 

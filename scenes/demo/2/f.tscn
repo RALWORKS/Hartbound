@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://cfos0tyacvmrl"]
+[gd_scene load_steps=26 format=3 uid="uid://cfos0tyacvmrl"]
 
 [ext_resource type="PackedScene" uid="uid://byrlpmbpj6yr5" path="res://scene.tscn" id="1_d7mn4"]
 [ext_resource type="Texture2D" uid="uid://b03p7gc1dm2aq" path="res://assets/scenes/demo/1/industrial/f.png" id="2_u64ec"]
@@ -17,6 +17,8 @@
 [ext_resource type="PackedScene" uid="uid://uc3gpi8pp0cj" path="res://chapters/demo/1/brona.tscn" id="15_1htu0"]
 [ext_resource type="PackedScene" uid="uid://bii8gdmkfiy5x" path="res://chapters/demo/1/taylor.tscn" id="16_pevi7"]
 [ext_resource type="PackedScene" uid="uid://dml0lh7hb3rg2" path="res://character/static_character.tscn" id="17_2bqiq"]
+[ext_resource type="PackedScene" uid="uid://cl4heje674d3q" path="res://item/interaction_area.tscn" id="18_d3xv6"]
+[ext_resource type="Script" path="res://scenes/demo/2/my_body.gd" id="19_5guom"]
 [ext_resource type="PackedScene" uid="uid://bytdfdn3e1k7o" path="res://demons/demon_arm_1.tscn" id="20_iqabj"]
 [ext_resource type="Texture2D" uid="uid://dwvf22vxkob24" path="res://assets/scenery/extra-tree-coloured-bright/forest-cluster.png" id="23_0sf55"]
 [ext_resource type="PackedScene" uid="uid://ds4250x72dke" path="res://demons/demon_hazard.tscn" id="23_q1sac"]
@@ -165,6 +167,15 @@ starting_animaton = "down-right-stopped"
 [node name="Taylor" parent="YSort" index="20" instance=ExtResource("16_pevi7")]
 position = Vector2(734, 802)
 disabled = true
+
+[node name="Me" parent="YSort" index="21" node_paths=PackedStringArray("action_source") instance=ExtResource("18_d3xv6")]
+action_source = NodePath("Script")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/Me" index="1"]
+polygon = PackedVector2Array(937, 974, 1049, 905, 1146, 853, 1179, 901, 1137, 936, 1068, 984, 984, 1019)
+
+[node name="Script" type="Node" parent="YSort/Me" index="2"]
+script = ExtResource("19_5guom")
 
 [node name="tree5" type="Sprite2D" parent="." index="3"]
 modulate = Color(0.890196, 0.866667, 0.847059, 1)

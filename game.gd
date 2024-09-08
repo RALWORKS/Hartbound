@@ -239,6 +239,7 @@ func to_chapter(_name):
 	var ch = CHAPTERS[STATE["chapter"]].instantiate()
 	if $Chapter:
 		$Chapter.queue_free()
+	set_state(["micro_progress"], {})
 	await get_tree().create_timer(0.3).timeout
 	ch.name = "Chapter"
 	$".".add_child(ch)
@@ -423,13 +424,17 @@ func save_position():
 func respawn_player():
 	var data = get_state(["position"])
 	
+	var scene = $"MainScreen/World".get_child(0).get_node("YSort")
+	if scene == null:
+		return
+	
 	var p = Vector2(500, 500)
 	if data.entrance_name != null:
-		p = $"MainScreen/World".get_child(0).get_node("YSort").get_node(data.entrance_name).position
+		p = scene.get_node(data.entrance_name).position
 	elif "x" in data and "y" in data:
 		p = Vector2(data.x, data.y)
 	else:
-		p = $"MainScreen/World".get_child(0).get_node("YSort").get_node("DefaultSpawner").position
+		p = scene.get_node("DefaultSpawner").position
 	
 	player.position = p
 

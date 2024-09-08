@@ -4,6 +4,7 @@ extends CharacterBody2D
 
 @export var id = ""
 @export var starting_animaton = "down-stopped"
+var last_starting_animation = "down-stopped"
 @export var speed = 150
 @export var leader: CharacterBody2D
 @export var follow_distance = 150
@@ -118,7 +119,11 @@ func _ready():
 	$InteractionArea.reference_id = reference_id
 	if $char.hframes == 6 and $char.vframes == 4:
 		_make_walk_animations()
+	play_starting_animation()
+
+func play_starting_animation():
 	play(starting_animaton)
+	last_starting_animation = starting_animaton
 
 func my_name():
 	var data = $"/root/Game".name_of(id)
@@ -284,7 +289,10 @@ func follow():
 	navigation_agent.target_position = next_position
 	return
 
-	
+func _process(delta):
+	if not leader:
+		if starting_animaton != last_starting_animation:
+			play_starting_animation()
 
 func _physics_process(delta):
 	if not leader:

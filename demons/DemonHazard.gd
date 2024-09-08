@@ -3,6 +3,7 @@ extends Node
 @export var parent_ref = ".."
 
 @export var collider: Area2D
+@export var active = true
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -15,7 +16,7 @@ func _process(_delta):
 
 func collide(body):
 	
-	if not "is_player" in body or not body.is_player():
+	if not "is_player" in body or not body.is_player() or not active:
 		return
 	
 	if body.immune:
