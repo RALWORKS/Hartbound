@@ -38,6 +38,7 @@ var CHAPTERS = {
 	"create": preload("res://character/character_creator.tscn"),
 	"test0": preload("res://chapters/demo/0/chapter_test.tscn"),
 	"demo1": preload("res://chapters/demo/1/demo-industrial.tscn"),
+	"2segue": preload("res://chapters/demo/2/chapter-2-segue.tscn"),
 	"demo2": preload("res://chapters/demo/2/chapter-2.tscn"),
 }
 @export var FIRST_CHAPTER = "demo1"
@@ -236,6 +237,7 @@ func pause():
 
 func to_chapter(_name):
 	set_state(["chapter"], _name)
+	set_state(["position", "entrance_name"], null)
 	var ch = CHAPTERS[STATE["chapter"]].instantiate()
 	if $Chapter:
 		$Chapter.queue_free()
@@ -282,6 +284,20 @@ func reset_state():
 func start_new():
 	start_from_state(STATE)
 	$ThemeFader.play("fadeout", -1, music_crossfade_speed)
+
+func new_from_chapter(start_at: String):
+	STATE["chapter"] = "create"
+	STATE["start_from"] = start_at
+	start_from_state(STATE)
+	$ThemeFader.play("fadeout", -1, music_crossfade_speed)
+
+
+func get_start():
+	var ch = get_state(["start_from"])
+	if ch == null:
+		return FIRST_CHAPTER
+	return ch
+	
 
 func load_game(f):
 	var state = JSON.parse_string(f.get_as_text())

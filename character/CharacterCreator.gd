@@ -30,7 +30,7 @@ func end_cutscene():
 
 	var g = $"/root/Game"
 	print(g)
-	g.to_chapter(g.FIRST_CHAPTER)
+	g.to_chapter(g.get_start())
 
 
 func update_cutscene_page(p):

@@ -3,10 +3,11 @@
 [ext_resource type="PackedScene" uid="uid://bh1yfkyt3u44i" path="res://chapter.tscn" id="1_a6kau"]
 [ext_resource type="PackedScene" uid="uid://cutjuxuo3n1wc" path="res://scenes/demo/2/b.tscn" id="2_7unn4"]
 [ext_resource type="PackedScene" uid="uid://bcinc4blag4el" path="res://music.tscn" id="3_aoq1j"]
-[ext_resource type="AudioStream" uid="uid://dsb6gxixks1dv" path="res://assets/music/intro-story-3.ogg" id="4_a1hif"]
+[ext_resource type="AudioStream" uid="uid://nnwswtykit78" path="res://assets/music/maze-1.ogg" id="4_o1juq"]
 
-[node name="Chapter" instance=ExtResource("1_a6kau")]
+[node name="Chapter" node_paths=PackedStringArray("starting_music") instance=ExtResource("1_a6kau")]
 starting_scene = ExtResource("2_7unn4")
+starting_music = NodePath("Music")
 
 [node name="Music" parent="." index="2" instance=ExtResource("3_aoq1j")]
-stream = ExtResource("4_a1hif")
+stream = ExtResource("4_o1juq")
