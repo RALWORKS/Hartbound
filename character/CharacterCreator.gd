@@ -1,12 +1,16 @@
 extends Node2D
 
 var creator = preload("res://character/character_creator_cutscene.tscn")
+@export var starting_music: AudioStreamPlayer
 
 var cur_game: Array[Node]
 var cutscene
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	var game = $".".get_tree().get_root().get_node("Game")
+	if starting_music != null:
+		game.play_music(starting_music)
 	start_cutscene(creator)
 
 
