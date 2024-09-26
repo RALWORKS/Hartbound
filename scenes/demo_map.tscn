@@ -1,0 +1,109 @@
+[gd_scene load_steps=8 format=3 uid="uid://xwrf46upmfbi"]
+
+[ext_resource type="Texture2D" uid="uid://b7hqft31df23h" path="res://assets/demo-navigator-map.png" id="1_w44d6"]
+[ext_resource type="Script" path="res://scenes/Pencil.gd" id="2_libol"]
+[ext_resource type="Texture2D" uid="uid://ddk3kke52g8s" path="res://assets/pencil.png" id="2_rodmn"]
+[ext_resource type="PackedScene" uid="uid://7w20b1tbjyt4" path="res://scenes/walk_line.tscn" id="4_qlk7c"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l1b4r"]
+size = Vector2(3652.5, 113)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kw2s5"]
+size = Vector2(102, 2649)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_u8ufb"]
+radius = 47.0706
+
+[node name="DemoMap" type="Node2D"]
+
+[node name="bg" type="Sprite2D" parent="."]
+texture = ExtResource("1_w44d6")
+centered = false
+
+[node name="StaticBody2D" type="StaticBody2D" parent="bg"]
+
+[node name="top" type="CollisionShape2D" parent="bg/StaticBody2D"]
+position = Vector2(1749.25, -60.5)
+shape = SubResource("RectangleShape2D_l1b4r")
+
+[node name="bottom" type="CollisionShape2D" parent="bg/StaticBody2D"]
+position = Vector2(1760, 2545)
+shape = SubResource("RectangleShape2D_l1b4r")
+
+[node name="left" type="CollisionShape2D" parent="bg/StaticBody2D"]
+position = Vector2(-55, 1314.5)
+shape = SubResource("RectangleShape2D_kw2s5")
+
+[node name="right" type="CollisionShape2D" parent="bg/StaticBody2D"]
+position = Vector2(3551, 1261)
+shape = SubResource("RectangleShape2D_kw2s5")
+
+[node name="1" type="CollisionPolygon2D" parent="bg/StaticBody2D"]
+polygon = PackedVector2Array(-30, 22, 573, 594, 427, 1477, -11, 1477)
+
+[node name="2" type="CollisionPolygon2D" parent="bg/StaticBody2D"]
+polygon = PackedVector2Array(59, -9, 649, 543, 1369, 710, 1881, -16)
+
+[node name="3" type="CollisionPolygon2D" parent="bg/StaticBody2D"]
+polygon = PackedVector2Array(1983, -3, 1737, 342, 2452, 854, 3221, -34)
+
+[node name="4" type="CollisionPolygon2D" parent="bg/StaticBody2D"]
+polygon = PackedVector2Array(3292, 4, 2535, 905, 3507, 1597, 3494, -16)
+
+[node name="5" type="CollisionPolygon2D" parent="bg/StaticBody2D"]
+polygon = PackedVector2Array(668, 632, 503, 1483, 1671, 1546, 1360, 791)
+
+[node name="6" type="CollisionPolygon2D" parent="bg/StaticBody2D"]
+polygon = PackedVector2Array(1443, 765, 1951, 1978, 2728, 1494, 2711, 1139, 1676, 408)
+
+[node name="7" type="CollisionPolygon2D" parent="bg/StaticBody2D"]
+polygon = PackedVector2Array(-5, 1559, 1720, 1640, 1881, 2023, 1151, 2480, -5, 2480)
+
+[node name="8" type="CollisionPolygon2D" parent="bg/StaticBody2D"]
+polygon = PackedVector2Array(1316, 2486, 2820, 1541, 2794, 1211, 3507, 1711, 3507, 2480)
+
+[node name="WalkLine1" parent="." instance=ExtResource("4_qlk7c")]
+points = PackedVector2Array(4, 2, 632, 601, 452, 1543, -15, 1522)
+
+[node name="WalkLine2" parent="." instance=ExtResource("4_qlk7c")]
+points = PackedVector2Array(685, 599, 1380, 747, 1929, -6)
+
+[node name="WalkLine3" parent="." instance=ExtResource("4_qlk7c")]
+points = PackedVector2Array(1398, 777, 1929, 2048, 1209, 2490)
+
+[node name="WalkLine4" parent="." instance=ExtResource("4_qlk7c")]
+points = PackedVector2Array(492, 1545, 1655, 1581)
+
+[node name="WalkLine5" parent="." instance=ExtResource("4_qlk7c")]
+points = PackedVector2Array(1712, 366, 2453, 909, 3261, -32)
+
+[node name="WalkLine6" parent="." instance=ExtResource("4_qlk7c")]
+points = PackedVector2Array(3516, 1676, 2503, 936)
+
+[node name="WalkLine7" parent="." instance=ExtResource("4_qlk7c")]
+points = PackedVector2Array(1969, 2026, 2770, 1528, 2755, 1170)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Pencil" type="CharacterBody2D" parent="." node_paths=PackedStringArray("bg")]
+z_index = 1000
+position = Vector2(822, 616)
+scale = Vector2(0.8, 0.8)
+script = ExtResource("2_libol")
+bg = NodePath("../bg")
+
+[node name="img" type="Sprite2D" parent="Pencil"]
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("2_rodmn")
+centered = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pencil"]
+position = Vector2(8.74988, 13.7499)
+shape = SubResource("CircleShape2D_u8ufb")
+
+[node name="Camera2D" type="Camera2D" parent="Pencil"]
+limit_left = 0
+limit_top = 0
+limit_right = 3508
+limit_bottom = 2480
+editor_draw_limits = true
