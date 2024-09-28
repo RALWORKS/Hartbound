@@ -63,25 +63,25 @@ polygon = PackedVector2Array(-5, 1559, 1720, 1640, 1881, 2023, 1151, 2480, -5, 2
 polygon = PackedVector2Array(1316, 2486, 2820, 1541, 2794, 1211, 3507, 1711, 3507, 2480)
 
 [node name="WalkLine1" parent="." instance=ExtResource("4_qlk7c")]
-points = PackedVector2Array(4, 2, 632, 601, 452, 1543, -15, 1522)
+points = PackedVector2Array(4, 2, 619, 582, 452, 1543, -15, 1522)
 
 [node name="WalkLine2" parent="." instance=ExtResource("4_qlk7c")]
-points = PackedVector2Array(685, 599, 1380, 747, 1929, -6)
+points = PackedVector2Array(710, 609, 1380, 747, 1929, -6)
 
 [node name="WalkLine3" parent="." instance=ExtResource("4_qlk7c")]
-points = PackedVector2Array(1398, 777, 1929, 2048, 1209, 2490)
+points = PackedVector2Array(1416, 828, 1929, 2048, 1209, 2490)
 
 [node name="WalkLine4" parent="." instance=ExtResource("4_qlk7c")]
-points = PackedVector2Array(492, 1545, 1655, 1581)
+points = PackedVector2Array(525, 1544, 1655, 1581)
 
 [node name="WalkLine5" parent="." instance=ExtResource("4_qlk7c")]
-points = PackedVector2Array(1712, 366, 2453, 909, 3261, -32)
+points = PackedVector2Array(1733, 390, 2453, 909, 3261, -32)
 
 [node name="WalkLine6" parent="." instance=ExtResource("4_qlk7c")]
 points = PackedVector2Array(3516, 1676, 2503, 936)
 
 [node name="WalkLine7" parent="." instance=ExtResource("4_qlk7c")]
-points = PackedVector2Array(1969, 2026, 2770, 1528, 2755, 1170)
+points = PackedVector2Array(2005, 1995, 2770, 1528, 2748, 1198)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

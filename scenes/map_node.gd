@@ -3,12 +3,19 @@ extends Area2D
 signal forward_move
 signal reverse_move
 
+var ix = ""
+
 @export var is_crossed = false
+@onready var paper = Sprite2D.new()
+@onready var line = make_line()
+@onready var tx = ImageTexture.new()
 
 var staged = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	paper.position = Vector2(-position.x, -position.y)
+	paper.centered = false
+	add_child(paper)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -32,3 +39,14 @@ func _on_body_exited(body):
 		emit_signal("forward_move")
 	else:
 		emit_signal("reverse_move")
+
+func erase():
+	print("erase")
+	line.fill("#00000000")
+	tx.set_image(line)
+	paper.texture = tx
+	is_crossed = false
+	$Shade.set_deferred("visible", is_crossed)
+
+func make_line():
+	return Image.create(3508, 2480, false, Image.FORMAT_RGBA8)
