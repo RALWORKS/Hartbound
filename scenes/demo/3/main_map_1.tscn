@@ -148,7 +148,7 @@ position = Vector2(130, 1435)
 position = Vector2(532, 1606)
 
 [node name="MapNode16" parent="bg/MapGrid" instance=ExtResource("3_ntlob")]
-position = Vector2(449, 1707)
+position = Vector2(473, 1692)
 
 [node name="MapNode17" parent="bg/MapGrid" instance=ExtResource("3_ntlob")]
 position = Vector2(557, 1752)
@@ -266,6 +266,20 @@ z_index = 1000
 position = Vector2(824, 716)
 scale = Vector2(0.8, 0.8)
 script = ExtResource("3_t6juv")
+
+[node name="Star" type="Polygon2D" parent="Pencil"]
+visible = false
+scale = Vector2(1, 1)
+polygon = PackedVector2Array(-81.2501, 15, -23.75, -10, -21.25, -56.25, 13.75, -17.5, 68.75, -40, 40, 7.5, 87.5, 50, 17.5, 38.75, -16.25, 91.2501, -20, 33.75)
+
+[node name="Line" type="Line2D" parent="Pencil/Star"]
+position = Vector2(0, 52.5)
+points = PackedVector2Array(-81.2501, -33.75, 92.5, 7.5, -27.5, -127.5, -16.25, 45, 73.75, -107.5, -83.7501, -36.25)
+width = 20.0
+default_color = Color(0.6, 0.133333, 0.0666667, 1)
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
 
 [node name="img" type="Sprite2D" parent="Pencil"]
 rotation = 0.44855

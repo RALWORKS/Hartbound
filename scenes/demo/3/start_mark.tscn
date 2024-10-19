@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://w5bhme4b8xqx"]
+
+[node name="StartMark" type="Node2D"]
+z_index = 20
+position = Vector2(0, -55)
+scale = Vector2(0.8, 0.8)
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+position = Vector2(28, 71)
+offset = Vector2(0, -80)
+polygon = PackedVector2Array(-60, -19, -51, 41, -1, 40, 2, -23)
+
+[node name="Line2D" type="Line2D" parent="Polygon2D"]
+position = Vector2(0, -63)
+points = PackedVector2Array(-50, -56, -52, 16, -2, 15, -3, -35, -77, -33)
+width = 20.0
+default_color = Color(0.6, 0.133333, 0.0666667, 1)
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2

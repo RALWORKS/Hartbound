@@ -28,7 +28,7 @@ func mark_exit(pencil: CharacterBody2D):
 		if pencil.position.distance_to(crossed_direction) < crossed_threshold:
 			crossed_direction = null
 			mark_crossing()
-	elif pencil.position.distance_to(point_entered) > crossed_threshold * 1.5:
+	elif pencil.position.distance_to(point_entered) > crossed_threshold * 2:
 		crossed_direction = point_entered
 		mark_crossing()
 	point_entered = null
