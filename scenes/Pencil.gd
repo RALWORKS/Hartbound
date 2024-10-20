@@ -28,7 +28,9 @@ func throttle(v):
 func _process(delta):
 	var direction = Input.get_vector("left", "right", "up", "down")
 	
-	if direction != Vector2(0, 0):
+	if direction == Vector2(0,0):
+		velocity = direction
+	else:
 		velocity = throttle(direction) * speed
 	
 	move_and_slide()

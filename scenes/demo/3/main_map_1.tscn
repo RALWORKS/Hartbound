@@ -269,7 +269,6 @@ script = ExtResource("3_t6juv")
 
 [node name="Star" type="Polygon2D" parent="Pencil"]
 visible = false
-scale = Vector2(1, 1)
 polygon = PackedVector2Array(-81.2501, 15, -23.75, -10, -21.25, -56.25, 13.75, -17.5, 68.75, -40, 40, 7.5, 87.5, 50, 17.5, 38.75, -16.25, 91.2501, -20, 33.75)
 
 [node name="Line" type="Line2D" parent="Pencil/Star"]
