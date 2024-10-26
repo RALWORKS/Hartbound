@@ -1,0 +1,497 @@
+[gd_scene load_steps=15 format=3 uid="uid://cxrgve00qy8bm"]
+
+[ext_resource type="Script" path="res://scenery/scroll-mountans.gd" id="1_00emr"]
+[ext_resource type="Texture2D" uid="uid://d2xey863qcl78" path="res://assets/scenery/Scrolling/white-path.png" id="2_6c27q"]
+[ext_resource type="Texture2D" uid="uid://b6j8jd5bb1ivw" path="res://assets/scenery/Scrolling/long-hill.png" id="4_fv8ky"]
+[ext_resource type="Texture2D" uid="uid://cwhx0k3dvr403" path="res://assets/scenery/Scrolling/proud-elm.png" id="5_sy22e"]
+[ext_resource type="Texture2D" uid="uid://bjybfpp0e8d1r" path="res://assets/scenery/Scrolling/squat-spruce.png" id="6_knhxo"]
+[ext_resource type="Texture2D" uid="uid://do2w3g2p1elt5" path="res://assets/scenery/Scrolling/squished-elm.png" id="7_be065"]
+[ext_resource type="Texture2D" uid="uid://cq2fcqyurjipv" path="res://assets/scenery/Scrolling/rocks.png" id="8_buoru"]
+[ext_resource type="Texture2D" uid="uid://1jnamrw4kgr7" path="res://assets/scenery/Scrolling/narrow-spruce.png" id="9_lmsbi"]
+[ext_resource type="Texture2D" uid="uid://p76mexn4vb2w" path="res://assets/scenery/Scrolling/little-hill.png" id="10_6jk66"]
+[ext_resource type="Texture2D" uid="uid://bmhn7ldjcb5b3" path="res://assets/scenery/Scrolling/dandelion.png" id="11_k8dew"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_1ixae"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="Animation" id="Animation_rabcx"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SubViewport/Camera2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-280, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_krvfb"]
+resource_name = "base"
+length = 10.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SubViewport/Camera2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 10),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(950, 580), Vector2(-5762, 580)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_f3bfs"]
+_data = {
+"RESET": SubResource("Animation_rabcx"),
+"base": SubResource("Animation_krvfb")
+}
+
+[node name="BG" type="Node2D"]
+script = ExtResource("1_00emr")
+
+[node name="SubViewport" type="SubViewport" parent="."]
+transparent_bg = true
+size = Vector2i(1900, 1200)
+
+[node name="bgtrees" type="Node2D" parent="SubViewport"]
+modulate = Color(0.803922, 0.803922, 0.803922, 1)
+position = Vector2(-1312, 504)
+scale = Vector2(0.5, 0.5)
+
+[node name="White" type="Sprite2D" parent="SubViewport/bgtrees"]
+position = Vector2(-12560, -1100)
+scale = Vector2(12.0024, 2)
+texture = ExtResource("2_6c27q")
+centered = false
+
+[node name="tree3" type="Sprite2D" parent="SubViewport/bgtrees"]
+position = Vector2(-2058, 898)
+texture = ExtResource("4_fv8ky")
+centered = false
+
+[node name="tree2" type="Sprite2D" parent="SubViewport/bgtrees"]
+position = Vector2(-1390, -66)
+texture = ExtResource("5_sy22e")
+centered = false
+
+[node name="tree1" type="Sprite2D" parent="SubViewport/bgtrees"]
+position = Vector2(-625, -86)
+texture = ExtResource("6_knhxo")
+centered = false
+
+[node name="tree4" type="Sprite2D" parent="SubViewport/bgtrees"]
+position = Vector2(-2512, 80)
+texture = ExtResource("7_be065")
+centered = false
+
+[node name="tree5" type="Sprite2D" parent="SubViewport/bgtrees"]
+position = Vector2(-2956, 813)
+texture = ExtResource("8_buoru")
+centered = false
+
+[node name="tree6" type="Sprite2D" parent="SubViewport/bgtrees"]
+position = Vector2(-2844, -9)
+texture = ExtResource("9_lmsbi")
+centered = false
+
+[node name="tree7" type="Sprite2D" parent="SubViewport/bgtrees"]
+position = Vector2(-3562, 952)
+texture = ExtResource("10_6jk66")
+centered = false
+
+[node name="tree8" type="Sprite2D" parent="SubViewport/bgtrees"]
+position = Vector2(-2520, 1028)
+texture = ExtResource("11_k8dew")
+centered = false
+
+[node name="tree21" type="Sprite2D" parent="SubViewport/bgtrees"]
+position = Vector2(-4338, 768)
+texture = ExtResource("8_buoru")
+centered = false
+
+[node name="tree20" type="Sprite2D" parent="SubViewport/bgtrees"]
+position = Vector2(-4884, -8)
+texture = ExtResource("7_be065")
+centered = false
+
+[node name="tree26" type="Sprite2D" parent="SubViewport/bgtrees"]
+position = Vector2(-3282, 60)
+texture = ExtResource("7_be065")
+centered = false
+
+[node name="tree22" type="Sprite2D" parent="SubViewport/bgtrees"]
+position = Vector2(-3643, 220)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("9_lmsbi")
+centered = false
+
+[node name="tree9" type="Sprite2D" parent="SubViewport/bgtrees"]
+position = Vector2(134, 958)
+texture = ExtResource("4_fv8ky")
+centered = false
+
+[node name="tree10" type="Sprite2D" parent="SubViewport/bgtrees"]
+position = Vector2(1038, -166)
+texture = ExtResource("5_sy22e")
+centered = false
+
+[node name="tree11" type="Sprite2D" parent="SubViewport/bgtrees"]
+position = Vector2(1668, -90)
+texture = ExtResource("6_knhxo")
+centered = false
+
+[node name="tree12" type="Sprite2D" parent="SubViewport/bgtrees"]
+position = Vector2(-75, 324)
+texture = ExtResource("7_be065")
+centered = false
+
+[node name="tree13" type="Sprite2D" parent="SubViewport/bgtrees"]
+position = Vector2(-748, 813)
+texture = ExtResource("8_buoru")
+centered = false
+
+[node name="tree14" type="Sprite2D" parent="SubViewport/bgtrees"]
+position = Vector2(-1902, -49)
+texture = ExtResource("9_lmsbi")
+centered = false
+
+[node name="tree15" type="Sprite2D" parent="SubViewport/bgtrees"]
+position = Vector2(-1354, 952)
+texture = ExtResource("10_6jk66")
+centered = false
+
+[node name="tree16" type="Sprite2D" parent="SubViewport/bgtrees"]
+position = Vector2(-312, 1028)
+texture = ExtResource("11_k8dew")
+centered = false
+
+[node name="tree17" type="Sprite2D" parent="SubViewport/bgtrees"]
+position = Vector2(-4882, 952)
+texture = ExtResource("4_fv8ky")
+centered = false
+
+[node name="tree18" type="Sprite2D" parent="SubViewport/bgtrees"]
+position = Vector2(-4124, 2)
+texture = ExtResource("5_sy22e")
+centered = false
+
+[node name="tree19" type="Sprite2D" parent="SubViewport/bgtrees"]
+position = Vector2(-6694, 80)
+texture = ExtResource("6_knhxo")
+centered = false
+
+[node name="tree23" type="Sprite2D" parent="SubViewport/bgtrees"]
+position = Vector2(-3014, 1073)
+texture = ExtResource("10_6jk66")
+centered = false
+
+[node name="tree24" type="Sprite2D" parent="SubViewport/bgtrees"]
+position = Vector2(-3660, 1055)
+texture = ExtResource("11_k8dew")
+centered = false
+
+[node name="tree25" type="Sprite2D" parent="SubViewport/bgtrees"]
+position = Vector2(-1622, 98)
+texture = ExtResource("6_knhxo")
+centered = false
+
+[node name="tree27" type="Sprite2D" parent="SubViewport/bgtrees"]
+position = Vector2(3192, -292)
+texture = ExtResource("9_lmsbi")
+centered = false
+
+[node name="tree28" type="Sprite2D" parent="SubViewport/bgtrees"]
+position = Vector2(5794, 695)
+texture = ExtResource("10_6jk66")
+centered = false
+
+[node name="tree29" type="Sprite2D" parent="SubViewport/bgtrees"]
+position = Vector2(6836, 771)
+texture = ExtResource("11_k8dew")
+centered = false
+
+[node name="tree30" type="Sprite2D" parent="SubViewport/bgtrees"]
+position = Vector2(2266, 695)
+texture = ExtResource("4_fv8ky")
+centered = false
+
+[node name="tree31" type="Sprite2D" parent="SubViewport/bgtrees"]
+position = Vector2(4044, -12)
+texture = ExtResource("5_sy22e")
+centered = false
+
+[node name="tree32" type="Sprite2D" parent="SubViewport/bgtrees"]
+position = Vector2(454, 55)
+texture = ExtResource("6_knhxo")
+centered = false
+
+[node name="tree33" type="Sprite2D" parent="SubViewport/bgtrees"]
+position = Vector2(4134, 816)
+texture = ExtResource("10_6jk66")
+centered = false
+
+[node name="tree34" type="Sprite2D" parent="SubViewport/bgtrees"]
+position = Vector2(3488, 798)
+texture = ExtResource("11_k8dew")
+centered = false
+
+[node name="tree35" type="Sprite2D" parent="SubViewport/bgtrees"]
+position = Vector2(5934, -182)
+texture = ExtResource("6_knhxo")
+centered = false
+
+[node name="bgtrees2" type="Node2D" parent="SubViewport"]
+modulate = Color(0.803922, 0.803922, 0.803922, 1)
+position = Vector2(-8016, 504)
+scale = Vector2(0.5, 0.5)
+
+[node name="tree27" type="Sprite2D" parent="SubViewport/bgtrees2"]
+position = Vector2(3192, -292)
+texture = ExtResource("9_lmsbi")
+centered = false
+
+[node name="tree28" type="Sprite2D" parent="SubViewport/bgtrees2"]
+position = Vector2(5794, 695)
+texture = ExtResource("10_6jk66")
+centered = false
+
+[node name="tree29" type="Sprite2D" parent="SubViewport/bgtrees2"]
+position = Vector2(6836, 771)
+texture = ExtResource("11_k8dew")
+centered = false
+
+[node name="tree30" type="Sprite2D" parent="SubViewport/bgtrees2"]
+position = Vector2(2266, 695)
+texture = ExtResource("4_fv8ky")
+centered = false
+
+[node name="tree31" type="Sprite2D" parent="SubViewport/bgtrees2"]
+position = Vector2(4044, -12)
+texture = ExtResource("5_sy22e")
+centered = false
+
+[node name="tree33" type="Sprite2D" parent="SubViewport/bgtrees2"]
+position = Vector2(4134, 816)
+texture = ExtResource("10_6jk66")
+centered = false
+
+[node name="tree34" type="Sprite2D" parent="SubViewport/bgtrees2"]
+position = Vector2(3488, 798)
+texture = ExtResource("11_k8dew")
+centered = false
+
+[node name="tree35" type="Sprite2D" parent="SubViewport/bgtrees2"]
+position = Vector2(5934, -182)
+texture = ExtResource("6_knhxo")
+centered = false
+
+[node name="trees2" type="Node2D" parent="SubViewport"]
+position = Vector2(-6705, 0)
+
+[node name="White" type="Sprite2D" parent="SubViewport/trees2"]
+position = Vector2(-878.001, -559)
+scale = Vector2(6.66321, 2)
+texture = ExtResource("2_6c27q")
+centered = false
+
+[node name="tree26" type="Sprite2D" parent="SubViewport/trees2"]
+position = Vector2(360, -180)
+texture = ExtResource("6_knhxo")
+centered = false
+
+[node name="tree9" type="Sprite2D" parent="SubViewport/trees2"]
+position = Vector2(150, 898)
+texture = ExtResource("4_fv8ky")
+centered = false
+
+[node name="tree10" type="Sprite2D" parent="SubViewport/trees2"]
+position = Vector2(855, 220)
+texture = ExtResource("5_sy22e")
+centered = false
+
+[node name="tree11" type="Sprite2D" parent="SubViewport/trees2"]
+position = Vector2(1668, -90)
+texture = ExtResource("6_knhxo")
+centered = false
+
+[node name="tree12" type="Sprite2D" parent="SubViewport/trees2"]
+position = Vector2(-75, 324)
+texture = ExtResource("7_be065")
+centered = false
+
+[node name="tree27" type="Sprite2D" parent="SubViewport/trees2"]
+position = Vector2(1329, 237)
+texture = ExtResource("7_be065")
+centered = false
+
+[node name="tree13" type="Sprite2D" parent="SubViewport/trees2"]
+position = Vector2(-748, 813)
+texture = ExtResource("8_buoru")
+centered = false
+
+[node name="tree16" type="Sprite2D" parent="SubViewport/trees2"]
+position = Vector2(-312, 1028)
+texture = ExtResource("11_k8dew")
+centered = false
+
+[node name="trees" type="Node2D" parent="SubViewport"]
+
+[node name="tree3" type="Sprite2D" parent="SubViewport/trees"]
+position = Vector2(-2058, 898)
+texture = ExtResource("4_fv8ky")
+centered = false
+
+[node name="tree2" type="Sprite2D" parent="SubViewport/trees"]
+position = Vector2(-1353, 220)
+texture = ExtResource("5_sy22e")
+centered = false
+
+[node name="tree1" type="Sprite2D" parent="SubViewport/trees"]
+position = Vector2(-625, -86)
+texture = ExtResource("6_knhxo")
+centered = false
+
+[node name="tree26" type="Sprite2D" parent="SubViewport/trees"]
+position = Vector2(360, -180)
+texture = ExtResource("6_knhxo")
+centered = false
+
+[node name="tree4" type="Sprite2D" parent="SubViewport/trees"]
+position = Vector2(-2327, 365)
+texture = ExtResource("7_be065")
+centered = false
+
+[node name="tree5" type="Sprite2D" parent="SubViewport/trees"]
+position = Vector2(-2956, 813)
+texture = ExtResource("8_buoru")
+centered = false
+
+[node name="tree6" type="Sprite2D" parent="SubViewport/trees"]
+position = Vector2(-2844, -9)
+texture = ExtResource("9_lmsbi")
+centered = false
+
+[node name="tree7" type="Sprite2D" parent="SubViewport/trees"]
+position = Vector2(-3562, 952)
+texture = ExtResource("10_6jk66")
+centered = false
+
+[node name="tree8" type="Sprite2D" parent="SubViewport/trees"]
+position = Vector2(-2520, 1028)
+texture = ExtResource("11_k8dew")
+centered = false
+
+[node name="tree21" type="Sprite2D" parent="SubViewport/trees"]
+position = Vector2(-4338, 768)
+texture = ExtResource("8_buoru")
+centered = false
+
+[node name="tree20" type="Sprite2D" parent="SubViewport/trees"]
+position = Vector2(-4506, 338)
+texture = ExtResource("7_be065")
+centered = false
+
+[node name="tree22" type="Sprite2D" parent="SubViewport/trees"]
+position = Vector2(-3643, 220)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("9_lmsbi")
+centered = false
+
+[node name="tree9" type="Sprite2D" parent="SubViewport/trees"]
+position = Vector2(150, 898)
+texture = ExtResource("4_fv8ky")
+centered = false
+
+[node name="tree10" type="Sprite2D" parent="SubViewport/trees"]
+position = Vector2(855, 220)
+texture = ExtResource("5_sy22e")
+centered = false
+
+[node name="tree11" type="Sprite2D" parent="SubViewport/trees"]
+position = Vector2(1668, -90)
+texture = ExtResource("6_knhxo")
+centered = false
+
+[node name="tree12" type="Sprite2D" parent="SubViewport/trees"]
+position = Vector2(-75, 324)
+texture = ExtResource("7_be065")
+centered = false
+
+[node name="tree27" type="Sprite2D" parent="SubViewport/trees"]
+position = Vector2(1329, 237)
+texture = ExtResource("7_be065")
+centered = false
+
+[node name="tree13" type="Sprite2D" parent="SubViewport/trees"]
+position = Vector2(-748, 813)
+texture = ExtResource("8_buoru")
+centered = false
+
+[node name="tree14" type="Sprite2D" parent="SubViewport/trees"]
+position = Vector2(-1902, -49)
+texture = ExtResource("9_lmsbi")
+centered = false
+
+[node name="tree15" type="Sprite2D" parent="SubViewport/trees"]
+position = Vector2(-1354, 952)
+texture = ExtResource("10_6jk66")
+centered = false
+
+[node name="tree16" type="Sprite2D" parent="SubViewport/trees"]
+position = Vector2(-312, 1028)
+texture = ExtResource("11_k8dew")
+centered = false
+
+[node name="tree17" type="Sprite2D" parent="SubViewport/trees"]
+position = Vector2(-4882, 952)
+texture = ExtResource("4_fv8ky")
+centered = false
+
+[node name="tree18" type="Sprite2D" parent="SubViewport/trees"]
+position = Vector2(-4177, 274)
+texture = ExtResource("5_sy22e")
+centered = false
+
+[node name="tree19" type="Sprite2D" parent="SubViewport/trees"]
+position = Vector2(-3364, -36)
+texture = ExtResource("6_knhxo")
+centered = false
+
+[node name="tree23" type="Sprite2D" parent="SubViewport/trees"]
+position = Vector2(-3014, 1073)
+texture = ExtResource("10_6jk66")
+centered = false
+
+[node name="tree24" type="Sprite2D" parent="SubViewport/trees"]
+position = Vector2(-3660, 1055)
+texture = ExtResource("11_k8dew")
+centered = false
+
+[node name="tree25" type="Sprite2D" parent="SubViewport/trees"]
+position = Vector2(-1667, -68)
+texture = ExtResource("6_knhxo")
+centered = false
+
+[node name="Camera2D" type="Camera2D" parent="SubViewport"]
+position = Vector2(-280, 0)
+drag_left_margin = 0.0
+drag_top_margin = 0.0
+drag_right_margin = 0.0
+drag_bottom_margin = 0.0
+
+[node name="IMG" type="Sprite2D" parent="."]
+position = Vector2(0, -55)
+texture = SubResource("ViewportTexture_1ixae")
+centered = false
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+speed_scale = 0.25
+libraries = {
+"": SubResource("AnimationLibrary_f3bfs")
+}
