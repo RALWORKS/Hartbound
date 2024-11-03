@@ -7,6 +7,7 @@ extends CharacterBody2D
 var is_pencil = true
 var grid = null
 
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass
@@ -25,7 +26,7 @@ func throttle(v):
 	return v
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	var direction = Input.get_vector("left", "right", "up", "down")
 	
 	if direction == Vector2(0,0):

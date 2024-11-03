@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=3 uid="uid://chl1xnvswkr5j"]
+
+[ext_resource type="PackedScene" uid="uid://cq0jbtnn2unyl" path="res://scenes/demo/3/biome.tscn" id="1_p3wrb"]
+[ext_resource type="PackedScene" uid="uid://dpxdf3xli8lw5" path="res://scenery/scroll_mountain_and_trees.tscn" id="2_h46yy"]
+[ext_resource type="PackedScene" uid="uid://lw7adtj0heus" path="res://scenes/demo/3/camp_1.tscn" id="3_8gymm"]
+
+[node name="MountainBiome" instance=ExtResource("1_p3wrb")]
+
+[node name="MountainWalk" parent="Background" index="0" instance=ExtResource("2_h46yy")]
+position = Vector2(0, -18)
+
+[node name="Camp" parent="Camps" index="0"]
+scene = ExtResource("3_8gymm")

@@ -18,7 +18,11 @@ var LINE_WIDTH = 20
 var distance = 0
 var base_distance = 0
 
+var moved = false
+
 @onready var counter = $Counter
+@onready var travel_tip = $Counter/TravelTip
+@onready var travel_tip_animation = $Counter/TravelTip/AnimationPlayer
 @onready var counter_max = $Counter/Max
 @onready var counter_data = $Counter/Data
 
@@ -34,12 +38,14 @@ func _ready():
 	pencil.add_child(counter)
 	pencil.grid = self
 	counter.position = Vector2(150, 100)
+	travel_tip_animation.play("base")
 
 	counter_max.text = str(MAX_HOURS)
 
 	make_starting_node()
 	for c in get_children():
-		if c.name == "Counter":
+		if "MapNode" not in c.name:
+			print(c)
 			continue
 		nodes[c.name] = c
 		c.connect("crossed", on_node_crossed)
@@ -63,6 +69,7 @@ func make_starting_node():
 	start_mark = StartMark.instantiate()
 	start_mark.position = pencil.position
 	add_child(start_mark)
+	nodes[node.name] = node
 
 func on_node_crossed(node):
 	if node.is_starting_node:
@@ -117,8 +124,14 @@ func count_distance():
 	distance = base_distance + count_last_stretch()
 
 func refresh_distance_display():
-	var d = int(distance / PX_PER_HOUR)
-	counter_data.text = str(d)
+	var d = distance / PX_PER_HOUR
+	
+	var d_round = int(d)
+	counter_data.text = str(d_round)
+	
+	moved = d > 0.8;
+	travel_tip.set_deferred("visible", moved)
+	
 
 func imagine_distance(v):
 	var next_pencil = pencil.position + 10 * v
@@ -130,7 +143,7 @@ func throttle_pencil(v):
 	return false
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	trace_final_line()
 	count_distance()
 	refresh_distance_display()

@@ -5,6 +5,21 @@
 [ext_resource type="Texture2D" uid="uid://by1adk1wewkd8" path="res://assets/npcs/nate/nate-3-colour.png" id="3_frvuw"]
 [ext_resource type="Texture2D" uid="uid://tfs6ypehnc4h" path="res://assets/npcs/nate/nate-1-colour.png" id="4_a7ecn"]
 
+[sub_resource type="Animation" id="Animation_in7bn"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Wrap:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
 [sub_resource type="Animation" id="Animation_droxo"]
 resource_name = "base"
 loop_mode = 1
@@ -19,21 +34,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Vector2(0, 0), Vector2(0, -50), Vector2(0, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_in7bn"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Wrap:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_jay3b"]
@@ -52,10 +52,10 @@ animations = [{
 "texture": ExtResource("3_frvuw")
 }, {
 "duration": 1.0,
-"texture": ExtResource("4_a7ecn")
+"texture": ExtResource("2_phvma")
 }, {
 "duration": 1.0,
-"texture": ExtResource("2_phvma")
+"texture": ExtResource("4_a7ecn")
 }],
 "loop": true,
 "name": &"base",

@@ -10,6 +10,8 @@ var page = null
 @export var npc: CharacterBody2D = null # will auto set if used as npc dialogue
 @export var npc_name = ""
 
+var teleport_to = null
+
 var scene_bg = null
 var input_data = null
 

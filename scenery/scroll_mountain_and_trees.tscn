@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://dpxdf3xli8lw5"]
+
+[ext_resource type="PackedScene" uid="uid://cvtf0bk2q0ky5" path="res://scenery/scroll-mountans.tscn" id="1_cmy81"]
+[ext_resource type="Texture2D" uid="uid://d2xey863qcl78" path="res://assets/scenery/Scrolling/white-path.png" id="2_nqvc2"]
+[ext_resource type="PackedScene" uid="uid://cxrgve00qy8bm" path="res://scenery/scroll-trees.tscn" id="3_t3c0v"]
+
+[node name="MountainWalk" type="Node2D"]
+
+[node name="BG" parent="." instance=ExtResource("1_cmy81")]
+
+[node name="White" type="Sprite2D" parent="."]
+position = Vector2(0, -36)
+scale = Vector2(1.17115, 1)
+texture = ExtResource("2_nqvc2")
+centered = false
+
+[node name="BG2" parent="." instance=ExtResource("3_t3c0v")]
+position = Vector2(0, -174)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(950, 700)

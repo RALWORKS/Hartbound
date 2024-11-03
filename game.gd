@@ -629,3 +629,25 @@ func get_active_player_display_modes():
 	if modes == null:
 		return []
 	return modes
+
+func _init_outer_position_if_needed():
+	var data = get_state(["micro_progress", "outer_position"])
+	if data != null:
+		return data
+	set_state(["micro_progress", "outer_position", "x"], null)
+	set_state(["micro_progress", "outer_position", "y"], null)
+
+func get_outer_position():
+	_init_outer_position_if_needed()
+	var x = get_state(["micro_progress", "outer_position", "x"])
+	var y = get_state(["micro_progress", "outer_position", "y"])
+	return Vector2(x, y)
+
+func set_outer_position(p: Vector2):
+	_init_outer_position_if_needed()
+	set_state(["micro_progress", "outer_position", "x"], p.x)
+	set_state(["micro_progress", "outer_position", "y"], p.y)
+	return p
+	
+func to_map():
+	chapter.to_map()

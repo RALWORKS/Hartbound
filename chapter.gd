@@ -3,6 +3,9 @@ extends Node
 @export var starting_music: AudioStreamPlayer
 @export var script_holder: Node
 
+@export var map: Resource
+var active_map = null
+
 var events_done = []
 
 var scene0 = null
@@ -20,7 +23,8 @@ func trigger(trigger_name, e=null):
 	if t == null:
 		return
 	t.action(e)
-	
+
+
 func get_next_event():
 	if $Events.get_child_count() == 0:
 		return null
@@ -29,8 +33,15 @@ func get_next_event():
 	if events_done[-1] >= $Events.get_child_count() - 1:
 		return null
 	return $Events.get_children()[events_done[-1] + 1]
-	
-	
+
+
+func get_next_map_event():
+	for c in $MapEvents.get_children():
+		if not c.played:
+			return c
+	return null
+
+
 func rerun_all_events():
 	for ix in events_done:
 		var event = $Events.get_children()[ix]
@@ -118,6 +129,8 @@ func end_cutscene():
 	var npc = cutscene.npc
 	var next_chapter = cutscene.to_chapter
 	var sequence = cutscene.cutscene_sequence
+	var teleport_to = cutscene.teleport_to
+
 	cutscene.call_deferred("free")
 	#game.free_world()
 	game.chapter = self
@@ -130,9 +143,42 @@ func end_cutscene():
 				$"../MainScreen/World".add_child(child)
 		await get_tree().create_timer(0.1).timeout
 		$"/root/Game".move()
+		if teleport_to:
+			$"/root/Game/Map".move_to(teleport_to)
 		return
 	await get_tree().create_timer(0.1).timeout
 	start_cutscene(next_cutscene, npc, null, sequence)
 
 func update_cutscene_page(p):
 	cutscene.update_page(p)
+
+func to_map():
+	if not map:
+		return
+	
+	active_map = map.instantiate()
+	active_map.chapter = self
+	
+	var world = $"../MainScreen/World".get_children()
+	var bg
+	
+	for child in world:
+		$"../MainScreen/World".call_deferred("remove_child", child)
+	
+	$"../MainScreen/World".call_deferred("add_child", active_map)
+	active_map.load_position()
+
+func close_map(biome):
+	active_map.call_deferred("free")
+	for child in cur_game:
+		if is_instance_valid(child):
+			$"../MainScreen/World".add_child(child)
+	await get_tree().create_timer(0.1).timeout
+	$"/root/Game".move()
+	
+	var event = get_next_map_event()
+	if not event:
+		return
+	
+	event.cutscene_input_data = biome
+	event.play()

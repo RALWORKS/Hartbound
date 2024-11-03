@@ -4,6 +4,8 @@ extends Node
 @export var to_scene: Resource
 @export var effect: String
 @export var played = false
+@export var reusable = false
+var cutscene_input_data = null
 
 var game
 
@@ -23,7 +25,8 @@ func _process(_delta):
 
 func _play(save=true):
 	var g = _get_game()
-	played = true
+	if not reusable:
+		played = true
 	if save:
 		g.set_state_push_to_key(["micro_progress", "events"], get_index())
 
@@ -38,7 +41,7 @@ func _re_mutate():
 func _cutscene():
 	if cutscene != null:
 		await get_tree().create_timer(0.2).timeout
-		$"../..".start_cutscene(cutscene)
+		$"../..".start_cutscene(cutscene, null, null, null, cutscene_input_data)
 
 func _effect():
 	var g = _get_game()

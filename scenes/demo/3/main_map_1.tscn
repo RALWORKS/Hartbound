@@ -1,5 +1,6 @@
-[gd_scene load_steps=9 format=3 uid="uid://7hjd5r2hc2bb"]
+[gd_scene load_steps=10 format=3 uid="uid://7hjd5r2hc2bb"]
 
+[ext_resource type="Script" path="res://scenes/demo/3/main_map.gd" id="1_5jb7j"]
 [ext_resource type="Texture2D" uid="uid://btb8mvl3yl3uc" path="res://assets/scenes/demo/3/main_map_1.png" id="1_si4kb"]
 [ext_resource type="PackedScene" uid="uid://b5rgfy6xym7wc" path="res://scenes/demo/3/map_grid.tscn" id="2_jgr7v"]
 [ext_resource type="PackedScene" uid="uid://j136m6ggfj23" path="res://scenes/demo/3/map_node.tscn" id="3_ntlob"]
@@ -15,7 +16,9 @@ size = Vector2(3632, 327)
 [sub_resource type="CircleShape2D" id="CircleShape2D_u8ufb"]
 radius = 24.2707
 
-[node name="DemoMap" type="Node2D"]
+[node name="DemoMap" type="Node2D" node_paths=PackedStringArray("pencil")]
+script = ExtResource("1_5jb7j")
+pencil = NodePath("Pencil")
 
 [node name="bg" type="Sprite2D" parent="."]
 texture = ExtResource("1_si4kb")
