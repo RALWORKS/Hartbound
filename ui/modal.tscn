@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://i6laa1tesr13"]
+[gd_scene load_steps=4 format=3 uid="uid://i6laa1tesr13"]
 
 [ext_resource type="Theme" uid="uid://bowrqsap2qmsa" path="res://base_theme.tres" id="1_531ua"]
 [ext_resource type="Script" path="res://ui/modal.gd" id="2_4lnkt"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tb4w0"]
+bg_color = Color(0, 0, 0, 1)
 
 [node name="Modal" type="Panel"]
 clip_contents = true
@@ -24,6 +27,7 @@ layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
 theme_type_variation = &"ModalHead"
+theme_override_styles/panel = SubResource("StyleBoxFlat_tb4w0")
 
 [node name="Exit" type="Button" parent="TitleBar"]
 custom_minimum_size = Vector2(40, 40)
@@ -37,6 +41,7 @@ offset_left = -40.0
 offset_right = -10.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_531ua")
 theme_type_variation = &"ModalExit"
 text = "X"
 

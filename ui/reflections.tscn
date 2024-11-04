@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://mqthx6wcxxuo" path="res://ui/state_tag_replacer.tscn" id="6_use4e"]
 [ext_resource type="PackedScene" uid="uid://bxvk8e0eaa0g" path="res://reflections/reflection_map.tscn" id="7_e0t20"]
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_albse"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_8p4k2"]
 viewport_path = NodePath("img")
 
 [node name="Reflections" instance=ExtResource("1_r40ie")]
@@ -17,8 +17,7 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-offset_left = 0.0
-offset_right = 1730.0
+offset_right = 1720.0
 offset_bottom = 1080.0
 title = "Reflections"
 
@@ -35,7 +34,7 @@ scale = Vector2(1.05, 1.05)
 modulate = Color(0.619608, 0.619608, 0.619608, 1)
 position = Vector2(-53, 134)
 scale = Vector2(1.6, 1.6)
-texture = SubResource("ViewportTexture_albse")
+texture = SubResource("ViewportTexture_8p4k2")
 flip_h = true
 with_background = false
 

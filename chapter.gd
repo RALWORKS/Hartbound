@@ -171,11 +171,11 @@ func to_map():
 
 func close_map(biome):
 	active_map.call_deferred("free")
-	await get_tree().create_timer(0.1).timeout
+	await get_tree().create_timer(0.05).timeout
 	for child in cur_game:
 		if is_instance_valid(child):
 			$"../MainScreen/World".add_child(child)
-	await get_tree().create_timer(0.1).timeout
+	await get_tree().create_timer(0.05).timeout
 	$"/root/Game".move()
 	
 	var event = get_next_map_event()

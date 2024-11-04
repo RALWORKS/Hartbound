@@ -31,7 +31,7 @@ func _process(_delta):
 	if get_parent().chapter == null:
 		return
 	
-	if get_parent().chapter.cutscene == null:
+	if get_parent().chapter.cutscene == null or get_parent().cur_modal != null:
 		$Menu2/ColorRect.visible = true
 		$PostProcessing/Filter.modulate = "#ffffffff"
 		if not $PostProcessing/Filter.material:
