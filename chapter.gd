@@ -145,6 +145,7 @@ func end_cutscene():
 		$"/root/Game".move()
 		if teleport_to:
 			$"/root/Game/Map".move_to(teleport_to)
+			teleport_to.spawn(game)
 		return
 	await get_tree().create_timer(0.1).timeout
 	start_cutscene(next_cutscene, npc, null, sequence)
@@ -166,10 +167,11 @@ func to_map():
 		$"../MainScreen/World".call_deferred("remove_child", child)
 	
 	$"../MainScreen/World".call_deferred("add_child", active_map)
-	active_map.load_position()
+	active_map.load_position($"/root/Game")
 
 func close_map(biome):
 	active_map.call_deferred("free")
+	await get_tree().create_timer(0.1).timeout
 	for child in cur_game:
 		if is_instance_valid(child):
 			$"../MainScreen/World".add_child(child)

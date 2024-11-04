@@ -16,4 +16,4 @@ func get_background():
 
 func get_camp():
 	var camps = $Camps.get_children()
-	return camps[randi_range(0, camps.size())].scene.instantiate()
+	return camps[randi_range(0, camps.size() - 1)].scene.instantiate()

@@ -41,7 +41,7 @@ func _re_mutate():
 func _cutscene():
 	if cutscene != null:
 		await get_tree().create_timer(0.2).timeout
-		$"../..".start_cutscene(cutscene, null, null, null, cutscene_input_data)
+		$"../..".start_cutscene(cutscene, null, null, [], cutscene_input_data)
 
 func _effect():
 	var g = _get_game()

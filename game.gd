@@ -40,6 +40,7 @@ var CHAPTERS = {
 	"demo1": preload("res://chapters/demo/1/demo-industrial.tscn"),
 	"2segue": preload("res://chapters/demo/2/chapter-2-segue.tscn"),
 	"demo2": preload("res://chapters/demo/2/chapter-2.tscn"),
+	"demo3": preload("res://chapters/demo/3/chapter.tscn"),
 }
 @export var FIRST_CHAPTER = "demo1"
 
@@ -641,6 +642,8 @@ func get_outer_position():
 	_init_outer_position_if_needed()
 	var x = get_state(["micro_progress", "outer_position", "x"])
 	var y = get_state(["micro_progress", "outer_position", "y"])
+	if x == null or y == null:
+		return null
 	return Vector2(x, y)
 
 func set_outer_position(p: Vector2):

@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://lw7adtj0heus"]
+[gd_scene load_steps=9 format=3 uid="uid://lw7adtj0heus"]
 
 [ext_resource type="PackedScene" uid="uid://byrlpmbpj6yr5" path="res://scene.tscn" id="1_n4lo1"]
 [ext_resource type="Texture2D" uid="uid://fr5woj7ge80a" path="res://assets/scenes/demo/1/a.png" id="2_qitp5"]
@@ -6,10 +6,17 @@
 [ext_resource type="PackedScene" uid="uid://d0q6kg3spk25s" path="res://chapters/demo/1/jerry.tscn" id="4_yhset"]
 [ext_resource type="PackedScene" uid="uid://uc3gpi8pp0cj" path="res://chapters/demo/1/brona.tscn" id="5_24xfq"]
 [ext_resource type="PackedScene" uid="uid://in7v8nsvojyp" path="res://chapters/demo/1/nate.tscn" id="6_vj7mj"]
+[ext_resource type="PackedScene" uid="uid://3xvq5teh4d0q" path="res://travel/map_door.tscn" id="7_jk1xj"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_t6onf"]
+vertices = PackedVector2Array(745, 537, 326, 266, 631, 249, 792, 376, 1114, 550, 1279, 376, 1347, 656, 1309, 698, 1521, 838, 1635, 847, 1114, 1160, 690, 1177, 970, 1381, 54, 1423, 50, 1266)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 0, 3, 5), PackedInt32Array(4, 5, 6, 7), PackedInt32Array(8, 7, 6, 9), PackedInt32Array(8, 9, 10, 11), PackedInt32Array(11, 10, 12, 13, 14)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(50, 1266, 54, 1423, 970, 1381, 1114, 1160, 1635, 847, 1347, 656, 1279, 376, 792, 376, 631, 249, 326, 266, 745, 537, 1114, 550, 1309, 698, 1521, 838, 690, 1177)])
 
 [node name="Camp1" instance=ExtResource("1_n4lo1")]
 
 [node name="Background" parent="." index="0"]
+scale = Vector2(1.75, 1.75)
 texture = ExtResource("2_qitp5")
 
 [node name="Walls" type="CollisionPolygon2D" parent="Background/StaticBody2D" index="0"]
@@ -19,16 +26,27 @@ polygon = PackedVector2Array(-28, 730, 146, 617, 386, 621, 574, 495, 795, 483, 7
 polygon = PackedVector2Array(3, 693, -1, 848, 648, 851, 645, 905, -87, 912, -117, 676)
 
 [node name="DefaultSpawner" parent="YSort" index="0"]
-position = Vector2(483, 283)
+position = Vector2(607, 421)
 
-[node name="Taylor" parent="." index="2" instance=ExtResource("3_kmeo0")]
-position = Vector2(745, 222)
+[node name="Taylor" parent="YSort" index="1" instance=ExtResource("3_kmeo0")]
+position = Vector2(677, 233)
+starting_animaton = "down-right-stopped"
 
-[node name="Jerry" parent="." index="3" instance=ExtResource("4_yhset")]
-position = Vector2(206, 187)
+[node name="Jerry" parent="YSort" index="2" instance=ExtResource("4_yhset")]
+position = Vector2(230, 285)
+starting_animaton = "right-stopped"
 
-[node name="Brona" parent="." index="4" instance=ExtResource("5_24xfq")]
-position = Vector2(312, 176)
+[node name="Brona" parent="YSort" index="3" instance=ExtResource("5_24xfq")]
+position = Vector2(353, 266)
+starting_animaton = "down-left-stopped"
 
-[node name="Nate" parent="." index="5" instance=ExtResource("6_vj7mj")]
-position = Vector2(892, 208)
+[node name="Nate" parent="YSort" index="4" instance=ExtResource("6_vj7mj")]
+position = Vector2(781, 280)
+starting_animaton = "up-left-stopped"
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="YSort" index="5"]
+navigation_polygon = SubResource("NavigationPolygon_t6onf")
+
+[node name="MapDoor" parent="YSort" index="6" instance=ExtResource("7_jk1xj")]
+position = Vector2(-8, 1476)
+scale = Vector2(2.5, 2.5)

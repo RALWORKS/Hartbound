@@ -57,7 +57,7 @@ text = "> New Game
 "
 script = ExtResource("4_lba5l")
 
-[node name="NewGameLatestChapterBtn" type="Button" parent="."]
+[node name="NewGameChapter2Btn" type="Button" parent="."]
 offset_left = 449.0
 offset_top = 222.0
 offset_right = 826.0
@@ -70,11 +70,25 @@ text = "> New Game (Chapter 2)
 "
 script = ExtResource("5_evoon")
 
+[node name="NewGameChapter3Btn" type="Button" parent="."]
+offset_left = 449.0
+offset_top = 318.0
+offset_right = 826.0
+offset_bottom = 370.0
+mouse_filter = 1
+theme = ExtResource("3_dystq")
+theme_type_variation = &"MenuItem"
+theme_override_font_sizes/font_size = 30
+text = "> New Game (Chapter 3)
+"
+script = ExtResource("5_evoon")
+chapter = "demo3"
+
 [node name="LoadGameBtn" type="Button" parent="."]
 offset_left = 450.0
-offset_top = 316.0
+offset_top = 412.0
 offset_right = 658.0
-offset_bottom = 368.0
+offset_bottom = 464.0
 mouse_filter = 1
 theme = ExtResource("3_dystq")
 theme_type_variation = &"MenuItem"
@@ -87,5 +101,6 @@ script = ExtResource("5_kgya5")
 position = Vector2(0, 50)
 
 [connection signal="pressed" from="NewGameBtn" to="NewGameBtn" method="_on_pressed"]
-[connection signal="pressed" from="NewGameLatestChapterBtn" to="NewGameLatestChapterBtn" method="_on_pressed"]
+[connection signal="pressed" from="NewGameChapter2Btn" to="NewGameChapter2Btn" method="_on_pressed"]
+[connection signal="pressed" from="NewGameChapter3Btn" to="NewGameChapter3Btn" method="_on_pressed"]
 [connection signal="pressed" from="LoadGameBtn" to="LoadGameBtn" method="_on_pressed"]

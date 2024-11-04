@@ -85,8 +85,6 @@ func add_chapter_contents():
 			assert(item.process_mode != child.process_mode)
 
 func spawn(g):
-	#$TileMap/DefaultSpawner.spawn()
-#	$YSort/DefaultSpawner.spawn()
 	$YSort/DefaultSpawner.spawn(g)
 "
 

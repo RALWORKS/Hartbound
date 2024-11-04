@@ -30,10 +30,10 @@ func _get_game():
 	game = $"/root/Game"
 	return game
 
-func load_position():
-	var g = _get_game()
+func load_position(g):
+	#var g = _get_game()
 	var p = g.get_outer_position()
-	if p.x == null or p.y == null:
+	if p == null:
 		return
 	pencil.position = p
 

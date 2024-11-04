@@ -14,8 +14,7 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-offset_left = 0.0
-offset_right = 1730.0
+offset_right = 1720.0
 offset_bottom = 1080.0
 title = "Inventory"
 
