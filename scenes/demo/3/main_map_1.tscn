@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://7hjd5r2hc2bb"]
+[gd_scene load_steps=12 format=3 uid="uid://7hjd5r2hc2bb"]
 
 [ext_resource type="Script" path="res://scenes/demo/3/main_map.gd" id="1_5jb7j"]
 [ext_resource type="Texture2D" uid="uid://btb8mvl3yl3uc" path="res://assets/scenes/demo/3/main_map_1.png" id="1_si4kb"]
@@ -6,6 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://j136m6ggfj23" path="res://scenes/demo/3/map_node.tscn" id="3_ntlob"]
 [ext_resource type="Script" path="res://scenes/Pencil.gd" id="3_t6juv"]
 [ext_resource type="Texture2D" uid="uid://ddk3kke52g8s" path="res://assets/pencil.png" id="4_8516n"]
+[ext_resource type="Texture2D" uid="uid://5o204l82u5dh" path="res://assets/scenery/RuinedCity.png" id="5_rxqps"]
+[ext_resource type="Texture2D" uid="uid://6rnmnolvbbad" path="res://assets/scenery/SunTemple.png" id="6_xcjsb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6vuwb"]
 size = Vector2(304, 2709)
@@ -264,9 +266,22 @@ position = Vector2(607, 403)
 [node name="MapNode48" parent="bg/MapGrid" instance=ExtResource("3_ntlob")]
 position = Vector2(602, 120)
 
+[node name="RuinedCity" type="Sprite2D" parent="bg"]
+modulate = Color(0.858824, 0.858824, 0.792157, 1)
+position = Vector2(128, 234)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("5_rxqps")
+
+[node name="SunTemple" type="Sprite2D" parent="bg"]
+modulate = Color(0.858824, 0.858824, 0.792157, 1)
+position = Vector2(2480, 2049)
+rotation = 0.0523599
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("6_xcjsb")
+
 [node name="Pencil" type="CharacterBody2D" parent="."]
 z_index = 1000
-position = Vector2(824, 716)
+position = Vector2(464, 604)
 scale = Vector2(0.8, 0.8)
 script = ExtResource("3_t6juv")
 
