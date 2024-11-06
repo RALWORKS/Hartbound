@@ -623,10 +623,10 @@ func free_world():
 		c.call_deferred("free")
 
 func set_player_display_modes(mode_names: Array):
-	return set_state(["player_display_modes"], mode_names)
+	return set_state(["micro_progress", "player_display_modes"], mode_names)
 
 func get_active_player_display_modes():
-	var modes = get_state(["player_display_modes"])
+	var modes = get_state(["micro_progress", "player_display_modes"])
 	if modes == null:
 		return []
 	return modes
