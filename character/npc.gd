@@ -289,7 +289,7 @@ func follow():
 	navigation_agent.target_position = next_position
 	return
 
-func _process(delta):
+func _process(_delta):
 	if not leader:
 		if starting_animaton != last_starting_animation:
 			play_starting_animation()

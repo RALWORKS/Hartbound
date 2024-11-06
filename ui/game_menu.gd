@@ -54,7 +54,7 @@ func refresh_data(character_record=null):
 func _process(_delta):
 	if (
 		game.chapter != null
-		and game.chapter.cutscene != null
+		and game.chapter.cutscene != null 
 		and $HideButtonsForCutscene.visible
 	):
 		$HideButtonsForCutscene.set_deferred("visible", false)

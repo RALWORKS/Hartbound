@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://7hjd5r2hc2bb"]
+[gd_scene load_steps=15 format=3 uid="uid://7hjd5r2hc2bb"]
 
 [ext_resource type="Script" path="res://scenes/demo/3/main_map.gd" id="1_5jb7j"]
 [ext_resource type="Texture2D" uid="uid://btb8mvl3yl3uc" path="res://assets/scenes/demo/3/main_map_1.png" id="1_si4kb"]
@@ -8,6 +8,9 @@
 [ext_resource type="Texture2D" uid="uid://ddk3kke52g8s" path="res://assets/pencil.png" id="4_8516n"]
 [ext_resource type="Texture2D" uid="uid://5o204l82u5dh" path="res://assets/scenery/RuinedCity.png" id="5_rxqps"]
 [ext_resource type="Texture2D" uid="uid://6rnmnolvbbad" path="res://assets/scenery/SunTemple.png" id="6_xcjsb"]
+[ext_resource type="Script" path="res://scenes/demo/3/MapAreaIcon.gd" id="7_gwvq6"]
+[ext_resource type="PackedScene" uid="uid://k2fi3b6gssae" path="res://scenes/demo/3/map_area.tscn" id="9_ypeeq"]
+[ext_resource type="PackedScene" uid="uid://chl1xnvswkr5j" path="res://scenes/demo/3/mountain_biome.tscn" id="10_y40n4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6vuwb"]
 size = Vector2(304, 2709)
@@ -266,18 +269,22 @@ position = Vector2(607, 403)
 [node name="MapNode48" parent="bg/MapGrid" instance=ExtResource("3_ntlob")]
 position = Vector2(602, 120)
 
-[node name="RuinedCity" type="Sprite2D" parent="bg"]
+[node name="RuinedCity" type="Sprite2D" parent="bg" node_paths=PackedStringArray("area")]
 modulate = Color(0.858824, 0.858824, 0.792157, 1)
 position = Vector2(128, 234)
 scale = Vector2(0.8, 0.8)
 texture = ExtResource("5_rxqps")
+script = ExtResource("7_gwvq6")
+area = NodePath("../../RuinedCityArea")
 
-[node name="SunTemple" type="Sprite2D" parent="bg"]
+[node name="SunTemple" type="Sprite2D" parent="bg" node_paths=PackedStringArray("area")]
 modulate = Color(0.858824, 0.858824, 0.792157, 1)
 position = Vector2(2480, 2049)
 rotation = 0.0523599
 scale = Vector2(0.8, 0.8)
 texture = ExtResource("6_xcjsb")
+script = ExtResource("7_gwvq6")
+area = NodePath("../../SunTempleArea")
 
 [node name="Pencil" type="CharacterBody2D" parent="."]
 z_index = 1000
@@ -314,3 +321,22 @@ limit_top = 0
 limit_right = 3272
 limit_bottom = 2480
 editor_draw_limits = true
+
+[node name="RuinedCityArea" parent="." instance=ExtResource("9_ypeeq")]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RuinedCityArea"]
+polygon = PackedVector2Array(138, 517, 483, 520, 536, 660, 463, 636, 350, 644, 288, 687)
+
+[node name="MountainBiome" parent="RuinedCityArea" instance=ExtResource("10_y40n4")]
+visible = false
+
+[node name="SunTempleArea" parent="." instance=ExtResource("9_ypeeq")]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="SunTempleArea"]
+polygon = PackedVector2Array(1924, 2249, 2136, 2183, 2241, 2314, 2030, 2410)
+
+[node name="MountainBiome" parent="SunTempleArea" instance=ExtResource("10_y40n4")]
+visible = false
+
+[node name="DEFAULTMountainBiome" parent="." instance=ExtResource("10_y40n4")]
+visible = false
