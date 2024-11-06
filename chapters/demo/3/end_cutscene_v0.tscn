@@ -1,0 +1,166 @@
+[gd_scene load_steps=14 format=3 uid="uid://x317psh2wl6m"]
+
+[ext_resource type="PackedScene" uid="uid://bp8tsdjdbwj8i" path="res://cutscene/cutscene.tscn" id="1_xjpyp"]
+[ext_resource type="PackedScene" uid="uid://55vflx8ylix1" path="res://cutscene/cutscene_node.tscn" id="2_g0aoj"]
+[ext_resource type="PackedScene" uid="uid://bc5wpdohp3xwb" path="res://scenery/sun_templa_walk_v0.tscn" id="3_jvdci"]
+[ext_resource type="Texture2D" uid="uid://btb8mvl3yl3uc" path="res://assets/scenes/demo/3/main_map_1.png" id="3_x3xse"]
+[ext_resource type="Texture2D" uid="uid://6rnmnolvbbad" path="res://assets/scenery/SunTemple.png" id="4_ug7rn"]
+[ext_resource type="PackedScene" uid="uid://dhi8aahnucxqk" path="res://scenery/horse_and_cart_walking.tscn" id="4_vbkoy"]
+[ext_resource type="PackedScene" uid="uid://bkmlrvo7prska" path="res://scenery/brona_walking.tscn" id="5_62ind"]
+[ext_resource type="PackedScene" uid="uid://b11g7mb25w5xp" path="res://cutscene/smart_label.tscn" id="5_e1wrx"]
+[ext_resource type="PackedScene" uid="uid://yl6xdj71b1qq" path="res://scenery/jerry_walking.tscn" id="6_4ybdj"]
+[ext_resource type="PackedScene" uid="uid://cp5lbi0bmf5vp" path="res://tools/screen-guide-frame.tscn" id="6_k222b"]
+[ext_resource type="PackedScene" uid="uid://cbobuwybuv22l" path="res://cutscene/die_on_start.tscn" id="6_om1qs"]
+[ext_resource type="PackedScene" uid="uid://bac2xe0oqxtkm" path="res://scenery/nate_walking.tscn" id="7_7q4el"]
+[ext_resource type="Texture2D" uid="uid://geoqponwbsa0" path="res://assets/npcs/brona/disturbed.png" id="9_d3xi4"]
+
+[node name="Cutscene" node_paths=PackedStringArray("starting_page") instance=ExtResource("1_xjpyp")]
+starting_page = NodePath("0")
+
+[node name="0" parent="." index="0" node_paths=PackedStringArray("next") instance=ExtResource("2_g0aoj")]
+next = NodePath("../0_5")
+
+[node name="MountainWalk" parent="0" index="0" instance=ExtResource("3_jvdci")]
+position = Vector2(5, 0)
+
+[node name="HorseAndCartWalking" parent="0" index="1" instance=ExtResource("4_vbkoy")]
+position = Vector2(918, 422)
+scale = Vector2(0.25, 0.25)
+
+[node name="BronaWalking" parent="0" index="2" instance=ExtResource("5_62ind")]
+position = Vector2(974, 457)
+scale = Vector2(0.25, 0.25)
+offset = 0.2
+
+[node name="JerryWalking" parent="0" index="3" instance=ExtResource("6_4ybdj")]
+position = Vector2(451, 371)
+scale = Vector2(0.4, 0.4)
+offset = 0.4
+
+[node name="NateWalking" parent="0" index="4" instance=ExtResource("7_7q4el")]
+position = Vector2(-16, 430)
+scale = Vector2(0.3, 0.3)
+offset = 0.2
+
+[node name="SmartLabel" parent="0" index="5" instance=ExtResource("5_e1wrx")]
+offset_left = 886.0
+offset_top = 256.0
+offset_right = 1384.0
+offset_bottom = 383.0
+text = "\"I can see it down in the valley!\" Brona cries."
+
+[node name="0_5" parent="." index="1" node_paths=PackedStringArray("next") instance=ExtResource("2_g0aoj")]
+next = NodePath("../1")
+
+[node name="MountainWalk" parent="0_5" index="0" instance=ExtResource("3_jvdci")]
+position = Vector2(-949, -453)
+scale = Vector2(2, 2)
+paused = true
+
+[node name="SmartLabel" parent="0_5" index="1" instance=ExtResource("5_e1wrx")]
+offset_left = 883.0
+offset_top = 249.0
+offset_right = 1234.0
+offset_bottom = 376.0
+text = "\"Thank the Founders we made it ...\""
+
+[node name="Brona" type="Sprite2D" parent="0_5" index="2"]
+position = Vector2(-180, 87)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("9_d3xi4")
+centered = false
+
+[node name="1" parent="." index="2" node_paths=PackedStringArray("next") instance=ExtResource("2_g0aoj")]
+visible = false
+next = NodePath("../2")
+
+[node name="Sprite2D2" type="Sprite2D" parent="1" index="0"]
+position = Vector2(779, 482)
+scale = Vector2(2, 2)
+texture = ExtResource("3_x3xse")
+hframes = 2
+vframes = 2
+frame = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="1/Sprite2D2" index="0"]
+position = Vector2(-464.658, -270.105)
+rotation = 0.219911
+scale = Vector2(0.833333, 0.833333)
+texture = ExtResource("4_ug7rn")
+centered = false
+
+[node name="SmartLabel" parent="1" index="1" instance=ExtResource("5_e1wrx")]
+offset_left = 581.0
+offset_top = 250.0
+offset_right = 875.0
+offset_bottom = 327.0
+text = "At last you arrive"
+
+[node name="SmartLabel2" parent="1" index="2" instance=ExtResource("5_e1wrx")]
+offset_left = 804.0
+offset_top = 336.0
+offset_right = 896.0
+offset_bottom = 413.0
+text = "at"
+
+[node name="SmartLabel3" parent="1" index="3" instance=ExtResource("5_e1wrx")]
+offset_left = 834.0
+offset_top = 424.0
+offset_right = 1266.0
+offset_bottom = 551.0
+theme_override_font_sizes/normal_font_size = 70
+text = "Sun Temple."
+
+[node name="2" parent="." index="3" node_paths=PackedStringArray("next") instance=ExtResource("2_g0aoj")]
+visible = false
+next = NodePath("../3")
+
+[node name="SmartLabel" parent="2" index="0" instance=ExtResource("5_e1wrx")]
+offset_left = 581.0
+offset_top = 250.0
+offset_right = 875.0
+offset_bottom = 327.0
+text = "At last you arrive"
+
+[node name="SmartLabel2" parent="2" index="1" instance=ExtResource("5_e1wrx")]
+offset_left = 804.0
+offset_top = 336.0
+offset_right = 896.0
+offset_bottom = 413.0
+text = "at"
+
+[node name="SmartLabel3" parent="2" index="2" instance=ExtResource("5_e1wrx")]
+offset_left = 834.0
+offset_top = 424.0
+offset_right = 1266.0
+offset_bottom = 551.0
+theme_override_font_sizes/normal_font_size = 70
+text = "Sun Temple."
+
+[node name="SmartLabel4" parent="2" index="3" instance=ExtResource("5_e1wrx")]
+offset_left = 592.0
+offset_top = 570.0
+offset_right = 1732.0
+offset_bottom = 654.0
+text = "The journey has come to its end."
+
+[node name="SmartLabel5" parent="2" index="4" instance=ExtResource("5_e1wrx")]
+offset_left = 593.0
+offset_top = 647.0
+offset_right = 1638.0
+offset_bottom = 731.0
+text = "Your ordinary life resumes, albeit changed by the presence of the curse."
+
+[node name="SmartLabel6" parent="2" index="5" instance=ExtResource("5_e1wrx")]
+offset_left = 1162.0
+offset_top = 866.0
+offset_right = 2207.0
+offset_bottom = 950.0
+text = "The End."
+
+[node name="3" parent="." index="4" instance=ExtResource("2_g0aoj")]
+visible = false
+
+[node name="DieOnStart" parent="3" index="0" instance=ExtResource("6_om1qs")]
+
+[node name="Frame" parent="." index="5" instance=ExtResource("6_k222b")]

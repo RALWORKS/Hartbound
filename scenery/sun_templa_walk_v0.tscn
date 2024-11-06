@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://bc5wpdohp3xwb"]
+
+[ext_resource type="Script" path="res://scenery/sun_templa_walk_v0.gd" id="1_hmc1f"]
+[ext_resource type="PackedScene" uid="uid://yni15ehgptsq" path="res://scenery/scroll-sun_temple_mountains_v0.tscn" id="1_laotg"]
+[ext_resource type="Texture2D" uid="uid://d2xey863qcl78" path="res://assets/scenery/Scrolling/white-path.png" id="2_aodjy"]
+[ext_resource type="PackedScene" uid="uid://bq2irtwm3mgr2" path="res://scenery/scroll-trees-thin.tscn" id="3_a6gor"]
+
+[node name="MountainWalk" type="Node2D"]
+script = ExtResource("1_hmc1f")
+
+[node name="BG" parent="." instance=ExtResource("1_laotg")]
+
+[node name="White" type="Sprite2D" parent="."]
+position = Vector2(0, -36)
+scale = Vector2(1.17115, 1)
+texture = ExtResource("2_aodjy")
+centered = false
+
+[node name="BG2" parent="." instance=ExtResource("3_a6gor")]
+position = Vector2(0, -208)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(950, 700)

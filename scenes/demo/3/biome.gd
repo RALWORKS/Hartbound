@@ -1,6 +1,8 @@
 extends Node2D
 
 
+@export var trigger_name: String
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
