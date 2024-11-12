@@ -161,7 +161,7 @@ func to_map():
 	active_map.chapter = self
 	
 	var world = $"../MainScreen/World".get_children()
-	var bg
+	#var bg
 	
 	for child in world:
 		$"../MainScreen/World".call_deferred("remove_child", child)

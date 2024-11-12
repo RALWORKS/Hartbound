@@ -183,7 +183,7 @@ resource = ExtResource("5_66jup")
 [node name="char" parent="." node_paths=PackedStringArray("body", "front_arm", "face", "hair_back", "hair_front", "clothes", "clothes_pattern", "clothes_accent", "front_sleeve", "front_sleeve_accent", "character_img") instance=ExtResource("2_kvgd3")]
 centered = true
 hframes = 6
-vframes = 4
+vframes = 5
 body = NodePath("../img/body")
 front_arm = NodePath("../img/front-arm")
 face = NodePath("../img/face")
@@ -218,7 +218,7 @@ disable_3d = true
 transparent_bg = true
 handle_input_locally = false
 gui_disable_input = true
-size = Vector2i(768, 1024)
+size = Vector2i(768, 1280)
 size_2d_override = Vector2i(768, 1024)
 
 [node name="hair-back" type="Sprite2D" parent="img"]
