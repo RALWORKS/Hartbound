@@ -332,22 +332,22 @@ _data = {
 "base": SubResource("Animation_b3y3l")
 }
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_vw2b2"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_qvvsa"]
 viewport_path = NodePath("img")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_4ektx"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_puwmo"]
 viewport_path = NodePath("img")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_i8g3f"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_lt7vl"]
 viewport_path = NodePath("img")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_5dpqo"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_rro8f"]
 viewport_path = NodePath("img")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_necwr"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_bbtot"]
 viewport_path = NodePath("img")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_ndxh5"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_1gnqk"]
 viewport_path = NodePath("img")
 
 [sub_resource type="Animation" id="Animation_kqu14"]
@@ -755,7 +755,7 @@ visible = false
 position = Vector2(1680, 480)
 rotation = 1.34739
 scale = Vector2(2, 2)
-texture = SubResource("ViewportTexture_vw2b2")
+texture = SubResource("ViewportTexture_qvvsa")
 with_background = false
 start_frown = true
 
@@ -837,7 +837,7 @@ visible = false
 position = Vector2(1680, 480)
 rotation = 1.34739
 scale = Vector2(2, 2)
-texture = SubResource("ViewportTexture_4ektx")
+texture = SubResource("ViewportTexture_puwmo")
 with_background = false
 start_frown = true
 
@@ -940,7 +940,7 @@ visible = false
 position = Vector2(1680, 480)
 rotation = 1.34739
 scale = Vector2(2, 2)
-texture = SubResource("ViewportTexture_i8g3f")
+texture = SubResource("ViewportTexture_lt7vl")
 with_background = false
 start_frown = true
 
@@ -1023,7 +1023,7 @@ visible = false
 position = Vector2(1680, 480)
 rotation = 1.34739
 scale = Vector2(2, 2)
-texture = SubResource("ViewportTexture_5dpqo")
+texture = SubResource("ViewportTexture_rro8f")
 with_background = false
 start_frown = true
 
@@ -1071,7 +1071,7 @@ visible = false
 position = Vector2(344, 1078)
 rotation = 1.34739
 scale = Vector2(2, 2)
-texture = SubResource("ViewportTexture_necwr")
+texture = SubResource("ViewportTexture_bbtot")
 offset = Vector2(-200, -700)
 with_background = false
 start_frown = true
@@ -1081,7 +1081,7 @@ visible = false
 modulate = Color(1, 1, 1, 0)
 position = Vector2(1049, 1140)
 scale = Vector2(2, 2)
-texture = SubResource("ViewportTexture_ndxh5")
+texture = SubResource("ViewportTexture_1gnqk")
 offset = Vector2(-200, -700)
 with_background = false
 start_frown = true

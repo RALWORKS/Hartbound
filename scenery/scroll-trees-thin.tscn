@@ -206,7 +206,7 @@ texture = ExtResource("5_5nfal")
 centered = false
 
 [node name="Camera2D" type="Camera2D" parent="SubViewport"]
-position = Vector2(-280, 0)
+position = Vector2(950, 580)
 drag_left_margin = 0.0
 drag_top_margin = 0.0
 drag_right_margin = 0.0
