@@ -198,8 +198,13 @@ func start_from_state(s):
 		player.position.y = p.y
 	
 	load_quests()
+	load_display()
 	
 	started = true
+
+func load_display():
+	for m in get_active_player_display_modes():
+		player.call(m)
 	
 func main_menu():
 	var s = StartScreen.instantiate()

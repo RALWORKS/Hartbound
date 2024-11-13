@@ -5,6 +5,7 @@ extends Node
 @export var parse_data_as_int: bool
 @export var current_plus_data: bool
 @export var parse_data_as_bool: bool
+@export var data_as_slash_sep_list: bool
 
 func _parse_path(p: String):
 	return p.split("/")
@@ -20,6 +21,8 @@ func mutate():
 		d = int(data)
 	elif parse_data_as_bool:
 		d = data == "true"
+	elif data_as_slash_sep_list:
+		d = data.split("/")
 	if current_plus_data:
 		var cur = game.get_state(path)
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://b03wpar88cr5r"]
+[gd_scene load_steps=44 format=3 uid="uid://b03wpar88cr5r"]
 
 [ext_resource type="Script" path="res://character/player-walk.gd" id="1_s1ce1"]
 [ext_resource type="PackedScene" uid="uid://dhr0qbec14v6p" path="res://follower.tscn" id="2_2k6gm"]
@@ -16,6 +16,44 @@
 [ext_resource type="Texture2D" uid="uid://f3u4wjjde7ve" path="res://assets/character/hair/v1/long-back-bun/back/full.png" id="8_dhyik"]
 [ext_resource type="AudioStream" uid="uid://bfr0kt4krwjws" path="res://assets/sfx/footsteps1/both.ogg" id="12_0uv52"]
 [ext_resource type="Texture2D" uid="uid://cgfc1dfr6jvic" path="res://assets/emote-question.png" id="12_erhxf"]
+
+[sub_resource type="Animation" id="Animation_h783b"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_d7lh1"]
+resource_name = "base"
+length = 1.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, -0.0872665, 0.0872665, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fd5rs"]
+_data = {
+"RESET": SubResource("Animation_h783b"),
+"base": SubResource("Animation_d7lh1")
+}
 
 [sub_resource type="Animation" id="Animation_23u3m"]
 length = 0.001
@@ -166,6 +204,11 @@ scale = Vector2(0.75, 0.75)
 script = ExtResource("1_s1ce1")
 speed = 150
 
+[node name="Sway" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_fd5rs")
+}
+
 [node name="AllowedFollowers" type="Node" parent="."]
 
 [node name="Taylor" parent="AllowedFollowers" instance=ExtResource("2_2k6gm")]
@@ -269,6 +312,7 @@ shape = SubResource("CapsuleShape2D_17f0i")
 debug_color = Color(0.670588, 0.501961, 0.235294, 0.419608)
 
 [node name="Collision" type="CollisionShape2D" parent="."]
+rotation = -0.256563
 shape = SubResource("CircleShape2D_p2524")
 
 [node name="FollowerAgent" type="Node" parent="."]

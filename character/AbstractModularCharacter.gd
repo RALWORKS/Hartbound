@@ -42,6 +42,7 @@ var ANIMATIONS = {
 	"up-right-stopped": [6],
 	"up-left": [21, 23, 22, 23],
 	"up-left-stopped": [23],
+	"kneel": [24],
 	"Rotate": [0, 9, 12, 6, 3, 23, 17, 20]
 }
 
@@ -99,8 +100,8 @@ var PRONOUNS_NB = {
 	"[present tense]": "",
 }
 
-func play(animation_title):
-	$AnimationPlayer.play("movement/" + animation_title)
+func play(animation_title, custom_speed=1.0):
+	$AnimationPlayer.play("movement/" + animation_title, -1, custom_speed)
 
 func stop():
 	$AnimationPlayer.stop()
@@ -554,6 +555,11 @@ func load_texture():
 	_set_texture_from_save()
 	texture_updated()
 	return texture_settings
+
+func animate_at_mul(mul):
+	#frame_spacing = frame_spacing / mul
+	#_make_walk_animations()
+	pass
 
 func _ready():
 	game = $"/root".get_node_or_null("Game")

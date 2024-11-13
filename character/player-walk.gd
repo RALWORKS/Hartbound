@@ -1,11 +1,15 @@
 extends CharacterBody2D
 
 @export var speed = 110
+@export var speed_mul = 1
 @export var osc_rate = 0.2
 @export var is_demo_instance = false
 @export var turning_timeout = 0.05
 @export var is_profile = false
 @export var footstep_interval = 0.7
+@export var wobbly = false
+@export var collapsing = false
+@export var fallen = false
 var footstep_waiting = false
 
 var disable_all = false
@@ -51,6 +55,11 @@ var PRONOUNS = {
 
 func ghost_mode():
 	$char.modulate = "#ffffff88"
+
+func wobbly_no_canes():
+	wobbly = true
+	collapsing = true
+	speed_mul = 0.6
 
 func is_player():
 	return true
@@ -265,15 +274,26 @@ func arrow_keys_pressed(delta, arrow_keys):
 
 func walk():
 	#$Sprite2D/AnimatedSprite2D.play(anims[facing]["on"])
-	$char.play(anims[facing]["on"])
+	$char.play(anims[facing]["on"], speed_mul + _shuffle_footsteps())
+	if wobbly:
+		$Sway.play("base")
 
 func stop_walking():
 	#$Sprite2D/AnimatedSprite2D.play(anims[facing]["off"])
 	stop_footsteps()
+	
+	if fallen:
+		return
+	$Sway.play("RESET")
 	$char.play(anims[facing]["off"])
 	if not navigation_finished():
 		# set_destination(null)
 		emote_question()
+
+func _shuffle_footsteps():
+	if not wobbly:
+		return 0
+	return randf() / 1.5
 
 func _footstep():
 	footstep_waiting = false
@@ -285,7 +305,7 @@ func _footstep():
 	$Footsteps.playing = false
 	$Footsteps.playing = true
 	footstep_waiting = true
-	await get_tree().create_timer(footstep_interval).timeout
+	await get_tree().create_timer((footstep_interval / speed_mul) - _shuffle_footsteps()).timeout
 	_footstep()
 
 func stop_footsteps():
@@ -300,7 +320,7 @@ func set_anim():
 	if is_demo_instance:
 #		$char_anims.play("Rotate")
 		return
-	if (velocity.x**2 + velocity.y**2) < (speed*0.5)**2:
+	if (velocity.x**2 + velocity.y**2) < (speed*speed_mul*0.5)**2:
 		stop_walking()
 		return
 	if not footsteps_on:
@@ -353,17 +373,16 @@ func _handle_collisions(delta, collision, input_direction):
 	set_anim() # needed in order to face the right way when stopping
 	velocity = Vector2(0, 0) # 'cause here, we lose the direction
 
+func _wobble(v:  Vector2):
+	if not wobbly:
+		return v
+	var norm = v.angle() + 90
+	var osc = sin(Time.get_ticks_msec() / 250)
+	var sway = Vector2.from_angle(norm) * osc * v.length()
+	return v + sway
+
 func _modulate_velocity(direction):
-	return direction * speed
-#	var mul = (
-#		1 - (cos(
-#			((Time.get_ticks_msec() - osc_origin) - (0 * osc_rate)) / (250 * osc_rate))
-#		)
-#	)
-#	#return speed * direction
-#	if mul < 0.35:
-#		return direction * speed * 0.35
-#	return direction * speed * mul
+	return _wobble(direction * speed * speed_mul)
 
 func _refresh_destination_marker():
 	if destination_marker == null:
@@ -392,12 +411,20 @@ func _physics_process(delta):
 	call_follower()
 
 func go_direction(delta, input_direction):
+	if wobbly and sin(Time.get_ticks_msec() / 800) > 0.8:
+		$char.play("kneel")
+		fallen = true
+		velocity = Vector2(0, 0)
+		return
+	
 	if disable_all:
 		return
+	fallen = false
 	velocity = _modulate_velocity(input_direction)
 
 	var collision = move_and_collide(velocity * delta)
 	_handle_collisions(delta, collision, input_direction)
+	
 
 func _clear_staged_action_node():
 	game.unstage_action_node(game.staged_action_node)
