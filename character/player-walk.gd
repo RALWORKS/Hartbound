@@ -59,7 +59,7 @@ func ghost_mode():
 func wobbly_no_canes():
 	wobbly = true
 	collapsing = true
-	speed_mul = 0.6
+	speed_mul = 0.4
 
 func is_player():
 	return true
@@ -270,21 +270,25 @@ func arrow_keys_pressed(delta, arrow_keys):
 	unreachable = false
 	go_direction(delta, arrow_keys)
 
-
+func _extreme_shuffle_footsteps():
+	if not wobbly:
+		return speed_mul
+	return speed_mul * 2 * (2 - 2*_shuffle_footsteps())
 
 func walk():
 	#$Sprite2D/AnimatedSprite2D.play(anims[facing]["on"])
-	$char.play(anims[facing]["on"], speed_mul + _shuffle_footsteps())
+	$char.play(anims[facing]["on"], _extreme_shuffle_footsteps())
 	if wobbly:
 		$Sway.play("base")
+	if collapsing and $char.scale.x < 0:
+		$char.scale = Vector2($char.scale.x * -1, $char.scale.y)
 
 func stop_walking():
 	#$Sprite2D/AnimatedSprite2D.play(anims[facing]["off"])
 	stop_footsteps()
-	
+	$Sway.play("RESET")
 	if fallen:
 		return
-	$Sway.play("RESET")
 	$char.play(anims[facing]["off"])
 	if not navigation_finished():
 		# set_destination(null)
@@ -413,6 +417,8 @@ func _physics_process(delta):
 func go_direction(delta, input_direction):
 	if wobbly and sin(Time.get_ticks_msec() / 800) > 0.8:
 		$char.play("kneel")
+		if not fallen and velocity.x < 0:
+			$char.scale = Vector2($char.scale.x * -1, $char.scale.y)
 		fallen = true
 		velocity = Vector2(0, 0)
 		return
