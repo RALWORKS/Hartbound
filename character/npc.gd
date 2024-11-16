@@ -113,7 +113,8 @@ func _ready():
 		visible = false
 		return
 	
-	#$char.texture = texture
+	if texture:
+		$char.texture = texture
 	$InteractionArea.title = my_name()
 	$InteractionArea.setup_label()
 	$InteractionArea.reference_id = reference_id

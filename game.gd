@@ -198,7 +198,7 @@ func start_from_state(s):
 		player.position.y = p.y
 	
 	load_quests()
-	load_display()
+	#load_display()
 	
 	started = true
 

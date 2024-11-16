@@ -10,6 +10,9 @@ extends CharacterBody2D
 @export var wobbly = false
 @export var collapsing = false
 @export var fallen = false
+
+@export var animation_proxy: Node = null
+
 var footstep_waiting = false
 
 var disable_all = false
@@ -60,6 +63,15 @@ func wobbly_no_canes():
 	wobbly = true
 	collapsing = true
 	speed_mul = 0.4
+
+func taylor_carries_you():
+	print("taylor_carries_you")
+	var asset = preload("res://character/taylor_carries_you.tscn")
+	var rep = asset.instantiate()
+	get_parent().add_child(rep)
+	rep.position = Vector2(position.x, position.y)
+	rep.set_player(self)
+	speed_mul = 0.6
 
 func is_player():
 	return true
@@ -155,6 +167,25 @@ func texture_updated():
 
 func load_texture():
 	return $char.load_texture()
+	
+func set_v(v):
+	if animation_proxy:
+		animation_proxy.velocity = v
+		return
+	velocity = v
+
+func get_v():
+	if animation_proxy:
+		return animation_proxy.velocity
+	return velocity
+	
+func get_body():
+	if animation_proxy:
+		return animation_proxy
+	return self
+
+func body_delta():
+	return get_body().get_physics_process_delta_time()
 
 func _ready():
 	game = $"/root".get_node_or_null("Game")
@@ -257,18 +288,18 @@ func refresh_walk_direction():
 
 func no_input():
 	if navigation_finished():
-		velocity = Vector2(0, 0)
+		set_v(Vector2(0, 0))
 
 func destination_clicked(_delta):
 	if disable_all or paused:
 		return
 	set_destination($"..".get_global_mouse_position())
 
-func arrow_keys_pressed(delta, arrow_keys):
+func arrow_keys_pressed(_delta, arrow_keys):
 	if not navigation_agent.is_navigation_finished():
 		set_destination(null)
 	unreachable = false
-	go_direction(delta, arrow_keys)
+	go_direction(body_delta(), arrow_keys)
 
 func _extreme_shuffle_footsteps():
 	if not wobbly:
@@ -278,6 +309,8 @@ func _extreme_shuffle_footsteps():
 func walk():
 	#$Sprite2D/AnimatedSprite2D.play(anims[facing]["on"])
 	$char.play(anims[facing]["on"], _extreme_shuffle_footsteps())
+	if animation_proxy:
+		animation_proxy.play(anims[facing]["on"])
 	if wobbly:
 		$Sway.play("base")
 	if collapsing and $char.scale.x < 0:
@@ -290,6 +323,8 @@ func stop_walking():
 	if fallen:
 		return
 	$char.play(anims[facing]["off"])
+	if animation_proxy:
+		animation_proxy.play(anims[facing]["off"])
 	if not navigation_finished():
 		# set_destination(null)
 		emote_question()
@@ -324,26 +359,28 @@ func set_anim():
 	if is_demo_instance:
 #		$char_anims.play("Rotate")
 		return
-	if (velocity.x**2 + velocity.y**2) < (speed*speed_mul*0.5)**2:
+	var v = get_v()
+	if (v.x**2 + v.y**2) < (speed*speed_mul*0.5)**2:
 		stop_walking()
 		return
 	if not footsteps_on:
 		start_footsteps()
-	if velocity.y < -10 and velocity.x < -10:
+		
+	if v.y < -10 and v.x < -10:
 		facing = "up_left"
-	elif velocity.y < -10 and velocity.x > 10:
+	elif v.y < -10 and v.x > 10:
 		facing = "up_right"
-	elif velocity.y > 10 and velocity.x < -10:
+	elif v.y > 10 and v.x < -10:
 		facing = "down_left"
-	elif velocity.y > 10 and velocity.x > 10:
+	elif v.y > 10 and v.x > 10:
 		facing = "down_right"
-	elif velocity.y < -10:
+	elif v.y < -10:
 		facing = "up"
-	elif velocity.y > 10:
+	elif v.y > 10:
 		facing = "down"
-	elif velocity.x < 0:
+	elif v.x < 0:
 		facing = "left"
-	elif velocity.x > 0:
+	elif v.x > 0:
 		facing = "right"
 	if last_facing==null:
 		last_facing = facing
@@ -357,7 +394,7 @@ func set_anim():
 		last_facing = facing
 	walk()
 
-func _handle_collisions(delta, collision, input_direction):
+func _handle_collisions(_delta, collision, input_direction):
 	if not collision:
 		cur_collision = null
 		return
@@ -370,12 +407,12 @@ func _handle_collisions(delta, collision, input_direction):
 #		normal.y = normal.y * (1/0.655)
 #		normal = normal.normalized()
 		var slide = input_direction.slide(normal).normalized()
-		velocity = _modulate_velocity(slide)
-		move_and_collide(velocity * delta)
+		set_v(_modulate_velocity(slide))
+		get_body().move_and_collide(get_v() * body_delta())
 		return
 
 	set_anim() # needed in order to face the right way when stopping
-	velocity = Vector2(0, 0) # 'cause here, we lose the direction
+	set_v(Vector2(0, 0)) # 'cause here, we lose the direction
 
 func _wobble(v:  Vector2):
 	if not wobbly:
@@ -403,13 +440,13 @@ func _refresh_destination_marker():
 	else:
 		destination_marker.marker_x_mode()
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	_refresh_destination_marker()
 	if is_demo_instance:
 		return
 	var input_direction = refresh_walk_direction()
 	if input_direction != null:
-		go_direction(delta, input_direction)
+		go_direction(body_delta(), input_direction)
 
 	set_anim()
 	call_follower()
@@ -417,19 +454,19 @@ func _physics_process(delta):
 func go_direction(delta, input_direction):
 	if wobbly and sin(Time.get_ticks_msec() / 800) > 0.8:
 		$char.play("kneel")
-		if not fallen and velocity.x < 0:
+		if not fallen and get_v().x < 0:
 			$char.scale = Vector2($char.scale.x * -1, $char.scale.y)
 		fallen = true
-		velocity = Vector2(0, 0)
+		set_v(Vector2(0, 0))
 		return
 	
 	if disable_all:
 		return
 	fallen = false
-	velocity = _modulate_velocity(input_direction)
+	set_v(_modulate_velocity(input_direction))
 
-	var collision = move_and_collide(velocity * delta)
-	_handle_collisions(delta, collision, input_direction)
+	var collision = get_body().move_and_collide(get_v() * body_delta())
+	_handle_collisions(body_delta(), collision, input_direction)
 	
 
 func _clear_staged_action_node():

@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://bu73e221fmb3e"]
+
+[ext_resource type="Script" path="res://character/taylor_carries_you.gd" id="1_04b5t"]
+[ext_resource type="PackedScene" uid="uid://bl3qjgb340prl" path="res://character/npc.tscn" id="1_12h8b"]
+[ext_resource type="Texture2D" uid="uid://ivmtmxnvs7ck" path="res://assets/npcs/taylor/sprite-left-arm-out.png" id="2_2vdn6"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_u4q31"]
+radius = 19.0
+height = 86.0
+
+[node name="TaylorCarriesYou" type="CharacterBody2D"]
+script = ExtResource("1_04b5t")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_u4q31")
+
+[node name="NPC" parent="." instance=ExtResource("1_12h8b")]
+position = Vector2(-24, 0)
+disable_mode = 1
+collision_layer = 2
+collision_mask = 2
+id = "taylor"
+character_name = "<talyor>"
+texture = ExtResource("2_2vdn6")
