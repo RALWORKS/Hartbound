@@ -14,6 +14,9 @@ extends CharacterBody2D
 
 @export var animation_proxy: Node = null
 @export var next_static_animation = ""
+
+signal fell
+
 var current_static_animation = null
 var party = []
 var id = "player"
@@ -462,14 +465,20 @@ func _physics_process(_delta):
 
 	set_anim()
 	call_follower()
-
-func go_direction(delta, input_direction):
+	
+func about_to_fall():
 	if wobbly and sin(Time.get_ticks_msec() / 800) > 0.8:
 		$char.play("kneel")
 		if not fallen and get_v().x < 0:
 			$char.scale = Vector2($char.scale.x * -1, $char.scale.y)
 		fallen = true
 		set_v(Vector2(0, 0))
+		emit_signal("fell")
+		return true
+	return false
+
+func go_direction(delta, input_direction):
+	if about_to_fall():
 		return
 	
 	if disable_all:
