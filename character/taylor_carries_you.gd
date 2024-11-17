@@ -49,6 +49,11 @@ func set_player(p: CharacterBody2D):
 	char = p
 	char.collision_mask = 2
 	char.collision_layer = 2
+	$InteractBox.connect("body_entered", char.interact_hit)
+	$InteractBox.connect("body_exited", char.interact_exited)
+	$InteractBox.connect("area_entered", char.interact_hit)
+	$InteractBox.connect("area_exited", char.interact_exited)
+	$NPC.force_enter_range()
 
 
 func sort_layers(anim):

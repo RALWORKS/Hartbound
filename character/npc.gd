@@ -72,10 +72,13 @@ var anims = {
 var facing = "down_right"
 var stopped = false
 var turning = false
-var arrived_with_player = false
+@export var arrived_with_player = false
 @export var footstep_interval = 0.7
 var footstep_waiting = false
 var footsteps_on = false
+
+func force_enter_range():
+	$InteractionArea.in_range = true
 
 func _animation_from_frames(frames_sequence):
 	var animation = Animation.new()

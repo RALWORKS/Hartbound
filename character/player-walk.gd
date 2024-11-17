@@ -472,7 +472,7 @@ func go_direction(delta, input_direction):
 func _clear_staged_action_node():
 	game.unstage_action_node(game.staged_action_node)
 
-func _on_interact_box_body_entered(body):
+func interact_hit(body):
 	if body == game.staged_action_node:
 		set_destination(null)
 	
@@ -482,14 +482,21 @@ func _on_interact_box_body_entered(body):
 			set_destination(null)
 			stop_walking()
 		body.interact_range_entered()
+
+func interact_exited(body):
+	if body.has_method("interact_range_exited"):
+		body.interact_range_exited()
+	
 	
 	if body == game.staged_action_node:
 		_clear_staged_action_node()
 
+func _on_interact_box_body_entered(body):
+	interact_hit(body)
+
 
 func _on_interact_box_body_exited(body):
-	if body.has_method("interact_range_exited"):
-		body.interact_range_exited()
+	interact_exited(body)
 
 
 
