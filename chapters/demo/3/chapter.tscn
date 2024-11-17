@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cgenob2k8qwsg"]
+[gd_scene load_steps=11 format=3 uid="uid://cgenob2k8qwsg"]
 
 [ext_resource type="PackedScene" uid="uid://bh1yfkyt3u44i" path="res://chapter.tscn" id="1_e60jq"]
 [ext_resource type="PackedScene" uid="uid://7hjd5r2hc2bb" path="res://scenes/demo/3/main_map_1.tscn" id="3_ymglo"]
@@ -8,6 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://cml8kuj1isydh" path="res://chapters/demo/3/travel_cutscene_1.tscn" id="5_pno0o"]
 [ext_resource type="PackedScene" uid="uid://x317psh2wl6m" path="res://chapters/demo/3/end_cutscene_v0.tscn" id="5_y24gn"]
 [ext_resource type="Script" path="res://chapters/demo/1/CrossEWest.gd" id="6_8frcw"]
+[ext_resource type="Script" path="res://chapters/demo/3/CountPlayerFalls.gd" id="9_dd3iu"]
+[ext_resource type="PackedScene" uid="uid://nwe00wkbrlyf" path="res://chapters/demo/3/taylor_wants_to_help_you_walk.tscn" id="10_mp46n"]
 
 [node name="Chapter" instance=ExtResource("1_e60jq")]
 starting_scene = ExtResource("4_i77gl")
@@ -36,3 +38,7 @@ event_name = "SunTemple"
 [node name="DefaultWalk" parent="MapEvents" index="0" instance=ExtResource("4_ee8q1")]
 cutscene = ExtResource("5_pno0o")
 reusable = true
+
+[node name="CountPlayerFalls" type="Node" parent="." index="3"]
+script = ExtResource("9_dd3iu")
+party_help_cutscene = ExtResource("10_mp46n")

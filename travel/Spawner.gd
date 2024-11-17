@@ -51,15 +51,19 @@ func _spawn(c, shift, x, y):
 
 func spawn(g, x=null, y=null):
 	var character_instance = _spawn(character, Vector2(0, 0), x, y)
+	character_instance.spawner = self
 	var player_displays = g.get_active_player_display_modes()
 	for mode in player_displays:
 		character_instance.call(mode)
 	g.set_player(character_instance)
 	followers = character_instance.get_followers(g)
 	var offset = follower_offset
-	var last_follower = null
+	var last_follower = character_instance
 	for follower in followers:
 		follower_instance = _spawn(follower, offset, x, y)
+		if follower_instance.id in character_instance.omit_party_members:
+			follower_instance.free()
+			continue
 		follower_instance.start_following(g, last_follower)
 		character_instance.party.push_back(follower_instance)
 		offset += follower_offset

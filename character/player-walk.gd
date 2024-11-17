@@ -10,15 +10,18 @@ extends CharacterBody2D
 @export var wobbly = false
 @export var collapsing = false
 @export var fallen = false
-@export var personal_space = 150
+@export var personal_space = 70
 
 @export var animation_proxy: Node = null
 @export var next_static_animation = ""
 
 signal fell
 
+var spawner = null
+
 var current_static_animation = null
 var party = []
+var omit_party_members = []
 var id = "player"
 
 var footstep_waiting = false
@@ -54,6 +57,18 @@ var wait_to_call_follower = false
 var arrived_with_player = false
 var footsteps_on = false
 
+
+func respawn():
+	get_parent().remove_child(self)
+	spawner.spawn(game, position.x, position.y)
+	var party_map = {}
+	for p in party:
+		party_map[p.id] = p.position
+		p.free()
+	for p in game.player.party:
+		p.position = party_map[p.id]
+	queue_free()
+
 func verb(base):
 	if base in ["is", "are"]:
 		return 
@@ -71,7 +86,10 @@ func wobbly_no_canes():
 	wobbly = true
 	collapsing = true
 	speed_mul = 0.4
-	follower_call_interval = 1
+
+func clear_follower_data():
+	follower_to_positions = []
+	next_follower_position = null
 
 func taylor_carries_you():
 	print("taylor_carries_you")
@@ -81,6 +99,10 @@ func taylor_carries_you():
 	rep.position = Vector2(position.x, position.y)
 	rep.set_player(self)
 	speed_mul = 0.6
+	personal_space = 100
+	follower_to_positions = []
+	next_follower_position = null
+	omit_party_members = ["taylor"]
 
 func is_player():
 	return true
@@ -187,7 +209,12 @@ func get_v():
 	if animation_proxy:
 		return animation_proxy.velocity
 	return velocity
-	
+
+func get_p():
+	if animation_proxy:
+		return animation_proxy.position
+	return position
+
 func get_body():
 	if animation_proxy:
 		return animation_proxy
@@ -220,7 +247,7 @@ var facing = "down_right"
 var stopped = false
 
 func follower_arrived():
-	while follower_to_positions.size() > 0.5/0.05:
+	while follower_to_positions.size() > 0:
 		follower_to_positions.pop_back()
 
 func turn():
@@ -231,9 +258,9 @@ func turn():
 func call_follower():
 	if wait_to_call_follower or not has_follower:
 		return
-	if next_follower_position and next_follower_position.distance_to(position) > 1:
+	if next_follower_position and next_follower_position.distance_to(get_p()) > 1:
 		follower_to_positions.push_front(next_follower_position)
-	next_follower_position = position
+	next_follower_position = get_p()
 	wait_to_call_follower = true
 	await get_tree().create_timer(follower_call_interval).timeout
 	wait_to_call_follower = false
@@ -470,10 +497,10 @@ func about_to_fall():
 	if wobbly and sin(Time.get_ticks_msec() / 800) > 0.8:
 		$char.play("kneel")
 		if not fallen and get_v().x < 0:
+			emit_signal("fell")
 			$char.scale = Vector2($char.scale.x * -1, $char.scale.y)
 		fallen = true
 		set_v(Vector2(0, 0))
-		emit_signal("fell")
 		return true
 	return false
 

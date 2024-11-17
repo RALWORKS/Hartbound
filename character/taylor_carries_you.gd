@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 var char: CharacterBody2D = null
+var id = "player"
 
 
 var POSITIONS = {
@@ -43,6 +44,11 @@ var LAYERS = {
 func is_player():
 	return true
 
+var party = []
+
+func clear_follower_data():
+	char.clear_follower_data()
+
 func set_player(p: CharacterBody2D):
 	#p.position = Vector2(-position.x, -position.y)
 
@@ -52,6 +58,9 @@ func set_player(p: CharacterBody2D):
 	char = p
 	char.collision_mask = 2
 	char.collision_layer = 2
+	
+	party = char.party
+	
 	$InteractBox.connect("body_entered", char.interact_hit)
 	$InteractBox.connect("body_exited", char.interact_exited)
 	$InteractBox.connect("area_entered", char.interact_hit)

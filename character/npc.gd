@@ -8,9 +8,10 @@ extends CharacterBody2D
 @export var starting_animaton = "down-stopped"
 var last_starting_animation = "down-stopped"
 @export var speed = 150
+@export var speed_mul = 1
 @export var leader: CharacterBody2D
 @export var follow_distance = 150
-@export var personal_space = 150
+@export var personal_space = 100
 
 var last_collision = null
 var cur_collision = null
@@ -199,12 +200,12 @@ func start_footsteps():
 	if not footstep_waiting:
 		_footstep()
 
-func _go():
+func _throttle():
 	going = true
 	var tree = get_tree()
 	if tree == null:
 		return
-	await tree.create_timer(0.05).timeout
+	await tree.create_timer(leader.follower_call_interval).timeout
 	going = false
 	
 	if last_position == position:
@@ -220,7 +221,7 @@ func set_anim():
 	if turning:
 		return
 	_turn()
-	if (velocity.x**2 + velocity.y**2) < (speed*0.75):
+	if (velocity.x**2 + velocity.y**2) < (speed*speed_mul*0.75):
 		stop_walking()
 		return
 	if not footsteps_on:
@@ -256,7 +257,7 @@ func _handle_collisions(delta, collision, input_direction):
 #		normal.y = normal.y * (1/0.655)
 #		normal = normal.normalized()
 		var slide = input_direction.slide(normal).normalized()
-		velocity = slide * speed
+		velocity = slide * speed * speed_mul
 		move_and_collide(velocity * delta)
 		return
 
@@ -264,27 +265,28 @@ func _handle_collisions(delta, collision, input_direction):
 	velocity = Vector2(0, 0) # 'cause here, we lose the direction
 	#navigation_agent.target_position = global_position
 
+func get_p():
+	return position
+
 func follow():
-	_go()
-#	if abs(position.distance_to(leader.position)) > follow_distance and not waiting:
+	_throttle()
+	if (
+		abs(position.distance_to(leader.get_p())) < follow_distance
+	):
+		stuck_counter = 0
+		waiting = true
+		leader.follower_arrived()
+		if (position.distance_to(leader.get_p()) < leader.personal_space):
+			# get out of the way
+			return Vector2.from_angle(get_angle_to(leader.get_p()) + 180)
+		return Vector2(0, 0)
+	waiting = false
 	if not navigation_agent.is_navigation_finished() and stuck_counter < 7:
 		return
-	if (
-#		waiting
-#		or 
-		abs(position.distance_to(leader.position)) < follow_distance
-	):
-		if (position.distance_to(leader.position) < 70):
-			leader.follower_arrived()
-			return Vector2.from_angle(get_angle_to(leader.position) * -1)
-		
-		navigation_agent.target_position = global_position
-		stuck_counter = 0
-		return # Vector2(0, 0)
 
 	if (
 		next_position == null
-		or abs(position.distance_to(next_position)) < speed*0.05
+		or abs(position.distance_to(next_position)) < speed*speed_mul*leader.follower_call_interval
 		# below, to get around corners
 		or (last_position and position.distance_to(last_position) < 1)
 		
@@ -296,10 +298,7 @@ func follow():
 
 	if next_position == null:
 		navigation_agent.target_position = global_position
-		return # Vector2(0, 0)
-
-	
-	#var input_direction = position.direction_to(next_position)
+		return
 	
 	navigation_agent.target_position = next_position
 	return
@@ -322,20 +321,21 @@ func call_follower():
 func _physics_process(delta):
 	if not leader:
 		return
+		
 	
 	if not going:
 		direction = follow()
+	
+	if direction != null:
+		velocity = speed * speed_mul * direction
 
-	if not navigation_agent.is_navigation_finished():
+	elif not navigation_agent.is_navigation_finished():
 		var cur_agent_position: Vector2 = global_position
 		var next_path_position: Vector2 = navigation_agent.get_next_path_position()
 	
 		direction = next_path_position - cur_agent_position
 		direction = direction.normalized()
-	
-	if direction != null:
-		velocity = speed * direction
-	
+
 	else:
 		direction = Vector2(0, 0)
 	
@@ -346,17 +346,19 @@ func _physics_process(delta):
 	call_follower()
 
 func follower_arrived():
-	while follower_to_positions.size() > 0.5/0.05:
+	while follower_to_positions.size() > 0:
 		follower_to_positions.pop_back()
 
 func start_following(g, custom_leader=null):
 	leader = custom_leader if custom_leader else g.player
 	leader.has_follower = true
 	leader.follower_arrived()
+	speed_mul = leader.speed_mul
+	print(leader, leader.personal_space)
 	if custom_leader:
 		return
 	var party = g.get_state(["party"])
-	follow_distance = leader.personal_space
+	follow_distance = leader.personal_space * 2
 	if not self.id in party:
 		g.set_state(["party"], [self.id] + party)
 
@@ -367,6 +369,10 @@ func action():
 		$"/root/Game/Chapter".start_cutscene(base_dialogue, self)
 
 	return
+	
+func clear_follower_data():
+	follower_to_positions = []
+	next_follower_position = null
 
 
 

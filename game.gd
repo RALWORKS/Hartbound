@@ -629,6 +629,10 @@ func free_world():
 
 func set_player_display_modes(mode_names: Array):
 	return set_state(["micro_progress", "player_display_modes"], mode_names)
+	
+func live_change_player_mode(mode_names: Array):
+	set_player_display_modes(mode_names)
+	player.respawn()
 
 func get_active_player_display_modes():
 	var modes = get_state(["micro_progress", "player_display_modes"])

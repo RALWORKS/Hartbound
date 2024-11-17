@@ -45,6 +45,5 @@ func triggered(player: Node2D):
 func done(id):
 	for f in party:
 		f.position = position_map[f.id]
-		f.follower_to_positions = []
-		f.next_follower_position = null
+		f.clear_follower_data()
 		map.add_child(f)
