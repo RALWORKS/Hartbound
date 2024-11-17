@@ -519,7 +519,7 @@ func get_followers_from_state():
 func check_state_for_follower(npc):
 	_init_party_if_needed()
 	var followers = get_state(["party"])
-	return npc.id in followers
+	return followers.has(npc.id)
 
 func remove_inventory_item(item):
 	init_inventory_if_needed()

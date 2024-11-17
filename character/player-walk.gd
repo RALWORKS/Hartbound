@@ -10,6 +10,7 @@ extends CharacterBody2D
 @export var wobbly = false
 @export var collapsing = false
 @export var fallen = false
+@export var personal_space = 150
 
 @export var animation_proxy: Node = null
 
@@ -63,6 +64,7 @@ func wobbly_no_canes():
 	wobbly = true
 	collapsing = true
 	speed_mul = 0.4
+	follower_call_interval = 1
 
 func taylor_carries_you():
 	print("taylor_carries_you")
@@ -528,11 +530,13 @@ func _on_tree_entered():
 	await get_tree().create_timer(0.2).timeout
 	paused = false
 
-func get_follower(g):
+func get_followers(g):
 	var data = g.get_followers_from_state()
-	var followers = $AllowedFollowers.get_children().filter(
-		func (f): return f.id in data
-	)
-	if followers.size() == 0:
-		return
-	return followers[0].resource
+	print(data)
+	var followers = []
+	for f in data:
+		var n = $AllowedFollowers.get_node(f)
+		if not n:
+			continue
+		followers.push_back(n.resource)
+	return followers

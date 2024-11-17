@@ -6,7 +6,7 @@ extends Node2D
 
 var character = preload("res://character/character.tscn")
 var follower_instance = null
-var follower = false
+var followers = []
 var spawn_on_ready = false
 
 # Called when the node enters the scene tree for the first time.
@@ -55,7 +55,11 @@ func spawn(g, x=null, y=null):
 	for mode in player_displays:
 		character_instance.call(mode)
 	g.set_player(character_instance)
-	follower = character_instance.get_follower(g)
-	if follower:
-		follower_instance = _spawn(follower, follower_offset, x, y)
-		follower_instance.start_following(g)
+	followers = character_instance.get_followers(g)
+	var offset = follower_offset
+	var last_follower = null
+	for follower in followers:
+		follower_instance = _spawn(follower, offset, x, y)
+		follower_instance.start_following(g, last_follower)
+		offset += follower_offset
+		last_follower = follower_instance

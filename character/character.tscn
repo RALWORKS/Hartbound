@@ -211,15 +211,15 @@ libraries = {
 
 [node name="AllowedFollowers" type="Node" parent="."]
 
-[node name="Taylor" parent="AllowedFollowers" instance=ExtResource("2_2k6gm")]
+[node name="taylor" parent="AllowedFollowers" instance=ExtResource("2_2k6gm")]
 id = "taylor"
 resource = ExtResource("3_hek6k")
 
-[node name="Nate" parent="AllowedFollowers" instance=ExtResource("2_2k6gm")]
+[node name="nate" parent="AllowedFollowers" instance=ExtResource("2_2k6gm")]
 id = "taylor"
 resource = ExtResource("4_0yyfu")
 
-[node name="Brona" parent="AllowedFollowers" instance=ExtResource("2_2k6gm")]
+[node name="brona" parent="AllowedFollowers" instance=ExtResource("2_2k6gm")]
 id = "taylor"
 resource = ExtResource("5_66jup")
 

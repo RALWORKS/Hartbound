@@ -8,6 +8,7 @@ var last_starting_animation = "down-stopped"
 @export var speed = 150
 @export var leader: CharacterBody2D
 @export var follow_distance = 150
+@export var personal_space = 150
 
 var last_collision = null
 var cur_collision = null
@@ -35,6 +36,14 @@ var direction = Vector2(0, 0)
 
 var next_position = null
 var last_position = null
+
+@export var follower_call_interval = 0.05
+@export var has_follower = false
+var follower_to_positions = []
+var next_follower_position = null
+var wait_to_call_follower = false
+var footsteps_on = false
+
 
 @onready var navigation_agent: NavigationAgent2D = $NavigationAgent2D
 
@@ -75,7 +84,6 @@ var turning = false
 @export var arrived_with_player = false
 @export var footstep_interval = 0.7
 var footstep_waiting = false
-var footsteps_on = false
 
 func force_enter_range():
 	$InteractionArea.in_range = true
@@ -298,6 +306,16 @@ func _process(_delta):
 		if starting_animaton != last_starting_animation:
 			play_starting_animation()
 
+func call_follower():
+	if wait_to_call_follower or not has_follower:
+		return
+	if next_follower_position and next_follower_position.distance_to(position) > 1:
+		follower_to_positions.push_front(next_follower_position)
+	next_follower_position = position
+	wait_to_call_follower = true
+	await get_tree().create_timer(follower_call_interval).timeout
+	wait_to_call_follower = false
+
 func _physics_process(delta):
 	if not leader:
 		return
@@ -322,14 +340,22 @@ func _physics_process(delta):
 	_handle_collisions(delta, collision, direction)
 
 	set_anim()
+	call_follower()
 
-func start_following(g):
-	leader = g.player
-	print(g.player, g.player.position)
+func follower_arrived():
+	while follower_to_positions.size() > 0.5/0.05:
+		follower_to_positions.pop_back()
+
+func start_following(g, custom_leader=null):
+	leader = custom_leader if custom_leader else g.player
 	leader.has_follower = true
 	leader.follower_arrived()
-	#g.set_state(["micro_progress", "priestess_follows"], true)
-	g.set_state(["party"], [self.id])
+	if custom_leader:
+		return
+	var party = g.get_state(["party"])
+	follow_distance = leader.personal_space
+	if not self.id in party:
+		g.set_state(["party"], [self.id] + party)
 
 func action():
 	if process_mode == Node.PROCESS_MODE_DISABLED or disabled:

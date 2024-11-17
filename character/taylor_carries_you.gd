@@ -40,6 +40,9 @@ var LAYERS = {
 	"up-left-stopped": 1,
 }
 
+func is_player():
+	return true
+
 func set_player(p: CharacterBody2D):
 	#p.position = Vector2(-position.x, -position.y)
 
