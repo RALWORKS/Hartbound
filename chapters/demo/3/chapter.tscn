@@ -1,24 +1,29 @@
 [gd_scene load_steps=9 format=3 uid="uid://cgenob2k8qwsg"]
 
 [ext_resource type="PackedScene" uid="uid://bh1yfkyt3u44i" path="res://chapter.tscn" id="1_e60jq"]
-[ext_resource type="PackedScene" uid="uid://lw7adtj0heus" path="res://scenes/demo/3/camp_1.tscn" id="2_x1i8w"]
 [ext_resource type="PackedScene" uid="uid://7hjd5r2hc2bb" path="res://scenes/demo/3/main_map_1.tscn" id="3_ymglo"]
 [ext_resource type="PackedScene" uid="uid://b1skvjxeeblbv" path="res://chapter_event.tscn" id="4_ee8q1"]
+[ext_resource type="PackedScene" uid="uid://dmgl4y751t2hh" path="res://scenes/demo/3/industrial/f.tscn" id="4_i77gl"]
 [ext_resource type="PackedScene" uid="uid://k5ppaeyln4yw" path="res://chapter_event_mutation.tscn" id="4_o6yu4"]
 [ext_resource type="PackedScene" uid="uid://cml8kuj1isydh" path="res://chapters/demo/3/travel_cutscene_1.tscn" id="5_pno0o"]
 [ext_resource type="PackedScene" uid="uid://x317psh2wl6m" path="res://chapters/demo/3/end_cutscene_v0.tscn" id="5_y24gn"]
 [ext_resource type="Script" path="res://chapters/demo/1/CrossEWest.gd" id="6_8frcw"]
 
 [node name="Chapter" instance=ExtResource("1_e60jq")]
-starting_scene = ExtResource("2_x1i8w")
+starting_scene = ExtResource("4_i77gl")
 map = ExtResource("3_ymglo")
 
 [node name="StartChapter" parent="Events" index="0"]
-to_scene = ExtResource("2_x1i8w")
+cutscene = ExtResource("4_i77gl")
 
 [node name="Wobbly" parent="Events/StartChapter" index="0" instance=ExtResource("4_o6yu4")]
 state_path_slash_delineated = "micro_progress/player_display_modes"
 data = "wobbly_no_canes"
+data_as_slash_sep_list = true
+
+[node name="Party" parent="Events/StartChapter" index="1" instance=ExtResource("4_o6yu4")]
+state_path_slash_delineated = "party"
+data = "taylor/brona"
 data_as_slash_sep_list = true
 
 [node name="SunTemple" parent="Events" index="1" instance=ExtResource("4_ee8q1")]

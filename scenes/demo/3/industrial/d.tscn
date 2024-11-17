@@ -1,0 +1,173 @@
+[gd_scene load_steps=20 format=3 uid="uid://kwhyhclcqon"]
+
+[ext_resource type="PackedScene" uid="uid://byrlpmbpj6yr5" path="res://scene.tscn" id="1_3gm5w"]
+[ext_resource type="Texture2D" uid="uid://bjerew5lp6nnj" path="res://assets/scenes/demo/1/industrial/d.png" id="2_vwh84"]
+[ext_resource type="Texture2D" uid="uid://ufjnx3yc65s3" path="res://assets/scenes/demo/1/industrial/d-ledge-a.png" id="3_wobom"]
+[ext_resource type="Texture2D" uid="uid://bh7jf288jwlvc" path="res://assets/scenes/demo/1/industrial/d-ledge-b.png" id="4_dadfe"]
+[ext_resource type="Texture2D" uid="uid://l5ragloxq0di" path="res://assets/scenes/demo/1/industrial/d-ledge-c.png" id="5_7qolh"]
+[ext_resource type="Texture2D" uid="uid://cqmb21dfyhc2r" path="res://assets/scenes/demo/1/industrial/d-ledge-d.png" id="6_4lwqe"]
+[ext_resource type="Texture2D" uid="uid://dyab5s4gcbtrb" path="res://assets/scenes/demo/1/industrial/d-corner-tree.png" id="7_mul0y"]
+[ext_resource type="PackedScene" uid="uid://dxfuidhlgwthh" path="res://travel/door.tscn" id="8_4gqj5"]
+[ext_resource type="PackedScene" path="res://switch.tscn" id="9_if6ef"]
+[ext_resource type="Texture2D" uid="uid://bl1tryhrv1urn" path="res://assets/scenes/demo/1/industrial/roof-gate/fence-right.png" id="10_rgn14"]
+[ext_resource type="Texture2D" uid="uid://g8hwe8sg2o1" path="res://assets/scenery/extra-tree-coloured-bright/bright-young-tree.png" id="11_wcv4v"]
+[ext_resource type="Texture2D" uid="uid://bpt2b5ckp8am2" path="res://assets/scenes/demo/1/industrial/roof-gate/fence-left.png" id="12_6fjk7"]
+[ext_resource type="PackedScene" uid="uid://blhapbv7bnq0p" path="res://quests/quest_boundary.tscn" id="13_ikh84"]
+[ext_resource type="Texture2D" uid="uid://dwvf22vxkob24" path="res://assets/scenery/extra-tree-coloured-bright/forest-cluster.png" id="14_gxlj7"]
+[ext_resource type="Texture2D" uid="uid://nwsqvjdnlosw" path="res://assets/scenery/extra-tree-coloured-bright/trees-and-broken-stone.png" id="15_qvlff"]
+[ext_resource type="Texture2D" uid="uid://ct44l1mn40hpo" path="res://assets/scenes/demo/1/industrial/roof-gate/gate.png" id="16_aobju"]
+[ext_resource type="Script" path="res://scenes/demo/1/industrial/d-StairsSwitchScript.gd" id="16_t1rng"]
+[ext_resource type="Texture2D" uid="uid://bepx8msnu5co5" path="res://assets/scenes/demo/1/industrial/d-front-rubble.png" id="18_6q65c"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_xwl0q"]
+vertices = PackedVector2Array(867, 16, 1580, 9, 660, 431, 613, 342, 1158, 646, 1632, 276, 1590, 893, 1259, 704, 573, 1066, 474, 1152, 47, 1124, 287, 514, 561, 874, 967, 1189, 1038, 1206, 942, 1267, 906, 1196, 806, 1253)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 5, 6, 7), PackedInt32Array(8, 9, 10, 11, 12), PackedInt32Array(13, 4, 7, 14, 15), PackedInt32Array(16, 13, 15, 17), PackedInt32Array(8, 16, 17, 9), PackedInt32Array(2, 12, 11, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(1632, 276, 1158, 646, 967, 1189, 906, 1196, 573, 1066, 561, 874, 660, 431, 1580, 9, 867, 16, 613, 342, 287, 514, 47, 1124, 474, 1152, 806, 1253, 942, 1267, 1038, 1206, 1259, 704, 1590, 893)])
+
+[node name="Scene" instance=ExtResource("1_3gm5w")]
+
+[node name="Background" parent="." index="0"]
+texture = ExtResource("2_vwh84")
+
+[node name="front-corner" type="CollisionPolygon2D" parent="Background/StaticBody2D" index="0"]
+polygon = PackedVector2Array(1081, 1260, 1059, 1233, 1261, 757, 1636, 966, 1640, 1307)
+
+[node name="GROUND-side-overhang" type="CollisionPolygon2D" parent="Background/StaticBody2D" index="1"]
+polygon = PackedVector2Array(1119, 688, 933, 1161, 846, 937, 830, 845, 774, 831, 785, 773, 856, 595, 1700, 91, 1698, 209, 1020, 625)
+
+[node name="ROOF-side-overhang" type="CollisionPolygon2D" parent="Background/StaticBody2D" index="2"]
+polygon = PackedVector2Array(1119, 688, 933, 1161, 846, 937, 830, 845, 774, 831, 785, 773, 757, 506, 1587, 56, 1617, 86, 868, 527)
+disabled = true
+
+[node name="edge" type="CollisionPolygon2D" parent="Background/StaticBody2D" index="3"]
+polygon = PackedVector2Array(19, 1236, 14, 19, 1595, 19, 1585, 1210, 1077, 1229, 993, 1283, 857, 1288, 661, 1229, 363, 1207, 33, 1236, 96, 1480, 1944, 1448, 1804, -187, -358, -60, -208, 1600)
+
+[node name="grove" type="CollisionPolygon2D" parent="Background/StaticBody2D" index="4"]
+polygon = PackedVector2Array(15, 16, -74, 205, 30, 232, 178, 205, 214, 328, 439, 287, 556, 281, 651, 245, 632, 156, 592, 54, 592, -11)
+
+[node name="DefaultSpawner" parent="YSort" index="0"]
+position = Vector2(1420, 480)
+
+[node name="front-ledge-1" type="Sprite2D" parent="YSort" index="1"]
+position = Vector2(1499.5, 333)
+texture = ExtResource("3_wobom")
+offset = Vector2(0, -100)
+
+[node name="front-ledge-2" type="Sprite2D" parent="YSort" index="2"]
+position = Vector2(1323.75, 400.43)
+scale = Vector2(1.0503, 1.0132)
+texture = ExtResource("4_dadfe")
+offset = Vector2(0, -100)
+
+[node name="front-ledge-3" type="Sprite2D" parent="YSort" index="3"]
+position = Vector2(1154.5, 539)
+texture = ExtResource("5_7qolh")
+offset = Vector2(0, -100)
+
+[node name="front-ledge-4" type="Sprite2D" parent="YSort" index="4"]
+position = Vector2(957.5, 657)
+texture = ExtResource("6_4lwqe")
+offset = Vector2(0, -100)
+
+[node name="corner-tree" type="Sprite2D" parent="YSort" index="5"]
+position = Vector2(799, 614)
+texture = ExtResource("7_mul0y")
+offset = Vector2(0, 50)
+
+[node name="NorthGround" parent="YSort" index="6" instance=ExtResource("8_4gqj5")]
+position = Vector2(975, 32)
+scale = Vector2(9, 1)
+dest_resource = "res://scenes/demo/3/industrial/c.tscn"
+dest_edge = "SouthGround"
+
+[node name="WestGround" parent="YSort" index="7" instance=ExtResource("8_4gqj5")]
+position = Vector2(24, 785)
+rotation = -1.5708
+scale = Vector2(9, 1)
+dest_resource = "res://scenes/demo/3/industrial/e.tscn"
+dest_edge = "East"
+
+[node name="StairsSwitch" parent="YSort" index="8" node_paths=PackedStringArray("on_off_script", "extend_off_switch") instance=ExtResource("9_if6ef")]
+position = Vector2(1143, 659)
+rotation = 0.523599
+on_off_script = NodePath("../../StairsSwitchScript")
+extend_off_switch = NodePath("../UpperRegion")
+on = true
+
+[node name="UpperRegion" type="Area2D" parent="YSort" index="9"]
+
+[node name="HIT" type="CollisionPolygon2D" parent="YSort/UpperRegion" index="0"]
+position = Vector2(38, -17)
+polygon = PackedVector2Array(1596, 894, 1075, 588, 1767, 175, 1692, 888)
+
+[node name="NavigationAll" type="NavigationRegion2D" parent="YSort" index="10"]
+navigation_polygon = SubResource("NavigationPolygon_xwl0q")
+
+[node name="fence-right" type="Sprite2D" parent="YSort" index="11"]
+position = Vector2(721, 983)
+scale = Vector2(0.972789, 1)
+texture = ExtResource("10_rgn14")
+offset = Vector2(0, -110)
+
+[node name="tree4" type="Sprite2D" parent="YSort/fence-right" index="0"]
+modulate = Color(0.890196, 0.866667, 0.847059, 1)
+position = Vector2(86.3495, 18)
+scale = Vector2(0.513986, 0.5)
+texture = ExtResource("11_wcv4v")
+offset = Vector2(0, -450)
+
+[node name="FuckySB" type="StaticBody2D" parent="YSort/fence-right" index="1"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/fence-right/FuckySB" index="0"]
+position = Vector2(-199, 42)
+polygon = PackedVector2Array(141.434, 38, 78.7272, -29.9999, 331, -167, 380, -129, 384.035, 15)
+
+[node name="fence-left" type="Sprite2D" parent="YSort" index="12"]
+position = Vector2(270, 1211)
+texture = ExtResource("12_6fjk7")
+offset = Vector2(0, -150)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="YSort/fence-left" index="0"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/fence-left/StaticBody2D" index="0"]
+position = Vector2(-199, 42)
+polygon = PackedVector2Array(75.0001, 73, 52, -56, 573, -280, 636, -220, 414, -16)
+
+[node name="QuestBoundary" parent="YSort" index="13" instance=ExtResource("13_ikh84")]
+trigger_name = "TaylorRoofEntrance"
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/QuestBoundary" index="1"]
+polygon = PackedVector2Array(448, 1219, 721, 1078, 868, 1035, 919, 1157, 646, 1225)
+
+[node name="tree1" type="Sprite2D" parent="YSort" index="14"]
+modulate = Color(0.890196, 0.866667, 0.847059, 1)
+position = Vector2(433, 188)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("14_gxlj7")
+offset = Vector2(0, -250)
+
+[node name="tree2" type="Sprite2D" parent="YSort" index="15"]
+modulate = Color(0.890196, 0.866667, 0.847059, 1)
+position = Vector2(205, 84)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("15_qvlff")
+offset = Vector2(0, -250)
+
+[node name="tree3" type="Sprite2D" parent="YSort" index="16"]
+modulate = Color(0.890196, 0.866667, 0.847059, 1)
+position = Vector2(61, 1090)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("15_qvlff")
+offset = Vector2(0, -250)
+
+[node name="gate" type="Sprite2D" parent="YSort" index="17"]
+position = Vector2(528, 992)
+texture = ExtResource("16_aobju")
+
+[node name="StairsSwitchScript" type="Node" parent="." index="2"]
+script = ExtResource("16_t1rng")
+
+[node name="rubble" type="Sprite2D" parent="." index="3"]
+position = Vector2(353, 1106)
+texture = ExtResource("18_6q65c")
+offset = Vector2(0, 50)

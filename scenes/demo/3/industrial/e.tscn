@@ -1,0 +1,166 @@
+[gd_scene load_steps=20 format=3 uid="uid://cy3s51552gape"]
+
+[ext_resource type="PackedScene" uid="uid://byrlpmbpj6yr5" path="res://scene.tscn" id="1_pu5um"]
+[ext_resource type="Texture2D" uid="uid://bgosew3t2w5s6" path="res://assets/scenes/demo/1/industrial/e.png" id="2_ttjxn"]
+[ext_resource type="Texture2D" uid="uid://bxyqp1jfiug4k" path="res://assets/scenes/demo/1/industrial/e-car.png" id="3_h3plt"]
+[ext_resource type="Texture2D" uid="uid://cjrm27beguqu8" path="res://assets/scenes/demo/1/industrial/e-back-rocks-2.png" id="4_n6v8a"]
+[ext_resource type="Texture2D" uid="uid://b7stv73goj4s6" path="res://assets/scenes/demo/1/industrial/e-back-rocks-1.png" id="5_3u7vv"]
+[ext_resource type="PackedScene" uid="uid://dxfuidhlgwthh" path="res://travel/door.tscn" id="6_guimh"]
+[ext_resource type="PackedScene" uid="uid://cl4heje674d3q" path="res://item/interaction_area.tscn" id="7_irtuk"]
+[ext_resource type="PackedScene" uid="uid://cpbg7yuq873y5" path="res://item/interaction_action.tscn" id="10_5f4oc"]
+[ext_resource type="PackedScene" uid="uid://dh1scrjroovcn" path="res://item/interaction_modal_maker.tscn" id="11_c3es0"]
+[ext_resource type="PackedScene" uid="uid://bkyp4rqktyinq" path="res://item/interact_range_extender.tscn" id="12_0qg8w"]
+[ext_resource type="PackedScene" uid="uid://cskb4b7di5efb" path="res://chapters/demo/1/dialogues/car_hood.tscn" id="13_w054f"]
+[ext_resource type="Texture2D" uid="uid://bfmygrdvdfbag" path="res://assets/items/demo-1/alternator-large.png" id="14_tdub2"]
+[ext_resource type="PackedScene" uid="uid://btcaowwqv7a55" path="res://chapters/demo/1/tmp_take.tscn" id="15_6pnkg"]
+[ext_resource type="Texture2D" uid="uid://g8hwe8sg2o1" path="res://assets/scenery/extra-tree-coloured-bright/bright-young-tree.png" id="16_wm0tw"]
+[ext_resource type="Texture2D" uid="uid://bthiiqiqte0bc" path="res://assets/scenery/extra-tree-coloured-bright/pair-of-pines.png" id="17_3phad"]
+[ext_resource type="Texture2D" uid="uid://nwsqvjdnlosw" path="res://assets/scenery/extra-tree-coloured-bright/trees-and-broken-stone.png" id="18_jmlgt"]
+[ext_resource type="Texture2D" uid="uid://dwvf22vxkob24" path="res://assets/scenery/extra-tree-coloured-bright/forest-cluster.png" id="19_tjodo"]
+[ext_resource type="Texture2D" uid="uid://c6wxva2f6mqyn" path="res://assets/scenes/demo/1/industrial/e-front-wall.png" id="20_6yvv5"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_30nyk"]
+vertices = PackedVector2Array(1091, 341, 986, -1, 1634, -44, 1612, 694, 995, 986, 916, 451, 579, 1090, 84, 822, 25, 7, 449, 13, 715, 431)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(0, 3, 4, 5), PackedInt32Array(6, 7, 8, 9, 10, 4), PackedInt32Array(5, 4, 10)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(986, -1, 1091, 341, 916, 451, 715, 431, 449, 13, 25, 7, 84, 822, 579, 1090, 995, 986, 1612, 694, 1634, -44)])
+
+[node name="Scene" node_paths=PackedStringArray("vein_node") instance=ExtResource("1_pu5um")]
+vein_node = NodePath("Vein")
+
+[node name="Background" parent="." index="0"]
+texture = ExtResource("2_ttjxn")
+
+[node name="edge" type="CollisionPolygon2D" parent="Background/StaticBody2D" index="0"]
+polygon = PackedVector2Array(-105, 651, -119, -129, 1897, -138, 1753, 1143, 1595, 1214, 1600, 9, 16, 15, 18, 716, 572, 1086, 1716, 1228, 1725, 1313, -66, 1307)
+
+[node name="rubble" type="CollisionPolygon2D" parent="Background/StaticBody2D" index="1"]
+polygon = PackedVector2Array(475, -132, 531, 111, 641, 213, 695, 269, 800, 326, 862, 385, 896, 377, 933, 337, 1015, 318, 975, 265, 1014, 252, 1000, 226, 941.135, 212.097, 766, -39)
+
+[node name="Car" type="Sprite2D" parent="Background" index="1"]
+visible = false
+position = Vector2(797, 242)
+texture = ExtResource("3_h3plt")
+
+[node name="DefaultSpawner" parent="YSort" index="0"]
+position = Vector2(931, 812)
+
+[node name="rocks-2" type="Sprite2D" parent="YSort" index="1"]
+position = Vector2(856, 97)
+texture = ExtResource("4_n6v8a")
+offset = Vector2(0, 10)
+
+[node name="rocks-1" type="Sprite2D" parent="YSort" index="2"]
+position = Vector2(959, 174)
+texture = ExtResource("5_3u7vv")
+offset = Vector2(0, 10)
+
+[node name="East" parent="YSort" index="3" instance=ExtResource("6_guimh")]
+position = Vector2(1590, 693)
+rotation = 1.5708
+scale = Vector2(8, 1)
+dest_resource = "res://scenes/demo/3/industrial/d.tscn"
+dest_edge = "WestGround"
+follower_offset = Vector2(30, 0)
+
+[node name="NorthEast" parent="YSort" index="4" instance=ExtResource("6_guimh")]
+position = Vector2(1187, 17)
+scale = Vector2(5, 0.6)
+dest_resource = "res://scenes/demo/3/industrial/f.tscn"
+dest_edge = "South"
+
+[node name="NorthWest" parent="YSort" index="5" instance=ExtResource("6_guimh")]
+position = Vector2(262, 20)
+scale = Vector2(4, 0.6)
+dest_resource = "res://scenes/demo/3/industrial/f.tscn"
+dest_edge = "West"
+
+[node name="NavigationAll" type="NavigationRegion2D" parent="YSort" index="6"]
+navigation_polygon = SubResource("NavigationPolygon_30nyk")
+
+[node name="MO-Car-Hood-C-Yes-2" parent="YSort" index="7" instance=ExtResource("7_irtuk")]
+position = Vector2(880, 288)
+title = "Chariot (Under the Hood)"
+reference_id = "car-c-yes-2"
+description = "The hood of the chariot still opens, with a little effort."
+cutscene = ExtResource("13_w054f")
+child_depth = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/MO-Car-Hood-C-Yes-2" index="0"]
+position = Vector2(-881, -284)
+polygon = PackedVector2Array(825, 330, 844, 231, 864, 240, 897, 218, 936, 242, 946, 273, 931, 323, 918, 345, 889, 348, 855, 345)
+
+[node name="Actions" type="Node" parent="YSort/MO-Car-Hood-C-Yes-2" index="1"]
+
+[node name="Harvest" parent="YSort/MO-Car-Hood-C-Yes-2/Actions" index="0" node_paths=PackedStringArray("to_modal_maker") instance=ExtResource("10_5f4oc")]
+to_modal_maker = NodePath("MakeHarvest")
+title = "[ENGINEER] Check for salvageable pieces"
+
+[node name="MakeHarvest" parent="YSort/MO-Car-Hood-C-Yes-2/Actions/Harvest" index="0" node_paths=PackedStringArray("options_container_node") instance=ExtResource("11_c3es0")]
+title = "Chariot (Under the Hood)"
+description = "The alternator looks usable"
+options_container_node = NodePath("Options")
+image_texture = ExtResource("14_tdub2")
+
+[node name="Options" type="Node" parent="YSort/MO-Car-Hood-C-Yes-2/Actions/Harvest/MakeHarvest" index="0"]
+
+[node name="Take" parent="YSort/MO-Car-Hood-C-Yes-2/Actions/Harvest/MakeHarvest/Options" index="0" node_paths=PackedStringArray("script_node") instance=ExtResource("10_5f4oc")]
+script_node = NodePath("TMPTake")
+title = "Take"
+is_close_btn = true
+trigger_name = "TakeAlternator"
+
+[node name="TMPTake" parent="YSort/MO-Car-Hood-C-Yes-2/Actions/Harvest/MakeHarvest/Options/Take" index="0" node_paths=PackedStringArray("option_to_disable") instance=ExtResource("15_6pnkg")]
+option_to_disable = NodePath("../../../..")
+item_id = "alternator"
+
+[node name="Leave" parent="YSort/MO-Car-Hood-C-Yes-2/Actions" index="1" instance=ExtResource("10_5f4oc")]
+title = "Never mind"
+
+[node name="XCar" parent="YSort" index="8" instance=ExtResource("12_0qg8w")]
+position = Vector2(8, 0)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/XCar" index="0"]
+polygon = PackedVector2Array(562, 217, 599, 182, 671, 252, 686, 282, 784, 332, 688, 412)
+
+[node name="tree4" type="Sprite2D" parent="YSort" index="9"]
+modulate = Color(0.890196, 0.866667, 0.847059, 1)
+position = Vector2(1364, 1143)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("16_wm0tw")
+offset = Vector2(0, -450)
+
+[node name="tree5" type="Sprite2D" parent="YSort" index="10"]
+modulate = Color(0.890196, 0.866667, 0.847059, 1)
+position = Vector2(758, 335)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("16_wm0tw")
+offset = Vector2(0, -450)
+
+[node name="tree6" type="Sprite2D" parent="YSort" index="11"]
+modulate = Color(0.890196, 0.866667, 0.847059, 1)
+position = Vector2(621, 294)
+rotation = -0.237365
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("17_3phad")
+offset = Vector2(0, -450)
+hframes = 2
+
+[node name="tree" type="Sprite2D" parent="." index="2"]
+modulate = Color(0.890196, 0.866667, 0.847059, 1)
+position = Vector2(784, 947)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("18_jmlgt")
+
+[node name="tree2" type="Sprite2D" parent="." index="3"]
+modulate = Color(0.890196, 0.866667, 0.847059, 1)
+position = Vector2(199, 831)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("19_tjodo")
+flip_h = true
+
+[node name="FrontWall" type="Sprite2D" parent="." index="4"]
+position = Vector2(801, 879)
+texture = ExtResource("20_6yvv5")
+
+[node name="Vein" type="Polygon2D" parent="." index="5"]
+polygon = PackedVector2Array(-175, 472, 669, -24, 381, -38, -225, 226)

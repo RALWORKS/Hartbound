@@ -1,0 +1,245 @@
+[gd_scene load_steps=29 format=3 uid="uid://qfu36rf7ujq4"]
+
+[ext_resource type="PackedScene" uid="uid://byrlpmbpj6yr5" path="res://scene.tscn" id="1_h56rh"]
+[ext_resource type="Texture2D" uid="uid://bdh1dphfwy4ng" path="res://assets/scenes/demo/1/industrial/c.png" id="2_1277k"]
+[ext_resource type="Texture2D" uid="uid://bdu22xxvauwd6" path="res://assets/scenery/top-panel.png" id="3_jvpdm"]
+[ext_resource type="PackedScene" uid="uid://cl4heje674d3q" path="res://item/interaction_area.tscn" id="4_mojtb"]
+[ext_resource type="PackedScene" uid="uid://cirs377vxg3dw" path="res://chapters/demo/1/dialogues/wire.tscn" id="5_y7oqb"]
+[ext_resource type="Script" path="res://chapters/demo/1/RefreshPanelCY1Options.gd" id="6_o148a"]
+[ext_resource type="PackedScene" uid="uid://cpbg7yuq873y5" path="res://item/interaction_action.tscn" id="7_3tjge"]
+[ext_resource type="PackedScene" uid="uid://dh1scrjroovcn" path="res://item/interaction_modal_maker.tscn" id="8_nb5ls"]
+[ext_resource type="Texture2D" uid="uid://cf5r4v2jyv3yo" path="res://assets/items/demo-1/wire-large.png" id="9_r4iu4"]
+[ext_resource type="PackedScene" uid="uid://btcaowwqv7a55" path="res://chapters/demo/1/tmp_take.tscn" id="10_4omtx"]
+[ext_resource type="PackedScene" uid="uid://cg5if8oht8jre" path="res://chapters/demo/1/rift.-with-bridge.tscn" id="11_lyjva"]
+[ext_resource type="Texture2D" uid="uid://nwsqvjdnlosw" path="res://assets/scenery/extra-tree-coloured-bright/trees-and-broken-stone.png" id="12_abasy"]
+[ext_resource type="Texture2D" uid="uid://dwvf22vxkob24" path="res://assets/scenery/extra-tree-coloured-bright/forest-cluster.png" id="13_3uldk"]
+[ext_resource type="Texture2D" uid="uid://bthiiqiqte0bc" path="res://assets/scenery/extra-tree-coloured-bright/pair-of-pines.png" id="14_7re3n"]
+[ext_resource type="Texture2D" uid="uid://y8do164lafek" path="res://assets/scenes/demo/1/industrial/c-back-ledge-a.png" id="15_d3nry"]
+[ext_resource type="PackedScene" uid="uid://dxfuidhlgwthh" path="res://travel/door.tscn" id="16_vqlxf"]
+[ext_resource type="Texture2D" uid="uid://dbbgasy4bg0h2" path="res://assets/scenes/demo/1/industrial/c-back-train-b.png" id="17_r387u"]
+[ext_resource type="Texture2D" uid="uid://d0gfsy1h0i77y" path="res://assets/scenes/demo/1/industrial/c-back-train-a.png" id="18_vxfk4"]
+[ext_resource type="Texture2D" uid="uid://qspyxf8ofma3" path="res://assets/scenes/demo/1/industrial/c-front-train-a.png" id="19_af3k0"]
+[ext_resource type="Texture2D" uid="uid://bv6vhj304xiwc" path="res://assets/scenes/demo/1/industrial/c-front-train-b.png" id="20_t130o"]
+[ext_resource type="Texture2D" uid="uid://boqoghud1gyj6" path="res://assets/scenes/demo/1/industrial/c-left-fence.png" id="21_hugv5"]
+[ext_resource type="Texture2D" uid="uid://bmubpntnl3s4m" path="res://assets/scenes/demo/1/industrial/c-front-ledge.png" id="23_yg5fs"]
+[ext_resource type="Texture2D" uid="uid://djls0mm7suojo" path="res://assets/scenes/demo/1/industrial/c-front-tree.png" id="24_vy1m5"]
+[ext_resource type="Texture2D" uid="uid://c3p4bcjbt5u44" path="res://assets/scenes/demo/1/industrial/c-far-back-ledge.png" id="25_4g5x0"]
+[ext_resource type="Script" path="res://scenes/demo/1/industrial/c-LevelSwitchScript.gd" id="28_t10qm"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_i64kx"]
+vertices = PackedVector2Array(30, 1215, 60, 687, 214, 996, 512, 2, 1379, 2, 1268, 93, 784, 282, 1151, 273, 787, 430, 741, 1106, 751, 1207, 227, 1009, 409, 825, 425, 839, 603, 582, 309, 682, 627, 758)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2), PackedInt32Array(3, 4, 5, 6), PackedInt32Array(6, 5, 7, 8), PackedInt32Array(9, 10, 0, 11), PackedInt32Array(11, 0, 2), PackedInt32Array(11, 2, 12, 13), PackedInt32Array(8, 7, 14, 15), PackedInt32Array(12, 15, 14, 16, 13)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(60, 687, 214, 996, 409, 825, 309, 682, 787, 430, 784, 282, 512, 2, 1379, 2, 1268, 93, 1151, 273, 603, 582, 627, 758, 425, 839, 227, 1009, 741, 1106, 751, 1207, 30, 1215)])
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_j5vyj"]
+vertices = PackedVector2Array(3, 138, 441, 342, 177, 488, 0, 342)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(0, 342, 177, 488, 441, 342, 3, 138)])
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_wbapc"]
+vertices = PackedVector2Array(1608, 1227, 1404, 1234, 1585, 1085, 1626, 796, 1545, 95, 1452, 30, 1507, -1, 1606, -1, 1306, 632, 920, 670, 1117, 647, 1588, 329, 1550, 287, 1520, 355, 1525, 481, 1023, 599)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2), PackedInt32Array(3, 0, 2), PackedInt32Array(4, 5, 6, 7), PackedInt32Array(8, 3, 2, 9, 10), PackedInt32Array(4, 7, 11, 12), PackedInt32Array(13, 12, 11, 14), PackedInt32Array(10, 13, 14, 8), PackedInt32Array(10, 9, 15)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(920, 670, 1023, 599, 1117, 647, 1520, 355, 1550, 287, 1545, 95, 1452, 30, 1507, -1, 1606, -1, 1588, 329, 1525, 481, 1306, 632, 1626, 796, 1608, 1227, 1404, 1234, 1585, 1085)])
+
+[node name="Scene" node_paths=PackedStringArray("vein_node") instance=ExtResource("1_h56rh")]
+vein_node = NodePath("Vein")
+
+[node name="Background" parent="." index="0"]
+texture = ExtResource("2_1277k")
+
+[node name="trains" type="CollisionPolygon2D" parent="Background/StaticBody2D" index="0"]
+polygon = PackedVector2Array(-17, 59, -27, 113, 454, 311, 575, 366, 177, 577, 150, 603, -46, 434, -209, 698, -107, 1015, 135, 704, 160, 719, 199, 753, 195, 726, 230, 704, 247, 715, 276, 709, 273, 695, 253, 700, 251, 685, 329, 646, 458, 565, 588, 500, 734, 432, 765, 386, 761, 350, 464, 158, 35, -41, -30, -57)
+
+[node name="wall-GROUND" type="CollisionPolygon2D" parent="Background/StaticBody2D" index="1"]
+polygon = PackedVector2Array(720, 709, 801, 640, 1083, 462, 1126, 454, 1224, 360, 1201, 313, 1282, 159, 1373, 73, 1571, -27, 1600, -23, 1396, 88, 1520, 138, 1526, 302, 1102, 601, 1028, 528, 966, 580, 834, 660, 1529, 1087, 1266, 1304, 1043, 1242, 978, 1205, 904, 1217, 867, 1214, 811, 1186, 566, 1191, 630, 1112, 623, 1036, 539, 937, 500, 869, 593, 835)
+
+[node name="wall-ROOF" type="CollisionPolygon2D" parent="Background/StaticBody2D" index="2"]
+visible = false
+polygon = PackedVector2Array(646, 694, 624, 544, 773, 453, 1032, 383, 1126, 454, 1148, 307, 1203, 259, 1259, 201, 1309, 15, 1566, -66, 1345, 55, 1506, 153, 1415, 216, 1438, 378, 1118, 587, 1042, 441, 715, 632, 1529, 1087, 1266, 1304, 1191.49, 1283.28, 1043, 1242, 978, 1205, 904, 1217, 867, 1214, 811, 1186, 833, 1137, 774, 1047, 624, 990, 539, 937, 500, 869, 593, 835)
+disabled = true
+
+[node name="edge" type="CollisionPolygon2D" parent="Background/StaticBody2D" index="3"]
+polygon = PackedVector2Array(-6, 1230, 1602, 1234, 1600, 2, 15, -1, 11, 1225, -86, 1212, -92, -54, 1682, -64, 1680, 1326, -16, 1306)
+
+[node name="BridgeGap" type="CollisionPolygon2D" parent="Background/StaticBody2D" index="4"]
+polygon = PackedVector2Array(1720, 655, 1522, 536, 1387, 625, 1709, 820)
+
+[node name="Panel-C-Yes-1" type="Sprite2D" parent="Background" index="1"]
+position = Vector2(951, 651)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("3_jvpdm")
+
+[node name="InteractionArea" parent="Background/Panel-C-Yes-1" index="0" node_paths=PackedStringArray("get_on_open_from") instance=ExtResource("4_mojtb")]
+title = "Access Panel"
+reference_id = "panel-c-yes-1"
+description = "There's an access panel built into the roof here."
+cutscene = ExtResource("5_y7oqb")
+child_depth = 2
+get_on_open_from = NodePath("RefreshPanelOptions")
+
+[node name="RefreshPanelOptions" type="Node" parent="Background/Panel-C-Yes-1/InteractionArea" index="0" node_paths=PackedStringArray("taker", "btn")]
+script = ExtResource("6_o148a")
+taker = NodePath("../Actions/Harvest/MakeHarvest/Options/Take/TMPTake")
+btn = NodePath("../Actions/Harvest")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Background/Panel-C-Yes-1/InteractionArea" index="1"]
+polygon = PackedVector2Array(-126.667, -11.6665, 1.6665, -74.9998, 125, -3.33313, 1.6665, 73.3335)
+
+[node name="Actions" type="Node" parent="Background/Panel-C-Yes-1/InteractionArea" index="2"]
+
+[node name="Harvest" parent="Background/Panel-C-Yes-1/InteractionArea/Actions" index="0" node_paths=PackedStringArray("to_modal_maker") instance=ExtResource("7_3tjge")]
+to_modal_maker = NodePath("MakeHarvest")
+title = "[ENGINEER] Unscrew the panel"
+
+[node name="MakeHarvest" parent="Background/Panel-C-Yes-1/InteractionArea/Actions/Harvest" index="0" node_paths=PackedStringArray("options_container_node") instance=ExtResource("8_nb5ls")]
+title = "Acess Panel"
+description = "You unscrew the panel, and remove it. Black coated wiring runs underneath, in a bundle. Seeing as you were able to open this incdent, the Leyline itsn't using these at the moment. You should be able to harvest them safely."
+options_container_node = NodePath("Options")
+image_texture = ExtResource("9_r4iu4")
+
+[node name="Options" type="Node" parent="Background/Panel-C-Yes-1/InteractionArea/Actions/Harvest/MakeHarvest" index="0"]
+
+[node name="Take" parent="Background/Panel-C-Yes-1/InteractionArea/Actions/Harvest/MakeHarvest/Options" index="0" node_paths=PackedStringArray("script_node") instance=ExtResource("7_3tjge")]
+script_node = NodePath("TMPTake")
+title = "Take"
+is_close_btn = true
+trigger_name = "TakeWire"
+
+[node name="TMPTake" parent="Background/Panel-C-Yes-1/InteractionArea/Actions/Harvest/MakeHarvest/Options/Take" index="0" node_paths=PackedStringArray("option_to_disable") instance=ExtResource("10_4omtx")]
+option_to_disable = NodePath("../../../..")
+item_id = "wire"
+
+[node name="Leave" parent="Background/Panel-C-Yes-1/InteractionArea/Actions" index="1" instance=ExtResource("7_3tjge")]
+title = "Never mind"
+
+[node name="Rift" parent="Background" index="2" instance=ExtResource("11_lyjva")]
+
+[node name="tree2" type="Sprite2D" parent="YSort" index="0"]
+modulate = Color(0.890196, 0.866667, 0.847059, 1)
+position = Vector2(-7, 661)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("12_abasy")
+offset = Vector2(0, -250)
+flip_h = true
+
+[node name="tree3" type="Sprite2D" parent="YSort" index="1"]
+modulate = Color(0.890196, 0.866667, 0.847059, 1)
+position = Vector2(585, 359)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("12_abasy")
+offset = Vector2(0, -250)
+flip_h = true
+
+[node name="tree7" type="Sprite2D" parent="YSort" index="2"]
+modulate = Color(0.890196, 0.866667, 0.847059, 1)
+position = Vector2(809, 1120)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("13_3uldk")
+offset = Vector2(0, -250)
+flip_h = true
+
+[node name="tree8" type="Sprite2D" parent="YSort" index="3"]
+modulate = Color(0.890196, 0.866667, 0.847059, 1)
+position = Vector2(490, 109)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("13_3uldk")
+offset = Vector2(0, -250)
+flip_h = true
+
+[node name="tree9" type="Sprite2D" parent="YSort" index="4"]
+modulate = Color(0.890196, 0.866667, 0.847059, 1)
+position = Vector2(234, 117)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("13_3uldk")
+offset = Vector2(0, -250)
+flip_h = true
+
+[node name="tree10" type="Sprite2D" parent="YSort" index="5"]
+modulate = Color(0.890196, 0.866667, 0.847059, 1)
+position = Vector2(291, 175)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("14_7re3n")
+offset = Vector2(0, -250)
+flip_h = true
+
+[node name="DefaultSpawner" parent="YSort" index="6"]
+position = Vector2(778, 246)
+
+[node name="back-ledge-a" type="Sprite2D" parent="YSort" index="7"]
+position = Vector2(1346, 408)
+texture = ExtResource("15_d3nry")
+offset = Vector2(0, -130)
+
+[node name="SouthGround" parent="YSort" index="8" instance=ExtResource("16_vqlxf")]
+position = Vector2(230, 1181)
+rotation = 3.24457
+scale = Vector2(8, 1)
+dest_resource = "res://scenes/demo/3/industrial/d.tscn"
+dest_edge = "NorthGround"
+
+[node name="NorthGround" parent="YSort" index="9" instance=ExtResource("16_vqlxf")]
+position = Vector2(856, 10)
+scale = Vector2(8, 1)
+dest_resource = "res://scenes/demo/3/industrial/b.tscn"
+dest_edge = "EastGround"
+
+[node name="back-train-b" type="Sprite2D" parent="YSort" index="10"]
+position = Vector2(190, 158)
+texture = ExtResource("17_r387u")
+offset = Vector2(0, -50)
+
+[node name="back-train-c" type="Sprite2D" parent="YSort" index="11"]
+position = Vector2(468, 230)
+texture = ExtResource("18_vxfk4")
+offset = Vector2(0, -50)
+
+[node name="front-train-a" type="Sprite2D" parent="YSort" index="12"]
+position = Vector2(335, 544)
+texture = ExtResource("19_af3k0")
+
+[node name="front-train-b" type="Sprite2D" parent="YSort" index="13"]
+position = Vector2(592, 420)
+texture = ExtResource("20_t130o")
+offset = Vector2(0, -20)
+
+[node name="fence" type="Sprite2D" parent="YSort" index="14"]
+position = Vector2(124, 594)
+texture = ExtResource("21_hugv5")
+offset = Vector2(0, -50)
+
+[node name="front-ledge" type="Sprite2D" parent="YSort" index="15"]
+position = Vector2(907.5, 713.5)
+texture = ExtResource("23_yg5fs")
+offset = Vector2(0, -130)
+
+[node name="front-tree" type="Sprite2D" parent="YSort" index="16"]
+position = Vector2(652, 851)
+texture = ExtResource("24_vy1m5")
+offset = Vector2(0, -50)
+
+[node name="far-back-edge" type="Sprite2D" parent="YSort" index="17"]
+position = Vector2(1470, 229)
+texture = ExtResource("25_4g5x0")
+offset = Vector2(0, -100)
+
+[node name="NavigationMiddle" type="NavigationRegion2D" parent="YSort" index="18"]
+navigation_polygon = SubResource("NavigationPolygon_i64kx")
+
+[node name="NavigationBehindTrain" type="NavigationRegion2D" parent="YSort" index="19"]
+navigation_polygon = SubResource("NavigationPolygon_j5vyj")
+
+[node name="NavigationRoof" type="NavigationRegion2D" parent="YSort" index="20"]
+navigation_polygon = SubResource("NavigationPolygon_wbapc")
+
+[node name="Tunnel" parent="YSort" index="21" instance=ExtResource("16_vqlxf")]
+position = Vector2(1159, 458)
+rotation = 2.61799
+scale = Vector2(2, 1)
+dest_resource = "res://scenes/demo/1/industrial/c-right.tscn"
+dest_edge = "Tunnel"
+
+[node name="c-LevelSwitchScript" type="Node" parent="." index="2"]
+script = ExtResource("28_t10qm")
+
+[node name="Vein" type="Polygon2D" parent="." index="3"]
+polygon = PackedVector2Array(-145, -4, 312, 211, 730, -127, 858, -143, 322, 299, 602, 455, 682, 405, 900, 517, 824, 553, 692, 483, 616, 541, 216, 325, 274, 263, -138, 77)
