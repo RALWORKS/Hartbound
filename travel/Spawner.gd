@@ -61,5 +61,6 @@ func spawn(g, x=null, y=null):
 	for follower in followers:
 		follower_instance = _spawn(follower, offset, x, y)
 		follower_instance.start_following(g, last_follower)
+		character_instance.party.push_back(follower_instance)
 		offset += follower_offset
 		last_follower = follower_instance

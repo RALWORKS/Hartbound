@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 @export var speed = 110
-@export var speed_mul = 1
+@export var speed_mul = 1.0
 @export var osc_rate = 0.2
 @export var is_demo_instance = false
 @export var turning_timeout = 0.05
@@ -13,6 +13,10 @@ extends CharacterBody2D
 @export var personal_space = 150
 
 @export var animation_proxy: Node = null
+@export var next_static_animation = ""
+var current_static_animation = null
+var party = []
+var id = "player"
 
 var footstep_waiting = false
 
@@ -442,9 +446,15 @@ func _refresh_destination_marker():
 	else:
 		destination_marker.marker_x_mode()
 
+func refresh_static_animation():
+	if next_static_animation and current_static_animation != next_static_animation:
+		$char.play(next_static_animation)
+		current_static_animation = next_static_animation
+
 func _physics_process(_delta):
 	_refresh_destination_marker()
 	if is_demo_instance:
+		refresh_static_animation()
 		return
 	var input_direction = refresh_walk_direction()
 	if input_direction != null:

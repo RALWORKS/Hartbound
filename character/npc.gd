@@ -3,6 +3,8 @@ extends CharacterBody2D
 @export var disabled = false
 
 @export var id = ""
+@export var flip_h = false
+@export var show_even_if_following = false
 @export var starting_animaton = "down-stopped"
 var last_starting_animation = "down-stopped"
 @export var speed = 150
@@ -116,10 +118,11 @@ func _make_walk_animations():
 	$AnimationPlayer.add_animation_library("movement", library)
 
 func _ready():
+	$char.flip_h = flip_h
 	navigation_agent.path_desired_distance = 4.0
 	navigation_agent.target_desired_distance = 4.0
 	
-	if $"/root/Game".check_state_for_follower(self) and leader == null:
+	if $"/root/Game".check_state_for_follower(self) and leader == null and not show_even_if_following:
 		process_mode = Node.PROCESS_MODE_DISABLED
 		visible = false
 		return
