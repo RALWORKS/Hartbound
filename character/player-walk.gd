@@ -66,6 +66,8 @@ func respawn():
 		party_map[p.id] = p.position
 		p.free()
 	for p in game.player.party:
+		if  p.id not in party_map:
+			continue
 		p.position = party_map[p.id]
 	queue_free()
 
@@ -496,8 +498,9 @@ func _physics_process(_delta):
 func about_to_fall():
 	if wobbly and sin(Time.get_ticks_msec() / 800) > 0.8:
 		$char.play("kneel")
-		if not fallen and get_v().x < 0:
+		if not fallen:
 			emit_signal("fell")
+		if not fallen and get_v().x < 0:
 			$char.scale = Vector2($char.scale.x * -1, $char.scale.y)
 		fallen = true
 		set_v(Vector2(0, 0))
@@ -581,6 +584,8 @@ func get_followers(g):
 	print(data)
 	var followers = []
 	for f in data:
+		if not f:
+			continue
 		var n = $AllowedFollowers.get_node(f)
 		if not n:
 			continue

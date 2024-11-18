@@ -123,11 +123,6 @@ func _ready():
 	navigation_agent.path_desired_distance = 4.0
 	navigation_agent.target_desired_distance = 4.0
 	
-	if $"/root/Game".check_state_for_follower(self) and leader == null and not show_even_if_following:
-		process_mode = Node.PROCESS_MODE_DISABLED
-		visible = false
-		return
-	
 	if texture:
 		$char.texture = texture
 	$InteractionArea.title = my_name()
@@ -305,6 +300,13 @@ func follow():
 
 func _process(_delta):
 	if not leader:
+		if $"/root/Game".check_state_for_follower(self) and not show_even_if_following:
+			process_mode = Node.PROCESS_MODE_DISABLED
+			visible = false
+			return
+		elif process_mode == PROCESS_MODE_DISABLED:
+			process_mode = Node.PROCESS_MODE_INHERIT
+			visible = true
 		if starting_animaton != last_starting_animation:
 			play_starting_animation()
 
@@ -354,7 +356,6 @@ func start_following(g, custom_leader=null):
 	leader.has_follower = true
 	leader.follower_arrived()
 	speed_mul = leader.speed_mul
-	print(leader, leader.personal_space)
 	if custom_leader:
 		return
 	var party = g.get_state(["party"])

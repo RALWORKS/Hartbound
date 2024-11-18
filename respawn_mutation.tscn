@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://l6f36ndxnifw"]
+
+[ext_resource type="Script" path="res://respawn_mutation.gd" id="1_m23u1"]
+
+[node name="RespawnMutation" type="Node"]
+script = ExtResource("1_m23u1")

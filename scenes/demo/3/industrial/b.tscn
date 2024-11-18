@@ -121,6 +121,7 @@ rotation = -3.14159
 scale = Vector2(9, 0.8)
 dest_resource = "res://scenes/demo/3/industrial/c.tscn"
 dest_edge = "NorthGround"
+disabled = true
 
 [node name="NavigationGround" type="NavigationRegion2D" parent="YSort" index="6"]
 navigation_polygon = SubResource("NavigationPolygon_2fe48")

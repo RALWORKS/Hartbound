@@ -549,7 +549,6 @@ func add_resolution(resolution_id):
 
 func has_resolution(resolution_id):
 	var data = init_resolutions_if_needed()
-	print(data)
 	return resolution_id in data
 
 func init_reflections_if_needed():

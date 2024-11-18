@@ -68,3 +68,4 @@ func spawn(g, x=null, y=null):
 		character_instance.party.push_back(follower_instance)
 		offset += follower_offset
 		last_follower = follower_instance
+		print(follower_instance.get_parent())

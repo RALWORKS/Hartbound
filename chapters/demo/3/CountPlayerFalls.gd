@@ -5,6 +5,7 @@ var player = null
 var falls = 0
 
 @export var party_help_cutscene: Resource
+@export var help_offered = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -22,5 +23,7 @@ func _process(delta):
 
 func player_fell():
 	falls += 1
-	if falls == 4:
+	print("fall", falls)
+	if falls > 2 and not help_offered:
 		$"..".start_cutscene(party_help_cutscene)
+		help_offered = true
