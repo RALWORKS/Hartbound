@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://bb2gqpxlujgdv"]
+[gd_scene load_steps=28 format=3 uid="uid://bb2gqpxlujgdv"]
 
 [ext_resource type="PackedScene" uid="uid://byrlpmbpj6yr5" path="res://scene.tscn" id="1_1lkit"]
 [ext_resource type="Texture2D" uid="uid://dobfgkrdvoy5g" path="res://assets/scenes/demo/1/industrial/b.png" id="2_a25yr"]
@@ -20,7 +20,9 @@
 [ext_resource type="Texture2D" uid="uid://chq6q6xttvwfi" path="res://assets/scenery/extra-tree-coloured-bright/tree-family.png" id="19_ctr5u"]
 [ext_resource type="Texture2D" uid="uid://ba8f8jn3sykc5" path="res://assets/scenery/extra-tree-coloured-bright/pine-trio.png" id="20_gk48e"]
 [ext_resource type="PackedScene" uid="uid://in7v8nsvojyp" path="res://chapters/demo/1/nate.tscn" id="20_xsocu"]
+[ext_resource type="Script" path="res://scenes/demo/3/industrial/TriggerIndsutrialDepartureCutscene.gd" id="21_a1t88"]
 [ext_resource type="PackedScene" uid="uid://5exo54lvam30" path="res://quests/quests/demo_c_1_regroup_initial.tscn" id="21_kjxjq"]
+[ext_resource type="PackedScene" uid="uid://cqxrbvy58dcfm" path="res://chapters/demo/3/leaving_industrial.tscn" id="22_f1kro"]
 [ext_resource type="PackedScene" uid="uid://cqv8vs3o2qua4" path="res://chapters/demo/1/jerry_says_no_leavng_alone.tscn" id="22_ixia4"]
 [ext_resource type="Texture2D" uid="uid://dduqbcoe6864b" path="res://assets/scenes/demo/1/industrial/b-pipe.png" id="23_v25ba"]
 
@@ -216,6 +218,13 @@ position = Vector2(370, 706)
 [node name="Nate" parent="YSort" index="19" instance=ExtResource("20_xsocu")]
 position = Vector2(483, 687)
 
+[node name="TriggerLeaveIndustrial" type="Area2D" parent="YSort" index="20"]
+script = ExtResource("21_a1t88")
+cutscene = ExtResource("22_f1kro")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/TriggerLeaveIndustrial" index="0"]
+polygon = PackedVector2Array(137, 702, 326, 602, 746, 609, 843, 780, 509, 883, 157, 841)
+
 [node name="ThresholdQuests" type="Node" parent="." index="2"]
 
 [node name="BlockadeQuests" type="Node" parent="." index="3"]
@@ -240,3 +249,5 @@ offset = Vector2(0, -100)
 
 [node name="Vein" type="Polygon2D" parent="." index="7"]
 polygon = PackedVector2Array(76, 1425, 778, 1097, 464, 837, 981, 619, 993, 237, 1898, -187, 1966, -113, 1080, 277, 1072, 659, 622, 862, 959, 1123, 156, 1491)
+
+[connection signal="body_entered" from="YSort/TriggerLeaveIndustrial" to="YSort/TriggerLeaveIndustrial" method="_on_body_entered"]

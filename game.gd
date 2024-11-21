@@ -439,8 +439,9 @@ func save_room(scene_path, entrance_name=null):
 
 func save_position():
 	var data = get_state(["position"])
-	data.x = player.position.x
-	data.y = player.position.y
+	var p = player.get_p()
+	data.x = p.x
+	data.y = p.y
 	set_state(["position"], data)
 
 func respawn_player():

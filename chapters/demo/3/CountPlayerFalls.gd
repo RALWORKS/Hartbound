@@ -12,6 +12,8 @@ func _ready():
 	game = $".".get_tree().get_root().get_node("Game")
 
 func jack_in():
+	if not player:
+		return
 	player.connect("fell", player_fell)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

@@ -124,7 +124,7 @@ func start_cutscene(
 		cutscene.next_cutscene = next_cutscene if next_cutscene else cutscene.next_cutscene
 	cutscene.call_deferred("start")
 
-func end_cutscene():
+func end_cutscene(free=false):
 	var next_cutscene = cutscene.next_cutscene
 	var npc = cutscene.npc
 	var next_chapter = cutscene.to_chapter
@@ -140,7 +140,10 @@ func end_cutscene():
 	if next_cutscene == null:
 		for child in cur_game:
 			if is_instance_valid(child):
-				$"../MainScreen/World".add_child(child)
+				if free:
+					child.free()
+				else:
+					$"../MainScreen/World".add_child(child)
 		await get_tree().create_timer(0.1).timeout
 		$"/root/Game".move()
 		if teleport_to:
