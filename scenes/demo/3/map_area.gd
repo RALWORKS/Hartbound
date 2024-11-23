@@ -26,5 +26,5 @@ func _on_body_entered(body):
 func _on_body_exited(body):
 	if not "is_pencil" in body:
 		return
-	emit_signal("entered", self)
+	emit_signal("exited", self)
 	is_active = false

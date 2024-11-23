@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://7hjd5r2hc2bb"]
+[gd_scene load_steps=17 format=3 uid="uid://7hjd5r2hc2bb"]
 
 [ext_resource type="Script" path="res://scenes/demo/3/main_map.gd" id="1_5jb7j"]
 [ext_resource type="Texture2D" uid="uid://btb8mvl3yl3uc" path="res://assets/scenes/demo/3/main_map_1.png" id="1_si4kb"]
@@ -11,6 +11,7 @@
 [ext_resource type="Script" path="res://scenes/demo/3/MapAreaIcon.gd" id="7_gwvq6"]
 [ext_resource type="PackedScene" uid="uid://k2fi3b6gssae" path="res://scenes/demo/3/map_area.tscn" id="9_ypeeq"]
 [ext_resource type="PackedScene" uid="uid://chl1xnvswkr5j" path="res://scenes/demo/3/mountain_biome.tscn" id="10_y40n4"]
+[ext_resource type="PackedScene" uid="uid://83axno7kjrq" path="res://scenes/demo/3/industrial_biome.tscn" id="11_7jdjy"]
 [ext_resource type="PackedScene" uid="uid://c842nv1dy22xp" path="res://scenes/demo/3/sun_temple_biome.tscn" id="12_4uu4v"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6vuwb"]
@@ -328,7 +329,7 @@ editor_draw_limits = true
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RuinedCityArea"]
 polygon = PackedVector2Array(138, 517, 483, 520, 536, 660, 463, 636, 350, 644, 288, 687)
 
-[node name="MountainBiome" parent="RuinedCityArea" instance=ExtResource("10_y40n4")]
+[node name="IndustrialBiome" parent="RuinedCityArea" instance=ExtResource("11_7jdjy")]
 visible = false
 
 [node name="SunTempleArea" parent="." instance=ExtResource("9_ypeeq")]

@@ -167,17 +167,13 @@ func to_map():
 	#var bg
 	
 	for child in world:
-		$"../MainScreen/World".call_deferred("remove_child", child)
+		child.queue_free()
 	
 	$"../MainScreen/World".call_deferred("add_child", active_map)
 	active_map.load_position($"/root/Game")
 
 func close_map(biome):
 	active_map.call_deferred("free")
-	await get_tree().create_timer(0.05).timeout
-	for child in cur_game:
-		if is_instance_valid(child):
-			$"../MainScreen/World".add_child(child)
 	await get_tree().create_timer(0.05).timeout
 	$"/root/Game".move()
 	
