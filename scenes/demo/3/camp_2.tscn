@@ -7,8 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://uc3gpi8pp0cj" path="res://chapters/demo/1/brona.tscn" id="5_5ubts"]
 [ext_resource type="PackedScene" uid="uid://in7v8nsvojyp" path="res://chapters/demo/1/nate.tscn" id="6_spg1w"]
 [ext_resource type="PackedScene" uid="uid://3xvq5teh4d0q" path="res://travel/map_door.tscn" id="7_l7tbm"]
-[ext_resource type="Texture2D" uid="uid://nwsqvjdnlosw" path="res://assets/scenery/extra-tree-coloured/trees-and-broken-stone.png" id="8_5wsk0"]
-[ext_resource type="Texture2D" uid="uid://ba8f8jn3sykc5" path="res://assets/scenery/extra-tree-coloured/pine-trio.png" id="9_86yru"]
+[ext_resource type="Texture2D" uid="uid://nwsqvjdnlosw" path="res://assets/scenery/extra-tree-coloured-bright/trees-and-broken-stone.png" id="8_5wsk0"]
+[ext_resource type="Texture2D" uid="uid://ba8f8jn3sykc5" path="res://assets/scenery/extra-tree-coloured-bright/pine-trio.png" id="9_86yru"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_unfay"]
 size = Vector2(1205.43, 69.1429)
@@ -29,7 +29,6 @@ polygon = PackedVector2Array(729.714, -3.42857, 593.143, 88.5714, 625.143, 196.5
 
 [node name="Top" type="CollisionShape2D" parent="Background/StaticBody2D" index="1"]
 position = Vector2(592.714, -30.5714)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_unfay")
 
 [node name="DefaultSpawner" parent="YSort" index="0"]

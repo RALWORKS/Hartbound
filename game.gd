@@ -663,3 +663,6 @@ func set_outer_position(p: Vector2):
 	
 func to_map():
 	chapter.to_map()
+
+func get_character_dialogue(char_id):
+	return chapter.get_character_dialogue(char_id)

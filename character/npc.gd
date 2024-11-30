@@ -363,11 +363,18 @@ func start_following(g, custom_leader=null):
 	if not self.id in party:
 		g.set_state(["party"], [self.id] + party)
 
+func get_dialogue():
+	var glob = $"/root/Game".get_character_dialogue(id)
+	if glob:
+		return glob
+	return base_dialogue
+
 func action():
 	if process_mode == Node.PROCESS_MODE_DISABLED or disabled:
 		return
-	if not paused and base_dialogue != null:
-		$"/root/Game/Chapter".start_cutscene(base_dialogue, self)
+	var dialogue = get_dialogue()
+	if not paused and dialogue != null:
+		$"/root/Game/Chapter".start_cutscene(dialogue, self)
 
 	return
 	

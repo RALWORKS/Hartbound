@@ -18,6 +18,8 @@ var cached_scene_bg
 
 var game = null
 
+
+
 func trigger(trigger_name, e=null):
 	var t = $Triggers.get_node(trigger_name)
 	if t == null:
@@ -186,3 +188,12 @@ func close_map(biome):
 	
 	event.cutscene_input_data = biome
 	event.play()
+
+func get_character_dialogue(id):
+	var data = null
+	for c in $CharacterCutscenes.get_children():
+		if c.id == id:
+			data = c
+			break
+	return data.dialogue
+
