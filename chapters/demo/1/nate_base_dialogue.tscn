@@ -1,9 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://disv4e233mw0e"]
+[gd_scene load_steps=13 format=3 uid="uid://disv4e233mw0e"]
 
 [ext_resource type="PackedScene" uid="uid://bp8tsdjdbwj8i" path="res://cutscene/cutscene.tscn" id="1_xokwk"]
 [ext_resource type="PackedScene" uid="uid://55vflx8ylix1" path="res://cutscene/cutscene_node.tscn" id="2_6fcjh"]
 [ext_resource type="Texture2D" uid="uid://dlfi64p84aoys" path="res://assets/scenes/demo/1/industrial/cutscene/1-ground.png" id="3_s7s43"]
 [ext_resource type="Texture2D" uid="uid://dxlwv778ouxxb" path="res://assets/npcs/nate/bored.png" id="4_dcr1o"]
+[ext_resource type="Script" path="res://cutscene/standard_bg.gd" id="4_uqmdh"]
 [ext_resource type="PackedScene" uid="uid://b11g7mb25w5xp" path="res://cutscene/smart_label.tscn" id="5_c3g3p"]
 [ext_resource type="PackedScene" uid="uid://yplasm5gtgly" path="res://cutscene/cutscene_option.tscn" id="6_djk5t"]
 [ext_resource type="PackedScene" uid="uid://cm3keg86x7x3y" path="res://cutscene/concept_cutscene_node.tscn" id="7_om0mq"]
@@ -26,6 +27,7 @@ next = NodePath("../2")
 scale = Vector2(1.35, 1.35)
 texture = ExtResource("3_s7s43")
 centered = false
+script = ExtResource("4_uqmdh")
 
 [node name="nate" type="Sprite2D" parent="1" index="1"]
 position = Vector2(455, 889)
@@ -43,6 +45,7 @@ is_option_node = true
 scale = Vector2(1.35, 1.35)
 texture = ExtResource("3_s7s43")
 centered = false
+script = ExtResource("4_uqmdh")
 
 [node name="nate" type="Sprite2D" parent="2" index="1"]
 position = Vector2(455, 889)
@@ -73,6 +76,7 @@ is_option_node = true
 scale = Vector2(1.35, 1.35)
 texture = ExtResource("3_s7s43")
 centered = false
+script = ExtResource("4_uqmdh")
 
 [node name="nate" type="Sprite2D" parent="3" index="1"]
 position = Vector2(455, 889)
@@ -102,6 +106,7 @@ next = NodePath("../ConceptCutsceneNode")
 scale = Vector2(1.35, 1.35)
 texture = ExtResource("3_s7s43")
 centered = false
+script = ExtResource("4_uqmdh")
 
 [node name="nate" type="Sprite2D" parent="4" index="1"]
 position = Vector2(455, 889)
@@ -122,6 +127,7 @@ visible = false
 scale = Vector2(1.35, 1.35)
 texture = ExtResource("3_s7s43")
 centered = false
+script = ExtResource("4_uqmdh")
 
 [node name="nate" type="Sprite2D" parent="ConceptCutsceneNode" index="4"]
 position = Vector2(455, 889)
@@ -137,6 +143,7 @@ visible = false
 scale = Vector2(1.35, 1.35)
 texture = ExtResource("3_s7s43")
 centered = false
+script = ExtResource("4_uqmdh")
 
 [node name="nate" type="Sprite2D" parent="Defaults/Base" index="1"]
 position = Vector2(455, 889)
@@ -158,6 +165,7 @@ tag = "World"
 scale = Vector2(1.35, 1.35)
 texture = ExtResource("3_s7s43")
 centered = false
+script = ExtResource("4_uqmdh")
 
 [node name="nate" type="Sprite2D" parent="Defaults/World" index="1"]
 position = Vector2(455, 889)
@@ -232,6 +240,7 @@ next = NodePath("../CutsceneNode2")
 scale = Vector2(1.35, 1.35)
 texture = ExtResource("3_s7s43")
 centered = false
+script = ExtResource("4_uqmdh")
 
 [node name="nate" type="Sprite2D" parent="Concepts/PlanForAfternoon/CutsceneNode" index="1"]
 position = Vector2(455, 889)
@@ -252,6 +261,7 @@ visible = false
 scale = Vector2(1.35, 1.35)
 texture = ExtResource("3_s7s43")
 centered = false
+script = ExtResource("4_uqmdh")
 
 [node name="nate" type="Sprite2D" parent="Concepts/PlanForAfternoon/CutsceneNode2" index="1"]
 position = Vector2(455, 889)
@@ -274,6 +284,7 @@ visible = false
 scale = Vector2(1.35, 1.35)
 texture = ExtResource("3_s7s43")
 centered = false
+script = ExtResource("4_uqmdh")
 
 [node name="nate" type="Sprite2D" parent="Concepts/C1CollectingHerbs/Herbs" index="1"]
 position = Vector2(455, 889)
@@ -296,6 +307,7 @@ visible = false
 scale = Vector2(1.35, 1.35)
 texture = ExtResource("3_s7s43")
 centered = false
+script = ExtResource("4_uqmdh")
 
 [node name="nate" type="Sprite2D" parent="Concepts/C1CollectingComponents/Components" index="1"]
 position = Vector2(455, 889)

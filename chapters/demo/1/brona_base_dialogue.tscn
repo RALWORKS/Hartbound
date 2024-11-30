@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://6juapn3r3s4p"]
+[gd_scene load_steps=10 format=3 uid="uid://6juapn3r3s4p"]
 
 [ext_resource type="PackedScene" uid="uid://bp8tsdjdbwj8i" path="res://cutscene/cutscene.tscn" id="1_qsal8"]
 [ext_resource type="PackedScene" uid="uid://55vflx8ylix1" path="res://cutscene/cutscene_node.tscn" id="2_p2ho2"]
 [ext_resource type="Texture2D" uid="uid://dlfi64p84aoys" path="res://assets/scenes/demo/1/industrial/cutscene/1-ground.png" id="3_jfk7p"]
 [ext_resource type="Texture2D" uid="uid://s0ah5pljwjc8" path="res://assets/npcs/brona/happy.png" id="4_w7ofy"]
+[ext_resource type="Script" path="res://cutscene/standard_bg.gd" id="4_ygimp"]
 [ext_resource type="Theme" uid="uid://bowrqsap2qmsa" path="res://base_theme.tres" id="5_gloko"]
 [ext_resource type="PackedScene" uid="uid://cm3keg86x7x3y" path="res://cutscene/concept_cutscene_node.tscn" id="6_v78vy"]
 [ext_resource type="PackedScene" uid="uid://cphadkoi37v4v" path="res://chapters/demo/1/brona-base-concepts.tscn" id="7_q0tnd"]
@@ -24,6 +25,7 @@ next = NodePath("../ConceptCutsceneNode")
 scale = Vector2(1.35, 1.35)
 texture = ExtResource("3_jfk7p")
 centered = false
+script = ExtResource("4_ygimp")
 
 [node name="brona" type="Sprite2D" parent="1" index="1"]
 position = Vector2(455, 850)
@@ -47,6 +49,7 @@ next = NodePath("../3")
 scale = Vector2(1.35, 1.35)
 texture = ExtResource("3_jfk7p")
 centered = false
+script = ExtResource("4_ygimp")
 
 [node name="brona" type="Sprite2D" parent="ConceptCutsceneNode" index="4"]
 position = Vector2(455, 850)
@@ -60,6 +63,7 @@ visible = false
 scale = Vector2(1.35, 1.35)
 texture = ExtResource("3_jfk7p")
 centered = false
+script = ExtResource("4_ygimp")
 
 [node name="brona" type="Sprite2D" parent="3" index="1"]
 position = Vector2(455, 850)
@@ -88,6 +92,7 @@ next = NodePath("../../ConceptCutsceneNode")
 scale = Vector2(1.35, 1.35)
 texture = ExtResource("3_jfk7p")
 centered = false
+script = ExtResource("4_ygimp")
 
 [node name="brona" type="Sprite2D" parent="Defaults/Base" index="1"]
 position = Vector2(455, 850)
@@ -113,6 +118,7 @@ tag = "World"
 scale = Vector2(1.35, 1.35)
 texture = ExtResource("3_jfk7p")
 centered = false
+script = ExtResource("4_ygimp")
 
 [node name="brona" type="Sprite2D" parent="Defaults/World" index="1"]
 position = Vector2(455, 850)
@@ -137,6 +143,7 @@ tag = "You"
 scale = Vector2(1.35, 1.35)
 texture = ExtResource("3_jfk7p")
 centered = false
+script = ExtResource("4_ygimp")
 
 [node name="brona" type="Sprite2D" parent="Defaults/You" index="1"]
 position = Vector2(455, 850)
@@ -161,6 +168,7 @@ tag = "Me"
 scale = Vector2(1.35, 1.35)
 texture = ExtResource("3_jfk7p")
 centered = false
+script = ExtResource("4_ygimp")
 
 [node name="brona" type="Sprite2D" parent="Defaults/Me" index="1"]
 position = Vector2(455, 850)
@@ -186,6 +194,7 @@ tag = "Insult"
 scale = Vector2(1.35, 1.35)
 texture = ExtResource("3_jfk7p")
 centered = false
+script = ExtResource("4_ygimp")
 
 [node name="brona" type="Sprite2D" parent="Defaults/Insult" index="1"]
 position = Vector2(736, 1431)
@@ -210,6 +219,7 @@ end = true
 scale = Vector2(1.35, 1.35)
 texture = ExtResource("3_jfk7p")
 centered = false
+script = ExtResource("4_ygimp")
 
 [node name="brona" type="Sprite2D" parent="Defaults/Insult3" index="1"]
 position = Vector2(455, 850)

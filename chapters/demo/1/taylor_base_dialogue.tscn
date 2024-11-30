@@ -1,10 +1,11 @@
-[gd_scene load_steps=41 format=3 uid="uid://epq5ioa4sayx"]
+[gd_scene load_steps=42 format=3 uid="uid://epq5ioa4sayx"]
 
 [ext_resource type="PackedScene" uid="uid://bp8tsdjdbwj8i" path="res://cutscene/cutscene.tscn" id="1_qv2i1"]
 [ext_resource type="PackedScene" uid="uid://b1lrqpjjqlqjg" path="res://cutscene/cutscene_controlled_section.tscn" id="2_f4kae"]
 [ext_resource type="PackedScene" uid="uid://55vflx8ylix1" path="res://cutscene/cutscene_node.tscn" id="2_vonvd"]
 [ext_resource type="Texture2D" uid="uid://dlfi64p84aoys" path="res://assets/scenes/demo/1/industrial/cutscene/1-ground.png" id="3_ney04"]
 [ext_resource type="Texture2D" uid="uid://dx1wrwvh6nviu" path="res://assets/npcs/taylor/taylor_neutral.png" id="4_bxirh"]
+[ext_resource type="Script" path="res://cutscene/standard_bg.gd" id="4_mjr8i"]
 [ext_resource type="PackedScene" uid="uid://c5cgc0mqgy65h" path="res://character/taylor_hesitant.tscn" id="4_nmbtc"]
 [ext_resource type="PackedScene" uid="uid://b11g7mb25w5xp" path="res://cutscene/smart_label.tscn" id="5_sc1vl"]
 [ext_resource type="PackedScene" uid="uid://cm3keg86x7x3y" path="res://cutscene/concept_cutscene_node.tscn" id="6_kxhl6"]
@@ -39,7 +40,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("../bg2:modulate")
+tracks/0/path = NodePath("../mem_bg:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -67,7 +68,7 @@ length = 4.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("../bg2:modulate")
+tracks/0/path = NodePath("../mem_bg:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -111,7 +112,7 @@ shader_parameter/tint = Vector4(0.5, 0.73, 0.87, 1)
 shader_parameter/highlight = Vector4(0.7, 0.75, 0.5, 1)
 shader_parameter/alpha = 1.0
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_u3kc7"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_tx35t"]
 viewport_path = NodePath("img")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7rj0o"]
@@ -134,6 +135,7 @@ allow_repeats = true
 scale = Vector2(1.35, 1.35)
 texture = ExtResource("3_ney04")
 centered = false
+script = ExtResource("4_mjr8i")
 
 [node name="taylor" parent="IHateTaylor" index="1" instance=ExtResource("4_nmbtc")]
 position = Vector2(450, 893)
@@ -159,6 +161,7 @@ next = NodePath("../ArrivalMemory2")
 scale = Vector2(1.35, 1.35)
 texture = ExtResource("3_ney04")
 centered = false
+script = ExtResource("4_mjr8i")
 
 [node name="taylor2" type="Sprite2D" parent="CTRLArrivalMemory" index="1"]
 position = Vector2(455, 850)
@@ -189,8 +192,9 @@ modulate = Color(0, 0.509804, 0.776471, 1)
 scale = Vector2(1.35, 1.35)
 texture = ExtResource("3_ney04")
 centered = false
+script = ExtResource("4_mjr8i")
 
-[node name="bg2" type="Sprite2D" parent="ArrivalMemory2" index="1"]
+[node name="mem_bg" type="Sprite2D" parent="ArrivalMemory2" index="1"]
 position = Vector2(-238, -308)
 scale = Vector2(1.35, 1.35)
 texture = ExtResource("7_bq1om")
@@ -226,8 +230,9 @@ modulate = Color(0, 0.509804, 0.776471, 1)
 scale = Vector2(1.35, 1.35)
 texture = ExtResource("3_ney04")
 centered = false
+script = ExtResource("4_mjr8i")
 
-[node name="bg2" type="Sprite2D" parent="ArrivalMemory3" index="1"]
+[node name="mem_bg" type="Sprite2D" parent="ArrivalMemory3" index="1"]
 modulate = Color(1, 1, 1, 0.521569)
 position = Vector2(-238, -308)
 scale = Vector2(1.35, 1.35)
@@ -264,7 +269,7 @@ text = "\"Me?"
 visible = false
 next = NodePath("../ArrivalMemory5")
 
-[node name="bg2" type="Sprite2D" parent="ArrivalMemory4" index="0"]
+[node name="mem_bg" type="Sprite2D" parent="ArrivalMemory4" index="0"]
 modulate = Color(0.490196, 0.792157, 0.941176, 1)
 position = Vector2(-238, -308)
 scale = Vector2(1.35, 1.35)
@@ -308,6 +313,7 @@ is_option_node = true
 scale = Vector2(1.35, 1.35)
 texture = ExtResource("3_ney04")
 centered = false
+script = ExtResource("4_mjr8i")
 
 [node name="taylor3" type="Sprite2D" parent="ArrivalMemory5" index="1"]
 position = Vector2(472, 1383)
@@ -369,6 +375,7 @@ next = NodePath("../ConceptCutsceneNode")
 scale = Vector2(1.35, 1.35)
 texture = ExtResource("3_ney04")
 centered = false
+script = ExtResource("4_mjr8i")
 
 [node name="taylor3" type="Sprite2D" parent="ArrivalMemoryHurt" index="1"]
 position = Vector2(472, 1383)
@@ -397,6 +404,7 @@ next = NodePath("../ConceptCutsceneNode")
 scale = Vector2(1.35, 1.35)
 texture = ExtResource("3_ney04")
 centered = false
+script = ExtResource("4_mjr8i")
 
 [node name="taylor3" type="Sprite2D" parent="ArrivalMemoryHappy" index="1"]
 position = Vector2(472, 1383)
@@ -425,6 +433,7 @@ next = NodePath("../ConceptCutsceneNode")
 scale = Vector2(1.35, 1.35)
 texture = ExtResource("3_ney04")
 centered = false
+script = ExtResource("4_mjr8i")
 
 [node name="taylor3" parent="ArrivalMemoryWorried" index="1" instance=ExtResource("14_jsbdj")]
 
@@ -474,6 +483,7 @@ visible = false
 scale = Vector2(1.35, 1.35)
 texture = ExtResource("3_ney04")
 centered = false
+script = ExtResource("4_mjr8i")
 
 [node name="taylor2" type="Sprite2D" parent="2" index="1"]
 position = Vector2(455, 850)
@@ -491,6 +501,7 @@ next = NodePath("../2")
 scale = Vector2(1.35, 1.35)
 texture = ExtResource("3_ney04")
 centered = false
+script = ExtResource("4_mjr8i")
 
 [node name="taylor2" type="Sprite2D" parent="ConceptCutsceneNode" index="4"]
 position = Vector2(455, 850)
@@ -507,6 +518,7 @@ next = NodePath("../../ConceptCutsceneNode")
 scale = Vector2(1.35, 1.35)
 texture = ExtResource("3_ney04")
 centered = false
+script = ExtResource("4_mjr8i")
 
 [node name="taylor2" type="Sprite2D" parent="Defaults/Base" index="1"]
 position = Vector2(455, 850)
@@ -529,6 +541,7 @@ tag = "World"
 scale = Vector2(1.35, 1.35)
 texture = ExtResource("3_ney04")
 centered = false
+script = ExtResource("4_mjr8i")
 
 [node name="taylor2" type="Sprite2D" parent="Defaults/World" index="1"]
 position = Vector2(455, 850)
@@ -552,6 +565,7 @@ tag = "You"
 scale = Vector2(1.35, 1.35)
 texture = ExtResource("3_ney04")
 centered = false
+script = ExtResource("4_mjr8i")
 
 [node name="taylor2" type="Sprite2D" parent="Defaults/You" index="1"]
 position = Vector2(455, 850)
@@ -575,6 +589,7 @@ tag = "Me"
 scale = Vector2(1.35, 1.35)
 texture = ExtResource("3_ney04")
 centered = false
+script = ExtResource("4_mjr8i")
 
 [node name="taylor2" type="Sprite2D" parent="Defaults/Me" index="1"]
 position = Vector2(455, 850)
@@ -598,6 +613,7 @@ tag = "Insult"
 scale = Vector2(1.35, 1.35)
 texture = ExtResource("3_ney04")
 centered = false
+script = ExtResource("4_mjr8i")
 
 [node name="taylor2" type="Sprite2D" parent="Defaults/Insult" index="1"]
 position = Vector2(455, 850)
@@ -625,6 +641,7 @@ is_option_node = true
 scale = Vector2(1.35, 1.35)
 texture = ExtResource("3_ney04")
 centered = false
+script = ExtResource("4_mjr8i")
 
 [node name="taylor2" type="Sprite2D" parent="Concepts/PlanForAfternoon2/CutsceneNode" index="1"]
 position = Vector2(455, 850)
@@ -680,6 +697,7 @@ use_on_start_fn_from = NodePath("EndQuest1")
 scale = Vector2(1.35, 1.35)
 texture = ExtResource("3_ney04")
 centered = false
+script = ExtResource("4_mjr8i")
 
 [node name="taylor2" type="Sprite2D" parent="Concepts/PlanForAfternoon2/Y" index="1"]
 position = Vector2(455, 850)
@@ -704,7 +722,7 @@ visible = false
 use_on_start_fn_from = NodePath("../Y/EndQuest1")
 end = true
 
-[node name="bg" type="Sprite2D" parent="Concepts/PlanForAfternoon2/Y2" index="0"]
+[node name="black_bg" type="Sprite2D" parent="Concepts/PlanForAfternoon2/Y2" index="0"]
 scale = Vector2(1.44493, 1.35)
 texture = ExtResource("12_y5u3b")
 centered = false
@@ -739,6 +757,7 @@ next = NodePath("../../../ConceptCutsceneNode")
 scale = Vector2(1.35, 1.35)
 texture = ExtResource("3_ney04")
 centered = false
+script = ExtResource("4_mjr8i")
 
 [node name="taylor2" type="Sprite2D" parent="Concepts/PlanForAfternoon2/N" index="1"]
 position = Vector2(455, 850)
@@ -764,6 +783,7 @@ position = Vector2(-31, -949)
 scale = Vector2(3, 3)
 texture = ExtResource("3_ney04")
 centered = false
+script = ExtResource("4_mjr8i")
 
 [node name="taylor2" type="Sprite2D" parent="Concepts/SummerSolstice/CutsceneNode" index="1"]
 modulate = Color(0.54902, 0.54902, 0.54902, 1)
@@ -804,7 +824,7 @@ text = "\"I'm praying for the [i]Saint of Dusk[/i].\""
 visible = false
 next = NodePath("../Branch")
 
-[node name="bg" type="Sprite2D" parent="Concepts/SummerSolstice/Exposition" index="0"]
+[node name="black_bg" type="Sprite2D" parent="Concepts/SummerSolstice/Exposition" index="0"]
 position = Vector2(-144, -972)
 scale = Vector2(3, 3)
 texture = ExtResource("12_y5u3b")
@@ -834,6 +854,7 @@ position = Vector2(-36, -413)
 scale = Vector2(2, 2)
 texture = ExtResource("3_ney04")
 centered = false
+script = ExtResource("4_mjr8i")
 
 [node name="taylor2" type="Sprite2D" parent="Concepts/SummerSolstice/Branch" index="1"]
 modulate = Color(0.54902, 0.54902, 0.54902, 1)
@@ -844,7 +865,7 @@ texture = ExtResource("4_bxirh")
 [node name="Profile" parent="Concepts/SummerSolstice/Branch" index="2" instance=ExtResource("15_j4j0s")]
 position = Vector2(880, 14)
 scale = Vector2(1.8, 1.8)
-texture = SubResource("ViewportTexture_u3kc7")
+texture = SubResource("ViewportTexture_tx35t")
 with_background = false
 
 [node name="Human" parent="Concepts/SummerSolstice/Branch" index="3" node_paths=PackedStringArray("to", "avatar") instance=ExtResource("16_xvtm1")]
@@ -909,6 +930,7 @@ position = Vector2(-36, -413)
 scale = Vector2(2, 2)
 texture = ExtResource("3_ney04")
 centered = false
+script = ExtResource("4_mjr8i")
 
 [node name="taylor2" type="Sprite2D" parent="Concepts/SummerSolstice/HalfHuman" index="1"]
 modulate = Color(0.54902, 0.54902, 0.54902, 1)
@@ -956,6 +978,7 @@ position = Vector2(-20, -949)
 scale = Vector2(3, 3)
 texture = ExtResource("3_ney04")
 centered = false
+script = ExtResource("4_mjr8i")
 
 [node name="taylor2" type="Sprite2D" parent="Concepts/SummerSolstice/SunTemple" index="1"]
 modulate = Color(0.54902, 0.54902, 0.54902, 1)
@@ -1009,6 +1032,7 @@ position = Vector2(-36, -413)
 scale = Vector2(2, 2)
 texture = ExtResource("3_ney04")
 centered = false
+script = ExtResource("4_mjr8i")
 
 [node name="taylor2" type="Sprite2D" parent="Concepts/SummerSolstice/Religion" index="1"]
 modulate = Color(0.54902, 0.54902, 0.54902, 1)
@@ -1064,6 +1088,7 @@ position = Vector2(-239, -255)
 scale = Vector2(2, 2)
 texture = ExtResource("3_ney04")
 centered = false
+script = ExtResource("4_mjr8i")
 
 [node name="taylor2" type="Sprite2D" parent="Concepts/SummerSolstice/Cousin" index="1"]
 modulate = Color(0.690196, 0.690196, 0.690196, 1)
@@ -1100,6 +1125,7 @@ position = Vector2(68, -949)
 scale = Vector2(3, 3)
 texture = ExtResource("3_ney04")
 centered = false
+script = ExtResource("4_mjr8i")
 
 [node name="taylor2" type="Sprite2D" parent="Concepts/TheSaint/Abort" index="1"]
 modulate = Color(0.54902, 0.54902, 0.54902, 1)
@@ -1129,6 +1155,7 @@ next = NodePath("../Play2")
 scale = Vector2(2, 2)
 texture = ExtResource("3_ney04")
 centered = false
+script = ExtResource("4_mjr8i")
 
 [node name="taylor3" type="Sprite2D" parent="Concepts/TheSaint/Play" index="1"]
 modulate = Color(0.627451, 0.627451, 0.627451, 1)
@@ -1164,7 +1191,7 @@ text = "\"End the Age of Humanity."
 visible = false
 next = NodePath("../Play3")
 
-[node name="bg" type="Sprite2D" parent="Concepts/TheSaint/Play2" index="0"]
+[node name="moon_bg" type="Sprite2D" parent="Concepts/TheSaint/Play2" index="0"]
 position = Vector2(-2, -566)
 scale = Vector2(1.3, 1.3)
 texture = ExtResource("17_wjevy")
@@ -1203,11 +1230,12 @@ text = "\"The world will become small again, as it was meant to be,"
 [node name="Play3" parent="Concepts/TheSaint" index="5" instance=ExtResource("2_vonvd")]
 visible = false
 
-[node name="bg" type="Sprite2D" parent="Concepts/TheSaint/Play3" index="0"]
+[node name="moon_bg" type="Sprite2D" parent="Concepts/TheSaint/Play3" index="0"]
 position = Vector2(-2, -566)
 scale = Vector2(1.3, 1.3)
 texture = ExtResource("17_wjevy")
 centered = false
+script = ExtResource("4_mjr8i")
 
 [node name="taylor2" type="Sprite2D" parent="Concepts/TheSaint/Play3" index="1"]
 modulate = Color(0, 0, 0, 1)
