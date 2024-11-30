@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://cgenob2k8qwsg"]
+[gd_scene load_steps=16 format=3 uid="uid://cgenob2k8qwsg"]
 
 [ext_resource type="PackedScene" uid="uid://bh1yfkyt3u44i" path="res://chapter.tscn" id="1_e60jq"]
 [ext_resource type="PackedScene" uid="uid://7hjd5r2hc2bb" path="res://scenes/demo/3/main_map_1.tscn" id="3_ymglo"]
@@ -11,6 +11,10 @@
 [ext_resource type="Script" path="res://chapters/demo/1/CrossEWest.gd" id="6_8frcw"]
 [ext_resource type="Script" path="res://chapters/demo/3/CountPlayerFalls.gd" id="9_dd3iu"]
 [ext_resource type="PackedScene" uid="uid://nwe00wkbrlyf" path="res://chapters/demo/3/taylor_wants_to_help_you_walk.tscn" id="10_mp46n"]
+[ext_resource type="PackedScene" uid="uid://j5t4axtu0ies" path="res://chapters/demo/3/taylor_base_dialogue.tscn" id="12_5hs1j"]
+[ext_resource type="PackedScene" uid="uid://bhr3130air7g3" path="res://chapters/demo/3/brona_base_dialogue.tscn" id="13_q1tqd"]
+[ext_resource type="PackedScene" uid="uid://dq11ccp5tk25a" path="res://chapters/demo/3/nate_base_dialogue.tscn" id="14_6uiej"]
+[ext_resource type="PackedScene" uid="uid://c4oimrynhrpdl" path="res://chapters/demo/3/jerry_base_dialogue.tscn" id="15_uc1n0"]
 
 [node name="Chapter" instance=ExtResource("1_e60jq")]
 starting_scene = ExtResource("4_i77gl")
@@ -42,3 +46,15 @@ reusable = true
 [node name="CountPlayerFalls" type="Node" parent="." index="3"]
 script = ExtResource("9_dd3iu")
 party_help_cutscene = ExtResource("10_mp46n")
+
+[node name="Taylor" parent="CharacterCutscenes" index="0"]
+dialogue = ExtResource("12_5hs1j")
+
+[node name="Brona" parent="CharacterCutscenes" index="1"]
+dialogue = ExtResource("13_q1tqd")
+
+[node name="Nate" parent="CharacterCutscenes" index="2"]
+dialogue = ExtResource("14_6uiej")
+
+[node name="Jerry" parent="CharacterCutscenes" index="3"]
+dialogue = ExtResource("15_uc1n0")

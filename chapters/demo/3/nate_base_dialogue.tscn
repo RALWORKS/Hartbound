@@ -1,0 +1,139 @@
+[gd_scene load_steps=8 format=3 uid="uid://dq11ccp5tk25a"]
+
+[ext_resource type="PackedScene" uid="uid://bp8tsdjdbwj8i" path="res://cutscene/cutscene.tscn" id="1_8p0ia"]
+[ext_resource type="PackedScene" uid="uid://55vflx8ylix1" path="res://cutscene/cutscene_node.tscn" id="2_olkyi"]
+[ext_resource type="Texture2D" uid="uid://dlfi64p84aoys" path="res://assets/scenes/demo/1/industrial/cutscene/1-ground.png" id="3_8bpqs"]
+[ext_resource type="Texture2D" uid="uid://dxlwv778ouxxb" path="res://assets/npcs/nate/bored.png" id="4_4x8df"]
+[ext_resource type="PackedScene" uid="uid://b11g7mb25w5xp" path="res://cutscene/smart_label.tscn" id="5_s6x0g"]
+[ext_resource type="PackedScene" uid="uid://cm3keg86x7x3y" path="res://cutscene/concept_cutscene_node.tscn" id="7_tvn2w"]
+[ext_resource type="Texture2D" uid="uid://dwo3yyav56eua" path="res://assets/npcs/nate/angry.png" id="8_cs0eh"]
+
+[node name="Nate" node_paths=PackedStringArray("starting_page", "concepts", "default_topics") instance=ExtResource("1_8p0ia")]
+starting_page = NodePath("1")
+concepts = NodePath("Concepts")
+default_topics = NodePath("Defaults")
+npc_name = "nate"
+
+[node name="1" parent="." index="0" node_paths=PackedStringArray("next") instance=ExtResource("2_olkyi")]
+next = NodePath("../ConceptCutsceneNode")
+
+[node name="bg" type="Sprite2D" parent="1" index="0"]
+scale = Vector2(1.35, 1.35)
+texture = ExtResource("3_8bpqs")
+centered = false
+
+[node name="nate" type="Sprite2D" parent="1" index="1"]
+position = Vector2(455, 889)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("4_4x8df")
+
+[node name="SmartLabel" parent="1" index="2" instance=ExtResource("5_s6x0g")]
+text = "\"What.\""
+
+[node name="ConceptCutsceneNode" parent="." index="1" instance=ExtResource("7_tvn2w")]
+visible = false
+
+[node name="bg" type="Sprite2D" parent="ConceptCutsceneNode" index="3"]
+scale = Vector2(1.35, 1.35)
+texture = ExtResource("3_8bpqs")
+centered = false
+
+[node name="nate" type="Sprite2D" parent="ConceptCutsceneNode" index="4"]
+position = Vector2(455, 889)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("4_4x8df")
+
+[node name="Defaults" type="Node" parent="." index="2"]
+
+[node name="Base" parent="Defaults" index="0" instance=ExtResource("2_olkyi")]
+visible = false
+
+[node name="bg" type="Sprite2D" parent="Defaults/Base" index="0"]
+scale = Vector2(1.35, 1.35)
+texture = ExtResource("3_8bpqs")
+centered = false
+
+[node name="nate" type="Sprite2D" parent="Defaults/Base" index="1"]
+position = Vector2(455, 889)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("8_cs0eh")
+
+[node name="SmartLabel" parent="Defaults/Base" index="2" instance=ExtResource("5_s6x0g")]
+offset_left = 785.0
+offset_top = 307.0
+offset_right = 1126.0
+offset_bottom = 440.0
+text = "\"Are you trying to waste my time?\""
+
+[node name="World" parent="Defaults" index="1" instance=ExtResource("2_olkyi")]
+visible = false
+tag = "World"
+
+[node name="bg" type="Sprite2D" parent="Defaults/World" index="0"]
+scale = Vector2(1.35, 1.35)
+texture = ExtResource("3_8bpqs")
+centered = false
+
+[node name="nate" type="Sprite2D" parent="Defaults/World" index="1"]
+position = Vector2(455, 889)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("4_4x8df")
+
+[node name="SmartLabel" parent="Defaults/World" index="2" instance=ExtResource("5_s6x0g")]
+offset_left = 785.0
+offset_top = 307.0
+offset_right = 1126.0
+offset_bottom = 440.0
+text = "\"Taylor'd know better than me.\""
+
+[node name="People" parent="Defaults" index="2" instance=ExtResource("2_olkyi")]
+visible = false
+tag = "People"
+
+[node name="bg" type="Sprite2D" parent="Defaults/People" index="0"]
+scale = Vector2(1.35, 1.35)
+texture = ExtResource("3_8bpqs")
+centered = false
+
+[node name="nate" type="Sprite2D" parent="Defaults/People" index="1"]
+position = Vector2(455, 889)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("4_4x8df")
+
+[node name="SmartLabel" parent="Defaults/People" index="2" instance=ExtResource("5_s6x0g")]
+offset_left = 785.0
+offset_top = 307.0
+offset_right = 1060.0
+offset_bottom = 395.0
+text = "\"I don't gossip.\""
+
+[node name="Insult" parent="Defaults" index="3" instance=ExtResource("2_olkyi")]
+visible = false
+tag = "Insult"
+end = true
+
+[node name="bg" type="Sprite2D" parent="Defaults/Insult" index="0"]
+scale = Vector2(1.35, 1.35)
+texture = ExtResource("3_8bpqs")
+centered = false
+
+[node name="nate" type="Sprite2D" parent="Defaults/Insult" index="1"]
+position = Vector2(455, 889)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("4_4x8df")
+
+[node name="SmartLabel" parent="Defaults/Insult" index="2" instance=ExtResource("5_s6x0g")]
+offset_left = 708.0
+offset_top = 122.0
+offset_right = 783.0
+offset_bottom = 210.0
+text = "..."
+
+[node name="SmartLabel2" parent="Defaults/Insult" index="3" instance=ExtResource("5_s6x0g")]
+offset_left = 707.0
+offset_top = 223.0
+offset_right = 1093.0
+offset_bottom = 311.0
+text = "\"What's your problem?\""
+
+[node name="Concepts" type="Node" parent="." index="3"]
