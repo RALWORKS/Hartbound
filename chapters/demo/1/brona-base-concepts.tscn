@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://cphadkoi37v4v"]
+[gd_scene load_steps=40 format=3 uid="uid://cphadkoi37v4v"]
 
 [ext_resource type="Script" path="res://cutscene/CutsceneConceptsContainer.gd" id="1_bvkoa"]
 [ext_resource type="PackedScene" uid="uid://84etqm7v3b47" path="res://concept-map/concepts/age_of_dusk.tscn" id="1_yhax7"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://dlfi64p84aoys" path="res://assets/scenes/demo/1/industrial/cutscene/1-ground.png" id="3_4jg2d"]
 [ext_resource type="Texture2D" uid="uid://s0ah5pljwjc8" path="res://assets/npcs/brona/happy.png" id="4_m03cx"]
 [ext_resource type="Theme" uid="uid://bowrqsap2qmsa" path="res://base_theme.tres" id="5_dpfjf"]
+[ext_resource type="Script" path="res://cutscene/standard_bg.gd" id="5_lh1bw"]
 [ext_resource type="PackedScene" uid="uid://yplasm5gtgly" path="res://cutscene/cutscene_option.tscn" id="6_dpdg8"]
 [ext_resource type="PackedScene" uid="uid://bxl45ycc6ucjc" path="res://concept-map/concepts/age_of_the_sun.tscn" id="7_xdme4"]
 [ext_resource type="PackedScene" uid="uid://clq8611xkfdqp" path="res://cutscene/cutscene_redirect_node.tscn" id="8_eew08"]
@@ -85,6 +86,7 @@ next = NodePath("../AOD2")
 scale = Vector2(1.35, 1.35)
 texture = ExtResource("3_4jg2d")
 centered = false
+script = ExtResource("5_lh1bw")
 
 [node name="brona" type="Sprite2D" parent="Age of Dusk/AOD1"]
 position = Vector2(455, 850)
@@ -109,6 +111,7 @@ is_option_node = true
 scale = Vector2(1.35, 1.35)
 texture = ExtResource("3_4jg2d")
 centered = false
+script = ExtResource("5_lh1bw")
 
 [node name="brona" type="Sprite2D" parent="Age of Dusk/AOD2"]
 position = Vector2(455, 850)
@@ -146,6 +149,7 @@ visible = false
 scale = Vector2(1.35, 1.35)
 texture = ExtResource("3_4jg2d")
 centered = false
+script = ExtResource("5_lh1bw")
 
 [node name="brona" type="Sprite2D" parent="Age of Dusk/AOD3"]
 position = Vector2(455, 850)
@@ -169,6 +173,7 @@ visible = false
 scale = Vector2(1.35, 1.35)
 texture = ExtResource("3_4jg2d")
 centered = false
+script = ExtResource("5_lh1bw")
 
 [node name="brona" type="Sprite2D" parent="Age of Dusk/AOD4"]
 position = Vector2(455, 850)
@@ -206,6 +211,7 @@ visible = false
 scale = Vector2(1.35, 1.35)
 texture = ExtResource("3_4jg2d")
 centered = false
+script = ExtResource("5_lh1bw")
 
 [node name="brona" type="Sprite2D" parent="Sun Temple/SunTemple1"]
 position = Vector2(455, 850)
@@ -230,6 +236,7 @@ visible = false
 scale = Vector2(1.35, 1.35)
 texture = ExtResource("3_4jg2d")
 centered = false
+script = ExtResource("5_lh1bw")
 
 [node name="brona" type="Sprite2D" parent="Elves/CutsceneNode"]
 position = Vector2(455, 850)
@@ -255,6 +262,7 @@ is_option_node = true
 scale = Vector2(1.35, 1.35)
 texture = ExtResource("3_4jg2d")
 centered = false
+script = ExtResource("5_lh1bw")
 
 [node name="brona" type="Sprite2D" parent="Humans/humans1"]
 position = Vector2(455, 850)
@@ -293,6 +301,7 @@ visible = false
 scale = Vector2(1.35, 1.35)
 texture = ExtResource("3_4jg2d")
 centered = false
+script = ExtResource("5_lh1bw")
 
 [node name="brona" type="Sprite2D" parent="Humans/humans2"]
 position = Vector2(455, 850)
@@ -334,6 +343,7 @@ end = true
 scale = Vector2(1.35, 1.35)
 texture = ExtResource("3_4jg2d")
 centered = false
+script = ExtResource("5_lh1bw")
 
 [node name="brona" type="Sprite2D" parent="Humans/humans3"]
 position = Vector2(455, 850)
@@ -358,6 +368,7 @@ visible = false
 scale = Vector2(1.35, 1.35)
 texture = ExtResource("3_4jg2d")
 centered = false
+script = ExtResource("5_lh1bw")
 
 [node name="brona" type="Sprite2D" parent="MoonTemple/CutsceneNode"]
 position = Vector2(455, 850)
@@ -384,6 +395,7 @@ visible = false
 scale = Vector2(1.35, 1.35)
 texture = ExtResource("3_4jg2d")
 centered = false
+script = ExtResource("5_lh1bw")
 
 [node name="brona" type="Sprite2D" parent="Salvagers/CutsceneNode"]
 position = Vector2(455, 850)
@@ -410,6 +422,7 @@ next = NodePath("../medics2")
 scale = Vector2(1.35, 1.35)
 texture = ExtResource("3_4jg2d")
 centered = false
+script = ExtResource("5_lh1bw")
 
 [node name="brona" type="Sprite2D" parent="Medics/medics"]
 position = Vector2(500, 875)
@@ -433,6 +446,7 @@ visible = false
 scale = Vector2(1.35, 1.35)
 texture = ExtResource("3_4jg2d")
 centered = false
+script = ExtResource("5_lh1bw")
 
 [node name="brona" type="Sprite2D" parent="Medics/medics2"]
 position = Vector2(455, 850)
@@ -459,6 +473,7 @@ next = NodePath("../eng2")
 scale = Vector2(1.35, 1.35)
 texture = ExtResource("3_4jg2d")
 centered = false
+script = ExtResource("5_lh1bw")
 
 [node name="brona" type="Sprite2D" parent="Engineers/eng"]
 position = Vector2(455, 850)
@@ -482,6 +497,7 @@ next = NodePath("../eng3")
 scale = Vector2(1.35, 1.35)
 texture = ExtResource("3_4jg2d")
 centered = false
+script = ExtResource("5_lh1bw")
 
 [node name="brona" type="Sprite2D" parent="Engineers/eng2"]
 position = Vector2(500, 875)
@@ -525,6 +541,7 @@ use_on_start_fn_from = NodePath("jerry/PlayAnimationOnStart")
 scale = Vector2(1.35, 1.35)
 texture = ExtResource("3_4jg2d")
 centered = false
+script = ExtResource("5_lh1bw")
 
 [node name="brona" type="Sprite2D" parent="Engineers/eng3"]
 position = Vector2(455, 850)
@@ -620,6 +637,7 @@ visible = false
 scale = Vector2(1.35, 1.35)
 texture = ExtResource("3_4jg2d")
 centered = false
+script = ExtResource("5_lh1bw")
 
 [node name="brona" type="Sprite2D" parent="Taylor/CutsceneNode"]
 position = Vector2(455, 850)
@@ -645,6 +663,7 @@ next = NodePath("../nate2")
 scale = Vector2(1.35, 1.35)
 texture = ExtResource("3_4jg2d")
 centered = false
+script = ExtResource("5_lh1bw")
 
 [node name="brona" type="Sprite2D" parent="Nate/nate"]
 position = Vector2(447, 875)
@@ -669,6 +688,7 @@ next = NodePath("../nate3")
 scale = Vector2(1.35, 1.35)
 texture = ExtResource("3_4jg2d")
 centered = false
+script = ExtResource("5_lh1bw")
 
 [node name="brona" type="Sprite2D" parent="Nate/nate2"]
 position = Vector2(500, 875)
@@ -692,6 +712,7 @@ visible = false
 scale = Vector2(1.35, 1.35)
 texture = ExtResource("3_4jg2d")
 centered = false
+script = ExtResource("5_lh1bw")
 
 [node name="brona" type="Sprite2D" parent="Nate/nate3"]
 position = Vector2(500, 875)
@@ -783,6 +804,7 @@ visible = false
 scale = Vector2(1.35, 1.35)
 texture = ExtResource("3_4jg2d")
 centered = false
+script = ExtResource("5_lh1bw")
 
 [node name="brona" type="Sprite2D" parent="EndOfTheWorld/CutsceneNode"]
 position = Vector2(455, 850)
@@ -808,6 +830,7 @@ next = NodePath("../plague2")
 scale = Vector2(1.35, 1.35)
 texture = ExtResource("3_4jg2d")
 centered = false
+script = ExtResource("5_lh1bw")
 
 [node name="brona" type="Sprite2D" parent="Plague of Dreams/plague"]
 position = Vector2(455, 850)
@@ -830,6 +853,7 @@ visible = false
 scale = Vector2(1.35, 1.35)
 texture = ExtResource("3_4jg2d")
 centered = false
+script = ExtResource("5_lh1bw")
 
 [node name="brona" type="Sprite2D" parent="Plague of Dreams/plague2"]
 position = Vector2(455, 850)
@@ -858,6 +882,7 @@ next = NodePath("../demons2")
 scale = Vector2(1.35, 1.35)
 texture = ExtResource("3_4jg2d")
 centered = false
+script = ExtResource("5_lh1bw")
 
 [node name="brona" type="Sprite2D" parent="Demons/demons"]
 position = Vector2(455, 850)
@@ -880,6 +905,7 @@ visible = false
 scale = Vector2(1.35, 1.35)
 texture = ExtResource("3_4jg2d")
 centered = false
+script = ExtResource("5_lh1bw")
 
 [node name="brona" type="Sprite2D" parent="Demons/demons2"]
 position = Vector2(418, 832)
@@ -911,6 +937,7 @@ visible = false
 scale = Vector2(1.35, 1.35)
 texture = ExtResource("3_4jg2d")
 centered = false
+script = ExtResource("5_lh1bw")
 
 [node name="brona" type="Sprite2D" parent="Generators/CutsceneNode"]
 position = Vector2(455, 850)
@@ -936,6 +963,7 @@ visible = false
 scale = Vector2(1.35, 1.35)
 texture = ExtResource("3_4jg2d")
 centered = false
+script = ExtResource("5_lh1bw")
 
 [node name="brona" type="Sprite2D" parent="Leylines/CutsceneNode"]
 position = Vector2(455, 850)
@@ -989,6 +1017,7 @@ she says.
 scale = Vector2(1.35, 1.35)
 texture = ExtResource("3_4jg2d")
 centered = false
+script = ExtResource("5_lh1bw")
 
 [node name="brona" type="Sprite2D" parent="C1CollectingHerbs/Herbs"]
 position = Vector2(455, 850)
@@ -1019,6 +1048,7 @@ visible = false
 scale = Vector2(1.35, 1.35)
 texture = ExtResource("3_4jg2d")
 centered = false
+script = ExtResource("5_lh1bw")
 
 [node name="brona" type="Sprite2D" parent="HowAreYou/Brona1"]
 position = Vector2(455, 850)
@@ -1044,6 +1074,7 @@ visible = false
 scale = Vector2(1.35, 1.35)
 texture = ExtResource("3_4jg2d")
 centered = false
+script = ExtResource("5_lh1bw")
 
 [node name="brona" type="Sprite2D" parent="WhatDoYouThinkOfMe/CutsceneNode"]
 position = Vector2(455, 850)
@@ -1068,6 +1099,7 @@ Chillest Elf I know!\""
 scale = Vector2(1.35, 1.35)
 texture = ExtResource("3_4jg2d")
 centered = false
+script = ExtResource("5_lh1bw")
 
 [node name="brona" type="Sprite2D" parent="TellMeAboutYourself/CutsceneNode"]
 position = Vector2(455, 850)

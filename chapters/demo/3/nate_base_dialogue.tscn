@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://dq11ccp5tk25a"]
+[gd_scene load_steps=9 format=3 uid="uid://dq11ccp5tk25a"]
 
 [ext_resource type="PackedScene" uid="uid://bp8tsdjdbwj8i" path="res://cutscene/cutscene.tscn" id="1_8p0ia"]
 [ext_resource type="PackedScene" uid="uid://55vflx8ylix1" path="res://cutscene/cutscene_node.tscn" id="2_olkyi"]
 [ext_resource type="Texture2D" uid="uid://dlfi64p84aoys" path="res://assets/scenes/demo/1/industrial/cutscene/1-ground.png" id="3_8bpqs"]
+[ext_resource type="Script" path="res://cutscene/standard_bg.gd" id="4_4gtp8"]
 [ext_resource type="Texture2D" uid="uid://dxlwv778ouxxb" path="res://assets/npcs/nate/bored.png" id="4_4x8df"]
 [ext_resource type="PackedScene" uid="uid://b11g7mb25w5xp" path="res://cutscene/smart_label.tscn" id="5_s6x0g"]
 [ext_resource type="PackedScene" uid="uid://cm3keg86x7x3y" path="res://cutscene/concept_cutscene_node.tscn" id="7_tvn2w"]
@@ -21,6 +22,7 @@ next = NodePath("../ConceptCutsceneNode")
 scale = Vector2(1.35, 1.35)
 texture = ExtResource("3_8bpqs")
 centered = false
+script = ExtResource("4_4gtp8")
 
 [node name="nate" type="Sprite2D" parent="1" index="1"]
 position = Vector2(455, 889)
@@ -37,6 +39,7 @@ visible = false
 scale = Vector2(1.35, 1.35)
 texture = ExtResource("3_8bpqs")
 centered = false
+script = ExtResource("4_4gtp8")
 
 [node name="nate" type="Sprite2D" parent="ConceptCutsceneNode" index="4"]
 position = Vector2(455, 889)
@@ -52,6 +55,7 @@ visible = false
 scale = Vector2(1.35, 1.35)
 texture = ExtResource("3_8bpqs")
 centered = false
+script = ExtResource("4_4gtp8")
 
 [node name="nate" type="Sprite2D" parent="Defaults/Base" index="1"]
 position = Vector2(455, 889)
@@ -73,6 +77,7 @@ tag = "World"
 scale = Vector2(1.35, 1.35)
 texture = ExtResource("3_8bpqs")
 centered = false
+script = ExtResource("4_4gtp8")
 
 [node name="nate" type="Sprite2D" parent="Defaults/World" index="1"]
 position = Vector2(455, 889)
@@ -94,6 +99,7 @@ tag = "People"
 scale = Vector2(1.35, 1.35)
 texture = ExtResource("3_8bpqs")
 centered = false
+script = ExtResource("4_4gtp8")
 
 [node name="nate" type="Sprite2D" parent="Defaults/People" index="1"]
 position = Vector2(455, 889)
@@ -116,6 +122,7 @@ end = true
 scale = Vector2(1.35, 1.35)
 texture = ExtResource("3_8bpqs")
 centered = false
+script = ExtResource("4_4gtp8")
 
 [node name="nate" type="Sprite2D" parent="Defaults/Insult" index="1"]
 position = Vector2(455, 889)

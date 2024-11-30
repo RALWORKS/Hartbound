@@ -1,6 +1,6 @@
 extends Window
 
-var world = null
+var world: Node = null
 var cur_modal = null
 var player = null
 var chapter
@@ -666,3 +666,12 @@ func to_map():
 
 func get_character_dialogue(char_id):
 	return chapter.get_character_dialogue(char_id)
+
+func get_scene():
+	var c = world.get_children()
+	if c.size() == 0:
+		return null
+	return c[0]
+
+func get_standard_bg():
+	return chapter.cached_scene_bg

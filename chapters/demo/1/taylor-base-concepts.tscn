@@ -1,9 +1,10 @@
-[gd_scene load_steps=54 format=3 uid="uid://c4nb0ap5n2w2b"]
+[gd_scene load_steps=55 format=3 uid="uid://c4nb0ap5n2w2b"]
 
 [ext_resource type="Script" path="res://cutscene/CutsceneConceptsContainer.gd" id="1_iedjd"]
 [ext_resource type="PackedScene" uid="uid://84etqm7v3b47" path="res://concept-map/concepts/age_of_dusk.tscn" id="1_rendb"]
 [ext_resource type="PackedScene" uid="uid://55vflx8ylix1" path="res://cutscene/cutscene_node.tscn" id="2_xxf8h"]
 [ext_resource type="Texture2D" uid="uid://dlfi64p84aoys" path="res://assets/scenes/demo/1/industrial/cutscene/1-ground.png" id="3_ao1sr"]
+[ext_resource type="Script" path="res://cutscene/standard_bg.gd" id="5_j50n5"]
 [ext_resource type="Theme" uid="uid://bowrqsap2qmsa" path="res://base_theme.tres" id="5_yjk2e"]
 [ext_resource type="PackedScene" uid="uid://yplasm5gtgly" path="res://cutscene/cutscene_option.tscn" id="6_es51f"]
 [ext_resource type="PackedScene" uid="uid://bxl45ycc6ucjc" path="res://concept-map/concepts/age_of_the_sun.tscn" id="7_eqxgh"]
@@ -44,7 +45,7 @@
 [ext_resource type="Texture2D" uid="uid://du538lgom8gn2" path="res://assets/splash/home-village.png" id="42_gmm22"]
 [ext_resource type="Shader" path="res://effects/bluescale.gdshader" id="43_fub5w"]
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_k0nop"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_i2lr1"]
 viewport_path = NodePath("img")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_weoi2"]
@@ -59,7 +60,7 @@ shader_parameter/tint = Vector4(0.6, 0.83, 0.97, 1)
 shader_parameter/highlight = Vector4(0.8, 0.85, 0.6, 1)
 shader_parameter/alpha = 1.0
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_of2ga"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_ove0v"]
 viewport_path = NodePath("img")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_d26op"]
@@ -74,7 +75,7 @@ shader_parameter/tint = Vector4(0.6, 0.83, 0.97, 1)
 shader_parameter/highlight = Vector4(0.8, 0.85, 0.6, 1)
 shader_parameter/alpha = 1.0
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_maap5"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_v6p63"]
 viewport_path = NodePath("img")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_j2nwn"]
@@ -89,7 +90,7 @@ shader_parameter/tint = Vector4(0.4, 0.4, 0.4, 1)
 shader_parameter/highlight = Vector4(0.5, 0.5, 0.5, 1)
 shader_parameter/alpha = 1.0
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_oh1vv"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_v3ug8"]
 viewport_path = NodePath("img")
 
 [node name="Concepts" type="Node"]
@@ -105,6 +106,7 @@ next = NodePath("../AOD2")
 scale = Vector2(1.35, 1.35)
 texture = ExtResource("3_ao1sr")
 centered = false
+script = ExtResource("5_j50n5")
 
 [node name="taylor2" type="Sprite2D" parent="Age of Dusk/AOD1"]
 position = Vector2(455, 850)
@@ -128,6 +130,7 @@ next = NodePath("../AOD5")
 scale = Vector2(1.35, 1.35)
 texture = ExtResource("3_ao1sr")
 centered = false
+script = ExtResource("5_j50n5")
 
 [node name="taylor2" type="Sprite2D" parent="Age of Dusk/AOD2"]
 position = Vector2(455, 850)
@@ -152,6 +155,7 @@ is_option_node = true
 scale = Vector2(1.35, 1.35)
 texture = ExtResource("3_ao1sr")
 centered = false
+script = ExtResource("5_j50n5")
 
 [node name="taylor2" type="Sprite2D" parent="Age of Dusk/AOD5"]
 position = Vector2(455, 850)
@@ -192,6 +196,7 @@ next = NodePath("../AOD6")
 scale = Vector2(1.35, 1.35)
 texture = ExtResource("3_ao1sr")
 centered = false
+script = ExtResource("5_j50n5")
 
 [node name="taylor" type="Sprite2D" parent="Age of Dusk/AOD-happy"]
 position = Vector2(591, 2349)
@@ -215,6 +220,7 @@ visible = false
 scale = Vector2(1.35, 1.35)
 texture = ExtResource("3_ao1sr")
 centered = false
+script = ExtResource("5_j50n5")
 
 [node name="taylor2" type="Sprite2D" parent="Age of Dusk/AOD6"]
 position = Vector2(455, 850)
@@ -258,6 +264,7 @@ next = NodePath("../AOS2")
 scale = Vector2(1.35, 1.35)
 texture = ExtResource("3_ao1sr")
 centered = false
+script = ExtResource("5_j50n5")
 
 [node name="taylor2" type="Sprite2D" parent="Age of the Sun/AOS1"]
 position = Vector2(455, 850)
@@ -281,6 +288,7 @@ next = NodePath("../AOS3")
 scale = Vector2(1.35, 1.35)
 texture = ExtResource("3_ao1sr")
 centered = false
+script = ExtResource("5_j50n5")
 
 [node name="taylor2" type="Sprite2D" parent="Age of the Sun/AOS2"]
 position = Vector2(455, 850)
@@ -306,6 +314,7 @@ visible = false
 scale = Vector2(1.35, 1.35)
 texture = ExtResource("3_ao1sr")
 centered = false
+script = ExtResource("5_j50n5")
 
 [node name="taylor2" type="Sprite2D" parent="Age of the Sun/AOS3"]
 position = Vector2(455, 850)
@@ -332,6 +341,7 @@ next = NodePath("../AOM2")
 scale = Vector2(1.35, 1.35)
 texture = ExtResource("3_ao1sr")
 centered = false
+script = ExtResource("5_j50n5")
 
 [node name="taylor2" type="Sprite2D" parent="AgeOfTheMoon/AOM1"]
 position = Vector2(455, 850)
@@ -356,6 +366,7 @@ next = NodePath("../AOM3")
 scale = Vector2(1.35, 1.35)
 texture = ExtResource("3_ao1sr")
 centered = false
+script = ExtResource("5_j50n5")
 
 [node name="taylor2" type="Sprite2D" parent="AgeOfTheMoon/AOM2"]
 position = Vector2(455, 850)
@@ -400,6 +411,7 @@ next = NodePath("../AOM4")
 scale = Vector2(1.35, 1.35)
 texture = ExtResource("3_ao1sr")
 centered = false
+script = ExtResource("5_j50n5")
 
 [node name="taylor2" type="Sprite2D" parent="AgeOfTheMoon/AOM3"]
 position = Vector2(455, 850)
@@ -423,6 +435,7 @@ visible = false
 scale = Vector2(1.35, 1.35)
 texture = ExtResource("3_ao1sr")
 centered = false
+script = ExtResource("5_j50n5")
 
 [node name="taylor2" type="Sprite2D" parent="AgeOfTheMoon/AOM4"]
 position = Vector2(455, 850)
@@ -459,6 +472,7 @@ next = NodePath("../Brona2")
 scale = Vector2(1.35, 1.35)
 texture = ExtResource("3_ao1sr")
 centered = false
+script = ExtResource("5_j50n5")
 
 [node name="taylor2" type="Sprite2D" parent="Brona/Brona1"]
 position = Vector2(455, 850)
@@ -526,6 +540,7 @@ next = NodePath("../SunTemple2")
 scale = Vector2(1.35, 1.35)
 texture = ExtResource("3_ao1sr")
 centered = false
+script = ExtResource("5_j50n5")
 
 [node name="taylor2" type="Sprite2D" parent="Sun Temple/SunTemple1"]
 position = Vector2(455, 850)
@@ -550,6 +565,7 @@ next = NodePath("../SunTemple3")
 scale = Vector2(1.35, 1.35)
 texture = ExtResource("3_ao1sr")
 centered = false
+script = ExtResource("5_j50n5")
 
 [node name="taylor2" type="Sprite2D" parent="Sun Temple/SunTemple2"]
 position = Vector2(455, 850)
@@ -620,6 +636,7 @@ visible = false
 scale = Vector2(1.35, 1.35)
 texture = ExtResource("3_ao1sr")
 centered = false
+script = ExtResource("5_j50n5")
 
 [node name="taylor2" type="Sprite2D" parent="Elves/CutsceneNode"]
 position = Vector2(455, 850)
@@ -664,6 +681,7 @@ next = NodePath("../humans2")
 scale = Vector2(1.35, 1.35)
 texture = ExtResource("3_ao1sr")
 centered = false
+script = ExtResource("5_j50n5")
 
 [node name="taylor2" type="Sprite2D" parent="Humans/humans1"]
 position = Vector2(481, 868)
@@ -688,6 +706,7 @@ next = NodePath("../humans3")
 scale = Vector2(1.35, 1.35)
 texture = ExtResource("3_ao1sr")
 centered = false
+script = ExtResource("5_j50n5")
 
 [node name="taylor2" type="Sprite2D" parent="Humans/humans2"]
 position = Vector2(481, 868)
@@ -747,6 +766,7 @@ next = NodePath("../CutsceneNode2")
 scale = Vector2(1.35, 1.35)
 texture = ExtResource("3_ao1sr")
 centered = false
+script = ExtResource("5_j50n5")
 
 [node name="taylor2" type="Sprite2D" parent="MoonTemple/CutsceneNode"]
 position = Vector2(481, 868)
@@ -801,6 +821,7 @@ next = NodePath("../CutsceneNode3")
 scale = Vector2(1.35, 1.35)
 texture = ExtResource("3_ao1sr")
 centered = false
+script = ExtResource("5_j50n5")
 
 [node name="taylor2" type="Sprite2D" parent="MoonTemple/CutsceneNode2"]
 position = Vector2(481, 868)
@@ -859,6 +880,7 @@ visible = false
 scale = Vector2(1.35, 1.35)
 texture = ExtResource("3_ao1sr")
 centered = false
+script = ExtResource("5_j50n5")
 
 [node name="taylor2" type="Sprite2D" parent="MoonTemple/CutsceneNode3"]
 position = Vector2(481, 868)
@@ -892,6 +914,7 @@ visible = false
 scale = Vector2(1.35, 1.35)
 texture = ExtResource("3_ao1sr")
 centered = false
+script = ExtResource("5_j50n5")
 
 [node name="taylor2" type="Sprite2D" parent="Salvagers/CutsceneNode"]
 position = Vector2(481, 868)
@@ -917,6 +940,7 @@ visible = false
 scale = Vector2(1.35, 1.35)
 texture = ExtResource("3_ao1sr")
 centered = false
+script = ExtResource("5_j50n5")
 
 [node name="taylor2" type="Sprite2D" parent="Medics/CutsceneNode"]
 position = Vector2(481, 868)
@@ -963,6 +987,7 @@ next = NodePath("../Eng2")
 scale = Vector2(1.35, 1.35)
 texture = ExtResource("3_ao1sr")
 centered = false
+script = ExtResource("5_j50n5")
 
 [node name="taylor2" type="Sprite2D" parent="Engineers/Eng"]
 position = Vector2(481, 868)
@@ -994,6 +1019,7 @@ visible = false
 scale = Vector2(1.35, 1.35)
 texture = ExtResource("3_ao1sr")
 centered = false
+script = ExtResource("5_j50n5")
 
 [node name="taylor2" type="Sprite2D" parent="Engineers/Eng2"]
 position = Vector2(481, 868)
@@ -1029,6 +1055,7 @@ visible = false
 scale = Vector2(1.35, 1.35)
 texture = ExtResource("3_ao1sr")
 centered = false
+script = ExtResource("5_j50n5")
 
 [node name="taylor2" type="Sprite2D" parent="Taylor/CutsceneNode"]
 position = Vector2(481, 868)
@@ -1054,6 +1081,7 @@ next = NodePath("../Nate2")
 scale = Vector2(1.35, 1.35)
 texture = ExtResource("3_ao1sr")
 centered = false
+script = ExtResource("5_j50n5")
 
 [node name="taylor2" type="Sprite2D" parent="Nate/Nate"]
 position = Vector2(481, 868)
@@ -1077,6 +1105,7 @@ visible = false
 scale = Vector2(1.35, 1.35)
 texture = ExtResource("3_ao1sr")
 centered = false
+script = ExtResource("5_j50n5")
 
 [node name="taylor2" type="Sprite2D" parent="Nate/Nate2"]
 position = Vector2(481, 868)
@@ -1112,6 +1141,7 @@ visible = false
 scale = Vector2(1.35, 1.35)
 texture = ExtResource("3_ao1sr")
 centered = false
+script = ExtResource("5_j50n5")
 
 [node name="taylor2" type="Sprite2D" parent="Jerry/CutsceneNode"]
 position = Vector2(481, 868)
@@ -1136,6 +1166,7 @@ visible = false
 scale = Vector2(1.35, 1.35)
 texture = ExtResource("3_ao1sr")
 centered = false
+script = ExtResource("5_j50n5")
 
 [node name="taylor2" type="Sprite2D" parent="EndOfTheWorld/CutsceneNode"]
 position = Vector2(481, 868)
@@ -1164,6 +1195,7 @@ next = NodePath("../Plague2")
 scale = Vector2(1.35, 1.35)
 texture = ExtResource("3_ao1sr")
 centered = false
+script = ExtResource("5_j50n5")
 
 [node name="taylor2" type="Sprite2D" parent="Plague of Dreams/Plague"]
 position = Vector2(481, 868)
@@ -1206,6 +1238,7 @@ next = NodePath("../Plague5")
 scale = Vector2(1.35, 1.35)
 texture = ExtResource("3_ao1sr")
 centered = false
+script = ExtResource("5_j50n5")
 
 [node name="taylor2" type="Sprite2D" parent="Plague of Dreams/Plague2"]
 position = Vector2(481, 868)
@@ -1238,6 +1271,13 @@ next = NodePath("../Plague3")
 scale = Vector2(1.35, 1.35)
 texture = ExtResource("3_ao1sr")
 centered = false
+script = ExtResource("5_j50n5")
+
+[node name="bg2" type="Sprite2D" parent="Plague of Dreams/Plague5"]
+scale = Vector2(1.35, 1.35)
+texture = ExtResource("3_ao1sr")
+centered = false
+script = ExtResource("5_j50n5")
 
 [node name="taylor2" type="Sprite2D" parent="Plague of Dreams/Plague5"]
 position = Vector2(481, 868)
@@ -1261,6 +1301,7 @@ next = NodePath("../Plague4")
 scale = Vector2(1.35, 1.35)
 texture = ExtResource("3_ao1sr")
 centered = false
+script = ExtResource("5_j50n5")
 
 [node name="taylor2" type="Sprite2D" parent="Plague of Dreams/Plague3"]
 position = Vector2(481, 868)
@@ -1304,6 +1345,7 @@ visible = false
 scale = Vector2(1.35, 1.35)
 texture = ExtResource("3_ao1sr")
 centered = false
+script = ExtResource("5_j50n5")
 
 [node name="taylor2" type="Sprite2D" parent="Plague of Dreams/Plague4"]
 position = Vector2(481, 868)
@@ -1350,6 +1392,7 @@ visible = false
 scale = Vector2(1.35, 1.35)
 texture = ExtResource("3_ao1sr")
 centered = false
+script = ExtResource("5_j50n5")
 
 [node name="taylor2" type="Sprite2D" parent="Demons/CutsceneNode"]
 position = Vector2(455, 850)
@@ -1381,6 +1424,7 @@ visible = false
 scale = Vector2(1.35, 1.35)
 texture = ExtResource("3_ao1sr")
 centered = false
+script = ExtResource("5_j50n5")
 
 [node name="taylor2" type="Sprite2D" parent="Generators/CutsceneNode"]
 position = Vector2(455, 850)
@@ -1405,6 +1449,7 @@ visible = false
 scale = Vector2(1.35, 1.35)
 texture = ExtResource("3_ao1sr")
 centered = false
+script = ExtResource("5_j50n5")
 
 [node name="taylor2" type="Sprite2D" parent="Leylines/Leyline"]
 position = Vector2(455, 850)
@@ -1439,6 +1484,7 @@ visible = false
 scale = Vector2(1.35, 1.35)
 texture = ExtResource("3_ao1sr")
 centered = false
+script = ExtResource("5_j50n5")
 
 [node name="taylor2" type="Sprite2D" parent="C1CollectingHerbs/Herbs"]
 position = Vector2(455, 850)
@@ -1464,6 +1510,7 @@ next = NodePath("../Components2")
 scale = Vector2(1.35, 1.35)
 texture = ExtResource("3_ao1sr")
 centered = false
+script = ExtResource("5_j50n5")
 
 [node name="taylor2" type="Sprite2D" parent="C1CollectingComponents/Components"]
 position = Vector2(455, 850)
@@ -1488,6 +1535,7 @@ next = NodePath("../Components3")
 scale = Vector2(1.35, 1.35)
 texture = ExtResource("3_ao1sr")
 centered = false
+script = ExtResource("5_j50n5")
 
 [node name="taylor2" type="Sprite2D" parent="C1CollectingComponents/Components2"]
 position = Vector2(455, 850)
@@ -1512,6 +1560,7 @@ visible = false
 scale = Vector2(1.35, 1.35)
 texture = ExtResource("3_ao1sr")
 centered = false
+script = ExtResource("5_j50n5")
 
 [node name="taylor2" type="Sprite2D" parent="C1CollectingComponents/Components3"]
 position = Vector2(455, 850)
@@ -1548,6 +1597,7 @@ visible = false
 scale = Vector2(1.35, 1.35)
 texture = ExtResource("3_ao1sr")
 centered = false
+script = ExtResource("5_j50n5")
 
 [node name="taylor2" type="Sprite2D" parent="HowAreYou/CutsceneNode"]
 position = Vector2(481, 868)
@@ -1579,6 +1629,7 @@ next = NodePath("../ElvenName2")
 scale = Vector2(1.35, 1.35)
 texture = ExtResource("3_ao1sr")
 centered = false
+script = ExtResource("5_j50n5")
 
 [node name="taylor2" type="Sprite2D" parent="ElvenNames/ElvenName"]
 position = Vector2(481, 868)
@@ -1613,6 +1664,7 @@ position = Vector2(0, -30)
 scale = Vector2(1.47246, 1.37174)
 texture = ExtResource("33_kw712")
 centered = false
+script = ExtResource("5_j50n5")
 
 [node name="RichTextLabel2" type="RichTextLabel" parent="ElvenNames/ElvenName2"]
 offset_left = 745.0
@@ -1634,6 +1686,7 @@ is_option_node = true
 scale = Vector2(1.35, 1.35)
 texture = ExtResource("3_ao1sr")
 centered = false
+script = ExtResource("5_j50n5")
 
 [node name="taylor2" type="Sprite2D" parent="ElvenNames/ElvenName3"]
 position = Vector2(481, 868)
@@ -1683,6 +1736,7 @@ visible = false
 scale = Vector2(1.35, 1.35)
 texture = ExtResource("3_ao1sr")
 centered = false
+script = ExtResource("5_j50n5")
 
 [node name="taylor2" type="Sprite2D" parent="ElvenNames/ElvenNameNo"]
 position = Vector2(481, 868)
@@ -1707,6 +1761,7 @@ use_on_start_fn_from = NodePath("RenameCharacterOnStart")
 scale = Vector2(1.35, 1.35)
 texture = ExtResource("3_ao1sr")
 centered = false
+script = ExtResource("5_j50n5")
 
 [node name="taylor2" type="Sprite2D" parent="ElvenNames/ElvenNameYes"]
 position = Vector2(481, 868)
@@ -1734,6 +1789,7 @@ visible = false
 scale = Vector2(1.35, 1.35)
 texture = ExtResource("3_ao1sr")
 centered = false
+script = ExtResource("5_j50n5")
 
 [node name="taylor2" type="Sprite2D" parent="ElvenNames/ElvenNamePost"]
 position = Vector2(481, 868)
@@ -1779,6 +1835,7 @@ visible = false
 scale = Vector2(1.35, 1.35)
 texture = ExtResource("3_ao1sr")
 centered = false
+script = ExtResource("5_j50n5")
 
 [node name="taylor2" type="Sprite2D" parent="HumanNames/CutsceneNode"]
 position = Vector2(481, 868)
@@ -1833,6 +1890,7 @@ allow_repeats = true
 scale = Vector2(1.35, 1.35)
 texture = ExtResource("3_ao1sr")
 centered = false
+script = ExtResource("5_j50n5")
 
 [node name="taylor2" type="Sprite2D" parent="MyHometown/AfterMemory"]
 position = Vector2(481, 868)
@@ -1870,6 +1928,7 @@ next = NodePath("../NewMemory2")
 scale = Vector2(1.35, 1.35)
 texture = ExtResource("3_ao1sr")
 centered = false
+script = ExtResource("5_j50n5")
 
 [node name="taylor2" type="Sprite2D" parent="MyHometown/NewMemory"]
 position = Vector2(481, 868)
@@ -1879,7 +1938,7 @@ texture = ExtResource("31_kx3if")
 [node name="Profile" parent="MyHometown/NewMemory" instance=ExtResource("41_8awtg")]
 position = Vector2(912, 105)
 scale = Vector2(2, 2)
-texture = SubResource("ViewportTexture_k0nop")
+texture = SubResource("ViewportTexture_i2lr1")
 with_background = false
 
 [node name="RichTextLabel2" type="RichTextLabel" parent="MyHometown/NewMemory"]
@@ -1905,7 +1964,7 @@ text = "\"Its name was [i]Fin Soen Li Yen[/i]: Grove of the Seven Ferns."
 visible = false
 next = NodePath("../NewMemory4")
 
-[node name="bg" type="Sprite2D" parent="MyHometown/NewMemory2"]
+[node name="mem_bg" type="Sprite2D" parent="MyHometown/NewMemory2"]
 position = Vector2(-70, -432)
 scale = Vector2(1.2, 1.2)
 texture = ExtResource("42_gmm22")
@@ -1921,7 +1980,7 @@ texture = ExtResource("31_kx3if")
 material = SubResource("ShaderMaterial_k6to6")
 position = Vector2(912, 105)
 scale = Vector2(2, 2)
-texture = SubResource("ViewportTexture_of2ga")
+texture = SubResource("ViewportTexture_ove0v")
 with_background = false
 
 [node name="RichTextLabel2" type="RichTextLabel" parent="MyHometown/NewMemory2"]
@@ -1957,7 +2016,7 @@ text = "\"I was Named under the moonlight, as our ancestors were."
 visible = false
 next = NodePath("../NewMemory3")
 
-[node name="bg" type="Sprite2D" parent="MyHometown/NewMemory4"]
+[node name="mem_bg" type="Sprite2D" parent="MyHometown/NewMemory4"]
 position = Vector2(-70, -432)
 scale = Vector2(1.2, 1.2)
 texture = ExtResource("42_gmm22")
@@ -1973,7 +2032,7 @@ texture = ExtResource("31_kx3if")
 material = SubResource("ShaderMaterial_n2xtb")
 position = Vector2(912, 105)
 scale = Vector2(2, 2)
-texture = SubResource("ViewportTexture_maap5")
+texture = SubResource("ViewportTexture_v6p63")
 with_background = false
 
 [node name="RichTextLabel5" type="RichTextLabel" parent="MyHometown/NewMemory4"]
@@ -2010,7 +2069,7 @@ text = "\"We ran into [i]bears[/i] more often than we did outsiders. Those forty
 visible = false
 next = NodePath("../NewMemory5")
 
-[node name="bg" type="Sprite2D" parent="MyHometown/NewMemory3"]
+[node name="black_bg" type="Sprite2D" parent="MyHometown/NewMemory3"]
 position = Vector2(-70, -432)
 scale = Vector2(1.47681, 1.2)
 texture = ExtResource("33_kw712")
@@ -2026,7 +2085,7 @@ texture = ExtResource("31_kx3if")
 material = SubResource("ShaderMaterial_hxgt3")
 position = Vector2(912, 105)
 scale = Vector2(2, 2)
-texture = SubResource("ViewportTexture_oh1vv")
+texture = SubResource("ViewportTexture_v3ug8")
 with_background = false
 
 [node name="RichTextLabel7" type="RichTextLabel" parent="MyHometown/NewMemory3"]
@@ -2043,7 +2102,7 @@ text = "\"And now it's all gone.\""
 visible = false
 next = NodePath("../NewMemory6")
 
-[node name="bg" type="Sprite2D" parent="MyHometown/NewMemory5"]
+[node name="black_bg" type="Sprite2D" parent="MyHometown/NewMemory5"]
 position = Vector2(-70, -432)
 scale = Vector2(1.47681, 1.2)
 texture = ExtResource("33_kw712")
@@ -2092,6 +2151,7 @@ visible = false
 scale = Vector2(1.35, 1.35)
 texture = ExtResource("3_ao1sr")
 centered = false
+script = ExtResource("5_j50n5")
 
 [node name="taylor2" type="Sprite2D" parent="MyHometown/NewMemory6"]
 position = Vector2(481, 868)
@@ -2115,6 +2175,7 @@ visible = false
 scale = Vector2(1.35, 1.35)
 texture = ExtResource("3_ao1sr")
 centered = false
+script = ExtResource("5_j50n5")
 
 [node name="taylor2" type="Sprite2D" parent="MyHometown/Default"]
 position = Vector2(481, 868)

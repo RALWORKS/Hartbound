@@ -1,7 +1,8 @@
-[gd_scene load_steps=27 format=3 uid="uid://j5t4axtu0ies"]
+[gd_scene load_steps=24 format=3 uid="uid://j5t4axtu0ies"]
 
 [ext_resource type="PackedScene" uid="uid://bp8tsdjdbwj8i" path="res://cutscene/cutscene.tscn" id="1_lm711"]
 [ext_resource type="Texture2D" uid="uid://dlfi64p84aoys" path="res://assets/scenes/demo/1/industrial/cutscene/1-ground.png" id="3_wkap5"]
+[ext_resource type="Script" path="res://cutscene/standard_bg.gd" id="4_664mj"]
 [ext_resource type="PackedScene" uid="uid://b11g7mb25w5xp" path="res://cutscene/smart_label.tscn" id="5_p6pbe"]
 [ext_resource type="Texture2D" uid="uid://dx1wrwvh6nviu" path="res://assets/npcs/taylor/taylor_neutral.png" id="6_5gyoh"]
 [ext_resource type="PackedScene" uid="uid://55vflx8ylix1" path="res://cutscene/cutscene_node.tscn" id="7_roo2l"]
@@ -9,11 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://yplasm5gtgly" path="res://cutscene/cutscene_option.tscn" id="14_4mug8"]
 [ext_resource type="PackedScene" uid="uid://cm3keg86x7x3y" path="res://cutscene/concept_cutscene_node.tscn" id="17_v0rhr"]
 [ext_resource type="PackedScene" uid="uid://c4nb0ap5n2w2b" path="res://chapters/demo/1/taylor-base-concepts.tscn" id="18_fxeus"]
-[ext_resource type="PackedScene" uid="uid://bxu8qsfgeojlr" path="res://quests/quests/demo_c_1_regroup_initial/plan_for_afternoon.tscn" id="19_lp7yy"]
-[ext_resource type="Script" path="res://quests/quests/demo_c_1_regroup_initial/EndQuest1.gd" id="20_5gu3s"]
-[ext_resource type="PackedScene" uid="uid://5exo54lvam30" path="res://quests/quests/demo_c_1_regroup_initial.tscn" id="21_p87s1"]
 [ext_resource type="Texture2D" uid="uid://cwobelc0kaio" path="res://assets/effects/pass-out-1/black.png" id="22_8ehru"]
-[ext_resource type="Texture2D" uid="uid://dla2rs7rb628l" path="res://ui/leyline-icon.png" id="23_5jhpv"]
 [ext_resource type="PackedScene" uid="uid://dt7echbw781ww" path="res://quests/quests/demo_c1_summer_solstice/summer_solstice.tscn" id="24_4j1k5"]
 [ext_resource type="PackedScene" uid="uid://cemborgcdx75k" path="res://character/profile.tscn" id="25_8efnk"]
 [ext_resource type="PackedScene" uid="uid://cyleyq5ews7aw" path="res://cutscene/reflection_button.tscn" id="26_ta3dm"]
@@ -25,7 +22,7 @@
 [ext_resource type="PackedScene" uid="uid://d4gnlgciwgovl" path="res://cutscene/character_present_conditional_redirect.tscn" id="32_kdwpr"]
 [ext_resource type="Texture2D" uid="uid://c34iv0g17fion" path="res://assets/intro-story/moon.png" id="33_pea8y"]
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_vqhic"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_3jyyd"]
 viewport_path = NodePath("img")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7rj0o"]
@@ -46,6 +43,7 @@ next = NodePath("../ConceptCutsceneNode")
 scale = Vector2(1.35, 1.35)
 texture = ExtResource("3_wkap5")
 centered = false
+script = ExtResource("4_664mj")
 
 [node name="taylor2" type="Sprite2D" parent="1" index="1"]
 position = Vector2(455, 850)
@@ -62,6 +60,7 @@ visible = false
 scale = Vector2(1.35, 1.35)
 texture = ExtResource("3_wkap5")
 centered = false
+script = ExtResource("4_664mj")
 
 [node name="taylor2" type="Sprite2D" parent="2" index="1"]
 position = Vector2(455, 850)
@@ -79,6 +78,7 @@ next = NodePath("../2")
 scale = Vector2(1.35, 1.35)
 texture = ExtResource("3_wkap5")
 centered = false
+script = ExtResource("4_664mj")
 
 [node name="taylor2" type="Sprite2D" parent="ConceptCutsceneNode" index="4"]
 position = Vector2(455, 850)
@@ -95,6 +95,7 @@ next = NodePath("../../ConceptCutsceneNode")
 scale = Vector2(1.35, 1.35)
 texture = ExtResource("3_wkap5")
 centered = false
+script = ExtResource("4_664mj")
 
 [node name="taylor2" type="Sprite2D" parent="Defaults/Base" index="1"]
 position = Vector2(455, 850)
@@ -117,6 +118,7 @@ tag = "World"
 scale = Vector2(1.35, 1.35)
 texture = ExtResource("3_wkap5")
 centered = false
+script = ExtResource("4_664mj")
 
 [node name="taylor2" type="Sprite2D" parent="Defaults/World" index="1"]
 position = Vector2(455, 850)
@@ -140,6 +142,7 @@ tag = "You"
 scale = Vector2(1.35, 1.35)
 texture = ExtResource("3_wkap5")
 centered = false
+script = ExtResource("4_664mj")
 
 [node name="taylor2" type="Sprite2D" parent="Defaults/You" index="1"]
 position = Vector2(455, 850)
@@ -163,6 +166,7 @@ tag = "Me"
 scale = Vector2(1.35, 1.35)
 texture = ExtResource("3_wkap5")
 centered = false
+script = ExtResource("4_664mj")
 
 [node name="taylor2" type="Sprite2D" parent="Defaults/Me" index="1"]
 position = Vector2(455, 850)
@@ -186,6 +190,7 @@ tag = "Insult"
 scale = Vector2(1.35, 1.35)
 texture = ExtResource("3_wkap5")
 centered = false
+script = ExtResource("4_664mj")
 
 [node name="taylor2" type="Sprite2D" parent="Defaults/Insult" index="1"]
 position = Vector2(455, 850)
@@ -203,145 +208,7 @@ text = "\"That kind of hurts my feelings, {character,name,elves_call}.\""
 [node name="Concepts" parent="." index="4" node_paths=PackedStringArray("next") instance=ExtResource("18_fxeus")]
 next = NodePath("../ConceptCutsceneNode")
 
-[node name="PlanForAfternoon2" parent="Concepts" index="20" instance=ExtResource("19_lp7yy")]
-
-[node name="CutsceneNode" parent="Concepts/PlanForAfternoon2" index="0" instance=ExtResource("7_roo2l")]
-visible = false
-is_option_node = true
-
-[node name="bg" type="Sprite2D" parent="Concepts/PlanForAfternoon2/CutsceneNode" index="0"]
-scale = Vector2(1.35, 1.35)
-texture = ExtResource("3_wkap5")
-centered = false
-
-[node name="taylor2" type="Sprite2D" parent="Concepts/PlanForAfternoon2/CutsceneNode" index="1"]
-position = Vector2(455, 850)
-scale = Vector2(0.7, 0.7)
-texture = ExtResource("6_5gyoh")
-
-[node name="SmartLabel" parent="Concepts/PlanForAfternoon2/CutsceneNode" index="2" instance=ExtResource("5_p6pbe")]
-offset_left = 649.0
-offset_top = 165.0
-offset_right = 1479.0
-offset_bottom = 335.0
-bbcode_enabled = true
-text = "\"Some of the others are talking about heading back up the way we came for a bit, but there's a few more herbs I was looking for that I didn't see back that way.\""
-
-[node name="SmartLabel2" parent="Concepts/PlanForAfternoon2/CutsceneNode" index="3" instance=ExtResource("5_p6pbe")]
-offset_left = 775.0
-offset_top = 377.0
-offset_right = 1605.0
-offset_bottom = 547.0
-bbcode_enabled = true
-text = "She pauses to think for a moment. \"Didn't you mention earlier you wanted to spend a bit more time scouting for salvage before we make camp tonight?\""
-
-[node name="SmartLabel3" parent="Concepts/PlanForAfternoon2/CutsceneNode" index="4" instance=ExtResource("5_p6pbe")]
-offset_left = 936.0
-offset_top = 588.0
-offset_right = 1466.0
-offset_bottom = 726.0
-bbcode_enabled = true
-text = "\"I'll tag along, if you don't mind--assuming that's still the plan.\""
-
-[node name="Yes" parent="Concepts/PlanForAfternoon2/CutsceneNode" index="5" node_paths=PackedStringArray("to") instance=ExtResource("14_4mug8")]
-offset_left = 936.0
-offset_top = 737.0
-offset_right = 1019.0
-offset_bottom = 770.0
-text = "> \"Sure\""
-to = NodePath("../../Y")
-
-[node name="No" parent="Concepts/PlanForAfternoon2/CutsceneNode" index="6" node_paths=PackedStringArray("to") instance=ExtResource("14_4mug8")]
-offset_left = 936.0
-offset_top = 778.0
-offset_right = 1019.0
-offset_bottom = 811.0
-text = "> \"I'll get back to you on that.\""
-to = NodePath("../../N")
-
-[node name="Y" parent="Concepts/PlanForAfternoon2" index="1" node_paths=PackedStringArray("next", "use_on_start_fn_from") instance=ExtResource("7_roo2l")]
-visible = false
-next = NodePath("../Y2")
-use_on_start_fn_from = NodePath("EndQuest1")
-
-[node name="bg" type="Sprite2D" parent="Concepts/PlanForAfternoon2/Y" index="0"]
-scale = Vector2(1.35, 1.35)
-texture = ExtResource("3_wkap5")
-centered = false
-
-[node name="taylor2" type="Sprite2D" parent="Concepts/PlanForAfternoon2/Y" index="1"]
-position = Vector2(455, 850)
-scale = Vector2(0.7, 0.7)
-texture = ExtResource("6_5gyoh")
-
-[node name="SmartLabel" parent="Concepts/PlanForAfternoon2/Y" index="2" instance=ExtResource("5_p6pbe")]
-offset_left = 649.0
-offset_top = 165.0
-offset_right = 1019.0
-offset_bottom = 295.0
-bbcode_enabled = true
-text = "\"Great. I'm ready to head out whenever.\""
-
-[node name="EndQuest1" type="Node2D" parent="Concepts/PlanForAfternoon2/Y" index="3"]
-script = ExtResource("20_5gu3s")
-
-[node name="DemoC1RegroupInitial" parent="Concepts/PlanForAfternoon2/Y/EndQuest1" index="0" instance=ExtResource("21_p87s1")]
-
-[node name="Y2" parent="Concepts/PlanForAfternoon2" index="2" node_paths=PackedStringArray("use_on_start_fn_from") instance=ExtResource("7_roo2l")]
-visible = false
-use_on_start_fn_from = NodePath("../Y/EndQuest1")
-end = true
-
-[node name="bg" type="Sprite2D" parent="Concepts/PlanForAfternoon2/Y2" index="0"]
-scale = Vector2(1.44493, 1.35)
-texture = ExtResource("22_8ehru")
-centered = false
-
-[node name="SmartLabel" parent="Concepts/PlanForAfternoon2/Y2" index="1" instance=ExtResource("5_p6pbe")]
-offset_left = 1.0
-offset_top = 300.0
-offset_right = 1324.0
-offset_bottom = 748.0
-bbcode_enabled = true
-text = "[i]Objective:[/i]
-
-- Explore the map with Taylor, and gather 3 mechanical or electronic parts from
-  the old machines and buildings in the area
-
-- Do [i]not[/i] gather electrical or mechanical parts from items or panels that directly
-  intersect with a Leyline. Doing so will electrocute you.
-  Things that aren't connected to the electronics are all right.
-
-- View the Leyline with [i]L[/i] or "
-
-[node name="Sprite2D" type="Sprite2D" parent="Concepts/PlanForAfternoon2/Y2/SmartLabel" index="2"]
-position = Vector2(470, 403)
-scale = Vector2(0.1, 0.1)
-texture = ExtResource("23_5jhpv")
-
-[node name="N" parent="Concepts/PlanForAfternoon2" index="3" node_paths=PackedStringArray("next") instance=ExtResource("7_roo2l")]
-visible = false
-next = NodePath("../../../ConceptCutsceneNode")
-
-[node name="bg" type="Sprite2D" parent="Concepts/PlanForAfternoon2/N" index="0"]
-scale = Vector2(1.35, 1.35)
-texture = ExtResource("3_wkap5")
-centered = false
-
-[node name="taylor2" type="Sprite2D" parent="Concepts/PlanForAfternoon2/N" index="1"]
-position = Vector2(455, 850)
-scale = Vector2(0.7, 0.7)
-texture = ExtResource("6_5gyoh")
-
-[node name="SmartLabel" parent="Concepts/PlanForAfternoon2/N" index="2" instance=ExtResource("5_p6pbe")]
-offset_left = 649.0
-offset_top = 165.0
-offset_right = 1019.0
-offset_bottom = 295.0
-bbcode_enabled = true
-text = "\"All right. Let me know.\""
-
-[node name="SummerSolstice" parent="Concepts" index="24" instance=ExtResource("24_4j1k5")]
+[node name="SummerSolstice" parent="Concepts" index="23" instance=ExtResource("24_4j1k5")]
 
 [node name="CutsceneNode" parent="Concepts/SummerSolstice" index="0" node_paths=PackedStringArray("next") instance=ExtResource("7_roo2l")]
 visible = false
@@ -352,6 +219,7 @@ position = Vector2(-31, -949)
 scale = Vector2(3, 3)
 texture = ExtResource("3_wkap5")
 centered = false
+script = ExtResource("4_664mj")
 
 [node name="taylor2" type="Sprite2D" parent="Concepts/SummerSolstice/CutsceneNode" index="1"]
 modulate = Color(0.54902, 0.54902, 0.54902, 1)
@@ -397,6 +265,7 @@ position = Vector2(-144, -972)
 scale = Vector2(3, 3)
 texture = ExtResource("22_8ehru")
 centered = false
+script = ExtResource("4_664mj")
 
 [node name="SmartLabel" parent="Concepts/SummerSolstice/Exposition" index="1" instance=ExtResource("5_p6pbe")]
 offset_left = 92.0
@@ -422,6 +291,7 @@ position = Vector2(-36, -413)
 scale = Vector2(2, 2)
 texture = ExtResource("3_wkap5")
 centered = false
+script = ExtResource("4_664mj")
 
 [node name="taylor2" type="Sprite2D" parent="Concepts/SummerSolstice/Branch" index="1"]
 modulate = Color(0.54902, 0.54902, 0.54902, 1)
@@ -432,7 +302,7 @@ texture = ExtResource("6_5gyoh")
 [node name="Profile" parent="Concepts/SummerSolstice/Branch" index="2" instance=ExtResource("25_8efnk")]
 position = Vector2(880, 14)
 scale = Vector2(1.8, 1.8)
-texture = SubResource("ViewportTexture_vqhic")
+texture = SubResource("ViewportTexture_3jyyd")
 with_background = false
 
 [node name="Human" parent="Concepts/SummerSolstice/Branch" index="3" node_paths=PackedStringArray("to", "avatar") instance=ExtResource("26_ta3dm")]
@@ -497,6 +367,7 @@ position = Vector2(-36, -413)
 scale = Vector2(2, 2)
 texture = ExtResource("3_wkap5")
 centered = false
+script = ExtResource("4_664mj")
 
 [node name="taylor2" type="Sprite2D" parent="Concepts/SummerSolstice/HalfHuman" index="1"]
 modulate = Color(0.54902, 0.54902, 0.54902, 1)
@@ -544,6 +415,7 @@ position = Vector2(-20, -949)
 scale = Vector2(3, 3)
 texture = ExtResource("3_wkap5")
 centered = false
+script = ExtResource("4_664mj")
 
 [node name="taylor2" type="Sprite2D" parent="Concepts/SummerSolstice/SunTemple" index="1"]
 modulate = Color(0.54902, 0.54902, 0.54902, 1)
@@ -597,6 +469,7 @@ position = Vector2(-36, -413)
 scale = Vector2(2, 2)
 texture = ExtResource("3_wkap5")
 centered = false
+script = ExtResource("4_664mj")
 
 [node name="taylor2" type="Sprite2D" parent="Concepts/SummerSolstice/Religion" index="1"]
 modulate = Color(0.54902, 0.54902, 0.54902, 1)
@@ -652,6 +525,7 @@ position = Vector2(-239, -255)
 scale = Vector2(2, 2)
 texture = ExtResource("3_wkap5")
 centered = false
+script = ExtResource("4_664mj")
 
 [node name="taylor2" type="Sprite2D" parent="Concepts/SummerSolstice/Cousin" index="1"]
 modulate = Color(0.690196, 0.690196, 0.690196, 1)
@@ -673,7 +547,7 @@ offset_right = 1509.0
 offset_bottom = 899.0
 text = "\"May the Saint liberate us both.\""
 
-[node name="TheSaint" parent="Concepts" index="25" instance=ExtResource("31_sqof5")]
+[node name="TheSaint" parent="Concepts" index="24" instance=ExtResource("31_sqof5")]
 
 [node name="CharacterPresentConditionalRedirect" parent="Concepts/TheSaint" index="1" node_paths=PackedStringArray("next_if_true", "next_if_false") instance=ExtResource("32_kdwpr")]
 next_if_true = NodePath("../Abort")
