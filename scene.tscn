@@ -7,6 +7,7 @@
 script/source = "extends Node2D
 
 @export var spawn_at = \"s\"
+@onready var default_spawner = $YSort/DefaultSpawner
 @export var contents_node: Node2D
 @export var vein_node: Node
 @export var use_black_leyline = false

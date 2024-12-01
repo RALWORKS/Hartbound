@@ -157,6 +157,7 @@ func end_cutscene(free=false):
 		if teleport_to:
 			$"/root/Game/Map".move_to(teleport_to)
 			teleport_to.spawn(game)
+			$"/root/Game".save_room(teleport_to.scene_file_path, null)
 		return
 	await get_tree().create_timer(0.1).timeout
 	start_cutscene(next_cutscene, npc, null, sequence)

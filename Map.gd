@@ -59,6 +59,8 @@ func traverse(dest, entrance, save=true, as_move=true, x=null, y=null):
 	#var dest = load(dest_resource).instantiate()
 	#dest.spawn_at = dest_edge
 	_move_to(dest, as_move)
+	if not entrance:
+		entrance = "DefaultSpawner"
 	var next_entrance: Node2D = dest.get_node("YSort").get_node(entrance)
 	next_entrance.spawn($"..", x, y)
 	if save:
