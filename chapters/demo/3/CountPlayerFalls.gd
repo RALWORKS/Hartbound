@@ -24,6 +24,8 @@ func _process(delta):
 
 
 func player_fell():
+	if player.disable_all:
+		return
 	falls += 1
 	print("fall", falls)
 	if falls > 2 and not help_offered:

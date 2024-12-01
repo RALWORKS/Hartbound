@@ -1,4 +1,5 @@
 extends Window
+class_name Game
 
 var world: Node = null
 var cur_modal = null
@@ -675,3 +676,9 @@ func get_scene():
 
 func get_standard_bg():
 	return chapter.cached_scene_bg
+
+func get_standard_bg_scale():
+	return chapter.cached_bg_scale
+
+func get_standard_bg_position():
+	return chapter.cached_bg_position

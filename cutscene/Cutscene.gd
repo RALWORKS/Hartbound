@@ -12,7 +12,8 @@ var page = null
 
 var teleport_to = null
 
-var scene_bg = null
+# from a previous attempt to implement standard bg
+# var scene_bg = null
 var input_data = null
 
 var characters_present = []

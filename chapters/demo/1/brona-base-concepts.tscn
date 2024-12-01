@@ -588,6 +588,7 @@ visible = false
 scale = Vector2(1.35, 1.35)
 texture = ExtResource("3_4jg2d")
 centered = false
+script = ExtResource("5_lh1bw")
 
 [node name="brona" type="Sprite2D" parent="Engineers/eng4"]
 position = Vector2(455, 850)
@@ -739,6 +740,7 @@ next = NodePath("../jerry2")
 scale = Vector2(1.35, 1.35)
 texture = ExtResource("3_4jg2d")
 centered = false
+script = ExtResource("5_lh1bw")
 
 [node name="brona" type="Sprite2D" parent="Jerry/jerry"]
 position = Vector2(455, 850)
@@ -770,6 +772,7 @@ visible = false
 scale = Vector2(1.35, 1.35)
 texture = ExtResource("3_4jg2d")
 centered = false
+script = ExtResource("5_lh1bw")
 
 [node name="brona" type="Sprite2D" parent="Jerry/jerry2"]
 position = Vector2(455, 850)
@@ -990,6 +993,7 @@ visible = false
 scale = Vector2(1.35, 1.35)
 texture = ExtResource("3_4jg2d")
 centered = false
+script = ExtResource("5_lh1bw")
 
 [node name="brona" type="Sprite2D" parent="PlanForAfternoon/CutsceneNode"]
 position = Vector2(455, 850)

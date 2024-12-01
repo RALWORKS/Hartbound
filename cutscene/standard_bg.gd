@@ -1,8 +1,8 @@
 extends Sprite2D
 class_name StandardBg
 
-@export var default_scale = Vector2(2, 2)
-@export var default_position = Vector2(-300, -300)
+#@export var default_scale = Vector2(2, 2)
+#@export var default_position = Vector2(-300, -300)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -14,5 +14,5 @@ func load_texture():
 	if not img:
 		return
 	texture = img
-	scale = default_scale
-	position = default_position
+	scale = game.get_standard_bg_scale()
+	position = game.get_standard_bg_position()

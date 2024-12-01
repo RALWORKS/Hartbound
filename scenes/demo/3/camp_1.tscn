@@ -14,6 +14,8 @@ polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Arr
 outlines = Array[PackedVector2Array]([PackedVector2Array(50, 1266, 54, 1423, 970, 1381, 1114, 1160, 1635, 847, 1347, 656, 1279, 376, 792, 376, 631, 249, 326, 266, 745, 537, 1114, 550, 1309, 698, 1521, 838, 690, 1177)])
 
 [node name="Camp1" instance=ExtResource("1_n4lo1")]
+dialogue_bg_scale = Vector2(3, 3)
+dialogue_bg_position = Vector2(0, 0)
 
 [node name="Background" parent="." index="0"]
 scale = Vector2(1.75, 1.75)

@@ -11,6 +11,8 @@ script/source = "extends Node2D
 @export var vein_node: Node
 @export var use_black_leyline = false
 @export var use_violet_leyline = false
+@export var dialogue_bg_scale = Vector2(2.0, 2.0)
+@export var dialogue_bg_position = Vector2(-300, -300)
 
 var LeylineScreen = preload(\"res://effects/leyline_screen.tscn\")
 
