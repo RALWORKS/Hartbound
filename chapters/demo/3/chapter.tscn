@@ -32,12 +32,19 @@ data_as_slash_sep_list = true
 
 [node name="RespawnMutation" parent="Events/StartChapter" index="2" instance=ExtResource("5_828fs")]
 
-[node name="SunTemple" parent="Events" index="1" instance=ExtResource("4_ee8q1")]
+[node name="TaylorHelpsYou" parent="Events" index="1" instance=ExtResource("4_ee8q1")]
+cutscene = ExtResource("10_mp46n")
+
+[node name="SunTemple" parent="Events" index="2" instance=ExtResource("4_ee8q1")]
 cutscene = ExtResource("5_y24gn")
 
 [node name="SunTemple" type="Node" parent="Triggers" index="0"]
 script = ExtResource("6_8frcw")
 event_name = "SunTemple"
+
+[node name="TaylorHelpsYou" type="Node" parent="Triggers" index="1"]
+script = ExtResource("6_8frcw")
+event_name = "TaylorHelpsYou"
 
 [node name="DefaultWalk" parent="MapEvents" index="0" instance=ExtResource("4_ee8q1")]
 cutscene = ExtResource("5_pno0o")
@@ -45,7 +52,6 @@ reusable = true
 
 [node name="CountPlayerFalls" type="Node" parent="." index="3"]
 script = ExtResource("9_dd3iu")
-party_help_cutscene = ExtResource("10_mp46n")
 
 [node name="Taylor" parent="CharacterCutscenes" index="0"]
 dialogue = ExtResource("12_5hs1j")

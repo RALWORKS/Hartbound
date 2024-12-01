@@ -4,7 +4,6 @@ var player = null
 
 var falls = 0
 
-@export var party_help_cutscene: Resource
 @export var help_offered = false
 
 # Called when the node enters the scene tree for the first time.
@@ -29,5 +28,5 @@ func player_fell():
 	falls += 1
 	print("fall", falls)
 	if falls > 2 and not help_offered:
-		$"..".start_cutscene(party_help_cutscene)
+		$"..".trigger("TaylorHelpsYou")
 		help_offered = true
