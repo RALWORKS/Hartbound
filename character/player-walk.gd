@@ -15,6 +15,11 @@ extends CharacterBody2D
 @export var animation_proxy: Node = null
 @export var next_static_animation = ""
 
+var direction_threshold = 10
+
+var stagger_quotient = 1.5
+var stagger_amplitude = 1
+
 signal fell
 
 var spawner = null
@@ -88,6 +93,17 @@ func wobbly_no_canes():
 	wobbly = true
 	collapsing = true
 	speed_mul = 0.4
+	stagger_quotient = 1.5
+	stagger_amplitude = 1.0
+	$img/canes.visible = false
+
+func wobbly_with_canes():
+	wobbly = true
+	collapsing = false
+	speed_mul = 0.7
+	stagger_quotient = 2
+	stagger_amplitude = 0.5
+	$img/canes.visible = true
 
 func clear_follower_data():
 	follower_to_positions = []
@@ -342,7 +358,7 @@ func arrow_keys_pressed(_delta, arrow_keys):
 func _extreme_shuffle_footsteps():
 	if not wobbly:
 		return speed_mul
-	return speed_mul * 2 * (2 - 2*_shuffle_footsteps())
+	return speed_mul * (1.5 - _shuffle_footsteps())
 
 func walk():
 	#$Sprite2D/AnimatedSprite2D.play(anims[facing]["on"])
@@ -370,7 +386,7 @@ func stop_walking():
 func _shuffle_footsteps():
 	if not wobbly:
 		return 0
-	return randf() / 1.5
+	return randf() / stagger_quotient
 
 func _footstep():
 	footstep_waiting = false
@@ -404,13 +420,13 @@ func set_anim():
 	if not footsteps_on:
 		start_footsteps()
 		
-	if v.y < -10 and v.x < -10:
+	if v.y < -10 and v.x < -1 * direction_threshold:
 		facing = "up_left"
-	elif v.y < -10 and v.x > 10:
+	elif v.y < -10 and v.x > direction_threshold:
 		facing = "up_right"
-	elif v.y > 10 and v.x < -10:
+	elif v.y > 10 and v.x < -1 * direction_threshold:
 		facing = "down_left"
-	elif v.y > 10 and v.x > 10:
+	elif v.y > 10 and v.x > direction_threshold:
 		facing = "down_right"
 	elif v.y < -10:
 		facing = "up"
@@ -457,7 +473,7 @@ func _wobble(v:  Vector2):
 		return v
 	var norm = v.angle() + 90
 	var osc = sin(Time.get_ticks_msec() / 250)
-	var sway = Vector2.from_angle(norm) * osc * v.length()
+	var sway = Vector2.from_angle(norm) * osc * v.length() * stagger_amplitude
 	return v + sway
 
 func _modulate_velocity(direction):
@@ -496,7 +512,7 @@ func _physics_process(_delta):
 	call_follower()
 	
 func about_to_fall():
-	if wobbly and sin(Time.get_ticks_msec() / 800) > 0.8:
+	if collapsing and sin(Time.get_ticks_msec() / 800) > 0.8:
 		$char.play("kneel")
 		if not fallen:
 			emit_signal("fell")

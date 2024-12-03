@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://b03wpar88cr5r"]
+[gd_scene load_steps=45 format=3 uid="uid://b03wpar88cr5r"]
 
 [ext_resource type="Script" path="res://character/player-walk.gd" id="1_s1ce1"]
 [ext_resource type="PackedScene" uid="uid://dhr0qbec14v6p" path="res://follower.tscn" id="2_2k6gm"]
@@ -16,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://f3u4wjjde7ve" path="res://assets/character/hair/v1/long-back-bun/back/full.png" id="8_dhyik"]
 [ext_resource type="AudioStream" uid="uid://bfr0kt4krwjws" path="res://assets/sfx/footsteps1/both.ogg" id="12_0uv52"]
 [ext_resource type="Texture2D" uid="uid://cgfc1dfr6jvic" path="res://assets/emote-question.png" id="12_erhxf"]
+[ext_resource type="Texture2D" uid="uid://dpt0pldwalxu4" path="res://assets/character/canes.png" id="14_mebkt"]
 
 [sub_resource type="Animation" id="Animation_h783b"]
 length = 0.001
@@ -301,6 +302,11 @@ centered = false
 
 [node name="face" type="Sprite2D" parent="img"]
 texture = ExtResource("4_2ku3h")
+centered = false
+
+[node name="canes" type="Sprite2D" parent="img"]
+visible = false
+texture = ExtResource("14_mebkt")
 centered = false
 
 [node name="InteractBox" type="Area2D" parent="."]
