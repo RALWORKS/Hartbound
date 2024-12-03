@@ -95,7 +95,8 @@ func wobbly_no_canes():
 	speed_mul = 0.4
 	stagger_quotient = 1.5
 	stagger_amplitude = 1.0
-	$img/canes.visible = false
+	$"img/canes-back".visible = false
+	$"img/canes-front".visible = false
 
 func wobbly_with_canes():
 	wobbly = true
@@ -103,7 +104,8 @@ func wobbly_with_canes():
 	speed_mul = 0.7
 	stagger_quotient = 2
 	stagger_amplitude = 0.5
-	$img/canes.visible = true
+	$"img/canes-back".visible = true
+	$"img/canes-front".visible = true
 
 func clear_follower_data():
 	follower_to_positions = []
