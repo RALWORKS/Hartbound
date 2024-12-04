@@ -14,16 +14,16 @@
 size = Vector2(1205.43, 69.1429)
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_t6onf"]
-vertices = PackedVector2Array(1404, -29, 1570, -39, 1311, 241, 1185, 138, 1185, 518, 1347, 656, 1595, 1020, 1114, 1160, 991, 1098, 1147, 765, 787, 695, 391, 790, 326, 266, 631, 249, 804, 528, 1044, 687, 1031, 735)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 3, 2, 5), PackedInt32Array(5, 6, 7, 8, 9), PackedInt32Array(10, 11, 12, 13, 14), PackedInt32Array(10, 14, 15, 16), PackedInt32Array(15, 4, 5, 9, 16)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(991, 1098, 1114, 1160, 1595, 1020, 1347, 656, 1311, 241, 1570, -39, 1404, -29, 1185, 138, 1185, 518, 1044, 687, 804, 528, 631, 249, 326, 266, 391, 790, 787, 695, 1031, 735, 1147, 765)])
+vertices = PackedVector2Array(1404, -29, 1570, -39, 1069, 274, 969, 213, 1074, 536, 1271, 727, 1044, 687, 1147, 765, 737, 627, 391, 790, 235, 339, 580, 357, 722, 556, 1031, 735, 1359, 972, 1094, 1108, 921, 989)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 3, 2, 5), PackedInt32Array(6, 4, 5, 7), PackedInt32Array(8, 9, 10, 11, 12), PackedInt32Array(13, 8, 12, 6, 7), PackedInt32Array(14, 15, 16, 7, 5)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(921, 989, 1094, 1108, 1359, 972, 1271, 727, 1069, 274, 1570, -39, 1404, -29, 969, 213, 1074, 536, 1044, 687, 722, 556, 580, 357, 235, 339, 391, 790, 737, 627, 1031, 735, 1147, 765)])
 
 [node name="Camp2" instance=ExtResource("1_j07lf")]
 dialogue_bg_scale = Vector2(3, 3)
 dialogue_bg_position = Vector2(0, 0)
 
 [node name="Background" parent="." index="0"]
-scale = Vector2(1.75, 1.75)
+scale = Vector2(1.5, 1.5)
 texture = ExtResource("2_ta86e")
 
 [node name="Walls" type="CollisionPolygon2D" parent="Background/StaticBody2D" index="0"]
@@ -33,11 +33,33 @@ polygon = PackedVector2Array(729.714, -3.42857, 593.143, 88.5714, 625.143, 196.5
 position = Vector2(592.714, -30.5714)
 shape = SubResource("RectangleShape2D_unfay")
 
+[node name="trees1" type="Sprite2D" parent="Background" index="1"]
+modulate = Color(0.878431, 0.890196, 0.72549, 1)
+position = Vector2(1045.71, 428)
+scale = Vector2(0.285714, 0.285714)
+texture = ExtResource("8_5wsk0")
+offset = Vector2(0, -500)
+
+[node name="trees2" type="Sprite2D" parent="Background" index="2"]
+modulate = Color(0.878431, 0.890196, 0.72549, 1)
+position = Vector2(1014.29, 542.857)
+scale = Vector2(0.285714, 0.285714)
+texture = ExtResource("9_86yru")
+offset = Vector2(0, -400)
+
+[node name="trees3" type="Sprite2D" parent="Background" index="3"]
+modulate = Color(0.878431, 0.890196, 0.72549, 1)
+position = Vector2(1116.57, 613.714)
+scale = Vector2(0.285714, 0.285714)
+texture = ExtResource("8_5wsk0")
+offset = Vector2(0, -500)
+flip_h = true
+
 [node name="DefaultSpawner" parent="YSort" index="0"]
-position = Vector2(607, 421)
+position = Vector2(463, 477)
 
 [node name="Taylor" parent="YSort" index="1" instance=ExtResource("3_yt57x")]
-position = Vector2(677, 233)
+position = Vector2(577, 361)
 starting_animaton = "down-right-stopped"
 
 [node name="Jerry" parent="YSort" index="2" instance=ExtResource("4_1xtqo")]
@@ -49,34 +71,13 @@ position = Vector2(353, 266)
 starting_animaton = "down-left-stopped"
 
 [node name="Nate" parent="YSort" index="4" instance=ExtResource("6_spg1w")]
-position = Vector2(758, 295)
+position = Vector2(668, 406)
 starting_animaton = "up-left-stopped"
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="YSort" index="5"]
+position = Vector2(-3, -48)
 navigation_polygon = SubResource("NavigationPolygon_t6onf")
 
 [node name="MapDoor" parent="YSort" index="6" instance=ExtResource("7_l7tbm")]
 position = Vector2(934, 25.0001)
 scale = Vector2(2.5, 2.5)
-
-[node name="trees1" type="Sprite2D" parent="YSort" index="7"]
-modulate = Color(1, 1, 0.909804, 1)
-position = Vector2(1830, 749)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("8_5wsk0")
-offset = Vector2(0, -500)
-
-[node name="trees2" type="Sprite2D" parent="YSort" index="8"]
-modulate = Color(1, 1, 0.909804, 1)
-position = Vector2(1775, 950)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("9_86yru")
-offset = Vector2(0, -400)
-
-[node name="trees3" type="Sprite2D" parent="YSort" index="9"]
-modulate = Color(1, 1, 0.909804, 1)
-position = Vector2(1954, 1074)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("8_5wsk0")
-offset = Vector2(0, -500)
-flip_h = true
