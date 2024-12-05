@@ -682,3 +682,15 @@ func get_standard_bg_scale():
 
 func get_standard_bg_position():
 	return chapter.cached_bg_position
+	
+func _init_day_if_needed():
+	var data = get_state(["day"])
+	if data != null:
+		return data
+	return set_state(["day"], 0)
+
+func get_day():
+	return _init_day_if_needed()
+
+func next_day():
+	return set_state(["day"], get_day() + 1)

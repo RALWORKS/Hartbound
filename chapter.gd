@@ -186,10 +186,13 @@ func close_map(biome):
 	await get_tree().create_timer(0.05).timeout
 	$"/root/Game".move()
 	
+	game.next_day()
+	
 	if biome.trigger_name:
 		return trigger(biome.trigger_name)
 	
 	var event = get_next_map_event()
+	
 	if not event:
 		return
 	
