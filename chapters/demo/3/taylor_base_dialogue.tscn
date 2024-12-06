@@ -22,7 +22,7 @@
 [ext_resource type="PackedScene" uid="uid://d4gnlgciwgovl" path="res://cutscene/character_present_conditional_redirect.tscn" id="32_kdwpr"]
 [ext_resource type="Texture2D" uid="uid://c34iv0g17fion" path="res://assets/intro-story/moon.png" id="33_pea8y"]
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_3jyyd"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_wsmu6"]
 viewport_path = NodePath("img")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7rj0o"]
@@ -302,7 +302,7 @@ texture = ExtResource("6_5gyoh")
 [node name="Profile" parent="Concepts/SummerSolstice/Branch" index="2" instance=ExtResource("25_8efnk")]
 position = Vector2(880, 14)
 scale = Vector2(1.8, 1.8)
-texture = SubResource("ViewportTexture_3jyyd")
+texture = SubResource("ViewportTexture_wsmu6")
 with_background = false
 
 [node name="Human" parent="Concepts/SummerSolstice/Branch" index="3" node_paths=PackedStringArray("to", "avatar") instance=ExtResource("26_ta3dm")]
@@ -556,6 +556,7 @@ conditional_subject = "brona,jerry,nate"
 
 [node name="Abort" parent="Concepts/TheSaint" index="2" instance=ExtResource("7_roo2l")]
 visible = false
+position = Vector2(-74, 0)
 
 [node name="bg" type="Sprite2D" parent="Concepts/TheSaint/Abort" index="0"]
 position = Vector2(68, -949)

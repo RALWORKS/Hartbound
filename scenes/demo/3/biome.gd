@@ -23,7 +23,7 @@ func get_camp():
 	var day = game.get_day()
 	
 	
-	var i = day % camps.size()
+	var i = int(day) % camps.size()
 	
 	print(day, " camp ", i)
 	
