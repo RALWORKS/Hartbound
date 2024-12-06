@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://cgenob2k8qwsg"]
+[gd_scene load_steps=18 format=3 uid="uid://cgenob2k8qwsg"]
 
 [ext_resource type="PackedScene" uid="uid://bh1yfkyt3u44i" path="res://chapter.tscn" id="1_e60jq"]
 [ext_resource type="PackedScene" uid="uid://7hjd5r2hc2bb" path="res://scenes/demo/3/main_map_1.tscn" id="3_ymglo"]
@@ -15,9 +15,12 @@
 [ext_resource type="PackedScene" uid="uid://bhr3130air7g3" path="res://chapters/demo/3/brona_base_dialogue.tscn" id="13_q1tqd"]
 [ext_resource type="PackedScene" uid="uid://dq11ccp5tk25a" path="res://chapters/demo/3/nate_base_dialogue.tscn" id="14_6uiej"]
 [ext_resource type="PackedScene" uid="uid://c4oimrynhrpdl" path="res://chapters/demo/3/jerry_base_dialogue.tscn" id="15_uc1n0"]
+[ext_resource type="PackedScene" uid="uid://bcinc4blag4el" path="res://music.tscn" id="16_kh0f0"]
+[ext_resource type="AudioStream" uid="uid://c37hfvr0mx488" path="res://assets/music/forest-of-grief.ogg" id="17_p1pla"]
 
-[node name="Chapter" instance=ExtResource("1_e60jq")]
+[node name="Chapter" node_paths=PackedStringArray("starting_music") instance=ExtResource("1_e60jq")]
 starting_scene = ExtResource("4_i77gl")
+starting_music = NodePath("Music")
 map = ExtResource("3_ymglo")
 
 [node name="Wobbly" parent="Events/StartChapter" index="0" instance=ExtResource("4_o6yu4")]
@@ -72,3 +75,6 @@ dialogue = ExtResource("14_6uiej")
 
 [node name="Jerry" parent="CharacterCutscenes" index="3"]
 dialogue = ExtResource("15_uc1n0")
+
+[node name="Music" parent="." index="5" instance=ExtResource("16_kh0f0")]
+stream = ExtResource("17_p1pla")
