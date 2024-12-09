@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://dh2x4dfcujkno"]
+
+[ext_resource type="Texture2D" uid="uid://c46ni3ims0pg3" path="res://assets/icons/map-arrow-outlined.png" id="1_vw5wn"]
+[ext_resource type="Script" path="res://scenes/demo/3/map_quest_arrow.gd" id="2_e180o"]
+
+[node name="MapQuestArrow" type="Sprite2D"]
+self_modulate = Color(0.466667, 0.694118, 0.45098, 1)
+z_index = 2000
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_vw5wn")
+centered = false
+offset = Vector2(-325, -325)
+script = ExtResource("2_e180o")

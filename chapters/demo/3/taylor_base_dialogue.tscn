@@ -22,7 +22,7 @@
 [ext_resource type="PackedScene" uid="uid://d4gnlgciwgovl" path="res://cutscene/character_present_conditional_redirect.tscn" id="32_kdwpr"]
 [ext_resource type="Texture2D" uid="uid://c34iv0g17fion" path="res://assets/intro-story/moon.png" id="33_pea8y"]
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_wsmu6"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_gd5nq"]
 viewport_path = NodePath("img")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7rj0o"]
@@ -302,7 +302,7 @@ texture = ExtResource("6_5gyoh")
 [node name="Profile" parent="Concepts/SummerSolstice/Branch" index="2" instance=ExtResource("25_8efnk")]
 position = Vector2(880, 14)
 scale = Vector2(1.8, 1.8)
-texture = SubResource("ViewportTexture_wsmu6")
+texture = SubResource("ViewportTexture_gd5nq")
 with_background = false
 
 [node name="Human" parent="Concepts/SummerSolstice/Branch" index="3" node_paths=PackedStringArray("to", "avatar") instance=ExtResource("26_ta3dm")]

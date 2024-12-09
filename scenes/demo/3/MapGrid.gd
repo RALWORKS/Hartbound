@@ -12,19 +12,19 @@ var final_line: Line2D
 
 var start_mark = null
 
-var LINE_COLOR =  "#992211"
-var LINE_WIDTH = 20
+var LINE_COLOR =  "#aa7766"
+var LINE_WIDTH = 12
 
 var distance = 0
 var base_distance = 0
 
 var moved = false
 
-@onready var counter = $Counter
-@onready var travel_tip = $Counter/TravelTip
-@onready var travel_tip_animation = $Counter/TravelTip/AnimationPlayer
-@onready var counter_max = $Counter/Max
-@onready var counter_data = $Counter/Data
+@onready var counter = $CanvasLayer/Counter
+@onready var travel_tip = $CanvasLayer/Counter/TravelTip
+@onready var travel_tip_animation = $CanvasLayer/Counter/TravelTip/AnimationPlayer
+@onready var counter_max = $CanvasLayer/Counter/Max
+@onready var counter_data = $CanvasLayer/Counter/Data
 
 @export var PX_PER_HOUR = 200
 @export var MAX_HOURS = 12
@@ -34,10 +34,10 @@ var MapNode = preload("res://scenes/demo/3/map_node.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	remove_child(counter)	
-	pencil.add_child(counter)
+	#remove_child(counter)	
+	#pencil.add_child(counter)
 	pencil.grid = self
-	counter.position = Vector2(150, 100)
+	counter.position = Vector2(50, 50)
 	travel_tip_animation.play("base")
 
 	counter_max.text = str(MAX_HOURS)

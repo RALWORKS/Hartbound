@@ -2,8 +2,7 @@
 
 [ext_resource type="Script" path="res://scenes/demo/3/MapGrid.gd" id="1_nqm8m"]
 
-[sub_resource type="Animation" id="Animation_b287n"]
-resource_name = "base"
+[sub_resource type="Animation" id="Animation_sniwn"]
 loop_mode = 2
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -18,7 +17,8 @@ tracks/0/keys = {
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
 
-[sub_resource type="Animation" id="Animation_sniwn"]
+[sub_resource type="Animation" id="Animation_b287n"]
+resource_name = "base"
 loop_mode = 2
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -43,12 +43,14 @@ _data = {
 centered = false
 script = ExtResource("1_nqm8m")
 
-[node name="Counter" type="ColorRect" parent="."]
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Counter" type="ColorRect" parent="CanvasLayer"]
 offset_right = 195.0
 offset_bottom = 124.0
 color = Color(0, 0, 0, 1)
 
-[node name="LabelHours" type="Label" parent="Counter"]
+[node name="LabelHours" type="Label" parent="CanvasLayer/Counter"]
 layout_mode = 0
 offset_left = 12.0
 offset_top = 69.0
@@ -56,7 +58,7 @@ offset_right = 160.0
 offset_bottom = 115.0
 text = "hours"
 
-[node name="Max" type="Label" parent="Counter"]
+[node name="Max" type="Label" parent="CanvasLayer/Counter"]
 layout_mode = 0
 offset_left = 86.0
 offset_top = 19.0
@@ -64,7 +66,7 @@ offset_right = 179.0
 offset_bottom = 65.0
 text = "12"
 
-[node name="Slash" type="Label" parent="Counter"]
+[node name="Slash" type="Label" parent="CanvasLayer/Counter"]
 layout_mode = 0
 offset_left = 68.0
 offset_top = 19.0
@@ -73,7 +75,7 @@ offset_bottom = 65.0
 text = "/
 "
 
-[node name="Data" type="Label" parent="Counter"]
+[node name="Data" type="Label" parent="CanvasLayer/Counter"]
 layout_mode = 0
 offset_left = 11.0
 offset_top = 11.0
@@ -82,14 +84,14 @@ offset_bottom = 76.0
 theme_override_font_sizes/font_size = 30
 text = "0"
 
-[node name="TravelTip" type="ColorRect" parent="Counter"]
+[node name="TravelTip" type="ColorRect" parent="CanvasLayer/Counter"]
 layout_mode = 0
 offset_left = 172.0
 offset_right = 367.0
 offset_bottom = 124.0
 color = Color(0, 0, 0, 1)
 
-[node name="Space" type="Label" parent="Counter/TravelTip"]
+[node name="Space" type="Label" parent="CanvasLayer/Counter/TravelTip"]
 layout_mode = 0
 offset_left = -1.0
 offset_top = 11.0
@@ -98,7 +100,7 @@ offset_bottom = 89.0
 theme_override_font_sizes/font_size = 40
 text = "[SPACE]"
 
-[node name="TravelHere" type="Label" parent="Counter/TravelTip"]
+[node name="TravelHere" type="Label" parent="CanvasLayer/Counter/TravelTip"]
 layout_mode = 0
 offset_left = 5.0
 offset_top = 74.0
@@ -106,7 +108,7 @@ offset_right = 153.0
 offset_bottom = 120.0
 text = "to travel here"
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Counter/TravelTip"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/Counter/TravelTip"]
 libraries = {
 "": SubResource("AnimationLibrary_72wu3")
 }
