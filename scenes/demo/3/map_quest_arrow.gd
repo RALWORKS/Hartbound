@@ -1,7 +1,7 @@
 extends Sprite2D
 
 @export var pencil: Node
-@export var target: Vector2
+#@export var target: Vector2
 
 
 # Called when the node enters the scene tree for the first time.
@@ -12,4 +12,6 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	position = pencil.position
-	rotation = pencil.position.angle_to_point(target)
+	
+	for c in get_children():
+		c.rotation = position.angle_to_point(c.target)
