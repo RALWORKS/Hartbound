@@ -225,6 +225,8 @@ var texture_settings = {
 }
 
 func _refresh_filter():
+	if not with_background:
+		return
 	$img/Character.modulate = TEXTURES["filter"][texture_settings["filter"]]
 
 func _refresh_shot():
