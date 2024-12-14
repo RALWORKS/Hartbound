@@ -161,19 +161,13 @@ dest_edge = "East"
 position = Vector2(1143, 659)
 rotation = 0.523599
 on_off_script = NodePath("../../StairsSwitchScript")
-extend_off_switch = NodePath("../UpperRegion")
+extend_off_switch = NodePath("")
 on = true
 
-[node name="UpperRegion" type="Area2D" parent="YSort" index="9"]
-
-[node name="HIT" type="CollisionPolygon2D" parent="YSort/UpperRegion" index="0"]
-position = Vector2(38, -17)
-polygon = PackedVector2Array(1596, 894, 1075, 588, 1767, 175, 1692, 888)
-
-[node name="NavigationAll" type="NavigationRegion2D" parent="YSort" index="10"]
+[node name="NavigationAll" type="NavigationRegion2D" parent="YSort" index="9"]
 navigation_polygon = SubResource("NavigationPolygon_xwl0q")
 
-[node name="fence-right" type="Sprite2D" parent="YSort" index="11"]
+[node name="fence-right" type="Sprite2D" parent="YSort" index="10"]
 position = Vector2(721, 983)
 scale = Vector2(0.972789, 1)
 texture = ExtResource("10_ki3ey")
@@ -186,13 +180,13 @@ scale = Vector2(0.513986, 0.5)
 texture = ExtResource("15_y6csg")
 offset = Vector2(0, -450)
 
-[node name="FuckySB" type="StaticBody2D" parent="YSort/fence-right" index="1"]
+[node name="StaticBody2D" type="StaticBody2D" parent="YSort/fence-right" index="1"]
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/fence-right/FuckySB" index="0"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/fence-right/StaticBody2D" index="0"]
 position = Vector2(-199, 42)
 polygon = PackedVector2Array(141.434, 38, 78.7272, -29.9999, 331, -167, 380, -129, 384.035, 15)
 
-[node name="fence-left" type="Sprite2D" parent="YSort" index="12"]
+[node name="fence-left" type="Sprite2D" parent="YSort" index="11"]
 position = Vector2(270, 1211)
 texture = ExtResource("11_0jbps")
 offset = Vector2(0, -150)
@@ -203,7 +197,7 @@ offset = Vector2(0, -150)
 position = Vector2(-199, 42)
 polygon = PackedVector2Array(75.0001, 73, 52, -56, 331, -167, 380, -129, 414, -16)
 
-[node name="NorthRoof" parent="YSort" index="13" instance=ExtResource("9_yk81u")]
+[node name="NorthRoof" parent="YSort" index="12" instance=ExtResource("9_yk81u")]
 position = Vector2(1589, 519)
 rotation = 1.5708
 scale = Vector2(6, 1)
@@ -212,21 +206,21 @@ dest_edge = "WestDoor"
 disabled = true
 follower_offset = Vector2(30, 0)
 
-[node name="tree1" type="Sprite2D" parent="YSort" index="14"]
+[node name="tree1" type="Sprite2D" parent="YSort" index="13"]
 modulate = Color(0.890196, 0.866667, 0.847059, 1)
 position = Vector2(433, 188)
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("13_3jq76")
 offset = Vector2(0, -250)
 
-[node name="tree2" type="Sprite2D" parent="YSort" index="15"]
+[node name="tree2" type="Sprite2D" parent="YSort" index="14"]
 modulate = Color(0.890196, 0.866667, 0.847059, 1)
 position = Vector2(205, 84)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("14_ru3hw")
 offset = Vector2(0, -250)
 
-[node name="tree3" type="Sprite2D" parent="YSort" index="16"]
+[node name="tree3" type="Sprite2D" parent="YSort" index="15"]
 modulate = Color(0.890196, 0.866667, 0.847059, 1)
 position = Vector2(61, 1090)
 scale = Vector2(0.5, 0.5)

@@ -19,6 +19,8 @@ extends Sprite2D
 @export var character_img: Node
 @export var anchor_bottom = false
 
+var animations_loading = true
+
 @export var frame_spacing: float = 0.3
 
 var SkinAndHairData = preload("res://character/skin_and_hair_data.tscn").instantiate()
@@ -101,6 +103,8 @@ var PRONOUNS_NB = {
 }
 
 func play(animation_title, custom_speed=1.0):
+	if animations_loading:
+		return
 	$AnimationPlayer.play("movement/" + animation_title, -1, custom_speed)
 
 func stop():
@@ -583,6 +587,7 @@ func _make_walk_animations():
 		library.add_animation(key, _animation_from_frames(value))
 
 	$AnimationPlayer.add_animation_library("movement", library)
+	animations_loading = false
 
 func _animation_from_frames(frames_sequence):
 	var animation = Animation.new()
