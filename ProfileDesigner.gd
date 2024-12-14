@@ -30,7 +30,7 @@ func refresh_indicators():
 	for pair in [
 		[$BgBtn, "bg-texture", "Background Texture"],
 		[$FilterBtn, "filter", "Filter"],
-		[$ShotBtn, "shot", "Camera Angle"],
+		[$ShotBtn, "shot", "Shot Composition"],
 	]:
 		var l = pr.TEXTURES[pair[1]].size()
 		var cur = pr.texture_settings[pair[1]] + 1

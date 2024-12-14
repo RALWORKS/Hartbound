@@ -150,8 +150,9 @@ var TEXTURES = {
 	],
 	"shot": [
 		[Vector2(1, 1), Vector2(250, 550), 0],
-		[Vector2(1.1, 1.1), Vector2(300, 600), 0.05*PI],
-		[Vector2(1.1, 1.1), Vector2(300, 550), -0.1*PI],
+		[Vector2(0.8, 0.8), Vector2(220, 500), 0],
+		[Vector2(1.2, 1.2), Vector2(300, 600), -(1/36)*PI],
+		[Vector2(1, 1), Vector2(310, 550), 0],
 	],
 }
 
@@ -224,7 +225,7 @@ var texture_settings = {
 }
 
 func _refresh_filter():
-	$".".self_modulate = TEXTURES["filter"][texture_settings["filter"]]
+	$img/Character.modulate = TEXTURES["filter"][texture_settings["filter"]]
 
 func _refresh_shot():
 	var shot = TEXTURES["shot"][texture_settings["shot"]]

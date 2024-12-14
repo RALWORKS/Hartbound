@@ -5,7 +5,7 @@
 [ext_resource type="Theme" uid="uid://bowrqsap2qmsa" path="res://base_theme.tres" id="3_ptl8c"]
 [ext_resource type="Script" path="res://character/BGColorButtons.gd" id="3_qk1se"]
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_nvi83"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_qdiy1"]
 viewport_path = NodePath("img")
 
 [node name="ProfileDesigner" type="Node2D"]
@@ -13,12 +13,12 @@ script = ExtResource("1_4dkvh")
 
 [node name="Profile" parent="." instance=ExtResource("2_ekdgc")]
 scale = Vector2(0.5, 0.5)
-texture = SubResource("ViewportTexture_nvi83")
+texture = SubResource("ViewportTexture_qdiy1")
 
 [node name="BgBtn" type="Button" parent="."]
-offset_left = 393.0
-offset_right = 558.0
-offset_bottom = 31.0
+offset_left = 457.0
+offset_right = 634.0
+offset_bottom = 33.0
 theme = ExtResource("3_ptl8c")
 text = "Background Texture"
 metadata/_edit_use_anchors_ = true
@@ -46,7 +46,7 @@ offset_top = 80.0
 offset_right = 329.0
 offset_bottom = 111.0
 theme = ExtResource("3_ptl8c")
-text = "Camera Angle"
+text = "Shot Composition"
 metadata/_edit_use_anchors_ = true
 
 [node name="FilterBtn" type="Button" parent="."]
@@ -60,13 +60,13 @@ text = "Filter
 metadata/_edit_use_anchors_ = true
 
 [node name="BGColorButtons" type="Node2D" parent="."]
-position = Vector2(400, 86)
+position = Vector2(464, 86)
 script = ExtResource("3_qk1se")
 
 [node name="Label" type="Label" parent="."]
-offset_left = 388.0
+offset_left = 452.0
 offset_top = 40.0
-offset_right = 540.0
+offset_right = 604.0
 offset_bottom = 86.0
 text = "Background Tint:"
 
