@@ -4,6 +4,7 @@
 [ext_resource type="Script" path="res://scenes/demo/3/map_pointer.gd" id="2_uufel"]
 
 [node name="MapPointer" type="Sprite2D"]
+self_modulate = Color(0.933333, 0.67451, 0, 1)
 texture = ExtResource("1_tjb2i")
 offset = Vector2(342, 0)
 script = ExtResource("2_uufel")

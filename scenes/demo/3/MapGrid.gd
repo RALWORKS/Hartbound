@@ -12,7 +12,7 @@ var final_line: Line2D
 
 var start_mark = null
 
-var LINE_COLOR =  "#442266"
+var LINE_COLOR =  "#aa3322"
 var LINE_WIDTH = 8
 
 var distance = 0

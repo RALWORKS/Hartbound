@@ -4,6 +4,7 @@
 [ext_resource type="Script" path="res://scenes/demo/3/map_quest_arrow.gd" id="2_e180o"]
 
 [node name="MapQuestArrow" type="Sprite2D"]
+self_modulate = Color(0.848765, 0.487029, 1.92523e-07, 0.592157)
 z_index = 2000
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("1_tpuvl")
