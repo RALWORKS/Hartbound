@@ -5,7 +5,18 @@ extends Node2D
 @onready var Front = $Front
 @onready var Skeleton = $Skeleton2D
 
+@onready var PlayerSkin = [
+	$BackArm,
+	$Torso,
+	$BackLeg,
+	$FrontLeg,
+	$FrontArm,
+]
+
+@export var skin_tone = "#ff9988"
+
 var ShoulderCape = "res://character/big_player/shoulder_cape.tscn"
+var Ruana = "res://character/big_player/ruana.tscn"
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -14,7 +25,13 @@ func _ready():
 
 
 func load_design():
-	load_outfit(ShoulderCape)
+	Aload_outfit(ShoulderCape)
+	#load_outfit(Ruana)
+	colour_skin()
+
+func colour_skin():
+	for s in PlayerSkin:
+		s.color = skin_tone
 
 func load_outfit(res):
 	var cls: Resource = load(res)
@@ -27,6 +44,8 @@ func _load_layers(outfit: Node2D):
 		var old: Node2D = outfit.get_node_or_null(str(dest.name))
 		if not old:
 			continue
+		#dest.position = old.position
+		#dest.rotation = old.rotation
 		_load_sub_layers(dest, old, old.get_children())
 
 func _load_sub_layers(dest: Node2D, old: Node2D, layers: Array[Node]):
