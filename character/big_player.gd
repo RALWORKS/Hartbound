@@ -25,8 +25,8 @@ func _ready():
 
 
 func load_design():
-	Aload_outfit(ShoulderCape)
-	#load_outfit(Ruana)
+	#load_outfit(ShoulderCape)
+	load_outfit(Ruana)
 	colour_skin()
 
 func colour_skin():
