@@ -17,6 +17,7 @@ extends Node2D
 
 var ShoulderCape = "res://character/big_player/shoulder_cape.tscn"
 var Ruana = "res://character/big_player/ruana.tscn"
+var DressAndCoat = "res://character/big_player/dress_and_coat.tscn"
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -25,8 +26,9 @@ func _ready():
 
 
 func load_design():
-	#load_outfit(ShoulderCape)
-	load_outfit(Ruana)
+	load_outfit(ShoulderCape)
+	#load_outfit(Ruana)
+	#load_outfit(DressAndCoat)
 	colour_skin()
 
 func colour_skin():
