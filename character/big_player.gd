@@ -19,6 +19,7 @@ var ShoulderCape = "res://character/big_player/shoulder_cape.tscn"
 var Ruana = "res://character/big_player/ruana.tscn"
 var DressAndCoat = "res://character/big_player/dress_and_coat.tscn"
 var GreatKilt = "res://character/big_player/great_kilt.tscn"
+var Chiton = "res://character/big_player/chiton.tscn"
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -30,7 +31,8 @@ func load_design():
 	#load_outfit(ShoulderCape)
 	#load_outfit(Ruana)
 	#load_outfit(DressAndCoat)
-	load_outfit(GreatKilt)
+	#load_outfit(GreatKilt)
+	load_outfit(Chiton)
 	colour_skin()
 
 func colour_skin():
