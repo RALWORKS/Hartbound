@@ -161,6 +161,18 @@ tracks/12/keys = {
 "update": 0,
 "values": [0.0]
 }
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("Skeleton2D/Hip/LowBack/Chest/FrontShoulder/FrontArm:position")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-308, 244)]
+}
 
 [sub_resource type="Animation" id="Animation_2uti7"]
 resource_name = "base"
@@ -200,7 +212,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0, 0.5, 1, 1.5, 2),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 0,
-"values": [1.23395, 0.710349, -0.0750492, 0.972148, 1.23395]
+"values": [1.23395, 0.710349, 0.0, 0.972148, 1.23395]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -212,7 +224,7 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0, 0.5, 1, 1.5, 2),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 0,
-"values": [-1.0088, -0.616101, -0.354302, -0.813323, -1.0088]
+"values": [-1.0088, -0.616101, -0.261799, -0.813323, -1.0088]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
@@ -297,6 +309,30 @@ tracks/10/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [0.0]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Skeleton2D/Hip/LowBack/Chest/BackShoulder/BackArm:rotation")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-1.44339]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("Skeleton2D/Hip/LowBack/Chest/FrontShoulder/FrontArm:position")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-308, 244)]
 }
 
 [sub_resource type="Animation" id="Animation_8cdgl"]
@@ -581,6 +617,7 @@ rest = Transform2D(1, 0, 0, 1, 8, -41)
 [node name="BackArm" type="Bone2D" parent="Skeleton2D/Hip/LowBack/Chest/BackShoulder"]
 position = Vector2(212, 303)
 rotation = -1.86227
+scale = Vector2(1, 1)
 rest = Transform2D(0.263873, -0.964557, 0.964557, 0.263873, 212, 303)
 auto_calculate_length_and_angle = false
 length = 358.575
