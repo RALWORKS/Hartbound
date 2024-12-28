@@ -466,7 +466,7 @@ _data = {
 }
 
 [node name="BigPlayer" type="Node2D"]
-position = Vector2(369, 3)
+position = Vector2(369, -13)
 scale = Vector2(0.5, 0.5)
 script = ExtResource("1_8x8na")
 
@@ -547,6 +547,7 @@ rest = Transform2D(0.943801, 0.330514, -0.330514, 0.943801, -140, 44)
 
 [node name="FrontCalf" type="Bone2D" parent="Skeleton2D/Hip/FrontThigh"]
 position = Vector2(-44, 676)
+scale = Vector2(0.999999, 0.999999)
 rest = Transform2D(1, 0, 0, 1, -44, 676)
 
 [node name="FrontFoot" type="Bone2D" parent="Skeleton2D/Hip/FrontThigh/FrontCalf"]
@@ -610,12 +611,13 @@ bone_angle = 119.105
 
 [node name="BackShoulder" type="Bone2D" parent="Skeleton2D/Hip/LowBack/Chest"]
 position = Vector2(8, -41)
+scale = Vector2(1, 1)
 rest = Transform2D(1, 0, 0, 1, 8, -41)
 
 [node name="BackArm" type="Bone2D" parent="Skeleton2D/Hip/LowBack/Chest/BackShoulder"]
 position = Vector2(212, 303)
 rotation = -1.30376
-scale = Vector2(1, 1)
+scale = Vector2(0.999999, 0.999999)
 rest = Transform2D(0.263873, -0.964557, 0.964557, 0.263873, 212, 303)
 auto_calculate_length_and_angle = false
 length = 358.575
