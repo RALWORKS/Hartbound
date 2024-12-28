@@ -15,7 +15,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [0.111701]
+"values": [0.336848]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -27,7 +27,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [-0.335103]
+"values": [-0.560251]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -39,7 +39,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [1.23395]
+"values": [0.0]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -51,7 +51,7 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [-1.0088]
+"values": [0.0]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
@@ -63,7 +63,7 @@ tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [0.654498]
+"values": [0.0]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
@@ -99,7 +99,7 @@ tracks/7/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [-1.86227]
+"values": [-1.30376]
 }
 tracks/8/type = "value"
 tracks/8/imported = false
@@ -111,7 +111,7 @@ tracks/8/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [0.261799]
+"values": [0.0]
 }
 tracks/9/type = "value"
 tracks/9/imported = false
@@ -541,13 +541,12 @@ rest = Transform2D(1, 0, 0, 1, 264, 1088)
 
 [node name="FrontThigh" type="Bone2D" parent="Skeleton2D/Hip"]
 position = Vector2(-140, 44)
-rotation = 0.111701
+rotation = 0.336848
+scale = Vector2(1, 1)
 rest = Transform2D(0.943801, 0.330514, -0.330514, 0.943801, -140, 44)
 
 [node name="FrontCalf" type="Bone2D" parent="Skeleton2D/Hip/FrontThigh"]
 position = Vector2(-44, 676)
-rotation = 0.654498
-scale = Vector2(0.999999, 0.999999)
 rest = Transform2D(1, 0, 0, 1, -44, 676)
 
 [node name="FrontFoot" type="Bone2D" parent="Skeleton2D/Hip/FrontThigh/FrontCalf"]
@@ -561,7 +560,8 @@ bone_angle = 36.61
 
 [node name="BackThigh" type="Bone2D" parent="Skeleton2D/Hip"]
 position = Vector2(108, 76)
-rotation = -0.335103
+rotation = -0.560251
+scale = Vector2(1, 1)
 rest = Transform2D(0.847122, -0.531399, 0.531399, 0.847122, 108, 76)
 
 [node name="BackCalf" type="Bone2D" parent="Skeleton2D/Hip/BackThigh"]
@@ -579,11 +579,11 @@ bone_angle = 12.203
 [node name="LowBack" type="Bone2D" parent="Skeleton2D/Hip"]
 position = Vector2(8, -180)
 rotation = -0.225147
+scale = Vector2(1, 1)
 rest = Transform2D(0.974761, -0.22325, 0.22325, 0.974761, 8, -180)
 
 [node name="Chest" type="Bone2D" parent="Skeleton2D/Hip/LowBack"]
 position = Vector2(20, -316)
-rotation = 0.261799
 rest = Transform2D(1, 0, 0, 1, 20, -316)
 
 [node name="Neck" type="Bone2D" parent="Skeleton2D/Hip/LowBack/Chest"]
@@ -599,7 +599,6 @@ bone_angle = -73.22
 
 [node name="FrontShoulder" type="Bone2D" parent="Skeleton2D/Hip/LowBack/Chest"]
 position = Vector2(-128, -64)
-rotation = -1.0088
 rest = Transform2D(1, 0, 0, 1, -128, -64)
 
 [node name="FrontArm" type="Bone2D" parent="Skeleton2D/Hip/LowBack/Chest/FrontShoulder"]
@@ -611,13 +610,12 @@ bone_angle = 119.105
 
 [node name="BackShoulder" type="Bone2D" parent="Skeleton2D/Hip/LowBack/Chest"]
 position = Vector2(8, -41)
-rotation = 1.23395
 rest = Transform2D(1, 0, 0, 1, 8, -41)
 
 [node name="BackArm" type="Bone2D" parent="Skeleton2D/Hip/LowBack/Chest/BackShoulder"]
 position = Vector2(212, 303)
-rotation = -1.86227
-scale = Vector2(0.999999, 0.999999)
+rotation = -1.30376
+scale = Vector2(1, 1)
 rest = Transform2D(0.263873, -0.964557, 0.964557, 0.263873, 212, 303)
 auto_calculate_length_and_angle = false
 length = 358.575
