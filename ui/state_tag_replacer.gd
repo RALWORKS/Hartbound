@@ -22,7 +22,7 @@ func replace(t):
 	var tag: String
 	var value
 	var key: String
-	var state_key: Array[String]
+	var state_key
 	
 	for match_obj in state_matches:
 		tag = match_obj.get_string()
@@ -34,7 +34,7 @@ func replace(t):
 		if state_key.size() < 1:
 			continue
 		value = g.get_state(state_key)
-		if value == null or not value or value.size == 0:
+		if value == null or not value or value.length() == 0:
 			push_error("No replacement data at state:", state_key)
 			continue
 		t = t.replace(tag, value)
