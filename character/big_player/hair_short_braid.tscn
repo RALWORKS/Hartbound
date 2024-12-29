@@ -1,0 +1,27 @@
+[gd_scene load_steps=2 format=3 uid="uid://deenm42gxe4f4"]
+
+[ext_resource type="Texture2D" uid="uid://c7mq5ag5pkbby" path="res://assets/character/pc-doll/hair/short-braid.png" id="1_4nh1x"]
+
+[node name="HairShortBraid" type="Node2D"]
+
+[node name="Back" type="Node2D" parent="."]
+position = Vector2(-1661, 57)
+
+[node name="Middle" type="Node2D" parent="."]
+position = Vector2(-618, 670)
+
+[node name="Hair" type="Node2D" parent="."]
+
+[node name="Hair" type="Polygon2D" parent="Hair"]
+position = Vector2(-232, -174)
+rotation = 0.118682
+texture = ExtResource("1_4nh1x")
+skeleton = NodePath("../../Skeleton2D")
+polygon = PackedVector2Array(429.616, 277.535, 459.849, 326.372, 550.547, 426.372, 453.061, 487.164, 396.504, 346.18, 401.95, 381.088, 386.17, 451.452, 337.523, 499.55, 275.631, 521.029, 260.254, 476.537, 331.931, 435.763, 350.644, 373.107, 375.193, 297.82, 392.407, 228.698, 448.963, 160.115, 514.537, 120.77, 648.143, 129.787, 661.258, 182.246, 596.504, 202.738, 602.242, 279.787, 604.035, 363.581, 576.128, 363.581)
+uv = PackedVector2Array(429.616, 277.535, 459.849, 326.372, 550.547, 426.372, 453.061, 487.164, 396.504, 346.18, 372.734, 383.066, 330.93, 432.246, 317.988, 484.512, 265.357, 498.639, 226.012, 451.918, 282.57, 401.098, 318.635, 348.639, 375.193, 297.82, 392.407, 228.698, 448.963, 160.115, 514.537, 120.77, 648.143, 129.787, 661.258, 182.246, 596.504, 202.738, 602.242, 279.787, 604.035, 363.581, 576.128, 363.581)
+polygons = [PackedInt32Array(4, 3, 2, 1, 0, 21, 20, 19, 18, 17, 16, 15, 14, 13, 12), PackedInt32Array(9, 8, 7, 6, 10), PackedInt32Array(10, 11, 5, 6), PackedInt32Array(11, 12, 4, 5)]
+bones = ["Hip", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Hip/FrontThigh", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Hip/FrontThigh/FrontCalf", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Hip/FrontThigh/FrontCalf/FrontFoot", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Hip/BackThigh", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Hip/BackThigh/BackCalf", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Hip/BackThigh/BackCalf/BackFoot", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Hip/LowBack", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Hip/LowBack/Chest", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Hip/LowBack/Chest/Neck", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Hip/LowBack/Chest/Neck/Head", PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1), "Hip/LowBack/Chest/Neck/Head/Hair", PackedFloat32Array(0, 0, 0, 0, 0, 0.32, 0.32, 1, 1, 1, 0.32, 0.32, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Hip/LowBack/Chest/FrontShoulder", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Hip/LowBack/Chest/FrontShoulder/FrontArm", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Hip/LowBack/Chest/BackShoulder", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Hip/LowBack/Chest/BackShoulder/BackArm", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Hip/CapeSkirt", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)]
+
+[node name="Front" type="Node2D" parent="."]
+position = Vector2(-430, -26)
+rotation = 0.118682
