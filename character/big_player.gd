@@ -33,7 +33,7 @@ var SkinAndHairData = preload("res://character/skin_and_hair_data.tscn").instant
 var OutfitColor1 = preload("res://character/outfit_color_1.tscn").instantiate()
 
 var HAIR = [HairLocks, HairLongBun, HairLongBraid, HairShortBraid]
-var OUTFIT = [Ruana, DressAndCoat, ShoulderCape, GreatKilt, Chiton]
+var OUTFIT = [Ruana, DressAndCoat, ShoulderCape, Chiton, GreatKilt]
 var HAIR_COLOR = SkinAndHairData.HAIR_COLOURS
 var SKIN_COLOR = SkinAndHairData.SKIN_COLOURS
 var OUTFIT_BASE_COLOR = OutfitColor1.OPTIONS
