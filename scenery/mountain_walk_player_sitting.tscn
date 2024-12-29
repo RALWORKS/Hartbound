@@ -1,0 +1,51 @@
+[gd_scene load_steps=9 format=3 uid="uid://cgud4hctc25th"]
+
+[ext_resource type="PackedScene" uid="uid://cvtf0bk2q0ky5" path="res://scenery/scroll-mountans.tscn" id="1_v60v5"]
+[ext_resource type="Texture2D" uid="uid://d2xey863qcl78" path="res://assets/scenery/Scrolling/white-path.png" id="2_7y4i0"]
+[ext_resource type="PackedScene" uid="uid://cxrgve00qy8bm" path="res://scenery/scroll-trees.tscn" id="3_ybjmm"]
+[ext_resource type="PackedScene" uid="uid://dg8abiomo84jl" path="res://scenery/horse_and_cart_walking_player_sitting.tscn" id="4_ltpc4"]
+[ext_resource type="PackedScene" uid="uid://bkmlrvo7prska" path="res://scenery/brona_walking.tscn" id="5_ws2ys"]
+[ext_resource type="PackedScene" uid="uid://dkcccnbq37au1" path="res://character/taylor_doll.tscn" id="7_voq1p"]
+[ext_resource type="PackedScene" uid="uid://yl6xdj71b1qq" path="res://scenery/jerry_walking.tscn" id="8_m6oa0"]
+[ext_resource type="PackedScene" uid="uid://bac2xe0oqxtkm" path="res://scenery/nate_walking.tscn" id="9_ph7hb"]
+
+[node name="MountainWalk" type="Node2D"]
+
+[node name="BG" parent="." instance=ExtResource("1_v60v5")]
+
+[node name="White" type="Sprite2D" parent="."]
+position = Vector2(0, -36)
+scale = Vector2(1.17115, 1.24254)
+texture = ExtResource("2_7y4i0")
+centered = false
+
+[node name="BG2" parent="." instance=ExtResource("3_ybjmm")]
+position = Vector2(0, -174)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(950, 836)
+
+[node name="Characters" type="Node2D" parent="."]
+position = Vector2(186, 609)
+scale = Vector2(0.24, 0.24)
+
+[node name="HorseAndCartWalking2" parent="Characters" instance=ExtResource("4_ltpc4")]
+position = Vector2(3487.5, -395.834)
+scale = Vector2(1, 1)
+
+[node name="BronaWalking" parent="Characters" instance=ExtResource("5_ws2ys")]
+position = Vector2(3860, 56.6667)
+scale = Vector2(0.833333, 0.833333)
+offset = 0.2
+
+[node name="TaylorDoll" parent="Characters" instance=ExtResource("7_voq1p")]
+position = Vector2(1403.34, 421.667)
+scale = Vector2(1, 1)
+
+[node name="JerryWalking" parent="Characters" instance=ExtResource("8_m6oa0")]
+position = Vector2(4888.35, 74.9999)
+offset = 0.4
+
+[node name="NateWalking" parent="Characters" instance=ExtResource("9_ph7hb")]
+position = Vector2(-690, 35)
+offset = 0.2

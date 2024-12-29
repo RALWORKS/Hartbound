@@ -43,7 +43,7 @@ func _ready():
 	var game = get_game()
 	if not game:
 		load_default()
-		$AnimationPlayer.play("quantized_walk")
+		$AnimationPlayer.play(anim)
 		return
 	load_game(game)
 	
@@ -65,8 +65,8 @@ func load_game(game):
 
 func load_default():
 	#load_outfit(ShoulderCape)
-	load_outfit(Ruana)
-	#load_outfit(DressAndCoat)
+	#load_outfit(Ruana)
+	load_outfit(DressAndCoat)
 	#load_outfit(GreatKilt)
 	#load_outfit(Chiton)
 	load_hair(HairShortBraid)

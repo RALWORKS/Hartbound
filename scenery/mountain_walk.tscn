@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://cyo3wh220hopu"]
+[gd_scene load_steps=10 format=3 uid="uid://cyo3wh220hopu"]
 
 [ext_resource type="PackedScene" uid="uid://cvtf0bk2q0ky5" path="res://scenery/scroll-mountans.tscn" id="1_wdcg3"]
 [ext_resource type="PackedScene" uid="uid://cxrgve00qy8bm" path="res://scenery/scroll-trees.tscn" id="2_hj6ds"]
 [ext_resource type="Texture2D" uid="uid://d2xey863qcl78" path="res://assets/scenery/Scrolling/white-path.png" id="2_v170s"]
+[ext_resource type="PackedScene" uid="uid://dkcccnbq37au1" path="res://character/taylor_doll.tscn" id="4_omvss"]
 [ext_resource type="PackedScene" uid="uid://dhi8aahnucxqk" path="res://scenery/horse_and_cart_walking.tscn" id="4_xov2w"]
 [ext_resource type="PackedScene" uid="uid://bkmlrvo7prska" path="res://scenery/brona_walking.tscn" id="5_6wfqe"]
 [ext_resource type="PackedScene" uid="uid://yl6xdj71b1qq" path="res://scenery/jerry_walking.tscn" id="6_yamgh"]
@@ -15,7 +16,7 @@
 
 [node name="White" type="Sprite2D" parent="."]
 position = Vector2(0, -36)
-scale = Vector2(1.17115, 1)
+scale = Vector2(1.17115, 1.24254)
 texture = ExtResource("2_v170s")
 centered = false
 
@@ -23,27 +24,32 @@ centered = false
 position = Vector2(0, -174)
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(950, 700)
+position = Vector2(950, 836)
 
-[node name="HorseAndCartWalking" parent="." instance=ExtResource("4_xov2w")]
-position = Vector2(918, 422)
-scale = Vector2(0.25, 0.25)
+[node name="Characters" type="Node2D" parent="."]
+position = Vector2(186, 609)
+scale = Vector2(0.24, 0.24)
 
-[node name="BronaWalking" parent="." instance=ExtResource("5_6wfqe")]
-position = Vector2(974, 457)
-scale = Vector2(0.25, 0.25)
+[node name="HorseAndCartWalking" parent="Characters" instance=ExtResource("4_xov2w")]
+position = Vector2(3480, -386.667)
+
+[node name="BronaWalking" parent="Characters" instance=ExtResource("5_6wfqe")]
+position = Vector2(2426.67, 90)
+scale = Vector2(0.833333, 0.833333)
 offset = 0.2
 
-[node name="BigPlayer" parent="." instance=ExtResource("8_suea3")]
-position = Vector2(412, 448)
-scale = Vector2(0.3, 0.3)
+[node name="BigPlayer" parent="Characters" instance=ExtResource("8_suea3")]
+position = Vector2(1165, 145)
+scale = Vector2(1, 1)
 
-[node name="JerryWalking" parent="." instance=ExtResource("6_yamgh")]
-position = Vector2(451, 371)
-scale = Vector2(0.4, 0.4)
+[node name="TaylorDoll" parent="Characters" instance=ExtResource("4_omvss")]
+position = Vector2(3936.67, 421.667)
+scale = Vector2(1, 1)
+
+[node name="JerryWalking" parent="Characters" instance=ExtResource("6_yamgh")]
+position = Vector2(4888.35, 74.9999)
 offset = 0.4
 
-[node name="NateWalking" parent="." instance=ExtResource("7_k3ck0")]
-position = Vector2(-16, 430)
-scale = Vector2(0.3, 0.3)
+[node name="NateWalking" parent="Characters" instance=ExtResource("7_k3ck0")]
+position = Vector2(-690, 35)
 offset = 0.2

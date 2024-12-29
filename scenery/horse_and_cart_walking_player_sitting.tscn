@@ -1,14 +1,15 @@
-[gd_scene load_steps=18 format=3 uid="uid://dhi8aahnucxqk"]
+[gd_scene load_steps=19 format=3 uid="uid://dg8abiomo84jl"]
 
-[ext_resource type="Script" path="res://scenery/Walking.gd" id="1_yl5xh"]
-[ext_resource type="Texture2D" uid="uid://dcmragjy74oy6" path="res://assets/npcs/horse/step-1-colour.png" id="2_betlr"]
-[ext_resource type="Texture2D" uid="uid://bxa3xn7dsic3" path="res://assets/npcs/horse/cart-rod-back-colour.png" id="2_bkafo"]
-[ext_resource type="Texture2D" uid="uid://bij6b4825jkmp" path="res://assets/npcs/horse/step-2-colour.png" id="3_pflqf"]
-[ext_resource type="Texture2D" uid="uid://13ww57ql4i6a" path="res://assets/npcs/horse/step-3-colour.png" id="4_v6te5"]
-[ext_resource type="Texture2D" uid="uid://dhxc5sot0osx7" path="res://assets/npcs/horse/cart-1-colour.png" id="6_e86t8"]
-[ext_resource type="Texture2D" uid="uid://ble8wvq7yj2fg" path="res://assets/npcs/horse/cart-2-colour.png" id="7_8dfsy"]
-[ext_resource type="Texture2D" uid="uid://d0p1m5fwiscyo" path="res://assets/npcs/horse/cart-3-colour.png" id="8_4tgke"]
-[ext_resource type="Texture2D" uid="uid://dj6hhd1gbikeg" path="res://assets/npcs/horse/cart-rod-front-colour.png" id="9_1ttxe"]
+[ext_resource type="Script" path="res://scenery/Walking.gd" id="1_j4k51"]
+[ext_resource type="Texture2D" uid="uid://bxa3xn7dsic3" path="res://assets/npcs/horse/cart-rod-back-colour.png" id="2_c2icp"]
+[ext_resource type="Texture2D" uid="uid://dcmragjy74oy6" path="res://assets/npcs/horse/step-1-colour.png" id="3_x48hc"]
+[ext_resource type="Texture2D" uid="uid://bij6b4825jkmp" path="res://assets/npcs/horse/step-2-colour.png" id="4_qvhr0"]
+[ext_resource type="Texture2D" uid="uid://13ww57ql4i6a" path="res://assets/npcs/horse/step-3-colour.png" id="5_lg78w"]
+[ext_resource type="Texture2D" uid="uid://dhxc5sot0osx7" path="res://assets/npcs/horse/cart-1-colour.png" id="6_j35jl"]
+[ext_resource type="Texture2D" uid="uid://ble8wvq7yj2fg" path="res://assets/npcs/horse/cart-2-colour.png" id="7_mxml4"]
+[ext_resource type="Texture2D" uid="uid://d0p1m5fwiscyo" path="res://assets/npcs/horse/cart-3-colour.png" id="8_44g8k"]
+[ext_resource type="PackedScene" uid="uid://dodne0hhms0qr" path="res://character/big_player.tscn" id="9_1cagi"]
+[ext_resource type="Texture2D" uid="uid://dj6hhd1gbikeg" path="res://assets/npcs/horse/cart-rod-front-colour.png" id="10_mw5ke"]
 
 [sub_resource type="Animation" id="Animation_in7bn"]
 length = 0.001
@@ -51,16 +52,16 @@ _data = {
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_betlr")
+"texture": ExtResource("3_x48hc")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_pflqf")
+"texture": ExtResource("4_qvhr0")
 }, {
 "duration": 1.0,
-"texture": ExtResource("4_v6te5")
+"texture": ExtResource("5_lg78w")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_pflqf")
+"texture": ExtResource("4_qvhr0")
 }],
 "loop": true,
 "name": &"base",
@@ -71,13 +72,13 @@ animations = [{
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("6_e86t8")
+"texture": ExtResource("6_j35jl")
 }, {
 "duration": 1.0,
-"texture": ExtResource("7_8dfsy")
+"texture": ExtResource("7_mxml4")
 }, {
 "duration": 1.0,
-"texture": ExtResource("8_4tgke")
+"texture": ExtResource("8_44g8k")
 }],
 "loop": true,
 "name": &"base",
@@ -146,7 +147,7 @@ _data = {
 }
 
 [node name="HorseAndCartWalking" type="Node2D"]
-script = ExtResource("1_yl5xh")
+script = ExtResource("1_j4k51")
 metadata/_edit_horizontal_guides_ = []
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -157,7 +158,7 @@ libraries = {
 [node name="backbar" type="Sprite2D" parent="."]
 position = Vector2(-398, 1657)
 rotation = -0.0523599
-texture = ExtResource("2_bkafo")
+texture = ExtResource("2_c2icp")
 centered = false
 offset = Vector2(-90, -510)
 
@@ -175,15 +176,20 @@ sprite_frames = SubResource("SpriteFrames_t1mrf")
 animation = &"base"
 centered = false
 
+[node name="BigPlayer" parent="Cart" instance=ExtResource("9_1cagi")]
+position = Vector2(2253, -188)
+scale = Vector2(0.8, 0.8)
+anim = "sit"
+
 [node name="FrontWall" type="Polygon2D" parent="Cart"]
 position = Vector2(2, 0)
-texture = ExtResource("6_e86t8")
+texture = ExtResource("6_j35jl")
 polygon = PackedVector2Array(124.467, 1060.94, 366.689, 623.167, 2740.02, 632.056, 2768.91, 654.278, 2771.13, 1103.17, 2564.47, 1107.61, 2555.58, 1205.39, 340.022, 1172.06, 335.578, 1356.5, 242.244, 1356.5, 117.8, 1156.5)
 uv = PackedVector2Array(124.467, 1060.94, 366.689, 623.167, 2740.02, 632.056, 2768.91, 654.278, 2771.13, 1103.17, 2564.47, 1107.61, 2555.58, 1205.39, 340.022, 1172.06, 335.578, 1356.5, 242.244, 1356.5, 117.8, 1156.5)
 
 [node name="frontbar" type="Sprite2D" parent="Cart"]
 position = Vector2(2529, 1194)
-texture = ExtResource("9_1ttxe")
+texture = ExtResource("10_mw5ke")
 centered = false
 offset = Vector2(-90, -510)
 
