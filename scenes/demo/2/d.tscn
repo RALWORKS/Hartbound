@@ -157,11 +157,10 @@ scale = Vector2(9, 1)
 dest_resource = "res://scenes/demo/2/e.tscn"
 dest_edge = "East"
 
-[node name="StairsSwitch" parent="YSort" index="8" node_paths=PackedStringArray("on_off_script", "extend_off_switch") instance=ExtResource("10_5eqo1")]
+[node name="StairsSwitch" parent="YSort" index="8" node_paths=PackedStringArray("on_off_script") instance=ExtResource("10_5eqo1")]
 position = Vector2(1143, 659)
 rotation = 0.523599
 on_off_script = NodePath("../../StairsSwitchScript")
-extend_off_switch = NodePath("")
 on = true
 
 [node name="NavigationAll" type="NavigationRegion2D" parent="YSort" index="9"]

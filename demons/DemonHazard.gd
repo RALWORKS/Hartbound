@@ -31,9 +31,11 @@ func collide(body):
 
 func die(callback):
 	var g = $"/root/Game/"
+	if g.dying:
+		return
 	g.dying = true
 	$"/root/Game/MainScreen/Effects".play("pass out")
 	await get_tree().create_timer(2).timeout
-	g.dying = false
 	#g.respawn_player()
 	callback.call()
+	g.dying = false
