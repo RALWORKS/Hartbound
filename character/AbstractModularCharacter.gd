@@ -24,6 +24,7 @@ var animations_loading = true
 @export var frame_spacing: float = 0.3
 
 var SkinAndHairData = preload("res://character/skin_and_hair_data.tscn").instantiate()
+var OutfitColor1 = preload("res://character/outfit_color_1.tscn").instantiate()
 var game = null
 var world = null
 
@@ -196,23 +197,7 @@ var N_PATTERNS = 3
 var TEXTURES = {
 	"skin-color": SkinAndHairData.SKIN_COLOURS,
 	"hair-color": SkinAndHairData.HAIR_COLOURS,
-	"outfit-color-1": [
-		"#666602", # olive
-		"#76962b", # spring
-		"#405e33", # forest
-		"#288750", # mint
-		"#589286", # robin's egg
-		"#2b4286", # periwinkle
-		"#6b8296", # cloudy skies
-		"#604f84", # lilac
-		"#68373d", # blueberry juice
-		"#902d1d", # fire engine
-		"#5f260d", # dark leather
-		"#4f361d", # light leather
-		"#303030", # "black"
-		"#505050", # grey
-		"#cccccc", # white
-	],
+	"outfit-color-1": OutfitColor1.OPTIONS,
 	"outfit-color-2": [
 		"#969622", # olive
 		"#a6c65b", # spring

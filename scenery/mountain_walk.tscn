@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cyo3wh220hopu"]
+[gd_scene load_steps=9 format=3 uid="uid://cyo3wh220hopu"]
 
 [ext_resource type="PackedScene" uid="uid://cvtf0bk2q0ky5" path="res://scenery/scroll-mountans.tscn" id="1_wdcg3"]
 [ext_resource type="PackedScene" uid="uid://cxrgve00qy8bm" path="res://scenery/scroll-trees.tscn" id="2_hj6ds"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bkmlrvo7prska" path="res://scenery/brona_walking.tscn" id="5_6wfqe"]
 [ext_resource type="PackedScene" uid="uid://yl6xdj71b1qq" path="res://scenery/jerry_walking.tscn" id="6_yamgh"]
 [ext_resource type="PackedScene" uid="uid://bac2xe0oqxtkm" path="res://scenery/nate_walking.tscn" id="7_k3ck0"]
+[ext_resource type="PackedScene" uid="uid://dodne0hhms0qr" path="res://character/big_player.tscn" id="8_suea3"]
 
 [node name="MountainWalk" type="Node2D"]
 
@@ -32,6 +33,10 @@ scale = Vector2(0.25, 0.25)
 position = Vector2(974, 457)
 scale = Vector2(0.25, 0.25)
 offset = 0.2
+
+[node name="BigPlayer" parent="." instance=ExtResource("8_suea3")]
+position = Vector2(412, 448)
+scale = Vector2(0.3, 0.3)
 
 [node name="JerryWalking" parent="." instance=ExtResource("6_yamgh")]
 position = Vector2(451, 371)
