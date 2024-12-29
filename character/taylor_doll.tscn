@@ -698,7 +698,6 @@ rest = Transform2D(0.943801, 0.330514, -0.330514, 0.943801, -140, 44)
 
 [node name="FrontCalf" type="Bone2D" parent="Skeleton2D/Hip/FrontThigh"]
 position = Vector2(-47.4105, 378.967)
-scale = Vector2(1, 1)
 rest = Transform2D(1, 0, 0, 1, -47.4105, 378.967)
 
 [node name="FrontFoot" type="Bone2D" parent="Skeleton2D/Hip/FrontThigh/FrontCalf"]
@@ -750,7 +749,6 @@ bone_angle = -73.22
 
 [node name="Hair" type="Bone2D" parent="Skeleton2D/Hip/LowBack/Chest/Neck/Head"]
 position = Vector2(-11.944, -226.853)
-scale = Vector2(1, 1)
 rest = Transform2D(1, 0, 0, 1, -11.944, -226.853)
 auto_calculate_length_and_angle = false
 length = 198.059
@@ -762,7 +760,6 @@ rest = Transform2D(1, 0, 0, 1, 4.34277, -193.423)
 
 [node name="FrontArm" type="Bone2D" parent="Skeleton2D/Hip/LowBack/Chest/FrontShoulder"]
 position = Vector2(-308, 244)
-scale = Vector2(1, 1)
 rest = Transform2D(1, 0, 0, 1, -346.901, 170.867)
 auto_calculate_length_and_angle = false
 length = 444.072

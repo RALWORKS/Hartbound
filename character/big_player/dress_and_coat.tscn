@@ -51,10 +51,11 @@ position = Vector2(-430, -26)
 rotation = 0.118682
 
 [node name="FrontArm" type="Polygon2D" parent="Front"]
-position = Vector2(-209.637, 133.763)
+position = Vector2(-210.863, 117.289)
 rotation = -0.230383
+scale = Vector2(1.01569, 1.01377)
 texture = ExtResource("1_xdosg")
-polygon = PackedVector2Array(292.261, 1000.82, 502.721, 811.093, 787.57, 663.228, 815.477, 542.298, 787.57, 442.298, 682.919, 384.158, 387.505, 528.489, 236.078, 658.419, 101.163, 838.502, 136.407, 939.972)
+polygon = PackedVector2Array(273.879, 1033.8, 502.721, 811.093, 780.625, 640.111, 815.477, 542.298, 787.57, 442.298, 643.882, 360.016, 387.505, 528.489, 236.078, 658.419, 73.6815, 857.451, 113.045, 957.164)
 uv = PackedVector2Array(287.57, 977.182, 482.919, 765.554, 787.57, 663.228, 815.477, 542.298, 787.57, 442.298, 682.919, 384.158, 378.267, 495.786, 203.849, 630.67, 55.0116, 856.251, 136.407, 939.972)
 polygons = [PackedInt32Array(1, 6, 7), PackedInt32Array(1, 0, 9, 8, 7), PackedInt32Array(1, 2, 3, 4, 5, 6)]
 bones = ["Hip", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Hip/FrontThigh", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Hip/FrontThigh/FrontCalf", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Hip/FrontThigh/FrontCalf/FrontFoot", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Hip/BackThigh", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Hip/BackThigh/BackCalf", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Hip/BackThigh/BackCalf/BackFoot", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Hip/LowBack", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Hip/LowBack/Chest", PackedFloat32Array(0, 0, 1, 1, 1, 1, 0, 0, 0, 0), "Hip/LowBack/Chest/Neck", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Hip/LowBack/Chest/Neck/Head", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Hip/LowBack/Chest/FrontShoulder", PackedFloat32Array(0, 1, 1, 1, 1, 1, 1, 0, 0, 0), "Hip/LowBack/Chest/FrontShoulder/FrontArm", PackedFloat32Array(1, 1, 0, 0, 0, 0, 0, 1, 1, 1), "Hip/LowBack/Chest/BackShoulder", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Hip/LowBack/Chest/BackShoulder/BackArm", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Hip/CapeSkirt", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0)]

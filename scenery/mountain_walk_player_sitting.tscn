@@ -31,7 +31,6 @@ scale = Vector2(0.24, 0.24)
 
 [node name="HorseAndCartWalking2" parent="Characters" instance=ExtResource("4_ltpc4")]
 position = Vector2(3487.5, -395.834)
-scale = Vector2(1, 1)
 
 [node name="BronaWalking" parent="Characters" instance=ExtResource("5_ws2ys")]
 position = Vector2(3860, 56.6667)
