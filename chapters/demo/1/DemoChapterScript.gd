@@ -13,8 +13,9 @@ func _process(_delta):
 func pre_init():
 	var game = $".".get_tree().get_root().get_node("Game")
 	var job = game.get_state(["profile", "job"])
+
 	var a_your_profession = "a %s" % job
-	if job == "engineer":
+	if job[0] in ["a", "e", "i", "o", "u"]:
 		a_your_profession = "an %s" % job
 	$"../Events/StartChapter/TrainingStory".narrative = $"../Events/StartChapter/TrainingStory".narrative.format(
 		{"a_profession": a_your_profession}

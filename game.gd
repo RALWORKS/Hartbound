@@ -49,6 +49,7 @@ var INITIAL_STATE = {
 	"micro_progress": {
 		"events": [],
 	},
+	"profile": {"job": "salvager"},
 	"chapter": "intro",
 	"story": [],
 	"position": {

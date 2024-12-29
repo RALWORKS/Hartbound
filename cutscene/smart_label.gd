@@ -9,6 +9,8 @@ func _ready():
 
 func replace():
 	var new_text = $StateTagReplacer.replace(text)
+	if not text:
+		return
 	$".".clear()
 	$".".append_text(new_text)
 

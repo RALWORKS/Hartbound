@@ -24,14 +24,19 @@ func on_character_edited(data):
 		return
 	game.set_state(["character", "texture"], data)
 	var side_profile = game.get_node_or_null("MainScreen/Menu/GameMenu/ProfileBtn/Profile")
+	var drawer_profile = game.get_node_or_null("MainScreen/Menu/GameMenu/CharacterRecord/black/Profile")
 	side_profile.refresh()
+	drawer_profile.refresh()
+	$"../2/CharacterDesginer".refresh_texture()
 	
 func on_profile_edited(data):
 	if not game:
 		return
 	game.set_state(["profile", "texture"], data)
 	var side_profile = game.get_node_or_null("MainScreen/Menu/GameMenu/ProfileBtn/Profile")
+	var drawer_profile = game.get_node_or_null("MainScreen/Menu/GameMenu/CharacterRecord/black/Profile")
 	side_profile.refresh()
+	drawer_profile.refresh()
 	$"../2/CharacterDesginer".refresh_texture()
 
 func set_job(data):

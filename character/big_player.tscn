@@ -793,6 +793,18 @@ tracks/14/keys = {
 "update": 0,
 "values": [Vector2(-146.484, 561.999)]
 }
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("Skeleton2D/Hip/CapeSkirt:position")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(136, 936)]
+}
 
 [sub_resource type="Animation" id="Animation_iql3m"]
 resource_name = "quantized_walk"
@@ -1151,6 +1163,18 @@ tracks/13/keys = {
 "update": 0,
 "values": [0.0]
 }
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("Skeleton2D/Hip/CapeSkirt:position")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(136, 936)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_rsbup"]
 _data = {
@@ -1323,7 +1347,6 @@ bone_angle = 119.105
 [node name="BackShoulder" type="Bone2D" parent="Skeleton2D/Hip/LowBack/Chest"]
 position = Vector2(8, -41)
 rotation = 0.710349
-scale = Vector2(1, 1)
 rest = Transform2D(1, 0, 0, 1, 8, -41)
 
 [node name="BackArm" type="Bone2D" parent="Skeleton2D/Hip/LowBack/Chest/BackShoulder"]
@@ -1336,7 +1359,7 @@ length = 358.575
 bone_angle = 115.803
 
 [node name="CapeSkirt" type="Bone2D" parent="Skeleton2D/Hip"]
-position = Vector2(1468, 498)
+position = Vector2(136, 936)
 rest = Transform2D(1, 0, 0, 1, 40, 1207)
 auto_calculate_length_and_angle = false
 length = 1.0

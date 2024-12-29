@@ -166,7 +166,7 @@ func update_cutscene_page(p):
 	cutscene.update_page(p)
 
 func to_map():
-	if not map:
+	if not map or active_map:
 		return
 	
 	active_map = map.instantiate()
@@ -198,6 +198,7 @@ func close_map(biome):
 	
 	event.cutscene_input_data = biome
 	event.play()
+	active_map = null
 
 func get_character_dialogue(id):
 	var data = null

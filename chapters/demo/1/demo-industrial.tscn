@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://bh1yfkyt3u44i" path="res://chapter.tscn" id="1_abxn2"]
 [ext_resource type="PackedScene" uid="uid://qhhv4s8njcrp" path="res://scenes/demo/1/industrial/b.tscn" id="2_x5gxs"]
 [ext_resource type="PackedScene" uid="uid://4k8qa6nwiryt" path="res://chapters/demo/1/intro-cutscene.tscn" id="3_1u70a"]
-[ext_resource type="PackedScene" path="res://chapter_event_mutation.tscn" id="4_gn21l"]
+[ext_resource type="PackedScene" uid="uid://k5ppaeyln4yw" path="res://chapter_event_mutation.tscn" id="4_gn21l"]
 [ext_resource type="PackedScene" uid="uid://b1skvjxeeblbv" path="res://chapter_event.tscn" id="5_440p5"]
 [ext_resource type="PackedScene" path="res://story_item.tscn" id="5_r0j2r"]
 [ext_resource type="PackedScene" uid="uid://bcinc4blag4el" path="res://music.tscn" id="6_eeti4"]
