@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://b5ibfeuvnnobf"]
+[gd_scene load_steps=15 format=3 uid="uid://b5ibfeuvnnobf"]
 
 [ext_resource type="PackedScene" uid="uid://bp8tsdjdbwj8i" path="res://cutscene/cutscene.tscn" id="1_skmmg"]
 [ext_resource type="PackedScene" uid="uid://55vflx8ylix1" path="res://cutscene/cutscene_node.tscn" id="2_bsufs"]
@@ -22,18 +22,20 @@ shader_parameter/contrast = 0.03
 shader_parameter/opacity = 0.7
 shader_parameter/fade = 0.0
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_lb34w"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_dvg85"]
 viewport_path = NodePath("img")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_4rog7"]
 shader = ExtResource("9_0v0dc")
+shader_parameter/alpha_pulse = 0.0
 shader_parameter/blur_radius = 100.0
 shader_parameter/n_steps = 100.0
 shader_parameter/bg_alpha = 0.3
+shader_parameter/colour_mod = 0.0
+shader_parameter/colour_mod_r = 0.0
+shader_parameter/colour_mod_g = 0.0
+shader_parameter/colour_mod_b = 0.0
 shader_parameter/invert = false
-
-[sub_resource type="ViewportTexture" id="ViewportTexture_nrefx"]
-viewport_path = NodePath("img")
 
 [node name="PanelC-No-1" node_paths=PackedStringArray("starting_page") instance=ExtResource("1_skmmg")]
 starting_page = NodePath("1")
@@ -52,17 +54,19 @@ scale = Vector2(0.666667, 0.666667)
 texture = ExtResource("4_5ij54")
 
 [node name="Shadow" type="Node2D" parent="1/bg" index="1"]
-position = Vector2(-165.667, -270.667)
+position = Vector2(-64.3339, -321.334)
+rotation = 0.223402
 scale = Vector2(0.233333, 0.233333)
 
 [node name="Polygon2D" type="Polygon2D" parent="1/bg/Shadow" index="0"]
+position = Vector2(2.54065, -101.393)
 color = Color(0, 0, 0, 0.701961)
-polygon = PackedVector2Array(1550, 692, 1580, 1137.14, 1324.29, 1731.43, 347.143, 1701.43, 1110, 974.286, 1144, 692)
+polygon = PackedVector2Array(1555.72, 1290, 1324.29, 1731.43, 347.143, 1701.43, 1138.57, 1290)
 
 [node name="Profile" parent="1/bg/Shadow" index="1" instance=ExtResource("6_2v65a")]
 material = SubResource("ShaderMaterial_skswr")
-position = Vector2(1042, 92)
-texture = SubResource("ViewportTexture_lb34w")
+position = Vector2(1045.93, -11.1383)
+texture = SubResource("ViewportTexture_dvg85")
 flip_h = true
 with_background = false
 
@@ -121,17 +125,19 @@ scale = Vector2(0.333333, 0.333333)
 polygon = PackedVector2Array(1458, -160, 1476, 861, 1137, 1135, 1466, 1124, 1650, 932, 1661, -158)
 
 [node name="Shadow" type="Node2D" parent="2/bg" index="2"]
-position = Vector2(-165.667, -270.667)
+position = Vector2(-64.3339, -321.334)
+rotation = 0.223402
 scale = Vector2(0.233333, 0.233333)
 
 [node name="Polygon2D" type="Polygon2D" parent="2/bg/Shadow" index="0"]
+position = Vector2(2.54065, -101.393)
 color = Color(0, 0, 0, 0.701961)
-polygon = PackedVector2Array(1550, 692, 1580, 1137.14, 1324.29, 1731.43, 347.143, 1701.43, 1110, 974.286, 1144, 692)
+polygon = PackedVector2Array(1555.72, 1290, 1324.29, 1731.43, 347.143, 1701.43, 1138.57, 1290)
 
 [node name="Profile" parent="2/bg/Shadow" index="1" instance=ExtResource("6_2v65a")]
 material = SubResource("ShaderMaterial_skswr")
-position = Vector2(1042, 92)
-texture = SubResource("ViewportTexture_nrefx")
+position = Vector2(1045.93, -11.1383)
+texture = SubResource("ViewportTexture_dvg85")
 flip_h = true
 with_background = false
 
