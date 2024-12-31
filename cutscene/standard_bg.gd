@@ -10,6 +10,8 @@ func _ready():
 
 func load_texture():
 	var game = $"/root".get_node_or_null("Game")
+	if not game:
+		return
 	var img: Texture = game.get_standard_bg()
 	if not img:
 		return

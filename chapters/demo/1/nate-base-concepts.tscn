@@ -1,0 +1,823 @@
+[gd_scene load_steps=25 format=3 uid="uid://geawae6x7ewh"]
+
+[ext_resource type="Script" path="res://cutscene/CutsceneConceptsContainer.gd" id="1_3y2fp"]
+[ext_resource type="PackedScene" uid="uid://55vflx8ylix1" path="res://cutscene/cutscene_node.tscn" id="3_jda3c"]
+[ext_resource type="Texture2D" uid="uid://dlfi64p84aoys" path="res://assets/scenes/demo/1/industrial/cutscene/1-ground.png" id="4_hpqxi"]
+[ext_resource type="Script" path="res://cutscene/standard_bg.gd" id="5_owbps"]
+[ext_resource type="Texture2D" uid="uid://dxlwv778ouxxb" path="res://assets/npcs/nate/bored.png" id="6_wqi28"]
+[ext_resource type="Theme" uid="uid://bowrqsap2qmsa" path="res://base_theme.tres" id="7_8lfnq"]
+[ext_resource type="Texture2D" uid="uid://dwo3yyav56eua" path="res://assets/npcs/nate/angry.png" id="11_hxwla"]
+[ext_resource type="PackedScene" uid="uid://bmaotdu8ofpwi" path="res://concept-map/concepts/sun_temple.tscn" id="12_xyuay"]
+[ext_resource type="PackedScene" uid="uid://d4gnlgciwgovl" path="res://cutscene/character_present_conditional_redirect.tscn" id="13_1nv2s"]
+[ext_resource type="PackedScene" uid="uid://blq44wuaxi7tj" path="res://concept-map/concepts/elves.tscn" id="13_chghg"]
+[ext_resource type="PackedScene" uid="uid://be12fgu7h2rj1" path="res://concept-map/concepts/humans.tscn" id="14_3t0ly"]
+[ext_resource type="PackedScene" uid="uid://pgm63ijam86e" path="res://concept-map/concepts/moon_temple.tscn" id="16_ik0sg"]
+[ext_resource type="PackedScene" uid="uid://cpcg5ug3rutlq" path="res://concept-map/concepts/salvagers.tscn" id="18_a7bc5"]
+[ext_resource type="PackedScene" uid="uid://2jrq48rwuyls" path="res://concept-map/concepts/medics.tscn" id="19_x5g1o"]
+[ext_resource type="PackedScene" uid="uid://dsv37l7unrm2e" path="res://concept-map/concepts/engineers.tscn" id="20_vsnb2"]
+[ext_resource type="PackedScene" uid="uid://dih3h8h1ydmo7" path="res://concept-map/concepts/end_of_the_world.tscn" id="24_rv0wy"]
+[ext_resource type="PackedScene" uid="uid://bgy0ifcrbug27" path="res://concept-map/concepts/plague_of_dreams.tscn" id="25_2h6nq"]
+[ext_resource type="PackedScene" uid="uid://b55rum1sarsvt" path="res://concept-map/concepts/you.tscn" id="25_6v4nu"]
+[ext_resource type="PackedScene" uid="uid://dx6xjr5pem8yp" path="res://concept-map/concepts/demons.tscn" id="26_hlgt1"]
+[ext_resource type="PackedScene" uid="uid://cnfcwymfs6yoq" path="res://concept-map/concepts/generator_crews.tscn" id="27_wjgjb"]
+[ext_resource type="PackedScene" uid="uid://d4lq0ypd46jdf" path="res://concept-map/concepts/generators.tscn" id="29_u1iem"]
+[ext_resource type="PackedScene" uid="uid://dqm085unfkqhk" path="res://concept-map/concepts/leylines.tscn" id="30_2bjag"]
+[ext_resource type="PackedScene" uid="uid://b8pbh10v7uqof" path="res://concept-map/concepts/how_are_you.tscn" id="33_otx3u"]
+[ext_resource type="PackedScene" uid="uid://gwqqok3xieho" path="res://concept-map/concepts/my_hometown.tscn" id="40_uiebr"]
+
+[node name="Concepts" type="Node"]
+script = ExtResource("1_3y2fp")
+
+[node name="Sun Temple" parent="." instance=ExtResource("12_xyuay")]
+
+[node name="SunTemple1" parent="Sun Temple" instance=ExtResource("3_jda3c")]
+visible = false
+
+[node name="bg" type="Sprite2D" parent="Sun Temple/SunTemple1"]
+scale = Vector2(1.35, 1.35)
+texture = ExtResource("4_hpqxi")
+centered = false
+script = ExtResource("5_owbps")
+
+[node name="nate" type="Sprite2D" parent="Sun Temple/SunTemple1"]
+position = Vector2(455, 850)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("6_wqi28")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Sun Temple/SunTemple1"]
+offset_left = 1.0
+offset_top = 879.0
+offset_right = 1946.0
+offset_bottom = 999.0
+theme = ExtResource("7_8lfnq")
+theme_type_variation = &"VoiceoverBox"
+bbcode_enabled = true
+text = "\"Sun Temple's fine. They have the Generator, so that's cool I guess.\""
+
+[node name="Elves" parent="." instance=ExtResource("13_chghg")]
+
+[node name="CutsceneNode" parent="Elves" instance=ExtResource("3_jda3c")]
+visible = false
+
+[node name="bg" type="Sprite2D" parent="Elves/CutsceneNode"]
+scale = Vector2(1.35, 1.35)
+texture = ExtResource("4_hpqxi")
+centered = false
+script = ExtResource("5_owbps")
+
+[node name="nate" type="Sprite2D" parent="Elves/CutsceneNode"]
+position = Vector2(455, 850)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("6_wqi28")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Elves/CutsceneNode"]
+offset_left = 742.0
+offset_top = 148.0
+offset_right = 931.0
+offset_bottom = 244.0
+theme = ExtResource("7_8lfnq")
+theme_type_variation = &"VoiceoverBox"
+text = "\"Elves?"
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="Elves/CutsceneNode"]
+offset_left = 826.0
+offset_top = 284.0
+offset_right = 1084.0
+offset_bottom = 364.0
+theme = ExtResource("7_8lfnq")
+theme_type_variation = &"VoiceoverBox"
+text = "\"I don't get it."
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="Elves/CutsceneNode"]
+offset_left = 876.0
+offset_top = 396.0
+offset_right = 1274.0
+offset_bottom = 550.0
+theme = ExtResource("7_8lfnq")
+theme_type_variation = &"VoiceoverBox"
+text = "\"You're an Elf. I'm not.  What's there to talk about?\" "
+
+[node name="Humans" parent="." instance=ExtResource("14_3t0ly")]
+
+[node name="humans1" parent="Humans" instance=ExtResource("3_jda3c")]
+visible = false
+
+[node name="bg" type="Sprite2D" parent="Humans/humans1"]
+scale = Vector2(1.35, 1.35)
+texture = ExtResource("4_hpqxi")
+centered = false
+script = ExtResource("5_owbps")
+
+[node name="nate" type="Sprite2D" parent="Humans/humans1"]
+position = Vector2(455, 850)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("6_wqi28")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Humans/humans1"]
+offset_left = 740.0
+offset_top = 156.0
+offset_right = 1334.0
+offset_bottom = 309.0
+theme = ExtResource("7_8lfnq")
+theme_type_variation = &"VoiceoverBox"
+bbcode_enabled = true
+text = "\"How many years have you been at Sun Temple? You know the basics by now."
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="Humans/humans1"]
+offset_left = 983.0
+offset_top = 336.0
+offset_right = 1391.0
+offset_bottom = 418.0
+theme = ExtResource("7_8lfnq")
+theme_type_variation = &"VoiceoverBox"
+bbcode_enabled = true
+text = "\"As for the fine details?"
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="Humans/humans1"]
+offset_left = 863.0
+offset_top = 444.0
+offset_right = 1357.0
+offset_bottom = 526.0
+theme = ExtResource("7_8lfnq")
+theme_type_variation = &"VoiceoverBox"
+bbcode_enabled = true
+text = "\"People skills are not my forte.\""
+
+[node name="MoonTemple" parent="." instance=ExtResource("16_ik0sg")]
+
+[node name="CutsceneNode" parent="MoonTemple" node_paths=PackedStringArray("next") instance=ExtResource("3_jda3c")]
+visible = false
+next = NodePath("../CutsceneNode2")
+
+[node name="bg" type="Sprite2D" parent="MoonTemple/CutsceneNode"]
+scale = Vector2(1.35, 1.35)
+texture = ExtResource("4_hpqxi")
+centered = false
+script = ExtResource("5_owbps")
+
+[node name="nate" type="Sprite2D" parent="MoonTemple/CutsceneNode"]
+position = Vector2(455, 850)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("6_wqi28")
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="MoonTemple/CutsceneNode"]
+offset_left = 717.0
+offset_top = 84.0
+offset_right = 1160.0
+offset_bottom = 204.0
+theme = ExtResource("7_8lfnq")
+theme_type_variation = &"VoiceoverBox"
+bbcode_enabled = true
+text = "\"I don't believe in politics. I believe in the power grid."
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="MoonTemple/CutsceneNode"]
+offset_left = 812.0
+offset_top = 227.0
+offset_right = 1255.0
+offset_bottom = 347.0
+theme = ExtResource("7_8lfnq")
+theme_type_variation = &"VoiceoverBox"
+bbcode_enabled = true
+text = "\"Moon Temple says tear that shit down."
+
+[node name="RichTextLabel4" type="RichTextLabel" parent="MoonTemple/CutsceneNode"]
+offset_left = 867.0
+offset_top = 367.0
+offset_right = 1310.0
+offset_bottom = 458.0
+theme = ExtResource("7_8lfnq")
+theme_type_variation = &"VoiceoverBox"
+bbcode_enabled = true
+text = "\"Do I disagree? Obviously."
+
+[node name="RichTextLabel5" type="RichTextLabel" parent="MoonTemple/CutsceneNode"]
+offset_left = 953.0
+offset_top = 476.0
+offset_right = 1472.0
+offset_bottom = 603.0
+theme = ExtResource("7_8lfnq")
+theme_type_variation = &"VoiceoverBox"
+bbcode_enabled = true
+text = "\"Do I want to go to [i]war[/i] with them?"
+
+[node name="CutsceneNode2" parent="MoonTemple" node_paths=PackedStringArray("next") instance=ExtResource("3_jda3c")]
+visible = false
+next = NodePath("../mt3")
+
+[node name="bg" type="Sprite2D" parent="MoonTemple/CutsceneNode2"]
+scale = Vector2(1.35, 1.35)
+texture = ExtResource("4_hpqxi")
+centered = false
+script = ExtResource("5_owbps")
+
+[node name="nate" type="Sprite2D" parent="MoonTemple/CutsceneNode2"]
+position = Vector2(455, 850)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("11_hxwla")
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="MoonTemple/CutsceneNode2"]
+offset_left = 717.0
+offset_top = 84.0
+offset_right = 1160.0
+offset_bottom = 204.0
+theme = ExtResource("7_8lfnq")
+theme_type_variation = &"VoiceoverBox"
+bbcode_enabled = true
+text = "\"No way! I have friends that are literally from there."
+
+[node name="mt3" parent="MoonTemple" instance=ExtResource("3_jda3c")]
+visible = false
+
+[node name="bg" type="Sprite2D" parent="MoonTemple/mt3"]
+scale = Vector2(1.35, 1.35)
+texture = ExtResource("4_hpqxi")
+centered = false
+script = ExtResource("5_owbps")
+
+[node name="nate" type="Sprite2D" parent="MoonTemple/mt3"]
+position = Vector2(455, 850)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("6_wqi28")
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="MoonTemple/mt3"]
+offset_left = 707.0
+offset_top = 376.0
+offset_right = 995.0
+offset_bottom = 468.0
+theme = ExtResource("7_8lfnq")
+theme_type_variation = &"VoiceoverBox"
+bbcode_enabled = true
+text = "\"Well, [i]a friend.[/i]"
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="MoonTemple/mt3"]
+offset_left = 778.0
+offset_top = 490.0
+offset_right = 1154.0
+offset_bottom = 584.0
+theme = ExtResource("7_8lfnq")
+theme_type_variation = &"VoiceoverBox"
+bbcode_enabled = true
+text = "\" I have [i]one friend[/i]"
+
+[node name="RichTextLabel4" type="RichTextLabel" parent="MoonTemple/mt3"]
+offset_left = 1141.0
+offset_top = 696.0
+offset_right = 1391.0
+offset_bottom = 790.0
+theme = ExtResource("7_8lfnq")
+theme_type_variation = &"VoiceoverBox"
+bbcode_enabled = true
+text = "--from there."
+
+[node name="RichTextLabel5" type="RichTextLabel" parent="MoonTemple/mt3"]
+offset_left = 1106.0
+offset_top = 592.0
+offset_right = 1182.0
+offset_bottom = 686.0
+theme = ExtResource("7_8lfnq")
+theme_type_variation = &"VoiceoverBox"
+bbcode_enabled = true
+text = "..."
+
+[node name="RichTextLabel6" type="RichTextLabel" parent="MoonTemple/mt3"]
+offset_left = 877.0
+offset_top = 872.0
+offset_right = 1398.0
+offset_bottom = 949.0
+theme = ExtResource("7_8lfnq")
+theme_type_variation = &"VoiceoverBox"
+bbcode_enabled = true
+text = "\"So fuck the war.\""
+
+[node name="Salvagers" parent="." instance=ExtResource("18_a7bc5")]
+
+[node name="sal1" parent="Salvagers" node_paths=PackedStringArray("next") instance=ExtResource("3_jda3c")]
+visible = false
+next = NodePath("../CharacterPresentConditionalRedirect")
+
+[node name="bg" type="Sprite2D" parent="Salvagers/sal1"]
+scale = Vector2(1.35, 1.35)
+texture = ExtResource("4_hpqxi")
+centered = false
+script = ExtResource("5_owbps")
+
+[node name="nate" type="Sprite2D" parent="Salvagers/sal1"]
+position = Vector2(455, 850)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("6_wqi28")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Salvagers/sal1"]
+offset_left = 764.0
+offset_top = 148.0
+offset_right = 1246.0
+offset_bottom = 235.0
+theme = ExtResource("7_8lfnq")
+theme_type_variation = &"VoiceoverBox"
+bbcode_enabled = true
+text = "\"Crazy assholes, generally."
+
+[node name="CharacterPresentConditionalRedirect" parent="Salvagers" node_paths=PackedStringArray("next_if_true", "next_if_false") instance=ExtResource("13_1nv2s")]
+visible = false
+next_if_true = NodePath("../sal2-brona")
+next_if_false = NodePath("../sal3")
+conditional_subject = "brona"
+
+[node name="sal2-brona" parent="Salvagers" instance=ExtResource("3_jda3c")]
+visible = false
+
+[node name="bg" type="Sprite2D" parent="Salvagers/sal2-brona"]
+scale = Vector2(1.35, 1.35)
+texture = ExtResource("4_hpqxi")
+centered = false
+script = ExtResource("5_owbps")
+
+[node name="nate" type="Sprite2D" parent="Salvagers/sal2-brona"]
+position = Vector2(362, 1323)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("6_wqi28")
+flip_h = true
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="Salvagers/sal2-brona"]
+offset_left = 727.0
+offset_top = 233.0
+offset_right = 1209.0
+offset_bottom = 354.0
+theme = ExtResource("7_8lfnq")
+theme_type_variation = &"VoiceoverBox"
+bbcode_enabled = true
+text = "\"I'm saying this where Brona can hear me to wind her up.\""
+
+[node name="sal3" parent="Salvagers" instance=ExtResource("3_jda3c")]
+visible = false
+
+[node name="bg" type="Sprite2D" parent="Salvagers/sal3"]
+scale = Vector2(1.35, 1.35)
+texture = ExtResource("4_hpqxi")
+centered = false
+script = ExtResource("5_owbps")
+
+[node name="nate" type="Sprite2D" parent="Salvagers/sal3"]
+position = Vector2(455, 850)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("6_wqi28")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Salvagers/sal3"]
+offset_left = 764.0
+offset_top = 148.0
+offset_right = 1246.0
+offset_bottom = 283.0
+theme = ExtResource("7_8lfnq")
+theme_type_variation = &"VoiceoverBox"
+bbcode_enabled = true
+text = "\"Always asking for the impossible.\""
+
+[node name="Medics" parent="." instance=ExtResource("19_x5g1o")]
+
+[node name="CutsceneNode" parent="Medics" instance=ExtResource("3_jda3c")]
+visible = false
+
+[node name="bg" type="Sprite2D" parent="Medics/CutsceneNode"]
+scale = Vector2(1.35, 1.35)
+texture = ExtResource("4_hpqxi")
+centered = false
+script = ExtResource("5_owbps")
+
+[node name="nate" type="Sprite2D" parent="Medics/CutsceneNode"]
+position = Vector2(455, 850)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("6_wqi28")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Medics/CutsceneNode"]
+offset_left = 764.0
+offset_top = 128.0
+offset_right = 1262.0
+offset_bottom = 218.0
+theme = ExtResource("7_8lfnq")
+theme_type_variation = &"VoiceoverBox"
+bbcode_enabled = true
+text = "\"Overworked and undervalued.\""
+
+[node name="Engineers" parent="." instance=ExtResource("20_vsnb2")]
+
+[node name="Eng" parent="Engineers" instance=ExtResource("3_jda3c")]
+visible = false
+
+[node name="bg" type="Sprite2D" parent="Engineers/Eng"]
+scale = Vector2(1.35, 1.35)
+texture = ExtResource("4_hpqxi")
+centered = false
+script = ExtResource("5_owbps")
+
+[node name="nate" type="Sprite2D" parent="Engineers/Eng"]
+position = Vector2(455, 850)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("6_wqi28")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Engineers/Eng"]
+offset_left = 776.0
+offset_top = 215.0
+offset_right = 1039.0
+offset_bottom = 306.0
+theme = ExtResource("7_8lfnq")
+theme_type_variation = &"VoiceoverBox"
+text = "\"It's a living."
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="Engineers/Eng"]
+offset_left = 852.0
+offset_top = 320.0
+offset_right = 1403.0
+offset_bottom = 411.0
+theme = ExtResource("7_8lfnq")
+theme_type_variation = &"VoiceoverBox"
+text = "\"I'm good at it. Came easy to me."
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="Engineers/Eng"]
+offset_left = 781.0
+offset_top = 427.0
+offset_right = 1516.0
+offset_bottom = 547.0
+theme = ExtResource("7_8lfnq")
+theme_type_variation = &"VoiceoverBox"
+text = "\"Thought if I got myself a 'smart people' job I wouldn't have to deal with idiots anymore."
+
+[node name="RichTextLabel4" type="RichTextLabel" parent="Engineers/Eng"]
+offset_left = 891.0
+offset_top = 564.0
+offset_right = 1643.0
+offset_bottom = 661.0
+theme = ExtResource("7_8lfnq")
+theme_type_variation = &"VoiceoverBox"
+bbcode_enabled = true
+text = "\"Turns out there's idiots [i]everywhere[/i] you go.\""
+
+[node name="EndOfTheWorld" parent="." instance=ExtResource("24_rv0wy")]
+
+[node name="CutsceneNode" parent="EndOfTheWorld" instance=ExtResource("3_jda3c")]
+visible = false
+
+[node name="bg" type="Sprite2D" parent="EndOfTheWorld/CutsceneNode"]
+scale = Vector2(1.35, 1.35)
+texture = ExtResource("4_hpqxi")
+centered = false
+script = ExtResource("5_owbps")
+
+[node name="nate" type="Sprite2D" parent="EndOfTheWorld/CutsceneNode"]
+position = Vector2(455, 850)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("6_wqi28")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="EndOfTheWorld/CutsceneNode"]
+offset_left = 735.0
+offset_top = 129.0
+offset_right = 1106.0
+offset_bottom = 328.0
+theme = ExtResource("7_8lfnq")
+theme_type_variation = &"VoiceoverBox"
+bbcode_enabled = true
+text = "\"Hey, the world's still kickin', and we're gonna bring it back. Just you wait.\""
+
+[node name="Plague of Dreams" parent="." instance=ExtResource("25_2h6nq")]
+
+[node name="Plague" parent="Plague of Dreams" instance=ExtResource("3_jda3c")]
+visible = false
+
+[node name="bg" type="Sprite2D" parent="Plague of Dreams/Plague"]
+scale = Vector2(1.35, 1.35)
+texture = ExtResource("4_hpqxi")
+centered = false
+script = ExtResource("5_owbps")
+
+[node name="nate" type="Sprite2D" parent="Plague of Dreams/Plague"]
+position = Vector2(455, 850)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("11_hxwla")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Plague of Dreams/Plague"]
+offset_left = 743.0
+offset_top = 69.0
+offset_right = 1195.0
+offset_bottom = 226.0
+theme = ExtResource("7_8lfnq")
+theme_type_variation = &"VoiceoverBox"
+text = "\"What makes you think I want to talk to you about how my mother died?\""
+
+[node name="Demons" parent="." instance=ExtResource("26_hlgt1")]
+
+[node name="CutsceneNode" parent="Demons" instance=ExtResource("3_jda3c")]
+visible = false
+
+[node name="bg" type="Sprite2D" parent="Demons/CutsceneNode"]
+scale = Vector2(1.35, 1.35)
+texture = ExtResource("4_hpqxi")
+centered = false
+script = ExtResource("5_owbps")
+
+[node name="nate" type="Sprite2D" parent="Demons/CutsceneNode"]
+position = Vector2(455, 850)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("11_hxwla")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Demons/CutsceneNode"]
+offset_left = 725.0
+offset_top = 154.0
+offset_right = 1183.0
+offset_bottom = 274.0
+theme = ExtResource("7_8lfnq")
+theme_type_variation = &"VoiceoverBox"
+text = "\"Don't mention that now. You'll jinx us.\""
+
+[node name="GeneratorCrews" parent="." instance=ExtResource("27_wjgjb")]
+
+[node name="crew1" parent="GeneratorCrews" instance=ExtResource("3_jda3c")]
+visible = false
+
+[node name="bg" type="Sprite2D" parent="GeneratorCrews/crew1"]
+scale = Vector2(1.35, 1.35)
+texture = ExtResource("4_hpqxi")
+centered = false
+script = ExtResource("5_owbps")
+
+[node name="nate" type="Sprite2D" parent="GeneratorCrews/crew1"]
+position = Vector2(455, 850)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("6_wqi28")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="GeneratorCrews/crew1"]
+offset_left = 725.0
+offset_top = 154.0
+offset_right = 1183.0
+offset_bottom = 274.0
+theme = ExtResource("7_8lfnq")
+theme_type_variation = &"VoiceoverBox"
+text = "\"Being on the crews isn't such a bad deal."
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="GeneratorCrews/crew1"]
+offset_left = 827.0
+offset_top = 298.0
+offset_right = 1285.0
+offset_bottom = 418.0
+theme = ExtResource("7_8lfnq")
+theme_type_variation = &"VoiceoverBox"
+text = "\"Pays well."
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="GeneratorCrews/crew1"]
+offset_left = 884.0
+offset_top = 438.0
+offset_right = 1364.0
+offset_bottom = 603.0
+theme = ExtResource("7_8lfnq")
+theme_type_variation = &"VoiceoverBox"
+text = "\"And say what you will about Salvagers, but it never gets boring.\""
+
+[node name="Generators" parent="." instance=ExtResource("29_u1iem")]
+
+[node name="gen1" parent="Generators" instance=ExtResource("3_jda3c")]
+visible = false
+
+[node name="bg" type="Sprite2D" parent="Generators/gen1"]
+scale = Vector2(1.35, 1.35)
+texture = ExtResource("4_hpqxi")
+centered = false
+script = ExtResource("5_owbps")
+
+[node name="nate" type="Sprite2D" parent="Generators/gen1"]
+position = Vector2(455, 850)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("6_wqi28")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Generators/gen1"]
+offset_left = 721.0
+offset_top = 109.0
+offset_right = 1241.0
+offset_bottom = 308.0
+theme = ExtResource("7_8lfnq")
+theme_type_variation = &"VoiceoverBox"
+text = "\"I've built small, crank-operated generators on my own before. The principle of the dams at Sun Temple is the same."
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="Generators/gen1"]
+offset_left = 834.0
+offset_top = 335.0
+offset_right = 1354.0
+offset_bottom = 463.0
+theme = ExtResource("7_8lfnq")
+theme_type_variation = &"VoiceoverBox"
+text = "\"We could build another plant if we could round up the resources. "
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="Generators/gen1"]
+offset_left = 930.0
+offset_top = 488.0
+offset_right = 1450.0
+offset_bottom = 729.0
+theme = ExtResource("7_8lfnq")
+theme_type_variation = &"VoiceoverBox"
+text = "\"And if we could figure out how to repell the Demons for good, and stop the Leyline creeping into the network, we could extend the power grid."
+
+[node name="RichTextLabel4" type="RichTextLabel" parent="Generators/gen1"]
+offset_left = 930.0
+offset_top = 750.0
+offset_right = 1450.0
+offset_bottom = 917.0
+theme = ExtResource("7_8lfnq")
+theme_type_variation = &"VoiceoverBox"
+bbcode_enabled = true
+text = "\"Maybe to [i]everywhere[/i] eventually, like it was in the old days.\""
+
+[node name="Leylines" parent="." instance=ExtResource("30_2bjag")]
+
+[node name="Leyline" parent="Leylines" instance=ExtResource("3_jda3c")]
+visible = false
+
+[node name="bg" type="Sprite2D" parent="Leylines/Leyline"]
+scale = Vector2(1.35, 1.35)
+texture = ExtResource("4_hpqxi")
+centered = false
+script = ExtResource("5_owbps")
+
+[node name="nate" type="Sprite2D" parent="Leylines/Leyline"]
+position = Vector2(455, 850)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("6_wqi28")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Leylines/Leyline"]
+offset_left = 714.0
+offset_top = 81.0
+offset_right = 1294.0
+offset_bottom = 243.0
+theme = ExtResource("7_8lfnq")
+theme_type_variation = &"VoiceoverBox"
+text = "\"Ah, yes. The greatest impediment to technological progress--worse even than Demons."
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="Leylines/Leyline"]
+offset_left = 796.0
+offset_top = 273.0
+offset_right = 1376.0
+offset_bottom = 393.0
+theme = ExtResource("7_8lfnq")
+theme_type_variation = &"VoiceoverBox"
+text = "\"The Leylines ate the power grid of the old world."
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="Leylines/Leyline"]
+offset_left = 858.0
+offset_top = 423.0
+offset_right = 1588.0
+offset_bottom = 546.0
+theme = ExtResource("7_8lfnq")
+theme_type_variation = &"VoiceoverBox"
+bbcode_enabled = true
+text = "\"Now, channel enough power through a place, and it [i]becomes[/i] a Leyline--"
+
+[node name="RichTextLabel4" type="RichTextLabel" parent="Leylines/Leyline"]
+offset_left = 765.0
+offset_top = 577.0
+offset_right = 1495.0
+offset_bottom = 697.0
+theme = ExtResource("7_8lfnq")
+theme_type_variation = &"VoiceoverBox"
+bbcode_enabled = true
+text = "--which means you can now longer power the attatched electronics down,"
+
+[node name="RichTextLabel5" type="RichTextLabel" parent="Leylines/Leyline"]
+offset_left = 881.0
+offset_top = 728.0
+offset_right = 1600.0
+offset_bottom = 840.0
+theme = ExtResource("7_8lfnq")
+theme_type_variation = &"VoiceoverBox"
+bbcode_enabled = true
+text = "--or work on them without risking death by electrocution or Plague of Dreams, "
+
+[node name="RichTextLabel6" type="RichTextLabel" parent="Leylines/Leyline"]
+offset_left = 824.0
+offset_top = 874.0
+offset_right = 1543.0
+offset_bottom = 1011.0
+theme = ExtResource("7_8lfnq")
+theme_type_variation = &"VoiceoverBox"
+bbcode_enabled = true
+text = "--[i]and[/i] to top it off, the area is now at risk for Demon attacks!"
+
+[node name="HowAreYou" parent="." instance=ExtResource("33_otx3u")]
+
+[node name="CutsceneNode" parent="HowAreYou" instance=ExtResource("3_jda3c")]
+visible = false
+
+[node name="bg" type="Sprite2D" parent="HowAreYou/CutsceneNode"]
+scale = Vector2(1.35, 1.35)
+texture = ExtResource("4_hpqxi")
+centered = false
+script = ExtResource("5_owbps")
+
+[node name="nate" type="Sprite2D" parent="HowAreYou/CutsceneNode"]
+position = Vector2(455, 850)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("6_wqi28")
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="HowAreYou/CutsceneNode"]
+offset_left = 559.0
+offset_top = 117.0
+offset_right = 749.0
+offset_bottom = 212.0
+theme = ExtResource("7_8lfnq")
+theme_type_variation = &"VoiceoverBox"
+text = "\"I'm fine.\""
+
+[node name="MyHometown" parent="." instance=ExtResource("40_uiebr")]
+
+[node name="Default" parent="MyHometown" instance=ExtResource("3_jda3c")]
+visible = false
+
+[node name="bg" type="Sprite2D" parent="MyHometown/Default"]
+scale = Vector2(1.35, 1.35)
+texture = ExtResource("4_hpqxi")
+centered = false
+script = ExtResource("5_owbps")
+
+[node name="nate" type="Sprite2D" parent="MyHometown/Default"]
+position = Vector2(455, 850)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("6_wqi28")
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="MyHometown/Default"]
+offset_left = 648.0
+offset_top = 163.0
+offset_right = 956.0
+offset_bottom = 253.0
+theme = ExtResource("7_8lfnq")
+theme_type_variation = &"VoiceoverBox"
+bbcode_enabled = true
+text = "\"[i]Fin Soen Li Yen[/i]?"
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="MyHometown/Default"]
+offset_left = 828.0
+offset_top = 278.0
+offset_right = 1268.0
+offset_bottom = 402.0
+theme = ExtResource("7_8lfnq")
+theme_type_variation = &"VoiceoverBox"
+bbcode_enabled = true
+text = "\"Sounds like an Elven town name."
+
+[node name="RichTextLabel4" type="RichTextLabel" parent="MyHometown/Default"]
+offset_left = 907.0
+offset_top = 422.0
+offset_right = 1347.0
+offset_bottom = 546.0
+theme = ExtResource("7_8lfnq")
+theme_type_variation = &"VoiceoverBox"
+bbcode_enabled = true
+text = "\"Maybe Taylor knows about it.\""
+
+[node name="TellMeAboutYourself" parent="." instance=ExtResource("25_6v4nu")]
+
+[node name="You" parent="TellMeAboutYourself" instance=ExtResource("3_jda3c")]
+
+[node name="bg" type="Sprite2D" parent="TellMeAboutYourself/You"]
+scale = Vector2(1.35, 1.35)
+texture = ExtResource("4_hpqxi")
+centered = false
+script = ExtResource("5_owbps")
+
+[node name="nate" type="Sprite2D" parent="TellMeAboutYourself/You"]
+position = Vector2(455, 850)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("6_wqi28")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="TellMeAboutYourself/You"]
+offset_left = 748.0
+offset_top = 136.0
+offset_right = 1061.0
+offset_bottom = 221.0
+theme = ExtResource("7_8lfnq")
+theme_type_variation = &"VoiceoverBox"
+bbcode_enabled = true
+text = "\"What's to know?\""
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="TellMeAboutYourself/You"]
+offset_left = 904.0
+offset_top = 241.0
+offset_right = 1132.0
+offset_bottom = 326.0
+theme = ExtResource("7_8lfnq")
+theme_type_variation = &"VoiceoverBox"
+bbcode_enabled = true
+text = "\"I'm serious."
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="TellMeAboutYourself/You"]
+offset_left = 960.0
+offset_top = 345.0
+offset_right = 1482.0
+offset_bottom = 472.0
+theme = ExtResource("7_8lfnq")
+theme_type_variation = &"VoiceoverBox"
+bbcode_enabled = true
+text = "\"'Hi, I'm Nate and I'm the crew Engineer, good to meet you?'"
+
+[node name="RichTextLabel4" type="RichTextLabel" parent="TellMeAboutYourself/You"]
+offset_left = 847.0
+offset_top = 492.0
+offset_right = 1411.0
+offset_bottom = 619.0
+theme = ExtResource("7_8lfnq")
+theme_type_variation = &"VoiceoverBox"
+bbcode_enabled = true
+text = "\"You've known me since we were apprentices. There's nothing to tell.\""

@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dq11ccp5tk25a"]
+[gd_scene load_steps=10 format=3 uid="uid://dq11ccp5tk25a"]
 
 [ext_resource type="PackedScene" uid="uid://bp8tsdjdbwj8i" path="res://cutscene/cutscene.tscn" id="1_8p0ia"]
 [ext_resource type="PackedScene" uid="uid://55vflx8ylix1" path="res://cutscene/cutscene_node.tscn" id="2_olkyi"]
@@ -8,14 +8,17 @@
 [ext_resource type="PackedScene" uid="uid://b11g7mb25w5xp" path="res://cutscene/smart_label.tscn" id="5_s6x0g"]
 [ext_resource type="PackedScene" uid="uid://cm3keg86x7x3y" path="res://cutscene/concept_cutscene_node.tscn" id="7_tvn2w"]
 [ext_resource type="Texture2D" uid="uid://dwo3yyav56eua" path="res://assets/npcs/nate/angry.png" id="8_cs0eh"]
+[ext_resource type="PackedScene" uid="uid://geawae6x7ewh" path="res://chapters/demo/1/nate-base-concepts.tscn" id="9_rly7c"]
 
-[node name="Nate" node_paths=PackedStringArray("starting_page", "concepts", "default_topics") instance=ExtResource("1_8p0ia")]
+[node name="Nate" node_paths=PackedStringArray("starting_page", "concepts", "default_topics", "main_concepts_page") instance=ExtResource("1_8p0ia")]
 starting_page = NodePath("1")
 concepts = NodePath("Concepts")
 default_topics = NodePath("Defaults")
 npc_name = "nate"
+main_concepts_page = NodePath("ConceptCutsceneNode")
 
 [node name="1" parent="." index="0" node_paths=PackedStringArray("next") instance=ExtResource("2_olkyi")]
+visible = false
 next = NodePath("../ConceptCutsceneNode")
 
 [node name="bg" type="Sprite2D" parent="1" index="0"]
@@ -25,7 +28,7 @@ centered = false
 script = ExtResource("4_4gtp8")
 
 [node name="nate" type="Sprite2D" parent="1" index="1"]
-position = Vector2(455, 889)
+position = Vector2(455, 849)
 scale = Vector2(0.7, 0.7)
 texture = ExtResource("4_4x8df")
 
@@ -33,7 +36,6 @@ texture = ExtResource("4_4x8df")
 text = "\"What.\""
 
 [node name="ConceptCutsceneNode" parent="." index="1" instance=ExtResource("7_tvn2w")]
-visible = false
 
 [node name="bg" type="Sprite2D" parent="ConceptCutsceneNode" index="3"]
 scale = Vector2(1.35, 1.35)
@@ -42,7 +44,7 @@ centered = false
 script = ExtResource("4_4gtp8")
 
 [node name="nate" type="Sprite2D" parent="ConceptCutsceneNode" index="4"]
-position = Vector2(455, 889)
+position = Vector2(455, 847)
 scale = Vector2(0.7, 0.7)
 texture = ExtResource("4_4x8df")
 
@@ -143,4 +145,4 @@ offset_right = 1093.0
 offset_bottom = 311.0
 text = "\"What's your problem?\""
 
-[node name="Concepts" type="Node" parent="." index="3"]
+[node name="Concepts" parent="." index="3" instance=ExtResource("9_rly7c")]
