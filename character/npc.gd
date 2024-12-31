@@ -88,6 +88,29 @@ var turning = false
 @export var footstep_interval = 0.7
 var footstep_waiting = false
 
+var last_few_paces: Array[Vector2] = [position]
+@export var n_paces_saved: int = 3
+var meaningfully_moving: bool = false
+@export var movement_threshold: float = 0.6
+@export var pace_interval: float = 0.3
+
+func refresh_meaningfully_moving():
+	var tree = get_tree()
+	if not tree or not pace_interval:
+		return
+	await tree.create_timer(pace_interval).timeout
+	last_few_paces.push_back(position)
+	if last_few_paces.size() > n_paces_saved:
+		last_few_paces.pop_front()
+	
+	var travelled = last_few_paces[0].distance_to(last_few_paces[-1])
+	var expected = speed * pace_interval * last_few_paces.size()
+	
+	meaningfully_moving = travelled > expected * movement_threshold
+	
+	refresh_meaningfully_moving()
+	
+
 func force_enter_range():
 	$InteractionArea.in_range = true
 
@@ -131,6 +154,7 @@ func _ready():
 	if $char.hframes == 6 and $char.vframes == 4:
 		_make_walk_animations()
 	play_starting_animation()
+	refresh_meaningfully_moving()
 
 func play_starting_animation():
 	play(starting_animaton)
@@ -195,7 +219,7 @@ func start_footsteps():
 	if not footstep_waiting:
 		_footstep()
 
-func _throttle():
+func _throttle(delta):
 	going = true
 	var tree = get_tree()
 	if tree == null:
@@ -203,7 +227,7 @@ func _throttle():
 	await tree.create_timer(leader.follower_call_interval).timeout
 	going = false
 	
-	if last_position == position:
+	if last_position and last_position.distance_to(position) < (speed * delta * 0.6):
 		stuck_counter += 1
 	last_position = position
 
@@ -263,8 +287,8 @@ func _handle_collisions(delta, collision, input_direction):
 func get_p():
 	return position
 
-func follow():
-	_throttle()
+func follow(delta):
+	_throttle(delta)
 	if (
 		abs(position.distance_to(leader.get_p())) < follow_distance
 	):
@@ -276,7 +300,7 @@ func follow():
 			return Vector2.from_angle(get_angle_to(leader.get_p()) + 180)
 		return Vector2(0, 0)
 	waiting = false
-	if not navigation_agent.is_navigation_finished() and stuck_counter < 7:
+	if not navigation_agent.is_navigation_finished() and stuck_counter < 3 and meaningfully_moving:
 		return
 
 	if (
@@ -326,7 +350,7 @@ func _physics_process(delta):
 		
 	
 	if not going:
-		direction = follow()
+		direction = follow(delta)
 	
 	if direction != null:
 		velocity = speed * speed_mul * direction
