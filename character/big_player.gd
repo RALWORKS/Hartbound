@@ -60,13 +60,16 @@ func load_game(game):
 	load_outfit(outfit)
 	load_hair(hair)
 	colour_skin()
-	$AnimationPlayer.play(anim)
+	if anim:
+		$AnimationPlayer.play(anim)
 	
+func play(some_anim):
+	$AnimationPlayer.play(some_anim)
 
 func load_default():
-	#load_outfit(ShoulderCape)
+	load_outfit(ShoulderCape)
 	#load_outfit(Ruana)
-	load_outfit(DressAndCoat)
+	#load_outfit(DressAndCoat)
 	#load_outfit(GreatKilt)
 	#load_outfit(Chiton)
 	load_hair(HairShortBraid)
@@ -93,6 +96,13 @@ func load_item(res):
 	item.free()
 	return ret
 
+func pre_free():
+	for dest in [Back, Middle, Hair, Front]:
+		for c in dest.get_children():
+			#assert(is_instance_valid(c.owner))
+			pass
+		dest.free()
+
 func _load_layers(outfit: Node2D):
 	var ret = []
 	for dest in [Back, Middle, Hair, Front]:
@@ -110,6 +120,7 @@ func _load_sub_layers(dest: Node2D, old: Node2D, layers: Array[Node]):
 		old.remove_child(l)
 		l.set_skeleton("../../Skeleton2D")
 		dest.add_child(l)
+		l.owner = dest
 		ret.push_back(l)
 	return ret
 		

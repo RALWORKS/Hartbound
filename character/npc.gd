@@ -423,3 +423,4 @@ func _on_tree_entered():
 
 func _on_tree_exiting():
 	$"/root/Game".remove_character(self)
+	paused = true

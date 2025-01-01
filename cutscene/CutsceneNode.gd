@@ -56,7 +56,7 @@ func flip(kwargs: Dictionary = {}):
 	var force = kwargs.get("force", false)
 	if is_option_node and not force:
 		return
-	print(name, to)
+
 	self.leave()
 	if to != null:
 		to.start()

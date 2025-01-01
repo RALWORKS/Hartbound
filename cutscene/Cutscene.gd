@@ -10,6 +10,8 @@ var page = null
 @export var npc: CharacterBody2D = null # will auto set if used as npc dialogue
 @export var npc_name = ""
 
+@export var free_us_first: Array[Node]
+
 var teleport_to = null
 
 # from a previous attempt to implement standard bg
@@ -19,6 +21,11 @@ var input_data = null
 var characters_present = []
 
 @export var main_concepts_page: CutsceneNode
+
+
+func free_tricky_nodes():
+	for n in free_us_first:
+		n.free()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

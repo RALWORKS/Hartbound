@@ -141,34 +141,52 @@ func start_cutscene(
 	cutscene.call_deferred("start")
 
 func end_cutscene(free=false):
+	print("ENDSCENE INNER")
 	var next_cutscene = cutscene.next_cutscene
 	var npc = cutscene.npc
 	var next_chapter = cutscene.to_chapter
 	var sequence = cutscene.cutscene_sequence
 	var teleport_to = cutscene.teleport_to
+	print("ENDSCENE VARS SET")
+	
+	var holdouts = []
+	
+	for n in cutscene.free_us_first:
+		#n.get_parent().remove_child(n)
+		n.pre_free()
+		#n.free()
+		#holdouts.push_back(n)
+		
+	print("ROUNDUP SCHEME DONE -- actually")
 
-	cutscene.call_deferred("free")
-	#game.free_world()
+	cutscene.queue_free()
+	await get_tree().create_timer(0.1).timeout
+	print("ALL FREE")
+#	#game.free_world()
 	game.chapter = self
 	if next_chapter != "":
 		$"/root/Game".to_chapter(next_chapter)
 		return
-	if next_cutscene == null:
-		for child in cur_game:
-			if is_instance_valid(child):
-				if free:
-					child.free()
-				else:
-					$"../MainScreen/World".add_child(child)
+
+	if next_cutscene != null:
 		await get_tree().create_timer(0.1).timeout
-		$"/root/Game".move()
-		if teleport_to:
-			$"/root/Game/Map".move_to(teleport_to)
-			teleport_to.spawn(game)
-			$"/root/Game".save_room(teleport_to.scene_file_path, null)
+		start_cutscene(next_cutscene, npc, null, sequence)
 		return
+
+	for child in cur_game:
+		if is_instance_valid(child):
+			if free:
+				child.free()
+			else:
+				$"../MainScreen/World".add_child(child)
+
 	await get_tree().create_timer(0.1).timeout
-	start_cutscene(next_cutscene, npc, null, sequence)
+	$"/root/Game".move()
+
+	if teleport_to != null:
+		$"/root/Game/Map".move_to(teleport_to)
+		teleport_to.spawn(game)
+		$"/root/Game".save_room(teleport_to.scene_file_path, null)
 
 func update_cutscene_page(p):
 	cutscene.update_page(p)
