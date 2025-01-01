@@ -58,6 +58,7 @@ theme_override_font_sizes/normal_font_size = 100
 text = "the Leylines."
 
 [node name="2" parent="." index="1" node_paths=PackedStringArray("next", "previous") instance=ExtResource("2_6n3eq")]
+process_mode = 3
 visible = false
 next = NodePath("../3")
 previous = NodePath("../1")
@@ -237,6 +238,7 @@ theme_override_font_sizes/normal_font_size = 55
 text = "scattered and disparate."
 
 [node name="6" parent="." index="5" node_paths=PackedStringArray("next", "previous") instance=ExtResource("2_6n3eq")]
+process_mode = 3
 visible = false
 next = NodePath("../7")
 previous = NodePath("../5")
@@ -303,7 +305,7 @@ theme_override_font_sizes/normal_font_size = 100
 text = "Dusk."
 
 [node name="7" parent="." index="6" node_paths=PackedStringArray("next", "previous") instance=ExtResource("2_6n3eq")]
-visible = false
+process_mode = 3
 next = NodePath("../8")
 previous = NodePath("../6")
 
@@ -801,6 +803,7 @@ theme_override_font_sizes/normal_font_size = 50
 text = "with the Salvagers."
 
 [node name="17" parent="." index="16" node_paths=PackedStringArray("next", "previous") instance=ExtResource("2_6n3eq")]
+visible = false
 next = NodePath("../18")
 previous = NodePath("../16")
 
@@ -827,6 +830,7 @@ theme_override_font_sizes/normal_font_size = 50
 text = "unremarkable, initially,"
 
 [node name="18" parent="." index="17" node_paths=PackedStringArray("previous") instance=ExtResource("2_6n3eq")]
+visible = false
 previous = NodePath("../17")
 
 [node name="RichTextLabel4" type="RichTextLabel" parent="18" index="0"]

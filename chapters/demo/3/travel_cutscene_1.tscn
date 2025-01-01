@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://cml8kuj1isydh"]
+[gd_scene load_steps=6 format=3 uid="uid://cml8kuj1isydh"]
 
 [ext_resource type="PackedScene" uid="uid://cb7ml6611mksi" path="res://cutscene/travel_cutscene.tscn" id="1_s7n0m"]
 [ext_resource type="Script" path="res://cutscene/CutsceneNode.gd" id="2_kaqvd"]
 [ext_resource type="PackedScene" uid="uid://cgud4hctc25th" path="res://scenery/mountain_walk_player_sitting.tscn" id="3_nhufd"]
+[ext_resource type="PackedScene" uid="uid://b11g7mb25w5xp" path="res://cutscene/smart_label.tscn" id="4_4eu2t"]
+[ext_resource type="PackedScene" uid="uid://cp5lbi0bmf5vp" path="res://tools/screen-guide-frame.tscn" id="5_fnesc"]
 
 [node name="TravelCutscene1" node_paths=PackedStringArray("starting_page") instance=ExtResource("1_s7n0m")]
 starting_page = NodePath("1")
@@ -11,3 +13,13 @@ starting_page = NodePath("1")
 script = ExtResource("2_kaqvd")
 
 [node name="MountainWalk" parent="1" index="0" instance=ExtResource("3_nhufd")]
+position = Vector2(-96, -177)
+
+[node name="SmartLabel" parent="1" index="1" instance=ExtResource("4_4eu2t")]
+offset_left = 40.0
+offset_top = 137.0
+offset_right = 755.0
+offset_bottom = 257.0
+text = "The party walks through mountains and forests to arrive at the place you marked on the map."
+
+[node name="Frame" parent="." index="1" instance=ExtResource("5_fnesc")]

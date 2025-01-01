@@ -1,0 +1,126 @@
+[gd_scene load_steps=13 format=3 uid="uid://cey7dg5fwkcxf"]
+
+[ext_resource type="PackedScene" uid="uid://cb7ml6611mksi" path="res://cutscene/travel_cutscene.tscn" id="1_nlw00"]
+[ext_resource type="PackedScene" uid="uid://55vflx8ylix1" path="res://cutscene/cutscene_node.tscn" id="2_0v1pi"]
+[ext_resource type="Texture2D" uid="uid://ikuimuc4pdvw" path="res://assets/scenery/Scrolling/mountains-1.png" id="4_3lyma"]
+[ext_resource type="PackedScene" uid="uid://b11g7mb25w5xp" path="res://cutscene/smart_label.tscn" id="4_esax6"]
+[ext_resource type="Texture2D" uid="uid://dhxc5sot0osx7" path="res://assets/npcs/horse/cart-1-colour.png" id="5_8iukj"]
+[ext_resource type="Texture2D" uid="uid://buc3vu7e6om1c" path="res://assets/npcs/jerry/jerry_angry.png" id="5_74po1"]
+[ext_resource type="Texture2D" uid="uid://nwsqvjdnlosw" path="res://assets/scenery/extra-tree-coloured/trees-and-broken-stone.png" id="5_vka2q"]
+[ext_resource type="Texture2D" uid="uid://13ww57ql4i6a" path="res://assets/npcs/horse/step-3-colour.png" id="6_bxi5o"]
+[ext_resource type="Texture2D" uid="uid://dj6hhd1gbikeg" path="res://assets/npcs/horse/cart-rod-front-colour.png" id="8_7n75e"]
+[ext_resource type="PackedScene" uid="uid://cgud4hctc25th" path="res://scenery/mountain_walk_player_sitting.tscn" id="10_3bvgo"]
+[ext_resource type="PackedScene" uid="uid://dodne0hhms0qr" path="res://character/big_player.tscn" id="11_kbl7x"]
+[ext_resource type="PackedScene" uid="uid://cp5lbi0bmf5vp" path="res://tools/screen-guide-frame.tscn" id="14_7ord7"]
+
+[node name="TravelCutscene" node_paths=PackedStringArray("starting_page") instance=ExtResource("1_nlw00")]
+starting_page = NodePath("1")
+
+[node name="1" parent="." index="0" node_paths=PackedStringArray("next") instance=ExtResource("2_0v1pi")]
+visible = false
+next = NodePath("../2")
+
+[node name="SmartLabel" parent="1" index="0" instance=ExtResource("4_esax6")]
+offset_left = 140.0
+offset_top = 388.0
+offset_right = 973.0
+offset_bottom = 508.0
+text = "The party sets out for the place you marked on the map."
+
+[node name="2" parent="." index="1" node_paths=PackedStringArray("next") instance=ExtResource("2_0v1pi")]
+next = NodePath("../3")
+
+[node name="bg" type="Sprite2D" parent="2" index="0"]
+position = Vector2(-672, -520)
+scale = Vector2(2, 2)
+texture = ExtResource("4_3lyma")
+centered = false
+
+[node name="tree" type="Sprite2D" parent="2" index="1"]
+position = Vector2(-173, -221)
+texture = ExtResource("5_vka2q")
+centered = false
+
+[node name="Jerry" type="Sprite2D" parent="2" index="2"]
+position = Vector2(1049, 746)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("5_74po1")
+
+[node name="frontbar2" type="Sprite2D" parent="2" index="3"]
+position = Vector2(623.4, 935.4)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("8_7n75e")
+centered = false
+offset = Vector2(-90, -510)
+
+[node name="horse" type="Sprite2D" parent="2" index="4"]
+position = Vector2(1833, 727)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("6_bxi5o")
+
+[node name="Cart2" type="Sprite2D" parent="2" index="5"]
+position = Vector2(-894, 307)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("5_8iukj")
+centered = false
+
+[node name="BigPlayer" parent="2/Cart2" index="0" instance=ExtResource("11_kbl7x")]
+position = Vector2(2325, -93.3333)
+scale = Vector2(0.8, 0.8)
+anim = "sit_motionless"
+
+[node name="FrontWall" type="Polygon2D" parent="2/Cart2" index="1"]
+position = Vector2(2, 0)
+texture = ExtResource("5_8iukj")
+polygon = PackedVector2Array(124.467, 1060.94, 366.689, 623.167, 2740.02, 632.056, 2768.91, 654.278, 2771.13, 1103.17, 2564.47, 1107.61, 2555.58, 1205.39, 340.022, 1172.06, 335.578, 1356.5, 242.244, 1356.5, 117.8, 1156.5)
+uv = PackedVector2Array(124.467, 1060.94, 366.689, 623.167, 2740.02, 632.056, 2768.91, 654.278, 2771.13, 1103.17, 2564.47, 1107.61, 2555.58, 1205.39, 340.022, 1172.06, 335.578, 1356.5, 242.244, 1356.5, 117.8, 1156.5)
+
+[node name="frontbar" type="Sprite2D" parent="2/Cart2" index="2"]
+position = Vector2(2529, 1194)
+texture = ExtResource("8_7n75e")
+centered = false
+offset = Vector2(-90, -510)
+
+[node name="SmartLabel" parent="2" index="6" instance=ExtResource("4_esax6")]
+offset_left = 145.0
+offset_top = 14.0
+offset_right = 663.0
+offset_bottom = 110.0
+text = "Jerry tells you to ride in the cart."
+
+[node name="SmartLabel2" parent="2" index="7" instance=ExtResource("4_esax6")]
+offset_left = 295.0
+offset_top = 121.0
+offset_right = 837.0
+offset_bottom = 241.0
+text = "Once, he tried to make you walk off a broken leg."
+
+[node name="SmartLabel3" parent="2" index="8" instance=ExtResource("4_esax6")]
+offset_left = 848.0
+offset_top = 770.0
+offset_right = 1390.0
+offset_bottom = 890.0
+text = "It's because of your run in with the Demon."
+
+[node name="SmartLabel4" parent="2" index="9" instance=ExtResource("4_esax6")]
+offset_left = 990.0
+offset_top = 914.0
+offset_right = 1704.0
+offset_bottom = 1069.0
+text = "<taylor> said it herself: \"Demon's Curse.\" He's come to the conclusion that you're about to drop dead from the Plague of Dreams."
+
+[node name="3" parent="." index="2" instance=ExtResource("2_0v1pi")]
+visible = false
+
+[node name="MountainWalk" parent="3" index="0" instance=ExtResource("10_3bvgo")]
+position = Vector2(-136, -136)
+
+[node name="SmartLabel" parent="3" index="1" instance=ExtResource("4_esax6")]
+offset_left = 104.0
+offset_top = 208.0
+offset_right = 727.0
+offset_bottom = 326.0
+text = "It's a long ride to your first camp on the journey back to Sun Temple."
+metadata/_edit_use_anchors_ = true
+
+[node name="Frame" parent="." index="3" instance=ExtResource("14_7ord7")]

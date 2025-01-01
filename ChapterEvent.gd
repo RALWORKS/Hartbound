@@ -5,6 +5,8 @@ extends Node
 @export var effect: String
 @export var played = false
 @export var reusable = false
+
+@export var progress_key = "events"
 var cutscene_input_data = null
 
 var game
@@ -25,10 +27,11 @@ func _process(_delta):
 
 func _play(save=true):
 	var g = _get_game()
-	if not reusable:
-		played = true
+	if reusable:
+		return
+	played = true
 	if save:
-		g.set_state_push_to_key(["micro_progress", "events"], get_index())
+		g.set_state_push_to_key(["micro_progress", progress_key], get_index())
 
 func _mutate():
 	for mutation in get_children():

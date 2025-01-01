@@ -23,9 +23,6 @@ centered = false
 [node name="BG2" parent="." instance=ExtResource("2_hj6ds")]
 position = Vector2(0, -174)
 
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(950, 836)
-
 [node name="Characters" type="Node2D" parent="."]
 position = Vector2(186, 609)
 scale = Vector2(0.24, 0.24)

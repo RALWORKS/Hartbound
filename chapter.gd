@@ -7,6 +7,7 @@ extends Node
 var active_map = null
 
 var events_done = []
+var map_events_done = []
 
 var scene0 = null
 
@@ -49,6 +50,9 @@ func rerun_all_events():
 	for ix in events_done:
 		var event = $Events.get_children()[ix]
 		event.rerun()
+	for ix in map_events_done:
+		var event = $MapEvents.get_children()[ix]
+		event.rerun()
 
 func next(to_event_name=null):
 	var event
@@ -63,9 +67,13 @@ func next(to_event_name=null):
 	
 func reload_events_done():
 	events_done = game.get_state(["micro_progress", "events"])
+	map_events_done = game.get_state(["micro_progress", "map_events"])
 	if events_done == null:
 		game.set_state(["micro_progress", "events"], [])
 		events_done = []
+	if map_events_done == null:
+		game.set_state(["micro_progress", "map_events"], [])
+		map_events_done = []
 
 func _default_init():
 	scene0 = starting_scene.instantiate()
