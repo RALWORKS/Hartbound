@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://c4oimrynhrpdl"]
+[gd_scene load_steps=10 format=3 uid="uid://c4oimrynhrpdl"]
 
 [ext_resource type="PackedScene" uid="uid://bp8tsdjdbwj8i" path="res://cutscene/cutscene.tscn" id="1_y2jss"]
 [ext_resource type="PackedScene" uid="uid://55vflx8ylix1" path="res://cutscene/cutscene_node.tscn" id="2_o53h5"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://b11g7mb25w5xp" path="res://cutscene/smart_label.tscn" id="5_1mykr"]
 [ext_resource type="PackedScene" uid="uid://cm3keg86x7x3y" path="res://cutscene/concept_cutscene_node.tscn" id="6_myf1j"]
 [ext_resource type="Texture2D" uid="uid://buc3vu7e6om1c" path="res://assets/npcs/jerry/jerry_angry.png" id="7_lb3r3"]
+[ext_resource type="PackedScene" uid="uid://cwyp5qnd6nu8r" path="res://chapters/demo/1/jerry-base-concepts.tscn" id="9_1yxr4"]
 
 [node name="Jerry1" node_paths=PackedStringArray("starting_page", "concepts", "default_topics", "main_concepts_page") instance=ExtResource("1_y2jss")]
 starting_page = NodePath("1")
@@ -138,4 +139,4 @@ offset_bottom = 308.0
 bbcode_enabled = true
 text = "\"Grow up, {character,name,humans_call}.\""
 
-[node name="Concepts" type="Node" parent="." index="4"]
+[node name="Concepts" parent="." index="4" instance=ExtResource("9_1yxr4")]

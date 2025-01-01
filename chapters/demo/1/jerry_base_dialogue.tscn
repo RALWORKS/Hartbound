@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dalxj2teso65p"]
+[gd_scene load_steps=14 format=3 uid="uid://dalxj2teso65p"]
 
 [ext_resource type="PackedScene" uid="uid://bp8tsdjdbwj8i" path="res://cutscene/cutscene.tscn" id="1_hapjt"]
 [ext_resource type="PackedScene" uid="uid://55vflx8ylix1" path="res://cutscene/cutscene_node.tscn" id="2_gtdvt"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://buc3vu7e6om1c" path="res://assets/npcs/jerry/jerry_angry.png" id="7_35fr5"]
 [ext_resource type="PackedScene" uid="uid://bxu8qsfgeojlr" path="res://quests/quests/demo_c_1_regroup_initial/plan_for_afternoon.tscn" id="7_qilxk"]
 [ext_resource type="PackedScene" uid="uid://b0aqc6k73fj3d" path="res://quests/quests/demo_c_1_collecting/c_1_collecting_herbs.tscn" id="8_0mog3"]
+[ext_resource type="PackedScene" uid="uid://cwyp5qnd6nu8r" path="res://chapters/demo/1/jerry-base-concepts.tscn" id="9_hx63o"]
 [ext_resource type="PackedScene" uid="uid://dcaa2e368c4ty" path="res://quests/quests/demo_c_1_collecting/c_1_collecting_compenents.tscn" id="9_woqvv"]
 [ext_resource type="PackedScene" uid="uid://clq8611xkfdqp" path="res://cutscene/cutscene_redirect_node.tscn" id="10_lp62j"]
 
@@ -140,9 +141,9 @@ offset_bottom = 308.0
 bbcode_enabled = true
 text = "\"Grow up, {character,name,humans_call}.\""
 
-[node name="Concepts" type="Node" parent="." index="4"]
+[node name="Concepts" parent="." index="4" instance=ExtResource("9_hx63o")]
 
-[node name="PlanForAfternoon" parent="Concepts" index="0" instance=ExtResource("7_qilxk")]
+[node name="PlanForAfternoon" parent="Concepts" index="20" instance=ExtResource("7_qilxk")]
 
 [node name="CutsceneNode" parent="Concepts/PlanForAfternoon" index="0" node_paths=PackedStringArray("next") instance=ExtResource("2_gtdvt")]
 visible = false
@@ -168,7 +169,7 @@ text = "\"Brona's got her heart set on getting some big window she saw earlier.\
 \"Personally, I'm not convinced we [i]can[/i] get it out in one piece, let alone get it home if we do--
 but she's not wrong it'll be good money if we somehow pull it off. I'm thinking we'll give it a shot.\""
 
-[node name="C1CollectingHerbs" parent="Concepts" index="1" instance=ExtResource("8_0mog3")]
+[node name="C1CollectingHerbs" parent="Concepts" index="21" instance=ExtResource("8_0mog3")]
 
 [node name="Herbs" parent="Concepts/C1CollectingHerbs" index="0" instance=ExtResource("2_gtdvt")]
 visible = false
@@ -192,7 +193,7 @@ bbcode_enabled = true
 text = "\"Oh, sure. Taylor had said she wanted to get a bit more gathering in, so the two of you going together
 sounds like a good plan.\""
 
-[node name="C1CollectingComponents" parent="Concepts" index="2" instance=ExtResource("9_woqvv")]
+[node name="C1CollectingComponents" parent="Concepts" index="22" instance=ExtResource("9_woqvv")]
 
 [node name="CutsceneRedirectNode" parent="Concepts/C1CollectingComponents" index="0" node_paths=PackedStringArray("next") instance=ExtResource("10_lp62j")]
 visible = false

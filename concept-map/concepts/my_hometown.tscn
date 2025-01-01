@@ -5,7 +5,7 @@
 
 [node name="MyHometown" instance=ExtResource("1_30npw")]
 id = "my-hometown"
-title = "My ({character,name,short}'s) hometown"
+title = "My ({character,name,short}'s) hometown, Fin Soen Li Yen"
 description = "You were born in a small, rural village, aligned with Moon Temple, but not a part of it."
 
 [node name="ConceptTag" parent="." index="0" instance=ExtResource("2_ivmd1")]
@@ -16,3 +16,6 @@ phrase = "fin soen li yen"
 
 [node name="ConceptTag3" parent="." index="2" instance=ExtResource("2_ivmd1")]
 phrase = "grove of the seven ferns"
+
+[node name="ConceptTag4" parent="." index="3" instance=ExtResource("2_ivmd1")]
+phrase = "fin soen li yen"
