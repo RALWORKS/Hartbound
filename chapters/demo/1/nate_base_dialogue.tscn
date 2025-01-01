@@ -129,7 +129,7 @@ centered = false
 script = ExtResource("4_uqmdh")
 
 [node name="nate" type="Sprite2D" parent="ConceptCutsceneNode" index="4"]
-position = Vector2(455, 889)
+position = Vector2(455, 846)
 scale = Vector2(0.7, 0.7)
 texture = ExtResource("4_dcr1o")
 
