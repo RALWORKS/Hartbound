@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://kex3fql26uxy"]
+[gd_scene load_steps=24 format=3 uid="uid://kex3fql26uxy"]
 
 [ext_resource type="PackedScene" uid="uid://bp8tsdjdbwj8i" path="res://cutscene/cutscene.tscn" id="1_ipyp7"]
 [ext_resource type="PackedScene" uid="uid://55vflx8ylix1" path="res://cutscene/cutscene_node.tscn" id="2_wt2i3"]
@@ -45,6 +45,30 @@ corner_radius_top_left = 6
 corner_radius_top_right = 6
 corner_radius_bottom_right = 6
 corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yqg84"]
+bg_color = Color(0, 0.427451, 0.32549, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(1, 1, 1, 1)
+border_blend = true
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g40vh"]
+bg_color = Color(0, 0.176471, 0.12549, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
 
 [node name="CharacterCreatorCutscene" node_paths=PackedStringArray("starting_page") instance=ExtResource("1_ipyp7")]
 position = Vector2(0, 145)
@@ -112,7 +136,6 @@ text = "Customize Character"
 to = NodePath("../../2")
 
 [node name="2" parent="." index="1" instance=ExtResource("2_wt2i3")]
-visible = false
 is_option_node = true
 
 [node name="CharacterDesginer" parent="2" index="0" node_paths=PackedStringArray("send_data_to", "profile_designer") instance=ExtResource("5_ooc6y")]
@@ -125,10 +148,12 @@ position = Vector2(80, 707)
 send_data_to = NodePath("../../Saver")
 
 [node name="SetDesign" parent="2" index="2" node_paths=PackedStringArray("to") instance=ExtResource("4_tiul5")]
-offset_left = 346.0
-offset_top = 44.0
-offset_right = 438.0
-offset_bottom = 75.0
+offset_left = 1309.0
+offset_top = 837.0
+offset_right = 1494.0
+offset_bottom = 908.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_yqg84")
+theme_override_styles/hover = SubResource("StyleBoxFlat_g40vh")
 text = "> Continue"
 to = NodePath("../../2_5")
 
