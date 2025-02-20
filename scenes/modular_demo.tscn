@@ -1,0 +1,116 @@
+[gd_scene load_steps=14 format=3 uid="uid://b4b6kwqbiqg85"]
+
+[ext_resource type="PackedScene" uid="uid://byrlpmbpj6yr5" path="res://scene.tscn" id="1_evu3m"]
+[ext_resource type="Texture2D" uid="uid://dsfg855ag6psn" path="res://assets/forest-layers/bg/meadow1.png" id="2_fiheu"]
+[ext_resource type="Texture2D" uid="uid://c5gkwi2jowp5e" path="res://assets/forest-layers/1/8_cliffs.png" id="3_1yxvs"]
+[ext_resource type="Texture2D" uid="uid://w5b3i5ngj8ah" path="res://assets/forest-layers/2/2_trees_triangle.png" id="4_5i3xx"]
+[ext_resource type="Texture2D" uid="uid://dwsfbl0fdq6d5" path="res://assets/forest-layers/1/3_pine_triangle.png" id="5_6tgjq"]
+[ext_resource type="Texture2D" uid="uid://d0egx3cj3dcla" path="res://assets/forest-layers/1/7_rocky_mound.png" id="6_pl0un"]
+[ext_resource type="Texture2D" uid="uid://1yqbtlb6k2r4" path="res://assets/forest-layers/5ib/2_ruin.png" id="6_yaqcs"]
+[ext_resource type="Texture2D" uid="uid://buiq3l3pnjikt" path="res://assets/forest-layers/5/2_bottom_hill.png" id="7_axs6w"]
+[ext_resource type="Texture2D" uid="uid://cnlclj8g0tyiw" path="res://assets/scenery/extra-tree-coloured/stone-trio.png" id="7_h0xlh"]
+[ext_resource type="Texture2D" uid="uid://dmk3dxuo4q0ie" path="res://assets/scenery/extra-tree-coloured/pedestal-pine.png" id="8_itqmm"]
+[ext_resource type="Texture2D" uid="uid://btd65u3yitxyy" path="res://assets/forest-layers/bg/sizing.png" id="8_k7y2y"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f4js7"]
+size = Vector2(1630, 23)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4whwk"]
+size = Vector2(20, 1273)
+
+[node name="Scene" instance=ExtResource("1_evu3m")]
+
+[node name="Background" parent="." index="0"]
+position = Vector2(2, 0)
+texture = ExtResource("2_fiheu")
+offset = Vector2(-10, -10)
+
+[node name="leftPoint" type="CollisionPolygon2D" parent="Background/StaticBody2D" index="0"]
+polygon = PackedVector2Array(-183, 1040, 379, 941, 351, 782, 518, 768, 852, 765, 668, 703, 436, 627, 394, 412, -19, 160)
+
+[node name="rightPoint" type="CollisionPolygon2D" parent="Background/StaticBody2D" index="1"]
+polygon = PackedVector2Array(1530, 1282, 1038, 1017, 1258, 906, 1190, 836, 1159, 796, 1069, 796, 1055, 722, 1131, 643, 1151, 578, 1374, 437, 1595, 338, 1598, 295, 1439, 193, 1400, 188, 1264, 193, 1244, 177, 724, 179, 690, 151, 625, 145, 662, 24, 893, -106, 1866, -55, 1739, 1325)
+
+[node name="bottomPoint" type="CollisionPolygon2D" parent="Background/StaticBody2D" index="2"]
+polygon = PackedVector2Array(427, 1280, 647, 1181, 916, 1291)
+
+[node name="top" type="CollisionShape2D" parent="Background/StaticBody2D" index="3"]
+position = Vector2(805, -21.5)
+shape = SubResource("RectangleShape2D_f4js7")
+
+[node name="bottom" type="CollisionShape2D" parent="Background/StaticBody2D" index="4"]
+position = Vector2(797, 1258.5)
+shape = SubResource("RectangleShape2D_f4js7")
+
+[node name="left" type="CollisionShape2D" parent="Background/StaticBody2D" index="5"]
+position = Vector2(0, 626.5)
+shape = SubResource("RectangleShape2D_4whwk")
+
+[node name="right" type="CollisionShape2D" parent="Background/StaticBody2D" index="6"]
+position = Vector2(1608, 626.5)
+shape = SubResource("RectangleShape2D_4whwk")
+
+[node name="Front4" type="Sprite2D" parent="Background" index="1"]
+position = Vector2(1107, 241)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("3_1yxvs")
+offset = Vector2(0, -250)
+
+[node name="Front5" type="Sprite2D" parent="Background" index="2"]
+position = Vector2(1643, 257)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("3_1yxvs")
+offset = Vector2(0, -250)
+
+[node name="Front3" type="Sprite2D" parent="Background" index="3"]
+position = Vector2(1539, 793)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("4_5i3xx")
+offset = Vector2(0, -250)
+
+[node name="Front2" type="Sprite2D" parent="Background" index="4"]
+position = Vector2(1344, 988)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("5_6tgjq")
+offset = Vector2(0, -250)
+
+[node name="DefaultSpawner" parent="YSort" index="0"]
+position = Vector2(744, 856)
+
+[node name="Front6" type="Sprite2D" parent="YSort" index="1"]
+position = Vector2(301, 536)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("6_yaqcs")
+offset = Vector2(0, -450)
+flip_h = true
+vframes = 2
+
+[node name="Front5" type="Sprite2D" parent="YSort" index="2"]
+position = Vector2(200, 745)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("6_pl0un")
+offset = Vector2(0, -91)
+flip_h = true
+
+[node name="Sprite2D2" type="Sprite2D" parent="YSort/Front5" index="0"]
+modulate = Color(1, 1, 0.866667, 1)
+position = Vector2(-735.715, -121.429)
+scale = Vector2(1, 1)
+texture = ExtResource("7_h0xlh")
+
+[node name="Sprite2D" type="Sprite2D" parent="YSort/Front5" index="1"]
+modulate = Color(1, 1, 0.866667, 1)
+position = Vector2(-44.286, 130)
+texture = ExtResource("8_itqmm")
+
+[node name="Front" type="Sprite2D" parent="." index="2"]
+position = Vector2(670, 1174)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("7_axs6w")
+
+[node name="Background2" type="Sprite2D" parent="." index="3"]
+position = Vector2(2, 0)
+texture = ExtResource("8_k7y2y")
+centered = false
+offset = Vector2(-10, -10)
+metadata/_edit_group_ = true

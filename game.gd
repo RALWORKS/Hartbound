@@ -34,6 +34,8 @@ var characters_present = []
 
 @export var music_crossfade_speed = 2
 
+@export var day_length = 16
+
 var CHAPTERS = {
 	"intro": preload("res://intro-story/intro_story_chapter.tscn"),
 	"create": preload("res://character/character_creator.tscn"),
@@ -584,6 +586,18 @@ func _init_moves_if_needed():
 		return data
 	return set_state(["moves"], 0)
 
+func _init_time_if_needed():
+	var data = get_state(["time"])
+	if data != null:
+		return data
+	return set_state(["time"], 0)
+
+func _init_date_if_needed():
+	var data = get_state(["date"])
+	if data != null:
+		return data
+	return set_state(["date"], 0)
+
 func _init_timers_if_needed():
 	var data = get_state(["timers"])
 	if data != null:
@@ -610,6 +624,29 @@ func move():
 	var m = _init_moves_if_needed()
 	set_state(["moves"], m + 1)
 	check_timers()
+	advance_time()
+
+func advance_time():
+	var t = _init_time_if_needed()
+	var d = _init_date_if_needed()
+	
+	if t >= day_length - 1:
+		t = 0
+		d += 1
+	else:
+		t += 1
+	
+	modulate_daylight(t)
+	set_state(["date"], d)
+	set_state(["time"], t)
+	
+	
+
+func modulate_daylight(cur_time: int):
+	var screen = get_node_or_null("MainScreen")
+	if screen == null:
+		return
+	screen.modulate_daylight(cur_time, day_length)
 
 func _init_played_cutscenes_if_needed():
 	var data = get_state(["played_cutscenes"])
