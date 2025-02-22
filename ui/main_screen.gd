@@ -53,12 +53,14 @@ func _process(_delta):
 		or get_parent().cur_modal != null
 	):
 		$Menu2/ColorRect.visible = true
+		$Daylight/Filter.modulate = "#ffffffff"
 		$PostProcessing/Filter.modulate = "#ffffffff"
 		if not $PostProcessing/Filter.material:
 			$PostProcessing/Filter.material = cur_material
 	else:
 		$Menu2/ColorRect.visible = false
 		$PostProcessing/Filter.modulate = "#ffffff00"
+		$Daylight/Filter.modulate = "#ffffff00"
 		$PostProcessing/Filter.material = null
 	
 	if get_parent().cur_modal:
