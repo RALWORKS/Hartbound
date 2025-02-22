@@ -52,6 +52,7 @@ expand_margin_right = 7.0
 expand_margin_bottom = 7.0
 
 [node name="DestinationArrow" type="Node2D"]
+z_index = 1000
 scale = Vector2(0.3, 0.3)
 script = ExtResource("1_m2cng")
 
