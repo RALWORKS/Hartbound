@@ -61,6 +61,7 @@ var INITIAL_STATE = {
 	},
 	"moves": 0,
 	"timers": [],
+	"time": 0.2 * day_length,
 }
 
 var STATE = INITIAL_STATE.duplicate(true)
