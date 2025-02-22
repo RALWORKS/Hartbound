@@ -4,6 +4,7 @@
 [ext_resource type="Script" path="res://cutscene/smart_button.gd" id="1_x8wk2"]
 
 [node name="SmartButton" type="Button"]
+z_index = 1000
 offset_right = 20.0
 offset_bottom = 10.0
 script = ExtResource("1_x8wk2")

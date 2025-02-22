@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://wwmpe6ttdblv"]
+[gd_scene load_steps=30 format=3 uid="uid://wwmpe6ttdblv"]
 
 [ext_resource type="PackedScene" uid="uid://byrlpmbpj6yr5" path="res://scene.tscn" id="1_3u62o"]
 [ext_resource type="Texture2D" uid="uid://cdm0ewe6djiw" path="res://assets/scenes/demo/1/industrial/a.png" id="2_kjnsv"]
@@ -17,6 +17,8 @@
 [ext_resource type="Texture2D" uid="uid://ba8f8jn3sykc5" path="res://assets/scenery/extra-tree-coloured-bright/pine-trio.png" id="12_t0d60"]
 [ext_resource type="Script" path="res://scenes/demo/1/industrial/LightPathMaterial.gd" id="12_yf8y7"]
 [ext_resource type="Texture2D" uid="uid://bbqm52i4cxyix" path="res://assets/scenery/extra-tree-coloured-bright/great-oak.png" id="13_2q8x4"]
+[ext_resource type="Shader" path="res://daylight.gdshader" id="18_r06nn"]
+[ext_resource type="Shader" path="res://effects/demon-vignette.gdshader" id="19_8v38y"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_awuu0"]
 vertices = PackedVector2Array(593, 1108, 926, 1243, 325, 1233, 357, 994, 137, 1121, 214, 824, 106, 631, 269, 669, 249, 520, 625, 733, 1412, 1288, 750, 720, 951, 764, 1235, 748, 1687, 1000, 1691, 1243)
@@ -81,6 +83,28 @@ shader_parameter/wave_max = 0.3
 shader_parameter/wave_speed = 1.0
 shader_parameter/wave_rotation = 1.0
 shader_parameter/particle_texture = ExtResource("11_jcyyb")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_38rda"]
+resource_local_to_scene = true
+shader = ExtResource("18_r06nn")
+shader_parameter/darken = 0.0
+shader_parameter/saturate = 1.0
+shader_parameter/contrast = 1.0
+shader_parameter/warmth = 0.5
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_lnpbi"]
+viewport_path = NodePath("World")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_o1meh"]
+resource_local_to_scene = true
+shader = ExtResource("19_8v38y")
+shader_parameter/mul_r = 0.7
+shader_parameter/mul_g = 0.3
+shader_parameter/mul_b = 0.1
+shader_parameter/base_mod = 0.2
+shader_parameter/gradient_mod = 3.0
+shader_parameter/gradient_mul = 2.3
+shader_parameter/screen_texture = SubResource("ViewportTexture_lnpbi")
 
 [node name="Scene" instance=ExtResource("1_3u62o")]
 
@@ -263,3 +287,9 @@ color = Color(0, 1, 1, 0)
 script = ExtResource("12_yf8y7")
 
 [node name="Sprite2D" type="Sprite2D" parent="." index="3"]
+
+[node name="MainDaylightFilter" parent="." index="4"]
+daylight_shader = SubResource("ShaderMaterial_38rda")
+
+[node name="Filter" parent="MainDaylightFilter" index="0"]
+material = SubResource("ShaderMaterial_o1meh")

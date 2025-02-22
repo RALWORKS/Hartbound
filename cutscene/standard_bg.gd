@@ -4,9 +4,15 @@ class_name StandardBg
 #@export var default_scale = Vector2(2, 2)
 #@export var default_position = Vector2(-300, -300)
 
+var daylight = preload("res://effects/daylight/daylight_filter_standard_size.tscn")
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	load_texture()
+	var f = daylight.instantiate()
+	f.scale = Vector2(1/scale.x, 1/scale.y)
+	f.position = Vector2(0, 0) - (position / 2.0)
+	add_child(f)
 
 func load_texture():
 	var game = $"/root".get_node_or_null("Game")

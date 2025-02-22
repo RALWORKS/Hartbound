@@ -1,10 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://byrlpmbpj6yr5"]
+[gd_scene load_steps=7 format=3 uid="uid://byrlpmbpj6yr5"]
 
 [ext_resource type="PackedScene" uid="uid://dwet7i6bmp0m6" path="res://travel/spawner.tscn" id="2_b4mwe"]
 [ext_resource type="Texture2D" uid="uid://dwyqvct36hhs7" path="res://assets/default-scene.png" id="2_o4l51"]
 [ext_resource type="PackedScene" uid="uid://dec3rewb3xb1u" path="res://effects/daylight/daylight_filter.tscn" id="3_5fm1i"]
 [ext_resource type="Shader" path="res://daylight.gdshader" id="4_tv03u"]
-[ext_resource type="Shader" path="res://effects/demon-vignette.gdshader" id="4_wygm3"]
 
 [sub_resource type="GDScript" id="GDScript_kldhx"]
 script/source = "extends Node2D
@@ -94,27 +93,13 @@ func spawn(g):
 	$YSort/DefaultSpawner.spawn(g)
 "
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_xbaov"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_a5cek"]
 resource_local_to_scene = true
 shader = ExtResource("4_tv03u")
 shader_parameter/darken = 0.0
 shader_parameter/saturate = 1.0
 shader_parameter/contrast = 1.0
 shader_parameter/warmth = 0.5
-
-[sub_resource type="ViewportTexture" id="ViewportTexture_4n4me"]
-viewport_path = NodePath("World")
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_rxjqo"]
-resource_local_to_scene = true
-shader = ExtResource("4_wygm3")
-shader_parameter/mul_r = 0.7
-shader_parameter/mul_g = 0.3
-shader_parameter/mul_b = 0.1
-shader_parameter/base_mod = 0.2
-shader_parameter/gradient_mod = 3.0
-shader_parameter/gradient_mul = 2.3
-shader_parameter/screen_texture = SubResource("ViewportTexture_4n4me")
 
 [node name="Scene" type="Node2D"]
 show_behind_parent = true
@@ -134,14 +119,12 @@ y_sort_enabled = true
 [node name="DefaultSpawner" parent="YSort" instance=ExtResource("2_b4mwe")]
 position = Vector2(560, 365)
 
-[node name="MainDaylightFilter" parent="." instance=ExtResource("3_5fm1i")]
-position = Vector2(-120, 25)
-daylight_shader = SubResource("ShaderMaterial_xbaov")
+[node name="Filters" type="CanvasLayer" parent="."]
 
-[node name="Filter" type="ColorRect" parent="MainDaylightFilter"]
-visible = false
-material = SubResource("ShaderMaterial_rxjqo")
-offset_left = 2.0
-offset_right = 1720.0
+[node name="MainDaylightFilter" parent="Filters" instance=ExtResource("3_5fm1i")]
+daylight_shader = SubResource("ShaderMaterial_a5cek")
+
+[node name="Filter" type="ColorRect" parent="Filters/MainDaylightFilter"]
+offset_right = 1718.0
 offset_bottom = 1087.0
 mouse_filter = 2

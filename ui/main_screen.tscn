@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dn6jytdfpsb1y" path="res://ui/reflection_marker.tscn" id="4_2bnbj"]
 [ext_resource type="Shader" path="res://effects/demon-vignette.gdshader" id="5_htkuq"]
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_3ar0a"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_gcxbe"]
 viewport_path = NodePath("World")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_p13e7"]
@@ -19,7 +19,7 @@ shader_parameter/mul_b = 0.1
 shader_parameter/base_mod = 0.2
 shader_parameter/gradient_mod = 3.0
 shader_parameter/gradient_mul = 2.3
-shader_parameter/screen_texture = SubResource("ViewportTexture_3ar0a")
+shader_parameter/screen_texture = SubResource("ViewportTexture_gcxbe")
 
 [node name="MainScreen" type="SubViewportContainer"]
 offset_right = 1920.0

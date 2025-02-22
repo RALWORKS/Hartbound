@@ -1,9 +1,6 @@
-[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://cui5ito36p3hb"]
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://cui5ito36p3hb"]
 
 [ext_resource type="Shader" path="res://daylight.gdshader" id="1_6r0rm"]
-
-[sub_resource type="ViewportTexture" id="ViewportTexture_7g2vd"]
-viewport_path = NodePath("World")
 
 [resource]
 resource_local_to_scene = true
@@ -12,4 +9,3 @@ shader_parameter/darken = 0.0
 shader_parameter/saturate = 1.0
 shader_parameter/contrast = 1.0
 shader_parameter/warmth = 0.5
-shader_parameter/screen_texture = SubResource("ViewportTexture_7g2vd")

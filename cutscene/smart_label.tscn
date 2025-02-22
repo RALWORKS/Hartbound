@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://mqthx6wcxxuo" path="res://ui/state_tag_replacer.tscn" id="3_vsvyl"]
 
 [node name="SmartLabel" type="RichTextLabel"]
+z_index = 1000
 offset_left = -1.0
 offset_top = 875.0
 offset_right = 1979.0
