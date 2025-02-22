@@ -4,25 +4,13 @@
 [ext_resource type="Script" path="res://ui/Effects.gd" id="1_3a4ee"]
 [ext_resource type="Script" path="res://ui/main_screen.gd" id="1_dtog3"]
 [ext_resource type="PackedScene" uid="uid://d3sg85ljfgv6k" path="res://effects/black_star_animation.tscn" id="2_ujwrl"]
+[ext_resource type="Curve" uid="uid://dav7wvpxgry6h" path="res://effects/daylight/darken.tres" id="2_wtt4u"]
+[ext_resource type="Curve" uid="uid://cj1o2aibmjxn6" path="res://effects/daylight/saturate.tres" id="3_5mxkj"]
 [ext_resource type="PackedScene" uid="uid://dn6jytdfpsb1y" path="res://ui/reflection_marker.tscn" id="4_2bnbj"]
+[ext_resource type="Curve" uid="uid://br7neby7q2hdt" path="res://effects/daylight/contrast.tres" id="4_k0y5x"]
 [ext_resource type="Shader" path="res://daylight.gdshader" id="4_owdko"]
+[ext_resource type="Curve" uid="uid://dd8j4osfjle0c" path="res://effects/daylight/warmth.tres" id="5_8lyd2"]
 [ext_resource type="Shader" path="res://effects/demon-vignette.gdshader" id="5_htkuq"]
-
-[sub_resource type="Curve" id="Curve_7fr2y"]
-_data = [Vector2(0, 0.294737), 0.0, 0.0, 0, 0, Vector2(0.145695, 0), 0.0, 0.0, 0, 0, Vector2(0.423841, 0), 0.0, 0.0, 0, 0, Vector2(0.609272, 0.842105), 0.0, 0.0, 0, 0, Vector2(0.864238, 0.831579), 0.0, 0.0, 0, 0, Vector2(1, 0.305263), 0.0, 0.0, 0, 0]
-point_count = 6
-
-[sub_resource type="Curve" id="Curve_cq1rw"]
-_data = [Vector2(0.0596027, 0.494737), 0.0, 0.0, 0, 0, Vector2(0.271523, 1), 0.0, 0.0, 0, 0, Vector2(0.400662, 1), -0.129753, -0.129753, 0, 0, Vector2(0.639073, 0.284211), 0.0, 0.0, 0, 0, Vector2(0.870861, 0.294737), 0.0, 0.0, 0, 0, Vector2(0.986755, 0.484211), 0.0, 0.0, 0, 0]
-point_count = 6
-
-[sub_resource type="Curve" id="Curve_aeyca"]
-_data = [Vector2(0.493378, 1), 0.0, 0.0, 0, 0, Vector2(0.649007, 0.252632), 0.0, 0.0, 0, 0, Vector2(0.870861, 0.273684), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
-point_count = 4
-
-[sub_resource type="Curve" id="Curve_8128k"]
-_data = [Vector2(0, 0.336842), 0.0, 0.0, 0, 0, Vector2(0.251656, 0.505263), 1.46721, 1.46721, 0, 0, Vector2(0.486755, 0.768421), -1.21548, -1.21548, 0, 0, Vector2(0.543046, 0.442105), -3.63308, -3.63308, 0, 0, Vector2(0.65894, 0.252632), 0.0, 0.0, 0, 0, Vector2(1, 0.336842), 0.0, 0.0, 0, 0]
-point_count = 6
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_4n4me"]
 viewport_path = NodePath("World")
@@ -54,10 +42,10 @@ shader_parameter/screen_texture = SubResource("ViewportTexture_7g2vd")
 offset_right = 1920.0
 offset_bottom = 1080.0
 script = ExtResource("1_dtog3")
-daylight_darken = SubResource("Curve_7fr2y")
-daylight_saturate = SubResource("Curve_cq1rw")
-daylight_contrast = SubResource("Curve_aeyca")
-dalyight_warmth = SubResource("Curve_8128k")
+daylight_darken = ExtResource("2_wtt4u")
+daylight_saturate = ExtResource("3_5mxkj")
+daylight_contrast = ExtResource("4_k0y5x")
+dalyight_warmth = ExtResource("5_8lyd2")
 
 [node name="Menu" type="SubViewport" parent="."]
 transparent_bg = true
