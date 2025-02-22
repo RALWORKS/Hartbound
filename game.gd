@@ -203,6 +203,7 @@ func start_from_state(s):
 		player.position.y = p.y
 	
 	load_quests()
+	modulate_daylight(_init_time_if_needed())
 	#load_display()
 	
 	started = true
