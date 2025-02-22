@@ -204,7 +204,6 @@ func start_from_state(s):
 		player.position.y = p.y
 	
 	load_quests()
-	modulate_daylight(_init_time_if_needed())
 	#load_display()
 	
 	started = true
@@ -638,17 +637,9 @@ func advance_time():
 	else:
 		t += 1
 	
-	modulate_daylight(t)
 	set_state(["date"], d)
 	set_state(["time"], t)
-	
-	
 
-func modulate_daylight(cur_time: int):
-	var screen = get_node_or_null("MainScreen")
-	if screen == null:
-		return
-	screen.modulate_daylight(cur_time, day_length)
 
 func _init_played_cutscenes_if_needed():
 	var data = get_state(["played_cutscenes"])

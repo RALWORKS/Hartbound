@@ -1,18 +1,13 @@
-[gd_scene load_steps=16 format=3 uid="uid://cko70dyq2rkxn"]
+[gd_scene load_steps=9 format=3 uid="uid://cko70dyq2rkxn"]
 
 [ext_resource type="PackedScene" uid="uid://d2tvvel0wxl51" path="res://ui/game_menu.tscn" id="1_0wetn"]
 [ext_resource type="Script" path="res://ui/Effects.gd" id="1_3a4ee"]
 [ext_resource type="Script" path="res://ui/main_screen.gd" id="1_dtog3"]
 [ext_resource type="PackedScene" uid="uid://d3sg85ljfgv6k" path="res://effects/black_star_animation.tscn" id="2_ujwrl"]
-[ext_resource type="Curve" uid="uid://dav7wvpxgry6h" path="res://effects/daylight/darken.tres" id="2_wtt4u"]
-[ext_resource type="Curve" uid="uid://cj1o2aibmjxn6" path="res://effects/daylight/saturate.tres" id="3_5mxkj"]
 [ext_resource type="PackedScene" uid="uid://dn6jytdfpsb1y" path="res://ui/reflection_marker.tscn" id="4_2bnbj"]
-[ext_resource type="Curve" uid="uid://br7neby7q2hdt" path="res://effects/daylight/contrast.tres" id="4_k0y5x"]
-[ext_resource type="Shader" path="res://daylight.gdshader" id="4_owdko"]
-[ext_resource type="Curve" uid="uid://dd8j4osfjle0c" path="res://effects/daylight/warmth.tres" id="5_8lyd2"]
 [ext_resource type="Shader" path="res://effects/demon-vignette.gdshader" id="5_htkuq"]
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_4n4me"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_3ar0a"]
 viewport_path = NodePath("World")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_p13e7"]
@@ -24,28 +19,12 @@ shader_parameter/mul_b = 0.1
 shader_parameter/base_mod = 0.2
 shader_parameter/gradient_mod = 3.0
 shader_parameter/gradient_mul = 2.3
-shader_parameter/screen_texture = SubResource("ViewportTexture_4n4me")
-
-[sub_resource type="ViewportTexture" id="ViewportTexture_7g2vd"]
-viewport_path = NodePath("World")
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_omreh"]
-resource_local_to_scene = true
-shader = ExtResource("4_owdko")
-shader_parameter/darken = 0.0
-shader_parameter/saturate = 1.0
-shader_parameter/contrast = 1.0
-shader_parameter/warmth = 0.5
-shader_parameter/screen_texture = SubResource("ViewportTexture_7g2vd")
+shader_parameter/screen_texture = SubResource("ViewportTexture_3ar0a")
 
 [node name="MainScreen" type="SubViewportContainer"]
 offset_right = 1920.0
 offset_bottom = 1080.0
 script = ExtResource("1_dtog3")
-daylight_darken = ExtResource("2_wtt4u")
-daylight_saturate = ExtResource("3_5mxkj")
-daylight_contrast = ExtResource("4_k0y5x")
-dalyight_warmth = ExtResource("5_8lyd2")
 
 [node name="Menu" type="SubViewport" parent="."]
 transparent_bg = true
@@ -65,15 +44,6 @@ render_target_update_mode = 4
 
 [node name="Filter" type="ColorRect" parent="PostProcessing"]
 material = SubResource("ShaderMaterial_p13e7")
-offset_left = 2.0
-offset_right = 1720.0
-offset_bottom = 1087.0
-mouse_filter = 2
-
-[node name="Daylight" type="CanvasLayer" parent="."]
-
-[node name="Filter" type="ColorRect" parent="Daylight"]
-material = SubResource("ShaderMaterial_omreh")
 offset_left = 2.0
 offset_right = 1720.0
 offset_bottom = 1087.0

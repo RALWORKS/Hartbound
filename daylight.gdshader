@@ -1,6 +1,6 @@
 shader_type canvas_item;
 
-uniform sampler2D screen_texture;
+uniform sampler2D screen_texture: hint_screen_texture;
 uniform float darken = 0.0;
 uniform float saturate = 1.0;
 uniform float contrast = 1.0;

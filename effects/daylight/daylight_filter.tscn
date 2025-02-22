@@ -1,0 +1,17 @@
+[gd_scene load_steps=7 format=3 uid="uid://dec3rewb3xb1u"]
+
+[ext_resource type="Script" path="res://effects/daylight/daylight_filter.gd" id="1_xy1da"]
+[ext_resource type="Material" uid="uid://cui5ito36p3hb" path="res://effects/daylight/daylight_shader.tres" id="2_hp3ti"]
+[ext_resource type="Curve" uid="uid://dav7wvpxgry6h" path="res://effects/daylight/darken.tres" id="2_o6ups"]
+[ext_resource type="Curve" uid="uid://cj1o2aibmjxn6" path="res://effects/daylight/saturate.tres" id="3_43aag"]
+[ext_resource type="Curve" uid="uid://br7neby7q2hdt" path="res://effects/daylight/contrast.tres" id="4_1ldp0"]
+[ext_resource type="Curve" uid="uid://dd8j4osfjle0c" path="res://effects/daylight/warmth.tres" id="5_o8qpc"]
+
+[node name="DaylightFilter" type="Node2D"]
+z_index = 100
+script = ExtResource("1_xy1da")
+daylight_darken = ExtResource("2_o6ups")
+daylight_saturate = ExtResource("3_43aag")
+daylight_contrast = ExtResource("4_1ldp0")
+dalyight_warmth = ExtResource("5_o8qpc")
+daylight_shader = ExtResource("2_hp3ti")
