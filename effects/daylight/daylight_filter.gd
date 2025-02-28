@@ -9,9 +9,13 @@ extends Node2D
 
 @export var daylight_shader: ShaderMaterial
 
+var last_cur_time = null
+
 var mask: Node
 
 var game: Node
+
+var day_length = null
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -25,9 +29,9 @@ func _ready():
 	var g = _get_game()
 	
 	var t = g._init_time_if_needed()
-	var l = g.day_length
+	day_length = g.day_length
 	
-	modulate_daylight(t, l)
+	modulate_daylight(t, day_length)
 	
 
 func _get_game():
@@ -38,9 +42,19 @@ func _get_game():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+	if last_cur_time == null:
+		return
+	
+	var g = _get_game()
+	var t = g._init_time_if_needed()
+	
+	if t == last_cur_time:
+		return
+	
+	modulate_daylight(t, day_length)
 
 func modulate_daylight(cur_time: int, day_length: int):
+	last_cur_time = cur_time
 	if not mask:
 		return
 

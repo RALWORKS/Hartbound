@@ -8,9 +8,9 @@ func _ready():
 
 func set_title(t):
 	title = t
-	$Title.text = title
+	$Wrap/Title.text = title
 	print($"..")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-	position = get_global_mouse_position()
+	$Wrap/Title.position = get_global_mouse_position()

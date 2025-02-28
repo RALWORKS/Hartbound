@@ -15,16 +15,20 @@ corner_radius_bottom_left = 15
 [node name="InteractionArea" type="Area2D"]
 script = ExtResource("1_2nais")
 
-[node name="indicator" type="Sprite2D" parent="."]
+[node name="Wrap" type="CanvasLayer" parent="."]
+layer = 2
+follow_viewport_enabled = true
+
+[node name="indicator" type="Sprite2D" parent="Wrap"]
 self_modulate = Color(0.247059, 0.211765, 0.513726, 0.705882)
 z_index = 90
 texture = ExtResource("2_ahyq5")
 
-[node name="highlight" type="Sprite2D" parent="indicator"]
+[node name="highlight" type="Sprite2D" parent="Wrap/indicator"]
 scale = Vector2(0.6, 0.6)
 texture = ExtResource("2_ahyq5")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="indicator"]
+[node name="RichTextLabel" type="RichTextLabel" parent="Wrap/indicator"]
 offset_left = -15.0
 offset_top = -15.0
 offset_right = 48.0

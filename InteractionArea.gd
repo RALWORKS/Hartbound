@@ -26,9 +26,12 @@ var match_wide_chars = RegEx.create_from_string("[W]")
 func _ready():
 	setup_indicator()
 	setup_label()
+	$Wrap/indicator.set_deferred("visible", false)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
+	$Wrap/indicator.position = global_position
+	$Wrap/indicator.scale = scale
 	var click = Input.is_action_just_released("click")
 	game = _get_game()
 	if click and cur_cursor == null and game.staged_action_node == self:
@@ -40,10 +43,10 @@ func _process(_delta):
 			cur_cursor.set_deferred("visible", true)
 	
 	var scout = Input.is_action_pressed("scout") or _get_game().is_scouting
-	if scout and not $indicator.visible:
-		$indicator.set_deferred("visible", true)
-	elif not scout and $indicator.visible:
-		$indicator.set_deferred("visible", false)
+	if scout and not $Wrap/indicator.visible:
+		$Wrap/indicator.set_deferred("visible", true)
+	elif not scout and $Wrap/indicator.visible:
+		$Wrap/indicator.set_deferred("visible", false)
 
 func _close_action_window():
 	if cur_window:
@@ -126,13 +129,13 @@ func _on_tree_exiting():
 
 
 func setup_indicator():
-	$indicator.scale.x = 1.0/global_scale.x
-	$indicator.scale.y = 1.0/global_scale.y
-	$indicator.rotation = 0 - global_rotation
+	$Wrap/indicator.scale.x = 1.0/global_scale.x
+	$Wrap/indicator.scale.y = 1.0/global_scale.y
+	$Wrap/indicator.rotation = 0 - global_rotation
 
 func setup_label():
-	$indicator/RichTextLabel.text = title
-	var label = $indicator/RichTextLabel
+	$Wrap/indicator/RichTextLabel.text = title
+	var label = $Wrap/indicator/RichTextLabel
 	var len_title = title.length()
 	var overflow = len_title - 4
 	if overflow < 1:

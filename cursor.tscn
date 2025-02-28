@@ -18,11 +18,15 @@ z_index = 1000
 position = Vector2(500, 500)
 script = ExtResource("1_acj8d")
 
-[node name="Title" type="Label" parent="."]
-offset_left = -65.0
-offset_top = 40.0
-offset_right = 65.0
-offset_bottom = 68.0
+[node name="Wrap" type="CanvasLayer" parent="."]
+layer = 2
+follow_viewport_enabled = true
+
+[node name="Title" type="Label" parent="Wrap"]
+offset_left = 435.0
+offset_top = 540.0
+offset_right = 565.0
+offset_bottom = 568.0
 theme_override_styles/normal = SubResource("StyleBoxFlat_75jwd")
 text = "Title"
 horizontal_alignment = 1
