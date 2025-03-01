@@ -28,7 +28,7 @@ func _ready():
 	
 	var g = _get_game()
 	
-	var t = g._init_time_if_needed()
+	var t = g.get_time()
 	day_length = g.day_length
 	
 	modulate_daylight(t, day_length)
@@ -46,7 +46,7 @@ func _process(delta):
 		return
 	
 	var g = _get_game()
-	var t = g._init_time_if_needed()
+	var t = g.get_time()
 	
 	if t == last_cur_time:
 		return

@@ -61,7 +61,7 @@ var INITIAL_STATE = {
 	},
 	"moves": 0,
 	"timers": [],
-	"time": 0.2 * day_length,
+	"timestamp": 0.2 * day_length,
 }
 
 var STATE = INITIAL_STATE.duplicate(true)
@@ -588,16 +588,18 @@ func _init_moves_if_needed():
 	return set_state(["moves"], 0)
 
 func _init_time_if_needed():
-	var data = get_state(["time"])
+	var data = get_state(["timestamp"])
 	if data != null:
 		return data
-	return set_state(["time"], 0)
+	return set_state(["timestamp"], 0)
 
-func _init_date_if_needed():
-	var data = get_state(["date"])
-	if data != null:
-		return data
-	return set_state(["date"], 0)
+func get_time():
+	var dt = _init_time_if_needed()
+	return dt % day_length
+
+func get_date():
+	var dt = _init_time_if_needed()
+	return int(dt / day_length)
 
 func _init_timers_if_needed():
 	var data = get_state(["timers"])
@@ -629,16 +631,8 @@ func move():
 
 func advance_time():
 	var t = _init_time_if_needed()
-	var d = _init_date_if_needed()
-	
-	if t >= day_length - 1:
-		t = 0
-		d += 1
-	else:
-		t += 1
-	
-	set_state(["date"], d)
-	set_state(["time"], t)
+	t += 1
+	set_state(["timestamp"], t)
 
 
 func _init_played_cutscenes_if_needed():
@@ -714,15 +708,5 @@ func get_standard_bg_scale():
 
 func get_standard_bg_position():
 	return chapter.cached_bg_position
-	
-func _init_day_if_needed():
-	var data = get_state(["day"])
-	if data != null:
-		return data
-	return set_state(["day"], 0)
 
-func get_day():
-	return _init_day_if_needed()
 
-func next_day():
-	return set_state(["day"], get_day() + 1)
