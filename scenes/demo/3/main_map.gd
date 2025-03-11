@@ -15,6 +15,7 @@ var active_area: MapArea = null
 func _ready():
 	_init_children()
 	_init_areas()
+	$"/root/Game".show_clock = false
 
 func _init_children():
 	for c in get_children():
@@ -70,6 +71,8 @@ func get_biome():
 
 func go():
 	save_position()
+	game.jump_over_moves($bg/MapGrid.time_expended())
+	
 	var biome = get_biome()
 	biome.get_parent().remove_child(biome)
 	$"/root/Game/Chapter".close_map(biome)

@@ -1,5 +1,7 @@
 extends Node
 
+class_name ChapterEventMutation
+
 @export var state_path_slash_delineated: String
 @export var data: String
 @export var parse_data_as_int: bool

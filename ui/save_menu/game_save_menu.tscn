@@ -92,6 +92,7 @@ offset_top = 130.0
 offset_right = 167.0
 offset_bottom = 161.0
 text = "Save As"
+raise_to_ui_layer = false
 to = NodePath("../../Saving")
 
 [node name="Saving" parent="." index="4" instance=ExtResource("2_l2ax4")]
@@ -125,6 +126,7 @@ offset_right = 173.0
 offset_bottom = 134.0
 text = "> Create
 "
+raise_to_ui_layer = false
 to = NodePath("../../NewSaveFile")
 
 [node name="CancelOption2" parent="NoSaveYet" index="2" node_paths=PackedStringArray("to") instance=ExtResource("3_tv43y")]
@@ -133,6 +135,7 @@ offset_top = 137.0
 offset_right = 173.0
 offset_bottom = 168.0
 text = "> Cancel"
+raise_to_ui_layer = false
 to = NodePath("../../Cancelled")
 
 [connection signal="text_changed" from="NewSaveFile/NextWrapper/TextEdit" to="NewSaveFile/NextWrapper" method="_on_text_edit_text_changed"]

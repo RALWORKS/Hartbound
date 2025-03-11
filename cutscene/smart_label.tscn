@@ -1,11 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://b11g7mb25w5xp"]
+[gd_scene load_steps=5 format=3 uid="uid://b11g7mb25w5xp"]
 
 [ext_resource type="Theme" uid="uid://bowrqsap2qmsa" path="res://base_theme.tres" id="1_eymdb"]
 [ext_resource type="Script" path="res://cutscene/smart_label.gd" id="2_0qfgb"]
 [ext_resource type="PackedScene" uid="uid://mqthx6wcxxuo" path="res://ui/state_tag_replacer.tscn" id="3_vsvyl"]
+[ext_resource type="PackedScene" uid="uid://nglu31ms2rfa" path="res://ui/raise_to_ui_layer.tscn" id="4_mfpm2"]
 
 [node name="SmartLabel" type="RichTextLabel"]
-z_index = 1000
 offset_left = -1.0
 offset_top = 875.0
 offset_right = 1979.0
@@ -15,3 +15,5 @@ theme_type_variation = &"VoiceoverBox"
 script = ExtResource("2_0qfgb")
 
 [node name="StateTagReplacer" parent="." instance=ExtResource("3_vsvyl")]
+
+[node name="RaiseToUILayer" parent="." instance=ExtResource("4_mfpm2")]

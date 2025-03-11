@@ -1,4 +1,7 @@
 extends Node
+class_name Chapter
+
+
 @export var starting_scene: Resource
 @export var starting_music: AudioStreamPlayer
 @export var script_holder: Node
@@ -147,6 +150,7 @@ func end_cutscene(free=false):
 	var next_chapter = cutscene.to_chapter
 	var sequence = cutscene.cutscene_sequence
 	var teleport_to = cutscene.teleport_to
+	var is_move = cutscene.is_move
 	print("ENDSCENE VARS SET")
 	
 	var holdouts = []
@@ -172,6 +176,8 @@ func end_cutscene(free=false):
 		await get_tree().create_timer(0.1).timeout
 		start_cutscene(next_cutscene, npc, null, sequence)
 		return
+	
+	game.show_clock = true
 
 	for child in cur_game:
 		if is_instance_valid(child):
@@ -181,7 +187,8 @@ func end_cutscene(free=false):
 				$"../MainScreen/World".add_child(child)
 
 	await get_tree().create_timer(0.1).timeout
-	$"/root/Game".move()
+	if is_move:
+		$"/root/Game".move()
 
 	if teleport_to != null:
 		$"/root/Game/Map".move_to(teleport_to)
@@ -210,9 +217,7 @@ func to_map():
 func close_map(biome):
 	active_map.call_deferred("free")
 	await get_tree().create_timer(0.05).timeout
-	$"/root/Game".move()
-	
-	game.next_day()
+	#$"/root/Game".move()
 	
 	if biome.trigger_name:
 		return trigger(biome.trigger_name)

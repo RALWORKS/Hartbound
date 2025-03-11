@@ -19,7 +19,7 @@ position = Vector2(500, 500)
 script = ExtResource("1_acj8d")
 
 [node name="Wrap" type="CanvasLayer" parent="."]
-layer = 2
+layer = 3
 follow_viewport_enabled = true
 
 [node name="Title" type="Label" parent="Wrap"]

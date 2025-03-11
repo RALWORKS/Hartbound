@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://cgjcx1c2bu4w1"]
+[gd_scene load_steps=31 format=3 uid="uid://cgjcx1c2bu4w1"]
 
 [ext_resource type="PackedScene" uid="uid://byrlpmbpj6yr5" path="res://scene.tscn" id="1_17bkq"]
 [ext_resource type="Texture2D" uid="uid://dobfgkrdvoy5g" path="res://assets/scenes/demo/1/industrial/b.png" id="2_m2rm4"]
@@ -22,9 +22,11 @@
 [ext_resource type="PackedScene" uid="uid://uc3gpi8pp0cj" path="res://chapters/demo/1/brona.tscn" id="20_f036h"]
 [ext_resource type="PackedScene" uid="uid://bii8gdmkfiy5x" path="res://chapters/demo/1/taylor.tscn" id="21_f7tvm"]
 [ext_resource type="PackedScene" uid="uid://3xvq5teh4d0q" path="res://travel/map_door.tscn" id="22_5pdho"]
+[ext_resource type="PackedScene" uid="uid://cbw4fl1f8ctmj" path="res://scenes/possible_camp.tscn" id="23_nal28"]
 [ext_resource type="PackedScene" uid="uid://5exo54lvam30" path="res://quests/quests/demo_c_1_regroup_initial.tscn" id="23_tr3ta"]
 [ext_resource type="PackedScene" uid="uid://cqv8vs3o2qua4" path="res://chapters/demo/1/jerry_says_no_leavng_alone.tscn" id="24_3xac6"]
 [ext_resource type="Texture2D" uid="uid://dduqbcoe6864b" path="res://assets/scenes/demo/1/industrial/b-pipe.png" id="25_wyt0v"]
+[ext_resource type="Shader" path="res://daylight.gdshader" id="27_echfa"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_2fe48"]
 vertices = PackedVector2Array(4, 705, 354, 520, 704, 499, 1064, 765, 1520, 1240, 610, 1236, 8, 980)
@@ -35,6 +37,14 @@ outlines = Array[PackedVector2Array]([PackedVector2Array(4, 705, 354, 520, 704, 
 vertices = PackedVector2Array(1595, 738, 1259, 526, 1437, 442, 1602, -2, 358, 39, 9, 227, 14, 4, 720, 45, 546, 102)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2), PackedInt32Array(3, 0, 2), PackedInt32Array(4, 5, 6), PackedInt32Array(4, 6, 3, 7), PackedInt32Array(3, 2, 7), PackedInt32Array(4, 7, 8)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(9, 227, 358, 39, 546, 102, 720, 45, 1437, 442, 1259, 526, 1595, 738, 1602, -2, 14, 4)])
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8850m"]
+resource_local_to_scene = true
+shader = ExtResource("27_echfa")
+shader_parameter/darken = 0.0
+shader_parameter/saturate = 1.0
+shader_parameter/contrast = 1.0
+shader_parameter/warmth = 0.5
 
 [node name="IndustrialB" node_paths=PackedStringArray("vein_node") instance=ExtResource("1_17bkq")]
 vein_node = NodePath("Vein")
@@ -227,6 +237,9 @@ scale = Vector2(2, 2)
 position = Vector2(8, 640)
 rotation = 1.5708
 
+[node name="PossbleCamp" parent="YSort" index="23" instance=ExtResource("23_nal28")]
+position = Vector2(521, 707)
+
 [node name="ThresholdQuests" type="Node" parent="." index="2"]
 
 [node name="BlockadeQuests" type="Node" parent="." index="3"]
@@ -251,3 +264,6 @@ offset = Vector2(0, -100)
 
 [node name="Vein" type="Polygon2D" parent="." index="7"]
 polygon = PackedVector2Array(76, 1425, 778, 1097, 464, 837, 981, 619, 993, 237, 1898, -187, 1966, -113, 1080, 277, 1072, 659, 622, 862, 959, 1123, 156, 1491)
+
+[node name="MainDaylightFilter" parent="Filters" index="0"]
+daylight_shader = SubResource("ShaderMaterial_8850m")

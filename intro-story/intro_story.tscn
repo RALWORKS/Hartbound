@@ -16,6 +16,8 @@
 [ext_resource type="Texture2D" uid="uid://nl28q5ul04uv" path="res://assets/intro-story/hikers.png" id="14_adj8w"]
 
 [node name="IntroStory" node_paths=PackedStringArray("starting_page") instance=ExtResource("1_viyvx")]
+show_clock = false
+is_move = false
 starting_page = NodePath("1")
 
 [node name="1" parent="." index="0" node_paths=PackedStringArray("next") instance=ExtResource("2_6n3eq")]

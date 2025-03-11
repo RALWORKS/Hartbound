@@ -42,12 +42,13 @@ func marker_walk_mode():
 	label.set_deferred("visible", false)
 
 func marker_x_mode():
-	if marker == {}:
-		return
-	marker["ring"].set_deferred("visible", false)
-	var label = marker["arrow"].get_node("Label")
-	label.set_deferred("visible", true)
-	label.text = game.staged_action_node.title
+	return show_marker()
+#	if marker == {}:
+#		return
+#	marker["ring"].set_deferred("visible", false)
+#	var label = marker["arrow"].get_node("Label")
+#	label.set_deferred("visible", true)
+#	label.text = game.staged_action_node.title
 	
 
 func move_marker(new_position):

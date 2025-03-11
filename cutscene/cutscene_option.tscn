@@ -1,11 +1,14 @@
-[gd_scene load_steps=2 format=3 uid="uid://yplasm5gtgly"]
+[gd_scene load_steps=3 format=3 uid="uid://yplasm5gtgly"]
 
 [ext_resource type="Script" path="res://cutscene/CutsceneOption.gd" id="1_ef1ox"]
+[ext_resource type="PackedScene" uid="uid://nglu31ms2rfa" path="res://ui/raise_to_ui_layer.tscn" id="2_oinv1"]
 
 [node name="CutsceneOption" type="Button"]
 offset_right = 8.0
 offset_bottom = 8.0
 script = ExtResource("1_ef1ox")
+
+[node name="RaiseToUILayer" parent="." instance=ExtResource("2_oinv1")]
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

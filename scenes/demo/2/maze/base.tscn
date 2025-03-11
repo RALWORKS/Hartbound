@@ -1,13 +1,22 @@
-[gd_scene load_steps=7 format=3 uid="uid://c8dvlsyrphnoc"]
+[gd_scene load_steps=9 format=3 uid="uid://c8dvlsyrphnoc"]
 
 [ext_resource type="PackedScene" uid="uid://byrlpmbpj6yr5" path="res://scene.tscn" id="1_fjx3q"]
 [ext_resource type="Texture2D" uid="uid://cdm0ewe6djiw" path="res://assets/scenes/demo/1/industrial/a.png" id="2_x2tr7"]
 [ext_resource type="Texture2D" uid="uid://eao24wrjq532" path="res://assets/maze-concept-foreground.png" id="3_bfyy7"]
 [ext_resource type="PackedScene" uid="uid://hkvbe74sc3cw" path="res://effects/maze_bg.tscn" id="4_1ilxn"]
 [ext_resource type="Texture2D" uid="uid://ctxw7gjxkefbl" path="res://assets/maze-concept-foreground-path.png" id="5_6pa67"]
+[ext_resource type="Shader" path="res://daylight.gdshader" id="6_o2vdc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_itfna"]
 size = Vector2(1801, 155)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_clcys"]
+resource_local_to_scene = true
+shader = ExtResource("6_o2vdc")
+shader_parameter/darken = 0.0
+shader_parameter/saturate = 1.0
+shader_parameter/contrast = 1.0
+shader_parameter/warmth = 0.5
 
 [node name="MazeScene" instance=ExtResource("1_fjx3q")]
 
@@ -47,3 +56,7 @@ shape = SubResource("RectangleShape2D_itfna")
 
 [node name="DefaultSpawner" parent="YSort" index="0"]
 position = Vector2(779, 498)
+
+[node name="MainDaylightFilter" parent="Filters" index="0"]
+visible = false
+daylight_shader = SubResource("ShaderMaterial_clcys")

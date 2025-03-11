@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://b5rgfy6xym7wc"]
+[gd_scene load_steps=6 format=3 uid="uid://b5rgfy6xym7wc"]
 
 [ext_resource type="Script" path="res://scenes/demo/3/MapGrid.gd" id="1_nqm8m"]
+[ext_resource type="PackedScene" uid="uid://7djnei1l8a52" path="res://tools/time_utils.tscn" id="2_18pno"]
 
 [sub_resource type="Animation" id="Animation_sniwn"]
 loop_mode = 2
@@ -50,39 +51,14 @@ offset_right = 195.0
 offset_bottom = 124.0
 color = Color(0, 0, 0, 1)
 
-[node name="LabelHours" type="Label" parent="CanvasLayer/Counter"]
-layout_mode = 0
-offset_left = 12.0
-offset_top = 69.0
-offset_right = 160.0
-offset_bottom = 115.0
-text = "hours"
-
-[node name="Max" type="Label" parent="CanvasLayer/Counter"]
-layout_mode = 0
-offset_left = 86.0
-offset_top = 19.0
-offset_right = 179.0
-offset_bottom = 65.0
-text = "12"
-
-[node name="Slash" type="Label" parent="CanvasLayer/Counter"]
-layout_mode = 0
-offset_left = 68.0
-offset_top = 19.0
-offset_right = 161.0
-offset_bottom = 65.0
-text = "/
-"
-
 [node name="Data" type="Label" parent="CanvasLayer/Counter"]
 layout_mode = 0
-offset_left = 11.0
-offset_top = 11.0
-offset_right = 159.0
-offset_bottom = 76.0
+offset_left = 27.0
+offset_top = 21.0
+offset_right = 175.0
+offset_bottom = 86.0
 theme_override_font_sizes/font_size = 30
-text = "0"
+text = "06:00"
 
 [node name="TravelTip" type="ColorRect" parent="CanvasLayer/Counter"]
 layout_mode = 0
@@ -112,3 +88,13 @@ text = "to travel here"
 libraries = {
 "": SubResource("AnimationLibrary_72wu3")
 }
+
+[node name="Label" type="Label" parent="CanvasLayer/Counter"]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 60.0
+offset_right = 139.0
+offset_bottom = 106.0
+text = "ARRIVAL TIME"
+
+[node name="TimeUtils" parent="." instance=ExtResource("2_18pno")]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://lw7adtj0heus"]
+[gd_scene load_steps=12 format=3 uid="uid://lw7adtj0heus"]
 
 [ext_resource type="PackedScene" uid="uid://byrlpmbpj6yr5" path="res://scene.tscn" id="1_n4lo1"]
 [ext_resource type="Texture2D" uid="uid://fr5woj7ge80a" path="res://assets/scenes/demo/1/a.png" id="2_qitp5"]
@@ -7,11 +7,21 @@
 [ext_resource type="PackedScene" uid="uid://uc3gpi8pp0cj" path="res://chapters/demo/1/brona.tscn" id="5_24xfq"]
 [ext_resource type="PackedScene" uid="uid://in7v8nsvojyp" path="res://chapters/demo/1/nate.tscn" id="6_vj7mj"]
 [ext_resource type="PackedScene" uid="uid://3xvq5teh4d0q" path="res://travel/map_door.tscn" id="7_jk1xj"]
+[ext_resource type="PackedScene" uid="uid://cbw4fl1f8ctmj" path="res://scenes/possible_camp.tscn" id="8_6dg7t"]
+[ext_resource type="Shader" path="res://daylight.gdshader" id="9_7riqg"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_t6onf"]
 vertices = PackedVector2Array(885, 364, 1292, 338, 1088.66, 492.719, 853, 446, 792, 376, 745, 537, 326, 266, 631, 249, 1309, 698, 1347, 656, 1409, 732, 863, 888, 958, 1005, 698, 1135, 736, 1250, 47, 1212, 37, 1100)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4), PackedInt32Array(5, 6, 7, 4, 3), PackedInt32Array(8, 3, 2, 9, 10), PackedInt32Array(11, 8, 10, 12, 13), PackedInt32Array(13, 12, 14), PackedInt32Array(13, 14, 15, 16)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(37, 1100, 47, 1212, 736, 1250, 958, 1005, 1409, 732, 1347, 656, 1088.66, 492.719, 1292, 338, 885, 364, 792, 376, 631, 249, 326, 266, 745, 537, 853, 446, 1309, 698, 863, 888, 698, 1135)])
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wcfrr"]
+resource_local_to_scene = true
+shader = ExtResource("9_7riqg")
+shader_parameter/darken = 0.0
+shader_parameter/saturate = 1.0
+shader_parameter/contrast = 1.0
+shader_parameter/warmth = 0.5
 
 [node name="Camp1" instance=ExtResource("1_n4lo1")]
 dialogue_bg_scale = Vector2(3, 3)
@@ -52,3 +62,9 @@ navigation_polygon = SubResource("NavigationPolygon_t6onf")
 [node name="MapDoor" parent="YSort" index="6" instance=ExtResource("7_jk1xj")]
 position = Vector2(-33, 1241)
 scale = Vector2(2.5, 2.5)
+
+[node name="PossibleCamp" parent="YSort" index="7" instance=ExtResource("8_6dg7t")]
+position = Vector2(478, 367)
+
+[node name="MainDaylightFilter" parent="Filters" index="0"]
+daylight_shader = SubResource("ShaderMaterial_wcfrr")

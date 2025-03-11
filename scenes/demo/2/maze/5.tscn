@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://620krx2pbo5n"]
+[gd_scene load_steps=16 format=3 uid="uid://620krx2pbo5n"]
 
 [ext_resource type="PackedScene" uid="uid://c8dvlsyrphnoc" path="res://scenes/demo/2/maze/base.tscn" id="1_ouxyy"]
 [ext_resource type="Texture2D" uid="uid://b03p7gc1dm2aq" path="res://assets/scenes/demo/1/industrial/f.png" id="2_3p2mj"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://dxfuidhlgwthh" path="res://travel/door.tscn" id="5_c3ena"]
 [ext_resource type="Texture2D" uid="uid://d0fs143ocfa80" path="res://assets/green-blur-circle.png" id="5_ybfya"]
 [ext_resource type="Script" path="res://scenes/demo/2/maze/MakeGhost.gd" id="10_dguho"]
+[ext_resource type="Shader" path="res://daylight.gdshader" id="11_xxn5x"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_2ynbq"]
 vertices = PackedVector2Array(368, 63, 259, -1, 323, -16, 455, 52, 146, 241, 89, 241, 403.902, 432.861, 848, 660, 1584, 343, 1596, 407, 1505, 350, 1509, 286, 844, 701, 441.623, 455.843, 173, 883, 154, 873)
@@ -25,6 +26,14 @@ outlines = Array[PackedVector2Array]([PackedVector2Array(652, -35, 803, 71, 591,
 vertices = PackedVector2Array(474, 1162, 587, 1256, 486, 1275, 361, 1184, 1290, 656, 1286, 697, 1614, 845, 1614, 905)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(0, 3, 4, 5), PackedInt32Array(6, 7, 5, 4)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(486, 1275, 361, 1184, 1290, 656, 1614, 845, 1614, 905, 1286, 697, 474, 1162, 587, 1256)])
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rwf87"]
+resource_local_to_scene = true
+shader = ExtResource("11_xxn5x")
+shader_parameter/darken = 0.0
+shader_parameter/saturate = 1.0
+shader_parameter/contrast = 1.0
+shader_parameter/warmth = 0.5
 
 [node name="MazeScene" instance=ExtResource("1_ouxyy")]
 
@@ -127,3 +136,7 @@ navigation_polygon = SubResource("NavigationPolygon_mkrwo")
 
 [node name="NavigationRegion2D3" type="NavigationRegion2D" parent="YSort" index="10"]
 navigation_polygon = SubResource("NavigationPolygon_suqud")
+
+[node name="MainDaylightFilter" parent="Filters" index="0"]
+visible = false
+daylight_shader = SubResource("ShaderMaterial_rwf87")

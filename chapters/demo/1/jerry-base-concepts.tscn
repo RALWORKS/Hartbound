@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://cwyp5qnd6nu8r"]
+[gd_scene load_steps=30 format=3 uid="uid://cwyp5qnd6nu8r"]
 
 [ext_resource type="Script" path="res://cutscene/CutsceneConceptsContainer.gd" id="1_dxya4"]
 [ext_resource type="PackedScene" uid="uid://bmaotdu8ofpwi" path="res://concept-map/concepts/sun_temple.tscn" id="2_6yjtf"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://cutscene/standard_bg.gd" id="5_lccoy"]
 [ext_resource type="Theme" uid="uid://bowrqsap2qmsa" path="res://base_theme.tres" id="7_iu54m"]
 [ext_resource type="PackedScene" uid="uid://blq44wuaxi7tj" path="res://concept-map/concepts/elves.tscn" id="8_7wr3d"]
+[ext_resource type="PackedScene" uid="uid://nglu31ms2rfa" path="res://ui/raise_to_ui_layer.tscn" id="8_mpvlo"]
 [ext_resource type="PackedScene" uid="uid://be12fgu7h2rj1" path="res://concept-map/concepts/humans.tscn" id="9_167hw"]
 [ext_resource type="PackedScene" uid="uid://pgm63ijam86e" path="res://concept-map/concepts/moon_temple.tscn" id="10_ws3w1"]
 [ext_resource type="PackedScene" uid="uid://cpcg5ug3rutlq" path="res://concept-map/concepts/salvagers.tscn" id="12_iypv4"]
@@ -58,6 +59,8 @@ bbcode_enabled = true
 text = "\"My father was there when they named the place. Renamed it, I mean. They used to call it 'Tronno',
 you know, but old language names like that just don't resonate with people these days.\""
 
+[node name="RaiseToUILayer" parent="Sun Temple/SunTemple1/RichTextLabel" instance=ExtResource("8_mpvlo")]
+
 [node name="Elves" parent="." instance=ExtResource("8_7wr3d")]
 
 [node name="CutsceneNode" parent="Elves" instance=ExtResource("3_bfik8")]
@@ -83,6 +86,8 @@ theme = ExtResource("7_iu54m")
 theme_type_variation = &"VoiceoverBox"
 text = "\"Don't you ask me about Elves, now. I should be the one to ask you."
 
+[node name="RaiseToUILayer" parent="Elves/CutsceneNode/RichTextLabel" instance=ExtResource("8_mpvlo")]
+
 [node name="RichTextLabel2" type="RichTextLabel" parent="Elves/CutsceneNode"]
 offset_left = 826.0
 offset_top = 284.0
@@ -91,6 +96,8 @@ offset_bottom = 364.0
 theme = ExtResource("7_iu54m")
 theme_type_variation = &"VoiceoverBox"
 text = "\"Is it true you're gonna live to be 200?\""
+
+[node name="RaiseToUILayer" parent="Elves/CutsceneNode/RichTextLabel2" instance=ExtResource("8_mpvlo")]
 
 [node name="Humans" parent="." instance=ExtResource("9_167hw")]
 
@@ -118,6 +125,8 @@ theme_type_variation = &"VoiceoverBox"
 bbcode_enabled = true
 text = "\"Tell you about humans?"
 
+[node name="RaiseToUILayer" parent="Humans/humans1/RichTextLabel" instance=ExtResource("8_mpvlo")]
+
 [node name="RichTextLabel2" type="RichTextLabel" parent="Humans/humans1"]
 offset_left = 907.0
 offset_top = 254.0
@@ -128,6 +137,8 @@ theme_type_variation = &"VoiceoverBox"
 bbcode_enabled = true
 text = "\"C'mon, buddy. You know about us."
 
+[node name="RaiseToUILayer" parent="Humans/humans1/RichTextLabel2" instance=ExtResource("8_mpvlo")]
+
 [node name="RichTextLabel3" type="RichTextLabel" parent="Humans/humans1"]
 offset_left = 855.0
 offset_top = 348.0
@@ -137,6 +148,8 @@ theme = ExtResource("7_iu54m")
 theme_type_variation = &"VoiceoverBox"
 bbcode_enabled = true
 text = "\"No long Elf lives. No weird Elf magic. Just normal. Human.\""
+
+[node name="RaiseToUILayer" parent="Humans/humans1/RichTextLabel3" instance=ExtResource("8_mpvlo")]
 
 [node name="MoonTemple" parent="." instance=ExtResource("10_ws3w1")]
 
@@ -164,6 +177,8 @@ theme_type_variation = &"VoiceoverBox"
 bbcode_enabled = true
 text = "\"Why are you talking about Moon Temple?"
 
+[node name="RaiseToUILayer" parent="MoonTemple/CutsceneNode/RichTextLabel2" instance=ExtResource("8_mpvlo")]
+
 [node name="RichTextLabel3" type="RichTextLabel" parent="MoonTemple/CutsceneNode"]
 offset_left = 812.0
 offset_top = 227.0
@@ -174,6 +189,8 @@ theme_type_variation = &"VoiceoverBox"
 bbcode_enabled = true
 text = "\"Aren't you from some small town near the border?"
 
+[node name="RaiseToUILayer" parent="MoonTemple/CutsceneNode/RichTextLabel3" instance=ExtResource("8_mpvlo")]
+
 [node name="RichTextLabel4" type="RichTextLabel" parent="MoonTemple/CutsceneNode"]
 offset_left = 911.0
 offset_top = 374.0
@@ -183,6 +200,8 @@ theme = ExtResource("7_iu54m")
 theme_type_variation = &"VoiceoverBox"
 bbcode_enabled = true
 text = "\"You better not be planning anything.\""
+
+[node name="RaiseToUILayer" parent="MoonTemple/CutsceneNode/RichTextLabel4" instance=ExtResource("8_mpvlo")]
 
 [node name="Salvagers" parent="." instance=ExtResource("12_iypv4")]
 
@@ -210,6 +229,8 @@ theme_type_variation = &"VoiceoverBox"
 bbcode_enabled = true
 text = "\"I've been salvaging since I was--well, younger than you, that's for sure."
 
+[node name="RaiseToUILayer" parent="Salvagers/sal1/RichTextLabel" instance=ExtResource("8_mpvlo")]
+
 [node name="RichTextLabel2" type="RichTextLabel" parent="Salvagers/sal1"]
 offset_left = 846.0
 offset_top = 292.0
@@ -219,6 +240,8 @@ theme = ExtResource("7_iu54m")
 theme_type_variation = &"VoiceoverBox"
 bbcode_enabled = true
 text = "\"I plan on keeping it up 'til I can't. Then, the City'll take care of me, and I'll have a nice, long retirement.\""
+
+[node name="RaiseToUILayer" parent="Salvagers/sal1/RichTextLabel2" instance=ExtResource("8_mpvlo")]
 
 [node name="Medics" parent="." instance=ExtResource("14_mr4o6")]
 
@@ -246,6 +269,8 @@ theme_type_variation = &"VoiceoverBox"
 bbcode_enabled = true
 text = "\"You're not hurt, are you?"
 
+[node name="RaiseToUILayer" parent="Medics/CutsceneNode/RichTextLabel" instance=ExtResource("8_mpvlo")]
+
 [node name="RichTextLabel2" type="RichTextLabel" parent="Medics/CutsceneNode"]
 offset_left = 869.0
 offset_top = 241.0
@@ -255,6 +280,8 @@ theme = ExtResource("7_iu54m")
 theme_type_variation = &"VoiceoverBox"
 bbcode_enabled = true
 text = "\"'Cause unless it's bad enough for medevac, I don't want you wasting Miss Taylor's time.\""
+
+[node name="RaiseToUILayer" parent="Medics/CutsceneNode/RichTextLabel2" instance=ExtResource("8_mpvlo")]
 
 [node name="Engineers" parent="." instance=ExtResource("15_jcbmt")]
 
@@ -281,6 +308,8 @@ theme = ExtResource("7_iu54m")
 theme_type_variation = &"VoiceoverBox"
 text = "\"Engineers, as a general rule, assume they know better than you do."
 
+[node name="RaiseToUILayer" parent="Engineers/Eng/RichTextLabel" instance=ExtResource("8_mpvlo")]
+
 [node name="RichTextLabel2" type="RichTextLabel" parent="Engineers/Eng"]
 offset_left = 852.0
 offset_top = 359.0
@@ -290,6 +319,8 @@ theme = ExtResource("7_iu54m")
 theme_type_variation = &"VoiceoverBox"
 text = "\"Doesn't matter when you've been in the field longer, or when you're working on something that they're just seeing for the first time in their life."
 
+[node name="RaiseToUILayer" parent="Engineers/Eng/RichTextLabel2" instance=ExtResource("8_mpvlo")]
+
 [node name="RichTextLabel3" type="RichTextLabel" parent="Engineers/Eng"]
 offset_left = 906.0
 offset_top = 577.0
@@ -298,6 +329,8 @@ offset_bottom = 705.0
 theme = ExtResource("7_iu54m")
 theme_type_variation = &"VoiceoverBox"
 text = "\"Engineer knows best. It's a rule of the profession.\""
+
+[node name="RaiseToUILayer" parent="Engineers/Eng/RichTextLabel3" instance=ExtResource("8_mpvlo")]
 
 [node name="EndOfTheWorld" parent="." instance=ExtResource("16_ppoa1")]
 
@@ -325,6 +358,8 @@ theme_type_variation = &"VoiceoverBox"
 bbcode_enabled = true
 text = "\"My grandfather's grandfather lived to tell the tale."
 
+[node name="RaiseToUILayer" parent="EndOfTheWorld/endoftheworld/RichTextLabel" instance=ExtResource("8_mpvlo")]
+
 [node name="RichTextLabel2" type="RichTextLabel" parent="EndOfTheWorld/endoftheworld"]
 offset_left = 837.0
 offset_top = 304.0
@@ -334,6 +369,8 @@ theme = ExtResource("7_iu54m")
 theme_type_variation = &"VoiceoverBox"
 bbcode_enabled = true
 text = "\"Demons coming out of the power lines. Dreams creeping into the waking world."
+
+[node name="RaiseToUILayer" parent="EndOfTheWorld/endoftheworld/RichTextLabel2" instance=ExtResource("8_mpvlo")]
 
 [node name="RichTextLabel3" type="RichTextLabel" parent="EndOfTheWorld/endoftheworld"]
 offset_left = 911.0
@@ -345,6 +382,8 @@ theme_type_variation = &"VoiceoverBox"
 bbcode_enabled = true
 text = "\"I can't even picture it."
 
+[node name="RaiseToUILayer" parent="EndOfTheWorld/endoftheworld/RichTextLabel3" instance=ExtResource("8_mpvlo")]
+
 [node name="RichTextLabel4" type="RichTextLabel" parent="EndOfTheWorld/endoftheworld"]
 offset_left = 1027.0
 offset_top = 559.0
@@ -354,6 +393,8 @@ theme = ExtResource("7_iu54m")
 theme_type_variation = &"VoiceoverBox"
 bbcode_enabled = true
 text = "\"They say the only ones who can are those dying of hte plague, bless them.\""
+
+[node name="RaiseToUILayer" parent="EndOfTheWorld/endoftheworld/RichTextLabel4" instance=ExtResource("8_mpvlo")]
 
 [node name="Plague of Dreams" parent="." instance=ExtResource("17_wsbnw")]
 
@@ -380,6 +421,8 @@ theme = ExtResource("7_iu54m")
 theme_type_variation = &"VoiceoverBox"
 text = "\"Epidemics of that still come through neighbourhoods from time to time, when the Leyline encroaches."
 
+[node name="RaiseToUILayer" parent="Plague of Dreams/Plague/RichTextLabel" instance=ExtResource("8_mpvlo")]
+
 [node name="RichTextLabel2" type="RichTextLabel" parent="Plague of Dreams/Plague"]
 offset_left = 845.0
 offset_top = 284.0
@@ -388,6 +431,8 @@ offset_bottom = 374.0
 theme = ExtResource("7_iu54m")
 theme_type_variation = &"VoiceoverBox"
 text = "\"Nasty disease.\""
+
+[node name="RaiseToUILayer" parent="Plague of Dreams/Plague/RichTextLabel2" instance=ExtResource("8_mpvlo")]
 
 [node name="Demons" parent="." instance=ExtResource("18_q27pv")]
 
@@ -414,6 +459,8 @@ theme = ExtResource("7_iu54m")
 theme_type_variation = &"VoiceoverBox"
 text = "\"Shh."
 
+[node name="RaiseToUILayer" parent="Demons/demons/RichTextLabel" instance=ExtResource("8_mpvlo")]
+
 [node name="RichTextLabel2" type="RichTextLabel" parent="Demons/demons"]
 offset_left = 807.0
 offset_top = 256.0
@@ -422,6 +469,8 @@ offset_bottom = 342.0
 theme = ExtResource("7_iu54m")
 theme_type_variation = &"VoiceoverBox"
 text = "\"Kid."
+
+[node name="RaiseToUILayer" parent="Demons/demons/RichTextLabel2" instance=ExtResource("8_mpvlo")]
 
 [node name="RichTextLabel3" type="RichTextLabel" parent="Demons/demons"]
 offset_left = 872.0
@@ -432,6 +481,8 @@ theme = ExtResource("7_iu54m")
 theme_type_variation = &"VoiceoverBox"
 text = "\"You haven't heard about the jinx?"
 
+[node name="RaiseToUILayer" parent="Demons/demons/RichTextLabel3" instance=ExtResource("8_mpvlo")]
+
 [node name="RichTextLabel4" type="RichTextLabel" parent="Demons/demons"]
 offset_left = 832.0
 offset_top = 465.0
@@ -441,6 +492,8 @@ theme = ExtResource("7_iu54m")
 theme_type_variation = &"VoiceoverBox"
 bbcode_enabled = true
 text = "\"If [i]you[/i] get killed, [i]I[/i] get blamed.\""
+
+[node name="RaiseToUILayer" parent="Demons/demons/RichTextLabel4" instance=ExtResource("8_mpvlo")]
 
 [node name="GeneratorCrews" parent="." instance=ExtResource("19_2cim3")]
 
@@ -472,6 +525,8 @@ theme = ExtResource("7_iu54m")
 theme_type_variation = &"VoiceoverBox"
 text = "\"The Generators are what separate us from the villages, but ..."
 
+[node name="RaiseToUILayer" parent="Generators/gen1/RichTextLabel" instance=ExtResource("8_mpvlo")]
+
 [node name="RichTextLabel2" type="RichTextLabel" parent="Generators/gen1"]
 offset_left = 812.0
 offset_top = 287.0
@@ -480,6 +535,8 @@ offset_bottom = 531.0
 theme = ExtResource("7_iu54m")
 theme_type_variation = &"VoiceoverBox"
 text = "--the Leylines want them. One of these days, unless we can find a way to stop the power of the Leylines for good, Sun Temple's desire for expansion will wipe us off the map.\""
+
+[node name="RaiseToUILayer" parent="Generators/gen1/RichTextLabel2" instance=ExtResource("8_mpvlo")]
 
 [node name="Leylines" parent="." instance=ExtResource("21_3eav4")]
 
@@ -506,6 +563,8 @@ theme = ExtResource("7_iu54m")
 theme_type_variation = &"VoiceoverBox"
 text = "\"Nasty things, Leylines."
 
+[node name="RaiseToUILayer" parent="Leylines/Leyline/RichTextLabel" instance=ExtResource("8_mpvlo")]
+
 [node name="RichTextLabel2" type="RichTextLabel" parent="Leylines/Leyline"]
 offset_left = 796.0
 offset_top = 177.0
@@ -514,6 +573,8 @@ offset_bottom = 351.0
 theme = ExtResource("7_iu54m")
 theme_type_variation = &"VoiceoverBox"
 text = "\"You know, I was on a public works project one time that caused Leyline encroachment in a suburb of Sun Temple?"
+
+[node name="RaiseToUILayer" parent="Leylines/Leyline/RichTextLabel2" instance=ExtResource("8_mpvlo")]
 
 [node name="RichTextLabel3" type="RichTextLabel" parent="Leylines/Leyline"]
 offset_left = 878.0
@@ -525,6 +586,8 @@ theme_type_variation = &"VoiceoverBox"
 bbcode_enabled = true
 text = "\"They were trying to route a bit more power out there, and boom! Leyline takes the new grid."
 
+[node name="RaiseToUILayer" parent="Leylines/Leyline/RichTextLabel3" instance=ExtResource("8_mpvlo")]
+
 [node name="RichTextLabel4" type="RichTextLabel" parent="Leylines/Leyline"]
 offset_left = 966.0
 offset_top = 518.0
@@ -535,6 +598,8 @@ theme_type_variation = &"VoiceoverBox"
 bbcode_enabled = true
 text = "\"They had to shut down the whole burrough and evacuate."
 
+[node name="RaiseToUILayer" parent="Leylines/Leyline/RichTextLabel4" instance=ExtResource("8_mpvlo")]
+
 [node name="RichTextLabel5" type="RichTextLabel" parent="Leylines/Leyline"]
 offset_left = 898.0
 offset_top = 657.0
@@ -544,6 +609,8 @@ theme = ExtResource("7_iu54m")
 theme_type_variation = &"VoiceoverBox"
 bbcode_enabled = true
 text = "\"That's why there's all those blocked off roads at the edge of Burrough 76.\""
+
+[node name="RaiseToUILayer" parent="Leylines/Leyline/RichTextLabel5" instance=ExtResource("8_mpvlo")]
 
 [node name="HowAreYou" parent="." instance=ExtResource("22_4nux0")]
 
@@ -570,6 +637,8 @@ theme = ExtResource("7_iu54m")
 theme_type_variation = &"VoiceoverBox"
 text = "\"Oh, I'm gettin' on."
 
+[node name="RaiseToUILayer" parent="HowAreYou/CutsceneNode/RichTextLabel2" instance=ExtResource("8_mpvlo")]
+
 [node name="RichTextLabel3" type="RichTextLabel" parent="HowAreYou/CutsceneNode"]
 offset_left = 851.0
 offset_top = 295.0
@@ -578,6 +647,8 @@ offset_bottom = 427.0
 theme = ExtResource("7_iu54m")
 theme_type_variation = &"VoiceoverBox"
 text = "\"Can't wait to get back home to the family--"
+
+[node name="RaiseToUILayer" parent="HowAreYou/CutsceneNode/RichTextLabel3" instance=ExtResource("8_mpvlo")]
 
 [node name="RichTextLabel4" type="RichTextLabel" parent="HowAreYou/CutsceneNode"]
 offset_left = 820.0
@@ -588,6 +659,8 @@ theme = ExtResource("7_iu54m")
 theme_type_variation = &"VoiceoverBox"
 text = "\"Though it's fun out here with you kids."
 
+[node name="RaiseToUILayer" parent="HowAreYou/CutsceneNode/RichTextLabel4" instance=ExtResource("8_mpvlo")]
+
 [node name="RichTextLabel5" type="RichTextLabel" parent="HowAreYou/CutsceneNode"]
 offset_left = 927.0
 offset_top = 554.0
@@ -596,6 +669,8 @@ offset_bottom = 680.0
 theme = ExtResource("7_iu54m")
 theme_type_variation = &"VoiceoverBox"
 text = "\"That Brona's gonna drive me to an early grave, bless her.\""
+
+[node name="RaiseToUILayer" parent="HowAreYou/CutsceneNode/RichTextLabel5" instance=ExtResource("8_mpvlo")]
 
 [node name="MyHometown" parent="." instance=ExtResource("23_xo6nt")]
 
@@ -623,6 +698,8 @@ theme_type_variation = &"VoiceoverBox"
 bbcode_enabled = true
 text = "\"You're from ... 'Fun Sewn Leigh Hen?'"
 
+[node name="RaiseToUILayer" parent="MyHometown/Default/RichTextLabel2" instance=ExtResource("8_mpvlo")]
+
 [node name="RichTextLabel3" type="RichTextLabel" parent="MyHometown/Default"]
 offset_left = 610.0
 offset_top = 43.0
@@ -633,6 +710,8 @@ theme_type_variation = &"VoiceoverBox"
 bbcode_enabled = true
 text = "Did I hear that right?"
 
+[node name="RaiseToUILayer" parent="MyHometown/Default/RichTextLabel3" instance=ExtResource("8_mpvlo")]
+
 [node name="RichTextLabel4" type="RichTextLabel" parent="MyHometown/Default"]
 offset_left = 904.0
 offset_top = 269.0
@@ -642,6 +721,8 @@ theme = ExtResource("7_iu54m")
 theme_type_variation = &"VoiceoverBox"
 bbcode_enabled = true
 text = "\"Never heard of a place like that. I'd love to visit some day.\""
+
+[node name="RaiseToUILayer" parent="MyHometown/Default/RichTextLabel4" instance=ExtResource("8_mpvlo")]
 
 [node name="TellMeAboutYourself" parent="." instance=ExtResource("24_nk2q4")]
 
@@ -669,6 +750,8 @@ theme_type_variation = &"VoiceoverBox"
 bbcode_enabled = true
 text = "\"Sun Temple born and raised. Famiy legend is we've lived there since before the world ended."
 
+[node name="RaiseToUILayer" parent="TellMeAboutYourself/You/RichTextLabel" instance=ExtResource("8_mpvlo")]
+
 [node name="RichTextLabel2" type="RichTextLabel" parent="TellMeAboutYourself/You"]
 offset_left = 972.0
 offset_top = 292.0
@@ -678,6 +761,8 @@ theme = ExtResource("7_iu54m")
 theme_type_variation = &"VoiceoverBox"
 bbcode_enabled = true
 text = "\"I've been training young guys like you for fifteen years, and yes, I know you're not an apprentice anymore."
+
+[node name="RaiseToUILayer" parent="TellMeAboutYourself/You/RichTextLabel2" instance=ExtResource("8_mpvlo")]
 
 [node name="RichTextLabel3" type="RichTextLabel" parent="TellMeAboutYourself/You"]
 offset_left = 839.0
@@ -689,6 +774,8 @@ theme_type_variation = &"VoiceoverBox"
 bbcode_enabled = true
 text = "\"But work in this world as long as I have, and anybody with less than ten years experience starts looking pretty green to you."
 
+[node name="RaiseToUILayer" parent="TellMeAboutYourself/You/RichTextLabel3" instance=ExtResource("8_mpvlo")]
+
 [node name="RichTextLabel4" type="RichTextLabel" parent="TellMeAboutYourself/You"]
 offset_left = 847.0
 offset_top = 685.0
@@ -698,6 +785,8 @@ theme = ExtResource("7_iu54m")
 theme_type_variation = &"VoiceoverBox"
 bbcode_enabled = true
 text = "\"It'll make sense when you're older.\""
+
+[node name="RaiseToUILayer" parent="TellMeAboutYourself/You/RichTextLabel4" instance=ExtResource("8_mpvlo")]
 
 [node name="Brona" parent="." instance=ExtResource("26_7cdf2")]
 
@@ -725,6 +814,8 @@ theme_type_variation = &"VoiceoverBox"
 bbcode_enabled = true
 text = "\"She's smarter than she lets on, I tell you. A dumbass, for sure, but smart."
 
+[node name="RaiseToUILayer" parent="Brona/brona/RichTextLabel" instance=ExtResource("8_mpvlo")]
+
 [node name="RichTextLabel2" type="RichTextLabel" parent="Brona/brona"]
 offset_left = 1000.0
 offset_top = 276.0
@@ -734,6 +825,8 @@ theme = ExtResource("7_iu54m")
 theme_type_variation = &"VoiceoverBox"
 bbcode_enabled = true
 text = "\"Thinking before she acts is a problem for her-- but for when she [i]does[/i] decide to use her brain, she's got a good one.\""
+
+[node name="RaiseToUILayer" parent="Brona/brona/RichTextLabel2" instance=ExtResource("8_mpvlo")]
 
 [node name="Nate" parent="." instance=ExtResource("27_kqmj6")]
 
@@ -761,6 +854,8 @@ theme_type_variation = &"VoiceoverBox"
 bbcode_enabled = true
 text = "\"That young man has an attitude problem."
 
+[node name="RaiseToUILayer" parent="Nate/nate/RichTextLabel" instance=ExtResource("8_mpvlo")]
+
 [node name="RichTextLabel2" type="RichTextLabel" parent="Nate/nate"]
 offset_left = 817.0
 offset_top = 236.0
@@ -771,6 +866,8 @@ theme_type_variation = &"VoiceoverBox"
 bbcode_enabled = true
 text = "\"He does [i]very[/i] good work, or I'd refuse to take him out on jobs, period."
 
+[node name="RaiseToUILayer" parent="Nate/nate/RichTextLabel2" instance=ExtResource("8_mpvlo")]
+
 [node name="RichTextLabel3" type="RichTextLabel" parent="Nate/nate"]
 offset_left = 873.0
 offset_top = 384.0
@@ -780,6 +877,8 @@ theme = ExtResource("7_iu54m")
 theme_type_variation = &"VoiceoverBox"
 bbcode_enabled = true
 text = "\"But I'm retiring in the next few years, and whoever replaces me might not be so forgiving. That angry streak of Nate's might cost him his future.\""
+
+[node name="RaiseToUILayer" parent="Nate/nate/RichTextLabel3" instance=ExtResource("8_mpvlo")]
 
 [node name="Taylor" parent="." instance=ExtResource("29_so2c6")]
 
@@ -807,6 +906,8 @@ theme_type_variation = &"VoiceoverBox"
 bbcode_enabled = true
 text = "\"I wish she'd smile more."
 
+[node name="RaiseToUILayer" parent="Taylor/taylor/RichTextLabel" instance=ExtResource("8_mpvlo")]
+
 [node name="RichTextLabel2" type="RichTextLabel" parent="Taylor/taylor"]
 offset_left = 817.0
 offset_top = 236.0
@@ -816,6 +917,8 @@ theme = ExtResource("7_iu54m")
 theme_type_variation = &"VoiceoverBox"
 bbcode_enabled = true
 text = "\"You're not really supposed to say that about women anymore, I guess, but she goes around with this tired look all the time, and I'm never sure if it's just the 'careworn medic' thing, or if I oughta talk to the higher ups about getting her some more time off, you know?\""
+
+[node name="RaiseToUILayer" parent="Taylor/taylor/RichTextLabel2" instance=ExtResource("8_mpvlo")]
 
 [node name="WhatDoYouThinkOfMe" parent="." instance=ExtResource("30_6j8oa")]
 
@@ -843,6 +946,8 @@ theme_type_variation = &"VoiceoverBox"
 bbcode_enabled = true
 text = "\"Oh, your work is fine. Don't sweat it."
 
+[node name="RaiseToUILayer" parent="WhatDoYouThinkOfMe/me/RichTextLabel" instance=ExtResource("8_mpvlo")]
+
 [node name="RichTextLabel2" type="RichTextLabel" parent="WhatDoYouThinkOfMe/me"]
 offset_left = 817.0
 offset_top = 236.0
@@ -852,3 +957,5 @@ theme = ExtResource("7_iu54m")
 theme_type_variation = &"VoiceoverBox"
 bbcode_enabled = true
 text = "\"If you're worried about performace reviews, don't. You're all clear.\""
+
+[node name="RaiseToUILayer" parent="WhatDoYouThinkOfMe/me/RichTextLabel2" instance=ExtResource("8_mpvlo")]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://cphadkoi37v4v"]
+[gd_scene load_steps=41 format=3 uid="uid://cphadkoi37v4v"]
 
 [ext_resource type="Script" path="res://cutscene/CutsceneConceptsContainer.gd" id="1_bvkoa"]
 [ext_resource type="PackedScene" uid="uid://84etqm7v3b47" path="res://concept-map/concepts/age_of_dusk.tscn" id="1_yhax7"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://yplasm5gtgly" path="res://cutscene/cutscene_option.tscn" id="6_dpdg8"]
 [ext_resource type="PackedScene" uid="uid://bxl45ycc6ucjc" path="res://concept-map/concepts/age_of_the_sun.tscn" id="7_xdme4"]
 [ext_resource type="PackedScene" uid="uid://clq8611xkfdqp" path="res://cutscene/cutscene_redirect_node.tscn" id="8_eew08"]
+[ext_resource type="PackedScene" uid="uid://nglu31ms2rfa" path="res://ui/raise_to_ui_layer.tscn" id="8_i6bmp"]
 [ext_resource type="PackedScene" uid="uid://b8suyge8lpaac" path="res://concept-map/concepts/age_of_the_moon.tscn" id="9_cwy7h"]
 [ext_resource type="PackedScene" uid="uid://bmaotdu8ofpwi" path="res://concept-map/concepts/sun_temple.tscn" id="11_u0gig"]
 [ext_resource type="PackedScene" uid="uid://blq44wuaxi7tj" path="res://concept-map/concepts/elves.tscn" id="12_3w1ts"]
@@ -103,6 +104,8 @@ theme_type_variation = &"VoiceoverBox"
 text = "\"Hah! I forget you're an Elf. I bet they really shove all that \"cycle of history\" crap down your throat, eh?
 Out of  curiosity, do you still, like ... believe?\""
 
+[node name="RaiseToUILayer" parent="Age of Dusk/AOD1/RichTextLabel" instance=ExtResource("8_i6bmp")]
+
 [node name="AOD2" parent="Age of Dusk" instance=ExtResource("2_1oki1")]
 visible = false
 is_option_node = true
@@ -166,6 +169,8 @@ theme_type_variation = &"VoiceoverBox"
 text = "\"...Oh!
 Sorry. I didn't mean to ... insult your religion, or whatever. I just ... wasn't raised that way, you know?\""
 
+[node name="RaiseToUILayer" parent="Age of Dusk/AOD3/RichTextLabel" instance=ExtResource("8_i6bmp")]
+
 [node name="AOD4" parent="Age of Dusk" instance=ExtResource("2_1oki1")]
 visible = false
 
@@ -189,6 +194,8 @@ theme = ExtResource("5_dpfjf")
 theme_type_variation = &"VoiceoverBox"
 text = "\"Yeah, that's kind of the impression I always got.
 Me? I'm human, obviously, so I was raised to believe we could bring our era back.\""
+
+[node name="RaiseToUILayer" parent="Age of Dusk/AOD4/RichTextLabel" instance=ExtResource("8_i6bmp")]
 
 [node name="Age of the Sun" parent="." instance=ExtResource("7_xdme4")]
 
@@ -227,6 +234,8 @@ theme = ExtResource("5_dpfjf")
 theme_type_variation = &"VoiceoverBox"
 text = "\"Yep! Sun Temple City. That's home!\""
 
+[node name="RaiseToUILayer" parent="Sun Temple/SunTemple1/RichTextLabel" instance=ExtResource("8_i6bmp")]
+
 [node name="Elves" parent="." instance=ExtResource("12_3w1ts")]
 
 [node name="CutsceneNode" parent="Elves" instance=ExtResource("2_1oki1")]
@@ -251,6 +260,8 @@ offset_bottom = 393.0
 theme = ExtResource("5_dpfjf")
 theme_type_variation = &"VoiceoverBox"
 text = "\"If you're any indication, Elves seem pretty chill.\" She stops to think for a moment. \"Well, Taylor has no chill at all, but she's only half. Maybe it's a Half-Elf problem.\""
+
+[node name="RaiseToUILayer" parent="Elves/CutsceneNode/RichTextLabel" instance=ExtResource("8_i6bmp")]
 
 [node name="Humans" parent="." instance=ExtResource("13_ajokx")]
 
@@ -277,6 +288,8 @@ offset_bottom = 354.0
 theme = ExtResource("5_dpfjf")
 theme_type_variation = &"VoiceoverBox"
 text = "\"I'd say we're a decent enough bunch, generally, wouldn't you?\""
+
+[node name="RaiseToUILayer" parent="Humans/humans1/RichTextLabel" instance=ExtResource("8_i6bmp")]
 
 [node name="Yes" parent="Humans/humans1" node_paths=PackedStringArray("to") instance=ExtResource("6_dpdg8")]
 offset_left = 762.0
@@ -317,6 +330,8 @@ theme = ExtResource("5_dpfjf")
 theme_type_variation = &"VoiceoverBox"
 text = "\"Right?\" she says. \"Some humans get weird. But we're mostly just scared.\""
 
+[node name="RaiseToUILayer" parent="Humans/humans2/RichTextLabel" instance=ExtResource("8_i6bmp")]
+
 [node name="RichTextLabel2" type="RichTextLabel" parent="Humans/humans2"]
 offset_left = 762.0
 offset_top = 235.0
@@ -326,6 +341,8 @@ theme = ExtResource("5_dpfjf")
 theme_type_variation = &"VoiceoverBox"
 text = " \"Elves--I don't really mean you--we grew up with you, but like, Moon Temple elves--they talk about how our era's ended, and theirs is beginning, and to us, it sounds like a threat.\""
 
+[node name="RaiseToUILayer" parent="Humans/humans2/RichTextLabel2" instance=ExtResource("8_i6bmp")]
+
 [node name="RichTextLabel3" type="RichTextLabel" parent="Humans/humans2"]
 offset_left = 847.0
 offset_top = 485.0
@@ -334,6 +351,8 @@ offset_bottom = 678.0
 theme = ExtResource("5_dpfjf")
 theme_type_variation = &"VoiceoverBox"
 text = " \"Not that we're justifed when we take it out on you folks, obviously. Just, if you wanna understand, that's how you gotta look at it.\""
+
+[node name="RaiseToUILayer" parent="Humans/humans2/RichTextLabel3" instance=ExtResource("8_i6bmp")]
 
 [node name="humans3" parent="Humans" instance=ExtResource("2_1oki1")]
 visible = false
@@ -358,6 +377,8 @@ offset_bottom = 360.0
 theme = ExtResource("5_dpfjf")
 theme_type_variation = &"VoiceoverBox"
 text = "\"Well if you're just gonna be racist, then I don't want to talk.\""
+
+[node name="RaiseToUILayer" parent="Humans/humans3/RichTextLabel" instance=ExtResource("8_i6bmp")]
 
 [node name="MoonTemple" parent="." instance=ExtResource("15_8sr2o")]
 
@@ -386,6 +407,8 @@ text = "\"The big Elven city? I don't really know much about it.  They're suppos
 But the only people I've ever know with any Moon Temple ties would be you--or your parents ,
 anyway--and Taylor. And you guys both seem all right.\""
 
+[node name="RaiseToUILayer" parent="MoonTemple/CutsceneNode/RichTextLabel" instance=ExtResource("8_i6bmp")]
+
 [node name="Salvagers" parent="." instance=ExtResource("16_qnywx")]
 
 [node name="CutsceneNode" parent="Salvagers" instance=ExtResource("2_1oki1")]
@@ -411,6 +434,8 @@ theme = ExtResource("5_dpfjf")
 theme_type_variation = &"VoiceoverBox"
 bbcode_enabled = true
 text = "\"Oh, it's the [i]best[/i] job. Never cooped up in a room--always exploring--always learning. I feel so sorry for you Medics and Engineers who only get to come out with us every few months.\""
+
+[node name="RaiseToUILayer" parent="Salvagers/CutsceneNode/RichTextLabel" instance=ExtResource("8_i6bmp")]
 
 [node name="Medics" parent="." instance=ExtResource("17_s0dhg")]
 
@@ -439,6 +464,8 @@ theme_type_variation = &"VoiceoverBox"
 bbcode_enabled = true
 text = "\"Medics are killjoys always.\""
 
+[node name="RaiseToUILayer" parent="Medics/medics/RichTextLabel" instance=ExtResource("8_i6bmp")]
+
 [node name="medics2" parent="Medics" instance=ExtResource("2_1oki1")]
 visible = false
 
@@ -462,6 +489,8 @@ theme = ExtResource("5_dpfjf")
 theme_type_variation = &"VoiceoverBox"
 bbcode_enabled = true
 text = "\"Don't tell Taylor I said that.\""
+
+[node name="RaiseToUILayer" parent="Medics/medics2/RichTextLabel" instance=ExtResource("8_i6bmp")]
 
 [node name="Engineers" parent="." instance=ExtResource("18_4m0ol")]
 
@@ -489,6 +518,8 @@ theme = ExtResource("5_dpfjf")
 theme_type_variation = &"VoiceoverBox"
 text = "\"Engineers are always like--"
 
+[node name="RaiseToUILayer" parent="Engineers/eng/RichTextLabel" instance=ExtResource("8_i6bmp")]
+
 [node name="eng2" parent="Engineers" node_paths=PackedStringArray("next") instance=ExtResource("2_1oki1")]
 visible = false
 next = NodePath("../eng3")
@@ -513,6 +544,8 @@ theme = ExtResource("5_dpfjf")
 theme_type_variation = &"VoiceoverBox"
 text = "\"Engineers are always like--"
 
+[node name="RaiseToUILayer" parent="Engineers/eng2/RichTextLabel" instance=ExtResource("8_i6bmp")]
+
 [node name="RichTextLabel2" type="RichTextLabel" parent="Engineers/eng2"]
 offset_left = 970.0
 offset_top = 360.0
@@ -523,6 +556,8 @@ theme_type_variation = &"VoiceoverBox"
 text = "\"'Safety, safety, safety!'
 "
 
+[node name="RaiseToUILayer" parent="Engineers/eng2/RichTextLabel2" instance=ExtResource("8_i6bmp")]
+
 [node name="RichTextLabel3" type="RichTextLabel" parent="Engineers/eng2"]
 offset_left = 1121.0
 offset_top = 497.0
@@ -532,6 +567,8 @@ theme = ExtResource("5_dpfjf")
 theme_type_variation = &"VoiceoverBox"
 text = "\"Bleh! Live a little, you know?'
 "
+
+[node name="RaiseToUILayer" parent="Engineers/eng2/RichTextLabel3" instance=ExtResource("8_i6bmp")]
 
 [node name="eng3" parent="Engineers" node_paths=PackedStringArray("next", "use_on_start_fn_from") instance=ExtResource("2_1oki1")]
 next = NodePath("../eng4")
@@ -572,6 +609,8 @@ theme = ExtResource("5_dpfjf")
 theme_type_variation = &"VoiceoverBox"
 text = "\"Then maybe you'd do well to think more like an engineer and less like an eight year old, Brona.\""
 
+[node name="RaiseToUILayer" parent="Engineers/eng3/RichTextLabel" instance=ExtResource("8_i6bmp")]
+
 [node name="RichTextLabel2" type="RichTextLabel" parent="Engineers/eng3"]
 offset_left = 728.0
 offset_top = 264.0
@@ -580,6 +619,8 @@ offset_bottom = 441.0
 theme = ExtResource("5_dpfjf")
 theme_type_variation = &"VoiceoverBox"
 text = "\"Whoops! Forgot you were there, boss.\""
+
+[node name="RaiseToUILayer" parent="Engineers/eng3/RichTextLabel2" instance=ExtResource("8_i6bmp")]
 
 [node name="eng4" parent="Engineers" instance=ExtResource("2_1oki1")]
 visible = false
@@ -620,6 +661,8 @@ theme = ExtResource("5_dpfjf")
 theme_type_variation = &"VoiceoverBox"
 text = "\"Anyway.\""
 
+[node name="RaiseToUILayer" parent="Engineers/eng4/RichTextLabel" instance=ExtResource("8_i6bmp")]
+
 [node name="RichTextLabel2" type="RichTextLabel" parent="Engineers/eng4"]
 offset_left = 762.0
 offset_top = 264.0
@@ -628,6 +671,8 @@ offset_bottom = 441.0
 theme = ExtResource("5_dpfjf")
 theme_type_variation = &"VoiceoverBox"
 text = "\"Whoops! Forgot you were there, boss.\""
+
+[node name="RaiseToUILayer" parent="Engineers/eng4/RichTextLabel2" instance=ExtResource("8_i6bmp")]
 
 [node name="Taylor" parent="." instance=ExtResource("21_opor4")]
 
@@ -653,6 +698,8 @@ offset_bottom = 995.0
 theme = ExtResource("5_dpfjf")
 theme_type_variation = &"VoiceoverBox"
 text = "\"She's fine, I guess.\""
+
+[node name="RaiseToUILayer" parent="Taylor/CutsceneNode/RichTextLabel2" instance=ExtResource("8_i6bmp")]
 
 [node name="Nate" parent="." instance=ExtResource("22_nemhn")]
 
@@ -681,6 +728,8 @@ theme_type_variation = &"VoiceoverBox"
 bbcode_enabled = true
 text = "She considers this."
 
+[node name="RaiseToUILayer" parent="Nate/nate/RichTextLabel" instance=ExtResource("8_i6bmp")]
+
 [node name="nate2" parent="Nate" node_paths=PackedStringArray("next") instance=ExtResource("2_1oki1")]
 visible = false
 next = NodePath("../nate3")
@@ -706,6 +755,8 @@ theme_type_variation = &"VoiceoverBox"
 bbcode_enabled = true
 text = "\"Nate's an ass,\" she says."
 
+[node name="RaiseToUILayer" parent="Nate/nate2/RichTextLabel" instance=ExtResource("8_i6bmp")]
+
 [node name="nate3" parent="Nate" instance=ExtResource("2_1oki1")]
 visible = false
 
@@ -729,6 +780,8 @@ theme = ExtResource("5_dpfjf")
 theme_type_variation = &"VoiceoverBox"
 bbcode_enabled = true
 text = "\"You know, the other day, he was fixing that flaky radio again, and I asked whether he was about done, because it was getting dark and we needed to find a camp. Not even, 'hurry up', just, 'are you close?' I swear to God, the dude was ready to throw hands 'til Jerry talked him down.\""
+
+[node name="RaiseToUILayer" parent="Nate/nate3/RichTextLabel" instance=ExtResource("8_i6bmp")]
 
 [node name="Jerry" parent="." instance=ExtResource("23_we4km")]
 
@@ -756,6 +809,8 @@ theme = ExtResource("5_dpfjf")
 theme_type_variation = &"VoiceoverBox"
 text = "\"Jerry's the best. He's been like a second father to me.\""
 
+[node name="RaiseToUILayer" parent="Jerry/jerry/RichTextLabel" instance=ExtResource("8_i6bmp")]
+
 [node name="RichTextLabel2" type="RichTextLabel" parent="Jerry/jerry"]
 offset_left = 847.0
 offset_top = 371.0
@@ -764,6 +819,8 @@ offset_bottom = 554.0
 theme = ExtResource("5_dpfjf")
 theme_type_variation = &"VoiceoverBox"
 text = "\"He might seem harsh at times, but if you keep the bullshit to a minimum, he's a really nice guy.\""
+
+[node name="RaiseToUILayer" parent="Jerry/jerry/RichTextLabel2" instance=ExtResource("8_i6bmp")]
 
 [node name="jerry2" parent="Jerry" instance=ExtResource("2_1oki1")]
 visible = false
@@ -788,6 +845,8 @@ theme = ExtResource("5_dpfjf")
 theme_type_variation = &"VoiceoverBox"
 text = "\"Of course, Jerry's idea of bullshit and my idea of fun ..."
 
+[node name="RaiseToUILayer" parent="Jerry/jerry2/RichTextLabel" instance=ExtResource("8_i6bmp")]
+
 [node name="RichTextLabel2" type="RichTextLabel" parent="Jerry/jerry2"]
 offset_left = 847.0
 offset_top = 404.0
@@ -797,6 +856,8 @@ theme = ExtResource("5_dpfjf")
 theme_type_variation = &"VoiceoverBox"
 bbcode_enabled = true
 text = "\"... can tend to overlap a little. But he knows I know better than to do anything [i]really[/i] stupid. We trust each other.\""
+
+[node name="RaiseToUILayer" parent="Jerry/jerry2/RichTextLabel2" instance=ExtResource("8_i6bmp")]
 
 [node name="EndOfTheWorld" parent="." instance=ExtResource("24_ri8dn")]
 
@@ -822,6 +883,8 @@ offset_bottom = 995.0
 theme = ExtResource("5_dpfjf")
 theme_type_variation = &"VoiceoverBox"
 text = "\"Jerry says the world isn't ending. But just look around. There obviously used to be ... more.\""
+
+[node name="RaiseToUILayer" parent="EndOfTheWorld/CutsceneNode/RichTextLabel" instance=ExtResource("8_i6bmp")]
 
 [node name="Plague of Dreams" parent="." instance=ExtResource("25_cn1g3")]
 
@@ -849,6 +912,8 @@ theme = ExtResource("5_dpfjf")
 theme_type_variation = &"VoiceoverBox"
 text = "\"Growing up, I had a neighbour who was dying of it. Young guy. A salvager. Bet Jerry knew him.\""
 
+[node name="RaiseToUILayer" parent="Plague of Dreams/plague/RichTextLabel" instance=ExtResource("8_i6bmp")]
+
 [node name="plague2" parent="Plague of Dreams" instance=ExtResource("2_1oki1")]
 visible = false
 
@@ -874,6 +939,8 @@ bbcode_enabled = true
 text = "\"The way he was past a month or two? Lord, if a Demon ever gets me, I hope I die on the spot.
 I hear elves fare a little better than we do. But then I hear elves ... see things when they get it.
 So maybe it [i]isn't[/i] better.\""
+
+[node name="RaiseToUILayer" parent="Plague of Dreams/plague2/RichTextLabel" instance=ExtResource("8_i6bmp")]
 
 [node name="Demons" parent="." instance=ExtResource("26_4wxmo")]
 
@@ -901,6 +968,8 @@ theme = ExtResource("5_dpfjf")
 theme_type_variation = &"VoiceoverBox"
 text = "\"Never seen one. I guess you have--"
 
+[node name="RaiseToUILayer" parent="Demons/demons/RichTextLabel" instance=ExtResource("8_i6bmp")]
+
 [node name="demons2" parent="Demons" instance=ExtResource("2_1oki1")]
 visible = false
 
@@ -925,6 +994,8 @@ offset_bottom = 995.0
 theme = ExtResource("5_dpfjf")
 theme_type_variation = &"VoiceoverBox"
 text = "\"But you'd probably rather not talk about that.\""
+
+[node name="RaiseToUILayer" parent="Demons/demons2/RichTextLabel" instance=ExtResource("8_i6bmp")]
 
 [node name="GeneratorCrews" parent="." instance=ExtResource("27_qy603")]
 
@@ -957,6 +1028,8 @@ theme_type_variation = &"VoiceoverBox"
 text = "\"The Altars of Sun Temple. Keeping them running--keeping the City and the Age alive--
 that's what drives us all.\""
 
+[node name="RaiseToUILayer" parent="Generators/CutsceneNode/RichTextLabel" instance=ExtResource("8_i6bmp")]
+
 [node name="Leylines" parent="." instance=ExtResource("29_xgcf1")]
 
 [node name="CutsceneNode" parent="Leylines" instance=ExtResource("2_1oki1")]
@@ -983,6 +1056,8 @@ theme_type_variation = &"VoiceoverBox"
 text = "\"Medics love 'em, engineers hate 'em, I don't give a damn because most of the stuff
 I go after isn't affected by them either way. Though they do tend to have Demons
 hanging around 'em, so there's always that to be aware of.\""
+
+[node name="RaiseToUILayer" parent="Leylines/CutsceneNode/RichTextLabel" instance=ExtResource("8_i6bmp")]
 
 [node name="PlanForAfternoon" parent="." instance=ExtResource("30_c2xcg")]
 
@@ -1013,6 +1088,8 @@ she says.
 \"I was hoping we'd be able to go back, and see if we can get it out intact. Might rope Nate in,
 [i]if it's not too much trouble for him[/i], since he [i]is[/i] surprisingly good with careful work like that.\""
 
+[node name="RaiseToUILayer" parent="PlanForAfternoon/CutsceneNode/RichTextLabel" instance=ExtResource("8_i6bmp")]
+
 [node name="C1CollectingHerbs" parent="." instance=ExtResource("32_yjn4d")]
 
 [node name="Herbs" parent="C1CollectingHerbs" instance=ExtResource("2_1oki1")]
@@ -1037,6 +1114,8 @@ theme = ExtResource("5_dpfjf")
 theme_type_variation = &"VoiceoverBox"
 bbcode_enabled = true
 text = "\"Oh! Taylor's gonna go salvaging with you, huh? I'm glad you got it sorted.\""
+
+[node name="RaiseToUILayer" parent="C1CollectingHerbs/Herbs/RichTextLabel" instance=ExtResource("8_i6bmp")]
 
 [node name="C1CollectingComponents" parent="." instance=ExtResource("33_j5y81")]
 
@@ -1069,6 +1148,8 @@ theme_type_variation = &"VoiceoverBox"
 text = "\"Oh, I'm doing all right. I'd been on back to back expeditions since May, but I finally managed to get some time off last
 month. So I'm rested and ready to go!\""
 
+[node name="RaiseToUILayer" parent="HowAreYou/Brona1/RichTextLabel" instance=ExtResource("8_i6bmp")]
+
 [node name="WhatDoYouThinkOfMe" parent="." instance=ExtResource("35_tnwyp")]
 
 [node name="CutsceneNode" parent="WhatDoYouThinkOfMe" instance=ExtResource("2_1oki1")]
@@ -1095,6 +1176,8 @@ theme_type_variation = &"VoiceoverBox"
 text = "\"You? You're cool.
 Chillest Elf I know!\""
 
+[node name="RaiseToUILayer" parent="WhatDoYouThinkOfMe/CutsceneNode/RichTextLabel" instance=ExtResource("8_i6bmp")]
+
 [node name="TellMeAboutYourself" parent="." instance=ExtResource("36_03dnw")]
 
 [node name="CutsceneNode" parent="TellMeAboutYourself" instance=ExtResource("2_1oki1")]
@@ -1119,6 +1202,8 @@ theme = ExtResource("5_dpfjf")
 theme_type_variation = &"VoiceoverBox"
 text = "\"Let's see ... my favourite food is fried eggs."
 
+[node name="RaiseToUILayer" parent="TellMeAboutYourself/CutsceneNode/RichTextLabel" instance=ExtResource("8_i6bmp")]
+
 [node name="RichTextLabel2" type="RichTextLabel" parent="TellMeAboutYourself/CutsceneNode"]
 offset_left = 787.0
 offset_top = 285.0
@@ -1128,6 +1213,8 @@ theme = ExtResource("5_dpfjf")
 theme_type_variation = &"VoiceoverBox"
 bbcode_enabled = true
 text = "\"I wanted to be a Salvager ever since I was a kid."
+
+[node name="RaiseToUILayer" parent="TellMeAboutYourself/CutsceneNode/RichTextLabel2" instance=ExtResource("8_i6bmp")]
 
 [node name="RichTextLabel3" type="RichTextLabel" parent="TellMeAboutYourself/CutsceneNode"]
 offset_left = 758.0
@@ -1139,6 +1226,8 @@ theme_type_variation = &"VoiceoverBox"
 bbcode_enabled = true
 text = "\"Well, when I was a [i]little[/i] kid I wanted to be a dump truck. [i]Later[/i] I wanted to be a Salvager."
 
+[node name="RaiseToUILayer" parent="TellMeAboutYourself/CutsceneNode/RichTextLabel3" instance=ExtResource("8_i6bmp")]
+
 [node name="RichTextLabel4" type="RichTextLabel" parent="TellMeAboutYourself/CutsceneNode"]
 offset_left = 841.0
 offset_top = 621.0
@@ -1148,3 +1237,5 @@ theme = ExtResource("5_dpfjf")
 theme_type_variation = &"VoiceoverBox"
 bbcode_enabled = true
 text = "\"If I ever get a job that lets me be home every day, I'll get myself a pet rabbit.\""
+
+[node name="RaiseToUILayer" parent="TellMeAboutYourself/CutsceneNode/RichTextLabel4" instance=ExtResource("8_i6bmp")]

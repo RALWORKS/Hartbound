@@ -72,6 +72,8 @@ corner_radius_bottom_left = 10
 
 [node name="CharacterCreatorCutscene" node_paths=PackedStringArray("starting_page") instance=ExtResource("1_ipyp7")]
 position = Vector2(0, 145)
+show_clock = false
+is_move = false
 starting_page = NodePath("1")
 
 [node name="1" parent="." index="0" instance=ExtResource("2_wt2i3")]
@@ -133,6 +135,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_krm4x")
 theme_override_styles/hover = SubResource("StyleBoxFlat_c2ah0")
 disabled = true
 text = "Customize Character"
+raise_to_ui_layer = false
 to = NodePath("../../2")
 
 [node name="2" parent="." index="1" instance=ExtResource("2_wt2i3")]
@@ -155,6 +158,7 @@ offset_bottom = 908.0
 theme_override_styles/normal = SubResource("StyleBoxFlat_yqg84")
 theme_override_styles/hover = SubResource("StyleBoxFlat_g40vh")
 text = "> Continue"
+raise_to_ui_layer = false
 to = NodePath("../../2_5")
 
 [node name="DesignCharacterTitle" type="RichTextLabel" parent="2" index="3"]
@@ -195,6 +199,7 @@ theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
 theme_override_styles/normal = SubResource("StyleBoxFlat_krm4x")
 theme_override_styles/hover = SubResource("StyleBoxFlat_c2ah0")
 text = "Roll Full Name"
+raise_to_ui_layer = false
 to = NodePath("../../3")
 
 [node name="ElvenNameText" type="RichTextLabel" parent="2_5" index="3"]
@@ -237,6 +242,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_krm4x")
 theme_override_styles/hover = SubResource("StyleBoxFlat_c2ah0")
 disabled = true
 text = "[Choose a name to proceed]"
+raise_to_ui_layer = false
 to = NodePath("../../3_5")
 
 [node name="Script" type="Node2D" parent="3" index="2"]
@@ -322,6 +328,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_krm4x")
 theme_override_styles/hover = SubResource("StyleBoxFlat_c2ah0")
 disabled = true
 text = "[Choose a name to proceed]"
+raise_to_ui_layer = false
 to = NodePath("../../3_6")
 
 [node name="3_6" parent="." index="5" node_paths=PackedStringArray("use_on_start_fn_from") instance=ExtResource("2_wt2i3")]
@@ -389,6 +396,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_krm4x")
 theme_override_styles/hover = SubResource("StyleBoxFlat_c2ah0")
 disabled = true
 text = "[Choose an option to proceed]"
+raise_to_ui_layer = false
 to = NodePath("../../END")
 
 [node name="END" parent="." index="6" instance=ExtResource("2_wt2i3")]
@@ -421,6 +429,7 @@ theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
 theme_override_styles/normal = SubResource("StyleBoxFlat_krm4x")
 theme_override_styles/hover = SubResource("StyleBoxFlat_c2ah0")
 text = "Play"
+raise_to_ui_layer = false
 
 [node name="Saver" type="Node2D" parent="." index="7"]
 script = ExtResource("10_cdibu")

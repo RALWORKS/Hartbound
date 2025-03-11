@@ -12,11 +12,15 @@ var leyline_showing = false
 var is_scouting = false
 var dying = false
 
+var show_clock = true
+
 var moves = 0
 
 @export var cheat_mode = true
 @export var cheat_event_trigger_name = ""
 @export var cheat_timer_turns = 2
+
+var StartCampingCutscene = preload("res://start_camping_default.tscn")
 
 var MainScreen = preload("res://ui/main_screen.tscn")
 var StartScreen = preload("res://ui/start_screen.tscn")
@@ -35,6 +39,9 @@ var characters_present = []
 @export var music_crossfade_speed = 2
 
 @export var day_length = 16
+@export var night_threshold = 0.6
+@export var day_starts_at = 6
+@export var MORNING = 0.0
 
 var CHAPTERS = {
 	"intro": preload("res://intro-story/intro_story_chapter.tscn"),
@@ -61,7 +68,8 @@ var INITIAL_STATE = {
 	},
 	"moves": 0,
 	"timers": [],
-	"timestamp": 0.2 * day_length,
+	"timestamp": 0,
+	"timecap": null,
 }
 
 var STATE = INITIAL_STATE.duplicate(true)
@@ -587,20 +595,6 @@ func _init_moves_if_needed():
 		return data
 	return set_state(["moves"], 0)
 
-func _init_time_if_needed():
-	var data = get_state(["timestamp"])
-	if data != null:
-		return data
-	return set_state(["timestamp"], 0)
-
-func get_time():
-	var dt = _init_time_if_needed()
-	return dt % day_length
-
-func get_date():
-	var dt = _init_time_if_needed()
-	return int(dt / day_length)
-
 func _init_timers_if_needed():
 	var data = get_state(["timers"])
 	if data != null:
@@ -632,6 +626,12 @@ func move():
 func advance_time():
 	var t = _init_time_if_needed()
 	t += 1
+	
+	var cap = get_state(["timecap"])
+	
+	if cap != null and t > cap:
+		return
+	
 	set_state(["timestamp"], t)
 
 
@@ -708,5 +708,67 @@ func get_standard_bg_scale():
 
 func get_standard_bg_position():
 	return chapter.cached_bg_position
+
+func _init_time_if_needed():
+	var data = get_state(["timestamp"])
+	if data != null:
+		return data
+	return set_state(["timestamp"], 0.0)
+
+func get_time():
+	var dt = timestamp()
+	return int(dt) % int(day_length)
+
+func proportional_time():
+	var t = get_time()
+	return float(t) / float(day_length)
+
+func get_date():
+	var dt = timestamp()
+	return int(float(dt) / float(day_length))
+
+
+func stop_time_in(day_quotient):
+	set_state(["timecap"], timestamp() + (day_quotient * day_length))
+
+func restart_time():
+	set_state(["timecap"], null)
+
+func jump_over_time(days):
+	set_state(["timestamp"], timestamp() + days * day_length)
+
+func jump_over_moves(moves):
+	set_state(["timestamp"], timestamp() + moves)
+
+func jump_to_time(date_in_days):
+	set_state(["timestamp"], date_in_days * day_length)
+
+func jump_to_time_using_relative_days(date_in_days: float):
+	var target_d = int(date_in_days)
+	var target_t = abs(float(date_in_days) - float(target_d))
+	var target = float(get_date() + target_d) + target_t
+	set_state(["timestamp"], target * day_length)
+
+func jump_to_morning():
+	var d = get_date() + 1
+	var t = MORNING
+	var dt = (d * day_length) + t
+	set_state(["timestamp"], dt)
+	
+func timestamp():
+	return _init_time_if_needed()
+	
+
+func is_night():
+	var t = proportional_time()
+	if t > night_threshold:
+		return true
+	return false
+
+func bedtime():
+	# TODO: dream management
+	jump_to_morning()
+	chapter.start_cutscene(StartCampingCutscene)
+
 
 

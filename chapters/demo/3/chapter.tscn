@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://cgenob2k8qwsg"]
+[gd_scene load_steps=21 format=3 uid="uid://cgenob2k8qwsg"]
 
 [ext_resource type="PackedScene" uid="uid://bh1yfkyt3u44i" path="res://chapter.tscn" id="1_e60jq"]
 [ext_resource type="PackedScene" uid="uid://7hjd5r2hc2bb" path="res://scenes/demo/3/main_map_1.tscn" id="3_ymglo"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://cml8kuj1isydh" path="res://chapters/demo/3/travel_cutscene_1.tscn" id="5_pno0o"]
 [ext_resource type="PackedScene" uid="uid://x317psh2wl6m" path="res://chapters/demo/3/end_cutscene_v0.tscn" id="5_y24gn"]
 [ext_resource type="Script" path="res://chapters/demo/1/CrossEWest.gd" id="6_8frcw"]
+[ext_resource type="PackedScene" uid="uid://c0a2dl3a2t7rm" path="res://time_mutation.tscn" id="7_yopx1"]
 [ext_resource type="Script" path="res://chapters/demo/3/CountPlayerFalls.gd" id="9_dd3iu"]
 [ext_resource type="PackedScene" uid="uid://nwe00wkbrlyf" path="res://chapters/demo/3/taylor_wants_to_help_you_walk.tscn" id="10_mp46n"]
 [ext_resource type="PackedScene" uid="uid://cey7dg5fwkcxf" path="res://chapters/demo/3/travel_cutscene_first_jerry.tscn" id="10_ny36c"]
@@ -39,6 +40,9 @@ data = "taylor/brona"
 data_as_slash_sep_list = true
 
 [node name="RespawnMutation" parent="Events/StartChapter" index="2" instance=ExtResource("5_828fs")]
+
+[node name="RestartTime" parent="Events/StartChapter" index="3" instance=ExtResource("7_yopx1")]
+time_mutation = 3
 
 [node name="TaylorHelpsYou" parent="Events" index="1" instance=ExtResource("4_ee8q1")]
 cutscene = ExtResource("10_mp46n")

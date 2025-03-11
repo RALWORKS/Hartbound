@@ -20,14 +20,18 @@ var base_distance = 0
 
 var moved = false
 
+var MOD_COUNTER_OK = "#ffffffff"
+var MOD_COUNTER_BLOCKED = "#ff4444ff"
+
 @onready var counter = $CanvasLayer/Counter
 @onready var travel_tip = $CanvasLayer/Counter/TravelTip
 @onready var travel_tip_animation = $CanvasLayer/Counter/TravelTip/AnimationPlayer
-@onready var counter_max = $CanvasLayer/Counter/Max
 @onready var counter_data = $CanvasLayer/Counter/Data
 
-@export var PX_PER_HOUR = 200
-@export var MAX_HOURS = 12
+@export var PX_PER_HOUR = 75
+var latest_time: int
+
+var projected_time: int
 
 var StartMark = preload("res://scenes/demo/3/start_mark.tscn")
 var MapNode = preload("res://scenes/demo/3/map_node.tscn")
@@ -39,8 +43,7 @@ func _ready():
 	pencil.grid = self
 	counter.position = Vector2(50, 50)
 	travel_tip_animation.play("base")
-
-	counter_max.text = str(MAX_HOURS)
+	latest_time = int($"/root/Game".day_length * (0.04 + $"/root/Game".night_threshold))
 
 	make_starting_node()
 	for c in get_children():
@@ -57,6 +60,15 @@ func _ready():
 	final_line.end_cap_mode = Line2D.LINE_CAP_ROUND
 	final_line.begin_cap_mode = Line2D.LINE_CAP_ROUND
 	add_child(final_line)
+
+func start_time():
+	return $"/root/Game".get_time()
+
+func max_distance():
+	var allowed_time = latest_time - start_time()
+	if allowed_time < 0.0:
+		return 0.0
+	return $TimeUtils.moves_to_hours(allowed_time) * PX_PER_HOUR
 
 func make_starting_node():
 	var node = MapNode.instantiate()
@@ -122,14 +134,23 @@ func count_last_stretch():
 
 func count_distance():
 	distance = base_distance + count_last_stretch()
+	
+func time_expended():
+	var d = distance / PX_PER_HOUR
+	return $TimeUtils.hours_to_moves(d)
+
+func end_time():
+	return time_expended() + start_time()
 
 func refresh_distance_display():
 	var d = distance / PX_PER_HOUR
 	
-	var d_round = int(d)
-	counter_data.text = str(d_round)
+	projected_time = end_time()
 	
-	moved = d > 0.8;
+	counter_data.text = $TimeUtils.format_moves_24h(projected_time)
+	
+	moved = d > 0.3
+	
 	travel_tip.set_deferred("visible", moved)
 	
 
@@ -138,8 +159,10 @@ func imagine_distance(v):
 	return base_distance + next_pencil.distance_to(nodes[active_path[-1]].position)
 
 func throttle_pencil(v):
-	if imagine_distance(v) > distance and distance > (MAX_HOURS * PX_PER_HOUR):
+	if imagine_distance(v) > distance and distance > max_distance():
+		$CanvasLayer/Counter/Data.modulate = MOD_COUNTER_BLOCKED
 		return true
+	$CanvasLayer/Counter/Data.modulate = MOD_COUNTER_OK
 	return false
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

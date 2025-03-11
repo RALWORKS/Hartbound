@@ -1,5 +1,8 @@
 extends Button
 
+class_name CutsceneOption
+
+@export var raise_to_ui_layer = true
 @export var to: CutsceneNode
 @export var to_cutscene: Resource
 @export var get_action_from: Node
@@ -13,10 +16,16 @@ extends Button
 @export var scowl = false
 @export var neutral = false
 
+var _real_parent: Node
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	pass
 
+func real_parent():
+	if _real_parent != null:
+		return _real_parent
+	return get_parent()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
@@ -29,14 +38,13 @@ func _on_pressed():
 func click():
 	if disabled:
 		return
-	if $"..".just_clicked:
+	if real_parent().just_clicked:
 		return
 	if get_action_from != null:
 		get_action_from.action()
-	$"..".leave()
+	real_parent().leave()
 	if to_cutscene != null:
 		$"/root/Game/Chapter".cutscene.next_cutscene = to_cutscene
-	print($"..".name, name, to)
 	if to != null:
 		to.start()
 	else:

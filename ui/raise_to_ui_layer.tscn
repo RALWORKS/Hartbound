@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://nglu31ms2rfa"]
+
+[ext_resource type="Script" path="res://ui/raise_to_ui_layer.gd" id="1_1n31y"]
+
+[node name="RaiseToUILayer" type="Node"]
+script = ExtResource("1_1n31y")

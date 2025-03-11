@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://cog5wvxra45iq"]
+[gd_scene load_steps=15 format=3 uid="uid://cog5wvxra45iq"]
 
 [ext_resource type="PackedScene" uid="uid://byrlpmbpj6yr5" path="res://scene.tscn" id="1_f6ypg"]
 [ext_resource type="Texture2D" uid="uid://s4i0876xb5nh" path="res://assets/demo-1/scenes/c.png" id="2_7th70"]
@@ -8,7 +8,9 @@
 [ext_resource type="PackedScene" uid="uid://d0q6kg3spk25s" path="res://chapters/demo/1/jerry.tscn" id="6_cdxxq"]
 [ext_resource type="PackedScene" uid="uid://uc3gpi8pp0cj" path="res://chapters/demo/1/brona.tscn" id="7_rxjdr"]
 [ext_resource type="PackedScene" uid="uid://in7v8nsvojyp" path="res://chapters/demo/1/nate.tscn" id="8_8215w"]
+[ext_resource type="PackedScene" uid="uid://cbw4fl1f8ctmj" path="res://scenes/possible_camp.tscn" id="8_ontul"]
 [ext_resource type="PackedScene" uid="uid://3xvq5teh4d0q" path="res://travel/map_door.tscn" id="9_2ipcd"]
+[ext_resource type="Shader" path="res://daylight.gdshader" id="11_b3ks2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_unfay"]
 size = Vector2(1205.43, 69.1429)
@@ -17,6 +19,14 @@ size = Vector2(1205.43, 69.1429)
 vertices = PackedVector2Array(782, 314, 548, 100, 969, 213, 1021, 365, 737, 627, 689, 856, 442, 591, 591, 523, 722, 556, 827, 579, 800, 697, 1142, 962, 820, 1115, 1079, 1209)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 5, 6, 7, 8), PackedInt32Array(8, 0, 3, 9, 4), PackedInt32Array(10, 4, 9, 11), PackedInt32Array(12, 10, 11, 13)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(820, 1115, 1079, 1209, 1142, 962, 827, 579, 1021, 365, 969, 213, 548, 100, 782, 314, 722, 556, 591, 523, 442, 591, 689, 856, 737, 627, 800, 697)])
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vx5sr"]
+resource_local_to_scene = true
+shader = ExtResource("11_b3ks2")
+shader_parameter/darken = 0.0
+shader_parameter/saturate = 1.0
+shader_parameter/contrast = 1.0
+shader_parameter/warmth = 0.5
 
 [node name="Camp3" instance=ExtResource("1_f6ypg")]
 dialogue_bg_scale = Vector2(3, 3)
@@ -60,6 +70,9 @@ navigation_polygon = SubResource("NavigationPolygon_t6onf")
 position = Vector2(123, 22)
 scale = Vector2(2.5, 2.5)
 
+[node name="PossbleCamp" parent="YSort" index="7" instance=ExtResource("8_ontul")]
+position = Vector2(1038, 920)
+
 [node name="trees1" type="Sprite2D" parent="." index="2"]
 modulate = Color(0.878431, 0.890196, 0.72549, 1)
 position = Vector2(928.565, 1292)
@@ -81,3 +94,6 @@ scale = Vector2(0.428571, 0.428571)
 texture = ExtResource("3_pn084")
 offset = Vector2(0, -500)
 flip_h = true
+
+[node name="MainDaylightFilter" parent="Filters" index="0"]
+daylight_shader = SubResource("ShaderMaterial_vx5sr")

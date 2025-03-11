@@ -79,6 +79,7 @@ content_scale_aspect = 1
 theme_type_variation = &"default"
 script = ExtResource("1_0h5ve")
 cheat_event_trigger_name = "DemoParents"
+day_length = 144
 
 [node name="ThemeMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_jx83x")

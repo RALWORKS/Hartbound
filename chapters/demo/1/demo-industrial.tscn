@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://cj4mq4w13vijs"]
+[gd_scene load_steps=28 format=3 uid="uid://cj4mq4w13vijs"]
 
 [ext_resource type="PackedScene" uid="uid://bh1yfkyt3u44i" path="res://chapter.tscn" id="1_abxn2"]
 [ext_resource type="PackedScene" uid="uid://qhhv4s8njcrp" path="res://scenes/demo/1/industrial/b.tscn" id="2_x5gxs"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://cbn3xklmtuki3" path="res://chapters/demo/1/party-is-leaving-camp-1.tscn" id="6_gis10"]
 [ext_resource type="PackedScene" uid="uid://ds2vclbf4raug" path="res://chapter_event_quest_switcher.tscn" id="6_hjem6"]
 [ext_resource type="PackedScene" uid="uid://mcph6fai6ep6" path="res://chapter_event_remove_chapterNode.tscn" id="6_xlrko"]
+[ext_resource type="PackedScene" uid="uid://c0a2dl3a2t7rm" path="res://time_mutation.tscn" id="7_bdihp"]
 [ext_resource type="AudioStream" uid="uid://cj5m4rj3aoeck" path="res://assets/music/maybe-saint-lvl1-bg.ogg" id="7_q6myq"]
 [ext_resource type="PackedScene" uid="uid://b0abqxb7m84t5" path="res://chapters/demo/1/c1-taylor/train-car-herbs.tscn" id="8_otud4"]
 [ext_resource type="PackedScene" uid="uid://5exo54lvam30" path="res://quests/quests/demo_c_1_regroup_initial.tscn" id="8_qoif5"]
@@ -57,6 +58,14 @@ narrative = "Four years ago, you completed your training and joined the Generato
 [node name="ChapterEventQuestSwitcher" parent="Events/StartChapter" index="5" node_paths=PackedStringArray("quest_to_start") instance=ExtResource("6_hjem6")]
 quest_to_start = NodePath("../../../DemoC1RegroupInitial")
 
+[node name="SetNoon" parent="Events/StartChapter" index="6" instance=ExtResource("7_bdihp")]
+time_mutation = 1
+n_days = 0.25
+
+[node name="PauseMorning" parent="Events/StartChapter" index="7" instance=ExtResource("7_bdihp")]
+time_mutation = 2
+n_days = 0.1
+
 [node name="DepartingCamp1" parent="Events" index="1" instance=ExtResource("5_440p5")]
 cutscene = ExtResource("6_gis10")
 
@@ -71,6 +80,10 @@ node_to_remove = NodePath("../../../IndustrialBContents/Nate")
 
 [node name="RMJerry" parent="Events/DepartingCamp1" index="3" node_paths=PackedStringArray("node_to_remove") instance=ExtResource("6_xlrko")]
 node_to_remove = NodePath("../../../IndustrialBContents/Jerry")
+
+[node name="PauseEvening" parent="Events/DepartingCamp1" index="4" instance=ExtResource("7_bdihp")]
+time_mutation = 2
+n_days = 0.3
 
 [node name="TaylorTrainCarHerbs" parent="Events" index="2" instance=ExtResource("5_440p5")]
 cutscene = ExtResource("8_otud4")

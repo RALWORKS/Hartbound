@@ -1,15 +1,24 @@
-[gd_scene load_steps=7 format=3 uid="uid://c3dktuvf1kswv"]
+[gd_scene load_steps=9 format=3 uid="uid://c3dktuvf1kswv"]
 
 [ext_resource type="PackedScene" uid="uid://c8dvlsyrphnoc" path="res://scenes/demo/2/maze/base.tscn" id="1_th33q"]
 [ext_resource type="Texture2D" uid="uid://bdh1dphfwy4ng" path="res://assets/scenes/demo/1/industrial/c.png" id="2_ma5bp"]
 [ext_resource type="Texture2D" uid="uid://hk04f8yttgyl" path="res://assets/scenes/demo/maze/6.png" id="3_7svse"]
 [ext_resource type="Texture2D" uid="uid://c3a1kp5d18pn2" path="res://assets/scenes/demo/maze/6-path.png" id="4_3dlsh"]
 [ext_resource type="PackedScene" uid="uid://dxfuidhlgwthh" path="res://travel/door.tscn" id="5_oabgw"]
+[ext_resource type="Shader" path="res://daylight.gdshader" id="6_oe2sd"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_7pttm"]
 vertices = PackedVector2Array(-17, -7, 535, -15, 396, 61, 328, 75, -34, 878, -79, 791, 891, 1342, 888, 1410, -23, 383, -37, 315, 240, 477, 221, 528, 642, 284, 608, 253, 1341, 1124, 1239, 1130, 1010, 929, 942, 929, 1380, 683, 1457, 686, 226, 132)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 5, 6, 7), PackedInt32Array(8, 9, 10, 11), PackedInt32Array(12, 11, 10, 13), PackedInt32Array(14, 7, 6, 15), PackedInt32Array(16, 14, 15, 17), PackedInt32Array(16, 17, 18, 19), PackedInt32Array(2, 19, 18, 13, 3), PackedInt32Array(3, 20, 0), PackedInt32Array(13, 18, 12)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(-34, 878, 888, 1410, 1341, 1124, 1010, 929, 1457, 686, 396, 61, 535, -15, -17, -7, 226, 132, 328, 75, 608, 253, 240, 477, -37, 315, -23, 383, 221, 528, 642, 284, 1380, 683, 942, 929, 1239, 1130, 891, 1342, -79, 791)])
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8136r"]
+resource_local_to_scene = true
+shader = ExtResource("6_oe2sd")
+shader_parameter/darken = 0.0
+shader_parameter/saturate = 1.0
+shader_parameter/contrast = 1.0
+shader_parameter/warmth = 0.5
 
 [node name="MazeScene" instance=ExtResource("1_th33q")]
 
@@ -63,3 +72,7 @@ dest_edge = "TopRight"
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="YSort" index="6"]
 navigation_polygon = SubResource("NavigationPolygon_7pttm")
+
+[node name="MainDaylightFilter" parent="Filters" index="0"]
+visible = false
+daylight_shader = SubResource("ShaderMaterial_8136r")

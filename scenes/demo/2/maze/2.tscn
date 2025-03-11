@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://btgyg4qbip07e"]
+[gd_scene load_steps=10 format=3 uid="uid://btgyg4qbip07e"]
 
 [ext_resource type="PackedScene" uid="uid://c8dvlsyrphnoc" path="res://scenes/demo/2/maze/base.tscn" id="1_1a6p4"]
 [ext_resource type="Texture2D" uid="uid://evyb5x6lar88" path="res://assets/scenes/demo/1/industrial/b-up.png" id="2_l2p8q"]
 [ext_resource type="Texture2D" uid="uid://cheh7j1cmyou5" path="res://assets/scenes/demo/maze/2.png" id="3_2ymrl"]
 [ext_resource type="Texture2D" uid="uid://43gri4dgmh4l" path="res://assets/scenes/demo/maze/2-path.png" id="4_j3heq"]
 [ext_resource type="PackedScene" uid="uid://dxfuidhlgwthh" path="res://travel/door.tscn" id="5_fk4ei"]
+[ext_resource type="Shader" path="res://daylight.gdshader" id="6_50cfp"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_emq5q"]
 vertices = PackedVector2Array(1343, -70, 1474, -65, 1013, 172, 763, 278, 1619, 541, 1627, 600, 966, 214, 754, 325, 339, 92, 326, 32, -22, 248, 0, 278)
@@ -15,6 +16,14 @@ outlines = Array[PackedVector2Array]([PackedVector2Array(0, 278, 339, 92, 754, 3
 vertices = PackedVector2Array(801, 922, 1369, 1248, 1271, 1248, 754, 948, 512, 1066, 67, 803, 534, 532, 1000, 803)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 5, 6, 7, 0, 3)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(67, 803, 512, 1066, 754, 948, 1271, 1248, 1369, 1248, 801, 922, 1000, 803, 534, 532)])
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ihs7h"]
+resource_local_to_scene = true
+shader = ExtResource("6_50cfp")
+shader_parameter/darken = 0.0
+shader_parameter/saturate = 1.0
+shader_parameter/contrast = 1.0
+shader_parameter/warmth = 0.5
 
 [node name="MazeScene" instance=ExtResource("1_1a6p4")]
 
@@ -65,3 +74,7 @@ navigation_polygon = SubResource("NavigationPolygon_emq5q")
 
 [node name="NavigationRegion2D2" type="NavigationRegion2D" parent="YSort" index="6"]
 navigation_polygon = SubResource("NavigationPolygon_f3t7e")
+
+[node name="MainDaylightFilter" parent="Filters" index="0"]
+visible = false
+daylight_shader = SubResource("ShaderMaterial_ihs7h")

@@ -19,6 +19,9 @@ var day_length = null
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	if not self.visible:
+		process_mode = Node.PROCESS_MODE_DISABLED
+		return
 	mask = get_child(0)
 	if not mask:
 		return

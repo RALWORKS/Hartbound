@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://bu8dakumsc3d2"]
+[gd_scene load_steps=24 format=3 uid="uid://bu8dakumsc3d2"]
 
 [ext_resource type="PackedScene" uid="uid://bp8tsdjdbwj8i" path="res://cutscene/cutscene.tscn" id="1_40cws"]
 [ext_resource type="PackedScene" uid="uid://55vflx8ylix1" path="res://cutscene/cutscene_node.tscn" id="2_drt2k"]
@@ -12,24 +12,25 @@
 [ext_resource type="PackedScene" uid="uid://b031fpm2fu6f1" path="res://cutscene/play_animation_on_start.tscn" id="7_yhnbt"]
 [ext_resource type="PackedScene" uid="uid://bh2iakatlmblw" path="res://quests/quests/reminisce_with_taylor.tscn" id="8_2co5u"]
 [ext_resource type="PackedScene" uid="uid://bxflra082b2is" path="res://reflections/reflections/initial_feelings_on_moon_temple.tscn" id="8_d31e5"]
+[ext_resource type="PackedScene" uid="uid://nglu31ms2rfa" path="res://ui/raise_to_ui_layer.tscn" id="11_amqcj"]
 [ext_resource type="PackedScene" uid="uid://b1lrqpjjqlqjg" path="res://cutscene/cutscene_controlled_section.tscn" id="11_d0v4l"]
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_5rruu"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_nwfap"]
 viewport_path = NodePath("img")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_j6up3"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_xxv21"]
 viewport_path = NodePath("img")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_enkgx"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_8v04p"]
 viewport_path = NodePath("img")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_or0ey"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_pevug"]
 viewport_path = NodePath("img")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_gaywo"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_c5y3g"]
 viewport_path = NodePath("img")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_88jcu"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_fm30h"]
 viewport_path = NodePath("img")
 
 [sub_resource type="Animation" id="Animation_4yk4d"]
@@ -113,7 +114,7 @@ texture = ExtResource("4_dgw2j")
 modulate = Color(0, 0, 0, 0.768627)
 position = Vector2(111, 425)
 scale = Vector2(1.2, 1.2)
-texture = SubResource("ViewportTexture_5rruu")
+texture = SubResource("ViewportTexture_nwfap")
 flip_h = true
 with_background = false
 
@@ -125,6 +126,7 @@ text = "Taylor crouches to look at some herbs growing on the tracks. You pause t
 [node name="ReminisceWithTaylor" parent="CutsceneNode/QuestOnStart" index="0" instance=ExtResource("8_2co5u")]
 
 [node name="CutsceneNode2" parent="." index="1" node_paths=PackedStringArray("next") instance=ExtResource("2_drt2k")]
+visible = false
 next = NodePath("../CutsceneNode3")
 
 [node name="Sprite2D" type="Sprite2D" parent="CutsceneNode2" index="0"]
@@ -142,7 +144,7 @@ texture = ExtResource("4_dgw2j")
 modulate = Color(0, 0, 0, 0.768627)
 position = Vector2(111, 425)
 scale = Vector2(1.2, 1.2)
-texture = SubResource("ViewportTexture_j6up3")
+texture = SubResource("ViewportTexture_xxv21")
 flip_h = true
 with_background = false
 
@@ -165,7 +167,10 @@ scale = Vector2(0.7, 0.723)
 texture = ExtResource("4_dgw2j")
 flip_h = true
 
+[node name="RaiseToUILayer" parent="CutsceneNode2/Sprite2D3" index="0" instance=ExtResource("11_amqcj")]
+
 [node name="CutsceneNode3" parent="." index="2" node_paths=PackedStringArray("next", "use_on_start_fn_from") instance=ExtResource("2_drt2k")]
+visible = false
 next = NodePath("../CutsceneNode5")
 use_on_start_fn_from = NodePath("AddReflectionOnStart")
 
@@ -189,7 +194,7 @@ texture = ExtResource("4_dgw2j")
 modulate = Color(0, 0, 0, 0.768627)
 position = Vector2(111, 425)
 scale = Vector2(1.2, 1.2)
-texture = SubResource("ViewportTexture_enkgx")
+texture = SubResource("ViewportTexture_8v04p")
 flip_h = true
 with_background = false
 
@@ -211,7 +216,10 @@ position = Vector2(1421, 1486)
 scale = Vector2(0.7, 0.723)
 texture = ExtResource("4_dgw2j")
 
+[node name="RaiseToUILayer" parent="CutsceneNode3/Sprite2D3" index="0" instance=ExtResource("11_amqcj")]
+
 [node name="CutsceneNode5" parent="." index="3" node_paths=PackedStringArray("next") instance=ExtResource("2_drt2k")]
+visible = false
 next = NodePath("../CutsceneNode6")
 
 [node name="Sprite2D" type="Sprite2D" parent="CutsceneNode5" index="0"]
@@ -229,7 +237,7 @@ texture = ExtResource("4_dgw2j")
 modulate = Color(0, 0, 0, 0.768627)
 position = Vector2(111, 425)
 scale = Vector2(1.2, 1.2)
-texture = SubResource("ViewportTexture_or0ey")
+texture = SubResource("ViewportTexture_pevug")
 flip_h = true
 with_background = false
 
@@ -252,7 +260,10 @@ scale = Vector2(0.7, 0.723)
 texture = ExtResource("4_dgw2j")
 flip_h = true
 
+[node name="RaiseToUILayer" parent="CutsceneNode5/Sprite2D3" index="0" instance=ExtResource("11_amqcj")]
+
 [node name="CutsceneNode6" parent="." index="4" node_paths=PackedStringArray("next") instance=ExtResource("2_drt2k")]
+visible = false
 next = NodePath("../4")
 
 [node name="Sprite2D" type="Sprite2D" parent="CutsceneNode6" index="0"]
@@ -270,7 +281,7 @@ texture = ExtResource("4_dgw2j")
 modulate = Color(0, 0, 0, 0.768627)
 position = Vector2(111, 425)
 scale = Vector2(1.2, 1.2)
-texture = SubResource("ViewportTexture_gaywo")
+texture = SubResource("ViewportTexture_c5y3g")
 flip_h = true
 with_background = false
 
@@ -297,7 +308,10 @@ scale = Vector2(0.7, 0.723)
 texture = ExtResource("4_dgw2j")
 flip_h = true
 
+[node name="RaiseToUILayer" parent="CutsceneNode6/Sprite2D3" index="0" instance=ExtResource("11_amqcj")]
+
 [node name="4" parent="." index="5" node_paths=PackedStringArray("use_on_start_fn_from") instance=ExtResource("11_d0v4l")]
+visible = false
 section_id = "taylor-said-she-wanted-to-share-elf-memories"
 use_on_start_fn_from = NodePath("PlayAnimationOnStart")
 
@@ -316,7 +330,7 @@ texture = ExtResource("4_dgw2j")
 modulate = Color(0, 0, 0, 0.768627)
 position = Vector2(111, 425)
 scale = Vector2(1.2, 1.2)
-texture = SubResource("ViewportTexture_88jcu")
+texture = SubResource("ViewportTexture_fm30h")
 flip_h = true
 with_background = false
 
@@ -345,6 +359,8 @@ texture = ExtResource("4_dgw2j")
 libraries = {
 "": SubResource("AnimationLibrary_dhxe8")
 }
+
+[node name="RaiseToUILayer" parent="4/Sprite2D3" index="1" instance=ExtResource("11_amqcj")]
 
 [node name="PlayAnimationOnStart" parent="4" index="6" node_paths=PackedStringArray("player") instance=ExtResource("7_yhnbt")]
 player = NodePath("../Sprite2D3/AnimationPlayer")

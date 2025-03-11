@@ -1,6 +1,8 @@
 extends Node2D
 
 @export var to_chapter: String = ""
+@export var show_clock = true
+@export var is_move: bool = true
 @export var starting_page: CutsceneNode
 @export var concepts: Node
 @export var default_topics: Node
@@ -29,6 +31,7 @@ func free_tricky_nodes():
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	$"/root/Game".show_clock = show_clock
 	hide_children(self)
 	if concepts:
 		for item in concepts.get_children():

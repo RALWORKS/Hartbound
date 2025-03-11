@@ -1,0 +1,31 @@
+[gd_scene load_steps=3 format=3 uid="uid://d1hxs3l3p846c"]
+
+[ext_resource type="Script" path="res://ui/clock.gd" id="1_ga8j4"]
+[ext_resource type="PackedScene" uid="uid://7djnei1l8a52" path="res://tools/time_utils.tscn" id="1_k725i"]
+
+[node name="Clock" type="Node2D"]
+script = ExtResource("1_ga8j4")
+
+[node name="TimeUtils" parent="." instance=ExtResource("1_k725i")]
+
+[node name="Time" type="Label" parent="."]
+offset_right = 21.0
+offset_bottom = 43.0
+theme_override_font_sizes/font_size = 50
+text = "00:00"
+
+[node name="DayLabel" type="Label" parent="."]
+offset_left = 4.0
+offset_top = 57.0
+offset_right = 74.0
+offset_bottom = 115.0
+theme_override_font_sizes/font_size = 25
+text = "DAY"
+
+[node name="Day" type="Label" parent="."]
+offset_left = 62.0
+offset_top = 57.0
+offset_right = 143.0
+offset_bottom = 115.0
+theme_override_font_sizes/font_size = 25
+text = "1"
