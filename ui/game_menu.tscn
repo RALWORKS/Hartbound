@@ -16,7 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://dr6wagkjctvpk" path="res://ui/reflection_btn.tscn" id="13_kv606"]
 [ext_resource type="PackedScene" uid="uid://d1hxs3l3p846c" path="res://ui/clock.tscn" id="15_gyt0t"]
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_ujjxa"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_qpvll"]
 viewport_path = NodePath("img")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xueob"]
@@ -24,7 +24,7 @@ content_margin_left = 45.0
 bg_color = Color(0, 0, 0, 0.815686)
 border_color = Color(0, 0, 0, 1)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_tssv6"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_yyrme"]
 viewport_path = NodePath("img")
 
 [node name="GameMenu" type="Node2D"]
@@ -60,7 +60,7 @@ metadata/_edit_use_anchors_ = true
 [node name="Profile" parent="ProfileBtn" instance=ExtResource("3_gksuv")]
 position = Vector2(15, 12)
 scale = Vector2(0.38, 0.38)
-texture = SubResource("ViewportTexture_ujjxa")
+texture = SubResource("ViewportTexture_qpvll")
 
 [node name="Label" type="Label" parent="ProfileBtn"]
 layout_mode = 1
@@ -120,7 +120,7 @@ offset = Vector2(0, -300)
 modulate = Color(0.34902, 0.439216, 0.576471, 1)
 position = Vector2(70, -607.341)
 scale = Vector2(1.3, 1.703)
-texture = SubResource("ViewportTexture_tssv6")
+texture = SubResource("ViewportTexture_yyrme")
 with_background = false
 
 [node name="FullName" type="RichTextLabel" parent="CharacterRecord"]

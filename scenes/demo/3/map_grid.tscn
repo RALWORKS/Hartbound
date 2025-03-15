@@ -60,10 +60,33 @@ offset_bottom = 86.0
 theme_override_font_sizes/font_size = 30
 text = "06:00"
 
+[node name="CancelTip" type="ColorRect" parent="CanvasLayer/Counter"]
+layout_mode = 0
+offset_left = 158.0
+offset_right = 288.0
+offset_bottom = 124.0
+color = Color(0, 0, 0, 1)
+
+[node name="ESC" type="Label" parent="CanvasLayer/Counter/CancelTip"]
+layout_mode = 0
+offset_left = -1.0
+offset_top = 11.0
+offset_right = 165.0
+offset_bottom = 89.0
+theme_override_font_sizes/font_size = 40
+text = "[ESC]"
+
+[node name="ToCancel" type="Label" parent="CanvasLayer/Counter/CancelTip"]
+layout_mode = 0
+offset_top = 74.0
+offset_right = 148.0
+offset_bottom = 120.0
+text = "to cancel"
+
 [node name="TravelTip" type="ColorRect" parent="CanvasLayer/Counter"]
 layout_mode = 0
-offset_left = 172.0
-offset_right = 367.0
+offset_left = 268.0
+offset_right = 463.0
 offset_bottom = 124.0
 color = Color(0, 0, 0, 1)
 
@@ -78,9 +101,8 @@ text = "[SPACE]"
 
 [node name="TravelHere" type="Label" parent="CanvasLayer/Counter/TravelTip"]
 layout_mode = 0
-offset_left = 5.0
 offset_top = 74.0
-offset_right = 153.0
+offset_right = 148.0
 offset_bottom = 120.0
 text = "to travel here"
 

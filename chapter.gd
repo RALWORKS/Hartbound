@@ -179,12 +179,7 @@ func end_cutscene(free=false):
 	
 	game.show_clock = true
 
-	for child in cur_game:
-		if is_instance_valid(child):
-			if free:
-				child.free()
-			else:
-				$"../MainScreen/World".add_child(child)
+	reload_world(free)
 
 	await get_tree().create_timer(0.1).timeout
 	if is_move:
@@ -219,6 +214,13 @@ func close_map(biome):
 	await get_tree().create_timer(0.05).timeout
 	#$"/root/Game".move()
 	
+	active_map = null
+	
+	if not biome:
+		game.load_position()
+		game.show_clock = true
+		return
+	
 	if biome.trigger_name:
 		return trigger(biome.trigger_name)
 	
@@ -229,7 +231,6 @@ func close_map(biome):
 	
 	event.cutscene_input_data = biome
 	event.play()
-	active_map = null
 
 func get_character_dialogue(id):
 	var data = null
@@ -239,3 +240,11 @@ func get_character_dialogue(id):
 			break
 	return data.dialogue
 
+
+func reload_world(free=false):
+	for child in cur_game:
+		if is_instance_valid(child):
+			if free:
+				child.free()
+			else:
+				$"../MainScreen/World".add_child(child)

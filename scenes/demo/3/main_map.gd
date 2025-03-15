@@ -46,6 +46,8 @@ func _process(_delta):
 		return
 	if Input.is_action_just_released("next"):
 		go()
+	if Input.is_action_just_released("cancel"):
+		cancel()
 
 func _get_game():
 	if game:
@@ -76,3 +78,6 @@ func go():
 	var biome = get_biome()
 	biome.get_parent().remove_child(biome)
 	$"/root/Game/Chapter".close_map(biome)
+
+func cancel():
+	$"/root/Game/Chapter".close_map(null)

@@ -204,17 +204,21 @@ func start_from_state(s):
 	chapter = ch
 	$".".add_child(ch)
 	
+	load_position()
+	
+	load_quests()
+	#load_display()
+	
+	started = true
+
+func load_position():
 	var p = get_state(["position"])
 	if p != null and p["scene_path"] != null:
 		$Map.load_position(p)
 	elif "x" in p and "y" in p:
 		player.position.x = p.x
 		player.position.y = p.y
-	
-	load_quests()
-	#load_display()
-	
-	started = true
+
 
 func load_display():
 	for m in get_active_player_display_modes():
@@ -304,6 +308,7 @@ func reset_state():
 func start_new():
 	start_from_state(STATE)
 	$ThemeFader.play("fadeout", -1, music_crossfade_speed)
+
 
 func new_from_chapter(start_at: String):
 	STATE["chapter"] = "create"
