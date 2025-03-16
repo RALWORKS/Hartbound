@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://b4b6kwqbiqg85"]
+[gd_scene load_steps=19 format=3 uid="uid://b4b6kwqbiqg85"]
 
 [ext_resource type="PackedScene" uid="uid://byrlpmbpj6yr5" path="res://scene.tscn" id="1_evu3m"]
 [ext_resource type="Texture2D" uid="uid://dsfg855ag6psn" path="res://assets/forest-layers/bg/meadow1.png" id="2_fiheu"]
@@ -6,17 +6,29 @@
 [ext_resource type="Texture2D" uid="uid://w5b3i5ngj8ah" path="res://assets/forest-layers/2/2_trees_triangle.png" id="4_5i3xx"]
 [ext_resource type="Texture2D" uid="uid://dwsfbl0fdq6d5" path="res://assets/forest-layers/1/3_pine_triangle.png" id="5_6tgjq"]
 [ext_resource type="Texture2D" uid="uid://d0egx3cj3dcla" path="res://assets/forest-layers/1/7_rocky_mound.png" id="6_pl0un"]
+[ext_resource type="PackedScene" uid="uid://g7hegmydjv1" path="res://star_ritual/star_ritual.tscn" id="6_u0eik"]
 [ext_resource type="Texture2D" uid="uid://1yqbtlb6k2r4" path="res://assets/forest-layers/5ib/2_ruin.png" id="6_yaqcs"]
 [ext_resource type="Texture2D" uid="uid://buiq3l3pnjikt" path="res://assets/forest-layers/5/2_bottom_hill.png" id="7_axs6w"]
-[ext_resource type="Texture2D" uid="uid://cnlclj8g0tyiw" path="res://assets/scenery/extra-tree-coloured/stone-trio.png" id="7_h0xlh"]
-[ext_resource type="Texture2D" uid="uid://dmk3dxuo4q0ie" path="res://assets/scenery/extra-tree-coloured/pedestal-pine.png" id="8_itqmm"]
+[ext_resource type="Texture2D" uid="uid://cnlclj8g0tyiw" path="res://assets/scenery/extra-tree-coloured-bright/stone-trio.png" id="7_h0xlh"]
+[ext_resource type="PackedScene" uid="uid://brkycd0ijgeml" path="res://star_ritual/true_path.tscn" id="7_lnudv"]
+[ext_resource type="Texture2D" uid="uid://dmk3dxuo4q0ie" path="res://assets/scenery/extra-tree-coloured-bright/pedestal-pine.png" id="8_itqmm"]
 [ext_resource type="Texture2D" uid="uid://btd65u3yitxyy" path="res://assets/forest-layers/bg/sizing.png" id="8_k7y2y"]
+[ext_resource type="PackedScene" uid="uid://ikw1o57bgtid" path="res://star_ritual/star.tscn" id="8_wvg1e"]
+[ext_resource type="Shader" path="res://daylight.gdshader" id="15_11ymb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f4js7"]
 size = Vector2(1630, 23)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4whwk"]
 size = Vector2(20, 1273)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_opth5"]
+resource_local_to_scene = true
+shader = ExtResource("15_11ymb")
+shader_parameter/darken = 0.0
+shader_parameter/saturate = 1.0
+shader_parameter/contrast = 1.0
+shader_parameter/warmth = 0.5
 
 [node name="Scene" instance=ExtResource("1_evu3m")]
 
@@ -49,6 +61,16 @@ shape = SubResource("RectangleShape2D_4whwk")
 [node name="right" type="CollisionShape2D" parent="Background/StaticBody2D" index="6"]
 position = Vector2(1608, 626.5)
 shape = SubResource("RectangleShape2D_4whwk")
+
+[node name="StarRitual" parent="Background/StaticBody2D" index="7" instance=ExtResource("6_u0eik")]
+position = Vector2(-2, 0)
+polygon = PackedVector2Array(871, 187, 1170, 563, 1503, 389, 1651, 311, 1403, 142, 861, 161)
+
+[node name="TruePath" parent="Background/StaticBody2D/StarRitual" index="2" instance=ExtResource("7_lnudv")]
+points = PackedVector2Array(1063, 275, 1323, 265, 1275, 422, 1149, 211)
+
+[node name="Star" parent="Background/StaticBody2D/StarRitual" index="3" instance=ExtResource("8_wvg1e")]
+position = Vector2(1472, 296)
 
 [node name="Front4" type="Sprite2D" parent="Background" index="1"]
 position = Vector2(1107, 241)
@@ -95,7 +117,6 @@ flip_h = true
 [node name="Sprite2D2" type="Sprite2D" parent="YSort/Front5" index="0"]
 modulate = Color(1, 1, 0.866667, 1)
 position = Vector2(-735.715, -121.429)
-scale = Vector2(1, 1)
 texture = ExtResource("7_h0xlh")
 
 [node name="Sprite2D" type="Sprite2D" parent="YSort/Front5" index="1"]
@@ -114,3 +135,6 @@ texture = ExtResource("8_k7y2y")
 centered = false
 offset = Vector2(-10, -10)
 metadata/_edit_group_ = true
+
+[node name="MainDaylightFilter" parent="Filters" index="0"]
+daylight_shader = SubResource("ShaderMaterial_opth5")
