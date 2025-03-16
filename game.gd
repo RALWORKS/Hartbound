@@ -707,7 +707,13 @@ func get_scene():
 	return c[0]
 
 func get_standard_bg():
-	return chapter.cached_scene_bg
+	var path = chapter.cached_scene_path
+	if not path:
+		return
+	var sc = load(path)
+	var bg = sc.instantiate()
+	bg.as_background = true
+	return bg
 
 func get_standard_bg_scale():
 	return chapter.cached_bg_scale

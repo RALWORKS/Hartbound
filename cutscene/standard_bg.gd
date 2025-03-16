@@ -18,9 +18,16 @@ func load_texture():
 	var game = $"/root".get_node_or_null("Game")
 	if not game:
 		return
-	var img: Texture = game.get_standard_bg()
-	if not img:
+	#var img: Texture = game.get_standard_bg()
+	#if not img:
 		return
-	texture = img
-	scale = game.get_standard_bg_scale()
-	position = game.get_standard_bg_position()
+	#texture = img
+	var bg = game.get_standard_bg()
+	if not bg:
+		return
+	texture = null
+	bg.position = Vector2(200, 0)
+	# bg.modulate = "#ffffff88"
+	add_child(bg)
+	bg.scale = game.get_standard_bg_scale()
+	bg.position = game.get_standard_bg_position()

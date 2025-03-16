@@ -8,6 +8,8 @@
 [sub_resource type="GDScript" id="GDScript_kldhx"]
 script/source = "extends Node2D
 
+@export var as_background = false
+
 @export var spawn_at = \"s\"
 @onready var default_spawner = $YSort/DefaultSpawner
 @export var contents_node: Node2D
@@ -24,6 +26,11 @@ var LeylineScreen = preload(\"res://effects/leyline_screen.tscn\")
 func _ready():
 	if vein_node:
 		vein_node.visible = false
+	
+	if as_background:
+		run_as_background()
+		return
+	
 	add_chapter_contents()
 	$\"/root/Game/MainScreen\".clear_postprocessing()
 	
@@ -91,9 +98,22 @@ func add_chapter_contents():
 
 func spawn(g):
 	$YSort/DefaultSpawner.spawn(g)
+
+func run_as_background():
+	$YSort.y_sort_enabled = false
+	z_index = -100
+	for c in $Filters.get_children():
+		c.free()
+	for c in $YSort.get_children():
+		if (
+			\"spawn\" in c
+			or \"action\" in c
+			or c is NavigationRegion2D
+			):
+			c.free()
 "
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_2128l"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_h2wxe"]
 resource_local_to_scene = true
 shader = ExtResource("4_tv03u")
 shader_parameter/darken = 0.0
@@ -122,7 +142,7 @@ position = Vector2(560, 365)
 [node name="Filters" type="CanvasLayer" parent="."]
 
 [node name="MainDaylightFilter" parent="Filters" instance=ExtResource("3_5fm1i")]
-daylight_shader = SubResource("ShaderMaterial_2128l")
+daylight_shader = SubResource("ShaderMaterial_h2wxe")
 
 [node name="Filter" type="ColorRect" parent="Filters/MainDaylightFilter"]
 visible = false

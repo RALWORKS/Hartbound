@@ -18,7 +18,7 @@ var cur_game: Array[Node]
 
 var cutscene
 
-var cached_scene_bg
+var cached_scene_path
 var cached_bg_scale
 var cached_bg_position
 
@@ -117,19 +117,16 @@ func start_cutscene(
 	var bg
 	
 	if world.size() > 0:
-		var scene = $"../MainScreen/World".get_children()[0]
-		bg = scene.get_node_or_null("Background")
+		var scene: Node2D = $"../MainScreen/World".get_children()[0]
+		bg = scene.scene_file_path
 		if bg:
-			cached_scene_bg = bg.texture
+			cached_scene_path = bg#.texture
 			cached_bg_scale = scene.dialogue_bg_scale
 			cached_bg_position = scene.dialogue_bg_position
 		cur_game = world
 
 		for child in world:
 			$"../MainScreen/World".call_deferred("remove_child", child)
-	#else:
-	#   from a previous attempt at implementing dynamic bg
-	#	bg = cached_scene_bg
 	
 	$"../MainScreen/World".call_deferred("add_child", cutscene)
 	cutscene.npc = npc
