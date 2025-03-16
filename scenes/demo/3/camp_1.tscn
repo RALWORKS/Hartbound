@@ -66,5 +66,8 @@ scale = Vector2(2.5, 2.5)
 [node name="PossibleCamp" parent="YSort" index="7" instance=ExtResource("8_6dg7t")]
 position = Vector2(478, 367)
 
+[node name="Polygon2D" type="CollisionPolygon2D" parent="YSort/PossibleCamp" index="1"]
+polygon = PackedVector2Array(-124, 76, -283, 163, -93, 325, 252, 313, 433, 197, 385, -298, -407, -283, -438, 19)
+
 [node name="MainDaylightFilter" parent="Filters" index="0"]
 daylight_shader = SubResource("ShaderMaterial_wcfrr")

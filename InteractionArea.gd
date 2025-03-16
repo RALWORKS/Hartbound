@@ -74,6 +74,27 @@ func action():
 	
 	cur_window.open(g)
 
+func range_entered_action():
+	if not action_source:
+		return
+	if not "range_entered_action" in action_source:
+		return
+	return action_source.range_entered_action()
+
+func range_exited_action():
+	if not action_source:
+		return
+	if not "range_exited_action" in action_source:
+		return
+	return action_source.range_exited_action()
+
+func on_click_override():
+	if not action_source:
+		return false
+	if not "on_click_override" in action_source:
+		return false
+	action_source.on_click_override()
+	return true
 
 func _on_mouse_entered():
 	if process_mode == Node.PROCESS_MODE_DISABLED:
@@ -91,6 +112,8 @@ func _on_mouse_entered():
 
 func _on_click():
 	if process_mode == Node.PROCESS_MODE_DISABLED:
+		return
+	if on_click_override():
 		return
 	_get_game().staged_action_node = self
 	if in_range:
@@ -115,12 +138,14 @@ func _get_game():
 
 func interact_range_entered():
 	in_range = true
+	range_entered_action()
 	if _get_game().staged_action_node == self:
 		action()
 		game.unstage_action_node(self)
 
 func interact_range_exited():
 	in_range = false
+	range_exited_action()
 
 
 func _on_tree_exiting():

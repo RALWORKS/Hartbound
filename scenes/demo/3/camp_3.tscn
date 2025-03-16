@@ -73,6 +73,9 @@ scale = Vector2(2.5, 2.5)
 [node name="PossbleCamp" parent="YSort" index="7" instance=ExtResource("8_ontul")]
 position = Vector2(1038, 920)
 
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/PossbleCamp" index="1"]
+polygon = PackedVector2Array(-776, -79, -98, -377, 749, 107, 658, 304, -297, 347, -778, 122)
+
 [node name="trees1" type="Sprite2D" parent="." index="2"]
 modulate = Color(0.878431, 0.890196, 0.72549, 1)
 position = Vector2(928.565, 1292)

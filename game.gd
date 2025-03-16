@@ -10,6 +10,7 @@ var paused = false
 var unpausing = false
 var leyline_showing = false
 var is_scouting = false
+var can_camp = false
 var dying = false
 
 var show_clock = true

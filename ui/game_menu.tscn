@@ -7,16 +7,16 @@
 [ext_resource type="Script" path="res://ui/ProfileBtn.gd" id="4_5c32q"]
 [ext_resource type="PackedScene" uid="uid://i6laa1tesr13" path="res://ui/modal.tscn" id="5_jpiq8"]
 [ext_resource type="Theme" uid="uid://bowrqsap2qmsa" path="res://base_theme.tres" id="6_pr2h2"]
-[ext_resource type="PackedScene" uid="uid://cywkpft2hp3p2" path="res://ui/view_leyline_btn.tscn" id="7_2qthx"]
 [ext_resource type="Texture2D" uid="uid://cwobelc0kaio" path="res://assets/effects/pass-out-1/black.png" id="7_45e3t"]
 [ext_resource type="PackedScene" uid="uid://b2s0y0fs6dw7v" path="res://ui/scout_btn.tscn" id="8_4uuuh"]
 [ext_resource type="Texture2D" uid="uid://nwp046lvkv0y" path="res://assets/effects/pass-out-1/star-biggest.png" id="8_7cibf"]
 [ext_resource type="Texture2D" uid="uid://dneh40ijxqdeo" path="res://assets/stars-backdrop.png" id="9_st631"]
 [ext_resource type="PackedScene" uid="uid://xpojrm8dxubm" path="res://ui/inv_btn.tscn" id="10_jbthf"]
+[ext_resource type="PackedScene" uid="uid://cughgnxxg8bu3" path="res://ui/camp_btn.tscn" id="13_64ksq"]
 [ext_resource type="PackedScene" uid="uid://dr6wagkjctvpk" path="res://ui/reflection_btn.tscn" id="13_kv606"]
 [ext_resource type="PackedScene" uid="uid://d1hxs3l3p846c" path="res://ui/clock.tscn" id="15_gyt0t"]
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_qpvll"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_rwl8w"]
 viewport_path = NodePath("img")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xueob"]
@@ -24,7 +24,7 @@ content_margin_left = 45.0
 bg_color = Color(0, 0, 0, 0.815686)
 border_color = Color(0, 0, 0, 1)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_yyrme"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_pd7c3"]
 viewport_path = NodePath("img")
 
 [node name="GameMenu" type="Node2D"]
@@ -60,7 +60,7 @@ metadata/_edit_use_anchors_ = true
 [node name="Profile" parent="ProfileBtn" instance=ExtResource("3_gksuv")]
 position = Vector2(15, 12)
 scale = Vector2(0.38, 0.38)
-texture = SubResource("ViewportTexture_qpvll")
+texture = SubResource("ViewportTexture_rwl8w")
 
 [node name="Label" type="Label" parent="ProfileBtn"]
 layout_mode = 1
@@ -120,7 +120,7 @@ offset = Vector2(0, -300)
 modulate = Color(0.34902, 0.439216, 0.576471, 1)
 position = Vector2(70, -607.341)
 scale = Vector2(1.3, 1.703)
-texture = SubResource("ViewportTexture_yyrme")
+texture = SubResource("ViewportTexture_pd7c3")
 with_background = false
 
 [node name="FullName" type="RichTextLabel" parent="CharacterRecord"]
@@ -184,13 +184,6 @@ theme_override_constants/separation = 20
 
 [node name="HideButtonsForCutscene" type="Node2D" parent="."]
 
-[node name="ViewLeylineBtn" parent="HideButtonsForCutscene" instance=ExtResource("7_2qthx")]
-offset_left = 22.0
-offset_top = 302.0
-offset_right = 172.0
-offset_bottom = 452.0
-scale = Vector2(0.5, 0.5)
-
 [node name="ScoutBtn" parent="HideButtonsForCutscene" instance=ExtResource("8_4uuuh")]
 offset_left = 110.0
 offset_top = 302.0
@@ -203,6 +196,13 @@ offset_left = 110.0
 offset_top = 214.0
 offset_right = 260.0
 offset_bottom = 364.0
+scale = Vector2(0.5, 0.5)
+
+[node name="CampBtn" parent="HideButtonsForCutscene" instance=ExtResource("13_64ksq")]
+offset_left = 23.0
+offset_top = 302.0
+offset_right = 173.0
+offset_bottom = 452.0
 scale = Vector2(0.5, 0.5)
 
 [node name="InvBtn" parent="." instance=ExtResource("10_jbthf")]
