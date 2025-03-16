@@ -20,9 +20,9 @@ func get_background():
 
 func get_camp():
 	var camps: Array = $Camps.get_children()
-	var dt = int(game.timestamp())
+	var r = int(game.get_date() + game.get_time())
 	
 	
-	var i = dt % camps.size()
+	var i = r % camps.size()
 	
 	return camps[i].scene.instantiate()
