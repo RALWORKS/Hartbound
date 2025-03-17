@@ -9,7 +9,8 @@ var sequence: Array[Star] = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	get_parent().sigil = self
+	if "sigil" in get_parent():
+		get_parent().sigil = self
 	visible = false
 
 
@@ -25,3 +26,49 @@ func make_stars(ritual: StarRitual):
 		ritual.add_star(s)
 		sequence.push_back(s)
 		
+
+func corners():
+	if not points.size():
+		return Vector2(0, 0)
+	var x = Vector2(points[0].x, points[0].x)
+	var y = Vector2(points[0].y, points[0].y)
+	
+	for p in points:
+		if p.x < x[0]:
+			x[0] = p.x
+		if p.x > x[1]:
+			x[1] = p.x
+		if p.y < y[0]:
+			y[0] = p.y
+		if p.y > y[1]:
+			y[1] = p.y
+	
+	return [x, y]
+
+func dimensions():
+	var c = corners()
+	var x = c[0]
+	var y = c[1]
+	return Vector2(abs(x[1] - x[0]), abs(y[1] - y[0]))
+
+func top_right():
+	var c = corners()
+	return Vector2(c[0][0], c[1][0])
+
+func fit_to_square(s: int):
+	var d: Vector2 = dimensions()
+	var mul = 1.0
+
+	if d.y > d.x:
+		mul = s / d.y
+	else:
+		mul = s / d.x
+
+	var offset = top_right()
+	
+	var ret = Line2D.new()
+	for p in points:
+		ret.add_point((p - offset) * mul)
+	
+	return ret
+	

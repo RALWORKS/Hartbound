@@ -15,6 +15,9 @@ var tracer_line: Line2D = Line2D.new()
 
 var sigil: TruePath
 
+var vision: StarVision
+var StarVision = preload("res://scenes/star_vision.tscn")
+
 var seconds_allowed: float = 20.0
 var seconds_elapsed: float = 0.0
 
@@ -34,6 +37,9 @@ func _ready():
 	setup_answers()
 	make_veil()
 	veil.visible = false
+	vision = StarVision.instantiate()
+	add_child(vision)
+	vision.set_sigil(sigil)
 
 func style_line(l: Line2D):
 	add_child(l)
@@ -42,7 +48,7 @@ func style_line(l: Line2D):
 	l.joint_mode = Line2D.LINE_JOINT_ROUND
 	l.end_cap_mode = Line2D.LINE_CAP_ROUND
 	l.begin_cap_mode = Line2D.LINE_CAP_ROUND
-	l.z_index = 80
+	l.z_index = 30
 	
 func setup_collision():
 	$Area/Hitbox.polygon = polygon.duplicate()
@@ -133,6 +139,7 @@ func make_veil():
 	
 
 func start():
+	vision.show_vision()
 	if not veil.get_parent():
 		get_parent().add_child(veil)
 	seconds_elapsed = 0.0
@@ -164,6 +171,7 @@ func die():
 
 func stop():
 	veil.visible = false
+	vision.visible = false
 	reset()
 	active = false
 	game.player.z_index = 0
