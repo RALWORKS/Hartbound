@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://b4b6kwqbiqg85"]
+[gd_scene load_steps=20 format=3 uid="uid://b4b6kwqbiqg85"]
 
 [ext_resource type="PackedScene" uid="uid://byrlpmbpj6yr5" path="res://scene.tscn" id="1_evu3m"]
 [ext_resource type="Texture2D" uid="uid://dsfg855ag6psn" path="res://assets/forest-layers/bg/meadow1.png" id="2_fiheu"]
@@ -21,6 +21,11 @@ size = Vector2(1630, 23)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4whwk"]
 size = Vector2(20, 1273)
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_qnqcf"]
+vertices = PackedVector2Array(928, 893, 1132, 1235, 775, 947, 685, 249, 1435, 297, 988, 558, 796, 555, 239, 1199, 50, 1154, 577, 851, 943, 798, 194, 12, 299, 3, 1051, 854)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2), PackedInt32Array(3, 4, 5, 6), PackedInt32Array(2, 7, 8, 9, 10), PackedInt32Array(0, 2, 10), PackedInt32Array(6, 11, 12, 3), PackedInt32Array(10, 6, 5, 13), PackedInt32Array(10, 13, 0)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(194, 12, 796, 555, 943, 798, 577, 851, 50, 1154, 239, 1199, 775, 947, 1132, 1235, 928, 893, 1051, 854, 988, 558, 1435, 297, 685, 249, 299, 3)])
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_opth5"]
 resource_local_to_scene = true
@@ -124,6 +129,9 @@ texture = ExtResource("7_h0xlh")
 modulate = Color(1, 1, 0.866667, 1)
 position = Vector2(-44.286, 130)
 texture = ExtResource("8_itqmm")
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="YSort" index="3"]
+navigation_polygon = SubResource("NavigationPolygon_qnqcf")
 
 [node name="Front" type="Sprite2D" parent="." index="2"]
 position = Vector2(670, 1174)
