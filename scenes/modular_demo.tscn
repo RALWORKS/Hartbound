@@ -64,7 +64,8 @@ shape = SubResource("RectangleShape2D_4whwk")
 
 [node name="StarRitual" parent="Background/StaticBody2D" index="7" instance=ExtResource("6_u0eik")]
 position = Vector2(-2, 0)
-polygon = PackedVector2Array(871, 187, 1170, 563, 1503, 389, 1651, 311, 1403, 142, 861, 161)
+color = Color(0.192176, 2.54672e-05, 0.192174, 1)
+polygon = PackedVector2Array(869, 181, 961, 231, 814, 233, 1046, 406, 1011, 432, 1172, 555, 1420, 406, 1612, 317, 1419, 195, 1262, 199, 1248, 188, 1220, 194, 1212, 179, 1066, 177, 1054, 188)
 
 [node name="TruePath" parent="Background/StaticBody2D/StarRitual" index="2" instance=ExtResource("7_lnudv")]
 points = PackedVector2Array(1063, 275, 1323, 265, 1275, 422, 1149, 211)

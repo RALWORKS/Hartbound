@@ -19,11 +19,14 @@ script/source = "extends Node2D
 @export var dialogue_bg_scale = Vector2(2.0, 2.0)
 @export var dialogue_bg_position = Vector2(-300, -300)
 
+var _daylight_on = true
+
 var LeylineScreen = preload(\"res://effects/leyline_screen.tscn\")
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	_daylight_on = $Filters/MainDaylightFilter.visible
 	if vein_node:
 		vein_node.visible = false
 	
@@ -111,9 +114,15 @@ func run_as_background():
 			or c is NavigationRegion2D
 			):
 			c.free()
+
+func daylight_default():
+	$Filters/MainDaylightFilter.visible = _daylight_on
+
+func daylight_off():
+	$Filters/MainDaylightFilter.visible = false
 "
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_h2wxe"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hd8ie"]
 resource_local_to_scene = true
 shader = ExtResource("4_tv03u")
 shader_parameter/darken = 0.0
@@ -142,7 +151,7 @@ position = Vector2(560, 365)
 [node name="Filters" type="CanvasLayer" parent="."]
 
 [node name="MainDaylightFilter" parent="Filters" instance=ExtResource("3_5fm1i")]
-daylight_shader = SubResource("ShaderMaterial_h2wxe")
+daylight_shader = SubResource("ShaderMaterial_hd8ie")
 
 [node name="Filter" type="ColorRect" parent="Filters/MainDaylightFilter"]
 visible = false
