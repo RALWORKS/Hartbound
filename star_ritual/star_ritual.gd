@@ -16,7 +16,9 @@ var tracer_line: Line2D = Line2D.new()
 var sigil: TruePath
 
 var vision: StarVision
-var StarVision = preload("res://scenes/star_vision.tscn")
+var StarVision = preload("res://star_ritual/star_vision.tscn")
+
+var HUD = preload("res://star_ritual/hud.tscn")
 
 var seconds_allowed: float = 20.0
 var seconds_elapsed: float = 0.0
@@ -24,6 +26,8 @@ var seconds_elapsed: float = 0.0
 var active: bool = false
 
 var game: Game
+
+var hud
 
 
 # Called when the node enters the scene tree for the first time.
@@ -78,8 +82,12 @@ func _process(delta):
 	seconds_elapsed += delta
 	refresh_timer()
 	trace()
+	if hud != null and vision != null:
+		hud.visible = not vision.visible
 
 func refresh_timer():
+	if hud:
+		hud.set_time_fraction(1 - seconds_elapsed / seconds_allowed)
 	if not seconds_elapsed < seconds_allowed:
 		die()
 
@@ -148,6 +156,10 @@ func start():
 	game.player.z_index = 200
 	z_index = 150
 	call_higher("daylight_off")
+	hud = HUD.instantiate()
+	vision.visible = true
+	hud.visible = false
+	add_child(hud)
 
 func call_higher(meth):
 	var p = self
@@ -177,3 +189,5 @@ func stop():
 	game.player.z_index = 0
 	z_index = 0
 	call_higher("daylight_default")
+	if hud != null:
+		hud.free()
