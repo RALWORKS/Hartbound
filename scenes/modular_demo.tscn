@@ -1,10 +1,11 @@
-[gd_scene load_steps=20 format=3 uid="uid://b4b6kwqbiqg85"]
+[gd_scene load_steps=21 format=3 uid="uid://b4b6kwqbiqg85"]
 
 [ext_resource type="PackedScene" uid="uid://byrlpmbpj6yr5" path="res://scene.tscn" id="1_evu3m"]
 [ext_resource type="Texture2D" uid="uid://dsfg855ag6psn" path="res://assets/forest-layers/bg/meadow1.png" id="2_fiheu"]
 [ext_resource type="Texture2D" uid="uid://c5gkwi2jowp5e" path="res://assets/forest-layers/1/8_cliffs.png" id="3_1yxvs"]
 [ext_resource type="Texture2D" uid="uid://w5b3i5ngj8ah" path="res://assets/forest-layers/2/2_trees_triangle.png" id="4_5i3xx"]
 [ext_resource type="Texture2D" uid="uid://dwsfbl0fdq6d5" path="res://assets/forest-layers/1/3_pine_triangle.png" id="5_6tgjq"]
+[ext_resource type="PackedScene" uid="uid://b5c34wc47mrv" path="res://star_ritual/sigil_place.tscn" id="6_fve6h"]
 [ext_resource type="Texture2D" uid="uid://d0egx3cj3dcla" path="res://assets/forest-layers/1/7_rocky_mound.png" id="6_pl0un"]
 [ext_resource type="PackedScene" uid="uid://g7hegmydjv1" path="res://star_ritual/star_ritual.tscn" id="6_u0eik"]
 [ext_resource type="Texture2D" uid="uid://1yqbtlb6k2r4" path="res://assets/forest-layers/5ib/2_ruin.png" id="6_yaqcs"]
@@ -77,6 +78,9 @@ points = PackedVector2Array(1063, 275, 1323, 265, 1275, 422, 1149, 211)
 
 [node name="Star" parent="Background/StaticBody2D/StarRitual" index="3" instance=ExtResource("8_wvg1e")]
 position = Vector2(1472, 296)
+
+[node name="SigilPlace" parent="Background/StaticBody2D/StarRitual" index="4" instance=ExtResource("6_fve6h")]
+position = Vector2(456, 600)
 
 [node name="Front4" type="Sprite2D" parent="Background" index="1"]
 position = Vector2(1107, 241)

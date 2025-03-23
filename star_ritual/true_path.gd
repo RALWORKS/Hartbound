@@ -6,12 +6,14 @@ var Star = preload("res://star_ritual/star.tscn")
 
 var sequence: Array[Star] = []
 
+@export var is_sigil = false
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	if "sigil" in get_parent():
 		get_parent().sigil = self
-	visible = false
+	visible = is_sigil
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -26,6 +28,15 @@ func make_stars(ritual: StarRitual):
 		ritual.add_star(s)
 		sequence.push_back(s)
 		
+
+func make_sparkles():
+	var ret: Array[Star] = []
+	for p in points:
+		var s: Star = Star.instantiate()
+		s.position = p - position
+		s.home = s.position
+		ret.push_back(s)
+	return ret
 
 func corners():
 	if not points.size():
@@ -66,7 +77,9 @@ func fit_to_square(s: int):
 
 	var offset = top_right()
 	
-	var ret = Line2D.new()
+	var cls = load("res://star_ritual/true_path.tscn")
+	
+	var ret = cls.instantiate()
 	for p in points:
 		ret.add_point((p - offset) * mul)
 	

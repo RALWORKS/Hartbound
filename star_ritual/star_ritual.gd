@@ -14,9 +14,7 @@ var sigil_line: Line2D = Line2D.new()
 var tracer_line: Line2D = Line2D.new()
 
 var sigil: TruePath
-
-var vision: StarVision
-var StarVision = preload("res://star_ritual/star_vision.tscn")
+var sigil_place: SigilPlace
 
 var HUD = preload("res://star_ritual/hud.tscn")
 
@@ -41,9 +39,7 @@ func _ready():
 	setup_answers()
 	make_veil()
 	veil.visible = false
-	vision = StarVision.instantiate()
-	add_child(vision)
-	vision.set_sigil(sigil)
+	sigil_place.set_sigil(sigil)
 
 func style_line(l: Line2D):
 	add_child(l)
@@ -82,8 +78,6 @@ func _process(delta):
 	seconds_elapsed += delta
 	refresh_timer()
 	trace()
-	if hud != null and vision != null:
-		hud.visible = not vision.visible
 
 func refresh_timer():
 	if hud:
@@ -147,7 +141,7 @@ func make_veil():
 	
 
 func start():
-	vision.show_vision()
+	sigil_place.show_sigil()
 	if not veil.get_parent():
 		get_parent().add_child(veil)
 	seconds_elapsed = 0.0
@@ -157,8 +151,6 @@ func start():
 	z_index = 150
 	call_higher("daylight_off")
 	hud = HUD.instantiate()
-	vision.visible = true
-	hud.visible = false
 	add_child(hud)
 
 func call_higher(meth):
@@ -182,8 +174,8 @@ func die():
 	game.respawn_player()
 
 func stop():
+	sigil_place.clear()
 	veil.visible = false
-	vision.visible = false
 	reset()
 	active = false
 	game.player.z_index = 0
@@ -191,3 +183,30 @@ func stop():
 	call_higher("daylight_default")
 	if hud != null:
 		hud.free()
+
+
+func corners():
+	if not polygon.size():
+		return Vector2(0, 0)
+	var x = Vector2(polygon[0].x, polygon[0].x)
+	var y = Vector2(polygon[0].y, polygon[0].y)
+	
+	for p in polygon:
+		if p.x < x[0]:
+			x[0] = p.x
+		if p.x > x[1]:
+			x[1] = p.x
+		if p.y < y[0]:
+			y[0] = p.y
+		if p.y > y[1]:
+			y[1] = p.y
+	
+	return [x, y]
+
+func get_middle():
+	var c = corners()
+	var x = c[0]
+	var y = c[1]
+	var hw = (x[1] - x[0]) / 2.0
+	var hh = (y[1] - y[0]) / 2.0
+	return Vector2(x[0] + hw, y[0] + hh)

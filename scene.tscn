@@ -122,7 +122,7 @@ func daylight_off():
 	$Filters/MainDaylightFilter.visible = false
 "
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_d4jnr"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3sm3p"]
 resource_local_to_scene = true
 shader = ExtResource("4_tv03u")
 shader_parameter/darken = 0.0
@@ -151,7 +151,7 @@ position = Vector2(560, 365)
 [node name="Filters" type="CanvasLayer" parent="."]
 
 [node name="MainDaylightFilter" parent="Filters" instance=ExtResource("3_5fm1i")]
-daylight_shader = SubResource("ShaderMaterial_d4jnr")
+daylight_shader = SubResource("ShaderMaterial_3sm3p")
 
 [node name="Filter" type="ColorRect" parent="Filters/MainDaylightFilter"]
 visible = false
