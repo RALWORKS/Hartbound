@@ -5,7 +5,6 @@
 [ext_resource type="Texture2D" uid="uid://dsn1gamotgqap" path="res://assets/icons/camp-sm.png" id="2_iq8o3"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l4anf"]
-bg_color = Color(0.6, 0.6, 0.6, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_22v6r"]
 bg_color = Color(0.368627, 0.368627, 0.368627, 1)
@@ -17,6 +16,21 @@ bg_color = Color(0.368627, 0.368627, 0.368627, 1)
 content_margin_left = 25.0
 bg_color = Color(0, 0, 0, 0.815686)
 border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Animation" id="Animation_x3o0t"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Glow:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.3, 0.3)]
+}
 
 [sub_resource type="Animation" id="Animation_dofa4"]
 resource_name = "glow"
@@ -33,21 +47,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(0.3, 0.3), Vector2(0.5, 0.5)]
-}
-
-[sub_resource type="Animation" id="Animation_x3o0t"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Glow:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0.3, 0.3)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_88gi7"]

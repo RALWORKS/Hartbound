@@ -1,0 +1,58 @@
+[gd_scene load_steps=7 format=3 uid="uid://djk0rc6q2pfh2"]
+
+[ext_resource type="Script" path="res://ui/save-ico-btn.gd" id="1_2uqvd"]
+[ext_resource type="Texture2D" uid="uid://dqxevmjtibrx4" path="res://assets/icons/save.png" id="1_vmyt2"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xytc3"]
+bg_color = Color(0.368627, 0.368627, 0.368627, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0jd1h"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2um6p"]
+bg_color = Color(0.368627, 0.368627, 0.368627, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fq46e"]
+content_margin_left = 8.0
+bg_color = Color(0, 0, 0, 0.815686)
+border_color = Color(0, 0, 0, 1)
+
+[node name="SaveIcoBtn" type="Button"]
+clip_contents = true
+offset_right = 150.0
+offset_bottom = 150.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_xytc3")
+theme_override_styles/hover = SubResource("StyleBoxFlat_0jd1h")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_2um6p")
+script = ExtResource("1_2uqvd")
+
+[node name="Icon" type="Sprite2D" parent="."]
+position = Vector2(75, 70)
+scale = Vector2(0.17, 0.17)
+texture = ExtResource("1_vmyt2")
+
+[node name="Label" type="Label" parent="."]
+visible = false
+modulate = Color(1, 1, 1, 0.360784)
+offset_left = 121.0
+offset_top = 93.0
+offset_right = 164.0
+offset_bottom = 185.0
+scale = Vector2(0.7, 0.7)
+mouse_filter = 1
+theme_override_font_sizes/font_size = 50
+text = "S"
+
+[node name="ToolTip" type="RichTextLabel" parent="."]
+offset_left = -8.0
+offset_top = 54.0
+offset_right = 162.0
+offset_bottom = 98.0
+mouse_filter = 1
+theme_override_font_sizes/normal_font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_fq46e")
+text = "     Save"
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+[connection signal="pressed" from="." to="." method="_on_pressed"]
