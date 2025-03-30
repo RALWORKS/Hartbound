@@ -14,9 +14,13 @@ var can_camp = false
 var dying = false
 var ritual: bool = false
 
+var party = []
+
 var show_clock = true
 
 var moves = 0
+
+signal check_party
 
 @export var cheat_mode = true
 @export var cheat_event_trigger_name = ""
@@ -536,7 +540,9 @@ func is_quest_active(quest):
 
 func get_followers_from_state():
 	_init_party_if_needed()
-	return get_state(["party"])
+	party = get_state(["party"])
+	emit_signal("check_party")
+	return party
 
 func check_state_for_follower(npc):
 	_init_party_if_needed()

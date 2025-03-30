@@ -19,15 +19,22 @@ func _game():
 	if game:
 		return game
 	game = $"/root/Game"
+	game.connect("check_party", refresh_party)
 	return game
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+	#refresh_party()
+	if visible:
+		if _game().chapter.cutscene != null:
+			visible = false
+	else:
+		if _game().chapter.cutscene == null:
+			visible = true
 
 func refresh_party():
 	var g = _game()
-	var p = g.get_followers_from_state()
+	var p = g.party
 	
 	if p == party:
 		return
@@ -36,6 +43,7 @@ func refresh_party():
 	update_party()
 
 func update_party():
+	print("UPDATE PARTY")
 	for c in get_children():
 		c.free()
 	

@@ -245,3 +245,11 @@ func reload_world(free=false):
 				child.free()
 			else:
 				$"../MainScreen/World".add_child(child)
+
+
+func get_dialogue_by_id(id):
+	var cuts = $CharacterCutscenes.get_children()
+	for c in cuts:
+		if c.id == id:
+			return c.dialogue
+	return null

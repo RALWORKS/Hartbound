@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://b55nxnx2rlfra" path="res://assets/npcs/jerry/profile.png" id="2_kg3oo"]
 
 [node name="JerryBtn" instance=ExtResource("1_0envu")]
+character_id = "jerry"
 
 [node name="Sprite2D" parent="." index="0"]
 texture = ExtResource("2_kg3oo")
