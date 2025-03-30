@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cko70dyq2rkxn"]
+[gd_scene load_steps=10 format=3 uid="uid://cko70dyq2rkxn"]
 
 [ext_resource type="PackedScene" uid="uid://d2tvvel0wxl51" path="res://ui/game_menu.tscn" id="1_0wetn"]
 [ext_resource type="Script" path="res://ui/Effects.gd" id="1_3a4ee"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://d3sg85ljfgv6k" path="res://effects/black_star_animation.tscn" id="2_ujwrl"]
 [ext_resource type="PackedScene" uid="uid://dn6jytdfpsb1y" path="res://ui/reflection_marker.tscn" id="4_2bnbj"]
 [ext_resource type="Shader" path="res://effects/demon-vignette.gdshader" id="5_htkuq"]
+[ext_resource type="PackedScene" uid="uid://dq7w6ara6rj8f" path="res://left_menu.tscn" id="7_md78l"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_gcxbe"]
 viewport_path = NodePath("World")
@@ -60,9 +61,4 @@ script = ExtResource("1_3a4ee")
 [node name="BlackStarAnimation" parent="Effects" instance=ExtResource("2_ujwrl")]
 visible = false
 
-[node name="Menu2" type="CanvasLayer" parent="."]
-
-[node name="ColorRect" type="ColorRect" parent="Menu2"]
-offset_right = 125.0
-offset_bottom = 1200.0
-color = Color(0.164706, 0.168627, 0.164706, 1)
+[node name="LeftMenu" parent="." instance=ExtResource("7_md78l")]

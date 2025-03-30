@@ -34,12 +34,12 @@ func _process(_delta):
 		(get_parent().chapter.cutscene == null and get_parent().chapter.active_map == null)
 		or get_parent().cur_modal != null
 	):
-		$Menu2/ColorRect.visible = true
+		$LeftMenu.visible = true
 		$PostProcessing/Filter.modulate = "#ffffffff"
 		if not $PostProcessing/Filter.material:
 			$PostProcessing/Filter.material = cur_material
 	else:
-		$Menu2/ColorRect.visible = false
+		$LeftMenu.visible = false
 		$PostProcessing/Filter.modulate = "#ffffff00"
 		$PostProcessing/Filter.material = null
 	

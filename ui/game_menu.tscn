@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://d2tvvel0wxl51"]
+[gd_scene load_steps=14 format=3 uid="uid://d2tvvel0wxl51"]
 
 [ext_resource type="Script" path="res://ui/game_menu.gd" id="1_qi0kv"]
 [ext_resource type="Texture2D" uid="uid://b4qmfyh2beo7n" path="res://assets/menubg.png" id="1_qo3pl"]
@@ -7,16 +7,11 @@
 [ext_resource type="PackedScene" uid="uid://i6laa1tesr13" path="res://ui/modal.tscn" id="5_jpiq8"]
 [ext_resource type="Theme" uid="uid://bowrqsap2qmsa" path="res://base_theme.tres" id="6_pr2h2"]
 [ext_resource type="Texture2D" uid="uid://cwobelc0kaio" path="res://assets/effects/pass-out-1/black.png" id="7_45e3t"]
-[ext_resource type="PackedScene" uid="uid://b2s0y0fs6dw7v" path="res://ui/scout_btn.tscn" id="8_4uuuh"]
 [ext_resource type="Texture2D" uid="uid://nwp046lvkv0y" path="res://assets/effects/pass-out-1/star-biggest.png" id="8_7cibf"]
 [ext_resource type="Texture2D" uid="uid://dneh40ijxqdeo" path="res://assets/stars-backdrop.png" id="9_st631"]
-[ext_resource type="PackedScene" uid="uid://xpojrm8dxubm" path="res://ui/inv_btn.tscn" id="10_jbthf"]
-[ext_resource type="PackedScene" uid="uid://cughgnxxg8bu3" path="res://ui/camp_btn.tscn" id="13_64ksq"]
-[ext_resource type="PackedScene" uid="uid://dr6wagkjctvpk" path="res://ui/reflection_btn.tscn" id="13_kv606"]
-[ext_resource type="PackedScene" uid="uid://djk0rc6q2pfh2" path="res://ui/save-ico-btn.tscn" id="13_tmgr0"]
-[ext_resource type="PackedScene" uid="uid://d1hxs3l3p846c" path="res://ui/clock.tscn" id="15_gyt0t"]
+[ext_resource type="PackedScene" uid="uid://dnao46ua3ewbf" path="res://ui/party_slot.tscn" id="10_thgpk"]
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_sjuv0"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_h2m47"]
 viewport_path = NodePath("img")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xueob"]
@@ -24,7 +19,7 @@ content_margin_left = 45.0
 bg_color = Color(0, 0, 0, 0.815686)
 border_color = Color(0, 0, 0, 1)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_288ye"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_y86ir"]
 viewport_path = NodePath("img")
 
 [node name="GameMenu" type="Node2D"]
@@ -48,7 +43,7 @@ metadata/_edit_use_anchors_ = true
 [node name="Profile" parent="ProfileBtn" instance=ExtResource("3_gksuv")]
 position = Vector2(15, 12)
 scale = Vector2(0.38, 0.38)
-texture = SubResource("ViewportTexture_sjuv0")
+texture = SubResource("ViewportTexture_h2m47")
 
 [node name="Label" type="Label" parent="ProfileBtn"]
 layout_mode = 1
@@ -108,7 +103,7 @@ offset = Vector2(0, -300)
 modulate = Color(0.34902, 0.439216, 0.576471, 1)
 position = Vector2(70, -607.341)
 scale = Vector2(1.3, 1.703)
-texture = SubResource("ViewportTexture_288ye")
+texture = SubResource("ViewportTexture_y86ir")
 with_background = false
 
 [node name="FullName" type="RichTextLabel" parent="CharacterRecord"]
@@ -170,45 +165,10 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_constants/separation = 20
 
-[node name="HideButtonsForCutscene" type="Node2D" parent="."]
-
-[node name="ScoutBtn" parent="HideButtonsForCutscene" instance=ExtResource("8_4uuuh")]
-offset_left = 110.0
-offset_top = 302.0
-offset_right = 260.0
-offset_bottom = 452.0
-scale = Vector2(0.5, 0.5)
-
-[node name="ReflectionBtn" parent="HideButtonsForCutscene" instance=ExtResource("13_kv606")]
-offset_left = 110.0
-offset_top = 214.0
-offset_right = 260.0
-offset_bottom = 364.0
-scale = Vector2(0.5, 0.5)
-
-[node name="CampBtn" parent="HideButtonsForCutscene" instance=ExtResource("13_64ksq")]
-offset_left = 23.0
-offset_top = 302.0
-offset_right = 173.0
-offset_bottom = 452.0
-scale = Vector2(0.5, 0.5)
-
-[node name="SaveIcoBtn" parent="HideButtonsForCutscene" instance=ExtResource("13_tmgr0")]
-offset_left = 110.0
-offset_top = 389.0
-offset_right = 260.0
-offset_bottom = 539.0
-scale = Vector2(0.5, 0.5)
-
-[node name="InvBtn" parent="." instance=ExtResource("10_jbthf")]
-offset_left = 22.0
-offset_top = 214.0
-offset_right = 172.0
-offset_bottom = 364.0
-scale = Vector2(0.5, 0.5)
-
-[node name="Clock" parent="." instance=ExtResource("15_gyt0t")]
-position = Vector2(20, 959)
+[node name="PartySlot" parent="." instance=ExtResource("10_thgpk")]
+offset_left = 14.0
+offset_top = 203.0
+offset_right = 201.0
 
 [connection signal="mouse_entered" from="ProfileBtn" to="ProfileBtn" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="ProfileBtn" to="ProfileBtn" method="_on_mouse_exited"]

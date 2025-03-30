@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://druugsyygeuk"]
+
+[ext_resource type="PackedScene" uid="uid://kq1qed2p6jfw" path="res://ui/party_btn.tscn" id="1_0envu"]
+[ext_resource type="Texture2D" uid="uid://b55nxnx2rlfra" path="res://assets/npcs/jerry/profile.png" id="2_kg3oo"]
+
+[node name="JerryBtn" instance=ExtResource("1_0envu")]
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_kg3oo")
+
+[node name="SmartLabel" parent="." index="1"]
+offset_left = 62.0
+offset_right = 254.0
+text = "Jerry
+"

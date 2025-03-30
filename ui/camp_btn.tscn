@@ -1,16 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://cughgnxxg8bu3"]
+[gd_scene load_steps=9 format=3 uid="uid://cughgnxxg8bu3"]
 
 [ext_resource type="Script" path="res://ui/camp_btn.gd" id="1_i01h1"]
 [ext_resource type="Texture2D" uid="uid://dq2slww0p30ha" path="res://assets/white-blur-circle.png" id="2_77o0b"]
 [ext_resource type="Texture2D" uid="uid://dsn1gamotgqap" path="res://assets/icons/camp-sm.png" id="2_iq8o3"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l4anf"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_22v6r"]
-bg_color = Color(0.368627, 0.368627, 0.368627, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tyneh"]
-bg_color = Color(0.368627, 0.368627, 0.368627, 1)
+bg_color = Color(0.733333, 0.733333, 0.733333, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_veasm"]
 content_margin_left = 25.0
@@ -60,8 +55,6 @@ clip_contents = true
 offset_right = 150.0
 offset_bottom = 150.0
 theme_override_styles/normal = SubResource("StyleBoxFlat_l4anf")
-theme_override_styles/hover = SubResource("StyleBoxFlat_22v6r")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_tyneh")
 script = ExtResource("1_i01h1")
 
 [node name="Glow" type="Sprite2D" parent="."]

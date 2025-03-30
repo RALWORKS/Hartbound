@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://kq1qed2p6jfw"]
+
+[ext_resource type="Texture2D" uid="uid://c4d8cpdtkkbx" path="res://assets/npcs/nate/profile.png" id="1_7r730"]
+[ext_resource type="PackedScene" uid="uid://b11g7mb25w5xp" path="res://cutscene/smart_label.tscn" id="2_fntgt"]
+
+[node name="PartyBtn" type="Button"]
+clip_contents = true
+offset_right = 180.0
+offset_bottom = 190.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(15, 12)
+scale = Vector2(0.248, 0.248)
+texture = ExtResource("1_7r730")
+centered = false
+
+[node name="SmartLabel" parent="." instance=ExtResource("2_fntgt")]
+layout_mode = 0
+offset_left = -6.0
+offset_top = 163.0
+offset_right = 186.0
+offset_bottom = 187.0
+theme = null
+theme_type_variation = &""
+text = "Character"
+raise_to_ui_layer = false

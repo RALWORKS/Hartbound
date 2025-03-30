@@ -1,16 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://xpojrm8dxubm"]
+[gd_scene load_steps=5 format=3 uid="uid://xpojrm8dxubm"]
 
 [ext_resource type="Script" path="res://ui/inv_btn.gd" id="1_4ff47"]
 [ext_resource type="Texture2D" uid="uid://4crcajdud5af" path="res://assets/sack-icon.png" id="2_ny0tx"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wqxoo"]
-bg_color = Color(0.368627, 0.368627, 0.368627, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7wnnk"]
-bg_color = Color(1, 1, 1, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wluhk"]
-bg_color = Color(0.368627, 0.368627, 0.368627, 1)
+bg_color = Color(0.733333, 0.733333, 0.733333, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xxi2w"]
 content_margin_left = 8.0
@@ -22,8 +16,6 @@ clip_contents = true
 offset_right = 150.0
 offset_bottom = 150.0
 theme_override_styles/normal = SubResource("StyleBoxFlat_wqxoo")
-theme_override_styles/hover = SubResource("StyleBoxFlat_7wnnk")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_wluhk")
 script = ExtResource("1_4ff47")
 
 [node name="Icon" type="Sprite2D" parent="."]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=3 uid="uid://b03wpar88cr5r"]
+[gd_scene load_steps=47 format=3 uid="uid://b03wpar88cr5r"]
 
 [ext_resource type="Script" path="res://character/player-walk.gd" id="1_s1ce1"]
 [ext_resource type="PackedScene" uid="uid://dhr0qbec14v6p" path="res://follower.tscn" id="2_2k6gm"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://riq1pcahb5rh" path="res://assets/character/body/v1/front-arm-full.png" id="5_2wkkg"]
 [ext_resource type="PackedScene" uid="uid://uc3gpi8pp0cj" path="res://chapters/demo/1/brona.tscn" id="5_66jup"]
 [ext_resource type="Texture2D" uid="uid://167dwj5srl63" path="res://assets/character/body/v1/body-full.png" id="6_gtrvy"]
+[ext_resource type="PackedScene" uid="uid://d0q6kg3spk25s" path="res://chapters/demo/1/jerry.tscn" id="6_h2yl6"]
 [ext_resource type="Texture2D" uid="uid://cqvyyq154sou1" path="res://assets/character/hair/v1/long-back-bun/front/full.png" id="7_fw528"]
 [ext_resource type="Script" path="res://FollowerAgent.gd" id="7_l2hxk"]
 [ext_resource type="Texture2D" uid="uid://cc7u6kdxap6p3" path="res://assets/character/canes-back.png" id="7_ossko"]
@@ -224,6 +225,10 @@ resource = ExtResource("4_0yyfu")
 [node name="brona" parent="AllowedFollowers" instance=ExtResource("2_2k6gm")]
 id = "taylor"
 resource = ExtResource("5_66jup")
+
+[node name="jerry" parent="AllowedFollowers" instance=ExtResource("2_2k6gm")]
+id = "jerry"
+resource = ExtResource("6_h2yl6")
 
 [node name="char" parent="." node_paths=PackedStringArray("body", "front_arm", "face", "hair_back", "hair_front", "clothes", "clothes_pattern", "clothes_accent", "front_sleeve", "front_sleeve_accent", "character_img") instance=ExtResource("2_kvgd3")]
 centered = true

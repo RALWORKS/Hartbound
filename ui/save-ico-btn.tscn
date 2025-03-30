@@ -4,13 +4,13 @@
 [ext_resource type="Texture2D" uid="uid://dqxevmjtibrx4" path="res://assets/icons/save.png" id="1_vmyt2"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xytc3"]
-bg_color = Color(0.368627, 0.368627, 0.368627, 1)
+bg_color = Color(0.733333, 0.733333, 0.733333, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0jd1h"]
-bg_color = Color(1, 1, 1, 1)
+bg_color = Color(0.733333, 0.733333, 0.733333, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2um6p"]
-bg_color = Color(0.368627, 0.368627, 0.368627, 1)
+bg_color = Color(0.733333, 0.733333, 0.733333, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fq46e"]
 content_margin_left = 8.0
@@ -34,6 +34,7 @@ texture = ExtResource("1_vmyt2")
 [node name="Label" type="Label" parent="."]
 visible = false
 modulate = Color(1, 1, 1, 0.360784)
+layout_mode = 0
 offset_left = 121.0
 offset_top = 93.0
 offset_right = 164.0
@@ -44,6 +45,7 @@ theme_override_font_sizes/font_size = 50
 text = "S"
 
 [node name="ToolTip" type="RichTextLabel" parent="."]
+layout_mode = 0
 offset_left = -8.0
 offset_top = 54.0
 offset_right = 162.0

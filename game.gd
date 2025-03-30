@@ -12,6 +12,7 @@ var leyline_showing = false
 var is_scouting = false
 var can_camp = false
 var dying = false
+var ritual: bool = false
 
 var show_clock = true
 
