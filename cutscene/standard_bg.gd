@@ -12,6 +12,7 @@ func _ready():
 	var f = daylight.instantiate()
 	f.scale = Vector2(1/scale.x, 1/scale.y)
 	f.position = Vector2(0, 0) - (position / 2.0)
+	f.page = get_parent()
 	add_child(f)
 
 func load_texture():

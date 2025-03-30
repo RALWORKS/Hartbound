@@ -1,9 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://camw0n86ocbl8"]
+[gd_scene load_steps=5 format=3 uid="uid://camw0n86ocbl8"]
 
+[ext_resource type="Script" path="res://effects/daylight/daylight_filter_standard_size.gd" id="1_a7jb3"]
 [ext_resource type="PackedScene" uid="uid://dec3rewb3xb1u" path="res://effects/daylight/daylight_filter.tscn" id="1_i5dcj"]
 [ext_resource type="Shader" path="res://daylight.gdshader" id="2_viqbt"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_05xdv"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_06x3s"]
 resource_local_to_scene = true
 shader = ExtResource("2_viqbt")
 shader_parameter/darken = 0.0
@@ -12,9 +13,11 @@ shader_parameter/contrast = 1.0
 shader_parameter/warmth = 0.5
 
 [node name="DaylightFilterStandardSize" type="Node2D"]
+script = ExtResource("1_a7jb3")
 
 [node name="DaylightFilter" parent="." instance=ExtResource("1_i5dcj")]
-daylight_shader = SubResource("ShaderMaterial_05xdv")
+visible = false
+daylight_shader = SubResource("ShaderMaterial_06x3s")
 
 [node name="Filter" type="ColorRect" parent="DaylightFilter"]
 offset_right = 1720.0

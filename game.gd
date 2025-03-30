@@ -20,6 +20,8 @@ var show_clock = true
 
 var moves = 0
 
+var injured = false
+
 signal check_party
 
 @export var cheat_mode = true

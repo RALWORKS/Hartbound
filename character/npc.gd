@@ -95,9 +95,9 @@ var meaningfully_moving: bool = false
 @export var pace_interval: float = 0.3
 
 func refresh_meaningfully_moving():
-	var tree = get_tree()
-	if not tree or not pace_interval:
+	if paused or not pace_interval:
 		return
+	var tree = get_tree()
 	await tree.create_timer(pace_interval).timeout
 	last_few_paces.push_back(position)
 	if last_few_paces.size() > n_paces_saved:

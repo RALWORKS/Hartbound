@@ -24,7 +24,7 @@ corner_radius_top_right = 5
 corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_m47u7"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_wkf3e"]
 viewport_path = NodePath("img")
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_b3ipt"]
@@ -74,6 +74,7 @@ _data = {
 }
 
 [node name="HUD" type="CanvasLayer"]
+layer = 2
 script = ExtResource("1_vebtj")
 
 [node name="Health" type="Panel" parent="."]
@@ -94,7 +95,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_rgvdb")
 size = Vector2i(400, 400)
 
 [node name="Profile" parent="SubViewport" instance=ExtResource("1_53qed")]
-texture = SubResource("ViewportTexture_m47u7")
+texture = SubResource("ViewportTexture_wkf3e")
 flip_h = true
 
 [node name="ProfileOutline" type="Sprite2D" parent="."]

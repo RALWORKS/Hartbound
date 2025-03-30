@@ -1,0 +1,184 @@
+[gd_scene load_steps=10 format=3 uid="uid://fme0goru7dex"]
+
+[ext_resource type="Script" path="res://effects/injury_overlay.gd" id="1_6o3v7"]
+[ext_resource type="Texture2D" uid="uid://bcjfrdxil6myf" path="res://assets/injury_mode/vessel.png" id="1_lekon"]
+[ext_resource type="Shader" path="res://effects/demon-vignette.gdshader" id="2_7xak2"]
+[ext_resource type="Texture2D" uid="uid://cfj64j2m7ckfv" path="res://assets/injury_mode/grad.png" id="2_p3ax4"]
+[ext_resource type="Texture2D" uid="uid://c6n1l6gsdmtuu" path="res://assets/injury_mode/border.png" id="3_3j41c"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_f4pbw"]
+shader = ExtResource("2_7xak2")
+shader_parameter/mul_r = 0.7
+shader_parameter/mul_g = 0.3
+shader_parameter/mul_b = 0.1
+shader_parameter/base_mod = 0.2
+shader_parameter/gradient_mod = 3.0
+shader_parameter/gradient_mul = 2.3
+shader_parameter/top_left = Vector2(0, 0)
+shader_parameter/size = Vector2(1800, 1080)
+shader_parameter/screen_size = Vector2(1720, 1080)
+
+[sub_resource type="Animation" id="Animation_c1j0h"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Vein:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Gradient:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Border:self_modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Border:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("GradientWash:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.247059, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_778ag"]
+resource_name = "pulse"
+length = 8.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Vein:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 3.9, 4, 4.5, 8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Gradient:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5, 5, 5.5, 6, 6.5, 7, 7.5, 8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.490196), Color(1, 1, 1, 1), Color(1, 1, 1, 0.490196), Color(1, 1, 1, 1), Color(1, 1, 1, 0.490196), Color(1, 1, 1, 1), Color(1, 1, 1, 0.490196), Color(1, 1, 1, 1), Color(1, 1, 1, 0.490196), Color(1, 1, 1, 1), Color(1, 1, 1, 0.490196), Color(1, 1, 1, 1), Color(1, 1, 1, 0.490196), Color(1, 1, 1, 1), Color(1, 1, 1, 0.490196), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Border:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1, 2, 3, 4, 5, 6, 7, 8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(0.568627, 0, 0, 1), Color(0.568627, 0, 0, 0), Color(0.568627, 0, 0, 1), Color(0.568627, 0, 0, 0), Color(0.568627, 0, 0, 1), Color(0.568627, 0, 0, 0), Color(0.568627, 0, 0, 1), Color(0.568627, 0, 0, 0), Color(0.568627, 0, 0, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("GradientWash:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 4, 6, 8),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(0.247059, 0, 0, 0), Color(0.247059, 0, 0, 0), Color(0.247059, 0, 0, 1), Color(0.247059, 0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_11ado"]
+_data = {
+"RESET": SubResource("Animation_c1j0h"),
+"pulse": SubResource("Animation_778ag")
+}
+
+[node name="InjuryOverlay" type="Node2D"]
+script = ExtResource("1_6o3v7")
+
+[node name="Filter" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_f4pbw")
+offset_right = 1720.0
+offset_bottom = 1080.0
+mouse_filter = 2
+
+[node name="Gradient" type="Sprite2D" parent="."]
+modulate = Color(0.411765, 0.0627451, 0, 1)
+texture = ExtResource("2_p3ax4")
+centered = false
+
+[node name="Vein" type="Sprite2D" parent="."]
+modulate = Color(0.894118, 0.184314, 0, 1)
+texture = ExtResource("1_lekon")
+centered = false
+
+[node name="Border" type="Sprite2D" parent="."]
+position = Vector2(-64, -15)
+scale = Vector2(1.1, 1.05)
+texture = ExtResource("3_3j41c")
+centered = false
+
+[node name="Border" type="Sprite2D" parent="Border"]
+modulate = Color(0, 0, 0, 0.384314)
+texture = ExtResource("3_3j41c")
+centered = false
+
+[node name="GradientWash" type="Sprite2D" parent="."]
+visible = false
+modulate = Color(0.247059, 0, 0, 0)
+position = Vector2(-222, -168)
+scale = Vector2(1.3, 1.3)
+texture = ExtResource("2_p3ax4")
+centered = false
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_11ado")
+}

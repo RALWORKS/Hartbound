@@ -10,6 +10,8 @@ class_name CutsceneNode
 @export var override_pause = false
 @export var end = false
 
+@export var dormant_mode = Node.PROCESS_MODE_INHERIT
+
 var just_clicked = false
 var cutscene
 
@@ -27,7 +29,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-	pass
+	process_mode = dormant_mode
 
 func leave():
 	self.visible = false
@@ -40,6 +42,7 @@ func _pause_next():
 	just_clicked = false
 
 func start():
+	process_mode = Node.PROCESS_MODE_INHERIT
 	self.visible = true
 	_pause_next()
 	$"/root/Game/Chapter".update_cutscene_page(self)
@@ -52,6 +55,7 @@ func start():
 			if "on_start" in c:
 				c.on_start()
 func flip(kwargs: Dictionary = {}):
+	process_mode = dormant_mode
 	var to = kwargs.get("to", next)
 	var force = kwargs.get("force", false)
 	if is_option_node and not force:
