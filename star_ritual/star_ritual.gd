@@ -150,7 +150,7 @@ func start():
 	veil.visible = true
 	game.player.z_index = 200
 	z_index = 150
-	call_higher("daylight_off")
+	call_higher("daylight_off_not_injury")
 	hud = HUD.instantiate()
 	add_child(hud)
 

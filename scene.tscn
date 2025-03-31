@@ -120,9 +120,14 @@ func daylight_default():
 
 func daylight_off():
 	$Filters/MainDaylightFilter.visible = false
+
+func daylight_off_not_injury():
+	if not $\"/root/Game\".injured:
+		daylight_off()
+	
 "
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_85eqb"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ilyvs"]
 resource_local_to_scene = true
 shader = ExtResource("4_tv03u")
 shader_parameter/darken = 0.0
@@ -151,7 +156,7 @@ position = Vector2(560, 365)
 [node name="Filters" type="CanvasLayer" parent="."]
 
 [node name="MainDaylightFilter" parent="Filters" node_paths=PackedStringArray("scene") instance=ExtResource("3_5fm1i")]
-daylight_shader = SubResource("ShaderMaterial_85eqb")
+daylight_shader = SubResource("ShaderMaterial_ilyvs")
 scene = NodePath("../..")
 
 [node name="Filter" type="ColorRect" parent="Filters/MainDaylightFilter"]

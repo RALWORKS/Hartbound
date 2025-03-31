@@ -24,7 +24,7 @@ corner_radius_top_right = 5
 corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_wkf3e"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_uql0t"]
 viewport_path = NodePath("img")
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_b3ipt"]
@@ -95,7 +95,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_rgvdb")
 size = Vector2i(400, 400)
 
 [node name="Profile" parent="SubViewport" instance=ExtResource("1_53qed")]
-texture = SubResource("ViewportTexture_wkf3e")
+texture = SubResource("ViewportTexture_uql0t")
 flip_h = true
 
 [node name="ProfileOutline" type="Sprite2D" parent="."]

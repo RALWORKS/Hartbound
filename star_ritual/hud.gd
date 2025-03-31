@@ -10,7 +10,6 @@ var MAX_HEALTH: int
 func _ready():
 	MAX_HEALTH = $HealthMax.size.x
 
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
