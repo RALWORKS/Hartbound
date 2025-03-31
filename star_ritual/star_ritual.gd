@@ -172,7 +172,11 @@ func win():
 
 func die():
 	stop()
-	game.respawn_player()
+	if game.injured:
+		game.die()
+	else:
+		game.injure()
+		game.respawn_player()
 
 func stop():
 	game.ritual = false

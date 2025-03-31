@@ -1,0 +1,34 @@
+[gd_scene load_steps=6 format=3 uid="uid://bywqwqaac1gtk"]
+
+[ext_resource type="PackedScene" uid="uid://bp8tsdjdbwj8i" path="res://cutscene/cutscene.tscn" id="1_jryjb"]
+[ext_resource type="PackedScene" uid="uid://55vflx8ylix1" path="res://cutscene/cutscene_node.tscn" id="2_duegf"]
+[ext_resource type="PackedScene" uid="uid://b11g7mb25w5xp" path="res://cutscene/smart_label.tscn" id="3_omypy"]
+[ext_resource type="PackedScene" uid="uid://yplasm5gtgly" path="res://cutscene/cutscene_option.tscn" id="4_hytxc"]
+[ext_resource type="PackedScene" uid="uid://cbobuwybuv22l" path="res://cutscene/die_on_start.tscn" id="5_ceqet"]
+
+[node name="YouDied" node_paths=PackedStringArray("starting_page") instance=ExtResource("1_jryjb")]
+starting_page = NodePath("1")
+
+[node name="1" parent="." index="0" instance=ExtResource("2_duegf")]
+is_option_node = true
+
+[node name="SmartLabel" parent="1" index="0" instance=ExtResource("3_omypy")]
+offset_left = 277.0
+offset_top = 415.0
+offset_right = 871.0
+offset_bottom = 535.0
+theme_override_font_sizes/normal_font_size = 100
+text = "You Died."
+
+[node name="CutsceneOption" parent="1" index="1" node_paths=PackedStringArray("to") instance=ExtResource("4_hytxc")]
+offset_left = 308.0
+offset_top = 569.0
+offset_right = 429.0
+offset_bottom = 602.0
+text = "> Main Menu"
+to = NodePath("../../2")
+
+[node name="2" parent="." index="1" node_paths=PackedStringArray("use_on_start_fn_from") instance=ExtResource("2_duegf")]
+use_on_start_fn_from = NodePath("DieOnStart")
+
+[node name="DieOnStart" parent="2" index="0" instance=ExtResource("5_ceqet")]

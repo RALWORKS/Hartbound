@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://c6thhbacnwtof" path="res://assets/effects/pass-out-1/star-medium.png" id="4_b5t1x"]
 [ext_resource type="PackedScene" uid="uid://7vlh2at8ts65" path="res://cutscene/play_animation_on_ready.tscn" id="5_0rj1f"]
 [ext_resource type="PackedScene" uid="uid://b11g7mb25w5xp" path="res://cutscene/smart_label.tscn" id="6_d30br"]
-[ext_resource type="PackedScene" path="res://cutscene/cutscene_option.tscn" id="7_6jd8g"]
+[ext_resource type="PackedScene" uid="uid://yplasm5gtgly" path="res://cutscene/cutscene_option.tscn" id="7_6jd8g"]
 [ext_resource type="Script" path="res://cutscene/PlayMusicOnStart.gd" id="7_u8mqu"]
 [ext_resource type="AudioStream" uid="uid://cav44ry5mv08r" path="res://assets/music/saint-theme-1.ogg" id="8_5apy2"]
 [ext_resource type="PackedScene" uid="uid://cbobuwybuv22l" path="res://cutscene/die_on_start.tscn" id="8_droro"]

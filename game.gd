@@ -74,6 +74,7 @@ var INITIAL_STATE = {
 		"scene_path": null,
 		"entrance_name": null,
 	},
+	"injured": false,
 	"moves": 0,
 	"timers": [],
 	"timestamp": 0,
@@ -206,6 +207,8 @@ func start_from_state(s):
 	var screen = MainScreen.instantiate()
 	screen.position = Vector2(0, 0)
 	$".".add_child(screen)
+	
+	injured = STATE["injured"] if "injured" in STATE else false
 
 	var ch = CHAPTERS[STATE["chapter"]].instantiate()
 	ch.name = "Chapter"
@@ -786,8 +789,21 @@ func is_night():
 		return true
 	return false
 
+func injure():
+	set_state(["injured"], true)
+	injured = true
+
+func die():
+	var cut = load("res://cutscene/you_died.tscn")
+	chapter.start_cutscene(cut)
+
+func heal():
+	set_state(["injured"], false)
+	injured = false
+
 func bedtime():
 	# TODO: dream management
+	heal()
 	jump_to_morning()
 	chapter.start_cutscene(StartCampingCutscene)
 
