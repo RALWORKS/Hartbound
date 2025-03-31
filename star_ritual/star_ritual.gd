@@ -78,6 +78,8 @@ func _process(delta):
 	seconds_elapsed += delta
 	refresh_timer()
 	trace()
+	if Input.is_action_just_released("cancel"):
+		reset()
 
 func refresh_timer():
 	if hud:

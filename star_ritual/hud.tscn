@@ -114,3 +114,30 @@ centered = false
 libraries = {
 "": SubResource("AnimationLibrary_emtj8")
 }
+
+[node name="Hints" type="Node2D" parent="."]
+position = Vector2(1, -4)
+
+[node name="ConnectHint" type="Label" parent="Hints"]
+offset_left = 301.0
+offset_top = 104.0
+offset_right = 563.0
+offset_bottom = 162.0
+theme_override_font_sizes/font_size = 25
+text = "[Walk] to CONNECT;"
+
+[node name="ClearHint" type="Label" parent="Hints"]
+offset_left = 583.0
+offset_top = 104.0
+offset_right = 786.0
+offset_bottom = 162.0
+theme_override_font_sizes/font_size = 25
+text = "[C] to CLEAR;"
+
+[node name="FleeHint" type="Label" parent="Hints"]
+offset_left = 775.0
+offset_top = 104.0
+offset_right = 1046.0
+offset_bottom = 162.0
+theme_override_font_sizes/font_size = 25
+text = "[Leave Area] to FLEE;"
