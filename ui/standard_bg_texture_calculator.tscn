@@ -2,4 +2,4 @@
 
 [node name="StandardBgTextureCalculator" type="SubViewport"]
 transparent_bg = true
-size = Vector2i(1920, 1080)
+size = Vector2i(1600, 1237)
