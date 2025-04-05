@@ -201,6 +201,10 @@ func set_state_push_to_key(ix, val):
 func set_player(some_player):
 	player = some_player
 
+func reload():
+	load_position()
+	#respawn_player()
+
 func start_from_state(s):
 	STATE = s	#screen.get_node("World").add_child(ch)
 

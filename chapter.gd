@@ -117,6 +117,8 @@ func start_cutscene(
 	var world = $"../MainScreen/World".get_children()
 	var bg
 	
+	game.save_position()
+	
 	if world.size() > 0:
 		var scene: Node2D = $"../MainScreen/World".get_children()[0]
 		bg = scene.scene_file_path
@@ -124,10 +126,11 @@ func start_cutscene(
 			cached_scene_path = bg#.texture
 			cached_bg_scale = scene.dialogue_bg_scale
 			cached_bg_position = scene.dialogue_bg_position
-		cur_game = world
+		#cur_game = world
 
 		for child in world:
-			$"../MainScreen/World".call_deferred("remove_child", child)
+			#$"../MainScreen/World".call_deferred("remove_child", child)
+			child.free()
 	
 	$"../MainScreen/World".call_deferred("add_child", cutscene)
 	cutscene.npc = npc
@@ -162,7 +165,7 @@ func end_cutscene(free=false):
 	print("ROUNDUP SCHEME DONE -- actually")
 
 	cutscene.queue_free()
-	await get_tree().create_timer(0.1).timeout
+	#await get_tree().create_timer(0.1).timeout
 	print("ALL FREE")
 #	#game.free_world()
 	game.chapter = self
@@ -171,15 +174,15 @@ func end_cutscene(free=false):
 		return
 
 	if next_cutscene != null:
-		await get_tree().create_timer(0.1).timeout
+		#await get_tree().create_timer(0.1).timeout
 		start_cutscene(next_cutscene, npc, null, sequence)
 		return
 	
 	game.show_clock = true
 
-	reload_world(free)
+	reload_world()
 
-	await get_tree().create_timer(0.1).timeout
+	#await get_tree().create_timer(0.1).timeout
 	if is_move:
 		$"/root/Game".move()
 
@@ -202,7 +205,7 @@ func to_map():
 	#var bg
 	
 	for child in world:
-		child.queue_free()
+		child.free()
 	
 	$"../MainScreen/World".call_deferred("add_child", active_map)
 	active_map.load_position($"/root/Game")
@@ -240,12 +243,13 @@ func get_character_dialogue(id):
 
 
 func reload_world(free=false):
-	for child in cur_game:
-		if is_instance_valid(child):
-			if free:
-				child.free()
-			else:
-				$"../MainScreen/World".add_child(child)
+	game.reload()
+	#for child in cur_game:
+	#	if is_instance_valid(child):
+	#		if free:
+	#			child.free()
+	#		else:
+	#			$"../MainScreen/World".add_child(child)
 
 
 func get_dialogue_by_id(id):
