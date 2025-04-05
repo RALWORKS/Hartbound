@@ -51,6 +51,12 @@ var characters_present = []
 @export var day_starts_at = 6
 @export var MORNING = 0.0
 
+var StandardBgTextureCalculator = preload("res://ui/standard_bg_texture_calculator.tscn")
+
+var standard_bg_path
+var standard_bg
+var standard_bg_texture
+
 var CHAPTERS = {
 	"intro": preload("res://intro-story/intro_story_chapter.tscn"),
 	"create": preload("res://character/character_creator.tscn"),
@@ -722,14 +728,33 @@ func get_scene():
 		return null
 	return c[0]
 
-func get_standard_bg():
-	var path = chapter.cached_scene_path
-	if not path:
-		return
-	var sc = load(path)
+func _refresh_standard_bg_texture():
+	if standard_bg != null:
+		standard_bg.free()
+	standard_bg = StandardBgTextureCalculator.instantiate()
+	add_child(standard_bg)
+	
+	var sc = load(standard_bg_path)
 	var bg = sc.instantiate()
 	bg.as_background = true
-	return bg
+	bg.position = Vector2(0, 0)
+	
+	standard_bg.add_child(bg)
+	standard_bg_texture = standard_bg.get_texture()
+
+
+func get_standard_bg():
+	var path = chapter.cached_scene_path
+	print(path, " ", standard_bg)
+	
+	if path and path != standard_bg_path:
+		standard_bg_path = path
+		_refresh_standard_bg_texture()
+
+	var sc = Sprite2D.new()
+	sc.centered = false
+	sc.texture = standard_bg_texture
+	return sc
 
 func get_standard_bg_scale():
 	return chapter.cached_bg_scale

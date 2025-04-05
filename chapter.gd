@@ -130,7 +130,7 @@ func start_cutscene(
 
 		for child in world:
 			#$"../MainScreen/World".call_deferred("remove_child", child)
-			child.free()
+			child.queue_free()
 	
 	$"../MainScreen/World".call_deferred("add_child", cutscene)
 	cutscene.npc = npc
@@ -205,7 +205,7 @@ func to_map():
 	#var bg
 	
 	for child in world:
-		child.free()
+		child.queue_free()
 	
 	$"../MainScreen/World".call_deferred("add_child", active_map)
 	active_map.load_position($"/root/Game")
