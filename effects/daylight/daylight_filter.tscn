@@ -18,3 +18,4 @@ dalyight_warmth = ExtResource("5_o8qpc")
 daylight_shader = ExtResource("2_hp3ti")
 
 [node name="InjuryOverlay" parent="." instance=ExtResource("7_dbqwc")]
+visible = false

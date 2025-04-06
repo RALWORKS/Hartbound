@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://b4b6kwqbiqg85"]
+[gd_scene load_steps=22 format=3 uid="uid://b4b6kwqbiqg85"]
 
 [ext_resource type="PackedScene" uid="uid://byrlpmbpj6yr5" path="res://scene.tscn" id="1_evu3m"]
 [ext_resource type="Texture2D" uid="uid://dsfg855ag6psn" path="res://assets/forest-layers/bg/meadow1.png" id="2_fiheu"]
@@ -16,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://btd65u3yitxyy" path="res://assets/forest-layers/bg/sizing.png" id="8_k7y2y"]
 [ext_resource type="PackedScene" uid="uid://ikw1o57bgtid" path="res://star_ritual/star.tscn" id="8_wvg1e"]
 [ext_resource type="Shader" path="res://daylight.gdshader" id="15_11ymb"]
+[ext_resource type="PackedScene" uid="uid://cbw4fl1f8ctmj" path="res://scenes/possible_camp.tscn" id="17_pj7ct"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f4js7"]
 size = Vector2(1630, 23)
@@ -151,3 +152,9 @@ metadata/_edit_group_ = true
 
 [node name="MainDaylightFilter" parent="Filters" index="0"]
 daylight_shader = SubResource("ShaderMaterial_opth5")
+
+[node name="PossbleCamp" parent="." index="5" instance=ExtResource("17_pj7ct")]
+position = Vector2(352, 1056)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PossbleCamp" index="1"]
+polygon = PackedVector2Array(-362, -61, 37, -124, -47, -270, 70, -315, 276, -309, 342, 116, -50, 233, -386, 227)

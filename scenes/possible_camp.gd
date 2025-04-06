@@ -26,7 +26,7 @@ func action():
 
 func range_entered_action():
 	var g = _get_game()
-	if not g.is_night():
+	if not g.is_night() and not g.injured:
 		return
 	g.can_camp = true
 

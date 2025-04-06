@@ -39,6 +39,7 @@ var staged_action_node = null
 var current_music: AudioStreamPlayer = null
 var next_music: AudioStreamPlayer = null
 var old_music = []
+var music_stack = []
 
 var characters_present = []
 
@@ -115,6 +116,27 @@ func remove_character(c):
 	var ix = characters_present.find(c.id)
 	characters_present.remove_at(ix)
 
+func push_music(n: AudioStreamPlayer):
+	music_stack.push_back(current_music)
+	play_music(n)
+
+func pop_music(t: AudioStreamPlayer=null):
+	if t:
+		if t.stream.resource_path != current_music.stream.resource_path:
+			print("mismatch!")
+			music_stack = music_stack.filter(func (m): return m != t)
+			return null
+
+	if not music_stack.size():
+		return null
+	var n = music_stack.pop_back()
+	play_music(n)
+	return n
+
+func play_root_music(n: AudioStreamPlayer):
+	music_stack.clear()
+	play_music(n)
+
 func play_music(n: AudioStreamPlayer, fade_slow=false, scale=music_crossfade_speed, softstart=false):
 	next_music = n.duplicate()
 	$DynamicMusic.add_child(next_music)
@@ -151,7 +173,7 @@ func _not_null(item):
 func _purge_old_music():
 	old_music = old_music.filter(_not_null)
 	for music in old_music:
-		if not music.playing:
+		if not music.playing and not music in music_stack:
 			music.call_deferred("free")
 
 func unstage_action_node(n):
@@ -821,6 +843,7 @@ func is_night():
 func injure():
 	set_state(["injured"], true)
 	injured = true
+	push_music($InjuryMusic)
 
 func die():
 	var cut = load("res://cutscene/you_died.tscn")
@@ -829,6 +852,7 @@ func die():
 func heal():
 	set_state(["injured"], false)
 	injured = false
+	pop_music($InjuryMusic)
 
 func bedtime():
 	# TODO: dream management

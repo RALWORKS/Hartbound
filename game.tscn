@@ -1,10 +1,12 @@
-[gd_scene load_steps=10 format=3 uid="uid://cvo7vcb5suvjv"]
+[gd_scene load_steps=12 format=3 uid="uid://cvo7vcb5suvjv"]
 
 [ext_resource type="Script" path="res://game.gd" id="1_0h5ve"]
 [ext_resource type="AudioStream" uid="uid://cav44ry5mv08r" path="res://assets/music/saint-theme-1.ogg" id="2_jx83x"]
 [ext_resource type="Script" path="res://Map.gd" id="2_vy8bn"]
 [ext_resource type="PackedScene" uid="uid://b8kj181l2j2ws" path="res://ui/start_screen.tscn" id="3_0jlt3"]
 [ext_resource type="PackedScene" uid="uid://c0vsa31kgtvm5" path="res://quests/quest_map.tscn" id="6_5ffo3"]
+[ext_resource type="PackedScene" uid="uid://bcinc4blag4el" path="res://music.tscn" id="7_epwyy"]
+[ext_resource type="AudioStream" uid="uid://bor5grx5muehp" path="res://assets/music/injured.ogg" id="8_a5mst"]
 [ext_resource type="PackedScene" uid="uid://do0ku8pfkpj0n" path="res://concept-map/concept_map.tscn" id="9_0i75i"]
 
 [sub_resource type="Animation" id="Animation_yxiww"]
@@ -106,3 +108,6 @@ script = ExtResource("2_vy8bn")
 [node name="ConceptMap" parent="." instance=ExtResource("9_0i75i")]
 
 [node name="QuestMap" parent="." instance=ExtResource("6_5ffo3")]
+
+[node name="InjuryMusic" parent="." instance=ExtResource("7_epwyy")]
+stream = ExtResource("8_a5mst")
