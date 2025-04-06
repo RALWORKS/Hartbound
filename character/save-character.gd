@@ -23,8 +23,8 @@ func on_character_edited(data):
 	if not game:
 		return
 	game.set_state(["character", "texture"], data)
-	var side_profile = game.get_node_or_null("MainScreen/Menu/GameMenu/ProfileBtn/Profile")
-	var drawer_profile = game.get_node_or_null("MainScreen/Menu/GameMenu/CharacterRecord/black/Profile")
+	var side_profile = game.get_node_or_null("MainScreen/RightMenu/GameMenu/ProfileBtn/Profile")
+	var drawer_profile = game.get_node_or_null("MainScreen/RightMenu/GameMenu/CharacterRecord/black/Profile")
 	side_profile.refresh()
 	drawer_profile.refresh()
 	$"../2/CharacterDesginer".refresh_texture()
@@ -33,8 +33,8 @@ func on_profile_edited(data):
 	if not game:
 		return
 	game.set_state(["profile", "texture"], data)
-	var side_profile = game.get_node_or_null("MainScreen/Menu/GameMenu/ProfileBtn/Profile")
-	var drawer_profile = game.get_node_or_null("MainScreen/Menu/GameMenu/CharacterRecord/black/Profile")
+	var side_profile = game.get_node_or_null("MainScreen/RightMenu/GameMenu/ProfileBtn/Profile")
+	var drawer_profile = game.get_node_or_null("MainScreen/RightMenu/GameMenu/CharacterRecord/black/Profile")
 	side_profile.refresh()
 	drawer_profile.refresh()
 	$"../2/CharacterDesginer".refresh_texture()
@@ -49,7 +49,7 @@ func on_name_edited(data):
 		return
 	NAME = data
 	game.set_state(["character", "name"], data)
-	var side_profile = game.get_node_or_null("MainScreen/Menu/GameMenu/ProfileBtn/Label")
+	var side_profile = game.get_node_or_null("MainScreen/RightMenu/GameMenu/ProfileBtn/Label")
 	side_profile.text = data["short"]
 
 func on_gender_edited(data):

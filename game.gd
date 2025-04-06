@@ -532,7 +532,7 @@ func _init_party_if_needed():
 		return
 	set_state(
 		["party"],
-		[""],
+		[],
 	)
 
 func start_quest(quest):

@@ -24,6 +24,8 @@ func _game():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	if _game().chapter == null:
+		return
 	#refresh_party()
 	if visible:
 		if _game().chapter.cutscene != null:
