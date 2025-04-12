@@ -4,7 +4,7 @@ var intro_story = preload("res://intro-story/intro_story.tscn")
 
 var cur_game: Array[Node]
 var cutscene
-var menu: SubViewport
+var menu
 var game
 var menu_visible = false
 var menu_parent
@@ -21,7 +21,7 @@ func _ready():
 	if starting_music != null:
 		game.play_music(starting_music)
 
-	menu = game.get_node("MainScreen/Menu")
+	menu = game.get_node("MainScreen/RightMenu")
 	menu_parent = menu.get_parent()
 	menu_ix = menu.get_index()
 	menu_parent.remove_child(menu)

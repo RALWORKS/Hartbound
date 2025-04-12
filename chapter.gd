@@ -95,6 +95,8 @@ func _ready():
 	if starting_music != null:
 		game.play_music(starting_music)
 	if events_done.size() == 0:
+		game.save_room(scene0.scene_file_path)
+		game.save_position()
 		call_deferred("next")
 	else:
 		rerun_all_events()
@@ -121,8 +123,8 @@ func start_cutscene(
 	
 	if world.size() > 0:
 		var scene: Node2D = $"../MainScreen/World".get_children()[0]
-		bg = scene.scene_file_path
-		if bg:
+		if "dialogue_bg_scale" in scene:
+			bg = scene.scene_file_path
 			cached_scene_path = bg#.texture
 			cached_bg_scale = scene.dialogue_bg_scale
 			cached_bg_position = scene.dialogue_bg_position
@@ -143,6 +145,7 @@ func start_cutscene(
 	else:
 		cutscene.next_cutscene = next_cutscene if next_cutscene else cutscene.next_cutscene
 	cutscene.call_deferred("start")
+	print("SC ", cutscene, cutscene.get_parent)
 
 func end_cutscene(free=false):
 	print("ENDSCENE INNER")
@@ -165,6 +168,7 @@ func end_cutscene(free=false):
 	print("ROUNDUP SCHEME DONE -- actually")
 
 	cutscene.queue_free()
+	cutscene = null
 	#await get_tree().create_timer(0.1).timeout
 	print("ALL FREE")
 #	#game.free_world()
@@ -172,9 +176,9 @@ func end_cutscene(free=false):
 	if next_chapter != "":
 		$"/root/Game".to_chapter(next_chapter)
 		return
-
 	if next_cutscene != null:
 		#await get_tree().create_timer(0.1).timeout
+		print("start next", next_cutscene)
 		start_cutscene(next_cutscene, npc, null, sequence)
 		return
 	

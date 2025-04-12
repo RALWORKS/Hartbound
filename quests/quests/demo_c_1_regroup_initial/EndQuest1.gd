@@ -1,5 +1,5 @@
 extends Node2D
 
 func on_start():
-	$"../../../..".npc.start_following($"/root/Game")
+	$"/root/Game".set_state(["party"], [$"../../../..".npc_name])
 	$DemoC1RegroupInitial.complete()

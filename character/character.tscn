@@ -205,7 +205,6 @@ _data = {
 y_sort_enabled = true
 scale = Vector2(0.75, 0.75)
 script = ExtResource("1_s1ce1")
-speed = 150
 
 [node name="Sway" type="AnimationPlayer" parent="."]
 libraries = {

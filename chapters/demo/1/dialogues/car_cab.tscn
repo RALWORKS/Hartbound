@@ -65,6 +65,7 @@ text = "> Leave"
 raise_to_ui_layer = false
 
 [node name="TakingKeys" parent="." index="2" instance=ExtResource("3_6h3xx")]
+visible = false
 
 [node name="bg" type="Sprite2D" parent="TakingKeys" index="0"]
 position = Vector2(1367, 1542)
@@ -97,6 +98,7 @@ raise_to_ui_layer = false
 trigger_name = "TakeKey"
 
 [node name="AlreadyDone" parent="." index="3" instance=ExtResource("3_6h3xx")]
+visible = false
 is_option_node = true
 
 [node name="bg" type="Sprite2D" parent="AlreadyDone" index="0"]

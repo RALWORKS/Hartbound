@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 @export var speed = 110
-@export var speed_mul = 1.0
+@export var speed_mul = 1.7
 @export var osc_rate = 0.2
 @export var is_demo_instance = false
 @export var turning_timeout = 0.05

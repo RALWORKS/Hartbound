@@ -44,6 +44,7 @@ func refresh_data(character_record=null):
 		#	+ "\n"
 		#)
 		var line = SmartLabel.instantiate()
+		line.raise_to_ui_layer = false
 		line.fit_content = true
 		line.custom_minimum_size = Vector2(0, 90)
 		#line.append_text(item["narrative"])

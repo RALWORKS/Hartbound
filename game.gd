@@ -183,7 +183,7 @@ func unstage_action_node(n):
 func refresh_data():
 	var screen = get_node_or_null("MainScreen")
 	if screen != null:
-		screen.get_node("Menu/GameMenu").refresh_data()
+		screen.get_node("RightMenu/GameMenu").refresh_data()
 
 func push_story(title_, narrative):
 	STATE["story"].append({
@@ -258,7 +258,7 @@ func load_position():
 	var p = get_state(["position"])
 	if p != null and p["scene_path"] != null:
 		$Map.load_position(p)
-	elif "x" in p and "y" in p:
+	elif "x" in p and "y" in p and player != null:
 		player.position.x = p.x
 		player.position.y = p.y
 
@@ -500,6 +500,8 @@ func save_room(scene_path, entrance_name=null):
 	)
 
 func save_position():
+	if not player:
+		return
 	var data = get_state(["position"])
 	var p = player.get_p()
 	data.x = p.x
@@ -709,7 +711,8 @@ func set_player_display_modes(mode_names: Array):
 	
 func live_change_player_mode(mode_names: Array):
 	set_player_display_modes(mode_names)
-	player.respawn()
+	if player != null:
+		player.respawn()
 
 func get_active_player_display_modes():
 	var modes = get_state(["micro_progress", "player_display_modes"])

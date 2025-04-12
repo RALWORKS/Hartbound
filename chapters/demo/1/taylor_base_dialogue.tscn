@@ -112,7 +112,7 @@ shader_parameter/tint = Vector4(0.5, 0.73, 0.87, 1)
 shader_parameter/highlight = Vector4(0.7, 0.75, 0.5, 1)
 shader_parameter/alpha = 1.0
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_a4gtj"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_rty4u"]
 viewport_path = NodePath("img")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7rj0o"]
@@ -745,7 +745,7 @@ text = "[i]Objective:[/i]
 
 - View the Leyline with [i]L[/i] or "
 
-[node name="Sprite2D" type="Sprite2D" parent="Concepts/PlanForAfternoon2/Y2/SmartLabel" index="2"]
+[node name="Sprite2D" type="Sprite2D" parent="Concepts/PlanForAfternoon2/Y2/SmartLabel" index="3"]
 position = Vector2(470, 403)
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("13_asy10")
@@ -866,7 +866,7 @@ texture = ExtResource("4_bxirh")
 [node name="Profile" parent="Concepts/SummerSolstice/Branch" index="2" instance=ExtResource("15_j4j0s")]
 position = Vector2(880, 14)
 scale = Vector2(1.8, 1.8)
-texture = SubResource("ViewportTexture_a4gtj")
+texture = SubResource("ViewportTexture_rty4u")
 with_background = false
 
 [node name="Human" parent="Concepts/SummerSolstice/Branch" index="3" node_paths=PackedStringArray("to", "avatar") instance=ExtResource("16_xvtm1")]

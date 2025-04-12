@@ -38,14 +38,13 @@ func refresh_party():
 	var g = _game()
 	var p = g.party
 	
-	if p == party:
+	if Array(p) == Array(party):
 		return
 	
 	party = p
 	update_party()
 
 func update_party():
-	print("UPDATE PARTY")
 	for c in get_children():
 		c.free()
 	
@@ -54,6 +53,8 @@ func update_party():
 	var inc = 190 + pad
 	
 	for p in party:
+		if not p.length():
+			return
 		var btn = PROFILES[p].instantiate()
 		btn.position = Vector2(0, y)
 		add_child(btn)

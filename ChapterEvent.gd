@@ -57,6 +57,8 @@ func _teleport():
 		var scene0 = to_scene.instantiate()
 		g.get_node("Map").move_to(scene0, false)
 		scene0.spawn(g)
+		g.save_room(scene0.scene_file_path)
+		g.save_position()
 	
 
 func rerun():

@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://b5ibfeuvnnobf"]
+[gd_scene load_steps=16 format=3 uid="uid://b5ibfeuvnnobf"]
 
 [ext_resource type="PackedScene" uid="uid://bp8tsdjdbwj8i" path="res://cutscene/cutscene.tscn" id="1_skmmg"]
 [ext_resource type="PackedScene" uid="uid://55vflx8ylix1" path="res://cutscene/cutscene_node.tscn" id="2_bsufs"]
@@ -22,7 +22,7 @@ shader_parameter/contrast = 0.03
 shader_parameter/opacity = 0.7
 shader_parameter/fade = 0.0
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_dvg85"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_85gnb"]
 viewport_path = NodePath("img")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_4rog7"]
@@ -36,6 +36,9 @@ shader_parameter/colour_mod_r = 0.0
 shader_parameter/colour_mod_g = 0.0
 shader_parameter/colour_mod_b = 0.0
 shader_parameter/invert = false
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_l7w08"]
+viewport_path = NodePath("img")
 
 [node name="PanelC-No-1" node_paths=PackedStringArray("starting_page") instance=ExtResource("1_skmmg")]
 starting_page = NodePath("1")
@@ -66,7 +69,7 @@ polygon = PackedVector2Array(1555.72, 1290, 1324.29, 1731.43, 347.143, 1701.43, 
 [node name="Profile" parent="1/bg/Shadow" index="1" instance=ExtResource("6_2v65a")]
 material = SubResource("ShaderMaterial_skswr")
 position = Vector2(1045.93, -11.1383)
-texture = SubResource("ViewportTexture_dvg85")
+texture = SubResource("ViewportTexture_85gnb")
 flip_h = true
 with_background = false
 
@@ -137,7 +140,7 @@ polygon = PackedVector2Array(1555.72, 1290, 1324.29, 1731.43, 347.143, 1701.43, 
 [node name="Profile" parent="2/bg/Shadow" index="1" instance=ExtResource("6_2v65a")]
 material = SubResource("ShaderMaterial_skswr")
 position = Vector2(1045.93, -11.1383)
-texture = SubResource("ViewportTexture_dvg85")
+texture = SubResource("ViewportTexture_l7w08")
 flip_h = true
 with_background = false
 

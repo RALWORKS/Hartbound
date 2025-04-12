@@ -238,7 +238,10 @@ position = Vector2(8, 640)
 rotation = 1.5708
 
 [node name="PossbleCamp" parent="YSort" index="23" instance=ExtResource("23_nal28")]
-position = Vector2(521, 707)
+position = Vector2(481, 715)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/PossbleCamp" index="1"]
+polygon = PackedVector2Array(-400, -9, -45, -198, 334, -134, 227, 135, -315, 111)
 
 [node name="ThresholdQuests" type="Node" parent="." index="2"]
 

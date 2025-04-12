@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://cutjuxuo3n1wc"]
+[gd_scene load_steps=24 format=3 uid="uid://cutjuxuo3n1wc"]
 
 [ext_resource type="PackedScene" uid="uid://byrlpmbpj6yr5" path="res://scene.tscn" id="1_4su6i"]
 [ext_resource type="Texture2D" uid="uid://dobfgkrdvoy5g" path="res://assets/scenes/demo/1/industrial/b.png" id="2_beatb"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://c6dbijn80ep15" path="res://assets/scenes/demo/1/industrial/b-vent-tree.png" id="5_ij0re"]
 [ext_resource type="PackedScene" uid="uid://dxfuidhlgwthh" path="res://travel/door.tscn" id="6_dl5dw"]
 [ext_resource type="PackedScene" uid="uid://cg4pd3bho5745" path="res://scenery/trees/young_tree.tscn" id="16_4rt0h"]
+[ext_resource type="Shader" path="res://daylight.gdshader" id="17_2he7q"]
 [ext_resource type="PackedScene" uid="uid://bp5q2v0qni20y" path="res://scenery/trees/pine_pair.tscn" id="17_bd47t"]
 [ext_resource type="PackedScene" uid="uid://ds4250x72dke" path="res://demons/demon_hazard.tscn" id="18_nc738"]
 [ext_resource type="Texture2D" uid="uid://chq6q6xttvwfi" path="res://assets/scenery/extra-tree-coloured-bright/tree-family.png" id="19_d5wrl"]
@@ -64,6 +65,14 @@ _data = {
 "RESET": SubResource("Animation_b1g7g"),
 "base": SubResource("Animation_vfch8")
 }
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pltx8"]
+resource_local_to_scene = true
+shader = ExtResource("17_2he7q")
+shader_parameter/darken = 0.0
+shader_parameter/saturate = 1.0
+shader_parameter/contrast = 1.0
+shader_parameter/warmth = 0.5
 
 [node name="IndustrialB" node_paths=PackedStringArray("vein_node") instance=ExtResource("1_4su6i")]
 vein_node = NodePath("Vein")
@@ -324,3 +333,6 @@ libraries = {
 "": SubResource("AnimationLibrary_xcel7")
 }
 script = ExtResource("20_v2aj0")
+
+[node name="MainDaylightFilter" parent="Filters" index="0"]
+daylight_shader = SubResource("ShaderMaterial_pltx8")

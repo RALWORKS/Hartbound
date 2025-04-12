@@ -127,7 +127,7 @@ func daylight_off_not_injury():
 	
 "
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_ilyvs"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_q85g1"]
 resource_local_to_scene = true
 shader = ExtResource("4_tv03u")
 shader_parameter/darken = 0.0
@@ -156,7 +156,7 @@ position = Vector2(560, 365)
 [node name="Filters" type="CanvasLayer" parent="."]
 
 [node name="MainDaylightFilter" parent="Filters" node_paths=PackedStringArray("scene") instance=ExtResource("3_5fm1i")]
-daylight_shader = SubResource("ShaderMaterial_ilyvs")
+daylight_shader = SubResource("ShaderMaterial_q85g1")
 scene = NodePath("../..")
 
 [node name="Filter" type="ColorRect" parent="Filters/MainDaylightFilter"]
