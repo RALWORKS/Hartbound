@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://qfu36rf7ujq4"]
+[gd_scene load_steps=39 format=3 uid="uid://qfu36rf7ujq4"]
 
 [ext_resource type="PackedScene" uid="uid://byrlpmbpj6yr5" path="res://scene.tscn" id="1_h56rh"]
 [ext_resource type="Texture2D" uid="uid://bdh1dphfwy4ng" path="res://assets/scenes/demo/1/industrial/c.png" id="2_1277k"]
@@ -30,6 +30,7 @@
 [ext_resource type="Script" path="res://scenes/demo/1/industrial/c-LevelSwitchScript.gd" id="28_t10qm"]
 [ext_resource type="PackedScene" uid="uid://bii8gdmkfiy5x" path="res://chapters/demo/1/taylor.tscn" id="29_ku8g6"]
 [ext_resource type="Texture2D" uid="uid://ivmtmxnvs7ck" path="res://assets/npcs/taylor/sprite-left-arm-out.png" id="30_oe2ii"]
+[ext_resource type="Shader" path="res://daylight.gdshader" id="31_im5y0"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_i64kx"]
 vertices = PackedVector2Array(30, 1215, 60, 687, 214, 996, 512, 2, 1379, 2, 1268, 93, 784, 282, 1151, 273, 787, 430, 741, 1106, 751, 1207, 227, 1009, 409, 825, 425, 839, 603, 582, 309, 682, 627, 758)
@@ -202,6 +203,14 @@ _data = {
 "RESET": SubResource("Animation_lagt2"),
 "base": SubResource("Animation_gawrv")
 }
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_tl752"]
+resource_local_to_scene = true
+shader = ExtResource("31_im5y0")
+shader_parameter/darken = 0.0
+shader_parameter/saturate = 1.0
+shader_parameter/contrast = 1.0
+shader_parameter/warmth = 0.5
 
 [node name="Scene" node_paths=PackedStringArray("vein_node") instance=ExtResource("1_h56rh")]
 vein_node = NodePath("Vein")
@@ -396,13 +405,6 @@ navigation_polygon = SubResource("NavigationPolygon_j5vyj")
 [node name="NavigationRoof" type="NavigationRegion2D" parent="YSort" index="20"]
 navigation_polygon = SubResource("NavigationPolygon_wbapc")
 
-[node name="Tunnel" parent="YSort" index="21" instance=ExtResource("16_vqlxf")]
-position = Vector2(1159, 458)
-rotation = 2.61799
-scale = Vector2(2, 1)
-dest_resource = "res://scenes/demo/1/industrial/c-right.tscn"
-dest_edge = "Tunnel"
-
 [node name="c-LevelSwitchScript" type="Node" parent="." index="2"]
 script = ExtResource("28_t10qm")
 
@@ -444,3 +446,6 @@ visible = false
 position = Vector2(259, 957)
 show_even_if_following = true
 starting_animaton = "up-right-stopped"
+
+[node name="MainDaylightFilter" parent="Filters" index="0"]
+daylight_shader = SubResource("ShaderMaterial_tl752")

@@ -231,6 +231,7 @@ func set_player(some_player):
 
 func reload():
 	load_position()
+	dying = false
 	#respawn_player()
 
 func start_from_state(s):

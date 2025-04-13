@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://buxrxh4c0pnmw"]
+[gd_scene load_steps=15 format=3 uid="uid://buxrxh4c0pnmw"]
 
 [ext_resource type="PackedScene" uid="uid://byrlpmbpj6yr5" path="res://scene.tscn" id="1_i6you"]
 [ext_resource type="Texture2D" uid="uid://dti5uo654ufji" path="res://assets/scenes/demo/1/industrial/c-right.png" id="2_ahqd6"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://scenes/demo/1/industrial/CRightLevelSwitch.gd" id="4_idnxo"]
 [ext_resource type="Texture2D" uid="uid://bb8rvi5dnp2hl" path="res://assets/scenes/demo/1/industrial/c-right-overhang.png" id="5_fn4e1"]
 [ext_resource type="PackedScene" uid="uid://dxfuidhlgwthh" path="res://travel/door.tscn" id="5_og1dx"]
+[ext_resource type="Shader" path="res://daylight.gdshader" id="7_164uy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u8ti4"]
 size = Vector2(1287, 120)
@@ -31,6 +32,14 @@ vertices = PackedVector2Array(963, 700, 906, 421, 1134, 616, 1083, 1044, 1428, 1
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(3, 4, 5, 6), PackedInt32Array(3, 6, 0)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(1314, 1311, 594, 959, 963, 700, 906, 421, 1134, 616, 1083, 1044, 1428, 1281)])
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_tbamg"]
+resource_local_to_scene = true
+shader = ExtResource("7_164uy")
+shader_parameter/darken = 0.0
+shader_parameter/saturate = 1.0
+shader_parameter/contrast = 1.0
+shader_parameter/warmth = 0.5
+
 [node name="Scene" node_paths=PackedStringArray("vein_node") instance=ExtResource("1_i6you")]
 vein_node = NodePath("Vein")
 
@@ -46,7 +55,7 @@ position = Vector2(531.5, -59)
 shape = SubResource("RectangleShape2D_u8ti4")
 
 [node name="W" type="CollisionShape2D" parent="Background/StaticBody2D" index="2"]
-position = Vector2(-72, 768)
+position = Vector2(-72, 721)
 shape = SubResource("RectangleShape2D_prfh3")
 
 [node name="S" type="CollisionShape2D" parent="Background/StaticBody2D" index="3"]
@@ -131,3 +140,6 @@ texture = ExtResource("5_fn4e1")
 
 [node name="Vein" type="Polygon2D" parent="." index="3"]
 polygon = PackedVector2Array(1562, -102, 1086, 203, 1081, 407, 937, 485, 1068, 593, 458, 976, 549, 1039, 1234, 604, 1098, 503, 1159, 473, 1171, 243, 1642, -36)
+
+[node name="MainDaylightFilter" parent="Filters" index="0"]
+daylight_shader = SubResource("ShaderMaterial_tbamg")
