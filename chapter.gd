@@ -80,6 +80,7 @@ func reload_events_done():
 
 func _default_init():
 	scene0 = starting_scene.instantiate()
+	game.show_clock = true
 	#scene0.spawn_at = "n"
 	#$"../MainScreen/World".add_child(scene0)
 	$"../Map".start(scene0, self)

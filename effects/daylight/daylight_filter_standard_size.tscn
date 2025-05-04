@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://dec3rewb3xb1u" path="res://effects/daylight/daylight_filter.tscn" id="1_i5dcj"]
 [ext_resource type="Shader" path="res://daylight.gdshader" id="2_viqbt"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_q3tcl"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_krn2h"]
 resource_local_to_scene = true
 shader = ExtResource("2_viqbt")
 shader_parameter/darken = 0.0
@@ -17,7 +17,7 @@ script = ExtResource("1_a7jb3")
 
 [node name="DaylightFilter" parent="." instance=ExtResource("1_i5dcj")]
 visible = false
-daylight_shader = SubResource("ShaderMaterial_q3tcl")
+daylight_shader = SubResource("ShaderMaterial_krn2h")
 
 [node name="Filter" type="ColorRect" parent="DaylightFilter"]
 offset_right = 1720.0

@@ -85,7 +85,7 @@ var INITIAL_STATE = {
 	"injured": false,
 	"moves": 0,
 	"timers": [],
-	"timestamp": 0,
+	"timestamp": 0.0,
 	"timecap": null,
 }
 
@@ -252,7 +252,6 @@ func start_from_state(s):
 	load_position()
 	
 	load_quests()
-	_init_time_if_needed()
 	#load_display()
 	
 	started = true
