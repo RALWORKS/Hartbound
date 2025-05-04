@@ -1,7 +1,7 @@
 extends Node2D
 
 func _set_skin(ix):
-	$"../WrapAndScale/Character".set_skin(ix)
+	$"../Window/WrapAndScale/Character".set_skin(ix)
 	$"..".refresh_indicators()
 
 # Called when the node enters the scene tree for the first time.
@@ -9,7 +9,7 @@ func _ready():
 	var x = 0
 	var y = 0
 	var ix = 0
-	for hex in $"../WrapAndScale/Character".TEXTURES["skin-color"]:
+	for hex in $"../Window/WrapAndScale/Character".TEXTURES["skin-color"]:
 		var b = Button.new()
 		var s = StyleBoxFlat.new()
 		s.bg_color = hex

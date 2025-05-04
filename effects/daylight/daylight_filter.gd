@@ -2,6 +2,9 @@ class_name DaylightFilter
 
 extends Node2D
 
+@export var time: float = 0.0
+@export var manual_time = false
+
 @export var daylight_darken: Curve
 @export var daylight_saturate: Curve
 @export var daylight_contrast: Curve
@@ -41,8 +44,9 @@ func refresh():
 	var g = _get_game()
 	var inj = g.injured
 	
-	var t = g.get_time()
 	day_length = g.day_length
+	
+	var t = get_manual_time() if manual_time else g.get_time()
 	
 	if not inj:
 		modulate_daylight(t, day_length)
@@ -55,6 +59,8 @@ func _get_game():
 		game = $"/root/Game"
 	return game
 
+func get_manual_time():
+	return int(time * float(day_length))
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -64,7 +70,7 @@ func _process(delta):
 		return
 	
 	var g = _get_game()
-	var t = g.get_time()
+	var t = get_manual_time() if manual_time else g.get_time()
 	var inj = g.injured
 	
 	if t == last_cur_time and inj == was_injured:

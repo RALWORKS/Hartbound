@@ -3,9 +3,9 @@ extends Node2D
 
 func _set_outfit(ix):
 	if is_accent:
-		$"../WrapAndScale/Character".set_accent_color(ix)
+		$"../Window/WrapAndScale/Character".set_accent_color(ix)
 	else:
-		$"../WrapAndScale/Character".set_outfit_color(ix)
+		$"../Window/WrapAndScale/Character".set_outfit_color(ix)
 	$"..".refresh_indicators()
 
 # Called when the node enters the scene tree for the first time.
@@ -13,9 +13,9 @@ func _ready():
 	var x = 0
 	var y = 0
 	var ix = 0
-	var opts =  $"../WrapAndScale/Character".TEXTURES["outfit-color-1"]
+	var opts =  $"../Window/WrapAndScale/Character".TEXTURES["outfit-color-1"]
 	if is_accent:
-		opts =  $"../WrapAndScale/Character".TEXTURES["outfit-color-2"]
+		opts =  $"../Window/WrapAndScale/Character".TEXTURES["outfit-color-2"]
 	for hex in opts:
 		var b = Button.new()
 		var s = StyleBoxFlat.new()
