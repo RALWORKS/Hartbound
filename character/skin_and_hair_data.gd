@@ -10,6 +10,17 @@ var SKIN_COLOURS = [
 		"#ffc0a3",
 ]
 
+var SKIN_COLOURS_SCENE = [
+		"#ce9166",
+		"#b07347",
+		"#ac634e",
+		"#b67968",
+		"#efa2a0",
+		"#fcc0be",
+		"#ffdcbe",
+]
+
+
 var HAIR_COLOURS = [
 		"#21222b",
 		"#01323b",
@@ -19,4 +30,15 @@ var HAIR_COLOURS = [
 		"#bc9f70",
 		"#eccf70",
 		"#47280e",
+]
+
+var HAIR_COLOURS_SCENE = [
+		"#363741",
+		"#1e4952",
+		"#42111b",
+		"#5b2830",
+		"#d49454",
+		"#bc9f70",
+		"#d8ba8a",
+		"#603e23",
 ]

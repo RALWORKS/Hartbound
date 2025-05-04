@@ -17,3 +17,21 @@ var OPTIONS = [
 		"#505050", # grey
 		"#cccccc", # white
 ]
+
+var OPTIONS_SCENE = [
+		"#838225", # olive
+		"#91b146", # spring
+		"#58774a", # forest
+		"#54b075", # mint
+		"#72ada0", # robin's egg
+		"#6271bb", # periwinkle
+		"#859cb1", # cloudy skies
+		"#79679e", # lilac
+		"#824f54", # blueberry juice
+		"#ad4733", # fire engine
+		"#7a3d22", # dark leather
+		"#684d32", # light leather
+		"#5e5e5e", # "black"
+		"#666666", # grey
+		"#cccccc", # white
+]

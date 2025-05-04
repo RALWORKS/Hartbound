@@ -196,8 +196,11 @@ var texture_settings = {
 var N_PATTERNS = 3
 var TEXTURES = {
 	"skin-color": SkinAndHairData.SKIN_COLOURS,
+	"skin-color-scene": SkinAndHairData.SKIN_COLOURS_SCENE,
 	"hair-color": SkinAndHairData.HAIR_COLOURS,
+	"hair-color-scene": SkinAndHairData.HAIR_COLOURS_SCENE,
 	"outfit-color-1": OutfitColor1.OPTIONS,
+	"outfit-color-1-scene": OutfitColor1.OPTIONS_SCENE,
 	"outfit-color-2": [
 		"#969622", # olive
 		"#a6c65b", # spring
@@ -213,6 +216,23 @@ var TEXTURES = {
 		"#7f664d", # light leather
 		"#505050", # "black"
 		"#808080", # grey
+		"#ffffff", # white
+	],
+	"outfit-color-2-scene": [
+		"#b2b13f", # olive
+		"#c2e275", # spring
+		"#8aa87c", # forest
+		"#73c39a", # mint
+		"#a9e4d7", # robin's egg
+		"#758bc1", # periwinkle
+		"#b6cde2", # cloudy skies
+		"#ab99d0", # lilac
+		"#b38086", # blueberry juice
+		"#de7765", # fire engine
+		"#ab6f55", # dark leather
+		"#997f65", # light leather
+		"#686868", # "black"
+		"#9a9a9a", # grey
 		"#ffffff", # white
 	],
 	"build": [ Vector2(0.9, 1), Vector2(1, 1), Vector2(1.2, 1.04)],
@@ -371,8 +391,8 @@ func _refresh_pattern():
 	var ix = texture_settings["pattern"]
 	clothes_pattern.set_texture(TEXTURES["pattern"][ix])
 
-func _refresh_color_element(key, nodes):
-	var color = TEXTURES[key][texture_settings[key]]
+func _refresh_color_element(wkey, rkey, nodes):
+	var color = TEXTURES[rkey][texture_settings[wkey]]
 	for node in nodes:
 		if node == null:
 			continue
@@ -391,12 +411,19 @@ func _refresh_skin():
 	)
 	_refresh_color_element(
 		"skin-color",
+		"skin-color",
+		[
+			profile_head,
+			profile_face,
+		]
+	)
+	_refresh_color_element(
+		"skin-color",
+		"skin-color-scene",
 		[
 			face,
 			body,
 			front_arm,
-			profile_head,
-			profile_face,
 		]
 	)
 
@@ -412,8 +439,16 @@ func _refresh_hair():
 	)
 	_refresh_color_element(
 		"hair-color",
+		"hair-color-scene",
 		[
+			hair_back,
 			hair_front,
+		]
+	)
+	_refresh_color_element(
+		"hair-color",
+		"hair-color",
+		[
 			profile_hair,
 			profile_hair_front
 		]
@@ -432,14 +467,22 @@ func _refresh_outfit():
 	_refresh_pattern()
 	_refresh_color_element(
 		"outfit-color-1",
+		"outfit-color-1-scene",
 		[
 			front_sleeve,
 			clothes,
+		]
+	)
+	_refresh_color_element(
+		"outfit-color-1",
+		"outfit-color-1",
+		[
 			profile_shirt,
 		]
 	)
 	_refresh_color_element(
 		"outfit-color-2",
+		"outfit-color-2-scene",
 		[
 			front_sleeve_accent,
 			clothes_accent,
