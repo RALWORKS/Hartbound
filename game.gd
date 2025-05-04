@@ -66,6 +66,7 @@ var CHAPTERS = {
 	"2segue": preload("res://chapters/demo/2/chapter-2-segue.tscn"),
 	"demo2": preload("res://chapters/demo/2/chapter-2.tscn"),
 	"demo3": preload("res://chapters/demo/3/chapter.tscn"),
+	"demo-pro": preload("res://chapters/demo/prologue/chapter.tscn"),
 }
 @export var FIRST_CHAPTER = "demo1"
 
@@ -251,6 +252,7 @@ func start_from_state(s):
 	load_position()
 	
 	load_quests()
+	_init_time_if_needed()
 	#load_display()
 	
 	started = true

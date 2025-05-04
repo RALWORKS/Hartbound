@@ -58,10 +58,10 @@ text = "> New Game
 script = ExtResource("4_lba5l")
 
 [node name="NewGameChapter2Btn" type="Button" parent="."]
-offset_left = 449.0
-offset_top = 222.0
-offset_right = 826.0
-offset_bottom = 274.0
+offset_left = 445.0
+offset_top = 262.0
+offset_right = 822.0
+offset_bottom = 314.0
 mouse_filter = 1
 theme = ExtResource("3_dystq")
 theme_type_variation = &"MenuItem"
@@ -70,11 +70,25 @@ text = "> New Game (Chapter 2)
 "
 script = ExtResource("5_evoon")
 
+[node name="NewGameChapter0" type="Button" parent="."]
+offset_left = 441.0
+offset_top = 192.0
+offset_right = 818.0
+offset_bottom = 244.0
+mouse_filter = 1
+theme = ExtResource("3_dystq")
+theme_type_variation = &"MenuItem"
+theme_override_font_sizes/font_size = 30
+text = "> New Game (Prologue)
+"
+script = ExtResource("5_evoon")
+chapter = "demo-pro"
+
 [node name="NewGameChapter3Btn" type="Button" parent="."]
-offset_left = 449.0
-offset_top = 318.0
-offset_right = 826.0
-offset_bottom = 370.0
+offset_left = 446.0
+offset_top = 329.0
+offset_right = 823.0
+offset_bottom = 381.0
 mouse_filter = 1
 theme = ExtResource("3_dystq")
 theme_type_variation = &"MenuItem"
@@ -85,10 +99,10 @@ script = ExtResource("5_evoon")
 chapter = "demo3"
 
 [node name="LoadGameBtn" type="Button" parent="."]
-offset_left = 450.0
-offset_top = 412.0
-offset_right = 658.0
-offset_bottom = 464.0
+offset_left = 448.0
+offset_top = 395.0
+offset_right = 656.0
+offset_bottom = 447.0
 mouse_filter = 1
 theme = ExtResource("3_dystq")
 theme_type_variation = &"MenuItem"
@@ -102,5 +116,6 @@ position = Vector2(0, 50)
 
 [connection signal="pressed" from="NewGameBtn" to="NewGameBtn" method="_on_pressed"]
 [connection signal="pressed" from="NewGameChapter2Btn" to="NewGameChapter2Btn" method="_on_pressed"]
+[connection signal="pressed" from="NewGameChapter0" to="NewGameChapter0" method="_on_pressed"]
 [connection signal="pressed" from="NewGameChapter3Btn" to="NewGameChapter3Btn" method="_on_pressed"]
 [connection signal="pressed" from="LoadGameBtn" to="LoadGameBtn" method="_on_pressed"]

@@ -1,0 +1,125 @@
+[gd_scene load_steps=14 format=3 uid="uid://cog1hph357ikp"]
+
+[ext_resource type="PackedScene" uid="uid://byrlpmbpj6yr5" path="res://scene.tscn" id="1_odikn"]
+[ext_resource type="Texture2D" uid="uid://clbmqowfv6bah" path="res://assets/scenes/demo/prologue/suntemple-outdoor-1-and-2.png" id="2_kyxh0"]
+[ext_resource type="PackedScene" uid="uid://d0q6kg3spk25s" path="res://chapters/demo/1/jerry.tscn" id="3_ciy4i"]
+[ext_resource type="Shader" path="res://daylight.gdshader" id="3_mrq77"]
+[ext_resource type="PackedScene" uid="uid://in7v8nsvojyp" path="res://chapters/demo/1/nate.tscn" id="4_rm47y"]
+[ext_resource type="PackedScene" uid="uid://bii8gdmkfiy5x" path="res://chapters/demo/1/taylor.tscn" id="5_5jbhv"]
+[ext_resource type="Script" path="res://auto_play_animation_player.gd" id="5_7x0b1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2kp7l"]
+size = Vector2(217, 1361)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dogkc"]
+size = Vector2(2230.5, 201.5)
+
+[sub_resource type="Animation" id="Animation_ehgb4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(822, 899)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:starting_animaton")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["down-right"]
+}
+
+[sub_resource type="Animation" id="Animation_cyh0j"]
+resource_name = "pace"
+length = 3.0
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(911, 853), Vector2(1039, 928)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:starting_animaton")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": ["down-right", "up-left"]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wjwfc"]
+_data = {
+"RESET": SubResource("Animation_ehgb4"),
+"base": SubResource("Animation_cyh0j")
+}
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_nsj3n"]
+resource_local_to_scene = true
+shader = ExtResource("3_mrq77")
+shader_parameter/darken = 0.0
+shader_parameter/saturate = 1.0
+shader_parameter/contrast = 1.0
+shader_parameter/warmth = 0.5
+
+[node name="Scene" instance=ExtResource("1_odikn")]
+
+[node name="Background" parent="." index="0"]
+position = Vector2(0, -512)
+texture = ExtResource("2_kyxh0")
+
+[node name="left" type="CollisionShape2D" parent="Background/StaticBody2D" index="0"]
+position = Vector2(-94.5, 1138.5)
+shape = SubResource("RectangleShape2D_2kp7l")
+
+[node name="bottom" type="CollisionShape2D" parent="Background/StaticBody2D" index="1"]
+position = Vector2(1010.75, 1837.25)
+shape = SubResource("RectangleShape2D_dogkc")
+
+[node name="wall" type="CollisionPolygon2D" parent="Background/StaticBody2D" index="2"]
+polygon = PackedVector2Array(-40, 1108, 280, 955, 790, 1254, 794, 1307, 851, 1350, 922, 1332, 1093, 1432, 1232, 1357, 1599, 1582, 1599, 1792, 1709, 1796, 1695, 1389, 220, 701, -79, 930)
+
+[node name="DefaultSpawner" parent="YSort" index="0"]
+position = Vector2(378, 900)
+
+[node name="Jerry" parent="YSort" index="1" instance=ExtResource("3_ciy4i")]
+position = Vector2(130, 595)
+starting_animaton = "down-right-stopped"
+
+[node name="Nate" parent="YSort" index="2" instance=ExtResource("4_rm47y")]
+position = Vector2(822, 899)
+starting_animaton = "down-right"
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="YSort/Nate" index="6"]
+libraries = {
+"": SubResource("AnimationLibrary_wjwfc")
+}
+script = ExtResource("5_7x0b1")
+
+[node name="Taylor" parent="YSort" index="3" instance=ExtResource("5_5jbhv")]
+position = Vector2(304, 496)
+
+[node name="MainDaylightFilter" parent="Filters" index="0"]
+daylight_shader = SubResource("ShaderMaterial_nsj3n")
