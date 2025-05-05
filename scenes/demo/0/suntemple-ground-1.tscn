@@ -77,9 +77,9 @@ _data = {
 }
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_ogcsj"]
-vertices = PackedVector2Array(1535, 1151, 67, 1179, 62, 595)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(62, 595, 67, 1179, 1535, 1151)])
+vertices = PackedVector2Array(902, 921, 1535, 1151, 67, 1179, 291, 468, 62, 595)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2), PackedInt32Array(3, 0, 2, 4)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(62, 595, 67, 1179, 1535, 1151, 902, 921, 291, 468)])
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_nsj3n"]
 resource_local_to_scene = true

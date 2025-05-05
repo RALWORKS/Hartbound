@@ -46,7 +46,7 @@
 [ext_resource type="Texture2D" uid="uid://du538lgom8gn2" path="res://assets/splash/home-village.png" id="42_gmm22"]
 [ext_resource type="Shader" path="res://effects/bluescale.gdshader" id="43_fub5w"]
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_j7ohu"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_73poj"]
 viewport_path = NodePath("img")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_weoi2"]
@@ -61,7 +61,7 @@ shader_parameter/tint = Vector4(0.6, 0.83, 0.97, 1)
 shader_parameter/highlight = Vector4(0.8, 0.85, 0.6, 1)
 shader_parameter/alpha = 1.0
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_2hc0b"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_3gjuc"]
 viewport_path = NodePath("img")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_d26op"]
@@ -76,7 +76,7 @@ shader_parameter/tint = Vector4(0.6, 0.83, 0.97, 1)
 shader_parameter/highlight = Vector4(0.8, 0.85, 0.6, 1)
 shader_parameter/alpha = 1.0
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_8mmod"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_5qa2m"]
 viewport_path = NodePath("img")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_j2nwn"]
@@ -91,7 +91,7 @@ shader_parameter/tint = Vector4(0.4, 0.4, 0.4, 1)
 shader_parameter/highlight = Vector4(0.5, 0.5, 0.5, 1)
 shader_parameter/alpha = 1.0
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_07t20"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_caw5p"]
 viewport_path = NodePath("img")
 
 [node name="Concepts" type="Node"]
@@ -1276,7 +1276,6 @@ text = "\"Jerry's good. Sanest Salvager I ever met. I have nothing but respect f
 [node name="EndOfTheWorld" parent="." instance=ExtResource("24_4l1fl")]
 
 [node name="CutsceneNode" parent="EndOfTheWorld" instance=ExtResource("2_xxf8h")]
-visible = false
 
 [node name="bg" type="Sprite2D" parent="EndOfTheWorld/CutsceneNode"]
 scale = Vector2(1.35, 1.35)
@@ -1290,9 +1289,9 @@ scale = Vector2(0.7, 0.7)
 texture = ExtResource("31_kx3if")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="EndOfTheWorld/CutsceneNode"]
-offset_left = 124.0
+offset_left = -1.0
 offset_top = 833.0
-offset_right = 2104.0
+offset_right = 1979.0
 offset_bottom = 995.0
 theme = ExtResource("5_yjk2e")
 theme_type_variation = &"VoiceoverBox"
@@ -2130,7 +2129,7 @@ texture = ExtResource("31_kx3if")
 [node name="Profile" parent="MyHometown/NewMemory" instance=ExtResource("41_8awtg")]
 position = Vector2(912, 105)
 scale = Vector2(2, 2)
-texture = SubResource("ViewportTexture_j7ohu")
+texture = SubResource("ViewportTexture_73poj")
 with_background = false
 
 [node name="RichTextLabel2" type="RichTextLabel" parent="MyHometown/NewMemory"]
@@ -2176,7 +2175,7 @@ texture = ExtResource("31_kx3if")
 material = SubResource("ShaderMaterial_k6to6")
 position = Vector2(912, 105)
 scale = Vector2(2, 2)
-texture = SubResource("ViewportTexture_2hc0b")
+texture = SubResource("ViewportTexture_3gjuc")
 with_background = false
 
 [node name="RichTextLabel2" type="RichTextLabel" parent="MyHometown/NewMemory2"]
@@ -2234,7 +2233,7 @@ texture = ExtResource("31_kx3if")
 material = SubResource("ShaderMaterial_n2xtb")
 position = Vector2(912, 105)
 scale = Vector2(2, 2)
-texture = SubResource("ViewportTexture_8mmod")
+texture = SubResource("ViewportTexture_5qa2m")
 with_background = false
 
 [node name="RichTextLabel5" type="RichTextLabel" parent="MyHometown/NewMemory4"]
@@ -2293,7 +2292,7 @@ texture = ExtResource("31_kx3if")
 material = SubResource("ShaderMaterial_hxgt3")
 position = Vector2(912, 105)
 scale = Vector2(2, 2)
-texture = SubResource("ViewportTexture_07t20")
+texture = SubResource("ViewportTexture_caw5p")
 with_background = false
 
 [node name="RichTextLabel7" type="RichTextLabel" parent="MyHometown/NewMemory3"]
