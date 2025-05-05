@@ -90,6 +90,7 @@ shader_parameter/contrast = 1.0
 shader_parameter/warmth = 0.5
 
 [node name="Scene" instance=ExtResource("1_odikn")]
+dialogue_bg_position = Vector2(-200, -400)
 
 [node name="Background" parent="." index="0"]
 position = Vector2(0, -512)
