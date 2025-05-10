@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://cog1hph357ikp"]
+[gd_scene load_steps=16 format=3 uid="uid://cog1hph357ikp"]
 
 [ext_resource type="PackedScene" uid="uid://byrlpmbpj6yr5" path="res://scene.tscn" id="1_odikn"]
 [ext_resource type="Texture2D" uid="uid://clbmqowfv6bah" path="res://assets/scenes/demo/prologue/suntemple-outdoor-1-and-2.png" id="2_kyxh0"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://in7v8nsvojyp" path="res://chapters/demo/1/nate.tscn" id="4_rm47y"]
 [ext_resource type="PackedScene" uid="uid://bii8gdmkfiy5x" path="res://chapters/demo/1/taylor.tscn" id="5_5jbhv"]
 [ext_resource type="Script" path="res://auto_play_animation_player.gd" id="5_7x0b1"]
+[ext_resource type="PackedScene" uid="uid://dxfuidhlgwthh" path="res://travel/door.tscn" id="7_0j0fr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2kp7l"]
 size = Vector2(217, 1361)
@@ -76,10 +77,10 @@ _data = {
 "base": SubResource("Animation_cyh0j")
 }
 
-[sub_resource type="NavigationPolygon" id="NavigationPolygon_ogcsj"]
-vertices = PackedVector2Array(902, 921, 1535, 1151, 67, 1179, 291, 468, 62, 595)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2), PackedInt32Array(3, 0, 2, 4)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(62, 595, 67, 1179, 1535, 1151, 902, 921, 291, 468)])
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_m72kf"]
+vertices = PackedVector2Array(272, 467, 789, 772, 731, 804, 46, 585, 1595, 1202, 33, 1202, 890, 885, 1099, 955, 1237, 882, 1595, 1107, 945, 857)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 5, 3, 6), PackedInt32Array(7, 8, 9, 4), PackedInt32Array(6, 10, 7), PackedInt32Array(3, 2, 6), PackedInt32Array(4, 6, 7)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(46, 585, 272, 467, 789, 772, 731, 804, 890, 885, 945, 857, 1099, 955, 1237, 882, 1595, 1107, 1595, 1202, 33, 1202)])
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_nsj3n"]
 resource_local_to_scene = true
@@ -128,7 +129,14 @@ script = ExtResource("5_7x0b1")
 position = Vector2(304, 496)
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="YSort" index="4"]
-navigation_polygon = SubResource("NavigationPolygon_ogcsj")
+navigation_polygon = SubResource("NavigationPolygon_m72kf")
+
+[node name="RoofDoor" parent="YSort" index="5" instance=ExtResource("7_0j0fr")]
+position = Vector2(577, 618)
+rotation = 0.553269
+scale = Vector2(1.7, 0.5)
+dest_resource = "res://scenes/demo/0/suntemple-sky-1.tscn"
+dest_edge = "Door"
 
 [node name="MainDaylightFilter" parent="Filters" index="0"]
 daylight_shader = SubResource("ShaderMaterial_nsj3n")

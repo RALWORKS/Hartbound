@@ -1,0 +1,149 @@
+[gd_scene load_steps=16 format=3 uid="uid://4yaoof6rfpfm"]
+
+[ext_resource type="PackedScene" uid="uid://byrlpmbpj6yr5" path="res://scene.tscn" id="1_lxvtk"]
+[ext_resource type="Texture2D" uid="uid://clbmqowfv6bah" path="res://assets/scenes/demo/prologue/suntemple-outdoor-1-and-2.png" id="2_kn673"]
+[ext_resource type="PackedScene" uid="uid://d0q6kg3spk25s" path="res://chapters/demo/1/jerry.tscn" id="3_ov2br"]
+[ext_resource type="PackedScene" uid="uid://in7v8nsvojyp" path="res://chapters/demo/1/nate.tscn" id="4_cr7u8"]
+[ext_resource type="Script" path="res://auto_play_animation_player.gd" id="5_qwnfm"]
+[ext_resource type="PackedScene" uid="uid://bii8gdmkfiy5x" path="res://chapters/demo/1/taylor.tscn" id="6_ud5bv"]
+[ext_resource type="Shader" path="res://daylight.gdshader" id="7_fs4fd"]
+[ext_resource type="PackedScene" uid="uid://dxfuidhlgwthh" path="res://travel/door.tscn" id="7_uqx0r"]
+[ext_resource type="Texture2D" uid="uid://e5aekkv4qhco" path="res://assets/scenes/demo/prologue/suntemple-outdoor-up-front.png" id="8_wgxt6"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_uielp"]
+radius = 55.4437
+
+[sub_resource type="Animation" id="Animation_ehgb4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(822, 899)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:starting_animaton")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["down-right"]
+}
+
+[sub_resource type="Animation" id="Animation_cyh0j"]
+resource_name = "pace"
+length = 3.0
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(942, 870), Vector2(1039, 928)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:starting_animaton")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": ["down-right", "up-left"]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wjwfc"]
+_data = {
+"RESET": SubResource("Animation_ehgb4"),
+"base": SubResource("Animation_cyh0j")
+}
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_ogcsj"]
+vertices = PackedVector2Array(486, 539, 347, 441, 457, 457, 704, 1030, 11, 625, 71, 605, 245, 712, 561, 470, 1118, 803)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2), PackedInt32Array(3, 4, 5, 6), PackedInt32Array(7, 8, 3, 0, 2), PackedInt32Array(3, 6, 0)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(11, 625, 704, 1030, 1118, 803, 561, 470, 457, 457, 347, 441, 486, 539, 245, 712, 71, 605)])
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_nsj3n"]
+resource_local_to_scene = true
+shader = ExtResource("7_fs4fd")
+shader_parameter/darken = 0.0
+shader_parameter/saturate = 1.0
+shader_parameter/contrast = 1.0
+shader_parameter/warmth = 0.5
+
+[node name="Scene" instance=ExtResource("1_lxvtk")]
+dialogue_bg_position = Vector2(-200, -400)
+
+[node name="Background" parent="." index="0"]
+position = Vector2(-176, 0)
+texture = ExtResource("2_kn673")
+
+[node name="walls" type="CollisionPolygon2D" parent="Background/StaticBody2D" index="0"]
+polygon = PackedVector2Array(831, 360, 737, 360, 332, 596, 1104, 1053, 1365, 909, 1374, 804, 1400, 765, 1455, 738, 1499, 747, 1572, 789, 1611, 766, 904, 369, 844, 359, 832, 194, 1746, 700, 1687, 929, 1104, 1184, 273, 731, 253, 407, 800, 178, 824, 186, 834, 331)
+
+[node name="closure" type="CollisionShape2D" parent="Background/StaticBody2D" index="1"]
+position = Vector2(838, 307)
+shape = SubResource("CircleShape2D_uielp")
+debug_color = Color(0.631373, 0.529412, 0, 0.419608)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Background/StaticBody2D" index="2"]
+polygon = PackedVector2Array(464, 520, 647, 646, 837, 512, 849, 458, 825, 435, 775, 447, 754.448, 379.269, 706, 341, 705, 340, 451, 495)
+
+[node name="YSort" parent="." index="1"]
+position = Vector2(-176, 512)
+
+[node name="DefaultSpawner" parent="YSort" index="0"]
+position = Vector2(378, 900)
+
+[node name="Jerry" parent="YSort" index="1" instance=ExtResource("3_ov2br")]
+position = Vector2(130, 595)
+starting_animaton = "down-right-stopped"
+
+[node name="Nate" parent="YSort" index="2" instance=ExtResource("4_cr7u8")]
+position = Vector2(822, 899)
+starting_animaton = "down-right"
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="YSort/Nate" index="6"]
+libraries = {
+"": SubResource("AnimationLibrary_wjwfc")
+}
+script = ExtResource("5_qwnfm")
+
+[node name="Taylor" parent="YSort" index="3" instance=ExtResource("6_ud5bv")]
+position = Vector2(304, 496)
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="YSort" index="4"]
+position = Vector2(399, -569)
+navigation_polygon = SubResource("NavigationPolygon_ogcsj")
+
+[node name="Door" parent="YSort" index="5" instance=ExtResource("7_uqx0r")]
+position = Vector2(790, -61)
+rotation = -2.45044
+scale = Vector2(1, 0.8)
+dest_resource = "res://scenes/demo/0/suntemple-ground-1.tscn"
+dest_edge = "RoofDoor"
+
+[node name="MainDaylightFilter" parent="Filters" index="0"]
+daylight_shader = SubResource("ShaderMaterial_nsj3n")
+
+[node name="Fence" type="Sprite2D" parent="." index="3"]
+position = Vector2(121, 482)
+texture = ExtResource("8_wgxt6")
+centered = false
