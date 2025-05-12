@@ -14,13 +14,28 @@
 [sub_resource type="ViewportTexture" id="ViewportTexture_o0f50"]
 viewport_path = NodePath("Window")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_yfv1l"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_j7uuc"]
 resource_local_to_scene = true
 shader = ExtResource("9_tcqvq")
 shader_parameter/darken = 0.0
 shader_parameter/saturate = 1.0
 shader_parameter/contrast = 1.0
 shader_parameter/warmth = 0.5
+
+[sub_resource type="Animation" id="Animation_247t8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:time")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.3]
+}
 
 [sub_resource type="Animation" id="Animation_cwlco"]
 resource_name = "base"
@@ -37,21 +52,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [0.0, 1.0]
-}
-
-[sub_resource type="Animation" id="Animation_247t8"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:time")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_q02o3"]
@@ -123,8 +123,9 @@ position = Vector2(83.3333, 205.333)
 is_demo_instance = true
 
 [node name="DaylightFilter" parent="Window" instance=ExtResource("8_g78a4")]
+time = 0.3
 manual_time = true
-daylight_shader = SubResource("ShaderMaterial_yfv1l")
+daylight_shader = SubResource("ShaderMaterial_j7uuc")
 
 [node name="Filter" type="ColorRect" parent="Window/DaylightFilter"]
 visible = false

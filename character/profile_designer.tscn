@@ -5,7 +5,7 @@
 [ext_resource type="Theme" uid="uid://bowrqsap2qmsa" path="res://base_theme.tres" id="3_ptl8c"]
 [ext_resource type="Script" path="res://character/BGColorButtons.gd" id="3_qk1se"]
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_qdiy1"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_k2y0s"]
 viewport_path = NodePath("img")
 
 [node name="ProfileDesigner" type="Node2D"]
@@ -13,7 +13,7 @@ script = ExtResource("1_4dkvh")
 
 [node name="Profile" parent="." instance=ExtResource("2_ekdgc")]
 scale = Vector2(0.5, 0.5)
-texture = SubResource("ViewportTexture_qdiy1")
+texture = SubResource("ViewportTexture_k2y0s")
 
 [node name="BgBtn" type="Button" parent="."]
 offset_left = 457.0

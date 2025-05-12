@@ -71,11 +71,34 @@ var CHAPTERS = {
 @export var FIRST_CHAPTER = "demo1"
 
 var INITIAL_STATE = {
+	"character": {
+		"texture": {
+			"skin": 0,
+			"skin-color": 1,
+			"hair": 1,
+			"hair-color": 1,
+			"outfit": 2,
+			"outfit-color-1": 3,
+			"outfit-color-2": 3,
+			"build": 1,
+			"eyes": 1,
+			"face": 0,
+			"pattern": 0,
+		},
+	},
 	"micro_progress": {
 		"events": [],
 		"map_events": [],
 	},
-	"profile": {"job": "salvager"},
+	"profile": {
+		"job": "salvager",
+		"texture": {
+			"bg": 0,
+			"bg-texture": 3,
+			"filter": 0,
+			"shot": 0,
+		},
+	},
 	"chapter": "intro",
 	"story": [],
 	"position": {
@@ -350,12 +373,18 @@ func save():
 func reset_state():
 	STATE = INITIAL_STATE.duplicate(true)
 
+func deep_init_state():
+	STATE["character"]["texture"] = INITIAL_STATE["character"]["texture"].duplicate()
+	STATE["profile"]["texture"] = INITIAL_STATE["profile"]["texture"].duplicate()
+
 func start_new():
+	deep_init_state()
 	start_from_state(STATE)
 	$ThemeFader.play("fadeout", -1, music_crossfade_speed)
 
 
 func new_from_chapter(start_at: String):
+	deep_init_state()
 	STATE["chapter"] = "create"
 	STATE["start_from"] = start_at
 	start_from_state(STATE)

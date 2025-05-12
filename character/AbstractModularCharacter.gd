@@ -515,14 +515,34 @@ func _next_texture(key):
 func next_skin():
 	_next_texture("skin")
 
+func set_eyes(ix):
+	texture_settings["eyes"] = ix
+	texture_updated()
+
+func set_face(ix):
+	texture_settings["face"] = ix
+	texture_updated()
+
 func next_hair():
 	_next_texture("hair")
+
+func set_hair(ix):
+	texture_settings["hair"] = ix
+	texture_updated()
 
 func next_outfit():
 	_next_texture("outfit")
 
+func set_outfit(ix):
+	texture_settings["outfit"] = ix
+	texture_updated()
+
 func next_outfit_pattern():
 	_next_texture("pattern")
+
+func set_outfit_pattern(ix):
+	texture_settings["pattern"] = ix
+	texture_updated()
 
 func next_build():
 	_next_texture("build")
@@ -559,6 +579,10 @@ func set_outfit_color(ix):
 
 func set_accent_color(ix):
 	texture_settings["outfit-color-2"] = ix
+	texture_updated()
+
+func set_build(ix):
+	texture_settings["build"] = ix
 	texture_updated()
 
 func texture_updated():

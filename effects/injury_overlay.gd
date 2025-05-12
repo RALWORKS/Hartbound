@@ -16,6 +16,8 @@ func _get_game():
 func _ready():
 	setup_shader()
 	var g = _get_game()
+	if not g:
+		return
 	
 	#var t = g.get_time()
 	day_length = g.day_length

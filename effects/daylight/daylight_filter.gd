@@ -42,6 +42,8 @@ func refresh():
 	if not visible:
 		return
 	var g = _get_game()
+	if not g:
+		return
 	var inj = g.injured
 	
 	day_length = g.day_length

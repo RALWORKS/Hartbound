@@ -6,8 +6,7 @@ extends Sprite2D
 @export var start_frown = false
 
 func _ready():
-	_set_texture_from_save()
-	texture_updated()
+	reload()
 	if not with_background:
 		texture = $profileImg.get_texture()
 	
@@ -17,6 +16,10 @@ func _ready():
 		frown()
 	elif start_scowl:
 		scowl()
+
+func reload():
+	_set_texture_from_save()
+	texture_updated()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
@@ -35,7 +38,7 @@ func neutral():
 	$img/Character.neutral()
 
 func load_character_texture():
-	return $img/Character.load_texture()
+	$img/Character.load_texture()
 
 func load_profile_textures():
 	_set_texture_from_save()
@@ -54,6 +57,15 @@ func _set_texture_from_save():
 		return
 	texture_settings = loaded.duplicate()
 	return texture_settings
+
+func save_texture():
+	var game = $"/root".get_node_or_null("Game")
+	if not game:
+		return
+	var CONTROLLED_CHAR_ELEMENTS = ["face", "eyes"]
+	for key in CONTROLLED_CHAR_ELEMENTS:
+		game.set_state(["character", "texture", key], $img/Character.texture_settings[key])
+	game.set_state(["profile", "texture"], texture_settings.duplicate())
 
 
 var TEXTURES = {
@@ -181,6 +193,10 @@ func next_filter():
 
 func _next_texture(key):
 	texture_settings[key] = (texture_settings[key] + 1) % TEXTURES[key].size()
+	texture_updated()
+
+func set_texture_el(key, ix):
+	texture_settings[key] = ix
 	texture_updated()
 
 func _refresh_texture_element(key, nodes):

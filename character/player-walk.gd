@@ -62,6 +62,8 @@ var wait_to_call_follower = false
 var arrived_with_player = false
 var footsteps_on = false
 
+func char_texture_options():
+	return $char.TEXTURES
 
 func respawn():
 	get_parent().remove_child(self)
@@ -200,8 +202,17 @@ func next_hair_color():
 func next_skin_color():
 	$char.next_skin_color()
 
+func set_eyes(ix):
+	$char.set_eyes(ix)
+
+func set_face(ix):
+	$char.set_face(ix)
+
 func set_skin(ix):
 	$char.set_skin(ix)
+
+func set_hair(ix):
+	$char.set_hair(ix)
 
 func set_hair_color(ix):
 	$char.set_hair_color(ix)
@@ -209,11 +220,29 @@ func set_hair_color(ix):
 func set_outfit_color(ix):
 	$char.set_outfit_color(ix)
 
+func set_outfit(ix):
+	$char.set_outfit(ix)
+
+func set_outfit_pattern(ix):
+	$char.set_outfit_pattern(ix)
+
 func set_accent_color(ix):
 	$char.set_accent_color(ix)
 
+func set_build(ix):
+	$char.set_build(ix)
+
+func get_texture_settings():
+	return $char.texture_settings
+
 func texture_updated():
 	$char.texture_updated()
+
+func animate_rotation():
+	$char.play("Rotate")
+
+func stop_animations():
+	$char.stop()
 
 
 func load_texture():
@@ -245,6 +274,8 @@ func body_delta():
 
 func _ready():
 	game = $"/root".get_node_or_null("Game")
+	if not game:
+		return
 	world = game.get_node_or_null("MainScreen/World")
 	TEXTURES = $char.TEXTURES
 #	texture_settings = $char.texture_settings
@@ -542,6 +573,8 @@ func _clear_staged_action_node():
 	game.unstage_action_node(game.staged_action_node)
 
 func interact_hit(body):
+	if not game:
+		return
 	if body == game.staged_action_node:
 		set_destination(null)
 	
@@ -553,6 +586,8 @@ func interact_hit(body):
 		body.interact_range_entered()
 
 func interact_exited(body):
+	if not game:
+		return
 	if body.has_method("interact_range_exited"):
 		body.interact_range_exited()
 	
