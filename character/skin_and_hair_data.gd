@@ -35,9 +35,9 @@ var HAIR_COLOURS = [
 var HAIR_COLOURS_SCENE = [
 		"#363741",
 		"#1e4952",
-		"#42111b",
 		"#5b2830",
-		"#d49454",
+		"#cf6e2f",
+		"#D08552",
 		"#bc9f70",
 		"#d8ba8a",
 		"#603e23",
