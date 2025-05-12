@@ -11,6 +11,7 @@ func _ready():
 
 func refresh_data(character_record=null):
 	$ProfileBtn/Profile.refresh()
+	$CharacterRecord/black/Profile.refresh()
 	if not character_record:
 		character_record = $CharacterRecord
 	if not game:
