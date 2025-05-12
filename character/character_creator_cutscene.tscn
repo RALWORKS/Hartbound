@@ -190,7 +190,7 @@ offset_top = 976.0
 offset_right = 1689.0
 offset_bottom = 1052.0
 theme_override_styles/normal = SubResource("StyleBoxFlat_2bk75")
-text = "Save & Cotinue"
+text = "Save & Continue"
 to = NodePath("../../2_5")
 
 [node name="2_5" parent="." index="3" instance=ExtResource("2_wt2i3")]

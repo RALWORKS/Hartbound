@@ -71,10 +71,10 @@ corner_radius_bottom_left = 10
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0benv"]
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_tgcak"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_mwyas"]
 viewport_path = NodePath("Window")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_rarmq"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_m5exw"]
 viewport_path = NodePath("img")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mtqk0"]
@@ -728,12 +728,12 @@ texture = ExtResource("2_nytq7")
 [node name="CharacterSpriteDisplay" parent="." instance=ExtResource("1_bl372")]
 position = Vector2(19, 436)
 scale = Vector2(2, 2)
-texture = SubResource("ViewportTexture_tgcak")
+texture = SubResource("ViewportTexture_mwyas")
 
 [node name="Profile" parent="." instance=ExtResource("2_lm1jj")]
 position = Vector2(21, 21)
 scale = Vector2(0.993, 0.993)
-texture = SubResource("ViewportTexture_rarmq")
+texture = SubResource("ViewportTexture_m5exw")
 
 [node name="ScreenTitle" type="Label" parent="."]
 offset_left = 433.0
