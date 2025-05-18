@@ -20,4 +20,4 @@ centered = false
 position = Vector2(0, -208)
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(950, 700)
+position = Vector2(860, 619)
