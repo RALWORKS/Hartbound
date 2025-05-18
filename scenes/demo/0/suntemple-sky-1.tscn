@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://4yaoof6rfpfm"]
+[gd_scene load_steps=18 format=3 uid="uid://4yaoof6rfpfm"]
 
 [ext_resource type="PackedScene" uid="uid://byrlpmbpj6yr5" path="res://scene.tscn" id="1_lxvtk"]
 [ext_resource type="Texture2D" uid="uid://clbmqowfv6bah" path="res://assets/scenes/demo/prologue/suntemple-outdoor-1-and-2.png" id="2_kn673"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://dxfuidhlgwthh" path="res://travel/door.tscn" id="7_uqx0r"]
 [ext_resource type="Texture2D" uid="uid://bgbgmrqsmwhgv" path="res://assets/scenes/demo/prologue/stair-rail.png" id="8_gov31"]
 [ext_resource type="Texture2D" uid="uid://e5aekkv4qhco" path="res://assets/scenes/demo/prologue/suntemple-outdoor-up-front.png" id="8_wgxt6"]
+[ext_resource type="PackedScene" uid="uid://uc3gpi8pp0cj" path="res://chapters/demo/1/brona.tscn" id="9_kdlko"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_uielp"]
 radius = 55.4437
@@ -90,7 +91,7 @@ shader_parameter/contrast = 1.0
 shader_parameter/warmth = 0.5
 
 [node name="Scene" instance=ExtResource("1_lxvtk")]
-dialogue_bg_position = Vector2(-200, -400)
+dialogue_bg_position = Vector2(-1000, 0)
 
 [node name="Background" parent="." index="0"]
 position = Vector2(-176, 0)
@@ -162,6 +163,10 @@ scale = Vector2(0.48, 0.48)
 texture = ExtResource("8_gov31")
 hframes = 3
 frame = 2
+
+[node name="Brona" parent="YSort" index="9" instance=ExtResource("9_kdlko")]
+position = Vector2(1006, -66)
+starting_animaton = "up-right-stopped"
 
 [node name="MainDaylightFilter" parent="Filters" index="0"]
 daylight_shader = SubResource("ShaderMaterial_nsj3n")
