@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://kex3fql26uxy"]
+[gd_scene load_steps=30 format=3 uid="uid://kex3fql26uxy"]
 
 [ext_resource type="PackedScene" uid="uid://bp8tsdjdbwj8i" path="res://cutscene/cutscene.tscn" id="1_ipyp7"]
 [ext_resource type="PackedScene" uid="uid://55vflx8ylix1" path="res://cutscene/cutscene_node.tscn" id="2_wt2i3"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://dyvwckjylk75k" path="res://character/character_designer_tabbed.tscn" id="9_b23vu"]
 [ext_resource type="PackedScene" uid="uid://buc6wae5lxvk8" path="res://character/profile_designer.tscn" id="10_28cb0"]
 [ext_resource type="Script" path="res://character/save-character.gd" id="10_cdibu"]
+[ext_resource type="PackedScene" uid="uid://vpyr3o16nem1" path="res://character/parents_memory.tscn" id="10_cqdor"]
 [ext_resource type="PackedScene" uid="uid://helgsc16nedd" path="res://character/nicknamer.tscn" id="11_581lr"]
 [ext_resource type="FontFile" uid="uid://ebgllykqxqm7" path="res://assets/Georgia.TTF" id="11_hiyv0"]
 [ext_resource type="PackedScene" uid="uid://c3rmyn3jfv53d" path="res://ui/loading.tscn" id="12_mkwkc"]
@@ -26,11 +27,12 @@ content_margin_left = 20.0
 content_margin_top = 2.0
 content_margin_right = 20.0
 content_margin_bottom = 2.0
-bg_color = Color(1, 1, 1, 0)
+bg_color = Color(0.164706, 0.647059, 0.466667, 1)
 border_width_left = 2
 border_width_top = 2
 border_width_right = 2
 border_width_bottom = 2
+border_color = Color(1, 1, 1, 1)
 corner_radius_top_left = 6
 corner_radius_top_right = 6
 corner_radius_bottom_right = 6
@@ -77,6 +79,19 @@ corner_radius_top_left = 10
 corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sj8nd"]
+content_margin_left = 100.0
+content_margin_top = 20.0
+content_margin_right = 20.0
+content_margin_bottom = 20.0
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gt7wu"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i2do1"]
+bg_color = Color(0, 0, 0, 1)
 
 [node name="CharacterCreatorCutscene" node_paths=PackedStringArray("starting_page") instance=ExtResource("1_ipyp7")]
 position = Vector2(0, 145)
@@ -179,6 +194,7 @@ theme_override_font_sizes/normal_font_size = 30
 text = "Design Character"
 
 [node name="DesignerNew" parent="." index="2" instance=ExtResource("2_wt2i3")]
+visible = false
 position = Vector2(0, -145)
 is_option_node = true
 
@@ -194,30 +210,57 @@ text = "Save & Continue"
 to = NodePath("../../2_5")
 
 [node name="2_5" parent="." index="3" instance=ExtResource("2_wt2i3")]
-visible = false
+position = Vector2(0, -144)
 is_option_node = true
 
-[node name="Title" type="RichTextLabel" parent="2_5" index="0"]
-offset_left = 60.0
-offset_top = 36.0
-offset_right = 360.0
-offset_bottom = 90.0
-theme_override_font_sizes/normal_font_size = 30
-text = "Name Character"
+[node name="ParentsMemory" parent="2_5" index="0" instance=ExtResource("10_cqdor")]
+position = Vector2(2086, 71)
+scale = Vector2(-1, 1)
 
-[node name="ElvenNamesTitle" type="RichTextLabel" parent="2_5" index="1"]
-offset_left = 60.0
-offset_top = 229.0
-offset_right = 881.0
-offset_bottom = 283.0
-theme_override_font_sizes/normal_font_size = 30
-text = "The name you were given at birth was an Elven one."
+[node name="ColorRect" type="ColorRect" parent="2_5" index="1"]
+offset_top = -33.0
+offset_right = 549.0
+offset_bottom = 1245.0
+color = Color(0, 0, 0, 1)
 
-[node name="Proceed" parent="2_5" index="2" node_paths=PackedStringArray("to") instance=ExtResource("4_tiul5")]
-offset_left = 60.0
-offset_top = 562.0
-offset_right = 410.0
-offset_bottom = 639.0
+[node name="ElvenNameText1" type="RichTextLabel" parent="2_5" index="2"]
+offset_left = -56.0
+offset_top = 110.0
+offset_right = 469.0
+offset_bottom = 305.0
+theme_type_variation = &"VoiceoverBox"
+theme_override_font_sizes/normal_font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_sj8nd")
+bbcode_enabled = true
+text = "[b]Your parents[/b] named you in the traditional Elven style - a name in the form of a short prayer."
+
+[node name="ElvenNameText2" type="RichTextLabel" parent="2_5" index="3"]
+offset_left = -56.0
+offset_top = 358.0
+offset_right = 388.0
+offset_bottom = 472.0
+theme_type_variation = &"VoiceoverBox"
+theme_override_font_sizes/normal_font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_sj8nd")
+bbcode_enabled = true
+text = "Humans have called you other names since,"
+
+[node name="ElvenNameText3" type="RichTextLabel" parent="2_5" index="4"]
+offset_left = -56.0
+offset_top = 547.0
+offset_right = 331.0
+offset_bottom = 843.0
+theme_type_variation = &"VoiceoverBox"
+theme_override_font_sizes/normal_font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_sj8nd")
+bbcode_enabled = true
+text = "but the first name you were ever called was [b]this[/b]:"
+
+[node name="Proceed" parent="2_5" index="5" node_paths=PackedStringArray("to") instance=ExtResource("4_tiul5")]
+offset_left = 42.0
+offset_top = 784.0
+offset_right = 408.0
+offset_bottom = 861.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
 theme_override_styles/normal = SubResource("StyleBoxFlat_krm4x")
@@ -226,25 +269,16 @@ text = "Roll Full Name"
 raise_to_ui_layer = false
 to = NodePath("../../3")
 
-[node name="ElvenNameText" type="RichTextLabel" parent="2_5" index="3"]
-offset_left = 60.0
-offset_top = 282.0
-offset_right = 988.0
-offset_bottom = 544.0
-theme_type_variation = &"VoiceoverBox"
+[node name="RichTextLabel" type="RichTextLabel" parent="2_5" index="6"]
+offset_left = 4.0
+offset_top = -27.0
+offset_right = 515.0
+offset_bottom = 78.0
 theme_override_font_sizes/normal_font_size = 30
-text = "Elven names are generally a sentence or sentence fragment, often a reference to mythology or spritituality.
-
-Most elves use a  short form of their name for day to day interactions, with the full form only being used in formal situations."
-
-[node name="ElvenNameText2" type="RichTextLabel" parent="2_5" index="4"]
-offset_left = 60.0
-offset_top = 84.0
-offset_right = 988.0
-offset_bottom = 217.0
-theme_type_variation = &"VoiceoverBox"
-theme_override_font_sizes/normal_font_size = 30
-text = "The Elves teach that names are powerful--that the name of each thing is a prayer. You may go by another name now, after years among the humans, but"
+theme_override_styles/focus = SubResource("StyleBoxFlat_gt7wu")
+theme_override_styles/normal = SubResource("StyleBoxFlat_i2do1")
+text = "
+     Name Character"
 
 [node name="3" parent="." index="4" node_paths=PackedStringArray("next") instance=ExtResource("2_wt2i3")]
 visible = false

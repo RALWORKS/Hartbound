@@ -8,6 +8,9 @@ var SKIN_MAP = [0, 1, 2, 3, 4, 5, 6]
 var HAIR_MAP = [0, 1, 2, 3, 4, 5, 6, 7]
 
 func _ready():
+	refresh()
+
+func refresh():
 	var game = $"/root/Game"
 	var player_data = game.get_state(["character", "texture"])
 	

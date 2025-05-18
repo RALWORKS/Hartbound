@@ -25,13 +25,11 @@ scale = Vector2(0.85, 0.85)
 
 [node name="Clothes" type="Sprite2D" parent="Sprite"]
 modulate = Color(0.603922, 0.788235, 0.921569, 1)
-scale = Vector2(1, 1)
 texture = ExtResource("4_snnhp")
 
 [node name="Mod" type="Node2D" parent="Sprite"]
 
 [node name="Skin" type="Sprite2D" parent="Sprite/Mod"]
-scale = Vector2(1, 1)
 texture = ExtResource("3_m73y5")
 
 [node name="Hair" type="Sprite2D" parent="Sprite/Mod"]
@@ -39,7 +37,6 @@ texture = ExtResource("2_tls2r")
 
 [node name="Highlights" type="Sprite2D" parent="Sprite"]
 modulate = Color(1, 1, 1, 0.384314)
-scale = Vector2(1, 1)
 texture = ExtResource("4_a73ir")
 
 [node name="Outline" type="Sprite2D" parent="Sprite"]
