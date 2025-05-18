@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://4yaoof6rfpfm"]
+[gd_scene load_steps=17 format=3 uid="uid://4yaoof6rfpfm"]
 
 [ext_resource type="PackedScene" uid="uid://byrlpmbpj6yr5" path="res://scene.tscn" id="1_lxvtk"]
 [ext_resource type="Texture2D" uid="uid://clbmqowfv6bah" path="res://assets/scenes/demo/prologue/suntemple-outdoor-1-and-2.png" id="2_kn673"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://bii8gdmkfiy5x" path="res://chapters/demo/1/taylor.tscn" id="6_ud5bv"]
 [ext_resource type="Shader" path="res://daylight.gdshader" id="7_fs4fd"]
 [ext_resource type="PackedScene" uid="uid://dxfuidhlgwthh" path="res://travel/door.tscn" id="7_uqx0r"]
+[ext_resource type="Texture2D" uid="uid://bgbgmrqsmwhgv" path="res://assets/scenes/demo/prologue/stair-rail.png" id="8_gov31"]
 [ext_resource type="Texture2D" uid="uid://e5aekkv4qhco" path="res://assets/scenes/demo/prologue/suntemple-outdoor-up-front.png" id="8_wgxt6"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_uielp"]
@@ -76,9 +77,9 @@ _data = {
 }
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_ogcsj"]
-vertices = PackedVector2Array(486, 539, 347, 441, 457, 457, 704, 1030, 11, 625, 71, 605, 245, 712, 561, 470, 1118, 803)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2), PackedInt32Array(3, 4, 5, 6), PackedInt32Array(7, 8, 3, 0, 2), PackedInt32Array(3, 6, 0)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(11, 625, 704, 1030, 1118, 803, 561, 470, 457, 457, 347, 441, 486, 539, 245, 712, 71, 605)])
+vertices = PackedVector2Array(704, 1030, 11, 625, 245, 712, 429, 479, 307, 579, 363, 455, 457, 457, 561, 470, 521, 599, 1118, 803)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2), PackedInt32Array(3, 4, 5), PackedInt32Array(3, 5, 6, 7), PackedInt32Array(0, 2, 8), PackedInt32Array(7, 9, 0, 8), PackedInt32Array(7, 8, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(11, 625, 704, 1030, 1118, 803, 561, 470, 457, 457, 363, 455, 307, 579, 429, 479, 521, 599, 245, 712)])
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_nsj3n"]
 resource_local_to_scene = true
@@ -103,8 +104,8 @@ position = Vector2(838, 307)
 shape = SubResource("CircleShape2D_uielp")
 debug_color = Color(0.631373, 0.529412, 0, 0.419608)
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Background/StaticBody2D" index="2"]
-polygon = PackedVector2Array(464, 520, 647, 646, 837, 512, 849, 458, 825, 435, 775, 447, 754.448, 379.269, 706, 341, 705, 340, 451, 495)
+[node name="stairwell" type="CollisionPolygon2D" parent="Background/StaticBody2D" index="2"]
+polygon = PackedVector2Array(446, 567, 647, 646, 852, 543, 848, 483, 834, 471, 833, 489, 686, 595, 666, 559, 754.448, 379.269, 706, 341, 705, 340, 451, 495)
 
 [node name="YSort" parent="." index="1"]
 position = Vector2(-176, 512)
@@ -134,11 +135,33 @@ position = Vector2(399, -569)
 navigation_polygon = SubResource("NavigationPolygon_ogcsj")
 
 [node name="Door" parent="YSort" index="5" instance=ExtResource("7_uqx0r")]
-position = Vector2(790, -61)
+position = Vector2(679, 67)
 rotation = -2.45044
-scale = Vector2(1, 0.8)
+scale = Vector2(0.6, 0.8)
 dest_resource = "res://scenes/demo/0/suntemple-ground-1.tscn"
 dest_edge = "RoofDoor"
+
+[node name="StairRail1" type="Sprite2D" parent="YSort" index="6"]
+position = Vector2(581, 85)
+scale = Vector2(0.48, 0.48)
+texture = ExtResource("8_gov31")
+offset = Vector2(0, -120)
+hframes = 3
+
+[node name="StairRail2" type="Sprite2D" parent="YSort" index="7"]
+position = Vector2(682, 83)
+scale = Vector2(0.48, 0.48)
+texture = ExtResource("8_gov31")
+offset = Vector2(0, -120)
+hframes = 3
+frame = 1
+
+[node name="StairRail3" type="Sprite2D" parent="YSort" index="8"]
+position = Vector2(784, 25)
+scale = Vector2(0.48, 0.48)
+texture = ExtResource("8_gov31")
+hframes = 3
+frame = 2
 
 [node name="MainDaylightFilter" parent="Filters" index="0"]
 daylight_shader = SubResource("ShaderMaterial_nsj3n")
