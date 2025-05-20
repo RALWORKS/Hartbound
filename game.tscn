@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://cvo7vcb5suvjv"]
+[gd_scene load_steps=13 format=3 uid="uid://cvo7vcb5suvjv"]
 
 [ext_resource type="Script" path="res://game.gd" id="1_0h5ve"]
 [ext_resource type="AudioStream" uid="uid://cav44ry5mv08r" path="res://assets/music/saint-theme-1.ogg" id="2_jx83x"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://bcinc4blag4el" path="res://music.tscn" id="7_epwyy"]
 [ext_resource type="AudioStream" uid="uid://bor5grx5muehp" path="res://assets/music/injured.ogg" id="8_a5mst"]
 [ext_resource type="PackedScene" uid="uid://do0ku8pfkpj0n" path="res://concept-map/concept_map.tscn" id="9_0i75i"]
+[ext_resource type="PackedScene" uid="uid://dn1x4yl3fey7t" path="res://ui/action_emitter.tscn" id="9_g74r1"]
 
 [sub_resource type="Animation" id="Animation_yxiww"]
 length = 0.001
@@ -111,3 +112,5 @@ script = ExtResource("2_vy8bn")
 
 [node name="InjuryMusic" parent="." instance=ExtResource("7_epwyy")]
 stream = ExtResource("8_a5mst")
+
+[node name="ActionEmitter" parent="." instance=ExtResource("9_g74r1")]

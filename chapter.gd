@@ -263,3 +263,10 @@ func get_dialogue_by_id(id):
 		if c.id == id:
 			return c.dialogue
 	return null
+
+
+func feed(type, data):
+	var event = get_next_event()
+	if not event:
+		return
+	event.receive_action(type, data)

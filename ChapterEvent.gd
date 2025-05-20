@@ -1,5 +1,7 @@
 extends Node
 
+signal action_received
+
 @export var cutscene: Resource
 @export var to_scene: Resource
 @export var effect: String
@@ -76,3 +78,6 @@ func play():
 	_cutscene()
 	_effect()
 	_play(true)
+
+func receive_action(type, data):
+	pass
