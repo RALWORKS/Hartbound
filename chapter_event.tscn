@@ -1,9 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://b1skvjxeeblbv"]
+[gd_scene load_steps=2 format=3 uid="uid://b1skvjxeeblbv"]
 
 [ext_resource type="Script" path="res://ChapterEvent.gd" id="1_pjkno"]
-[ext_resource type="PackedScene" uid="uid://dn1x4yl3fey7t" path="res://ui/action_emitter.tscn" id="2_4j111"]
 
 [node name="ChapterEvent" type="Node"]
 script = ExtResource("1_pjkno")
-
-[node name="ActionEmitter" parent="." instance=ExtResource("2_4j111")]
