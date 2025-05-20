@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://cj4mq4w13vijs"]
+[gd_scene load_steps=32 format=3 uid="uid://cj4mq4w13vijs"]
 
 [ext_resource type="PackedScene" uid="uid://bh1yfkyt3u44i" path="res://chapter.tscn" id="1_abxn2"]
 [ext_resource type="PackedScene" uid="uid://qhhv4s8njcrp" path="res://scenes/demo/1/industrial/b.tscn" id="2_x5gxs"]
@@ -27,6 +27,10 @@
 [ext_resource type="Script" path="res://chapters/demo/1/LeaveC1.gd" id="18_ufifv"]
 [ext_resource type="Script" path="res://chapters/demo/1/CrossEWest.gd" id="19_6dtsk"]
 [ext_resource type="Script" path="res://chapters/demo/1/TakeBoard.gd" id="26_xevkv"]
+[ext_resource type="PackedScene" uid="uid://epq5ioa4sayx" path="res://chapters/demo/1/taylor_base_dialogue.tscn" id="28_b5sxy"]
+[ext_resource type="PackedScene" uid="uid://6juapn3r3s4p" path="res://chapters/demo/1/brona_base_dialogue.tscn" id="29_3fu8e"]
+[ext_resource type="PackedScene" uid="uid://disv4e233mw0e" path="res://chapters/demo/1/nate_base_dialogue.tscn" id="30_jiciw"]
+[ext_resource type="PackedScene" uid="uid://dalxj2teso65p" path="res://chapters/demo/1/jerry_base_dialogue.tscn" id="31_5k2rs"]
 
 [node name="Chapter" node_paths=PackedStringArray("starting_music", "script_holder") instance=ExtResource("1_abxn2")]
 starting_scene = ExtResource("2_x5gxs")
@@ -217,3 +221,15 @@ event_name = "UnlockGate"
 [node name="PutBoardOverChasm" type="Node" parent="Triggers" index="11"]
 script = ExtResource("19_6dtsk")
 event_name = "PutBoardOverChasm"
+
+[node name="Taylor" parent="CharacterCutscenes" index="0"]
+dialogue = ExtResource("28_b5sxy")
+
+[node name="Brona" parent="CharacterCutscenes" index="1"]
+dialogue = ExtResource("29_3fu8e")
+
+[node name="Nate" parent="CharacterCutscenes" index="2"]
+dialogue = ExtResource("30_jiciw")
+
+[node name="Jerry" parent="CharacterCutscenes" index="3"]
+dialogue = ExtResource("31_5k2rs")
