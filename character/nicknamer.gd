@@ -20,6 +20,116 @@ IMPORTANT:
 
 var NAMES = []
 
+var DEFAULT_NAMES = [
+	"Abe",
+	"Ace",
+	"Al",
+	"Ann",
+	"Bob",
+	"Bea",
+	"Bill",
+	"Bex",
+	"Cat",
+	"Cal",
+	"Cass",
+	"Dom",
+	"Dee",
+	"Dan",
+	"El",
+	"Evie",
+	"Ed",
+	"Fay",
+	"Frank",
+	"Fil",
+	"Gem",
+	"Garth",
+	"Hal",
+	"Hallie",
+	"Herb",
+	"Iggy",
+	"Ima",
+	"Ira",
+	"Joe",
+	"Jo",
+	"Jon",
+	"Jay",
+	"Kat",
+	"Kay",
+	"Karl",
+	"Kai",
+	"Leo",
+	"Lee",
+	"Lara",
+	"Lang",
+	"Molly",
+	"Matt",
+	"Max",
+	"Mac",
+	"Mick",
+	"Mike",
+	"Mikey",
+	"Mag",
+	"Meg",
+	"Nell",
+	"Noah",
+	"Nyx",
+	"Nick",
+	"Nikki",
+	"Noel",
+	"Nora",
+	"Obi",
+	"Orr",
+	"Oona",
+	"Oz",
+	"Ozzie",
+	"Pax",
+	"Pat",
+	"Paddy",
+	"Patty",
+	"Penelope",
+	"Ren",
+	"Red",
+	"Rod",
+	"Roo",
+	"Ron",
+	"Rana",
+	"Rex",
+	"Sev",
+	"Seth",
+	"Sonny",
+	"Seb",
+	"Sam",
+	"Sammy",
+	"Saul",
+	"Sol",
+	"Steph",
+	"Steve",
+	"Six",
+	"Tom",
+	"Tam",
+	"Tal",
+	"Tally",
+	"Tim",
+	"Tris",
+	"Tina",
+	"Uriah",
+	"Una",
+	"Uriel",
+	"Vee",
+	"Vi",
+	"Vince",
+	"Wan",
+	"Wax",
+	"Wanda",
+	"Wing",
+	"Yash",
+	"Yen",
+	"Yonah",
+	"Zen",
+	"Zara",
+	"Zephyr",
+	"Zeph",
+]
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -807,7 +917,7 @@ func flatten_syllables(subtree):
 	return trees
 
 func search_name(data):
-	#var orig = data
+	var orig = data.to_lower()
 	var _phon_ret = get_phonetic_syllables(data)
 	var structured_syllables = _phon_ret[0]
 	var phonetic_name = _phon_ret[1]
@@ -847,9 +957,17 @@ func search_name(data):
 	
 	sorted_matches = pairs_to_name_case(sorted_matches)
 
+	if sorted_matches.size() < 2:
+		sorted_matches = sorted_matches + default_names_by_letter(orig[0])
+
 	if sorted_matches.size() > 6:
 		return sorted_matches.slice(0, 6)
+	
 	return sorted_matches
+
+func default_names_by_letter(letter):
+	var defaults = DEFAULT_NAMES.filter(func (x): x[0] == letter)
+	return defaults
 
 func pairs_to_name_case(pairs):
 	for pair in pairs:
