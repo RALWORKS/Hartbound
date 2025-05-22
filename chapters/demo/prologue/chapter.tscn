@@ -1,8 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://dgtv4htdskbdq"]
+[gd_scene load_steps=12 format=3 uid="uid://dgtv4htdskbdq"]
 
 [ext_resource type="PackedScene" uid="uid://bh1yfkyt3u44i" path="res://chapter.tscn" id="1_ia6rp"]
 [ext_resource type="PackedScene" uid="uid://cog1hph357ikp" path="res://scenes/demo/0/suntemple-ground-1.tscn" id="2_om1c3"]
 [ext_resource type="PackedScene" uid="uid://7hjd5r2hc2bb" path="res://scenes/demo/3/main_map_1.tscn" id="3_0xx81"]
+[ext_resource type="PackedScene" uid="uid://c0a2dl3a2t7rm" path="res://time_mutation.tscn" id="4_o8d0l"]
+[ext_resource type="PackedScene" uid="uid://3wjup2lrwngl" path="res://chapter_action_waiter_event.tscn" id="5_6jnyi"]
 [ext_resource type="AudioStream" uid="uid://c373iuul1h8y6" path="res://assets/music/what-do-you-want-from-me-quantized.ogg" id="10_x7nvf"]
 [ext_resource type="PackedScene" uid="uid://j5t4axtu0ies" path="res://chapters/demo/3/taylor_base_dialogue.tscn" id="15_gm7cd"]
 [ext_resource type="PackedScene" uid="uid://bhr3130air7g3" path="res://chapters/demo/3/brona_base_dialogue.tscn" id="16_75rsv"]
@@ -14,6 +16,18 @@
 starting_scene = ExtResource("2_om1c3")
 starting_music = NodePath("Music")
 map = ExtResource("3_0xx81")
+
+[node name="Pause7" parent="Events/StartChapter" index="0" instance=ExtResource("4_o8d0l")]
+time_mutation = 2
+n_days = 0.04
+
+[node name="ChapterActionWaiterEvent" parent="Events" index="1" instance=ExtResource("5_6jnyi")]
+action_type = 1
+required_count = 3
+
+[node name="Pause8" parent="Events/ChapterActionWaiterEvent" index="0" instance=ExtResource("4_o8d0l")]
+time_mutation = 2
+n_days = 0.04
 
 [node name="Taylor" parent="CharacterCutscenes" index="0"]
 dialogue = ExtResource("15_gm7cd")

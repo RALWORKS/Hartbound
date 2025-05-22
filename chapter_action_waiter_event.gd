@@ -21,6 +21,7 @@ func _make_keypairs():
 	while i < profile_pairs.size():
 		pairs.push_back([profile_pairs[i], profile_pairs[i+1]])
 		i = i + 2
+	return pairs
 
 func iterate():
 	count = count + 1
@@ -28,6 +29,8 @@ func iterate():
 		$"/root/Game".chapter.next()
 
 func receive_action(type, data):
+	print("receive", type, data, action_type, count)	
+
 	if not type == action_type:
 		return
 	

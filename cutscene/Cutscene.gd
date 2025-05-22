@@ -11,6 +11,7 @@ extends Node2D
 var page = null
 @export var npc: CharacterBody2D = null # will auto set if used as npc dialogue
 @export var npc_name = ""
+var npc_id = null
 
 @export var free_us_first: Array[Node]
 
@@ -56,6 +57,11 @@ func _process(_delta):
 func start():
 	if starting_page:
 		starting_page.start()
+	
+	if npc != null:
+		npc_id = npc.id
+		var emitter = $"/root/Game".action_emitter
+		emitter.send(emitter.TYPE.HI, {"npc_id": npc_id})
 
 func talk_about_default_topic(concept):
 	var topics = default_topics.get_children()
@@ -73,6 +79,9 @@ func talk_about(concept):
 	if nodes.size() == 0:
 		talk_about_default_topic(concept)
 		return
+	if npc_id != null:
+		var emitter = $"/root/Game".action_emitter
+		emitter.send(emitter.TYPE.TOPIC, {"npc_id": npc_id, "concept_id": concept.id})
 	page.leave()
 	var pages = nodes[0].get_children().filter(_filter_not_tag)
 	pages[0].start()

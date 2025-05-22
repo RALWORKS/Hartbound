@@ -28,6 +28,8 @@ signal check_party
 @export var cheat_event_trigger_name = ""
 @export var cheat_timer_turns = 2
 
+@onready var action_emitter = $ActionEmitter
+
 var StartCampingCutscene = preload("res://start_camping_default.tscn")
 
 var MainScreen = preload("res://ui/main_screen.tscn")
