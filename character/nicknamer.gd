@@ -313,6 +313,7 @@ var graphs = [
 	["oy", "OY"],
 	["u", "U"],
 	["ue", "E"],
+	["oe", "O"],
 	["ui", "I"],
 	["uo", "O"],
 	["oo", "U"],
@@ -845,6 +846,7 @@ func get_phonetic(data, use_human=false):
 func get_phonetic_syllables(data, use_human=false):
 	data = get_phonetic(data, use_human)
 	var syllables = get_structured_syllables_list(data)
+	print(syllables)
 	return [syllables, data]
 
 
@@ -861,14 +863,16 @@ func _get_weighted_matches(
 			sub_names.push_back([n, depth])
 		return (
 		sub_names
-		+ _search_names(main_ix, subdict["ö"], remaining_tokens.slice(1), depth + 1)
+		# + _search_names(main_ix, subdict["ö"], remaining_tokens.slice(1), depth + 1)
+		# uncomment above to match names by non-initial parts
 	)
 	var sub_names = []
 	for n in subdict[tok]["_"]:
 		sub_names.push_back([n, depth*tok.length() + subdict[tok]["$"]])
 	return (
 		sub_names
-		+ _search_names(main_ix, subdict[tok], remaining_tokens.slice(1), depth * tok.length() + 1)
+		#+ _search_names(main_ix, subdict[tok], remaining_tokens.slice(1), depth * tok.length() + 1)
+		# uncomment above to match names by non-initial parts
 	)
 
 func vaguify_vowels(data):
@@ -956,6 +960,8 @@ func search_name(data):
 	sorted_matches.sort_custom(func(a, b): return b[1] < a[1])
 	
 	sorted_matches = pairs_to_name_case(sorted_matches)
+	
+	print(sorted_matches)
 
 	if sorted_matches.size() < 2:
 		sorted_matches = sorted_matches + default_names_by_letter(orig[0])
@@ -965,9 +971,12 @@ func search_name(data):
 	
 	return sorted_matches
 
-func default_names_by_letter(letter):
-	var defaults = DEFAULT_NAMES.filter(func (x): x[0] == letter)
-	return defaults
+func default_names_by_letter(letter: String):
+	var defaults = DEFAULT_NAMES.filter(func (x): return x if x[0].to_lower() == letter else false)
+	var ret = []
+	for d in defaults:
+		ret.push_back([d, null])
+	return ret
 
 func pairs_to_name_case(pairs):
 	for pair in pairs:
