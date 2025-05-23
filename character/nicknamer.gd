@@ -416,7 +416,6 @@ func get_pattern(data):
 		reg = RegEx.new()
 		reg.compile(LETTER_PATTERNS[pair[1]])
 		if not reg.is_valid():
-			print(pair, reg)
 			return ["", ""]
 		matches = reg.search_all("m" + data)
 		if matches.size() == 0:
@@ -758,7 +757,6 @@ func search_by_pattern():
 	var data = your_name
 
 	data = data.to_lower()
-	print(data)
 
 	var syllables = get_cleaned_syllables(data)
 	var patterns = syllables.map(
@@ -784,8 +782,6 @@ func main():
 
 func search_by_index():
 	var data = your_name
-
-	print(data)
 	
 	return search_name(data)
 
@@ -836,7 +832,6 @@ func get_phonetic(data, use_human=false):
 	data = data.to_lower()
 
 	data = phoneticize(data, use_human)
-	print(data)
 
 	data = accentify(data)
 
@@ -846,7 +841,6 @@ func get_phonetic(data, use_human=false):
 func get_phonetic_syllables(data, use_human=false):
 	data = get_phonetic(data, use_human)
 	var syllables = get_structured_syllables_list(data)
-	print(syllables)
 	return [syllables, data]
 
 
@@ -960,8 +954,6 @@ func search_name(data):
 	sorted_matches.sort_custom(func(a, b): return b[1] < a[1])
 	
 	sorted_matches = pairs_to_name_case(sorted_matches)
-	
-	print(sorted_matches)
 
 	if sorted_matches.size() < 2:
 		sorted_matches = sorted_matches + default_names_by_letter(orig[0])
