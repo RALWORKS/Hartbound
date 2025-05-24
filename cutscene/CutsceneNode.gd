@@ -42,10 +42,15 @@ func _pause_next():
 	just_clicked = false
 
 func start():
+	var chapter = $"/root/Game/Chapter"
+	var cutscene = chapter.cutscene
+	if cutscene.next_cutscene != null:
+		chapter.end_cutscene()
+		return
 	process_mode = Node.PROCESS_MODE_INHERIT
 	self.visible = true
 	_pause_next()
-	$"/root/Game/Chapter".update_cutscene_page(self)
+	chapter.update_cutscene_page(self)
 	if on_start:
 		on_start.call()
 	elif use_on_start_fn_from:

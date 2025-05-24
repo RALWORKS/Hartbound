@@ -113,6 +113,7 @@ func start_cutscene(
 	input_data=null
 ):
 	if cutscene != null:
+		cutscene.next_cutscene = cutscene_res
 		return
 	cutscene = cutscene_res.instantiate()
 	cutscene.characters_present = game.characters_present.duplicate()

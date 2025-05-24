@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dgtv4htdskbdq"]
+[gd_scene load_steps=14 format=3 uid="uid://dgtv4htdskbdq"]
 
 [ext_resource type="PackedScene" uid="uid://bh1yfkyt3u44i" path="res://chapter.tscn" id="1_ia6rp"]
 [ext_resource type="PackedScene" uid="uid://cog1hph357ikp" path="res://scenes/demo/0/suntemple-ground-1.tscn" id="2_om1c3"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://c0a2dl3a2t7rm" path="res://time_mutation.tscn" id="4_o8d0l"]
 [ext_resource type="PackedScene" uid="uid://3wjup2lrwngl" path="res://chapter_action_waiter_event.tscn" id="5_6jnyi"]
 [ext_resource type="PackedScene" uid="uid://risextq72jue" path="res://ui_hint_mutation.tscn" id="5_r246i"]
+[ext_resource type="PackedScene" uid="uid://cq7bme8uyqbxv" path="res://chapters/demo/prologue/jerry_says_go_get_brona.tscn" id="7_7tubi"]
 [ext_resource type="AudioStream" uid="uid://c373iuul1h8y6" path="res://assets/music/what-do-you-want-from-me-quantized.ogg" id="10_x7nvf"]
 [ext_resource type="PackedScene" uid="uid://j5t4axtu0ies" path="res://chapters/demo/3/taylor_base_dialogue.tscn" id="15_gm7cd"]
 [ext_resource type="PackedScene" uid="uid://bhr3130air7g3" path="res://chapters/demo/3/brona_base_dialogue.tscn" id="16_75rsv"]
@@ -27,6 +28,7 @@ n_days = 0.04
 [node name="ChapterActionWaiterEvent" parent="Events" index="1" instance=ExtResource("5_6jnyi")]
 action_type = 1
 required_count = 3
+cutscene = ExtResource("7_7tubi")
 
 [node name="Pause8" parent="Events/ChapterActionWaiterEvent" index="0" instance=ExtResource("4_o8d0l")]
 time_mutation = 2
