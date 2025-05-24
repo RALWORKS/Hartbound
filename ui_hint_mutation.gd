@@ -4,7 +4,6 @@ enum UI_HINTS {
 	CODEX,
 }
 
-
 @export var hint_type: UI_HINTS
 
 
