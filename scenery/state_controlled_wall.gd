@@ -12,8 +12,10 @@ var sensor: CollisionPolygon2D
 
 var game
 
+var FALSY = [false, null]
+
 func refresh():
-	state = bool(game.get_state(["micro_progress", block_state_micro_tag]))
+	state = game.get_state(["micro_progress", block_state_micro_tag]) not in FALSY
 
 	if state == old_state:
 		return
@@ -28,10 +30,14 @@ func refresh():
 func enable():
 	$WallContainer.process_mode = Node.PROCESS_MODE_INHERIT
 	$SensorContainer.process_mode = Node.PROCESS_MODE_INHERIT
+	wall.process_mode = Node.PROCESS_MODE_INHERIT
+	sensor.process_mode = Node.PROCESS_MODE_INHERIT
 
 func disable():
 	$WallContainer.process_mode = Node.PROCESS_MODE_DISABLED
 	$SensorContainer.process_mode = Node.PROCESS_MODE_DISABLED
+	wall.process_mode = Node.PROCESS_MODE_DISABLED
+	sensor.process_mode = Node.PROCESS_MODE_DISABLED
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -50,15 +56,13 @@ func setup():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+	refresh()
 
 
 
 func _on_sensor_container_body_entered(body):
-	print("fake", body)
 	if not body.has_method("is_player"):
 		return
-	print("bump")
 	if notification.length() == 0:
 		return
 	$"/root/Game".notify(notification)
