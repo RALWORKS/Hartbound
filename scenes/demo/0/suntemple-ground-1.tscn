@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://cog1hph357ikp"]
+[gd_scene load_steps=17 format=3 uid="uid://cog1hph357ikp"]
 
 [ext_resource type="PackedScene" uid="uid://byrlpmbpj6yr5" path="res://scene.tscn" id="1_odikn"]
 [ext_resource type="Texture2D" uid="uid://clbmqowfv6bah" path="res://assets/scenes/demo/prologue/suntemple-outdoor-1-and-2.png" id="2_kyxh0"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://bii8gdmkfiy5x" path="res://chapters/demo/1/taylor.tscn" id="5_5jbhv"]
 [ext_resource type="Script" path="res://auto_play_animation_player.gd" id="5_7x0b1"]
 [ext_resource type="PackedScene" uid="uid://dxfuidhlgwthh" path="res://travel/door.tscn" id="7_0j0fr"]
+[ext_resource type="PackedScene" uid="uid://5xq6pmi05vpl" path="res://scenery/state_controlled_wall.tscn" id="8_sqvdn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2kp7l"]
 size = Vector2(217, 1361)
@@ -137,6 +138,26 @@ rotation = 0.553269
 scale = Vector2(1.7, 0.5)
 dest_resource = "res://scenes/demo/0/suntemple-sky-1.tscn"
 dest_edge = "Door"
+
+[node name="DoorWall" parent="YSort" index="6" instance=ExtResource("8_sqvdn")]
+block_state_micro_tag = "roof_open"
+notification = "Brona has gone up to the roof to check for rain on the horizon. Talk to your colleagues while you wait for her to return."
+
+[node name="wall" type="CollisionPolygon2D" parent="YSort/DoorWall" index="2"]
+polygon = PackedVector2Array(472, 548, 458, 572, 462, 578, 666, 700, 689, 674, 715, 681, 747, 713, 660, 710, 445, 575, 420, 502)
+
+[node name="bumper" type="CollisionPolygon2D" parent="YSort/DoorWall" index="3"]
+polygon = PackedVector2Array(435, 574, 449, 564, 679, 701, 661, 720)
+
+[node name="EdgeWall" parent="YSort" index="7" instance=ExtResource("8_sqvdn")]
+block_state_micro_tag = "go_time"
+notification = "There's only a short while left until it's time to leave. Now is not a good time to wander away from the party."
+
+[node name="wall" type="CollisionPolygon2D" parent="YSort/EdgeWall" index="2"]
+polygon = PackedVector2Array(-10, 1006, 433, 1246, 26, 1347, -117, 1221)
+
+[node name="bumper" type="CollisionPolygon2D" parent="YSort/EdgeWall" index="3"]
+polygon = PackedVector2Array(-21, 559, -23, 1077, 397, 1300, 1658, 1275, 1643, 1154, 318, 1158, 76, 1032, 17, 550)
 
 [node name="MainDaylightFilter" parent="Filters" index="0"]
 daylight_shader = SubResource("ShaderMaterial_nsj3n")

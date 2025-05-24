@@ -44,6 +44,9 @@ var old_music = []
 var music_stack = []
 
 var characters_present = []
+var context_notification = ""
+var context_notification_count = 0
+var debounce_notifications = false
 
 @export var short_circuit_cutscene: Resource
 
@@ -895,6 +898,15 @@ func bedtime():
 	heal()
 	jump_to_morning()
 	chapter.start_cutscene(StartCampingCutscene)
+
+func notify(data):
+	if debounce_notifications and data == context_notification:
+		return
+	context_notification = data
+	debounce_notifications = true
+	context_notification_count = context_notification_count + 1
+	await get_tree().create_timer(12).timeout
+	debounce_notifications = false
 
 
 

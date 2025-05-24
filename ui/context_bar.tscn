@@ -1,0 +1,59 @@
+[gd_scene load_steps=7 format=3 uid="uid://bhqmf4wcprk68"]
+
+[ext_resource type="Script" path="res://ui/context_bar.gd" id="1_aco3i"]
+[ext_resource type="Theme" uid="uid://bowrqsap2qmsa" path="res://base_theme.tres" id="1_rrpyv"]
+[ext_resource type="PackedScene" uid="uid://mqthx6wcxxuo" path="res://ui/state_tag_replacer.tscn" id="3_8syuu"]
+
+[sub_resource type="Animation" id="Animation_hcb7b"]
+resource_name = "show"
+length = 10.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 9, 10),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_h8n1h"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2x701"]
+_data = {
+"RESET": SubResource("Animation_h8n1h"),
+"show": SubResource("Animation_hcb7b")
+}
+
+[node name="ContextBar" type="RichTextLabel"]
+modulate = Color(1, 1, 1, 0)
+offset_right = 1708.0
+offset_bottom = 129.0
+mouse_filter = 2
+theme = ExtResource("1_rrpyv")
+theme_type_variation = &"VoiceoverBox"
+text = "My placeholder text"
+script = ExtResource("1_aco3i")
+
+[node name="Player" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_2x701")
+}
+
+[node name="StateTagReplacer" parent="." instance=ExtResource("3_8syuu")]
