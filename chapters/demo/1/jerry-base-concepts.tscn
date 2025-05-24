@@ -392,7 +392,7 @@ offset_bottom = 750.0
 theme = ExtResource("7_iu54m")
 theme_type_variation = &"VoiceoverBox"
 bbcode_enabled = true
-text = "\"They say the only ones who can are those dying of hte plague, bless them.\""
+text = "\"They say the only ones who can are those dying of the plague, bless them.\""
 
 [node name="RaiseToUILayer" parent="EndOfTheWorld/endoftheworld/RichTextLabel4" instance=ExtResource("8_mpvlo")]
 
