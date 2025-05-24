@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://risextq72jue"]
+
+[ext_resource type="PackedScene" uid="uid://k5ppaeyln4yw" path="res://chapter_event_mutation.tscn" id="1_hmh2q"]
+[ext_resource type="Script" path="res://ui_hint_mutation.gd" id="2_7al25"]
+
+[node name="UIHintMutation" instance=ExtResource("1_hmh2q")]
+script = ExtResource("2_7al25")
+hint_type = 0

@@ -6,9 +6,29 @@ var game: Node
 
 var cur_material: ShaderMaterial
 
+enum UI_HINTS {
+	CODEX,
+}
+
+var pending_ui_hints = []
+
+@onready var UI_HINT_FNS = {
+	UI_HINTS.CODEX: [$LeftMenu, "hint_codex"]
+}
+
 func run_black():
 	post_shader(demon_vignette)
 	
+func send_hint(type: int):
+	var pair = UI_HINT_FNS[type]
+	pair[0].call(pair[1])
+
+func send_all_hints():
+	if not pending_ui_hints.size():
+		return
+	for type in pending_ui_hints:
+		send_hint(type)
+	pending_ui_hints.clear()
 
 func post_shader(s):
 	cur_material = ShaderMaterial.new()
@@ -47,3 +67,5 @@ func _process(_delta):
 		$PostProcessing.visible = false
 	else:
 		$PostProcessing.visible = true
+	
+	send_all_hints()

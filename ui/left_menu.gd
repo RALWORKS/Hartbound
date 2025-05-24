@@ -6,6 +6,9 @@ func _ready():
 	pass # Replace with function body.
 
 
+func hint_codex():
+	$ReflectionBtn.hint_codex()
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	modulate_clock_visibility()

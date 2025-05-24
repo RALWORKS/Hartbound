@@ -6,6 +6,9 @@ var game
 var Reflections = preload("res://ui/reflections.tscn")
 @export var playing = false
 
+func hint_codex():
+	$CodexMarker/Player.play("show")
+
 func _ready():
 	$ToolTip.set_deferred("visible", false)
 	$".".self_modulate = Color(0.3, 0.3, 0.3, 1.0)

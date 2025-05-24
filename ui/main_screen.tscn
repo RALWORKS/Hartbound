@@ -1,10 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://cko70dyq2rkxn"]
+[gd_scene load_steps=8 format=3 uid="uid://cko70dyq2rkxn"]
 
 [ext_resource type="PackedScene" uid="uid://d2tvvel0wxl51" path="res://ui/game_menu.tscn" id="1_0wetn"]
 [ext_resource type="Script" path="res://ui/Effects.gd" id="1_3a4ee"]
 [ext_resource type="Script" path="res://ui/main_screen.gd" id="1_dtog3"]
 [ext_resource type="PackedScene" uid="uid://d3sg85ljfgv6k" path="res://effects/black_star_animation.tscn" id="2_ujwrl"]
-[ext_resource type="PackedScene" uid="uid://dn6jytdfpsb1y" path="res://ui/reflection_marker.tscn" id="4_2bnbj"]
 [ext_resource type="Shader" path="res://effects/demon-vignette.gdshader" id="5_htkuq"]
 [ext_resource type="PackedScene" uid="uid://dq7w6ara6rj8f" path="res://left_menu.tscn" id="7_md78l"]
 
@@ -47,9 +46,6 @@ offset_bottom = 1087.0
 mouse_filter = 2
 
 [node name="Emotes" type="CanvasLayer" parent="."]
-
-[node name="ReflectionMarker" parent="Emotes" instance=ExtResource("4_2bnbj")]
-position = Vector2(1400, 60)
 
 [node name="Effects" type="CanvasLayer" parent="."]
 script = ExtResource("1_3a4ee")

@@ -1,8 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://dr6wagkjctvpk"]
+[gd_scene load_steps=11 format=3 uid="uid://dr6wagkjctvpk"]
 
 [ext_resource type="Texture2D" uid="uid://dlckpoglm3oxj" path="res://assets/cog-brain.png" id="1_dlq8e"]
 [ext_resource type="Script" path="res://ui/reflection_btn.gd" id="1_ksp2k"]
 [ext_resource type="Texture2D" uid="uid://crwgsbucxyldl" path="res://assets/circle.png" id="3_wwwes"]
+[ext_resource type="PackedScene" uid="uid://dn6jytdfpsb1y" path="res://ui/reflection_marker.tscn" id="4_p50nu"]
+[ext_resource type="PackedScene" uid="uid://dhjjmnguu02ca" path="res://ui/codex_marker.tscn" id="5_gjsij"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fqaqi"]
 bg_color = Color(0.733333, 0.733333, 0.733333, 1)
@@ -114,6 +116,14 @@ text = "Reflection"
 libraries = {
 "": SubResource("AnimationLibrary_s4fjv")
 }
+
+[node name="ReflectionMarker" parent="." instance=ExtResource("4_p50nu")]
+position = Vector2(259, -24)
+scale = Vector2(2, 2)
+
+[node name="CodexMarker" parent="." instance=ExtResource("5_gjsij")]
+position = Vector2(259, -24)
+scale = Vector2(2, 2)
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
