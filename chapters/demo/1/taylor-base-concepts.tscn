@@ -46,7 +46,7 @@
 [ext_resource type="Texture2D" uid="uid://du538lgom8gn2" path="res://assets/splash/home-village.png" id="42_gmm22"]
 [ext_resource type="Shader" path="res://effects/bluescale.gdshader" id="43_fub5w"]
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_td2tw"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_21wgv"]
 viewport_path = NodePath("img")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_weoi2"]
@@ -61,7 +61,7 @@ shader_parameter/tint = Vector4(0.6, 0.83, 0.97, 1)
 shader_parameter/highlight = Vector4(0.8, 0.85, 0.6, 1)
 shader_parameter/alpha = 1.0
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_3cwhh"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_5wt6l"]
 viewport_path = NodePath("img")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_d26op"]
@@ -76,7 +76,7 @@ shader_parameter/tint = Vector4(0.6, 0.83, 0.97, 1)
 shader_parameter/highlight = Vector4(0.8, 0.85, 0.6, 1)
 shader_parameter/alpha = 1.0
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_fjutg"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_i645l"]
 viewport_path = NodePath("img")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_j2nwn"]
@@ -91,7 +91,7 @@ shader_parameter/tint = Vector4(0.4, 0.4, 0.4, 1)
 shader_parameter/highlight = Vector4(0.5, 0.5, 0.5, 1)
 shader_parameter/alpha = 1.0
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_64quv"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_yw3ie"]
 viewport_path = NodePath("img")
 
 [node name="Concepts" type="Node"]
@@ -592,9 +592,9 @@ scale = Vector2(0.7, 0.7)
 texture = ExtResource("31_kx3if")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Sun Temple/SunTemple1"]
-offset_left = 124.0
+offset_left = -12.0
 offset_top = 875.0
-offset_right = 2069.0
+offset_right = 1933.0
 offset_bottom = 995.0
 theme = ExtResource("5_yjk2e")
 theme_type_variation = &"VoiceoverBox"
@@ -619,9 +619,9 @@ scale = Vector2(0.7, 0.7)
 texture = ExtResource("31_kx3if")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Sun Temple/SunTemple2"]
-offset_left = 124.0
+offset_left = -4.0
 offset_top = 875.0
-offset_right = 2069.0
+offset_right = 1941.0
 offset_bottom = 995.0
 theme = ExtResource("5_yjk2e")
 theme_type_variation = &"VoiceoverBox"
@@ -638,6 +638,7 @@ visible = false
 scale = Vector2(1.35, 1.35)
 texture = ExtResource("3_ao1sr")
 centered = false
+script = ExtResource("5_j50n5")
 
 [node name="taylor2" type="Sprite2D" parent="Sun Temple/SunTemple3"]
 position = Vector2(455, 850)
@@ -1277,6 +1278,7 @@ text = "\"Jerry's good. Sanest Salvager I ever met. I have nothing but respect f
 [node name="EndOfTheWorld" parent="." instance=ExtResource("24_4l1fl")]
 
 [node name="CutsceneNode" parent="EndOfTheWorld" instance=ExtResource("2_xxf8h")]
+visible = false
 
 [node name="bg" type="Sprite2D" parent="EndOfTheWorld/CutsceneNode"]
 scale = Vector2(1.35, 1.35)
@@ -2130,7 +2132,7 @@ texture = ExtResource("31_kx3if")
 [node name="Profile" parent="MyHometown/NewMemory" instance=ExtResource("41_8awtg")]
 position = Vector2(912, 105)
 scale = Vector2(2, 2)
-texture = SubResource("ViewportTexture_td2tw")
+texture = SubResource("ViewportTexture_21wgv")
 with_background = false
 
 [node name="RichTextLabel2" type="RichTextLabel" parent="MyHometown/NewMemory"]
@@ -2176,7 +2178,7 @@ texture = ExtResource("31_kx3if")
 material = SubResource("ShaderMaterial_k6to6")
 position = Vector2(912, 105)
 scale = Vector2(2, 2)
-texture = SubResource("ViewportTexture_3cwhh")
+texture = SubResource("ViewportTexture_5wt6l")
 with_background = false
 
 [node name="RichTextLabel2" type="RichTextLabel" parent="MyHometown/NewMemory2"]
@@ -2234,7 +2236,7 @@ texture = ExtResource("31_kx3if")
 material = SubResource("ShaderMaterial_n2xtb")
 position = Vector2(912, 105)
 scale = Vector2(2, 2)
-texture = SubResource("ViewportTexture_fjutg")
+texture = SubResource("ViewportTexture_i645l")
 with_background = false
 
 [node name="RichTextLabel5" type="RichTextLabel" parent="MyHometown/NewMemory4"]
@@ -2293,7 +2295,7 @@ texture = ExtResource("31_kx3if")
 material = SubResource("ShaderMaterial_hxgt3")
 position = Vector2(912, 105)
 scale = Vector2(2, 2)
-texture = SubResource("ViewportTexture_64quv")
+texture = SubResource("ViewportTexture_yw3ie")
 with_background = false
 
 [node name="RichTextLabel7" type="RichTextLabel" parent="MyHometown/NewMemory3"]

@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://b544ffkb6pbex" path="res://assets/scenes/demo/1/industrial/cutscene/1-roof.png" id="4_fxtif"]
 [ext_resource type="Texture2D" uid="uid://buc3vu7e6om1c" path="res://assets/npcs/jerry/jerry_angry.png" id="5_05w1k"]
 [ext_resource type="PackedScene" uid="uid://b11g7mb25w5xp" path="res://cutscene/smart_label.tscn" id="6_5gt6i"]
-[ext_resource type="Texture2D" uid="uid://bvsg3401oyfim" path="res://assets/npcs/jerry/jerry-1-colour.png" id="7_pptut"]
+[ext_resource type="Texture2D" uid="uid://cfy76vy42swaj" path="res://assets/npcs/jerry/jerry-2-colour.png" id="7_jn4ox"]
 [ext_resource type="PackedScene" uid="uid://cp5lbi0bmf5vp" path="res://tools/screen-guide-frame.tscn" id="7_yky4t"]
 [ext_resource type="PackedScene" uid="uid://dodne0hhms0qr" path="res://character/big_player.tscn" id="8_tdfh0"]
 
@@ -74,11 +74,11 @@ text = "\"I'll bet you anything she just lost track of time.\""
 [node name="Jerry" type="Sprite2D" parent="2" index="4"]
 position = Vector2(-274, 12)
 scale = Vector2(0.8, 0.8)
-texture = ExtResource("7_pptut")
+texture = ExtResource("7_jn4ox")
 centered = false
 
 [node name="BigPlayer" parent="2" index="5" instance=ExtResource("8_tdfh0")]
-position = Vector2(1635, -63)
+position = Vector2(1643, 57)
 rotation = 3.14159
 scale = Vector2(1, -1)
 anim = "stand"

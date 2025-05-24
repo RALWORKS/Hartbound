@@ -84,6 +84,7 @@ func talk_about(concept):
 		emitter.send(emitter.TYPE.TOPIC, {"npc_id": npc_id, "concept_id": concept.id})
 	page.leave()
 	var pages = nodes[0].get_children().filter(_filter_not_tag)
+	$"/root/Game".move()
 	pages[0].start()
 	
 	for p in pages:
