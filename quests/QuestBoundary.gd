@@ -3,6 +3,9 @@ extends Area2D
 var game
 var chapter
 
+var spawned_in = false
+var loading = true
+
 func _get_game():
 	if game == null:
 		game = get_tree().get_root().get_node("Game")
@@ -37,6 +40,9 @@ func _ready():
 	if blockade_quests_container != null:
 		for c in blockade_quests_container.get_children():
 			blockade_quests.push_back(c)
+	
+	await get_tree().create_timer(0.2).timeout
+	loading = false
 
 func _filter_active_quests(quest):
 	var g = _get_game()
@@ -57,7 +63,10 @@ func _on_body_entered(body):
 	if triggering:
 		return
 	triggering = true
-	
+
+	if loading:
+		spawned_in = true
+
 	
 	var blocks = _active_blockades()
 	if blocks.size() == 0:
@@ -66,7 +75,10 @@ func _on_body_entered(body):
 			_get_chapter().trigger(trigger_name)
 	else:
 		$Wall.process_mode = Node.PROCESS_MODE_INHERIT
-		
+	
+	if spawned_in:
+		return
+	
 	var quests = _active_any()
 	if quests.size() == 0:
 		return
@@ -82,6 +94,7 @@ func _on_body_entered(body):
 func _on_body_exited(body):
 	if not body.has_method("is_player") or not body.is_player():
 		return
+	spawned_in = false
 	var g = _get_game()
 	if g.chapter == null or g.chapter.cutscene != null:
 		return

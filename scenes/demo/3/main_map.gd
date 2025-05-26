@@ -8,6 +8,7 @@ var default_biome = null
 const Biome = preload("res://scenes/demo/3/biome.gd")
 const MapArea = preload("res://scenes/demo/3/map_area.gd")
 var areas = []
+var going = false
 
 var active_area: MapArea = null
 
@@ -72,6 +73,9 @@ func get_biome():
 	return default_biome
 
 func go():
+	if going:
+		return
+	going = true
 	save_position()
 	game.jump_over_moves($bg/MapGrid.time_expended())
 	

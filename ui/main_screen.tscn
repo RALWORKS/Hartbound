@@ -49,10 +49,8 @@ mouse_filter = 2
 [node name="Emotes" type="CanvasLayer" parent="."]
 
 [node name="ContextBar" parent="Emotes" instance=ExtResource("4_d5qrq")]
-offset_left = 120.0
-offset_top = 872.0
-offset_right = 1743.0
-offset_bottom = 1001.0
+offset_top = 888.0
+offset_bottom = 1017.0
 
 [node name="Effects" type="CanvasLayer" parent="."]
 script = ExtResource("1_3a4ee")

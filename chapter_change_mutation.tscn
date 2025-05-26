@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://b4bjxm5wbrlvc"]
+
+[ext_resource type="PackedScene" uid="uid://k5ppaeyln4yw" path="res://chapter_event_mutation.tscn" id="1_g3adh"]
+[ext_resource type="Script" path="res://ChapterChangeMutation.gd" id="2_nhcry"]
+
+[node name="ChapterChangeMutation" instance=ExtResource("1_g3adh")]
+script = ExtResource("2_nhcry")
+to_chapter = ""

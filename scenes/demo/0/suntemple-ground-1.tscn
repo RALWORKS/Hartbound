@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://cog1hph357ikp"]
+[gd_scene load_steps=18 format=3 uid="uid://cog1hph357ikp"]
 
 [ext_resource type="PackedScene" uid="uid://byrlpmbpj6yr5" path="res://scene.tscn" id="1_odikn"]
 [ext_resource type="Texture2D" uid="uid://clbmqowfv6bah" path="res://assets/scenes/demo/prologue/suntemple-outdoor-1-and-2.png" id="2_kyxh0"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" path="res://auto_play_animation_player.gd" id="5_7x0b1"]
 [ext_resource type="PackedScene" uid="uid://dxfuidhlgwthh" path="res://travel/door.tscn" id="7_0j0fr"]
 [ext_resource type="PackedScene" uid="uid://5xq6pmi05vpl" path="res://scenery/state_controlled_wall.tscn" id="8_sqvdn"]
+[ext_resource type="PackedScene" uid="uid://3xvq5teh4d0q" path="res://travel/map_door.tscn" id="9_u3sc7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2kp7l"]
 size = Vector2(217, 1361)
@@ -167,10 +168,19 @@ block_state_micro_tag = "time-to-go"
 notification = "There's only a short while left until it's time to leave. Now is not a good time to wander away from the party."
 
 [node name="wall" type="CollisionPolygon2D" parent="YSort/EdgeWall" index="2"]
-polygon = PackedVector2Array(-10, 1006, 433, 1246, 26, 1347, -117, 1221)
+polygon = PackedVector2Array(-38, 1058, 22, 520, 56.2781, 1063.37, 326, 1196, 1746, 1184, 1785, 1220, 433, 1246, 26, 1347, -117, 1221)
 
 [node name="bumper" type="CollisionPolygon2D" parent="YSort/EdgeWall" index="3"]
-polygon = PackedVector2Array(-21, 559, -23, 1077, 397, 1300, 1658, 1275, 1643, 1154, 318, 1158, 76, 1032, 17, 550)
+polygon = PackedVector2Array(-21, 559, -23, 1077, 397, 1300, 1658, 1275, 1643, 1154, 318, 1158, 76, 1032, 48, 542)
+
+[node name="MapDoor1" parent="YSort" index="9" instance=ExtResource("9_u3sc7")]
+position = Vector2(86, 1247)
+scale = Vector2(4, 4)
+
+[node name="MapDoor2" parent="YSort" index="10" instance=ExtResource("9_u3sc7")]
+position = Vector2(2, 662)
+rotation = 1.5708
+scale = Vector2(2, 2)
 
 [node name="MainDaylightFilter" parent="Filters" index="0"]
 daylight_shader = SubResource("ShaderMaterial_nsj3n")

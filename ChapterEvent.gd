@@ -7,6 +7,7 @@ signal action_received
 @export var effect: String
 @export var played = false
 @export var reusable = false
+@export var abort_save = false
 @export_multiline var context_notification: String
 
 @export var progress_key = "events"
@@ -33,8 +34,9 @@ func _play(save=true):
 	if reusable:
 		return
 	played = true
-	if save:
+	if save and not abort_save:
 		g.set_state_push_to_key(["micro_progress", progress_key], get_index())
+
 
 func _mutate():
 	if context_notification:

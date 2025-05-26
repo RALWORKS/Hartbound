@@ -1,8 +1,15 @@
-[gd_scene load_steps=7 format=3 uid="uid://bhqmf4wcprk68"]
+[gd_scene load_steps=8 format=3 uid="uid://bhqmf4wcprk68"]
 
 [ext_resource type="Script" path="res://ui/context_bar.gd" id="1_aco3i"]
 [ext_resource type="Theme" uid="uid://bowrqsap2qmsa" path="res://base_theme.tres" id="1_rrpyv"]
 [ext_resource type="PackedScene" uid="uid://mqthx6wcxxuo" path="res://ui/state_tag_replacer.tscn" id="3_8syuu"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o873c"]
+content_margin_left = 900.0
+content_margin_top = 18.0
+content_margin_right = 900.0
+content_margin_bottom = 15.0
+bg_color = Color(0, 0, 0, 1)
 
 [sub_resource type="Animation" id="Animation_h8n1h"]
 length = 0.001
@@ -43,12 +50,12 @@ _data = {
 
 [node name="ContextBar" type="RichTextLabel"]
 modulate = Color(1, 1, 1, 0)
-offset_right = 1708.0
+offset_left = -686.0
+offset_right = 2460.0
 offset_bottom = 129.0
-mouse_filter = 2
 theme = ExtResource("1_rrpyv")
 theme_type_variation = &"VoiceoverBox"
-text = "My placeholder text"
+theme_override_styles/normal = SubResource("StyleBoxFlat_o873c")
 script = ExtResource("1_aco3i")
 
 [node name="Player" type="AnimationPlayer" parent="."]

@@ -1,8 +1,8 @@
-[gd_scene load_steps=19 format=3 uid="uid://dgtv4htdskbdq"]
+[gd_scene load_steps=21 format=3 uid="uid://dgtv4htdskbdq"]
 
 [ext_resource type="PackedScene" uid="uid://bh1yfkyt3u44i" path="res://chapter.tscn" id="1_ia6rp"]
 [ext_resource type="PackedScene" uid="uid://cog1hph357ikp" path="res://scenes/demo/0/suntemple-ground-1.tscn" id="2_om1c3"]
-[ext_resource type="PackedScene" uid="uid://7hjd5r2hc2bb" path="res://scenes/demo/3/main_map_1.tscn" id="3_0xx81"]
+[ext_resource type="PackedScene" uid="uid://rypy816ox81w" path="res://scenes/demo/0/main_map_1.tscn" id="3_f6vjy"]
 [ext_resource type="PackedScene" uid="uid://c0a2dl3a2t7rm" path="res://time_mutation.tscn" id="4_o8d0l"]
 [ext_resource type="PackedScene" uid="uid://3wjup2lrwngl" path="res://chapter_action_waiter_event.tscn" id="5_6jnyi"]
 [ext_resource type="PackedScene" uid="uid://risextq72jue" path="res://ui_hint_mutation.tscn" id="5_pfw2h"]
@@ -16,13 +16,15 @@
 [ext_resource type="PackedScene" uid="uid://dls01knr8s1ay" path="res://chapters/demo/0/brona_base_dialogue.tscn" id="11_jnl6t"]
 [ext_resource type="PackedScene" uid="uid://c7lymsem7jrin" path="res://chapter_event_trigger.tscn" id="12_3h03g"]
 [ext_resource type="PackedScene" uid="uid://dejcikisaj25s" path="res://chapters/demo/0/nate_base_dialogue.tscn" id="12_oj521"]
+[ext_resource type="PackedScene" uid="uid://b4bjxm5wbrlvc" path="res://chapter_change_mutation.tscn" id="12_qypo8"]
 [ext_resource type="PackedScene" uid="uid://d2bsdc1lljan4" path="res://chapters/demo/0/jerry_base_dialogue.tscn" id="13_l15yd"]
+[ext_resource type="PackedScene" uid="uid://cntlm7r5rk0tr" path="res://chapters/demo/prologue/travel_cutscene_1.tscn" id="14_gswcl"]
 [ext_resource type="PackedScene" uid="uid://bcinc4blag4el" path="res://music.tscn" id="19_ni4d3"]
 
 [node name="Chapter" node_paths=PackedStringArray("starting_music") instance=ExtResource("1_ia6rp")]
 starting_scene = ExtResource("2_om1c3")
 starting_music = NodePath("Music")
-map = ExtResource("3_0xx81")
+map = ExtResource("3_f6vjy")
 
 [node name="Pause7" parent="Events/StartChapter" index="0" instance=ExtResource("4_o8d0l")]
 time_mutation = 2
@@ -75,8 +77,26 @@ state_path_slash_delineated = "micro_progress/time-to-go"
 data = "true"
 parse_data_as_bool = true
 
+[node name="GOTOCh1" parent="Events" index="4" instance=ExtResource("11_4huc8")]
+abort_save = true
+
+[node name="ClearParty" parent="Events/GOTOCh1" index="0" instance=ExtResource("8_8sw7r")]
+state_path_slash_delineated = "party"
+data_as_slash_sep_list = true
+
+[node name="ChapterChangeMutation" parent="Events/GOTOCh1" index="1" instance=ExtResource("12_qypo8")]
+to_chapter = "demo1"
+
 [node name="GetBrona" parent="Triggers" index="0" instance=ExtResource("12_3h03g")]
 event_name = "GetBrona"
+
+[node name="ReachDestination" parent="Triggers" index="1" instance=ExtResource("12_3h03g")]
+event_name = "GOTOCh1"
+
+[node name="DefaultWalk" parent="MapEvents" index="0" instance=ExtResource("11_4huc8")]
+cutscene = ExtResource("14_gswcl")
+reusable = true
+progress_key = "map_events"
 
 [node name="Taylor" parent="CharacterCutscenes" index="0"]
 dialogue = ExtResource("10_qtvui")

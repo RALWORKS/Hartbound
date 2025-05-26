@@ -71,12 +71,16 @@ func next(to_event_name=null):
 func reload_events_done():
 	events_done = game.get_state(["micro_progress", "events"])
 	map_events_done = game.get_state(["micro_progress", "map_events"])
-	if events_done == null:
+	if no_events(events_done):
 		game.set_state(["micro_progress", "events"], [])
 		events_done = []
-	if map_events_done == null:
+	if no_events(map_events_done):
 		game.set_state(["micro_progress", "map_events"], [])
 		map_events_done = []
+
+func no_events(data):
+	if data == null or data.size() == 0:
+		return true
 
 func _default_init():
 	scene0 = starting_scene.instantiate()
@@ -85,6 +89,7 @@ func _default_init():
 	#$"../MainScreen/World".add_child(scene0)
 	$"../Map".start(scene0, self)
 	reload_events_done()
+	print("init", events_done)
 	scene0.spawn($"..")
 
 # Called when the node enters the scene tree for the first time.
@@ -223,9 +228,10 @@ func close_map(biome):
 	
 	active_map = null
 	
+	game.show_clock = true
+	
 	if not biome:
 		game.load_position()
-		game.show_clock = true
 		return
 	
 	if biome.trigger_name:

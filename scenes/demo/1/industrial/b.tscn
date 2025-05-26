@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://qhhv4s8njcrp"]
+[gd_scene load_steps=28 format=3 uid="uid://qhhv4s8njcrp"]
 
 [ext_resource type="PackedScene" uid="uid://byrlpmbpj6yr5" path="res://scene.tscn" id="1_4su6i"]
 [ext_resource type="Texture2D" uid="uid://dobfgkrdvoy5g" path="res://assets/scenes/demo/1/industrial/b.png" id="2_beatb"]
@@ -23,6 +23,7 @@
 [ext_resource type="Texture2D" uid="uid://cnlclj8g0tyiw" path="res://assets/scenery/extra-tree-coloured-bright/stone-trio.png" id="19_hnywh"]
 [ext_resource type="Texture2D" uid="uid://ba8f8jn3sykc5" path="res://assets/scenery/extra-tree-coloured-bright/pine-trio.png" id="20_uwtq4"]
 [ext_resource type="Texture2D" uid="uid://dwvf22vxkob24" path="res://assets/scenery/extra-tree-coloured-bright/forest-cluster.png" id="22_56ef0"]
+[ext_resource type="Shader" path="res://daylight.gdshader" id="24_rf1lw"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_2fe48"]
 vertices = PackedVector2Array(4, 705, 354, 520, 704, 499, 1064, 765, 1520, 1240, 610, 1236, 8, 980)
@@ -33,6 +34,14 @@ outlines = Array[PackedVector2Array]([PackedVector2Array(4, 705, 354, 520, 704, 
 vertices = PackedVector2Array(1595, 738, 1259, 526, 1437, 442, 1602, -2, 358, 39, 9, 227, 14, 4, 720, 45, 546, 102)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2), PackedInt32Array(3, 0, 2), PackedInt32Array(4, 5, 6), PackedInt32Array(4, 6, 3, 7), PackedInt32Array(3, 2, 7), PackedInt32Array(4, 7, 8)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(9, 227, 358, 39, 546, 102, 720, 45, 1437, 442, 1259, 526, 1595, 738, 1602, -2, 14, 4)])
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_52qaw"]
+resource_local_to_scene = true
+shader = ExtResource("24_rf1lw")
+shader_parameter/darken = 0.0
+shader_parameter/saturate = 1.0
+shader_parameter/contrast = 1.0
+shader_parameter/warmth = 0.5
 
 [node name="IndustrialB" node_paths=PackedStringArray("vein_node") instance=ExtResource("1_4su6i")]
 vein_node = NodePath("Vein")
@@ -311,3 +320,6 @@ offset = Vector2(0, -100)
 
 [node name="Vein" type="Polygon2D" parent="." index="7"]
 polygon = PackedVector2Array(76, 1425, 778, 1097, 464, 837, 981, 619, 993, 237, 1898, -187, 1966, -113, 1080, 277, 1072, 659, 622, 862, 959, 1123, 156, 1491)
+
+[node name="MainDaylightFilter" parent="Filters" index="0"]
+daylight_shader = SubResource("ShaderMaterial_52qaw")
