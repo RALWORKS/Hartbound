@@ -13,7 +13,7 @@ enum TYPE {
 var SCHEMA = {
 	TYPE.HI: {"npc_id": null},
 	TYPE.TOPIC: {"npc_id": null, "concept_id": null},
-	TYPE.ROOM_CHANGE: {},
+	TYPE.ROOM_CHANGE: {"dest_id": null},
 	TYPE.START_TRIP: {},
 	TYPE.END_TRIP: {},
 }

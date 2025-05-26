@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://dgtv4htdskbdq"]
+[gd_scene load_steps=19 format=3 uid="uid://dgtv4htdskbdq"]
 
 [ext_resource type="PackedScene" uid="uid://bh1yfkyt3u44i" path="res://chapter.tscn" id="1_ia6rp"]
 [ext_resource type="PackedScene" uid="uid://cog1hph357ikp" path="res://scenes/demo/0/suntemple-ground-1.tscn" id="2_om1c3"]
@@ -12,7 +12,9 @@
 [ext_resource type="PackedScene" uid="uid://e5brnper6saf" path="res://quests/quests/c_0_brona_time_to_go.tscn" id="9_wuf3b"]
 [ext_resource type="PackedScene" uid="uid://w3jijb0ojhx0" path="res://chapters/demo/0/taylor_base_dialogue.tscn" id="10_qtvui"]
 [ext_resource type="AudioStream" uid="uid://c373iuul1h8y6" path="res://assets/music/what-do-you-want-from-me-quantized.ogg" id="10_x7nvf"]
+[ext_resource type="PackedScene" uid="uid://b1skvjxeeblbv" path="res://chapter_event.tscn" id="11_4huc8"]
 [ext_resource type="PackedScene" uid="uid://dls01knr8s1ay" path="res://chapters/demo/0/brona_base_dialogue.tscn" id="11_jnl6t"]
+[ext_resource type="PackedScene" uid="uid://c7lymsem7jrin" path="res://chapter_event_trigger.tscn" id="12_3h03g"]
 [ext_resource type="PackedScene" uid="uid://dejcikisaj25s" path="res://chapters/demo/0/nate_base_dialogue.tscn" id="12_oj521"]
 [ext_resource type="PackedScene" uid="uid://d2bsdc1lljan4" path="res://chapters/demo/0/jerry_base_dialogue.tscn" id="13_l15yd"]
 [ext_resource type="PackedScene" uid="uid://bcinc4blag4el" path="res://music.tscn" id="19_ni4d3"]
@@ -28,24 +30,53 @@ n_days = 0.04
 
 [node name="HintCodex" parent="Events/StartChapter" index="1" instance=ExtResource("5_pfw2h")]
 
-[node name="ChapterActionWaiterEvent" parent="Events" index="1" instance=ExtResource("5_6jnyi")]
+[node name="WaitFor3Topics" parent="Events" index="1" instance=ExtResource("5_6jnyi")]
 action_type = 1
 required_count = 3
 cutscene = ExtResource("7_7tubi")
 
-[node name="Pause8" parent="Events/ChapterActionWaiterEvent" index="0" instance=ExtResource("4_o8d0l")]
+[node name="Pause8" parent="Events/WaitFor3Topics" index="0" instance=ExtResource("4_o8d0l")]
 time_mutation = 2
 n_days = 0.04
 
-[node name="OpenRoof" parent="Events/ChapterActionWaiterEvent" index="1" instance=ExtResource("8_8sw7r")]
+[node name="OpenRoof" parent="Events/WaitFor3Topics" index="1" instance=ExtResource("8_8sw7r")]
 state_path_slash_delineated = "micro_progress/roof_open"
 data = "true"
 parse_data_as_bool = true
 
-[node name="ChapterEventQuestSwitcher" parent="Events/ChapterActionWaiterEvent" index="2" node_paths=PackedStringArray("quest_to_start") instance=ExtResource("9_lvbxj")]
+[node name="ChapterEventQuestSwitcher" parent="Events/WaitFor3Topics" index="2" node_paths=PackedStringArray("quest_to_start") instance=ExtResource("9_lvbxj")]
 quest_to_start = NodePath("C0BronaTimeToGo")
 
-[node name="C0BronaTimeToGo" parent="Events/ChapterActionWaiterEvent/ChapterEventQuestSwitcher" index="0" instance=ExtResource("9_wuf3b")]
+[node name="C0BronaTimeToGo" parent="Events/WaitFor3Topics/ChapterEventQuestSwitcher" index="0" instance=ExtResource("9_wuf3b")]
+
+[node name="GetBrona" parent="Events" index="2" instance=ExtResource("11_4huc8")]
+
+[node name="PartyJustBrona" parent="Events/GetBrona" index="0" instance=ExtResource("8_8sw7r")]
+state_path_slash_delineated = "party"
+data = "brona"
+data_as_slash_sep_list = true
+
+[node name="ChapterEventQuestSwitcher" parent="Events/GetBrona" index="1" node_paths=PackedStringArray("quest_to_complete") instance=ExtResource("9_lvbxj")]
+quest_to_complete = NodePath("../../WaitFor3Topics/ChapterEventQuestSwitcher/C0BronaTimeToGo")
+
+[node name="BackToGround" parent="Events" index="3" instance=ExtResource("5_6jnyi")]
+action_type = 2
+profile_pairs = Array[String](["dest_id", "0-suntemple-grnd"])
+context_notification = "Looks like everyone is here. It's time to head out."
+
+[node name="PartyEveryone" parent="Events/BackToGround" index="0" instance=ExtResource("8_8sw7r")]
+state_path_slash_delineated = "party"
+data = "jerry/brona/taylor/nate"
+data_as_slash_sep_list = true
+reload_world = true
+
+[node name="OpenMapGates" parent="Events/BackToGround" index="1" instance=ExtResource("8_8sw7r")]
+state_path_slash_delineated = "micro_progress/time-to-go"
+data = "true"
+parse_data_as_bool = true
+
+[node name="GetBrona" parent="Triggers" index="0" instance=ExtResource("12_3h03g")]
+event_name = "GetBrona"
 
 [node name="Taylor" parent="CharacterCutscenes" index="0"]
 dialogue = ExtResource("10_qtvui")

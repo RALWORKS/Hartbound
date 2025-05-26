@@ -7,6 +7,7 @@ signal action_received
 @export var effect: String
 @export var played = false
 @export var reusable = false
+@export_multiline var context_notification: String
 
 @export var progress_key = "events"
 var cutscene_input_data = null
@@ -36,6 +37,8 @@ func _play(save=true):
 		g.set_state_push_to_key(["micro_progress", progress_key], get_index())
 
 func _mutate():
+	if context_notification:
+		_get_game().notify(context_notification)
 	for mutation in get_children():
 		mutation.mutate()
 

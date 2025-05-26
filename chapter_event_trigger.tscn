@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://c7lymsem7jrin"]
+
+[ext_resource type="Script" path="res://chapters/demo/1/CrossEWest.gd" id="1_t4717"]
+
+[node name="ChapterEventTrigger" type="Node"]
+script = ExtResource("1_t4717")

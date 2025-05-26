@@ -63,5 +63,11 @@ func traverse(dest, entrance, save=true, as_move=true, x=null, y=null):
 		entrance = "DefaultSpawner"
 	var next_entrance: Node2D = dest.get_node("YSort").get_node(entrance)
 	next_entrance.spawn($"..", x, y)
+	
 	if save:
 		$"..".save_room(dest.scene_file_path, entrance)
+		
+		$"../ActionEmitter".send(
+			$"../ActionEmitter".TYPE.ROOM_CHANGE,
+			{"dest_id": dest.id if dest.id.length() else null},
+		)

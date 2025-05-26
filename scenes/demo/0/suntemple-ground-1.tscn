@@ -92,6 +92,7 @@ shader_parameter/contrast = 1.0
 shader_parameter/warmth = 0.5
 
 [node name="Scene" instance=ExtResource("1_odikn")]
+id = "0-suntemple-grnd"
 dialogue_bg_position = Vector2(-200, -400)
 
 [node name="Background" parent="." index="0"]
@@ -139,18 +140,30 @@ scale = Vector2(1.7, 0.5)
 dest_resource = "res://scenes/demo/0/suntemple-sky-1.tscn"
 dest_edge = "Door"
 
-[node name="DoorWall" parent="YSort" index="6" instance=ExtResource("8_sqvdn")]
+[node name="DoorWallStart" parent="YSort" index="6" instance=ExtResource("8_sqvdn")]
 block_state_micro_tag = "roof_open"
-notification = "Brona has gone up to the roof to check for rain on the horizon. Talk to your colleagues while you wait for her to return."
+notification = "Brona has gone up to the roof to check for rain on the horizon. Talk to your colleagues while you wait for her to return.
+"
 
-[node name="wall" type="CollisionPolygon2D" parent="YSort/DoorWall" index="2"]
+[node name="wall" type="CollisionPolygon2D" parent="YSort/DoorWallStart" index="2"]
 polygon = PackedVector2Array(472, 548, 458, 572, 462, 578, 666, 700, 689, 674, 715, 681, 747, 713, 660, 710, 445, 575, 420, 502)
 
-[node name="bumper" type="CollisionPolygon2D" parent="YSort/DoorWall" index="3"]
+[node name="bumper" type="CollisionPolygon2D" parent="YSort/DoorWallStart" index="3"]
 polygon = PackedVector2Array(435, 574, 449, 564, 679, 701, 661, 720)
 
-[node name="EdgeWall" parent="YSort" index="7" instance=ExtResource("8_sqvdn")]
-block_state_micro_tag = "go_time"
+[node name="DoorWallEnd" parent="YSort" index="7" instance=ExtResource("8_sqvdn")]
+block_state_micro_tag = "time-to-go"
+block_if = true
+notification = "You don't have time to go back up to the roof--you have to leave now."
+
+[node name="wall" type="CollisionPolygon2D" parent="YSort/DoorWallEnd" index="2"]
+polygon = PackedVector2Array(472, 548, 458, 572, 462, 578, 666, 700, 689, 674, 715, 681, 747, 713, 660, 710, 445, 575, 420, 502)
+
+[node name="bumper" type="CollisionPolygon2D" parent="YSort/DoorWallEnd" index="3"]
+polygon = PackedVector2Array(435, 574, 449, 564, 679, 701, 661, 720)
+
+[node name="EdgeWall" parent="YSort" index="8" instance=ExtResource("8_sqvdn")]
+block_state_micro_tag = "time-to-go"
 notification = "There's only a short while left until it's time to leave. Now is not a good time to wander away from the party."
 
 [node name="wall" type="CollisionPolygon2D" parent="YSort/EdgeWall" index="2"]

@@ -187,6 +187,7 @@ text = "\"You're asking [i]me?[/i]
 I'd think if anyone would be the expert on that, it'd be you.\""
 
 [node name="Insult" parent="Defaults" index="4" node_paths=PackedStringArray("next") instance=ExtResource("2_21qas")]
+visible = false
 next = NodePath("../Insult3")
 tag = "Insult"
 

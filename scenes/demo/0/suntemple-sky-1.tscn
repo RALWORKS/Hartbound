@@ -168,6 +168,13 @@ frame = 2
 position = Vector2(1006, -66)
 starting_animaton = "up-right-stopped"
 
+[node name="KeepBronaOutOfStair" type="StaticBody2D" parent="YSort" index="10"]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/KeepBronaOutOfStair" index="0"]
+polygon = PackedVector2Array(737, -100, 841, -30, 785, -160, 709, -156)
+
 [node name="MainDaylightFilter" parent="Filters" index="0"]
 daylight_shader = SubResource("ShaderMaterial_nsj3n")
 

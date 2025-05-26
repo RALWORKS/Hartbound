@@ -7,7 +7,7 @@
 
 [sub_resource type="GDScript" id="GDScript_kldhx"]
 script/source = "extends Node2D
-
+@export var id = \"\"
 @export var as_background = false
 
 @export var spawn_at = \"s\"
@@ -127,7 +127,7 @@ func daylight_off_not_injury():
 	
 "
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_rwqhp"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8pl3g"]
 resource_local_to_scene = true
 shader = ExtResource("4_tv03u")
 shader_parameter/darken = 0.0
@@ -156,7 +156,7 @@ position = Vector2(560, 365)
 [node name="Filters" type="CanvasLayer" parent="."]
 
 [node name="MainDaylightFilter" parent="Filters" node_paths=PackedStringArray("scene") instance=ExtResource("3_5fm1i")]
-daylight_shader = SubResource("ShaderMaterial_rwqhp")
+daylight_shader = SubResource("ShaderMaterial_8pl3g")
 scene = NodePath("../..")
 
 [node name="Filter" type="ColorRect" parent="Filters/MainDaylightFilter"]

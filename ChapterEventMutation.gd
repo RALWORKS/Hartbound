@@ -8,6 +8,7 @@ class_name ChapterEventMutation
 @export var current_plus_data: bool
 @export var parse_data_as_bool: bool
 @export var data_as_slash_sep_list: bool
+@export var reload_world = false
 
 func _parse_path(p: String):
 	return p.split("/")
@@ -37,6 +38,8 @@ func mutate():
 	else:
 		game.set_state(path, d)
 	game.refresh_data()
+	if reload_world and game.chapter:
+		game.chapter.reload_world()
 
 
 

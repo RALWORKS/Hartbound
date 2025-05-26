@@ -4,27 +4,32 @@ extends Node2D
 @export var block_if = false
 @export_multiline var notification = ""
 
-var state = true
-var old_state = false
+var is_blocking = true
+var was_blocking = true
 
 var wall: CollisionPolygon2D
 var sensor: CollisionPolygon2D
 
 var game
 
-var FALSY = [false, null]
-
 func refresh():
-	state = game.get_state(["micro_progress", block_state_micro_tag]) not in FALSY
+	var _state = game.get_state(["micro_progress", block_state_micro_tag])
+	var state = _state == true
 
-	if state == old_state:
+	var is_blocking = state
+
+	if not block_if:
+		is_blocking = not state
+	
+	if is_blocking == was_blocking:
 		return
-
-	var is_blocking = state if block_if else not state
+	
+	was_blocking = is_blocking
 
 	if is_blocking:
 		enable()
 		return
+
 	disable()
 
 func enable():
