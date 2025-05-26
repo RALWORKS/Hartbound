@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://e5brnper6saf"]
+
+[ext_resource type="PackedScene" uid="uid://df648eobw25cw" path="res://quests/quest.tscn" id="1_h1w7o"]
+[ext_resource type="PackedScene" uid="uid://bw8xar1o07xq1" path="res://quests/quests/c_brona_time_to_go/c_0_brona_time_to_go.tscn" id="2_pw1ly"]
+
+[node name="C0BronaTimeToGo" instance=ExtResource("1_h1w7o")]
+id = "c0_brona_time_to_go"
+headline = "It's time to go. Go get Brona"
+
+[node name="C0BronaTimeToGo" parent="QuestConceptCategory" index="0" instance=ExtResource("2_pw1ly")]

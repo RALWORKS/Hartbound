@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://bw8xar1o07xq1"]
+
+[ext_resource type="PackedScene" uid="uid://bt0e2jwvmgpgm" path="res://concept-map/concept.tscn" id="1_hjx7n"]
+
+[node name="C0BronaTimeToGo" instance=ExtResource("1_hjx7n")]
+id = "co-brona-time-to-go"
+title = "It's time to go"
+flex_title = "It's time to go"
+description = "It's time to set out on your salvaging trip, but Brona isn't back yet. "

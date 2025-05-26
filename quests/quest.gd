@@ -1,3 +1,5 @@
+class_name Quest
+
 extends Node
 
 var game

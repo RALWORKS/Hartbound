@@ -19,6 +19,7 @@ func mutate():
 	var game = $".".get_tree().get_root().get_node("Game")
 	var path = _parse_path(state_path_slash_delineated)
 	var d = data
+
 	if parse_data_as_int:
 		d = int(data)
 	elif parse_data_as_bool:
@@ -36,12 +37,12 @@ func mutate():
 	else:
 		game.set_state(path, d)
 	game.refresh_data()
-	
-	
+
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	pass
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

@@ -2,6 +2,7 @@ extends Node2D
 
 @export var npc_name = ""
 var RoundButton = preload("res://ui/round_button.tscn")
+var PriorityButton = preload("res://ui/priority_button.tscn")
 
 @onready var concepts: Node = get_tree().get_root().get_node("Game/ConceptMap")
 var SmartLable = preload("res://cutscene/smart_label.tscn")
@@ -34,7 +35,7 @@ func set_npc_name(n):
 func make_quest_buttons():
 	var data = concepts.get_node("Quest").get_children()
 	print(data)
-	quest_nodes = _make_btn_array($Body/QuickBG/Quick/Data, data)
+	quest_nodes = _make_btn_array($Body/QuickBG/Quick/Data, data, PriorityButton)
 	
 	
 func setup():
@@ -57,12 +58,12 @@ func _set_results(data):
 	
 	result_nodes = _make_btn_array($Body/Search/Data, data)
 
-func _make_btn_array(parent, data):
+func _make_btn_array(parent, data, Btn=RoundButton):
 	var nodes = []
 	for concept in data:
 		if concept.hide_for_npc_name == npc_name:
 			continue
-		var btn = RoundButton.instantiate()
+		var btn = Btn.instantiate()
 		btn.text = $StateTagReplacer.replace(concept.flex_title)
 		btn.pressed.connect(func(): concept_chosen.emit(concept))
 		parent.add_child(btn)
