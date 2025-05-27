@@ -28,6 +28,7 @@ func enable():
 	$Icon.self_modulate = "#ffffffff"
 	$Glow.visible = true
 	$AnimationPlayer.play("glow")
+	$CampMarker/Player.play("show")
 
 func refresh_disabled():
 	if disabled == was_disabled:

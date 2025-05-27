@@ -2,11 +2,18 @@ extends Sprite2D
 
 @export var pencil: Node
 #@export var target: Vector2
+@export var active_mod: Color = "#d87c0097"
+@export var inactive_mod: Color = "#dddddd97"
+
+
+func set_mod(mod):
+	self_modulate = mod
+	get_child(0).self_modulate = mod
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	pencil.arrow = self
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

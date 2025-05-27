@@ -3,9 +3,12 @@ extends CharacterBody2D
 @export var speed = 200;
 @export var line_size = 20;
 @export var line_color = "#333344"
+@export_multiline var throttled_message = "That's as far as we can travel today. Let's plan to make camp here."
 
 var is_pencil = true
 var grid = null
+var arrow = null
+var was_throttled = false
 
 
 # Called when the node enters the scene tree for the first time.
@@ -19,10 +22,19 @@ func throttle(v):
 	
 	var throttled = grid.throttle_pencil(v)
 	if throttled:
-		$Star.set_deferred("visible", true)
+		if not was_throttled:
+			$Star.set_deferred("visible", true)
+			if arrow:
+				arrow.set_mod(arrow.inactive_mod)
+			$"/root/Game".notify(throttled_message)
+		was_throttled = throttled
 		return Vector2(0, 0)
 	
 	$Star.set_deferred("visible", false)
+	if arrow:
+			arrow.set_mod(arrow.active_mod)
+	
+	was_throttled = throttled
 	return v
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

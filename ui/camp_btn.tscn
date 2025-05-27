@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://cughgnxxg8bu3"]
+[gd_scene load_steps=10 format=3 uid="uid://cughgnxxg8bu3"]
 
 [ext_resource type="Script" path="res://ui/camp_btn.gd" id="1_i01h1"]
 [ext_resource type="Texture2D" uid="uid://dq2slww0p30ha" path="res://assets/white-blur-circle.png" id="2_77o0b"]
 [ext_resource type="Texture2D" uid="uid://dsn1gamotgqap" path="res://assets/icons/camp-sm.png" id="2_iq8o3"]
+[ext_resource type="PackedScene" uid="uid://s3tgow7ohope" path="res://ui/camp_marker.tscn" id="4_f16o1"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l4anf"]
 bg_color = Color(0.733333, 0.733333, 0.733333, 1)
@@ -51,7 +52,6 @@ _data = {
 }
 
 [node name="CampBtn" type="Button"]
-clip_contents = true
 offset_right = 150.0
 offset_bottom = 150.0
 theme_override_styles/normal = SubResource("StyleBoxFlat_l4anf")
@@ -85,6 +85,10 @@ text = " Camp"
 libraries = {
 "": SubResource("AnimationLibrary_88gi7")
 }
+
+[node name="CampMarker" parent="." instance=ExtResource("4_f16o1")]
+position = Vector2(259, -24)
+scale = Vector2(2, 2)
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

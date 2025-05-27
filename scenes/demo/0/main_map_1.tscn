@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://rypy816ox81w"]
+[gd_scene load_steps=21 format=3 uid="uid://rypy816ox81w"]
 
 [ext_resource type="Script" path="res://scenes/demo/3/main_map.gd" id="1_lkr7u"]
 [ext_resource type="Texture2D" uid="uid://btb8mvl3yl3uc" path="res://assets/scenes/demo/3/main_map_1.png" id="2_efcsm"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" path="res://scenes/demo/3/MapAreaIcon.gd" id="6_qbodh"]
 [ext_resource type="Texture2D" uid="uid://6rnmnolvbbad" path="res://assets/scenery/SunTemple.png" id="7_gy6oo"]
 [ext_resource type="Script" path="res://scenes/Pencil.gd" id="8_qxsnp"]
+[ext_resource type="Texture2D" uid="uid://d1gjbgpcy1qey" path="res://assets/icons/camp-sm-red-circle.png" id="9_h0nfo"]
 [ext_resource type="Texture2D" uid="uid://ddk3kke52g8s" path="res://assets/pencil.png" id="9_wd4ie"]
 [ext_resource type="PackedScene" uid="uid://k2fi3b6gssae" path="res://scenes/demo/3/map_area.tscn" id="10_fox11"]
 [ext_resource type="PackedScene" uid="uid://ct5hj6y17uxhy" path="res://scenes/demo/0/industrial_biome.tscn" id="11_sae43"]
@@ -15,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://dh2x4dfcujkno" path="res://scenes/demo/3/map_quest_arrow.tscn" id="14_1mjsi"]
 [ext_resource type="PackedScene" uid="uid://c33eiqhcif0vx" path="res://scenes/demo/3/map_pointer.tscn" id="15_1r7qj"]
 [ext_resource type="Texture2D" uid="uid://c3dgq5weopqv5" path="res://assets/icons/city.png" id="15_qtkdx"]
+[ext_resource type="PackedScene" uid="uid://s3868kcyxoi5" path="res://scenery/map_wall.tscn" id="16_x67i2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6vuwb"]
 size = Vector2(304, 2709)
@@ -120,41 +122,47 @@ position = Vector2(328, 11)
 [node name="MapNode2" parent="bg/MapGrid" instance=ExtResource("4_okkq4")]
 position = Vector2(483, 94)
 
-[node name="MapNode3" parent="bg/MapGrid" instance=ExtResource("4_okkq4")]
-position = Vector2(512, 437)
-
-[node name="MapNode4" parent="bg/MapGrid" instance=ExtResource("4_okkq4")]
-position = Vector2(626, 572)
-
-[node name="MapNode5" parent="bg/MapGrid" instance=ExtResource("4_okkq4")]
-position = Vector2(554, 624)
-
 [node name="MapNode6" parent="bg/MapGrid" instance=ExtResource("4_okkq4")]
-position = Vector2(321, 615)
-
-[node name="MapNode7" parent="bg/MapGrid" instance=ExtResource("4_okkq4")]
-position = Vector2(229, 781)
+position = Vector2(261, 664)
 
 [node name="MapNode8" parent="bg/MapGrid" instance=ExtResource("4_okkq4")]
-position = Vector2(206, 869)
+position = Vector2(381, 594)
+
+[node name="MapNode7" parent="bg/MapGrid" instance=ExtResource("4_okkq4")]
+position = Vector2(215, 779)
 
 [node name="MapNode9" parent="bg/MapGrid" instance=ExtResource("4_okkq4")]
-position = Vector2(206, 948)
+position = Vector2(222, 927)
 
 [node name="MapNode10" parent="bg/MapGrid" instance=ExtResource("4_okkq4")]
 position = Vector2(305, 993)
-
-[node name="MapNode11" parent="bg/MapGrid" instance=ExtResource("4_okkq4")]
-position = Vector2(110, 1011)
-
-[node name="MapNode12" parent="bg/MapGrid" instance=ExtResource("4_okkq4")]
-position = Vector2(128, 1105)
 
 [node name="MapNode13" parent="bg/MapGrid" instance=ExtResource("4_okkq4")]
 position = Vector2(431, 1148)
 
 [node name="MapNode14" parent="bg/MapGrid" instance=ExtResource("4_okkq4")]
 position = Vector2(130, 1435)
+
+[node name="MapNode18" parent="bg/MapGrid" instance=ExtResource("4_okkq4")]
+position = Vector2(645, 1006)
+
+[node name="MapNode21" parent="bg/MapGrid" instance=ExtResource("4_okkq4")]
+position = Vector2(579, 840)
+
+[node name="MapNode22" parent="bg/MapGrid" instance=ExtResource("4_okkq4")]
+position = Vector2(613, 732)
+
+[node name="MapNode25" parent="bg/MapGrid" instance=ExtResource("4_okkq4")]
+position = Vector2(411, 698)
+
+[node name="MapNode28" parent="bg/MapGrid" instance=ExtResource("4_okkq4")]
+position = Vector2(317, 751)
+
+[node name="MapNode19" parent="bg/MapGrid" instance=ExtResource("4_okkq4")]
+position = Vector2(879, 1333)
+
+[node name="MapNode20" parent="bg/MapGrid" instance=ExtResource("4_okkq4")]
+position = Vector2(810, 1459)
 
 [node name="MapNode15" parent="bg/MapGrid" instance=ExtResource("4_okkq4")]
 position = Vector2(532, 1606)
@@ -165,21 +173,6 @@ position = Vector2(473, 1692)
 [node name="MapNode17" parent="bg/MapGrid" instance=ExtResource("4_okkq4")]
 position = Vector2(557, 1752)
 
-[node name="MapNode18" parent="bg/MapGrid" instance=ExtResource("4_okkq4")]
-position = Vector2(405, 1902)
-
-[node name="MapNode19" parent="bg/MapGrid" instance=ExtResource("4_okkq4")]
-position = Vector2(634, 2296)
-
-[node name="MapNode20" parent="bg/MapGrid" instance=ExtResource("4_okkq4")]
-position = Vector2(526, 1905)
-
-[node name="MapNode21" parent="bg/MapGrid" instance=ExtResource("4_okkq4")]
-position = Vector2(736, 2210)
-
-[node name="MapNode22" parent="bg/MapGrid" instance=ExtResource("4_okkq4")]
-position = Vector2(920, 2420)
-
 [node name="MapNode23" parent="bg/MapGrid" instance=ExtResource("4_okkq4")]
 position = Vector2(755, 1633)
 
@@ -189,20 +182,11 @@ position = Vector2(991, 1483)
 [node name="MapNode49" parent="bg/MapGrid" instance=ExtResource("4_okkq4")]
 position = Vector2(907, 1504)
 
-[node name="MapNode50" parent="bg/MapGrid" instance=ExtResource("4_okkq4")]
-position = Vector2(1005, 1360)
-
-[node name="MapNode25" parent="bg/MapGrid" instance=ExtResource("4_okkq4")]
-position = Vector2(996, 1280)
-
 [node name="MapNode26" parent="bg/MapGrid" instance=ExtResource("4_okkq4")]
 position = Vector2(1179, 1334)
 
 [node name="MapNode27" parent="bg/MapGrid" instance=ExtResource("4_okkq4")]
 position = Vector2(1459, 1620)
-
-[node name="MapNode28" parent="bg/MapGrid" instance=ExtResource("4_okkq4")]
-position = Vector2(1470, 1753)
 
 [node name="MapNode29" parent="bg/MapGrid" instance=ExtResource("4_okkq4")]
 position = Vector2(1611, 1807)
@@ -210,65 +194,8 @@ position = Vector2(1611, 1807)
 [node name="MapNode30" parent="bg/MapGrid" instance=ExtResource("4_okkq4")]
 position = Vector2(1579, 1717)
 
-[node name="MapNode31" parent="bg/MapGrid" instance=ExtResource("4_okkq4")]
-position = Vector2(1577, 1580)
-
-[node name="MapNode32" parent="bg/MapGrid" instance=ExtResource("4_okkq4")]
-position = Vector2(710, 864)
-
-[node name="MapNode51" parent="bg/MapGrid" instance=ExtResource("4_okkq4")]
-position = Vector2(755, 803)
-
-[node name="MapNode33" parent="bg/MapGrid" instance=ExtResource("4_okkq4")]
-position = Vector2(744, 946)
-
-[node name="MapNode34" parent="bg/MapGrid" instance=ExtResource("4_okkq4")]
-position = Vector2(995, 624)
-
-[node name="MapNode35" parent="bg/MapGrid" instance=ExtResource("4_okkq4")]
-position = Vector2(2128, 895)
-
-[node name="MapNode36" parent="bg/MapGrid" instance=ExtResource("4_okkq4")]
-position = Vector2(2248, 677)
-
-[node name="MapNode37" parent="bg/MapGrid" instance=ExtResource("4_okkq4")]
-position = Vector2(2324, 698)
-
-[node name="MapNode38" parent="bg/MapGrid" instance=ExtResource("4_okkq4")]
-position = Vector2(3094, 1527)
-
-[node name="MapNode39" parent="bg/MapGrid" instance=ExtResource("4_okkq4")]
-position = Vector2(1595, 208)
-
-[node name="MapNode40" parent="bg/MapGrid" instance=ExtResource("4_okkq4")]
-position = Vector2(1753, 213)
-
-[node name="MapNode41" parent="bg/MapGrid" instance=ExtResource("4_okkq4")]
-position = Vector2(1472, 264)
-
-[node name="MapNode42" parent="bg/MapGrid" instance=ExtResource("4_okkq4")]
-position = Vector2(1340, 161)
-
 [node name="MapNode43" parent="bg/MapGrid" instance=ExtResource("4_okkq4")]
 position = Vector2(1619, 35)
-
-[node name="MapNode44" parent="bg/MapGrid" instance=ExtResource("4_okkq4")]
-position = Vector2(1945, 160)
-
-[node name="MapNode45" parent="bg/MapGrid" instance=ExtResource("4_okkq4")]
-position = Vector2(2205, 465)
-
-[node name="MapNode52" parent="bg/MapGrid" instance=ExtResource("4_okkq4")]
-position = Vector2(2315, 513)
-
-[node name="MapNode53" parent="bg/MapGrid" instance=ExtResource("4_okkq4")]
-position = Vector2(2437, 451)
-
-[node name="MapNode46" parent="bg/MapGrid" instance=ExtResource("4_okkq4")]
-position = Vector2(757, 496)
-
-[node name="MapNode47" parent="bg/MapGrid" instance=ExtResource("4_okkq4")]
-position = Vector2(607, 403)
 
 [node name="MapNode48" parent="bg/MapGrid" instance=ExtResource("4_okkq4")]
 position = Vector2(602, 120)
@@ -294,12 +221,14 @@ position = Vector2(2050, 2269)
 scale = Vector2(0.8, 0.8)
 script = ExtResource("8_qxsnp")
 
-[node name="Star" type="Polygon2D" parent="Pencil"]
+[node name="Star" type="Sprite2D" parent="Pencil"]
 visible = false
+z_index = 1200
 scale = Vector2(0.5, 0.5)
-polygon = PackedVector2Array(-81.2501, 15, -23.75, -10, -21.25, -56.25, 13.75, -17.5, 68.75, -40, 40, 7.5, 87.5, 50, 17.5, 38.75, -16.25, 91.2501, -20, 33.75)
+texture = ExtResource("9_h0nfo")
 
 [node name="Line" type="Line2D" parent="Pencil/Star"]
+z_index = -2000
 position = Vector2(0, 52.5)
 points = PackedVector2Array(-81.2501, -33.75, 92.5, 7.5, -27.5, -127.5, -16.25, 45, 73.75, -107.5, -83.7501, -36.25)
 width = 20.0
@@ -339,6 +268,7 @@ trigger_name = "ReachDestination"
 visible = false
 
 [node name="MapQuestArrow" parent="." node_paths=PackedStringArray("pencil") instance=ExtResource("14_1mjsi")]
+self_modulate = Color(0.847059, 0.486275, 0, 0.592157)
 position = Vector2(2064, 2276)
 pencil = NodePath("../Pencil")
 
@@ -349,3 +279,63 @@ position = Vector2(-70, -30)
 position = Vector2(295, 0)
 scale = Vector2(0.55, 0.55)
 texture = ExtResource("15_qtkdx")
+
+[node name="MapWall0" parent="." instance=ExtResource("16_x67i2")]
+position = Vector2(1788, 1684)
+notification = "I think there's a more direct route than this."
+
+[node name="MapWall1" parent="." instance=ExtResource("16_x67i2")]
+position = Vector2(1404, 1828)
+notification = "I think there's a more direct route than this."
+
+[node name="MapWall2" parent="." instance=ExtResource("16_x67i2")]
+position = Vector2(1668, 1484)
+notification = "I think there's a more direct route than this."
+
+[node name="MapWall3" parent="." instance=ExtResource("16_x67i2")]
+position = Vector2(982, 1288)
+notification = "I think there's a more direct route than this."
+
+[node name="MapWall4" parent="." instance=ExtResource("16_x67i2")]
+position = Vector2(790, 1778)
+notification = "I think there's a more direct route than this."
+
+[node name="MapWall5" parent="." instance=ExtResource("16_x67i2")]
+position = Vector2(508, 1860)
+notification = "I think there's a more direct route than this."
+
+[node name="MapWall6" parent="." instance=ExtResource("16_x67i2")]
+position = Vector2(400, 1816)
+notification = "I think there's a more direct route than this."
+
+[node name="MapWall7" parent="." instance=ExtResource("16_x67i2")]
+position = Vector2(-6, 1528)
+notification = "I think there's a more direct route than this."
+
+[node name="MapWall8" parent="." instance=ExtResource("16_x67i2")]
+position = Vector2(216, 1078)
+notification = "I think there's a more direct route than this."
+
+[node name="MapWall9" parent="." instance=ExtResource("16_x67i2")]
+position = Vector2(92, 1004)
+notification = "I think there's a more direct route than this."
+
+[node name="MapWall10" parent="." instance=ExtResource("16_x67i2")]
+position = Vector2(92, 770)
+notification = "I think there's a more direct route than this."
+
+[node name="MapWall11" parent="." instance=ExtResource("16_x67i2")]
+position = Vector2(588, 602)
+notification = "Now I've gone too far. Better trace back."
+
+[node name="MapWall12" parent="." instance=ExtResource("16_x67i2")]
+position = Vector2(1093, 1200)
+notification = "I think there's a more direct route than this."
+
+[node name="MapWall13" parent="." instance=ExtResource("16_x67i2")]
+position = Vector2(2247, 2470)
+notification = "That's not the way to the ruin."
+
+[node name="MapWall14" parent="." instance=ExtResource("16_x67i2")]
+position = Vector2(2247, 2470)
+notification = "That's not the way to the ruin."

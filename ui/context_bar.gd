@@ -14,13 +14,16 @@ func refresh_context():
 	notify()
 
 func _get_visible():
-	if not game.chapter:
+	var ret = true
+	if game.chapter == null:
 		return false
 	if game.chapter.cutscene:
-		return false
+		ret = false
 	if game.cur_modal:
-		return false
-	return true
+		ret = false
+	if visible and not ret:
+		$Player.play("RESET")
+	return ret
 
 func refresh_visible():
 	is_visible = _get_visible()
@@ -34,7 +37,7 @@ func notify():
 	clear()
 	text = game.context_notification
 	replace()
-	$Player.play("show")
+	$Player.play("show", -1, 1.5)
 
 func _process(_delta):
 	refresh_context()

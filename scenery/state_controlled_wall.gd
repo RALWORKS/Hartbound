@@ -1,5 +1,6 @@
 extends Node2D
 
+@export var body_method = "is_player"
 @export var block_state_micro_tag: String
 @export var block_if = false
 @export_multiline var notification = ""
@@ -7,19 +8,22 @@ extends Node2D
 var is_blocking = true
 var was_blocking = true
 
-var wall: CollisionPolygon2D
-var sensor: CollisionPolygon2D
+var wall: Node
+var sensor: Node
 
 var game
 
 func refresh():
-	var _state = game.get_state(["micro_progress", block_state_micro_tag])
-	var state = _state == true
+	if block_state_micro_tag.length() == 0:
+		is_blocking = true
+	else:
+		var _state = game.get_state(["micro_progress", block_state_micro_tag])
+		var state = _state == true
 
-	var is_blocking = state
+		is_blocking = state
 
-	if not block_if:
-		is_blocking = not state
+		if not block_if:
+			is_blocking = not state
 	
 	if is_blocking == was_blocking:
 		return
@@ -66,7 +70,7 @@ func _process(delta):
 
 
 func _on_sensor_container_body_entered(body):
-	if not body.has_method("is_player"):
+	if not body.has_method(body_method) and not body_method in body:
 		return
 	if notification.length() == 0:
 		return
