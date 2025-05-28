@@ -1,3 +1,4 @@
+class_name Cutscene
 extends Node2D
 
 @export var to_chapter: String = ""
@@ -14,6 +15,7 @@ var page = null
 var npc_id = null
 
 @export var free_us_first: Array[Node]
+@export_multiline var closing_notification = ""
 
 var teleport_to = null
 

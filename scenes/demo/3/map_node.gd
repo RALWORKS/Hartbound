@@ -1,3 +1,5 @@
+class_name MapNode
+
 extends Sprite2D
 
 signal crossed
@@ -17,6 +19,12 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
+	pass
+
+func cross():
+	pass
+
+func uncross():
 	pass
 
 func mark_entry(pencil: CharacterBody2D):

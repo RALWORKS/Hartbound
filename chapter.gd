@@ -162,6 +162,7 @@ func end_cutscene(free=false):
 	var sequence = cutscene.cutscene_sequence
 	var teleport_to = cutscene.teleport_to
 	var is_move = cutscene.is_move
+	var notification = cutscene.closing_notification
 	print("ENDSCENE VARS SET")
 	
 	var holdouts = []
@@ -201,6 +202,8 @@ func end_cutscene(free=false):
 		$"/root/Game/Map".move_to(teleport_to)
 		teleport_to.spawn(game)
 		$"/root/Game".save_room(teleport_to.scene_file_path, null)
+	if notification:
+		game.notify(notification)
 
 func update_cutscene_page(p):
 	cutscene.update_page(p)
@@ -221,14 +224,15 @@ func to_map():
 	$"../MainScreen/World".call_deferred("add_child", active_map)
 	active_map.load_position($"/root/Game")
 
-func close_map(biome):
+func _clean_up_map():
 	active_map.call_deferred("free")
 	await get_tree().create_timer(0.05).timeout
 	#$"/root/Game".move()
-	
 	active_map = null
-	
 	game.show_clock = true
+
+func close_map(biome):
+	_clean_up_map()
 	
 	if not biome:
 		game.load_position()
@@ -243,6 +247,17 @@ func close_map(biome):
 		return
 	
 	event.cutscene_input_data = biome
+	event.play()
+
+func close_map_to_encounter(encounter):
+	_clean_up_map()
+	
+	var event = get_next_map_event()
+	
+	if not event:
+		return
+	
+	event.cutscene_input_data = encounter
 	event.play()
 
 func get_character_dialogue(id):

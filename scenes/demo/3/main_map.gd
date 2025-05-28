@@ -63,25 +63,43 @@ func load_position(g):
 		return
 	pencil.position = p
 
-func save_position():
+func save_position(position=null):
 	var g = _get_game()
-	g.set_outer_position(pencil.position)
+	g.set_outer_position(position if position else pencil.position)
 
 func get_biome():
 	if active_area:
 		return active_area.biome
 	return default_biome
 
-func go():
-	if going:
-		return
-	going = true
+func _go_to_pencil():
 	save_position()
 	game.jump_over_moves($bg/MapGrid.time_expended())
 	
 	var biome = get_biome()
 	biome.get_parent().remove_child(biome)
 	$"/root/Game/Chapter".close_map(biome)
+
+func _go_to_encounter(e: MapEncounter, time_at: int):
+	save_position(e.position)
+	game.jump_over_moves(time_at)
+	e.get_parent().remove_child(e)
+	game.save_map_encounter(e)
+	$"/root/Game/Chapter".close_map_to_encounter(e)
+	
+
+func go():
+	if going:
+		return
+	going = true
+	
+	var encounter_data = $bg/MapGrid.get_encounter()
+	if encounter_data["e"] == null:
+		return _go_to_pencil()
+	return _go_to_encounter(
+		encounter_data["e"], encounter_data["time_at"]
+	)
+	
 
 func cancel():
 	$"/root/Game/Chapter".close_map(null)

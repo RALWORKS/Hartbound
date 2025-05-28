@@ -908,5 +908,16 @@ func notify(data):
 	await get_tree().create_timer(12).timeout
 	debounce_notifications = false
 
+func _init_map_encounters_if_needed():
+	var data = get_state(["micro_progress", "map_encounters"])
+	if data != null:
+		return data
+	return set_state(["micro_progress", "map_encounters"], [])
 
+func save_map_encounter(e):
+	var data = _init_map_encounters_if_needed()
+	return set_state(["micro_progress", "map_encounters"], [] + [e.name])
 
+func check_map_encounter(e):
+	var data = _init_map_encounters_if_needed()
+	return e.name in data

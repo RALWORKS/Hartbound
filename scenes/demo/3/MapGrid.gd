@@ -32,9 +32,11 @@ var MOD_COUNTER_BLOCKED = "#ff4444ff"
 var latest_time: int
 
 var projected_time: int
+var encounters: Array[MapEncounter]
+var encounter_times: Array[int]
 
 var StartMark = preload("res://scenes/demo/3/start_mark.tscn")
-var MapNode = preload("res://scenes/demo/3/map_node.tscn")
+var NewMapNode = preload("res://scenes/demo/3/map_node.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -47,7 +49,7 @@ func _ready():
 
 	make_starting_node()
 	for c in get_children():
-		if "MapNode" not in c.name:
+		if not c is MapNode and not c is MapEncounter:
 			print(c)
 			continue
 		nodes[c.name] = c
@@ -61,6 +63,18 @@ func _ready():
 	final_line.begin_cap_mode = Line2D.LINE_CAP_ROUND
 	add_child(final_line)
 
+func pop_encounter():
+	encounters.pop_back()
+	encounter_times.pop_back()
+
+func push_encounter(e: MapEncounter):
+	if $"/root/Game".check_map_encounter(e):
+		return
+	encounters.push_back(e)
+	encounter_times.push_back(time_expended())
+	print(encounters)
+
+
 func start_time():
 	return $"/root/Game".get_time()
 
@@ -71,7 +85,7 @@ func max_distance():
 	return $TimeUtils.moves_to_hours(allowed_time) * PX_PER_HOUR
 
 func make_starting_node():
-	var node = MapNode.instantiate()
+	var node = NewMapNode.instantiate()
 	node.name = "InitialPosition"
 	node.is_starting_node = true
 	node.position = pencil.position
@@ -107,9 +121,17 @@ func add_node(node):
 	add_child(last_line)
 	lines.push_back(last_line)
 	
+	print(node)
+	
+	if node is MapEncounter:
+		push_encounter(node)
+	
 
 func remove_last_node():
-	active_path.pop_back()
+	var node_name = active_path.pop_back()
+	var node = get_node(NodePath(node_name))
+	if node is MapEncounter:
+		pop_encounter()
 	var last_line = lines.pop_back()
 	if not last_line:
 		return
@@ -164,6 +186,11 @@ func throttle_pencil(v):
 		return true
 	$CanvasLayer/Counter/Data.modulate = MOD_COUNTER_OK
 	return false
+
+func get_encounter():
+	if encounters.size() == 0:
+		return {"e": null, "time_at": null}
+	return {"e": encounters[0], "time_at": encounter_times[0]}
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):

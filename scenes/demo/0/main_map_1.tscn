@@ -1,10 +1,12 @@
-[gd_scene load_steps=21 format=3 uid="uid://rypy816ox81w"]
+[gd_scene load_steps=23 format=3 uid="uid://rypy816ox81w"]
 
 [ext_resource type="Script" path="res://scenes/demo/3/main_map.gd" id="1_lkr7u"]
 [ext_resource type="Texture2D" uid="uid://btb8mvl3yl3uc" path="res://assets/scenes/demo/3/main_map_1.png" id="2_efcsm"]
 [ext_resource type="PackedScene" uid="uid://b5rgfy6xym7wc" path="res://scenes/demo/3/map_grid.tscn" id="3_x6ifa"]
 [ext_resource type="PackedScene" uid="uid://j136m6ggfj23" path="res://scenes/demo/3/map_node.tscn" id="4_okkq4"]
+[ext_resource type="PackedScene" uid="uid://c2isr3bs1eyiq" path="res://scenes/demo/3/map_encounter.tscn" id="5_fwm3e"]
 [ext_resource type="Texture2D" uid="uid://5o204l82u5dh" path="res://assets/scenery/RuinedCity.png" id="5_p05ag"]
+[ext_resource type="PackedScene" uid="uid://lw7adtj0heus" path="res://scenes/demo/3/camp_1.tscn" id="6_m60k7"]
 [ext_resource type="Script" path="res://scenes/demo/3/MapAreaIcon.gd" id="6_qbodh"]
 [ext_resource type="Texture2D" uid="uid://6rnmnolvbbad" path="res://assets/scenery/SunTemple.png" id="7_gy6oo"]
 [ext_resource type="Script" path="res://scenes/Pencil.gd" id="8_qxsnp"]
@@ -28,6 +30,7 @@ size = Vector2(3632, 327)
 radius = 24.2707
 
 [node name="DemoMap" type="Node2D" node_paths=PackedStringArray("pencil")]
+position = Vector2(-1, -1)
 script = ExtResource("1_lkr7u")
 pencil = NodePath("Pencil")
 
@@ -199,6 +202,11 @@ position = Vector2(1619, 35)
 
 [node name="MapNode48" parent="bg/MapGrid" instance=ExtResource("4_okkq4")]
 position = Vector2(602, 120)
+
+[node name="MapEncounter" parent="bg/MapGrid" instance=ExtResource("5_fwm3e")]
+position = Vector2(1377, 1536)
+destination_scene = ExtResource("6_m60k7")
+arrival_notification = "You are interrupted by a map encounter."
 
 [node name="RuinedCity" type="Sprite2D" parent="bg" node_paths=PackedStringArray("area")]
 modulate = Color(0.858824, 0.858824, 0.792157, 1)
