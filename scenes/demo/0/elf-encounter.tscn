@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://bvub1hhya5f00"]
+[gd_scene load_steps=18 format=3 uid="uid://bvub1hhya5f00"]
 
 [ext_resource type="PackedScene" uid="uid://byrlpmbpj6yr5" path="res://scene.tscn" id="1_umpqn"]
 [ext_resource type="Texture2D" uid="uid://dsfg855ag6psn" path="res://assets/forest-layers/bg/meadow1.png" id="2_pdhgl"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://dvc5fljktnvnr" path="res://chapters/demo/0/talsa.tscn" id="9_pk6j4"]
 [ext_resource type="PackedScene" uid="uid://db71c7m20acd5" path="res://chapters/demo/0/lying-and-kneeling-elves.tscn" id="10_3x5ki"]
 [ext_resource type="Texture2D" uid="uid://b6j8jd5bb1ivw" path="res://assets/scenery/Scrolling/long-hill.png" id="10_20uvq"]
+[ext_resource type="PackedScene" uid="uid://blhapbv7bnq0p" path="res://quests/quest_boundary.tscn" id="10_43u7p"]
 [ext_resource type="Texture2D" uid="uid://dwvf22vxkob24" path="res://assets/scenery/extra-tree-coloured/forest-cluster.png" id="12_an18u"]
 [ext_resource type="Shader" path="res://daylight.gdshader" id="13_shwr2"]
 [ext_resource type="Texture2D" uid="uid://dmk3dxuo4q0ie" path="res://assets/scenery/extra-tree-coloured-bright/pedestal-pine.png" id="15_om3eh"]
@@ -59,24 +60,34 @@ scale = Vector2(0.5, 0.5)
 texture = ExtResource("3_o7oct")
 flip_h = true
 
-[node name="DefaultSpawner" parent="YSort" index="0"]
-position = Vector2(1117, 588)
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="YSort" index="0"]
+position = Vector2(-328, -296)
+navigation_polygon = SubResource("NavigationPolygon_3kuim")
 
-[node name="BackCliffs" type="Sprite2D" parent="YSort" index="1"]
+[node name="QuestBoundary" parent="YSort" index="1" instance=ExtResource("10_43u7p")]
+trigger_name = "ElvesWarn"
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/QuestBoundary" index="1"]
+polygon = PackedVector2Array(936, 403, 1294, 909, 1511, 738, 1035, 251)
+
+[node name="DefaultSpawner" parent="YSort" index="2"]
+position = Vector2(1379, 427)
+
+[node name="BackCliffs" type="Sprite2D" parent="YSort" index="3"]
 position = Vector2(568, 292)
 scale = Vector2(0.75, 0.75)
 texture = ExtResource("4_5xadt")
 offset = Vector2(0, -58)
 flip_h = true
 
-[node name="Cliffs" type="Sprite2D" parent="YSort" index="2"]
+[node name="Cliffs" type="Sprite2D" parent="YSort" index="4"]
 position = Vector2(142, 650)
 scale = Vector2(0.75, 0.75)
 texture = ExtResource("6_qn3vj")
 offset = Vector2(0, -94)
 flip_h = true
 
-[node name="TreeAndRubble" type="Sprite2D" parent="YSort" index="3"]
+[node name="TreeAndRubble" type="Sprite2D" parent="YSort" index="5"]
 modulate = Color(0.92549, 0.92549, 0.92549, 1)
 position = Vector2(1016, 132)
 scale = Vector2(0.5, 0.5)
@@ -84,14 +95,10 @@ texture = ExtResource("6_sbilg")
 offset = Vector2(0, -297)
 flip_h = true
 
-[node name="NavigationRegion2D" type="NavigationRegion2D" parent="YSort" index="4"]
-position = Vector2(-328, -296)
-navigation_polygon = SubResource("NavigationPolygon_3kuim")
-
-[node name="Talsa" parent="YSort" index="5" instance=ExtResource("9_pk6j4")]
+[node name="Talsa" parent="YSort" index="6" instance=ExtResource("9_pk6j4")]
 position = Vector2(1024, 434)
 
-[node name="Elves" parent="YSort" index="6" instance=ExtResource("10_3x5ki")]
+[node name="Elves" parent="YSort" index="7" instance=ExtResource("10_3x5ki")]
 position = Vector2(960, 402)
 scale = Vector2(-0.8, 0.8)
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://dgtv4htdskbdq"]
+[gd_scene load_steps=22 format=3 uid="uid://dgtv4htdskbdq"]
 
 [ext_resource type="PackedScene" uid="uid://bh1yfkyt3u44i" path="res://chapter.tscn" id="1_ia6rp"]
 [ext_resource type="PackedScene" uid="uid://cog1hph357ikp" path="res://scenes/demo/0/suntemple-ground-1.tscn" id="2_om1c3"]
@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://c7lymsem7jrin" path="res://chapter_event_trigger.tscn" id="12_3h03g"]
 [ext_resource type="PackedScene" uid="uid://dejcikisaj25s" path="res://chapters/demo/0/nate_base_dialogue.tscn" id="12_oj521"]
 [ext_resource type="PackedScene" uid="uid://b4bjxm5wbrlvc" path="res://chapter_change_mutation.tscn" id="12_qypo8"]
+[ext_resource type="PackedScene" uid="uid://bgajcq8sl7ldq" path="res://chapters/demo/0/elf_encounter_cutscene.tscn" id="12_us08f"]
 [ext_resource type="PackedScene" uid="uid://d2bsdc1lljan4" path="res://chapters/demo/0/jerry_base_dialogue.tscn" id="13_l15yd"]
 [ext_resource type="PackedScene" uid="uid://cntlm7r5rk0tr" path="res://chapters/demo/prologue/travel_cutscene_1.tscn" id="14_gswcl"]
 [ext_resource type="PackedScene" uid="uid://bcinc4blag4el" path="res://music.tscn" id="19_ni4d3"]
@@ -77,7 +78,10 @@ state_path_slash_delineated = "micro_progress/time-to-go"
 data = "true"
 parse_data_as_bool = true
 
-[node name="GOTOCh1" parent="Events" index="4" instance=ExtResource("11_4huc8")]
+[node name="ElvesWarn" parent="Events" index="4" instance=ExtResource("11_4huc8")]
+cutscene = ExtResource("12_us08f")
+
+[node name="GOTOCh1" parent="Events" index="5" instance=ExtResource("11_4huc8")]
 abort_save = true
 
 [node name="ClearParty" parent="Events/GOTOCh1" index="0" instance=ExtResource("8_8sw7r")]
@@ -92,6 +96,9 @@ event_name = "GetBrona"
 
 [node name="ReachDestination" parent="Triggers" index="1" instance=ExtResource("12_3h03g")]
 event_name = "GOTOCh1"
+
+[node name="ElvesWarn" parent="Triggers" index="2" instance=ExtResource("12_3h03g")]
+event_name = "ElvesWarn"
 
 [node name="DefaultWalk" parent="MapEvents" index="0" instance=ExtResource("11_4huc8")]
 cutscene = ExtResource("14_gswcl")

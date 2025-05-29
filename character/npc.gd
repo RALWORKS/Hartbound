@@ -18,6 +18,7 @@ var cur_collision = null
 var disable_all = false
 
 @export var base_dialogue: Resource = null
+@export_multiline var fallback_action_text = ""
 var triggering_interact = false
 
 @export var character_name: String = ""
@@ -287,6 +288,14 @@ func _handle_collisions(delta, collision, input_direction):
 func get_p():
 	return position
 
+func leader_chain():
+	var leaders = []
+	var person = self
+	while "leader" in person and person.leader != null:
+		leaders.push_back(person.leader)
+		person = person.leader
+	return leaders
+
 func follow(delta):
 	_throttle(delta)
 	if (
@@ -295,9 +304,10 @@ func follow(delta):
 		stuck_counter = 0
 		waiting = true
 		leader.follower_arrived()
-		if (position.distance_to(leader.get_p()) < leader.personal_space):
-			# get out of the way
-			return Vector2.from_angle(get_angle_to(leader.get_p()) + 180)
+		for l in leader_chain():
+			if (position.distance_to(l.get_p()) < l.personal_space):
+				# get out of the way
+				return Vector2.from_angle(get_angle_to(l.get_p()) + 180)
 		return Vector2(0, 0)
 	waiting = false
 	if not navigation_agent.is_navigation_finished() and stuck_counter < 3 and meaningfully_moving:
@@ -393,12 +403,19 @@ func get_dialogue():
 		return glob
 	return base_dialogue
 
+func notify_no_dialogue():
+	if fallback_action_text.length() == 0:
+		return
+	$"/root/Game".notify(fallback_action_text)
+
 func action():
 	if process_mode == Node.PROCESS_MODE_DISABLED or disabled:
 		return
 	var dialogue = get_dialogue()
 	if not paused and dialogue != null:
 		$"/root/Game/Chapter".start_cutscene(dialogue, self)
+	elif not paused:
+		notify_no_dialogue()
 
 	return
 	

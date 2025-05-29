@@ -14,6 +14,7 @@ height = 232.833
 [node name="Elves" instance=ExtResource("1_sxodw")]
 scale = Vector2(0.8, 0.8)
 id = "lying-and-kneeling-elves"
+fallback_action_text = "These two don't really look up to talking."
 character_name = "Elves"
 
 [node name="char" parent="." index="0"]

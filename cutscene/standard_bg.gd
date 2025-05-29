@@ -6,6 +6,9 @@ class_name StandardBg
 
 var daylight = preload("res://effects/daylight/daylight_filter_standard_size.tscn")
 
+@export var standard_bg_offset = Vector2(0, 0)
+@export var relative_scale = Vector2(1, 1)
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	load_texture()
@@ -30,5 +33,5 @@ func load_texture():
 	bg.position = Vector2(200, 0)
 	# bg.modulate = "#ffffff88"
 	add_child(bg)
-	bg.scale = game.get_standard_bg_scale()
-	bg.position = game.get_standard_bg_position()
+	bg.scale = game.get_standard_bg_scale() * relative_scale
+	bg.position = game.get_standard_bg_position() + standard_bg_offset

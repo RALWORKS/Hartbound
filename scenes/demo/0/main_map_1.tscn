@@ -206,7 +206,6 @@ position = Vector2(602, 120)
 [node name="ElfEncounter" parent="bg/MapGrid" instance=ExtResource("5_fwm3e")]
 position = Vector2(1740, 1956)
 destination_scene = ExtResource("6_kv8c3")
-arrival_notification = "A small group of elves waves you over as you pass them by."
 
 [node name="RuinedCity" type="Sprite2D" parent="bg" node_paths=PackedStringArray("area")]
 modulate = Color(0.858824, 0.858824, 0.792157, 1)
