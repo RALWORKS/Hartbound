@@ -96,10 +96,10 @@ offset = Vector2(0, -297)
 flip_h = true
 
 [node name="Talsa" parent="YSort" index="6" instance=ExtResource("9_pk6j4")]
-position = Vector2(1024, 434)
+position = Vector2(977, 395)
 
 [node name="Elves" parent="YSort" index="7" instance=ExtResource("10_3x5ki")]
-position = Vector2(960, 402)
+position = Vector2(843, 404)
 scale = Vector2(-0.8, 0.8)
 
 [node name="MainDaylightFilter" parent="Filters" index="0"]

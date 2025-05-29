@@ -8,7 +8,7 @@ radius = 38.5714
 height = 211.428
 
 [node name="Talsa" instance=ExtResource("1_uw6sa")]
-scale = Vector2(0.8, 0.8)
+scale = Vector2(0.85, 0.85)
 id = "talsa"
 fallback_action_text = "It seems like she's said all she cares to say."
 character_name = "Tálsa"
