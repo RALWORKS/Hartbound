@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://j136m6ggfj23" path="res://scenes/demo/3/map_node.tscn" id="4_okkq4"]
 [ext_resource type="PackedScene" uid="uid://c2isr3bs1eyiq" path="res://scenes/demo/3/map_encounter.tscn" id="5_fwm3e"]
 [ext_resource type="Texture2D" uid="uid://5o204l82u5dh" path="res://assets/scenery/RuinedCity.png" id="5_p05ag"]
-[ext_resource type="PackedScene" uid="uid://lw7adtj0heus" path="res://scenes/demo/3/camp_1.tscn" id="6_m60k7"]
+[ext_resource type="PackedScene" uid="uid://bvub1hhya5f00" path="res://scenes/demo/0/elf-encounter.tscn" id="6_kv8c3"]
 [ext_resource type="Script" path="res://scenes/demo/3/MapAreaIcon.gd" id="6_qbodh"]
 [ext_resource type="Texture2D" uid="uid://6rnmnolvbbad" path="res://assets/scenery/SunTemple.png" id="7_gy6oo"]
 [ext_resource type="Script" path="res://scenes/Pencil.gd" id="8_qxsnp"]
@@ -203,10 +203,10 @@ position = Vector2(1619, 35)
 [node name="MapNode48" parent="bg/MapGrid" instance=ExtResource("4_okkq4")]
 position = Vector2(602, 120)
 
-[node name="MapEncounter" parent="bg/MapGrid" instance=ExtResource("5_fwm3e")]
-position = Vector2(1377, 1536)
-destination_scene = ExtResource("6_m60k7")
-arrival_notification = "You are interrupted by a map encounter."
+[node name="ElfEncounter" parent="bg/MapGrid" instance=ExtResource("5_fwm3e")]
+position = Vector2(1740, 1956)
+destination_scene = ExtResource("6_kv8c3")
+arrival_notification = "A small group of elves waves you over as you pass them by."
 
 [node name="RuinedCity" type="Sprite2D" parent="bg" node_paths=PackedStringArray("area")]
 modulate = Color(0.858824, 0.858824, 0.792157, 1)

@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://dvc5fljktnvnr"]
+
+[ext_resource type="PackedScene" uid="uid://bl3qjgb340prl" path="res://character/npc.tscn" id="1_uw6sa"]
+[ext_resource type="Texture2D" uid="uid://b2ojyalful33h" path="res://assets/npcs/talsa/talsa-small.png" id="2_gl2y8"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cxi06"]
+radius = 38.5714
+height = 211.428
+
+[node name="Talsa" instance=ExtResource("1_uw6sa")]
+scale = Vector2(0.8, 0.8)
+id = "talsa"
+character_name = "Tálsa"
+
+[node name="char" parent="." index="0"]
+texture = ExtResource("2_gl2y8")
+hframes = 1
+vframes = 1
+
+[node name="CollisionShape2D" parent="InteractionArea" index="1"]
+shape = SubResource("CapsuleShape2D_cxi06")

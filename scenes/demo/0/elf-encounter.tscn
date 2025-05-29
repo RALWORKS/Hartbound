@@ -1,0 +1,139 @@
+[gd_scene load_steps=17 format=3 uid="uid://bvub1hhya5f00"]
+
+[ext_resource type="PackedScene" uid="uid://byrlpmbpj6yr5" path="res://scene.tscn" id="1_umpqn"]
+[ext_resource type="Texture2D" uid="uid://dsfg855ag6psn" path="res://assets/forest-layers/bg/meadow1.png" id="2_pdhgl"]
+[ext_resource type="Texture2D" uid="uid://ccdd020kenm4q" path="res://assets/forest-layers/bg/mossy-stone.png" id="2_sj4tj"]
+[ext_resource type="Texture2D" uid="uid://bou5woe6lxrdn" path="res://assets/forest-layers/i1/2_tracks.png" id="3_o7oct"]
+[ext_resource type="Texture2D" uid="uid://d0egx3cj3dcla" path="res://assets/forest-layers/1/7_rocky_mound.png" id="4_5xadt"]
+[ext_resource type="Texture2D" uid="uid://c5gkwi2jowp5e" path="res://assets/forest-layers/1/8_cliffs.png" id="6_qn3vj"]
+[ext_resource type="Texture2D" uid="uid://nwsqvjdnlosw" path="res://assets/scenery/extra-tree-coloured-bright/trees-and-broken-stone.png" id="6_sbilg"]
+[ext_resource type="Texture2D" uid="uid://b6kadcwi4l4t3" path="res://assets/forest-layers/3/2_corner_hill.png" id="7_q1jbf"]
+[ext_resource type="PackedScene" uid="uid://dvc5fljktnvnr" path="res://chapters/demo/0/talsa.tscn" id="9_pk6j4"]
+[ext_resource type="PackedScene" uid="uid://db71c7m20acd5" path="res://chapters/demo/0/lying-and-kneeling-elves.tscn" id="10_3x5ki"]
+[ext_resource type="Texture2D" uid="uid://b6j8jd5bb1ivw" path="res://assets/scenery/Scrolling/long-hill.png" id="10_20uvq"]
+[ext_resource type="Texture2D" uid="uid://dwvf22vxkob24" path="res://assets/scenery/extra-tree-coloured/forest-cluster.png" id="12_an18u"]
+[ext_resource type="Shader" path="res://daylight.gdshader" id="13_shwr2"]
+[ext_resource type="Texture2D" uid="uid://dmk3dxuo4q0ie" path="res://assets/scenery/extra-tree-coloured-bright/pedestal-pine.png" id="15_om3eh"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_3kuim"]
+vertices = PackedVector2Array(1075, 809, 708, 696, 1675, 746, 1917, 409, 1973, 857, 1138, 1313, 1053, 1019, 443, 1397, 430, 1102)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2), PackedInt32Array(2, 3, 4), PackedInt32Array(0, 2, 4, 5, 6), PackedInt32Array(6, 5, 7, 8)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(430, 1102, 443, 1397, 1138, 1313, 1973, 857, 1917, 409, 1675, 746, 708, 696, 1075, 809, 1053, 1019)])
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7p3k7"]
+resource_local_to_scene = true
+shader = ExtResource("13_shwr2")
+shader_parameter/darken = 0.0
+shader_parameter/saturate = 1.0
+shader_parameter/contrast = 1.0
+shader_parameter/warmth = 0.5
+
+[node name="Camp4" instance=ExtResource("1_umpqn")]
+
+[node name="Background" parent="." index="0"]
+position = Vector2(-2, 0)
+texture = ExtResource("2_pdhgl")
+hframes = 2
+vframes = 2
+frame = 3
+
+[node name="stonebg" type="Polygon2D" parent="Background" index="0"]
+texture = ExtResource("2_sj4tj")
+polygon = PackedVector2Array(-38, 1354, 1775, 282, 1770, 1216)
+
+[node name="Main" type="CollisionPolygon2D" parent="Background/StaticBody2D" index="0"]
+polygon = PackedVector2Array(1040, -15, 1080, 75, 1238, 157, 1329, 188, 1204, 214, 1114, 245, 1276, 350, 298, 350, 248, 385, 213, 405, 172, 409, 10, 514, 522, 575, 637, 663, 563, 698, 14, 714, 8, 1289, 235, 1216, 724, 1189, 1284, 1051, 1570, 813, 1671, 587, 1675, 463, 1660, 280, 1767, 398, 1770, 1427, -261, 1407, -258, -97)
+
+[node name="ExitBlocker" type="CollisionPolygon2D" parent="Background/StaticBody2D" index="1"]
+polygon = PackedVector2Array(1651, 6, 1643, 416, 1807, 413, 1792, -158, 924, -195, 933, -8)
+
+[node name="Tracks" type="Sprite2D" parent="Background" index="2"]
+position = Vector2(627, 879)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_o7oct")
+flip_h = true
+
+[node name="Tracks2" type="Sprite2D" parent="Background" index="3"]
+position = Vector2(1200, 545)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_o7oct")
+flip_h = true
+
+[node name="DefaultSpawner" parent="YSort" index="0"]
+position = Vector2(1117, 588)
+
+[node name="BackCliffs" type="Sprite2D" parent="YSort" index="1"]
+position = Vector2(568, 292)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("4_5xadt")
+offset = Vector2(0, -58)
+flip_h = true
+
+[node name="Cliffs" type="Sprite2D" parent="YSort" index="2"]
+position = Vector2(142, 650)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("6_qn3vj")
+offset = Vector2(0, -94)
+flip_h = true
+
+[node name="TreeAndRubble" type="Sprite2D" parent="YSort" index="3"]
+modulate = Color(0.92549, 0.92549, 0.92549, 1)
+position = Vector2(1016, 132)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("6_sbilg")
+offset = Vector2(0, -297)
+flip_h = true
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="YSort" index="4"]
+position = Vector2(-328, -296)
+navigation_polygon = SubResource("NavigationPolygon_3kuim")
+
+[node name="Talsa" parent="YSort" index="5" instance=ExtResource("9_pk6j4")]
+position = Vector2(1024, 434)
+
+[node name="Elves" parent="YSort" index="6" instance=ExtResource("10_3x5ki")]
+position = Vector2(960, 402)
+scale = Vector2(-0.8, 0.8)
+
+[node name="MainDaylightFilter" parent="Filters" index="0"]
+daylight_shader = SubResource("ShaderMaterial_7p3k7")
+
+[node name="Hill" type="Sprite2D" parent="." index="3"]
+position = Vector2(1388, 650)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("7_q1jbf")
+flip_h = true
+
+[node name="Polygon2D" type="Polygon2D" parent="." index="4"]
+color = Color(0.94902, 0.941176, 0.639216, 1)
+texture = ExtResource("2_pdhgl")
+polygon = PackedVector2Array(-55, 1294, 136, 1203, 240, 1158, 444, 1173, 872, 1150, 1122, 1203, 1182, 1316)
+
+[node name="BottomHill" type="Sprite2D" parent="." index="5"]
+position = Vector2(666, 1145)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("10_20uvq")
+
+[node name="PedestalPine" type="Sprite2D" parent="." index="6"]
+modulate = Color(0.92549, 0.92549, 0.92549, 1)
+position = Vector2(1075, 1107)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("15_om3eh")
+
+[node name="PedestalPine2" type="Sprite2D" parent="." index="7"]
+modulate = Color(0.92549, 0.92549, 0.92549, 1)
+position = Vector2(164, 1157)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("15_om3eh")
+
+[node name="ClumpOfTrees" type="Sprite2D" parent="." index="8"]
+modulate = Color(0.92549, 0.92549, 0.92549, 1)
+position = Vector2(1473, 1041)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("12_an18u")
+
+[node name="ClumpOfTrees2" type="Sprite2D" parent="." index="9"]
+modulate = Color(0.92549, 0.92549, 0.92549, 1)
+position = Vector2(785, 1384)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("12_an18u")

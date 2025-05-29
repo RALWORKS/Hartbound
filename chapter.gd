@@ -266,6 +266,8 @@ func get_character_dialogue(id):
 		if c.id == id:
 			data = c
 			break
+	if not data:
+		return
 	return data.dialogue
 
 
