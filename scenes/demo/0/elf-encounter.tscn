@@ -45,7 +45,7 @@ texture = ExtResource("2_sj4tj")
 polygon = PackedVector2Array(-38, 1354, 1775, 282, 1770, 1216)
 
 [node name="Main" type="CollisionPolygon2D" parent="Background/StaticBody2D" index="0"]
-polygon = PackedVector2Array(1040, -15, 1080, 75, 1238, 157, 1329, 188, 1204, 214, 1114, 245, 1276, 350, 298, 350, 248, 385, 213, 405, 172, 409, 10, 514, 522, 575, 637, 663, 563, 698, 14, 714, 8, 1289, 235, 1216, 724, 1189, 1284, 1051, 1570, 813, 1671, 587, 1675, 463, 1660, 280, 1767, 398, 1770, 1427, -261, 1407, -258, -97)
+polygon = PackedVector2Array(1040, -15, 1080, 75, 1238, 157, 1329, 188, 1204, 214, 1114, 245, 1276, 350, 298, 350, 248, 385, 213, 405, 172, 409, 10, 514, 522, 575, 637, 663, 563, 698, 14, 714, 16, 1331, 262, 1257, 724, 1189, 1284, 1051, 1570, 813, 1671, 587, 1675, 463, 1660, 280, 1767, 398, 1770, 1427, -261, 1407, -258, -97)
 
 [node name="ExitBlocker" type="CollisionPolygon2D" parent="Background/StaticBody2D" index="1"]
 polygon = PackedVector2Array(1651, 6, 1643, 416, 1807, 413, 1792, -158, 924, -195, 933, -8)
@@ -105,7 +105,7 @@ position = Vector2(843, 404)
 scale = Vector2(-0.8, 0.8)
 
 [node name="Door" parent="YSort" index="8" instance=ExtResource("11_3eslo")]
-position = Vector2(12, 956)
+position = Vector2(142, 908)
 rotation = -1.5708
 scale = Vector2(4, 1)
 dest_resource = "res://scenes/demo/0/elf-encounter-left.tscn"
