@@ -130,6 +130,7 @@ flip_h = true
 
 [node name="StarRitual" parent="Background" index="10" instance=ExtResource("9_ji8tt")]
 polygon = PackedVector2Array(554, 602, 698, 688, 604, 747, 694, 800, 606, 853, 736, 925, 1008, 757, 1080, 796, 1006, 838, 1130, 907, 1200, 867, 1298, 924, 1395, 869, 1483, 820, 1589, 850, 1669, 794, 1326, 576, 1421, 520, 1294, 455, 1194, 503, 1008, 398, 905, 459, 821, 410, 757, 376, 681, 386, 625, 418, 557, 368)
+id = "elf_encounter1"
 
 [node name="TruePath" parent="Background/StarRitual" index="2" instance=ExtResource("10_3tye5")]
 points = PackedVector2Array(856, 684, 955, 621, 878, 576, 973, 507, 1238, 662)

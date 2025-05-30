@@ -9,7 +9,7 @@ var sequence: Array[Star] = []
 var veil: ColorRect
 
 @export var id = ""
-
+@export_multiline var injury_notification = "I need to find somewhere to rest before I try that again. If I'm not careful, this Dead Zone will kill me."
 var LINE_WIDTH: int = 10
 var LINE_COLOR: Color = Color("white")
 var sigil_line: Line2D = Line2D.new()
@@ -32,9 +32,13 @@ var hud
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	visible = false
+	game = $"/root/Game"
+	if set_won_if_needed():
+		return
+	visible = true
 	style_line(tracer_line)
 	style_line(sigil_line)
-	game = $"/root/Game"
 	setup_collision()
 	sigil.make_stars(self)
 	add_loose_stars()
@@ -42,6 +46,13 @@ func _ready():
 	make_veil()
 	veil.visible = false
 	sigil_place.set_sigil(sigil)
+
+func set_won_if_needed():
+	var won = game.check_star_ritual(self.id)
+	if won:
+		queue_free()
+		return true
+	return false
 
 func style_line(l: Line2D):
 	add_child(l)
@@ -171,6 +182,7 @@ func check_win():
 		win()
 
 func win():
+	game.win_star_ritual(self.id)
 	stop()
 	queue_free()
 
@@ -180,6 +192,7 @@ func die():
 		game.die()
 	else:
 		game.injure()
+		game.notify(injury_notification)
 		game.respawn_player()
 
 func stop():

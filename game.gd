@@ -916,8 +916,22 @@ func _init_map_encounters_if_needed():
 
 func save_map_encounter(e):
 	var data = _init_map_encounters_if_needed()
-	return set_state(["micro_progress", "map_encounters"], [] + [e.name])
+	return set_state(["micro_progress", "map_encounters"], data + [e.name])
 
 func check_map_encounter(e):
 	var data = _init_map_encounters_if_needed()
 	return e.name in data
+
+func _init_star_rituals_if_needed():
+	var data = get_state(["micro_progress", "star_rituals"])
+	if data != null:
+		return data
+	return set_state(["micro_progress", "star_rituals"], [])
+	
+func check_star_ritual(ritual_id):
+	var data = _init_star_rituals_if_needed()
+	return ritual_id in data
+
+func win_star_ritual(ritual_id):
+	var data = _init_star_rituals_if_needed()
+	return set_state(["micro_progress", "star_rituals"], data + [ritual_id])
