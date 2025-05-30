@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://bvub1hhya5f00"]
+[gd_scene load_steps=19 format=3 uid="uid://bvub1hhya5f00"]
 
 [ext_resource type="PackedScene" uid="uid://byrlpmbpj6yr5" path="res://scene.tscn" id="1_umpqn"]
 [ext_resource type="Texture2D" uid="uid://dsfg855ag6psn" path="res://assets/forest-layers/bg/meadow1.png" id="2_pdhgl"]
@@ -12,7 +12,8 @@
 [ext_resource type="PackedScene" uid="uid://db71c7m20acd5" path="res://chapters/demo/0/lying-and-kneeling-elves.tscn" id="10_3x5ki"]
 [ext_resource type="Texture2D" uid="uid://b6j8jd5bb1ivw" path="res://assets/scenery/Scrolling/long-hill.png" id="10_20uvq"]
 [ext_resource type="PackedScene" uid="uid://blhapbv7bnq0p" path="res://quests/quest_boundary.tscn" id="10_43u7p"]
-[ext_resource type="Texture2D" uid="uid://dwvf22vxkob24" path="res://assets/scenery/extra-tree-coloured/forest-cluster.png" id="12_an18u"]
+[ext_resource type="PackedScene" uid="uid://dxfuidhlgwthh" path="res://travel/door.tscn" id="11_3eslo"]
+[ext_resource type="Texture2D" uid="uid://dwvf22vxkob24" path="res://assets/scenery/extra-tree-coloured-bright/forest-cluster.png" id="12_an18u"]
 [ext_resource type="Shader" path="res://daylight.gdshader" id="13_shwr2"]
 [ext_resource type="Texture2D" uid="uid://dmk3dxuo4q0ie" path="res://assets/scenery/extra-tree-coloured-bright/pedestal-pine.png" id="15_om3eh"]
 
@@ -101,6 +102,13 @@ position = Vector2(977, 395)
 [node name="Elves" parent="YSort" index="7" instance=ExtResource("10_3x5ki")]
 position = Vector2(843, 404)
 scale = Vector2(-0.8, 0.8)
+
+[node name="Door" parent="YSort" index="8" instance=ExtResource("11_3eslo")]
+position = Vector2(12, 956)
+rotation = -1.5708
+scale = Vector2(4, 1)
+dest_resource = "res://scenes/demo/0/elf-encounter-left.tscn"
+dest_edge = "Door"
 
 [node name="MainDaylightFilter" parent="Filters" index="0"]
 daylight_shader = SubResource("ShaderMaterial_7p3k7")

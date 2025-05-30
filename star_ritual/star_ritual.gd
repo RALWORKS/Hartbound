@@ -8,6 +8,8 @@ var sequence: Array[Star] = []
 
 var veil: ColorRect
 
+@export var id = ""
+
 var LINE_WIDTH: int = 10
 var LINE_COLOR: Color = Color("white")
 var sigil_line: Line2D = Line2D.new()

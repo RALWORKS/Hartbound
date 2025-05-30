@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://35mu2fkkyj7"]
+
+[node name="EdgeBit" type="Polygon2D"]
+position = Vector2(-1149, -418)
+color = Color(0.266667, 0, 0.266667, 1)
+polygon = PackedVector2Array(1156, 450, 1200, 476, 1250, 450, 1205, 421)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="edgebit1" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2(0, 1)
+polygon = PackedVector2Array(1156, 450, 1200, 476, 1250, 450, 1205, 421)
