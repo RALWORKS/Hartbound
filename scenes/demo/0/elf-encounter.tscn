@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://bvub1hhya5f00"]
+[gd_scene load_steps=21 format=3 uid="uid://bvub1hhya5f00"]
 
 [ext_resource type="PackedScene" uid="uid://byrlpmbpj6yr5" path="res://scene.tscn" id="1_umpqn"]
 [ext_resource type="Texture2D" uid="uid://dsfg855ag6psn" path="res://assets/forest-layers/bg/meadow1.png" id="2_pdhgl"]
@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://dxfuidhlgwthh" path="res://travel/door.tscn" id="11_3eslo"]
 [ext_resource type="Texture2D" uid="uid://dwvf22vxkob24" path="res://assets/scenery/extra-tree-coloured-bright/forest-cluster.png" id="12_an18u"]
 [ext_resource type="PackedScene" uid="uid://cbw4fl1f8ctmj" path="res://scenes/possible_camp.tscn" id="12_cw4i6"]
+[ext_resource type="PackedScene" uid="uid://5xq6pmi05vpl" path="res://scenery/state_controlled_wall.tscn" id="13_fmnhl"]
 [ext_resource type="Shader" path="res://daylight.gdshader" id="13_shwr2"]
 [ext_resource type="Texture2D" uid="uid://dmk3dxuo4q0ie" path="res://assets/scenery/extra-tree-coloured-bright/pedestal-pine.png" id="15_om3eh"]
 
@@ -115,6 +116,16 @@ dest_edge = "Door"
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/PossibleCamp" index="1"]
 polygon = PackedVector2Array(156, 253, -29, 540, 647, 676, 930, 589, 1112, 314)
+
+[node name="StateControlledWall" parent="YSort" index="10" instance=ExtResource("13_fmnhl")]
+notification = "You've just come from there. There's no reason to go back."
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="YSort/StateControlledWall" index="2"]
+polygon = PackedVector2Array(1066, 54, 1118, 2, 1640, 8, 1644, 708, 1738, 678, 1736, -106, 1016, -108, 1000, 44)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/StateControlledWall" index="3"]
+position = Vector2(-32, 30)
+polygon = PackedVector2Array(1066, 54, 1118, 2, 1640, 8, 1644, 708, 1738, 678, 1736, -106, 1016, -108, 1000, 44)
 
 [node name="MainDaylightFilter" parent="Filters" index="0"]
 daylight_shader = SubResource("ShaderMaterial_7p3k7")
