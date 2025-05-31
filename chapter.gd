@@ -184,6 +184,7 @@ func end_cutscene(free=false):
 	print("ROUNDUP SCHEME DONE -- actually")
 
 	cutscene.queue_free()
+	
 	cutscene = null
 	#await get_tree().create_timer(0.1).timeout
 	print("ALL FREE")
@@ -198,6 +199,12 @@ func end_cutscene(free=false):
 		start_cutscene(next_cutscene, npc, null, sequence)
 		return
 	
+	if pending_event != null:
+		var c = pending_event.cutscene
+		handle_pending_event()
+		if c != null:
+			return
+	print("RELOAD!")
 	game.show_clock = true
 
 	reload_world()
@@ -212,12 +219,12 @@ func end_cutscene(free=false):
 		$"/root/Game".save_room(teleport_to.scene_file_path, null)
 	if notification:
 		game.notify(notification)
-	handle_pending_event()
 
 func handle_pending_event():
 	if pending_event != null:
 		pending_event.play()
-	pending_event = null
+	# pending_event = null
+	# handle in Event class
 		
 
 func update_cutscene_page(p):

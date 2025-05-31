@@ -77,12 +77,16 @@ func _side_effect():
 
 
 func play():
+	var g = _get_game()
 	_side_effect()
 	_mutate()
 	_teleport()
 	_cutscene()
 	_effect()
 	_play(true)
+	await get_tree().create_timer(0.2).timeout
+	if g.chapter.pending_event == self:
+		g.chapter.pending_event = null
 
 func receive_action(type, data):
 	pass

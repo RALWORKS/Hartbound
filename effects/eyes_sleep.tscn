@@ -1,0 +1,243 @@
+[gd_scene load_steps=8 format=3 uid="uid://dqmpnvye1p6c1"]
+
+[ext_resource type="Script" path="res://effects/eyes_sleep.gd" id="1_0mqy5"]
+[ext_resource type="PackedScene" uid="uid://cp5lbi0bmf5vp" path="res://tools/screen-guide-frame.tscn" id="1_o5fv3"]
+[ext_resource type="PackedScene" uid="uid://d3sg85ljfgv6k" path="res://effects/black_star_animation.tscn" id="2_nrbvj"]
+[ext_resource type="Texture2D" uid="uid://crwgsbucxyldl" path="res://assets/circle.png" id="3_44ydo"]
+
+[sub_resource type="Animation" id="Animation_mkm54"]
+resource_name = "close"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Eyes/White1/Black2:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, -170.034), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Eyes/White0/Black3:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, -170.034), Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Eyes/White1:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(2.31818, 0.893939), Vector2(2.31818, 0.3)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Eyes/White0:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(2.31818, 0.893939), Vector2(2.31818, 0.3)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("White:self_modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.5, 0.9, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(0, 0, 0, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath(".:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.9, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("White:color")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_ihpsa"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Eyes/White1/Black2:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -170.034)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Eyes/White0/Black3:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -170.034)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Eyes/White1:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(2.31818, 0.893939)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Eyes/White0:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(2.31818, 0.893939)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("White:self_modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath(".:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("White:color")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6keik"]
+_data = {
+"RESET": SubResource("Animation_ihpsa"),
+"close": SubResource("Animation_mkm54")
+}
+
+[node name="EyesSleep" type="Node2D"]
+script = ExtResource("1_0mqy5")
+
+[node name="Frame" parent="." instance=ExtResource("1_o5fv3")]
+
+[node name="Black" type="ColorRect" parent="."]
+offset_right = 1922.0
+offset_bottom = 1081.0
+color = Color(0, 0, 0, 1)
+
+[node name="BlackStarAnimation" parent="." instance=ExtResource("2_nrbvj")]
+
+[node name="Eyes" type="Node2D" parent="."]
+
+[node name="White0" type="Sprite2D" parent="Eyes"]
+position = Vector2(493, 534)
+scale = Vector2(2.31818, 0.893939)
+texture = ExtResource("3_44ydo")
+
+[node name="Black3" type="Sprite2D" parent="Eyes/White0"]
+self_modulate = Color(0, 0, 0, 1)
+position = Vector2(0, -170.034)
+scale = Vector2(1.03529, 1.03586)
+texture = ExtResource("3_44ydo")
+
+[node name="White1" type="Sprite2D" parent="Eyes"]
+position = Vector2(1175, 535)
+scale = Vector2(2.31818, 0.893939)
+texture = ExtResource("3_44ydo")
+
+[node name="Black2" type="Sprite2D" parent="Eyes/White1"]
+self_modulate = Color(0, 0, 0, 1)
+position = Vector2(0, -170.034)
+scale = Vector2(1.03529, 1.03586)
+texture = ExtResource("3_44ydo")
+
+[node name="Pupil1" type="Sprite2D" parent="Eyes"]
+self_modulate = Color(0, 0, 0, 1)
+position = Vector2(1178, 534)
+scale = Vector2(1.34242, 1.21515)
+texture = ExtResource("3_44ydo")
+
+[node name="Pupil0" type="Sprite2D" parent="Eyes"]
+self_modulate = Color(0, 0, 0, 1)
+position = Vector2(498, 534)
+scale = Vector2(1.342, 1.342)
+texture = ExtResource("3_44ydo")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_6keik")
+}
+
+[node name="White" type="ColorRect" parent="."]
+offset_right = 1922.0
+offset_bottom = 1081.0

@@ -51,8 +51,11 @@ func _process(_delta):
 		return
 	
 	if (
-		(get_parent().chapter.cutscene == null and get_parent().chapter.active_map == null)
-		or get_parent().cur_modal != null
+		(
+			get_parent().chapter.cutscene == null
+			and get_parent().chapter.active_map == null
+			and get_parent().chapter.pending_event == null
+		) or get_parent().cur_modal != null
 	):
 		$LeftMenu.visible = true
 		$PostProcessing/Filter.modulate = "#ffffffff"
