@@ -897,6 +897,7 @@ func bedtime():
 	# TODO: dream management
 	heal()
 	jump_to_morning()
+	chapter.pending_event = chapter.get_next_dream()
 	chapter.start_cutscene(StartCampingCutscene)
 
 func notify(data):

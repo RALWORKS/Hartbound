@@ -11,6 +11,8 @@ script = ExtResource("1_3wcey")
 
 [node name="StartChapter" parent="Events" instance=ExtResource("2_q5q82")]
 
+[node name="Dreams" type="Node" parent="."]
+
 [node name="Triggers" type="Node" parent="."]
 
 [node name="MapEvents" type="Node" parent="."]

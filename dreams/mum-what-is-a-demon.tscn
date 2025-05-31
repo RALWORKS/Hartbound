@@ -1,0 +1,304 @@
+[gd_scene load_steps=13 format=3 uid="uid://nim8rupwan4d"]
+
+[ext_resource type="PackedScene" uid="uid://bp8tsdjdbwj8i" path="res://cutscene/cutscene.tscn" id="1_cklt7"]
+[ext_resource type="PackedScene" uid="uid://55vflx8ylix1" path="res://cutscene/cutscene_node.tscn" id="3_tv6hf"]
+[ext_resource type="Texture2D" uid="uid://bvutmwfiw6hgc" path="res://assets/splash/home-village-washed-out.png" id="4_nr0io"]
+[ext_resource type="Texture2D" uid="uid://du538lgom8gn2" path="res://assets/splash/home-village.png" id="4_p1g2m"]
+[ext_resource type="Texture2D" uid="uid://qvvgmwv71yw6" path="res://assets/intro-story/elf-and-child.png" id="6_vqvxv"]
+[ext_resource type="PackedScene" uid="uid://b11g7mb25w5xp" path="res://cutscene/smart_label.tscn" id="7_qhxl4"]
+[ext_resource type="PackedScene" uid="uid://cp5lbi0bmf5vp" path="res://tools/screen-guide-frame.tscn" id="8_n0x2f"]
+[ext_resource type="Texture2D" uid="uid://bbqirhgnmeoj7" path="res://assets/intro-story/maze-of-eyes-transparent.png" id="8_xko6c"]
+[ext_resource type="PackedScene" uid="uid://bashgrlf8pwrg" path="res://character/shadow_mom_black_and_red.tscn" id="9_ed6gs"]
+[ext_resource type="PackedScene" uid="uid://7d4hk0gornf1" path="res://character/shadow_mom_black_and_red_cropped_shoulder.tscn" id="9_ug3sm"]
+[ext_resource type="Texture2D" uid="uid://cqwm2vf0vfebi" path="res://assets/intro-story/color-inverse-man-and-elf.png" id="10_runhc"]
+[ext_resource type="Texture2D" uid="uid://004m3mbmjima" path="res://assets/crazy-isometric-guide.png" id="11_krepj"]
+
+[node name="MumWhatIsADemon" node_paths=PackedStringArray("starting_page") instance=ExtResource("1_cklt7")]
+starting_page = NodePath("0")
+
+[node name="0" parent="." index="0" node_paths=PackedStringArray("next") instance=ExtResource("3_tv6hf")]
+next = NodePath("../2")
+
+[node name="village" type="Sprite2D" parent="0" index="0"]
+position = Vector2(-107, -130)
+scale = Vector2(1.1, 1.1)
+texture = ExtResource("4_nr0io")
+centered = false
+
+[node name="Sprite2D" type="Sprite2D" parent="0" index="1"]
+position = Vector2(1042, 1123)
+scale = Vector2(2, 2)
+texture = ExtResource("6_vqvxv")
+
+[node name="SmartLabel" parent="0" index="2" instance=ExtResource("7_qhxl4")]
+offset_left = 51.0
+offset_top = 53.0
+offset_right = 221.0
+offset_bottom = 133.0
+text = "\"Mum--"
+
+[node name="SmartLabel2" parent="0" index="3" instance=ExtResource("7_qhxl4")]
+offset_left = 105.0
+offset_top = 151.0
+offset_right = 507.0
+offset_bottom = 233.0
+text = "\"Mum, what's a Demon?\""
+
+[node name="2" parent="." index="1" node_paths=PackedStringArray("next") instance=ExtResource("3_tv6hf")]
+next = NodePath("../3")
+
+[node name="village" type="Sprite2D" parent="2" index="0"]
+position = Vector2(3, -30)
+scale = Vector2(1.1, 1.1)
+texture = ExtResource("4_nr0io")
+centered = false
+
+[node name="Sprite2D" type="Sprite2D" parent="2" index="1"]
+position = Vector2(526, 899)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("6_vqvxv")
+
+[node name="SmartLabel" parent="2" index="2" instance=ExtResource("7_qhxl4")]
+offset_left = 189.0
+offset_top = 441.0
+offset_right = 359.0
+offset_bottom = 521.0
+text = "\"Mum--"
+
+[node name="SmartLabel2" parent="2" index="3" instance=ExtResource("7_qhxl4")]
+offset_left = 261.0
+offset_top = 515.0
+offset_right = 689.0
+offset_bottom = 597.0
+text = "\"Why do we have to run?\""
+
+[node name="DeadPixelsGreen" type="Node2D" parent="2" index="4"]
+
+[node name="Polygon2D" type="Polygon2D" parent="2/DeadPixelsGreen" index="0"]
+color = Color(0.0901961, 0.278431, 0.278431, 1)
+polygon = PackedVector2Array(1412, 1112, 1104, 940, 1196, 884, 1102, 830, 938, 926, 868, 884, 1062, 776, 1016, 754, 1178, 660, 1005, 563, 944, 598, 865, 560, 921, 528, 812, 478, 1206, 252, 1028, 130, 1138, 70, 1208, 120, 1292, 64, 1154, -20, 1976, -38, 1984, 1126)
+
+[node name="Polygon2D2" type="Polygon2D" parent="2/DeadPixelsGreen" index="1"]
+position = Vector2(344, -97)
+color = Color(0.027451, 0.137255, 0.137255, 1)
+polygon = PackedVector2Array(1608, 1223, 1104, 940, 1196, 884, 1102, 830, 938, 926, 868, 884, 1062, 776, 1016, 754, 1188, 654, 1005, 563, 944, 598, 865, 560, 921, 528, 812, 478, 1206, 252, 1028, 130, 1138, 70, 1208, 120, 1292, 64, 1154, -20, 1976, -38, 1984, 1126)
+
+[node name="Polygon2D3" type="Polygon2D" parent="2/DeadPixelsGreen" index="2"]
+position = Vector2(1551, 390)
+color = Color(0.0901961, 0.278431, 0.278431, 1)
+polygon = PackedVector2Array(-548, 347, -434, 277, -546, 208, -667, 279)
+
+[node name="Polygon2D4" type="Polygon2D" parent="2/DeadPixelsGreen" index="3"]
+position = Vector2(1546, -32)
+color = Color(0.0901961, 0.278431, 0.278431, 1)
+polygon = PackedVector2Array(-548, 347, -434, 277, -546, 208, -667, 279)
+
+[node name="Polygon2D5" type="Polygon2D" parent="2/DeadPixelsGreen" index="4"]
+position = Vector2(1365, 753)
+scale = Vector2(0.5, 0.5)
+color = Color(0.0901961, 0.278431, 0.278431, 1)
+polygon = PackedVector2Array(-548, 347, -434, 277, -546, 208, -667, 279)
+
+[node name="Polygon2D6" type="Polygon2D" parent="2/DeadPixelsGreen" index="5"]
+position = Vector2(1213, 798)
+scale = Vector2(0.5, 0.5)
+color = Color(0.0901961, 0.278431, 0.278431, 1)
+polygon = PackedVector2Array(-548, 347, -434, 277, -546, 208, -667, 279)
+
+[node name="Polygon2D7" type="Polygon2D" parent="2/DeadPixelsGreen" index="6"]
+position = Vector2(1406, 879)
+scale = Vector2(0.5, 0.5)
+color = Color(0.0901961, 0.278431, 0.278431, 1)
+polygon = PackedVector2Array(-548, 347, -434, 277, -546, 208, -667, 279)
+
+[node name="3" parent="." index="2" node_paths=PackedStringArray("next") instance=ExtResource("3_tv6hf")]
+next = NodePath("../4")
+
+[node name="village" type="Sprite2D" parent="3" index="0"]
+position = Vector2(3, -191)
+scale = Vector2(1.1, 1.1)
+texture = ExtResource("4_p1g2m")
+centered = false
+
+[node name="Sprite2D" type="Sprite2D" parent="3" index="1"]
+position = Vector2(1046, 926)
+scale = Vector2(1.7, 1.5)
+texture = ExtResource("8_xko6c")
+
+[node name="SmartLabel" parent="3" index="2" instance=ExtResource("7_qhxl4")]
+offset_left = 713.0
+offset_top = 754.0
+offset_right = 1102.0
+offset_bottom = 844.0
+text = "\"Mum, where are we?\""
+
+[node name="SmartLabel2" parent="3" index="3" instance=ExtResource("7_qhxl4")]
+offset_left = 955.0
+offset_top = 860.0
+offset_right = 1150.0
+offset_bottom = 935.0
+text = "\"Mum?\""
+
+[node name="Sprite2D2" type="Sprite2D" parent="3" index="4"]
+position = Vector2(526, 899)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("6_vqvxv")
+
+[node name="4" parent="." index="3" node_paths=PackedStringArray("next") instance=ExtResource("3_tv6hf")]
+next = NodePath("../5")
+
+[node name="village" type="Sprite2D" parent="4" index="0"]
+position = Vector2(3, -191)
+scale = Vector2(1.1, 1.1)
+texture = ExtResource("4_p1g2m")
+centered = false
+
+[node name="Sprite2D" type="Sprite2D" parent="4" index="1"]
+position = Vector2(902, 540)
+scale = Vector2(1.1, 1)
+texture = ExtResource("8_xko6c")
+
+[node name="ShadowMom" parent="4" index="2" instance=ExtResource("9_ed6gs")]
+position = Vector2(1279, -229)
+rotation = 3.14159
+scale = Vector2(1.1, -1.1)
+
+[node name="Polygon2D" type="Polygon2D" parent="4" index="3"]
+position = Vector2(-54, 30)
+color = Color(1, 0.172549, 0, 1)
+polygon = PackedVector2Array(334, 798, 1174, 956, 400, 858)
+
+[node name="Polygon2D2" type="Polygon2D" parent="4" index="4"]
+position = Vector2(12, -10)
+color = Color(1, 0.172549, 0, 1)
+polygon = PackedVector2Array(312, 1014, 1036, 806, 988, 884)
+
+[node name="SmartLabel" parent="4" index="5" instance=ExtResource("7_qhxl4")]
+offset_left = 1094.0
+offset_top = 653.0
+offset_right = 1264.0
+offset_bottom = 733.0
+text = "\"Mum--?"
+
+[node name="5" parent="." index="4" node_paths=PackedStringArray("next") instance=ExtResource("3_tv6hf")]
+next = NodePath("../6")
+
+[node name="village" type="Sprite2D" parent="5" index="0"]
+position = Vector2(3, -191)
+scale = Vector2(1.1, 1.1)
+texture = ExtResource("4_p1g2m")
+centered = false
+
+[node name="Sprite2D" type="Sprite2D" parent="5" index="1"]
+modulate = Color(0.133333, 0.133333, 0.133333, 1)
+position = Vector2(902, 540)
+scale = Vector2(1.1, 1)
+texture = ExtResource("8_xko6c")
+
+[node name="Polygon2D" type="Polygon2D" parent="5" index="2"]
+position = Vector2(902, 540)
+scale = Vector2(1.1, 1)
+
+[node name="SmartLabel" parent="5" index="3" instance=ExtResource("7_qhxl4")]
+offset_left = 578.0
+offset_top = 311.0
+offset_right = 748.0
+offset_bottom = 391.0
+text = "\"Mum--?"
+
+[node name="ShadowMomCroppedShoulder" parent="5" index="4" instance=ExtResource("9_ug3sm")]
+position = Vector2(-128, 91)
+rotation = 1.70693
+scale = Vector2(1.1, -1.1)
+
+[node name="Polygon2D6" type="Polygon2D" parent="5/ShadowMomCroppedShoulder" index="7"]
+position = Vector2(1153.62, 199.335)
+rotation = 3.14159
+scale = Vector2(0.909091, -0.909091)
+color = Color(0, 0, 0, 1)
+polygon = PackedVector2Array(807.795, 1033.92, 975.638, 1087.63, 1088, 1591.04, 1153.55, 2069.57, 1168.51, 2149.28, 609.495, 2216.77, 381.963, 1108.4, 305.608, 492.057, 453.256, 589.924, 500.514, 758.066, 451.125, 861.728)
+
+[node name="Polygon2D5" type="Polygon2D" parent="5/ShadowMomCroppedShoulder" index="8"]
+position = Vector2(1213.62, 235.698)
+rotation = 3.14159
+scale = Vector2(0.909091, -0.909091)
+color = Color(1, 0.172549, 0, 1)
+polygon = PackedVector2Array(334, 798, 1174, 956, 400, 858)
+
+[node name="Polygon2D7" type="Polygon2D" parent="5/ShadowMomCroppedShoulder" index="9"]
+position = Vector2(1153.62, 199.335)
+rotation = 3.14159
+scale = Vector2(0.909091, -0.909091)
+color = Color(1, 0.172549, 0, 1)
+polygon = PackedVector2Array(312, 1014, 1036, 806, 988, 884)
+
+[node name="6" parent="." index="5" node_paths=PackedStringArray("next") instance=ExtResource("3_tv6hf")]
+next = NodePath("../7")
+
+[node name="village" type="Sprite2D" parent="6" index="0"]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(3, -191)
+scale = Vector2(1.1, 1.1)
+texture = ExtResource("4_p1g2m")
+centered = false
+
+[node name="Polygon2D" type="Polygon2D" parent="6" index="1"]
+position = Vector2(902, 540)
+scale = Vector2(1.1, 1)
+
+[node name="ShadowMomCroppedShoulder" parent="6" index="2" instance=ExtResource("9_ug3sm")]
+position = Vector2(-128, 91)
+rotation = 1.70693
+scale = Vector2(0.6, -0.6)
+
+[node name="Polygon2D6" type="Polygon2D" parent="6/ShadowMomCroppedShoulder" index="7"]
+position = Vector2(1153.62, 199.335)
+rotation = 3.14159
+scale = Vector2(0.909091, -0.909091)
+color = Color(0, 0, 0, 1)
+polygon = PackedVector2Array(807.795, 1033.92, 975.638, 1087.63, 1088, 1591.04, 1153.55, 2069.57, 1168.51, 2149.28, 609.495, 2216.77, 381.963, 1108.4, 305.608, 492.057, 453.256, 589.924, 500.514, 758.066, 451.125, 861.728)
+
+[node name="Sprite2D" type="Sprite2D" parent="6" index="3"]
+modulate = Color(0.203922, 0.192157, 0.231373, 1)
+position = Vector2(1319, 730)
+scale = Vector2(2, 2)
+texture = ExtResource("10_runhc")
+flip_h = true
+hframes = 2
+frame = 1
+
+[node name="7" parent="." index="6" node_paths=PackedStringArray("next") instance=ExtResource("3_tv6hf")]
+next = NodePath("../8")
+
+[node name="village" type="Sprite2D" parent="7" index="0"]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(3, -191)
+scale = Vector2(1.1, 1.1)
+texture = ExtResource("4_p1g2m")
+centered = false
+
+[node name="Sprite2D" type="Sprite2D" parent="7" index="1"]
+modulate = Color(0.203922, 0.192157, 0.231373, 1)
+position = Vector2(1319, 730)
+scale = Vector2(2, 2)
+texture = ExtResource("10_runhc")
+flip_h = true
+hframes = 2
+frame = 1
+
+[node name="8" parent="." index="7" instance=ExtResource("3_tv6hf")]
+
+[node name="village" type="Sprite2D" parent="8" index="0"]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(3, -191)
+scale = Vector2(1.1, 1.1)
+texture = ExtResource("4_p1g2m")
+centered = false
+
+[node name="Frame" parent="." index="8" instance=ExtResource("8_n0x2f")]
+
+[node name="Sprite2D" type="Sprite2D" parent="." index="9"]
+visible = false
+modulate = Color(1, 1, 1, 0.290196)
+position = Vector2(1396, 444)
+texture = ExtResource("11_krepj")

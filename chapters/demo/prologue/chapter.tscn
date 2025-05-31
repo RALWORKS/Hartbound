@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://dgtv4htdskbdq"]
+[gd_scene load_steps=23 format=3 uid="uid://dgtv4htdskbdq"]
 
 [ext_resource type="PackedScene" uid="uid://bh1yfkyt3u44i" path="res://chapter.tscn" id="1_ia6rp"]
 [ext_resource type="PackedScene" uid="uid://cog1hph357ikp" path="res://scenes/demo/0/suntemple-ground-1.tscn" id="2_om1c3"]
@@ -20,6 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://bgajcq8sl7ldq" path="res://chapters/demo/0/elf_encounter_cutscene.tscn" id="12_us08f"]
 [ext_resource type="PackedScene" uid="uid://d2bsdc1lljan4" path="res://chapters/demo/0/jerry_base_dialogue.tscn" id="13_l15yd"]
 [ext_resource type="PackedScene" uid="uid://cntlm7r5rk0tr" path="res://chapters/demo/prologue/travel_cutscene_1.tscn" id="14_gswcl"]
+[ext_resource type="PackedScene" uid="uid://nim8rupwan4d" path="res://dreams/mum-what-is-a-demon.tscn" id="14_khxj6"]
 [ext_resource type="PackedScene" uid="uid://bcinc4blag4el" path="res://music.tscn" id="19_ni4d3"]
 
 [node name="Chapter" node_paths=PackedStringArray("starting_music") instance=ExtResource("1_ia6rp")]
@@ -91,6 +92,9 @@ data_as_slash_sep_list = true
 [node name="ChapterChangeMutation" parent="Events/GOTOCh1" index="1" instance=ExtResource("12_qypo8")]
 to_chapter = "demo1"
 
+[node name="MumWhatIsADemon" parent="Dreams" index="0" instance=ExtResource("11_4huc8")]
+cutscene = ExtResource("14_khxj6")
+
 [node name="GetBrona" parent="Triggers" index="0" instance=ExtResource("12_3h03g")]
 event_name = "GetBrona"
 
@@ -105,6 +109,9 @@ cutscene = ExtResource("14_gswcl")
 reusable = true
 progress_key = "map_events"
 
+[node name="Music" parent="." index="4" instance=ExtResource("19_ni4d3")]
+stream = ExtResource("10_x7nvf")
+
 [node name="Taylor" parent="CharacterCutscenes" index="0"]
 dialogue = ExtResource("10_qtvui")
 
@@ -116,6 +123,3 @@ dialogue = ExtResource("12_oj521")
 
 [node name="Jerry" parent="CharacterCutscenes" index="3"]
 dialogue = ExtResource("13_l15yd")
-
-[node name="Music" parent="." index="4" instance=ExtResource("19_ni4d3")]
-stream = ExtResource("10_x7nvf")

@@ -1,0 +1,60 @@
+[gd_scene load_steps=6 format=3 uid="uid://jwkxgy0uv0ft"]
+
+[ext_resource type="Texture2D" uid="uid://qskvisnl1gw0" path="res://assets/npcs/mother/laugh-1/hair.png" id="1_doqvc"]
+[ext_resource type="Texture2D" uid="uid://blqjlsdus12cl" path="res://assets/npcs/mother/laugh-1/clothes.png" id="2_ep3p1"]
+[ext_resource type="Texture2D" uid="uid://ca07tcpda5owt" path="res://assets/npcs/mother/laugh-1/skin.png" id="3_p3isf"]
+[ext_resource type="Texture2D" uid="uid://bdg3fwds7tlm" path="res://assets/npcs/mother/laugh-1/outline.png" id="4_i4ohj"]
+[ext_resource type="Texture2D" uid="uid://bqr0tj8uk08gn" path="res://assets/forest-layers/bg/cracked-stone.png" id="5_yacuo"]
+
+[node name="ColorlessMom" type="Sprite2D"]
+self_modulate = Color(0.882353, 0.882353, 0.882353, 1)
+position = Vector2(471, -269)
+scale = Vector2(1.1, 1.1)
+texture = ExtResource("1_doqvc")
+centered = false
+
+[node name="village3" type="Sprite2D" parent="."]
+self_modulate = Color(0.741176, 0.721569, 0.792157, 1)
+texture = ExtResource("2_ep3p1")
+centered = false
+
+[node name="village4" type="Sprite2D" parent="."]
+texture = ExtResource("3_p3isf")
+centered = false
+
+[node name="village5" type="Sprite2D" parent="."]
+texture = ExtResource("4_i4ohj")
+centered = false
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+visible = false
+polygon = PackedVector2Array(307.273, 736.364, 321.818, 800.909, 375.454, 882.727, 440.909, 927.273, 633.636, 845.455, 607.273, 587.273, 601.818, 486.364, 564.545, 493.636, 470.909, 485.455, 419.091, 530, 366.364, 482.727, 300, 504.545, 317.273, 587.273, 324.545, 624.545)
+
+[node name="Node2D" type="Node2D" parent="."]
+modulate = Color(1, 1, 1, 0.32549)
+
+[node name="Polygon2D4" type="Polygon2D" parent="Node2D"]
+visible = false
+texture = ExtResource("5_yacuo")
+polygon = PackedVector2Array(325.454, 585.454, 326.364, 629.091, 370.909, 633.636, 312.727, 709.091, 321.818, 765.454, 369.091, 859.091, 404.545, 915.454, 423.636, 932.727, 406.364, 893.636, 420, 874.545, 402.727, 862.727, 447.273, 860.909, 448.182, 852.727, 406.364, 850.909, 382.727, 837.273, 502.727, 836.364, 463.636, 813.636, 423.636, 811.818, 381.818, 826.364, 406.364, 790, 446.364, 789.091, 470, 769.091, 476.364, 741.818, 437.273, 768.182, 384.545, 737.273, 419.091, 629.091, 425.454, 607.273, 423.636, 578.182, 414.545, 552.727, 335.454, 544.545, 378.182, 565.454)
+
+[node name="Polygon2D5" type="Polygon2D" parent="Node2D"]
+visible = false
+texture = ExtResource("5_yacuo")
+polygon = PackedVector2Array(480.909, 570.909, 467.273, 615.454, 473.636, 638.182, 486.364, 653.636, 579.091, 651.818, 596.364, 622.727, 590, 598.182, 524.545, 584.545, 600, 560, 503.636, 560)
+
+[node name="Polygon2D2" type="Polygon2D" parent="Node2D"]
+color = Color(0.172549, 0.101961, 0.372549, 0.6)
+polygon = PackedVector2Array(325.454, 585.454, 326.364, 629.091, 370.909, 633.636, 312.727, 709.091, 321.818, 765.454, 369.091, 859.091, 404.545, 915.454, 423.636, 932.727, 406.364, 893.636, 420, 874.545, 402.727, 862.727, 447.273, 860.909, 448.182, 852.727, 406.364, 850.909, 382.727, 837.273, 502.727, 836.364, 463.636, 813.636, 423.636, 811.818, 381.818, 826.364, 406.364, 790, 446.364, 789.091, 470, 769.091, 476.364, 741.818, 437.273, 768.182, 384.545, 737.273, 419.091, 629.091, 425.454, 607.273, 423.636, 578.182, 414.545, 552.727, 335.454, 544.545, 378.182, 565.454)
+
+[node name="Polygon2D3" type="Polygon2D" parent="Node2D"]
+color = Color(0.172549, 0.101961, 0.372549, 0.6)
+polygon = PackedVector2Array(480.909, 570.909, 467.273, 615.454, 473.636, 638.182, 486.364, 653.636, 579.091, 651.818, 596.364, 622.727, 590, 598.182, 524.545, 584.545, 600, 560, 503.636, 560)
+
+[node name="Polygon2D2" type="Polygon2D" parent="."]
+color = Color(0.458824, 0.435294, 0.52549, 0.45098)
+polygon = PackedVector2Array(430.909, 962.727, 459.091, 964.545, 564.545, 914.545, 660, 854.545, 691.818, 752.727, 722.727, 761.818, 718.182, 912.727, 759.091, 1033.64, 710, 1088.18, 630.909, 1148.18, 580.909, 1173.64, 543.636, 1116.36, 500.909, 1117.27, 470, 1131.82, 424.545, 1080.91)
+
+[node name="Polygon2D3" type="Polygon2D" parent="."]
+color = Color(0.498039, 0.47451, 0.564706, 0.345098)
+polygon = PackedVector2Array(722.727, 548.182, 676.364, 585.454, 691.818, 614.545, 708.182, 635.454, 705.454, 657.273, 695.454, 670, 705.454, 707.273, 720.909, 723.636, 728.182, 650, 795.455, 585.454, 883.636, 436.364, 755.455, 531.818, 768.182, 593.636, 747.273, 610, 742.727, 568.182)

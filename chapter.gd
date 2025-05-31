@@ -7,6 +7,8 @@ class_name Chapter
 @export var script_holder: Node
 
 @export var map: Resource
+var pending_event = null
+
 var active_map = null
 
 var events_done = []
@@ -44,6 +46,12 @@ func get_next_event():
 
 func get_next_map_event():
 	for c in $MapEvents.get_children():
+		if not c.played:
+			return c
+	return null
+
+func get_next_dream():
+	for c in $Dreams.get_children():
 		if not c.played:
 			return c
 	return null
@@ -204,6 +212,13 @@ func end_cutscene(free=false):
 		$"/root/Game".save_room(teleport_to.scene_file_path, null)
 	if notification:
 		game.notify(notification)
+	handle_pending_event()
+
+func handle_pending_event():
+	if pending_event != null:
+		pending_event.play()
+	pending_event = null
+		
 
 func update_cutscene_page(p):
 	cutscene.update_page(p)
