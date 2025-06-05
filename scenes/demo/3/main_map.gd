@@ -80,12 +80,17 @@ func _go_to_pencil():
 	biome.get_parent().remove_child(biome)
 	$"/root/Game/Chapter".close_map(biome)
 
+func get_time_expended():
+	return $bg/MapGrid.time_expended()
+
 func _go_to_encounter(e: MapEncounter, time_at: int):
 	save_position(e.position)
 	game.jump_over_moves(time_at)
 	e.get_parent().remove_child(e)
 	game.save_map_encounter(e)
-	$"/root/Game/Chapter".close_map_to_encounter(e)
+	var biome = get_biome()
+	biome.get_parent().remove_child(biome)
+	$"/root/Game/Chapter".close_map_to_encounter(e, biome)
 	
 
 func go():

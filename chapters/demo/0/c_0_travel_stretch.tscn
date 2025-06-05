@@ -1,0 +1,46 @@
+[gd_scene load_steps=9 format=3 uid="uid://tib30icufr6h"]
+
+[ext_resource type="PackedScene" uid="uid://n3elv3gf4g7" path="res://travel/travel_stretch.tscn" id="1_kcs1p"]
+[ext_resource type="PackedScene" uid="uid://dpxdf3xli8lw5" path="res://scenery/scroll_mountain_and_trees.tscn" id="2_ryghe"]
+[ext_resource type="PackedScene" uid="uid://dhi8aahnucxqk" path="res://scenery/horse_and_cart_walking.tscn" id="3_fj33w"]
+[ext_resource type="PackedScene" uid="uid://bkmlrvo7prska" path="res://scenery/brona_walking.tscn" id="4_spein"]
+[ext_resource type="PackedScene" uid="uid://dodne0hhms0qr" path="res://character/big_player.tscn" id="5_uhwc4"]
+[ext_resource type="PackedScene" uid="uid://dkcccnbq37au1" path="res://character/taylor_doll.tscn" id="6_cmcky"]
+[ext_resource type="PackedScene" uid="uid://yl6xdj71b1qq" path="res://scenery/jerry_walking.tscn" id="7_ut5bt"]
+[ext_resource type="PackedScene" uid="uid://bac2xe0oqxtkm" path="res://scenery/nate_walking.tscn" id="8_kocrf"]
+
+[node name="C0TravelStretch" instance=ExtResource("1_kcs1p")]
+atoms_per_turn = 3000
+
+[node name="MountainWalk" parent="BG" index="0" instance=ExtResource("2_ryghe")]
+position = Vector2(0, -64)
+
+[node name="HorseAndCartWalking" parent="Characters" index="0" instance=ExtResource("3_fj33w")]
+position = Vector2(930, 393)
+scale = Vector2(0.24, 0.24)
+
+[node name="BronaWalking" parent="Characters" index="1" instance=ExtResource("4_spein")]
+position = Vector2(751, 575)
+scale = Vector2(0.21, 0.21)
+offset = 0.2
+
+[node name="BigPlayer" parent="Characters" index="2" instance=ExtResource("5_uhwc4")]
+position = Vector2(471, 562)
+scale = Vector2(0.24, 0.24)
+
+[node name="TaylorDoll" parent="Characters" index="3" instance=ExtResource("6_cmcky")]
+position = Vector2(1129, 596)
+scale = Vector2(0.24, 0.24)
+
+[node name="JerryWalking" parent="Characters" index="4" instance=ExtResource("7_ut5bt")]
+position = Vector2(1364, 543)
+scale = Vector2(0.24, 0.24)
+offset = 0.4
+
+[node name="NateWalking" parent="Characters" index="5" instance=ExtResource("8_kocrf")]
+position = Vector2(15, 488)
+scale = Vector2(0.24, 0.24)
+offset = 0.2
+
+[node name="Panel" parent="WalkDistanceNotification" index="0"]
+visible = true

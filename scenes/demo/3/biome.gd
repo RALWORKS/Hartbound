@@ -4,6 +4,9 @@ extends Node2D
 
 
 @export var trigger_name: String
+@export var background: Resource
+@export var travel_stretch: Resource
+
 
 var game
 
@@ -16,9 +19,6 @@ func _ready():
 func _process(_delta):
 	pass
 
-
-func get_background():
-	return $Background.get_children()[0]
 
 func get_camp():
 	var camps: Array = $Camps.get_children()

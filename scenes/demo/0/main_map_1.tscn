@@ -14,11 +14,11 @@
 [ext_resource type="Texture2D" uid="uid://ddk3kke52g8s" path="res://assets/pencil.png" id="9_wd4ie"]
 [ext_resource type="PackedScene" uid="uid://k2fi3b6gssae" path="res://scenes/demo/3/map_area.tscn" id="10_fox11"]
 [ext_resource type="PackedScene" uid="uid://ct5hj6y17uxhy" path="res://scenes/demo/0/industrial_biome.tscn" id="11_sae43"]
-[ext_resource type="PackedScene" uid="uid://chl1xnvswkr5j" path="res://scenes/demo/3/mountain_biome.tscn" id="13_brcxx"]
 [ext_resource type="PackedScene" uid="uid://dh2x4dfcujkno" path="res://scenes/demo/3/map_quest_arrow.tscn" id="14_1mjsi"]
 [ext_resource type="PackedScene" uid="uid://c33eiqhcif0vx" path="res://scenes/demo/3/map_pointer.tscn" id="15_1r7qj"]
 [ext_resource type="Texture2D" uid="uid://c3dgq5weopqv5" path="res://assets/icons/city.png" id="15_qtkdx"]
 [ext_resource type="PackedScene" uid="uid://s3868kcyxoi5" path="res://scenery/map_wall.tscn" id="16_x67i2"]
+[ext_resource type="PackedScene" uid="uid://dcu116dp3s6vn" path="res://scenes/demo/0/woodland_biome.tscn" id="19_tmfvb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6vuwb"]
 size = Vector2(304, 2709)
@@ -271,9 +271,6 @@ polygon = PackedVector2Array(138, 517, 483, 520, 536, 660, 463, 636, 350, 644, 2
 visible = false
 trigger_name = "ReachDestination"
 
-[node name="DEFAULTMountainBiome" parent="." instance=ExtResource("13_brcxx")]
-visible = false
-
 [node name="MapQuestArrow" parent="." node_paths=PackedStringArray("pencil") instance=ExtResource("14_1mjsi")]
 self_modulate = Color(0.847059, 0.486275, 0, 0.592157)
 position = Vector2(2064, 2276)
@@ -346,3 +343,5 @@ notification = "That's not the way to the ruin."
 [node name="MapWall14" parent="." instance=ExtResource("16_x67i2")]
 position = Vector2(2247, 2470)
 notification = "That's not the way to the ruin."
+
+[node name="DEFAULTWoodlandBiome" parent="." instance=ExtResource("19_tmfvb")]

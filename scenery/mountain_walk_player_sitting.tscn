@@ -11,15 +11,17 @@
 
 [node name="MountainWalk" type="Node2D"]
 
-[node name="BG" parent="." instance=ExtResource("1_v60v5")]
+[node name="Background" type="Node2D" parent="."]
 
-[node name="White" type="Sprite2D" parent="."]
+[node name="BG" parent="Background" instance=ExtResource("1_v60v5")]
+
+[node name="White" type="Sprite2D" parent="Background"]
 position = Vector2(0, -36)
 scale = Vector2(1.17115, 1.24254)
 texture = ExtResource("2_7y4i0")
 centered = false
 
-[node name="BG2" parent="." instance=ExtResource("3_ybjmm")]
+[node name="BG2" parent="Background" instance=ExtResource("3_ybjmm")]
 position = Vector2(0, -174)
 
 [node name="Characters" type="Node2D" parent="."]

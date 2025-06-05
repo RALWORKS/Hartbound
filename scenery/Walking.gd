@@ -2,6 +2,8 @@ extends Node2D
 @export var mul = 1
 @export var offset = 0.0
 
+@export var char_id: String = ""
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	await get_tree().create_timer(offset).timeout

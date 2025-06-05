@@ -6,6 +6,8 @@ extends Node2D
 @onready var Hair = $Hair
 @onready var Skeleton = $Skeleton2D
 
+@export var char_id = ""
+
 @export var anim = "quantized_walk"
 
 

@@ -1,5 +1,7 @@
 extends Node2D
 
+@export var char_id: String = ""
+
 @onready var Back = $Back
 @onready var Middle = $Middle
 @onready var Front = $Front

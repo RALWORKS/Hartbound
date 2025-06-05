@@ -46,7 +46,9 @@ scale = Vector2(1, 1)
 [node name="JerryWalking" parent="Characters" instance=ExtResource("6_yamgh")]
 position = Vector2(4888.35, 74.9999)
 offset = 0.4
+char_id = "jerry"
 
 [node name="NateWalking" parent="Characters" instance=ExtResource("7_k3ck0")]
 position = Vector2(-690, 35)
 offset = 0.2
+char_id = "nate"

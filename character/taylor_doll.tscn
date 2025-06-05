@@ -615,6 +615,7 @@ _data = {
 position = Vector2(369, -13)
 scale = Vector2(0.5, 0.5)
 script = ExtResource("1_kbnnc")
+char_id = "taylor"
 
 [node name="Back" type="Node2D" parent="."]
 position = Vector2(-1661, 57)

@@ -58,6 +58,9 @@ event_name = "SunTemple"
 script = ExtResource("6_8frcw")
 event_name = "TaylorHelpsYou"
 
+[node name="CountPlayerFalls" type="Node" parent="." index="3"]
+script = ExtResource("9_dd3iu")
+
 [node name="FirstWalk" parent="MapEvents" index="0" instance=ExtResource("4_ee8q1")]
 cutscene = ExtResource("10_ny36c")
 progress_key = "map_events"
@@ -72,8 +75,8 @@ cutscene = ExtResource("5_pno0o")
 reusable = true
 progress_key = "map_events"
 
-[node name="CountPlayerFalls" type="Node" parent="." index="3"]
-script = ExtResource("9_dd3iu")
+[node name="Music" parent="." index="5" instance=ExtResource("16_kh0f0")]
+stream = ExtResource("17_p1pla")
 
 [node name="Taylor" parent="CharacterCutscenes" index="0"]
 dialogue = ExtResource("12_5hs1j")
@@ -86,6 +89,3 @@ dialogue = ExtResource("14_6uiej")
 
 [node name="Jerry" parent="CharacterCutscenes" index="3"]
 dialogue = ExtResource("15_uc1n0")
-
-[node name="Music" parent="." index="5" instance=ExtResource("16_kh0f0")]
-stream = ExtResource("17_p1pla")

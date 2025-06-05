@@ -10,6 +10,7 @@ class_name Chapter
 var pending_event = null
 
 var active_map = null
+var active_travel_stretch = null
 
 var events_done = []
 var map_events_done = []
@@ -214,11 +215,14 @@ func end_cutscene(free=false):
 		$"/root/Game".move()
 
 	if teleport_to != null:
-		$"/root/Game/Map".move_to(teleport_to)
-		teleport_to.spawn(game)
-		$"/root/Game".save_room(teleport_to.scene_file_path, null)
+		teleport(teleport_to)
 	if notification:
 		game.notify(notification)
+
+func teleport(teleport_to):
+	$"/root/Game/Map".move_to(teleport_to)
+	teleport_to.spawn(game)
+	$"/root/Game".save_room(teleport_to.scene_file_path, null)
 
 func handle_pending_event():
 	if pending_event != null:
@@ -246,6 +250,27 @@ func to_map():
 	$"../MainScreen/World".call_deferred("add_child", active_map)
 	active_map.load_position($"/root/Game")
 
+func to_travel_stretch(biome, travel_time_in_atoms, encounter=null):
+	active_travel_stretch = biome.travel_stretch.instantiate()
+	active_travel_stretch.chapter = self
+	
+	var world = $"../MainScreen/World".get_children()
+
+	for child in world:
+		child.queue_free()
+
+	game.show_clock = false
+	$"../MainScreen/World".call_deferred("add_child", active_travel_stretch)
+	active_travel_stretch.start(travel_time_in_atoms, biome, encounter)
+
+func close_travel_stretch():
+	var camp = active_travel_stretch.get_camp()
+	active_travel_stretch.call_deferred("free")
+	await get_tree().create_timer(0.05).timeout
+	game.show_clock = true
+	#reload_world()
+	teleport(camp)
+
 func _clean_up_map():
 	active_map.call_deferred("free")
 	await get_tree().create_timer(0.05).timeout
@@ -254,6 +279,7 @@ func _clean_up_map():
 	game.show_clock = true
 
 func close_map(biome):
+	var time_expended = active_map.get_time_expended()
 	_clean_up_map()
 	
 	if not biome:
@@ -265,18 +291,21 @@ func close_map(biome):
 	
 	var event = get_next_map_event()
 	
-	if not event:
+	if event == null:
+		to_travel_stretch(biome, time_expended)
 		return
 	
 	event.cutscene_input_data = biome
 	event.play()
 
-func close_map_to_encounter(encounter):
+func close_map_to_encounter(encounter, biome):
+	var time_expended = active_map.get_time_expended()
 	_clean_up_map()
 	
 	var event = get_next_map_event()
 	
-	if not event:
+	if event == null:
+		to_travel_stretch(biome, time_expended, encounter)
 		return
 	
 	event.cutscene_input_data = encounter

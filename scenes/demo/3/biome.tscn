@@ -5,6 +5,6 @@
 [node name="Biome" type="Node2D"]
 script = ExtResource("1_4smmp")
 
-[node name="Background" type="Node2D" parent="."]
-
 [node name="Camps" type="Node" parent="."]
+
+[node name="TravelStretch" type="Node" parent="."]

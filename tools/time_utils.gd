@@ -32,6 +32,13 @@ func native_fraction_to_hours(frac: float):
 func moves_to_hours(moves: int):
 	return native_fraction_to_hours(float(moves) / float(day_length))
 
+func moves_to_h_min(moves: int):
+	var hours = moves_to_hours(moves)
+	var h = float(int(hours))
+	var m = 60 * (hours - h)
+	return str(h) + "h" + str(m) + "min"
+	
+
 func hours_to_moves(hours: float):
 	return int(hours * (float(day_length) / 24.0))
 
