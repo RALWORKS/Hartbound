@@ -6,6 +6,9 @@ class_name Chapter
 @export var starting_music: AudioStreamPlayer
 @export var script_holder: Node
 
+@export var biomes: Array[Resource]
+@export var encounters: Array[Resource]
+
 @export var map: Resource
 var pending_event = null
 
@@ -250,7 +253,7 @@ func to_map():
 	$"../MainScreen/World".call_deferred("add_child", active_map)
 	active_map.load_position($"/root/Game")
 
-func to_travel_stretch(biome, travel_time_in_atoms, encounter=null):
+func _to_travel_stretch(biome, travel_time_in_atoms, encounter=null):
 	active_travel_stretch = biome.travel_stretch.instantiate()
 	active_travel_stretch.chapter = self
 	
@@ -263,12 +266,59 @@ func to_travel_stretch(biome, travel_time_in_atoms, encounter=null):
 	$"../MainScreen/World".call_deferred("add_child", active_travel_stretch)
 	active_travel_stretch.start(travel_time_in_atoms, biome, encounter)
 
+	
+func get_resource_by_index(bank, ix):
+	if ix < bank.size():
+		return bank[ix]
+	return null
+
+
+func to_travel_stretch(biome: Node2D, travel_time_in_atoms, encounter:Resource=null):
+	_to_travel_stretch(biome, travel_time_in_atoms, encounter)
+	var encounter_ix = null
+	if encounter != null:
+		encounter_ix = get_resource_index(encounters, encounter.resource_path)
+	game.start_travel(
+		get_resource_index(biomes, biome.scene_file_path),
+		encounter_ix,
+		travel_time_in_atoms,
+	)
+
+func load_travel_stretch(data):
+	var biome_res: Resource = get_resource_by_index(biomes, data["biome_ix"])
+	if biome_res == null:
+		return
+	var biome = biome_res.instantiate()
+	var encounter = get_resource_by_index(encounters, data["encounter_ix"])
+	
+	_to_travel_stretch(biome, data["time_delta"], encounter)
+
+func get_resource_index(bank, path):
+	var i = 0
+	while i < bank.size():
+		var d: Resource = bank[i]
+		if d.resource_path == path:
+			return i
+		i = i + 1
+	return null
+
+func save_travel_stretch(biome: Node2D, time_delta, encounter: Resource):
+	var encounter_ix = null
+	if encounter != null:
+		encounter_ix = get_resource_index(encounters, encounter.resource_path)
+	game.start_travel(
+		get_resource_index(biomes, biome.scene_file_path),
+		encounter_ix,
+		time_delta,
+	)
+
 func close_travel_stretch():
 	var camp = active_travel_stretch.get_camp()
 	active_travel_stretch.call_deferred("free")
 	await get_tree().create_timer(0.05).timeout
 	game.show_clock = true
 	#reload_world()
+	game.end_travel()
 	teleport(camp)
 
 func _clean_up_map():

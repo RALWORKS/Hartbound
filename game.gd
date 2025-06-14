@@ -283,8 +283,17 @@ func start_from_state(s):
 	#load_display()
 	
 	started = true
+	
+func load_travel():
+	var active_travel = get_travel()
+	if not active_travel["is_active"]:
+		return false
+	chapter.load_travel_stretch(active_travel)
+	return true
 
 func load_position():
+	if load_travel():
+		return
 	var p = get_state(["position"])
 	if p != null and p["scene_path"] != null:
 		$Map.load_position(p)
@@ -936,3 +945,36 @@ func check_star_ritual(ritual_id):
 func win_star_ritual(ritual_id):
 	var data = _init_star_rituals_if_needed()
 	return set_state(["micro_progress", "star_rituals"], data + [ritual_id])
+	
+func get_travel():
+	var data = get_state(["active_travel"])
+	if data != null:
+		return data
+	var x: Resource = chapter
+
+	return set_state(["active_travel"], {
+		"is_active": false,
+		"biome_ix": null,
+		"encounter_ix": null,
+		"time_delta": null,
+		"turn": 0,
+	})
+
+func start_travel(biome_ix, encounter_ix, time_delta):
+	_init_outer_position_if_needed()
+	set_state(["active_travel"], {
+		"is_active": true,
+		"biome_ix": biome_ix,
+		"encounter_ix": encounter_ix,
+		"time_delta": time_delta,
+		"turn": 0,
+	})
+
+func end_travel():
+	return set_state(["active_travel"], {
+		"is_active": false,
+		"biome_ix": null,
+		"encounter_ix": null,
+		"time_delta": null,
+		"turn": 0,
+	})

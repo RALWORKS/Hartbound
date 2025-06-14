@@ -1,8 +1,10 @@
-[gd_scene load_steps=22 format=3 uid="uid://dgtv4htdskbdq"]
+[gd_scene load_steps=24 format=3 uid="uid://dgtv4htdskbdq"]
 
 [ext_resource type="PackedScene" uid="uid://bh1yfkyt3u44i" path="res://chapter.tscn" id="1_ia6rp"]
 [ext_resource type="PackedScene" uid="uid://cog1hph357ikp" path="res://scenes/demo/0/suntemple-ground-1.tscn" id="2_om1c3"]
 [ext_resource type="PackedScene" uid="uid://rypy816ox81w" path="res://scenes/demo/0/main_map_1.tscn" id="3_f6vjy"]
+[ext_resource type="PackedScene" uid="uid://dcu116dp3s6vn" path="res://scenes/demo/0/woodland_biome.tscn" id="3_sga22"]
+[ext_resource type="PackedScene" uid="uid://bvub1hhya5f00" path="res://scenes/demo/0/elf-encounter.tscn" id="4_eb0g3"]
 [ext_resource type="PackedScene" uid="uid://c0a2dl3a2t7rm" path="res://time_mutation.tscn" id="4_o8d0l"]
 [ext_resource type="PackedScene" uid="uid://3wjup2lrwngl" path="res://chapter_action_waiter_event.tscn" id="5_6jnyi"]
 [ext_resource type="PackedScene" uid="uid://risextq72jue" path="res://ui_hint_mutation.tscn" id="5_pfw2h"]
@@ -25,6 +27,8 @@
 [node name="Chapter" node_paths=PackedStringArray("starting_music") instance=ExtResource("1_ia6rp")]
 starting_scene = ExtResource("2_om1c3")
 starting_music = NodePath("Music")
+biomes = Array[Resource]([ExtResource("3_sga22")])
+encounters = Array[Resource]([ExtResource("4_eb0g3")])
 map = ExtResource("3_f6vjy")
 
 [node name="Pause7" parent="Events/StartChapter" index="0" instance=ExtResource("4_o8d0l")]
