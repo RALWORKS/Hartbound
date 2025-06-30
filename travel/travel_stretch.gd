@@ -55,15 +55,17 @@ func start_turn():
 func show_end_screen():
 	$WalkDistanceNotification.visible = true
 	
-func get_camp():
+func get_camp(g=null):
 	if encounter != null:
 		return encounter.destination_scene.instantiate()
-	return biome.get_camp()
+	return biome.get_camp(g)
 
-func start(travel_time, new_biome, new_encounter):
+func start(g, travel_time, new_biome, new_encounter):
 	encounter = new_encounter
-	if encounter:
+	if encounter != null:
 		closing_notification = encounter.arrival_notification
+		g.save_map_encounter(encounter)
+		
 	travel_length_in_atoms = travel_time
 	set_clock()
 	set_biome(new_biome)

@@ -6,15 +6,19 @@ var game: Game
 func _ready():
 	game = $"/root/Game"
 
+func _get_game():
+	if game == null:
+		game = $"/root/Game"
+	return game
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	refresh()
 
 func refresh():
-	if game == null:
+	var g = _get_game()
+	if g == null:
 		return
-	visible = game.show_clock
-	$Time.text = $TimeUtils.format_time_24h(game.proportional_time())
-	$Day.text = str(game.get_date() + 1)
+	$Time.text = $TimeUtils.format_time_24h(g.proportional_time())
+	$Day.text = str(g.get_date() + 1)
 	

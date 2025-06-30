@@ -950,7 +950,6 @@ func get_travel():
 	var data = get_state(["active_travel"])
 	if data != null:
 		return data
-	var x: Resource = chapter
 
 	return set_state(["active_travel"], {
 		"is_active": false,

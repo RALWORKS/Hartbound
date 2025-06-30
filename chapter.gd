@@ -99,9 +99,11 @@ func _default_init():
 	game.show_clock = true
 	#scene0.spawn_at = "n"
 	#$"../MainScreen/World".add_child(scene0)
+	if game.get_travel()["is_active"]:
+		reload_events_done()
+		return
 	$"../Map".start(scene0, self)
 	reload_events_done()
-	print("init", events_done)
 	scene0.spawn($"..")
 
 # Called when the node enters the scene tree for the first time.
@@ -264,20 +266,22 @@ func _to_travel_stretch(biome, travel_time_in_atoms, encounter=null):
 
 	game.show_clock = false
 	$"../MainScreen/World".call_deferred("add_child", active_travel_stretch)
-	active_travel_stretch.start(travel_time_in_atoms, biome, encounter)
+	active_travel_stretch.start(game, travel_time_in_atoms, biome, encounter)
 
 	
 func get_resource_by_index(bank, ix):
+	if ix == null:
+		return null
 	if ix < bank.size():
 		return bank[ix]
 	return null
 
 
-func to_travel_stretch(biome: Node2D, travel_time_in_atoms, encounter:Resource=null):
+func to_travel_stretch(biome: Node2D, travel_time_in_atoms, encounter:Node2D=null):
 	_to_travel_stretch(biome, travel_time_in_atoms, encounter)
 	var encounter_ix = null
 	if encounter != null:
-		encounter_ix = get_resource_index(encounters, encounter.resource_path)
+		encounter_ix = get_resource_index(encounters, encounter.scene_file_path)
 	game.start_travel(
 		get_resource_index(biomes, biome.scene_file_path),
 		encounter_ix,
@@ -289,7 +293,10 @@ func load_travel_stretch(data):
 	if biome_res == null:
 		return
 	var biome = biome_res.instantiate()
-	var encounter = get_resource_by_index(encounters, data["encounter_ix"])
+	var encounter_res = get_resource_by_index(encounters, data["encounter_ix"])
+	var encounter = null
+	if encounter_res != null:
+		encounter = encounter_res.instantiate()
 	
 	_to_travel_stretch(biome, data["time_delta"], encounter)
 
@@ -302,18 +309,8 @@ func get_resource_index(bank, path):
 		i = i + 1
 	return null
 
-func save_travel_stretch(biome: Node2D, time_delta, encounter: Resource):
-	var encounter_ix = null
-	if encounter != null:
-		encounter_ix = get_resource_index(encounters, encounter.resource_path)
-	game.start_travel(
-		get_resource_index(biomes, biome.scene_file_path),
-		encounter_ix,
-		time_delta,
-	)
-
 func close_travel_stretch():
-	var camp = active_travel_stretch.get_camp()
+	var camp = active_travel_stretch.get_camp(game)
 	active_travel_stretch.call_deferred("free")
 	await get_tree().create_timer(0.05).timeout
 	game.show_clock = true

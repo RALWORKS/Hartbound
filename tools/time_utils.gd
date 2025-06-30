@@ -36,7 +36,7 @@ func moves_to_h_min(moves: int):
 	var hours = moves_to_hours(moves)
 	var h = float(int(hours))
 	var m = 60 * (hours - h)
-	return str(h) + "h" + str(m) + "min"
+	return str(int(h)) + "h" + str(int(m)) + "min"
 	
 
 func hours_to_moves(hours: float):

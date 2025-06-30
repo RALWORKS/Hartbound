@@ -9,10 +9,16 @@ extends Node2D
 
 
 var game
+var camp
+
+func _get_game():
+	if game != null:
+		return game
+	return $".".get_tree().get_root().get_node("Game")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	game = $".".get_tree().get_root().get_node("Game")
+	game = _get_game()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -20,9 +26,11 @@ func _process(_delta):
 	pass
 
 
-func get_camp():
+func get_camp(g=null):
+	if g == null:
+		g = _get_game()
 	var camps: Array = $Camps.get_children()
-	var r = int(game.get_date() + game.get_time())
+	var r = int(g.get_date() + g.get_time())
 	
 	
 	var i = r % camps.size()
