@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://d3sg85ljfgv6k" path="res://effects/black_star_animation.tscn" id="2_ujwrl"]
 [ext_resource type="PackedScene" uid="uid://bhqmf4wcprk68" path="res://ui/context_bar.tscn" id="4_d5qrq"]
 [ext_resource type="Shader" path="res://effects/demon-vignette.gdshader" id="5_htkuq"]
-[ext_resource type="PackedScene" uid="uid://dq7w6ara6rj8f" path="res://left_menu.tscn" id="7_md78l"]
+[ext_resource type="PackedScene" uid="uid://dq7w6ara6rj8f" path="res://left_menu.tscn" id="7_6q0gw"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_p13e7"]
 resource_local_to_scene = true
@@ -59,4 +59,4 @@ script = ExtResource("1_3a4ee")
 [node name="BlackStarAnimation" parent="Effects" instance=ExtResource("2_ujwrl")]
 visible = false
 
-[node name="LeftMenu" parent="." instance=ExtResource("7_md78l")]
+[node name="LeftMenu" parent="." instance=ExtResource("7_6q0gw")]

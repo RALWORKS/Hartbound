@@ -21,4 +21,3 @@ func refresh():
 		return
 	$Time.text = $TimeUtils.format_time_24h(g.proportional_time())
 	$Day.text = str(g.get_date() + 1)
-	
