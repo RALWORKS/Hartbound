@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://n3elv3gf4g7"]
+[gd_scene load_steps=7 format=3 uid="uid://n3elv3gf4g7"]
 
 [ext_resource type="Script" path="res://travel/travel_stretch.gd" id="1_r6c3n"]
 [ext_resource type="FontFile" uid="uid://ebgllykqxqm7" path="res://assets/Georgia.TTF" id="2_iv0xu"]
 [ext_resource type="PackedScene" uid="uid://hni4rd56vl3d" path="res://ui/priority_button.tscn" id="3_8uen1"]
 [ext_resource type="PackedScene" uid="uid://7djnei1l8a52" path="res://tools/time_utils.tscn" id="4_d6r8o"]
+[ext_resource type="PackedScene" uid="uid://baamthkbm3kf2" path="res://travel/main_travel_menu.tscn" id="5_farwv"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3oo0v"]
 bg_color = Color(0, 0, 0, 1)
@@ -23,6 +24,7 @@ offset_left = 933.0
 offset_top = 770.0
 offset_right = 1518.0
 offset_bottom = 975.0
+mouse_filter = 1
 theme_override_styles/panel = SubResource("StyleBoxFlat_3oo0v")
 
 [node name="1" type="Label" parent="WalkDistanceNotification/Panel"]
@@ -31,6 +33,7 @@ offset_left = 32.0
 offset_top = 23.0
 offset_right = 451.0
 offset_bottom = 68.0
+mouse_filter = 1
 theme_override_fonts/font = ExtResource("2_iv0xu")
 theme_override_font_sizes/font_size = 35
 text = "You walk for"
@@ -51,8 +54,12 @@ offset_left = 44.0
 offset_top = 115.0
 offset_right = 544.0
 offset_bottom = 165.0
+mouse_filter = 1
 text = "> Continue"
 
 [node name="TimeUtils" parent="." instance=ExtResource("4_d6r8o")]
+
+[node name="MainTravelMenu" parent="." instance=ExtResource("5_farwv")]
+position = Vector2(0, 936)
 
 [connection signal="pressed" from="WalkDistanceNotification/Panel/EndButton" to="." method="_on_end_button_pressed"]

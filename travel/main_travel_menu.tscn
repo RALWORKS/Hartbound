@@ -1,0 +1,96 @@
+[gd_scene load_steps=6 format=3 uid="uid://baamthkbm3kf2"]
+
+[ext_resource type="Script" path="res://travel/main_travel_menu.gd" id="1_yec4g"]
+[ext_resource type="Texture2D" uid="uid://dlckpoglm3oxj" path="res://assets/cog-brain.png" id="2_mbaff"]
+[ext_resource type="Texture2D" uid="uid://bkix1ixyplpu0" path="res://assets/talking-brain.png" id="3_mdx7w"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rw3vt"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i4n41"]
+bg_color = Color(1, 1, 1, 1)
+
+[node name="MainTravelMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+mouse_filter = 2
+script = ExtResource("1_yec4g")
+
+[node name="Pane" type="ColorRect" parent="."]
+clip_contents = true
+offset_right = 2027.0
+offset_bottom = 154.0
+mouse_filter = 1
+color = Color(0, 0, 0, 1)
+
+[node name="Ponder" type="Button" parent="Pane"]
+layout_mode = 0
+offset_left = -158.0
+offset_right = 1010.0
+offset_bottom = 250.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_rw3vt")
+theme_override_styles/hover = SubResource("StyleBoxFlat_i4n41")
+
+[node name="Wrap" type="Control" parent="Pane/Ponder"]
+anchors_preset = 0
+offset_left = 630.0
+offset_right = 630.0
+scale = Vector2(0.6, 0.6)
+mouse_filter = 2
+
+[node name="ico" type="Sprite2D" parent="Pane/Ponder/Wrap"]
+position = Vector2(317, 123)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("2_mbaff")
+flip_h = true
+
+[node name="Label" type="Label" parent="Pane/Ponder/Wrap"]
+offset_left = 453.0
+offset_top = 59.0
+offset_right = 741.0
+offset_bottom = 219.0
+theme_override_font_sizes/font_size = 80
+text = "THINK"
+
+[node name="Talk" type="Button" parent="Pane"]
+offset_left = 1010.0
+offset_right = 1916.0
+offset_bottom = 250.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_rw3vt")
+theme_override_styles/hover = SubResource("StyleBoxFlat_i4n41")
+
+[node name="Wrap" type="Control" parent="Pane/Talk"]
+anchors_preset = 0
+offset_left = -3.0
+offset_top = 1.0
+offset_right = -3.0
+offset_bottom = 1.0
+scale = Vector2(0.6, 0.6)
+mouse_filter = 2
+
+[node name="ico" type="Sprite2D" parent="Pane/Talk/Wrap"]
+position = Vector2(605, 123)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("3_mdx7w")
+
+[node name="Label" type="Label" parent="Pane/Talk/Wrap"]
+offset_left = 209.0
+offset_top = 59.0
+offset_right = 497.0
+offset_bottom = 219.0
+theme_override_font_sizes/font_size = 80
+text = "TALK"
+
+[node name="Divider" type="ColorRect" parent="Pane"]
+offset_left = 1006.0
+offset_right = 1014.0
+offset_bottom = 260.0
+mouse_filter = 2
+color = Color(0.439216, 0.439216, 0.439216, 1)
+
+[connection signal="mouse_entered" from="Pane/Ponder" to="." method="_on_ponder_mouse_entered"]
+[connection signal="mouse_exited" from="Pane/Ponder" to="." method="_on_ponder_mouse_exited"]
+[connection signal="pressed" from="Pane/Ponder" to="." method="_on_ponder_pressed"]
+[connection signal="mouse_entered" from="Pane/Talk" to="." method="_on_talk_mouse_entered"]
+[connection signal="mouse_exited" from="Pane/Talk" to="." method="_on_talk_mouse_exited"]
+[connection signal="pressed" from="Pane/Talk" to="." method="_on_talk_pressed"]
