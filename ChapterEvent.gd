@@ -10,7 +10,8 @@ signal action_received
 @export var abort_save = false
 @export_multiline var context_notification: String
 
-@export var progress_key = "events"
+@export var progress_key = "events" ## Slash delineated sub-key of micro_progess
+@onready var progress_state_path = ["micro_progress"] + Array(progress_key.split("/"))
 var cutscene_input_data = null
 
 var game
@@ -35,7 +36,7 @@ func _play(save=true):
 		return
 	played = true
 	if save and not abort_save:
-		g.set_state_push_to_key(["micro_progress", progress_key], get_index())
+		g.set_state_push_to_key(progress_state_path, get_index())
 
 
 func _mutate():
@@ -51,7 +52,7 @@ func _re_mutate():
 func _cutscene():
 	if cutscene != null:
 		await get_tree().create_timer(0.2).timeout
-		$"../..".start_cutscene(cutscene, null, null, [], cutscene_input_data)
+		$"/root/Game".chapter.start_cutscene(cutscene, null, null, [], cutscene_input_data)
 
 func _effect():
 	var g = _get_game()

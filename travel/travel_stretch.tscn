@@ -1,10 +1,16 @@
-[gd_scene load_steps=7 format=3 uid="uid://n3elv3gf4g7"]
+[gd_scene load_steps=13 format=3 uid="uid://n3elv3gf4g7"]
 
 [ext_resource type="Script" path="res://travel/travel_stretch.gd" id="1_r6c3n"]
 [ext_resource type="FontFile" uid="uid://ebgllykqxqm7" path="res://assets/Georgia.TTF" id="2_iv0xu"]
 [ext_resource type="PackedScene" uid="uid://hni4rd56vl3d" path="res://ui/priority_button.tscn" id="3_8uen1"]
 [ext_resource type="PackedScene" uid="uid://7djnei1l8a52" path="res://tools/time_utils.tscn" id="4_d6r8o"]
 [ext_resource type="PackedScene" uid="uid://baamthkbm3kf2" path="res://travel/main_travel_menu.tscn" id="5_farwv"]
+[ext_resource type="Script" path="res://travel/travel_events.gd" id="6_yq7kb"]
+[ext_resource type="PackedScene" uid="uid://bt0e2jwvmgpgm" path="res://concept-map/concept.tscn" id="7_75e47"]
+[ext_resource type="PackedScene" uid="uid://bk55nkktsq3s7" path="res://concept-map/concepts/jerry.tscn" id="9_coenw"]
+[ext_resource type="PackedScene" uid="uid://cjet5t2jtr03s" path="res://concept-map/concepts/brona.tscn" id="10_q6t06"]
+[ext_resource type="PackedScene" uid="uid://d0r7la835u7wq" path="res://concept-map/concepts/taylor.tscn" id="11_m4vbl"]
+[ext_resource type="PackedScene" uid="uid://bppqrtvum64n1" path="res://concept-map/concepts/nate.tscn" id="12_y87fl"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3oo0v"]
 bg_color = Color(0, 0, 0, 1)
@@ -59,8 +65,49 @@ text = "> Continue"
 
 [node name="TimeUtils" parent="." instance=ExtResource("4_d6r8o")]
 
-[node name="MainTravelMenu" parent="." instance=ExtResource("5_farwv")]
+[node name="MainTravelMenu" parent="." node_paths=PackedStringArray("event_manager") instance=ExtResource("5_farwv")]
 offset_top = 936.0
 offset_bottom = 936.0
+event_manager = NodePath("../TravelEvents")
+
+[node name="TravelEvents" type="Node" parent="."]
+script = ExtResource("6_yq7kb")
+
+[node name="Start" parent="TravelEvents" instance=ExtResource("7_75e47")]
+id = "start"
+
+[node name="Think" parent="TravelEvents" node_paths=PackedStringArray("default_if_empty") instance=ExtResource("7_75e47")]
+id = "think"
+default_if_empty = NodePath("../EmptyThink")
+
+[node name="Talk" parent="TravelEvents" instance=ExtResource("7_75e47")]
+id = "talk"
+
+[node name="Jerry" parent="TravelEvents" node_paths=PackedStringArray("default_if_empty") instance=ExtResource("9_coenw")]
+default_if_empty = NodePath("../EmptyJerry")
+
+[node name="Brona" parent="TravelEvents" node_paths=PackedStringArray("default_if_empty") instance=ExtResource("10_q6t06")]
+default_if_empty = NodePath("../EmptyBrona")
+
+[node name="Taylor" parent="TravelEvents" node_paths=PackedStringArray("default_if_empty") instance=ExtResource("11_m4vbl")]
+default_if_empty = NodePath("../EmptyTaylor")
+
+[node name="Nate" parent="TravelEvents" node_paths=PackedStringArray("default_if_empty") instance=ExtResource("12_y87fl")]
+default_if_empty = NodePath("../EmptyNate")
+
+[node name="EmptyThink" parent="TravelEvents" instance=ExtResource("7_75e47")]
+id = "any"
+
+[node name="EmptyJerry" parent="TravelEvents" instance=ExtResource("7_75e47")]
+id = "any"
+
+[node name="EmptyBrona" parent="TravelEvents" instance=ExtResource("7_75e47")]
+id = "any"
+
+[node name="EmptyTaylor" parent="TravelEvents" instance=ExtResource("7_75e47")]
+id = "any"
+
+[node name="EmptyNate" parent="TravelEvents" instance=ExtResource("7_75e47")]
+id = "any"
 
 [connection signal="pressed" from="WalkDistanceNotification/Panel/EndButton" to="." method="_on_end_button_pressed"]

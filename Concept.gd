@@ -5,6 +5,7 @@ extends Node
 @export var title = ""
 @export var flex_title = ""
 @export var hide_for_npc_name = ""
+@export var default_if_empty: Node 
 @export_multiline var description = ""
 
 # Called when the node enters the scene tree for the first time.

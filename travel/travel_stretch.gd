@@ -3,9 +3,10 @@ extends Node2D
 class_name TravelStretch
 
 @export var travel_length_in_atoms: int
-@export var atoms_per_turn: int = 30
+@export var atoms_per_turn: int = 5
+@export var max_turns = 3
 
-var turns_left = travel_length_in_atoms / atoms_per_turn
+var turns_total = 0
 var biome: Biome
 var encounter: MapEncounter
 var background: Node2D
@@ -22,7 +23,6 @@ func _ready():
 	setup_characters()
 	if travel_length_in_atoms:
 		set_clock()
-	#play_opening()
 
 func set_biome(new_biome: Biome):
 	biome = new_biome
@@ -51,10 +51,11 @@ func end_travel():
 	chapter.close_travel_stretch()
 
 func start_turn():
-	pass
+	$MainTravelMenu.start()
 
 func show_end_screen():
 	$WalkDistanceNotification.visible = true
+	$MainTravelMenu.stop()
 	
 func get_camp(g=null):
 	if encounter != null:
@@ -68,20 +69,28 @@ func start(g, travel_time, new_biome, new_encounter):
 		g.save_map_encounter(encounter)
 		
 	travel_length_in_atoms = travel_time
+	turns_total = travel_length_in_atoms / atoms_per_turn
+	turns_total = turns_total if turns_total < max_turns else max_turns
 	set_clock()
 	set_biome(new_biome)
-	play_opening()
+	play_opening(g)
 
 func set_clock():
 	$WalkDistanceNotification/Panel/data.text = $TimeUtils.moves_to_h_min(travel_length_in_atoms)
 
-func play_opening():
-	start_turn_if_needed()
+func play_opening(g):
+	start_turn_if_needed(g)
 
-func start_turn_if_needed():
-	if turns_left < 1:
+func start_turn_if_needed(g):
+	var turn = g.get_state(["active_travel", "turn"])
+	turn = turn if turn else 0
+	if turns_total - turn <= 1:
 		return show_end_screen()
 	start_turn()
+
+func iterate_turn():
+	var turn = $"/root/Game".get_state(["active_travel", "turn"])
+	$"/root/Game".set_state(["active_travel", "turn"], turn + 1)
 
 
 func _on_end_button_pressed():

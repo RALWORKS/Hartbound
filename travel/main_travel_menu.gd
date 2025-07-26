@@ -1,12 +1,13 @@
 extends Control
 
-@export var talker: Node2D
-@export var thinker: Node2D
+@export var event_manager: TravelEvents
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	stop()
+	#stop()
+	#start()
+	pass
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -32,7 +33,7 @@ func _on_ponder_mouse_exited():
 
 
 func _on_ponder_pressed():
-	thinker.play()
+	event_manager.start_thinking()
 	stop()
 
 
@@ -46,5 +47,5 @@ func _on_talk_mouse_exited():
 
 
 func _on_talk_pressed():
-	talker.play()
+	event_manager.start_talking()
 	stop()

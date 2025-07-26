@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://bi5cdeb5osm5q"]
+
+[ext_resource type="PackedScene" uid="uid://bp8tsdjdbwj8i" path="res://cutscene/cutscene.tscn" id="1_4jhvb"]
+[ext_resource type="PackedScene" uid="uid://55vflx8ylix1" path="res://cutscene/cutscene_node.tscn" id="2_fthhh"]
+[ext_resource type="Texture2D" uid="uid://c2xqwlpuwph2k" path="res://assets/scenery/default-walk-bg-talking.png" id="3_0ecj0"]
+[ext_resource type="PackedScene" uid="uid://b11g7mb25w5xp" path="res://cutscene/smart_label.tscn" id="4_x63p1"]
+
+[node name="EmptyBigThink" node_paths=PackedStringArray("starting_page") instance=ExtResource("1_4jhvb")]
+starting_page = NodePath("0")
+
+[node name="0" parent="." index="0" instance=ExtResource("2_fthhh")]
+
+[node name="bg" type="Sprite2D" parent="0" index="0"]
+scale = Vector2(1.24969, 1)
+texture = ExtResource("3_0ecj0")
+centered = false
+
+[node name="SmartLabel" parent="0" index="1" instance=ExtResource("4_x63p1")]
+offset_left = -2.0
+offset_top = 761.0
+offset_right = 2005.0
+offset_bottom = 881.0
+text = "Your mind wanders for a while. Time passes. No thoughts of particular note come to you."

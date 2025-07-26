@@ -295,6 +295,16 @@ func load_travel():
 	chapter.load_travel_stretch(active_travel)
 	return true
 
+func init_travel_events_if_needed():
+	var q = get_state(["micro_progress", "travel_events"])
+	if q != null:
+		return
+	set_state(
+		["micro_progress", "travel_events"],
+		{},
+	)
+	
+
 func load_position():
 	if load_travel():
 		return
