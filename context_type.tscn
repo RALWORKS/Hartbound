@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://d2d8t4fpci3pa"]
+
+[ext_resource type="Script" path="res://context_type.gd" id="1_tloya"]
+
+[node name="ContextType" type="Node"]
+script = ExtResource("1_tloya")

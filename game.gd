@@ -1,6 +1,8 @@
 extends Window
 class_name Game
 
+var context = null
+
 var world: Node = null
 var cur_modal = null
 var player = null
@@ -62,6 +64,8 @@ var StandardBgTextureCalculator = preload("res://ui/standard_bg_texture_calculat
 var standard_bg_path
 var standard_bg
 var standard_bg_texture
+
+
 
 var CHAPTERS = {
 	"intro": preload("res://intro-story/intro_story_chapter.tscn"),
@@ -918,6 +922,9 @@ func notify(data):
 	await get_tree().create_timer(12).timeout
 	debounce_notifications = false
 
+func clear_notification():
+	notify("")
+
 func _init_map_encounters_if_needed():
 	var data = get_state(["micro_progress", "map_encounters"])
 	if data != null:
@@ -977,3 +984,10 @@ func end_travel():
 		"time_delta": null,
 		"turn": 0,
 	})
+
+func set_context(new_ctx: int):
+	if new_ctx == context:
+		return
+	context = new_ctx
+	clear_notification()
+	

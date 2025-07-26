@@ -18,6 +18,7 @@ var CHARACTERS = {}
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	$"/root/Game".set_context(ContextType.TRAVEL)
 	setup_characters()
 	if travel_length_in_atoms:
 		set_clock()

@@ -36,8 +36,13 @@ func notify():
 	$Player.stop()
 	clear()
 	text = game.context_notification
+	if text.length() == 0:
+		return stop()
 	replace()
 	$Player.play("show", -1, 1.5)
+
+func stop():
+	$Player.play("RESET")
 
 func _process(_delta):
 	refresh_context()

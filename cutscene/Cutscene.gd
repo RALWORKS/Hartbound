@@ -57,6 +57,7 @@ func _process(_delta):
 	pass
 
 func start():
+	$"/root/Game".set_context(ContextType.CUTSCENE)
 	if starting_page:
 		starting_page.start()
 	

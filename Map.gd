@@ -64,6 +64,8 @@ func traverse(dest, entrance, save=true, as_move=true, x=null, y=null):
 	var next_entrance: Node2D = dest.get_node("YSort").get_node(entrance)
 	next_entrance.spawn($"..", x, y)
 	
+	$"/root/Game".set_context(ContextType.EXPLORE)
+	
 	if save:
 		$"..".save_room(dest.scene_file_path, entrance)
 		

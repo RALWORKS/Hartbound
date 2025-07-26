@@ -17,6 +17,7 @@ func _ready():
 	_init_children()
 	_init_areas()
 	$"/root/Game".show_clock = false
+	$"/root/Game".set_context(ContextType.MAP)
 
 func _init_children():
 	for c in get_children():
