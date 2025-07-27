@@ -84,7 +84,7 @@ func play_opening(g):
 func start_turn_if_needed(g):
 	var turn = g.get_state(["active_travel", "turn"])
 	turn = turn if turn else 0
-	if turns_total - turn <= 1:
+	if turns_total - turn <= 0:
 		return show_end_screen()
 	start_turn()
 

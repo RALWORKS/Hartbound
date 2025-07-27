@@ -14,16 +14,16 @@ script = ExtResource("1_180pn")
 clip_contents = true
 layout_mode = 0
 offset_left = 680.0
-offset_top = 176.0
+offset_top = 248.0
 offset_right = 1340.0
-offset_bottom = 754.0
+offset_bottom = 826.0
 color = Color(0, 0, 0, 1)
 
 [node name="Label" type="Label" parent="Pane"]
 layout_mode = 0
-offset_left = 120.0
+offset_left = 116.0
 offset_top = 72.0
-offset_right = 640.0
+offset_right = 636.0
 offset_bottom = 130.0
 theme_override_fonts/font = ExtResource("1_i8gg5")
 theme_override_font_sizes/font_size = 30
