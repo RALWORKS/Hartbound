@@ -1,5 +1,7 @@
 extends CanvasLayer
 
+var show = visible
+var was_shown = show
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -12,6 +14,22 @@ func hint_codex():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	modulate_clock_visibility()
+	handle_show_hide()
+
+func handle_show_hide():
+	if was_shown and not show:
+		hide_self()
+	elif show and not was_shown:
+		show_self()
+	was_shown = show
+
+func hide_self():
+	#visible = false
+	$AnimationPlayer.play("hide")
+
+func show_self():
+	visible = true
+	$AnimationPlayer.play_backwards("RESET")
 
 func modulate_clock_visibility():
 	if $ColorRect/ClockSlot.visible:

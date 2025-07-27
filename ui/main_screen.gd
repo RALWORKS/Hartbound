@@ -57,12 +57,12 @@ func _process(_delta):
 			and get_parent().chapter.pending_event == null
 		) or get_parent().cur_modal != null
 	):
-		$LeftMenu.visible = true
+		$LeftMenu.show = true
 		$PostProcessing/Filter.modulate = "#ffffffff"
 		if not $PostProcessing/Filter.material:
 			$PostProcessing/Filter.material = cur_material
 	else:
-		$LeftMenu.visible = false
+		$LeftMenu.show = false
 		$PostProcessing/Filter.modulate = "#ffffff00"
 		$PostProcessing/Filter.material = null
 	
