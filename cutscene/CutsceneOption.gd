@@ -1,7 +1,7 @@
 extends Button
 
 class_name CutsceneOption
-
+@export var manual_click_action = false
 @export var raise_to_ui_layer = true
 @export var to: CutsceneNode
 @export var to_cutscene: Resource
@@ -36,7 +36,7 @@ func _on_pressed():
 	click()
 
 func click():
-	if disabled:
+	if disabled or manual_click_action:
 		return
 	if real_parent().just_clicked:
 		return

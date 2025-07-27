@@ -50,7 +50,13 @@ func start_talking():
 	var big_talk = get_next_event_by_id("talk")
 	if big_talk:
 		return play_turn(big_talk, "talk")
+	$"../TalkMenu".start()
 
+func hi(char_id):
+	$"../TalkMenu".stop()
+	var big_talk = get_next_event_by_id(char_id)
+	if big_talk:
+		return play_turn(big_talk, char_id)
 
 func start_thinking():
 	var big_think = get_next_event_by_id("think")

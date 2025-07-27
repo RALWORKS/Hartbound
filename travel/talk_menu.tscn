@@ -1,0 +1,38 @@
+[gd_scene load_steps=3 format=3 uid="uid://bwkkqxyij0nlc"]
+
+[ext_resource type="Script" path="res://travel/talk_menu.gd" id="1_180pn"]
+[ext_resource type="FontFile" uid="uid://ebgllykqxqm7" path="res://assets/Georgia.TTF" id="1_i8gg5"]
+
+[node name="TalkMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1920.0
+offset_bottom = 1177.0
+script = ExtResource("1_180pn")
+
+[node name="Pane" type="ColorRect" parent="."]
+clip_contents = true
+layout_mode = 0
+offset_left = 680.0
+offset_top = 176.0
+offset_right = 1340.0
+offset_bottom = 754.0
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="Pane"]
+layout_mode = 0
+offset_left = 120.0
+offset_top = 72.0
+offset_right = 640.0
+offset_bottom = 130.0
+theme_override_fonts/font = ExtResource("1_i8gg5")
+theme_override_font_sizes/font_size = 30
+text = "Who would you like to talk to?"
+
+[node name="Data" type="ColorRect" parent="Pane"]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 162.0
+offset_right = 640.0
+offset_bottom = 704.0
+color = Color(0, 0, 0, 1)
