@@ -384,14 +384,13 @@ _data = {
 starting_page = NodePath("0")
 
 [node name="0" parent="." index="0" node_paths=PackedStringArray("next") instance=ExtResource("3_tv6hf")]
-visible = false
 next = NodePath("../2")
 
 [node name="EyesSleep" parent="0" index="0" instance=ExtResource("6_aect7")]
 z_index = 1000
 
 [node name="village" type="Sprite2D" parent="0" index="1"]
-position = Vector2(-107, -130)
+position = Vector2(-65, -130)
 scale = Vector2(1.1, 1.1)
 texture = ExtResource("4_nr0io")
 centered = false
@@ -418,6 +417,7 @@ text = "\"Mum, what's a Demon?\""
 raise_to_ui_layer = false
 
 [node name="2" parent="." index="1" node_paths=PackedStringArray("next") instance=ExtResource("3_tv6hf")]
+visible = false
 next = NodePath("../3")
 
 [node name="village2" type="Sprite2D" parent="2" index="0"]
@@ -433,7 +433,6 @@ color = Color(0.772549, 0.92549, 0.92549, 1)
 polygon = PackedVector2Array(-74.5454, 1305.45, 94.5454, 1254.55, 180, 1312.73, 176.364, 1232.73, 239.091, 1240.91, 304.545, 1264.55, 329.091, 1321.82, 577.273, 1327.27, 610, 1267.27, 707.273, 1286.36, 985.454, 1455.45, 290.909, 1501.82, -96.3636, 1471.82)
 
 [node name="Sprite2D" type="Sprite2D" parent="2" index="2"]
-visible = false
 position = Vector2(328, 812)
 rotation = -0.204204
 texture = ExtResource("6_vqvxv")
@@ -464,7 +463,7 @@ next = NodePath("../4")
 
 [node name="village" type="Sprite2D" parent="3" index="0"]
 position = Vector2(3, -191)
-scale = Vector2(1.1, 1.1)
+scale = Vector2(1.1368, 1.1)
 texture = ExtResource("4_nr0io")
 centered = false
 
