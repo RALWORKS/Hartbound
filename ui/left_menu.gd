@@ -26,6 +26,7 @@ func handle_show_hide():
 func hide_self():
 	#visible = false
 	$ReflectionBtn.stop_animations()
+	$CampBtn.stop_animations()
 	$AnimationPlayer.play("hide")
 
 func show_self():

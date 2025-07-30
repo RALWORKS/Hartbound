@@ -23,6 +23,12 @@ func disable():
 	$Glow.visible = false
 	$AnimationPlayer.stop()
 
+func stop_animations():
+	$AnimationPlayer.play("RESET")
+	$CampMarker/Player.play("RESET")
+	$AnimationPlayer.stop()
+	$CampMarker/Player.stop()
+
 func enable():
 	$".".self_modulate = "#222222ff"
 	$Icon.self_modulate = "#ffffffff"
