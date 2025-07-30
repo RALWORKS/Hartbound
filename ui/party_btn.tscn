@@ -22,9 +22,33 @@ offset_left = -6.0
 offset_top = 163.0
 offset_right = 186.0
 offset_bottom = 187.0
+mouse_filter = 2
 theme = null
 theme_type_variation = &""
 text = "Character"
 raise_to_ui_layer = false
 
+[node name="Disable4Travel" type="ColorRect" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 24.0
+offset_top = 21.0
+offset_right = 155.0
+offset_bottom = 152.0
+mouse_filter = 2
+color = Color(0, 0, 0, 0.772549)
+
+[node name="Label" type="Label" parent="Disable4Travel"]
+layout_mode = 0
+offset_left = -13.0
+offset_top = 18.0
+offset_right = 146.0
+offset_bottom = 133.0
+text = "Quick-Talk
+not available
+during travel"
+horizontal_alignment = 1
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
 [connection signal="pressed" from="." to="." method="_on_pressed"]

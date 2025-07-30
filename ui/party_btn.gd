@@ -17,5 +17,23 @@ func talk():
 	var sc = ch.get_dialogue_by_id(character_id)
 	ch.start_cutscene(sc)
 
+func is_travelling():
+	var ch = get_node_or_null("/root/Game/Chapter")
+	if not ch:
+		return false
+	return ch.active_travel_stretch != null or ch.active_map != null
+
 func _on_pressed():
+	if is_travelling():
+		return
+	
 	talk()
+
+
+func _on_mouse_entered():
+	if is_travelling():
+		$Disable4Travel.visible = true
+
+
+func _on_mouse_exited():
+	$Disable4Travel.visible = false
