@@ -338,7 +338,7 @@ func _clean_up_map():
 	game.show_clock = true
 
 func close_map(biome):
-	var time_expended = active_map.get_time_expended()
+	var time_expended = active_map.get_moves_used()
 	_clean_up_map()
 	
 	if not biome:

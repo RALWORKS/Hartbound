@@ -49,6 +49,8 @@ func setup_characters():
 			CHARACTERS[c.char_id] = c
 
 func end_travel():
+	if turns_total == 0:
+		$"/root/Game".jump_over_moves(travel_length_in_atoms)
 	chapter.close_travel_stretch()
 
 func start_turn():
@@ -70,7 +72,7 @@ func start(g, travel_time, new_biome, new_encounter):
 		g.save_map_encounter(encounter)
 		
 	travel_length_in_atoms = travel_time
-	turns_total = travel_length_in_atoms / atoms_per_turn
+	turns_total = int(travel_length_in_atoms / atoms_per_turn)
 	turns_total = turns_total if turns_total < max_turns else max_turns
 	set_clock()
 	set_biome(new_biome)
@@ -90,8 +92,12 @@ func start_turn_if_needed(g):
 	start_turn()
 
 func iterate_turn():
-	var turn = $"/root/Game".get_state(["active_travel", "turn"])
-	$"/root/Game".set_state(["active_travel", "turn"], turn + 1)
+	var game = $"/root/Game"
+	var turn = game.get_state(["active_travel", "turn"])
+	game.set_state(["active_travel", "turn"], turn + 1)
+	game.jump_over_moves(
+		int(float(travel_length_in_atoms) / float(turns_total))
+	)
 
 
 func _on_end_button_pressed():

@@ -75,7 +75,7 @@ func get_biome():
 
 func _go_to_pencil():
 	save_position()
-	game.jump_over_moves($bg/MapGrid.time_expended())
+	#game.jump_over_moves($bg/MapGrid.time_expended())
 	
 	var biome = get_biome()
 	biome.get_parent().remove_child(biome)
@@ -86,13 +86,19 @@ func get_time_expended():
 
 func _go_to_encounter(e: MapEncounter, time_at: int):
 	save_position(e.position)
-	game.jump_over_moves(time_at)
+	#game.jump_over_moves(time_at)
 	e.get_parent().remove_child(e)
 	game.save_map_encounter(e)
 	var biome = get_biome()
 	biome.get_parent().remove_child(biome)
 	$"/root/Game/Chapter".close_map_to_encounter(e, biome)
 	
+
+func get_moves_used():
+	var encounter_data = $bg/MapGrid.get_encounter()
+	if encounter_data["e"] == null:
+		return $bg/MapGrid.time_expended()
+	return encounter_data["time_at"]
 
 func go():
 	if going:
