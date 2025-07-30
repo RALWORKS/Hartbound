@@ -25,11 +25,12 @@ func handle_show_hide():
 
 func hide_self():
 	#visible = false
+	$ReflectionBtn.stop_animations()
 	$AnimationPlayer.play("hide")
 
 func show_self():
 	visible = true
-	$AnimationPlayer.play_backwards("RESET")
+	$AnimationPlayer.play("RESET")
 
 func modulate_clock_visibility():
 	if $ColorRect/ClockSlot.visible:

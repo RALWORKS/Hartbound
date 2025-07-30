@@ -8,6 +8,12 @@ var Reflections = preload("res://ui/reflections.tscn")
 
 func hint_codex():
 	$CodexMarker/Player.play("show")
+	
+func stop_animations():
+	$CodexMarker/Player.play("RESET")
+	$CodexMarker/Player.stop()
+	$AnimationPlayer.play("RESET")
+	$AnimationPlayer.stop()
 
 func _ready():
 	$ToolTip.set_deferred("visible", false)

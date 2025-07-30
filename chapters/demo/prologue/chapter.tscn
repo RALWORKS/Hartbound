@@ -97,6 +97,7 @@ to_chapter = "demo1"
 
 [node name="MumWhatIsADemon" parent="Dreams" index="0" instance=ExtResource("11_4huc8")]
 cutscene = ExtResource("14_khxj6")
+progress_key = "dreams"
 
 [node name="GetBrona" parent="Triggers" index="0" instance=ExtResource("12_3h03g")]
 event_name = "GetBrona"

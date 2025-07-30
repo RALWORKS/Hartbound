@@ -10,6 +10,7 @@ class_name Chapter
 @export var encounters: Array[Resource]
 
 @export var map: Resource
+
 var pending_event = null
 
 var active_map = null
@@ -17,6 +18,13 @@ var active_travel_stretch = null
 
 var events_done = []
 var map_events_done = []
+var dreams_done = [] 
+
+var EVENTS_TO_LOAD = [
+	["events_done", ["micro_progress", "events"]],
+	["map_events_done", ["micro_progress", "map_events"]],
+	["dreams_done", ["micro_progress", "dreams"]],
+]
 
 var scene0 = null
 
@@ -62,11 +70,19 @@ func get_next_dream():
 
 
 func rerun_all_events():
+	if events_done.size() == 0:
+		game.save_room(scene0.scene_file_path)
+		game.save_position()
+		call_deferred("next")
+
 	for ix in events_done:
 		var event = $Events.get_children()[ix]
 		event.rerun()
 	for ix in map_events_done:
 		var event = $MapEvents.get_children()[ix]
+		event.rerun()
+	for ix in dreams_done:
+		var event = $Dreams.get_children()[ix]
 		event.rerun()
 
 func next(to_event_name=null):
@@ -81,14 +97,15 @@ func next(to_event_name=null):
 	reload_events_done()
 	
 func reload_events_done():
-	events_done = game.get_state(["micro_progress", "events"])
-	map_events_done = game.get_state(["micro_progress", "map_events"])
-	if no_events(events_done):
-		game.set_state(["micro_progress", "events"], [])
-		events_done = []
-	if no_events(map_events_done):
-		game.set_state(["micro_progress", "map_events"], [])
-		map_events_done = []
+	var done = []
+	var key = null
+	for row in EVENTS_TO_LOAD:
+		key = row[1]
+		self[row[0]] = game.get_state(key)
+		print(row[0], key, game.get_state(key))
+		if no_events(self[row[0]]):
+			game.set_state(key, [])
+			self[row[0]] = []
 
 func no_events(data):
 	if data == null or data.size() == 0:
@@ -114,12 +131,7 @@ func _ready():
 	_default_init()
 	if starting_music != null:
 		game.play_music(starting_music)
-	if events_done.size() == 0:
-		game.save_room(scene0.scene_file_path)
-		game.save_position()
-		call_deferred("next")
-	else:
-		rerun_all_events()
+	rerun_all_events()
 
 func _process(_delta):
 	pass
