@@ -978,12 +978,16 @@ func get_travel():
 
 func start_travel(biome_ix, encounter_ix, time_delta):
 	_init_outer_position_if_needed()
+	var x = get_state(["micro_progress", "outer_position", "x"])
+	var y = get_state(["micro_progress", "outer_position", "y"])
 	set_state(["active_travel"], {
 		"is_active": true,
 		"biome_ix": biome_ix,
 		"encounter_ix": encounter_ix,
 		"time_delta": time_delta,
 		"turn": 0,
+		"starting_x": x,
+		"starting_y": y,
 	})
 
 func end_travel():
