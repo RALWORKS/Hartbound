@@ -15,6 +15,9 @@ var was_throttled = false
 func _ready():
 	pass
 
+func start_drawing_mode():
+	pass
+
 func throttle(v):
 	if not grid:
 		$Star.set_deferred("visible", false)

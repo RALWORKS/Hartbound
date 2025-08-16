@@ -63,6 +63,9 @@ func _ready():
 	final_line.begin_cap_mode = Line2D.LINE_CAP_ROUND
 	add_child(final_line)
 
+func start_drawing_mode():
+	pass
+
 func pop_encounter():
 	encounters.pop_back()
 	encounter_times.pop_back()

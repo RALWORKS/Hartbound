@@ -19,6 +19,11 @@ func _ready():
 	$"/root/Game".show_clock = false
 	$"/root/Game".set_context(ContextType.MAP)
 
+func start_drawing_mode():
+	$Pencil.start_drawing_mode()
+	$bg/MapGrid.start_drawing_mode()
+	$MapQuestArrow.start_drawing_mode()
+
 func _init_children():
 	for c in get_children():
 		if c is Biome:

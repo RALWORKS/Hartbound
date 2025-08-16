@@ -266,6 +266,7 @@ func to_map():
 	
 	$"../MainScreen/World".call_deferred("add_child", active_map)
 	active_map.load_position($"/root/Game")
+	active_map.start_drawing_mode()
 
 func _to_travel_stretch(biome, travel_time_in_atoms, encounter=null):
 	active_travel_stretch = biome.travel_stretch.instantiate()

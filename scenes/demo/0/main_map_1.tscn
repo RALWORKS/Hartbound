@@ -115,6 +115,29 @@ polygon = PackedVector2Array(162, 1116, 232, 1082, 298, 1027, 390, 1161, 146, 13
 [node name="LeftLoneTreeClaw" type="CollisionPolygon2D" parent="bg/StaticBody2D"]
 polygon = PackedVector2Array(329, 964, 451, 1107, 609, 991, 577, 909, 537, 816, 564, 764, 579, 748, 510, 721, 419, 709, 362, 726, 333, 785, 329, 917)
 
+[node name="RuinedCity" type="Sprite2D" parent="bg" node_paths=PackedStringArray("area")]
+modulate = Color(0.858824, 0.858824, 0.792157, 1)
+position = Vector2(128, 234)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("5_p05ag")
+script = ExtResource("6_qbodh")
+area = NodePath("../../RuinedCityArea")
+
+[node name="SunTemple" type="Sprite2D" parent="bg"]
+modulate = Color(0.858824, 0.858824, 0.792157, 1)
+position = Vector2(2480, 2049)
+rotation = 0.0523599
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("7_gy6oo")
+
+[node name="TracerFilter" type="ColorRect" parent="bg"]
+visible = false
+offset_left = -89.0
+offset_top = -68.0
+offset_right = 3796.0
+offset_bottom = 2260.0
+color = Color(1, 1, 1, 0.788235)
+
 [node name="MapGrid" parent="bg" node_paths=PackedStringArray("pencil") instance=ExtResource("3_x6ifa")]
 pencil = NodePath("../../Pencil")
 
@@ -204,21 +227,6 @@ position = Vector2(602, 120)
 
 [node name="ElfMapEncounter" parent="bg/MapGrid" instance=ExtResource("5_qyjhq")]
 position = Vector2(1740, 1956)
-
-[node name="RuinedCity" type="Sprite2D" parent="bg" node_paths=PackedStringArray("area")]
-modulate = Color(0.858824, 0.858824, 0.792157, 1)
-position = Vector2(128, 234)
-scale = Vector2(0.8, 0.8)
-texture = ExtResource("5_p05ag")
-script = ExtResource("6_qbodh")
-area = NodePath("../../RuinedCityArea")
-
-[node name="SunTemple" type="Sprite2D" parent="bg"]
-modulate = Color(0.858824, 0.858824, 0.792157, 1)
-position = Vector2(2480, 2049)
-rotation = 0.0523599
-scale = Vector2(0.8, 0.8)
-texture = ExtResource("7_gy6oo")
 
 [node name="Pencil" type="CharacterBody2D" parent="."]
 z_index = 1000
