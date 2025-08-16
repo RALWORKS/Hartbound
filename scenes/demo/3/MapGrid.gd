@@ -20,6 +20,8 @@ var base_distance = 0
 
 var moved = false
 
+var mode_specific_process = "summary_process"
+
 var MOD_COUNTER_OK = "#ffffffff"
 var MOD_COUNTER_BLOCKED = "#ff4444ff"
 
@@ -30,6 +32,8 @@ var MOD_COUNTER_BLOCKED = "#ff4444ff"
 
 @export var PX_PER_HOUR = 75
 var latest_time: int
+
+var is_drawing = false
 
 var projected_time: int
 var encounters: Array[MapEncounter]
@@ -48,12 +52,8 @@ func _ready():
 	latest_time = int($"/root/Game".day_length * (0.04 + $"/root/Game".night_threshold))
 
 	make_starting_node()
-	for c in get_children():
-		if not c is MapNode and not c is MapEncounter:
-			print(c)
-			continue
-		nodes[c.name] = c
-		c.connect("crossed", on_node_crossed)
+	
+	# setup_map_nodes()
 	
 	final_line = Line2D.new()
 	final_line.width = LINE_WIDTH
@@ -64,7 +64,35 @@ func _ready():
 	add_child(final_line)
 
 func start_drawing_mode():
+	mode_specific_process = "drawing_process"
+	$CanvasLayer/Counter.visible = true
+	is_drawing = true
+	setup_map_nodes()
+
+func start_summary_mode():
+	mode_specific_process = "summary_process"
+	$CanvasLayer/Counter.visible = false
+	is_drawing = false
+	setup_map_nodes()
+	
+
+func _hook_up_node_for_drawing(child):
+	child.connect("crossed", on_node_crossed)
+
+func _hook_up_node_for_static(_child):
 	pass
+
+func setup_map_nodes():
+	var hook_up_child = "_hook_up_node_for_static"
+	
+	if is_drawing:
+		hook_up_child = "_hook_up_node_for_drawing"
+	
+	for c in get_children():
+		if not c is MapNode and not c is MapEncounter:
+			continue
+		nodes[c.name] = c
+		call(hook_up_child, c)
 
 func pop_encounter():
 	encounters.pop_back()
@@ -196,7 +224,14 @@ func get_encounter():
 	return {"e": encounters[0], "time_at": encounter_times[0]}
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta):
+
+func drawing_process():
 	trace_final_line()
 	count_distance()
 	refresh_distance_display()
+
+func summary_process():
+	pass
+
+func _process(_delta):
+	call(mode_specific_process)

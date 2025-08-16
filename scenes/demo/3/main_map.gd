@@ -10,6 +10,8 @@ const MapArea = preload("res://scenes/demo/3/map_area.gd")
 var areas = []
 var going = false
 
+var mode_specific_process = "summary_process"
+
 var active_area: MapArea = null
 
 # Called when the node enters the scene tree for the first time.
@@ -20,9 +22,15 @@ func _ready():
 	$"/root/Game".set_context(ContextType.MAP)
 
 func start_drawing_mode():
+	mode_specific_process = "drawing_process"
+	$bg/TracerFilter.visible = false
 	$Pencil.start_drawing_mode()
 	$bg/MapGrid.start_drawing_mode()
 	$MapQuestArrow.start_drawing_mode()
+
+func start_summary_mode():
+	mode_specific_process = "summary_process"
+	$bg/TracerFilter.visible = true
 
 func _init_children():
 	for c in get_children():
@@ -44,7 +52,8 @@ func deactivate_area(area):
 		active_area = null
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta):
+
+func drawing_process():
 	if pencil == null:
 		return
 	if pencil.grid == null:
@@ -55,6 +64,14 @@ func _process(_delta):
 		go()
 	if Input.is_action_just_released("cancel"):
 		cancel()
+
+
+func summary_process():
+	if Input.is_action_just_released("next"):
+		close_summary()
+
+func _process(_delta):
+	call(mode_specific_process)
 
 func _get_game():
 	if game:
@@ -116,7 +133,9 @@ func go():
 	return _go_to_encounter(
 		encounter_data["e"], encounter_data["time_at"]
 	)
-	
+
+func close_summary():
+	return $"/root/Game/Chapter".close_summary_map()
 
 func cancel():
 	$"/root/Game/Chapter".close_map(null)

@@ -250,8 +250,16 @@ func handle_pending_event():
 
 func update_cutscene_page(p):
 	cutscene.update_page(p)
-
+	
 func to_map():
+	_to_map()
+	active_map.start_drawing_mode()
+
+func to_summary_map():
+	_to_map()
+	active_map.start_summary_mode()
+
+func _to_map():
 	if not map or active_map:
 		return
 	
@@ -266,7 +274,6 @@ func to_map():
 	
 	$"../MainScreen/World".call_deferred("add_child", active_map)
 	active_map.load_position($"/root/Game")
-	active_map.start_drawing_mode()
 
 func _to_travel_stretch(biome, travel_time_in_atoms, encounter=null):
 	active_travel_stretch = biome.travel_stretch.instantiate()
@@ -357,6 +364,10 @@ func close_map(biome):
 	
 	event.cutscene_input_data = biome
 	event.play()
+
+func close_summsary_map():
+	_clean_up_map()
+	reload_world()
 
 func close_map_to_encounter(encounter, biome):
 	var time_expended = active_map.get_time_expended()

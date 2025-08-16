@@ -5,6 +5,8 @@ extends Sprite2D
 @export var active_mod: Color = "#d87c0097"
 @export var inactive_mod: Color = "#dddddd97"
 
+var active = false
+
 
 func set_mod(mod):
 	self_modulate = mod
@@ -16,10 +18,13 @@ func _ready():
 	pencil.arrow = self
 
 func start_drawing_mode():
-	pass
+	active = true
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	if not active:
+		return
+	
 	position = pencil.position
 	
 	for c in get_children():

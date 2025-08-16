@@ -10,13 +10,15 @@ var grid = null
 var arrow = null
 var was_throttled = false
 
+var active = false
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass
 
 func start_drawing_mode():
-	pass
+	active = true
 
 func throttle(v):
 	if not grid:
@@ -42,6 +44,9 @@ func throttle(v):
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
+	if not active:
+		return
+
 	var direction = Input.get_vector("left", "right", "up", "down")
 	
 	if direction == Vector2(0,0):
