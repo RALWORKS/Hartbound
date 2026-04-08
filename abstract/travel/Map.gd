@@ -29,9 +29,9 @@ func set_contents_node(dest: Node):
 	
 
 func _move_to(dest: Node, as_move: bool = true):
-	$"..".get_node("MainScreen").clear_postprocessing()
+	g.get_node("MainScreen").clear_postprocessing()
 	
-	$"..".staged_action_node = null
+	g.staged_action_node = null
 	var old = current
 	current = dest
 	dest.position = Vector2(0, 0)
@@ -39,12 +39,12 @@ func _move_to(dest: Node, as_move: bool = true):
 	$"../MainScreen/World".call_deferred("add_child", dest)
 	if not old:
 		return
-	assert(old != $"..")
+	assert(old != g)
 	old.call_deferred("free")
 	
 	if as_move:
 		await get_tree().create_timer(0.1).timeout
-		$"..".move()
+		g.move()
 	
 
 func load_position(data):
@@ -62,12 +62,12 @@ func traverse(dest, entrance, save=true, as_move=true, x=null, y=null):
 	if not entrance:
 		entrance = "DefaultSpawner"
 	var next_entrance: Node2D = dest.get_node("YSort").get_node(entrance)
-	next_entrance.spawn($"..", x, y)
+	next_entrance.spawn(g, x, y)
 	
-	$"/root/Game".set_context(ContextType.EXPLORE)
+	g.set_context(ctx.ContextType.EXPLORE)
 	
 	if save:
-		$"..".save_room(dest.scene_file_path, entrance)
+		g.save_room(dest.scene_file_path, entrance)
 		
 		$"../ActionEmitter".send(
 			$"../ActionEmitter".TYPE.ROOM_CHANGE,

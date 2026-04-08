@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://bcinc4blag4el"]
 
-[ext_resource type="Script" path="res://music.gd" id="1_wdhjy"]
+[ext_resource type="Script" path="res://abstract/music/music.gd" id="1_wdhjy"]
 
 [sub_resource type="Animation" id="Animation_b1yeb"]
 length = 0.001

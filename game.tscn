@@ -1,14 +1,20 @@
-[gd_scene load_steps=13 format=3 uid="uid://cvo7vcb5suvjv"]
+[gd_scene load_steps=19 format=3 uid="uid://cvo7vcb5suvjv"]
 
 [ext_resource type="Script" path="res://game.gd" id="1_0h5ve"]
 [ext_resource type="AudioStream" uid="uid://cav44ry5mv08r" path="res://assets/music/saint-theme-1.ogg" id="2_jx83x"]
-[ext_resource type="Script" path="res://Map.gd" id="2_vy8bn"]
+[ext_resource type="PackedScene" uid="uid://colwvauv2kw0s" path="res://abstract/status/global_status.tscn" id="2_lse10"]
+[ext_resource type="Script" path="res://abstract/travel/Map.gd" id="2_vy8bn"]
 [ext_resource type="PackedScene" uid="uid://b8kj181l2j2ws" path="res://ui/start_screen.tscn" id="3_0jlt3"]
-[ext_resource type="PackedScene" uid="uid://c0vsa31kgtvm5" path="res://quests/quest_map.tscn" id="6_5ffo3"]
-[ext_resource type="PackedScene" uid="uid://bcinc4blag4el" path="res://music.tscn" id="7_epwyy"]
+[ext_resource type="PackedScene" uid="uid://uahowshvnht6" path="res://abstract/status/global_state.tscn" id="3_a1ji4"]
+[ext_resource type="PackedScene" uid="uid://usn2j4r737ot" path="res://abstract/item/global_inventory.tscn" id="4_s2dny"]
+[ext_resource type="PackedScene" uid="uid://bcinc4blag4el" path="res://abstract/music/music.tscn" id="7_epwyy"]
 [ext_resource type="AudioStream" uid="uid://bor5grx5muehp" path="res://assets/music/injured.ogg" id="8_a5mst"]
-[ext_resource type="PackedScene" uid="uid://do0ku8pfkpj0n" path="res://concept-map/concept_map.tscn" id="9_0i75i"]
+[ext_resource type="PackedScene" uid="uid://cftykdqs3ygwk" path="res://abstract/music/dynamic_music.tscn" id="8_q2iwh"]
 [ext_resource type="PackedScene" uid="uid://dn1x4yl3fey7t" path="res://ui/action_emitter.tscn" id="9_g74r1"]
+[ext_resource type="PackedScene" uid="uid://bmn1bvaa3dgil" path="res://abstract/time/time.tscn" id="9_rtlmy"]
+[ext_resource type="PackedScene" uid="uid://c7wenietaua2d" path="res://abstract/travel/location.tscn" id="12_oi6if"]
+[ext_resource type="PackedScene" uid="uid://wtaffp13gw5i" path="res://abstract/character/global_party.tscn" id="13_b2sch"]
+[ext_resource type="PackedScene" uid="uid://n1vqipnjclm4" path="res://abstract/cutscene/global_cutscene.tscn" id="15_cwuol"]
 
 [sub_resource type="Animation" id="Animation_yxiww"]
 length = 0.001
@@ -82,7 +88,12 @@ content_scale_aspect = 1
 theme_type_variation = &"default"
 script = ExtResource("1_0h5ve")
 cheat_event_trigger_name = "DemoParents"
-day_length = 144
+
+[node name="GlobalStatus" parent="." instance=ExtResource("2_lse10")]
+
+[node name="GlobalState" parent="." instance=ExtResource("3_a1ji4")]
+
+[node name="GlobalInventory" parent="." instance=ExtResource("4_s2dny")]
 
 [node name="ThemeMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_jx83x")
@@ -104,13 +115,17 @@ scale = Vector2(3, 3)
 [node name="Map" type="Node" parent="."]
 script = ExtResource("2_vy8bn")
 
-[node name="DynamicMusic" type="Node" parent="."]
-
-[node name="ConceptMap" parent="." instance=ExtResource("9_0i75i")]
-
-[node name="QuestMap" parent="." instance=ExtResource("6_5ffo3")]
+[node name="DynamicMusic" parent="." instance=ExtResource("8_q2iwh")]
 
 [node name="InjuryMusic" parent="." instance=ExtResource("7_epwyy")]
 stream = ExtResource("8_a5mst")
 
 [node name="ActionEmitter" parent="." instance=ExtResource("9_g74r1")]
+
+[node name="Time" parent="." instance=ExtResource("9_rtlmy")]
+
+[node name="Location" parent="." instance=ExtResource("12_oi6if")]
+
+[node name="GlobalParty" parent="." instance=ExtResource("13_b2sch")]
+
+[node name="GlobalCutscene" parent="." instance=ExtResource("15_cwuol")]

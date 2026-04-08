@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cftykdqs3ygwk"]
+
+[ext_resource type="Script" path="res://abstract/music/dynamic_music.gd" id="1_ynhyk"]
+
+[node name="DynamicMusic" type="Node"]
+script = ExtResource("1_ynhyk")
