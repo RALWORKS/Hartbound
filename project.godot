@@ -20,11 +20,16 @@ config/icon="res://icon.svg"
 g="*res://game.tscn"
 state="*res://abstract/status/global_state.tscn"
 status="*res://abstract/status/global_status.gd"
-time="*res://abstract/time/time.tscn"
+t="*res://abstract/time/time.tscn"
 inv="*res://abstract/item/global_inventory.tscn"
 party="*res://abstract/character/global_party.tscn"
 music="*res://abstract/music/dynamic_music.tscn"
 ctx="*res://abstract/status/context_type.tscn"
+
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
 
 [rendering]
 

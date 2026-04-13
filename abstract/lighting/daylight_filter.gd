@@ -41,14 +41,15 @@ func refresh():
 	
 	if not visible:
 		return
-	var g = _get_game()
-	if not g:
+
+	var inj = status.injured
+
+	if t == null:
 		return
-	var inj = g.injured
 	
-	day_length = g.day_length
+	day_length = t.day_length
 	
-	var t = get_manual_time() if manual_time else g.get_time()
+	var t = get_manual_time() if manual_time else t.get_time()
 	
 	if not inj:
 		modulate_daylight(t, day_length)
@@ -72,8 +73,8 @@ func _process(delta):
 		return
 	
 	var g = _get_game()
-	var t = get_manual_time() if manual_time else g.get_time()
-	var inj = g.injured
+	var t = get_manual_time() if manual_time else t.get_time()
+	var inj = status.injured
 	
 	if t == last_cur_time and inj == was_injured:
 		return

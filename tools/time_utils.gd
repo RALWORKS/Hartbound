@@ -6,8 +6,8 @@ var day_starts_at: int
 var day_length: int
 
 func _ready():
-	day_starts_at = $"/root/Game".day_starts_at
-	day_length = $"/root/Game".day_length
+	day_starts_at = t.day_starts_at
+	day_length = t.day_length
 
 func format_moves_24h(moves):
 	return format_time_24h(float(moves) / day_length)

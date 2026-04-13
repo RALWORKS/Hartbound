@@ -48,7 +48,7 @@ func refresh_disabled():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	var g = _get_game()
-	disabled = not g.can_camp
+	disabled = not status.can_camp
 	refresh_disabled()
 
 

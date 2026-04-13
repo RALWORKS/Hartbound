@@ -42,6 +42,7 @@ var standard_bg_texture
 
 var CHAPTERS = {
 	#"intro": preload("res://intro-story/intro_story_chapter.tscn"),
+	"create": preload("res://abstract/character/character_creator.tscn"),
 }
 @export var FIRST_CHAPTER = "demo1"
 
@@ -107,6 +108,7 @@ func load_position():
 	if load_travel():
 		return
 	var p = get_state(["position"])
+	p = p if p else {"scene_path": null}
 	if p != null and p["scene_path"] != null:
 		$Map.load_position(p)
 	elif "x" in p and "y" in p and player != null:

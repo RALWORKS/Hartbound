@@ -27,7 +27,7 @@ func on_character_edited(data):
 	var drawer_profile = game.get_node_or_null("MainScreen/RightMenu/GameMenu/CharacterRecord/black/Profile")
 	side_profile.refresh()
 	drawer_profile.refresh()
-	$"../2/CharacterDesginer".refresh_texture()
+	$"../2/CharacterDesigner".refresh_texture()
 	
 func on_profile_edited(data):
 	if not game:
@@ -37,7 +37,7 @@ func on_profile_edited(data):
 	var drawer_profile = game.get_node_or_null("MainScreen/RightMenu/GameMenu/CharacterRecord/black/Profile")
 	side_profile.refresh()
 	drawer_profile.refresh()
-	$"../2/CharacterDesginer".refresh_texture()
+	$"../2/CharacterDesigner".refresh_texture()
 
 func set_job(data):
 	if not game:

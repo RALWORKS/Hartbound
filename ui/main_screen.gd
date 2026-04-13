@@ -63,12 +63,5 @@ func _process(_delta):
 			$PostProcessing/Filter.material = cur_material
 	else:
 		$LeftMenu.show = false
-		$PostProcessing/Filter.modulate = "#ffffff00"
-		$PostProcessing/Filter.material = null
-	
-	if get_parent().cur_modal:
-		$PostProcessing.visible = false
-	else:
-		$PostProcessing.visible = true
 	
 	send_all_hints()

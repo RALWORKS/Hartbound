@@ -19,5 +19,5 @@ func refresh():
 	var g = _get_game()
 	if g == null:
 		return
-	$Time.text = $TimeUtils.format_time_24h(g.proportional_time())
-	$Day.text = str(g.get_date() + 1)
+	$Time.text = $TimeUtils.format_time_24h(t.proportional_time())
+	$Day.text = str(t.get_date() + 1)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://kex3fql26uxy"]
+[gd_scene load_steps=25 format=3 uid="uid://kex3fql26uxy"]
 
 [ext_resource type="PackedScene" uid="uid://bp8tsdjdbwj8i" path="res://abstract/cutscene/cutscene.tscn" id="1_ipyp7"]
 [ext_resource type="PackedScene" uid="uid://55vflx8ylix1" path="res://abstract/cutscene/cutscene_node.tscn" id="2_wt2i3"]
@@ -16,7 +16,7 @@
 [ext_resource type="FontFile" uid="uid://ebgllykqxqm7" path="res://assets/Georgia.TTF" id="11_hiyv0"]
 [ext_resource type="PackedScene" uid="uid://c3rmyn3jfv53d" path="res://ui/loading.tscn" id="12_mkwkc"]
 [ext_resource type="Script" path="res://abstract/character/NicknameLister.gd" id="13_sehjf"]
-[ext_resource type="Script" path="res://abstract/character/NamePreferenceChooser.gd" id="15_g6sas"]
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_krm4x"]
 content_margin_left = 20.0
 content_margin_top = 2.0
@@ -95,6 +95,7 @@ is_move = false
 starting_page = NodePath("1")
 
 [node name="1" parent="." index="0" instance=ExtResource("2_wt2i3")]
+visible = false
 is_option_node = true
 
 [node name="NewCharacterTitle" type="RichTextLabel" parent="1" index="0"]
@@ -160,7 +161,7 @@ visible = false
 position = Vector2(64, 0)
 is_option_node = true
 
-[node name="CharacterDesginer" parent="2" index="0" node_paths=PackedStringArray("send_data_to", "profile_designer") instance=ExtResource("5_ooc6y")]
+[node name="CharacterDesigner" parent="2" index="0" node_paths=PackedStringArray("send_data_to", "profile_designer") instance=ExtResource("5_ooc6y")]
 position = Vector2(59, 100)
 send_data_to = NodePath("../../Saver")
 profile_designer = NodePath("../ProfileDesigner")
@@ -205,20 +206,17 @@ text = "Save & Continue"
 to = NodePath("../../2_5")
 
 [node name="2_5" parent="." index="3" instance=ExtResource("2_wt2i3")]
+visible = false
 position = Vector2(0, -144)
 is_option_node = true
 
-[node name="ParentsMemory" parent="2_5" index="0" instance=ExtResource("10_cqdor")]
-position = Vector2(2086, 65)
-scale = Vector2(-1, 1)
-
-[node name="ColorRect" type="ColorRect" parent="2_5" index="1"]
+[node name="ColorRect" type="ColorRect" parent="2_5" index="0"]
 offset_top = -33.0
 offset_right = 549.0
 offset_bottom = 1245.0
 color = Color(0, 0, 0, 1)
 
-[node name="ElvenNameText1" type="RichTextLabel" parent="2_5" index="2"]
+[node name="ElvenNameText1" type="RichTextLabel" parent="2_5" index="1"]
 offset_left = -56.0
 offset_top = 110.0
 offset_right = 469.0
@@ -229,7 +227,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_sj8nd")
 bbcode_enabled = true
 text = "[b]Your parents[/b] named you in the traditional Elven style - a name in the form of a short prayer."
 
-[node name="ElvenNameText2" type="RichTextLabel" parent="2_5" index="3"]
+[node name="ElvenNameText2" type="RichTextLabel" parent="2_5" index="2"]
 offset_left = -56.0
 offset_top = 358.0
 offset_right = 388.0
@@ -240,7 +238,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_sj8nd")
 bbcode_enabled = true
 text = "Humans have called you other names since,"
 
-[node name="ElvenNameText3" type="RichTextLabel" parent="2_5" index="4"]
+[node name="ElvenNameText3" type="RichTextLabel" parent="2_5" index="3"]
 offset_left = -56.0
 offset_top = 547.0
 offset_right = 331.0
@@ -251,7 +249,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_sj8nd")
 bbcode_enabled = true
 text = "but the first name you were ever called was [b]this[/b]:"
 
-[node name="Proceed" parent="2_5" index="5" node_paths=PackedStringArray("to") instance=ExtResource("4_tiul5")]
+[node name="Proceed" parent="2_5" index="4" node_paths=PackedStringArray("to") instance=ExtResource("4_tiul5")]
 offset_left = 42.0
 offset_top = 784.0
 offset_right = 408.0
@@ -264,7 +262,7 @@ text = "Roll Full Name"
 raise_to_ui_layer = false
 to = NodePath("../../3")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="2_5" index="6"]
+[node name="RichTextLabel" type="RichTextLabel" parent="2_5" index="5"]
 offset_left = 4.0
 offset_top = -27.0
 offset_right = 515.0
@@ -382,151 +380,13 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_c2ah0")
 disabled = true
 text = "[Choose a name to proceed]"
 raise_to_ui_layer = false
-to = NodePath("../../3_6")
+to = NodePath("../../END")
 
-[node name="3_6" parent="." index="6" node_paths=PackedStringArray("use_on_start_fn_from") instance=ExtResource("2_wt2i3")]
+[node name="END" parent="." index="6" instance=ExtResource("2_wt2i3")]
 visible = false
 is_option_node = true
-use_on_start_fn_from = NodePath("NamePreferenceChooser")
 
-[node name="NewCharacterTitle" type="RichTextLabel" parent="3_6" index="0"]
-offset_left = 66.0
-offset_top = 52.0
-offset_right = 317.0
-offset_bottom = 106.0
-theme_override_font_sizes/normal_font_size = 30
-text = "{human_short}"
-
-[node name="PreferenceTitle" type="RichTextLabel" parent="3_6" index="1"]
-offset_left = 73.0
-offset_top = 118.0
-offset_right = 787.0
-offset_bottom = 147.0
-theme_override_font_sizes/normal_font_size = 15
-text = "How do you feel about being called this?
-"
-
-[node name="PreferenceSelect" parent="3_6" index="2" instance=ExtResource("4_hox6o")]
-
-[node name="No" parent="3_6/PreferenceSelect" index="0" instance=ExtResource("5_wxebt")]
-offset_left = 80.0
-offset_top = 169.0
-offset_right = 450.0
-offset_bottom = 219.0
-text = "I insist on {elf_short}"
-
-[node name="UseElvenName" parent="3_6/PreferenceSelect/No" index="0" instance=ExtResource("15_4krrj")]
-
-[node name="Kinda" parent="3_6/PreferenceSelect" index="1" instance=ExtResource("5_wxebt")]
-offset_left = 80.0
-offset_top = 229.0
-offset_right = 450.0
-offset_bottom = 279.0
-text = "I allow humans to call me {human_short}"
-
-[node name="UseBothNames" parent="3_6/PreferenceSelect/Kinda" index="0" instance=ExtResource("16_rn8cd")]
-
-[node name="Yes" parent="3_6/PreferenceSelect" index="2" instance=ExtResource("5_wxebt")]
-offset_left = 80.0
-offset_top = 289.0
-offset_right = 450.0
-offset_bottom = 339.0
-text = "I go by {human_short} generally"
-
-[node name="UseHumanName" parent="3_6/PreferenceSelect/Yes" index="0" instance=ExtResource("17_x6bbt")]
-
-[node name="NamePreferenceChooser" type="Node2D" parent="3_6" index="3"]
-script = ExtResource("15_g6sas")
-
-[node name="Proceed" parent="3_6" index="4" node_paths=PackedStringArray("to") instance=ExtResource("4_tiul5")]
-offset_left = 80.0
-offset_top = 350.0
-offset_right = 354.0
-offset_bottom = 427.0
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
-theme_override_styles/normal = SubResource("StyleBoxFlat_krm4x")
-theme_override_styles/hover = SubResource("StyleBoxFlat_c2ah0")
-disabled = true
-text = "[Choose an option to proceed]"
-raise_to_ui_layer = false
-to = NodePath("../../Outro1")
-
-[node name="Outro1" parent="." index="7" node_paths=PackedStringArray("next") instance=ExtResource("2_wt2i3")]
-next = NodePath("../END")
-
-[node name="MountainWalk" parent="Outro1" index="0" instance=ExtResource("21_5q6vs")]
-position = Vector2(-6, -228)
-paused = true
-
-[node name="Nate" type="Sprite2D" parent="Outro1" index="1"]
-position = Vector2(280, 1117)
-texture = ExtResource("22_5qh3p")
-
-[node name="Jerry" type="Sprite2D" parent="Outro1" index="2"]
-position = Vector2(615, 1156)
-texture = ExtResource("23_b026x")
-
-[node name="Brona" type="Sprite2D" parent="Outro1" index="3"]
-position = Vector2(1484, 1093)
-scale = Vector2(1.2, 1.2)
-texture = ExtResource("24_v2pvj")
-
-[node name="Taylor" type="Sprite2D" parent="Outro1" index="4"]
-position = Vector2(1051, 1211)
-texture = ExtResource("25_afs5p")
-
-[node name="StoryText" type="RichTextLabel" parent="Outro1" index="5"]
-offset_left = 81.0
-offset_top = 448.0
-offset_right = 1100.0
-offset_bottom = 540.0
-theme_type_variation = &"VoiceoverBox"
-theme_override_font_sizes/normal_font_size = 30
-bbcode_enabled = true
-text = "In an hour or so, you and your colleagues will set out on a salvaging trip."
-
-[node name="StoryText2" type="RichTextLabel" parent="Outro1" index="6"]
-offset_left = 123.0
-offset_top = 554.0
-offset_right = 1051.0
-offset_bottom = 646.0
-theme_type_variation = &"VoiceoverBox"
-theme_override_font_sizes/normal_font_size = 30
-bbcode_enabled = true
-text = "You have a few minutes to chat while you wait for Brona."
-
-[node name="ColorRect" type="ColorRect" parent="Outro1" index="7"]
-offset_left = 654.0
-offset_top = 667.0
-offset_right = 1384.0
-offset_bottom = 902.0
-color = Color(0, 0, 0, 1)
-
-[node name="Sprite2D" type="Sprite2D" parent="Outro1/ColorRect" index="0"]
-position = Vector2(48, 37)
-scale = Vector2(0.3, 0.3)
-texture = ExtResource("26_hwrya")
-centered = false
-
-[node name="StoryText2" type="RichTextLabel" parent="Outro1/ColorRect" index="1"]
-layout_mode = 0
-offset_left = 200.0
-offset_top = 73.0
-offset_right = 602.0
-offset_bottom = 165.0
-theme_type_variation = &"VoiceoverBox"
-theme_override_font_sizes/normal_font_size = 30
-bbcode_enabled = true
-text = "Discuss [b]CODEX[/b] topics."
-
-[node name="END" parent="." index="8" instance=ExtResource("2_wt2i3")]
-is_option_node = true
-
-[node name="MountainWalk" parent="END" index="0" instance=ExtResource("21_5q6vs")]
-position = Vector2(-6, -124)
-
-[node name="StoryText" type="RichTextLabel" parent="END" index="1"]
+[node name="StoryText" type="RichTextLabel" parent="END" index="0"]
 offset_left = 1077.0
 offset_top = -151.0
 offset_right = 1725.0
@@ -538,7 +398,7 @@ text = "These simple days will soon come to an end, though none of you know it y
 
 Take it all in in the mean time, and learn what you can."
 
-[node name="Proceed2" parent="END" index="2" instance=ExtResource("4_tiul5")]
+[node name="Proceed2" parent="END" index="1" instance=ExtResource("4_tiul5")]
 offset_left = 1101.0
 offset_top = 146.0
 offset_right = 1375.0
@@ -550,13 +410,10 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_c2ah0")
 text = "Play"
 raise_to_ui_layer = false
 
-[node name="Saver" type="Node2D" parent="." index="9"]
+[node name="Saver" type="Node2D" parent="." index="7"]
 script = ExtResource("10_cdibu")
 
 [connection signal="pressed" from="1/GenderSelect/Man" to="1/Script" method="_on_man_pressed"]
 [connection signal="pressed" from="1/GenderSelect/Woman" to="1/Script" method="_on_woman_pressed"]
 [connection signal="pressed" from="1/GenderSelect/NB" to="1/Script" method="_on_nb_pressed"]
 [connection signal="names_loaded" from="3_5/Nicknamer" to="3_5/ColorRect/NicknameLister" method="_on_nicknamer_names_loaded"]
-[connection signal="pressed" from="3_6/PreferenceSelect/No" to="3_6/NamePreferenceChooser" method="_on_no_pressed"]
-[connection signal="pressed" from="3_6/PreferenceSelect/Kinda" to="3_6/NamePreferenceChooser" method="_on_kinda_pressed"]
-[connection signal="pressed" from="3_6/PreferenceSelect/Yes" to="3_6/NamePreferenceChooser" method="_on_yes_pressed"]

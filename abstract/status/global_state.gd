@@ -40,7 +40,7 @@ var INITIAL_STATE = {
 			"shot": 0,
 		},
 	},
-	"chapter": "intro",
+	"chapter": "create",
 	"story": [],
 	"position": {
 		"scene_path": null,

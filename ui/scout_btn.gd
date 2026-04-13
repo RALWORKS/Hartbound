@@ -16,16 +16,14 @@ func _get_game():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-	var g = _get_game()
 	
-	if g.is_scouting:
+	if status.is_scouting:
 		$".".self_modulate = Color(0.5, 0.2, 0.5, 1.0)
 	else:
 		$".".self_modulate = Color(0.3, 0.3, 0.3, 1.0)
 
 
 func _on_pressed():
-	var g = _get_game()
 	g.scout()
 
 

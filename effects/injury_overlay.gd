@@ -20,7 +20,7 @@ func _ready():
 		return
 	
 	#var t = g.get_time()
-	day_length = g.day_length
+	day_length = t.day_length
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
