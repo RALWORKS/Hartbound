@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://i1in8ss4uyp7"]
 
-[ext_resource type="Script" path="res://cutscene/standard_bg.gd" id="1_pcqff"]
+[ext_resource type="Script" path="res://abstract/cutscene/standard_bg.gd" id="1_pcqff"]
 
 [node name="StandardBg" type="Sprite2D"]
 script = ExtResource("1_pcqff")

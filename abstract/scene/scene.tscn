@@ -2,8 +2,8 @@
 
 [ext_resource type="PackedScene" uid="uid://dwet7i6bmp0m6" path="res://travel/spawner.tscn" id="2_b4mwe"]
 [ext_resource type="Texture2D" uid="uid://dwyqvct36hhs7" path="res://assets/default-scene.png" id="2_o4l51"]
-[ext_resource type="PackedScene" uid="uid://dec3rewb3xb1u" path="res://effects/daylight/daylight_filter.tscn" id="3_5fm1i"]
-[ext_resource type="Shader" path="res://daylight.gdshader" id="4_tv03u"]
+[ext_resource type="PackedScene" uid="uid://dec3rewb3xb1u" path="res://abstract/lighting/daylight_filter.tscn" id="3_5fm1i"]
+[ext_resource type="Shader" path="res://abstract/lighting/daylight.gdshader" id="4_tv03u"]
 
 [sub_resource type="GDScript" id="GDScript_kldhx"]
 script/source = "extends Node2D

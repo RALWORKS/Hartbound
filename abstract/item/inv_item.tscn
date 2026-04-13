@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://b26qv8ndwvh7h"]
 
-[ext_resource type="Script" path="res://InvItem.gd" id="1_i480o"]
+[ext_resource type="Script" path="res://abstract/item/InvItem.gd" id="1_i480o"]
 
 [node name="InvItem" type="Node"]
 script = ExtResource("1_i480o")

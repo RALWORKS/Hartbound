@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://helgsc16nedd"]
+
+[ext_resource type="Script" path="res://abstract/character/nicknamer.gd" id="1_5afa5"]
+[ext_resource type="Script" path="res://abstract/character/NicknameList.gd" id="2_17o7x"]
+
+[node name="Nicknamer" type="Node2D"]
+script = ExtResource("1_5afa5")
+your_name = "Elamindrada"
+
+[node name="NicknameList" type="Node" parent="."]
+script = ExtResource("2_17o7x")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+visible = false
+offset_right = 594.0
+offset_bottom = 339.0

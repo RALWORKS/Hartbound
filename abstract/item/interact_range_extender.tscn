@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://bkyp4rqktyinq"]
-
-[ext_resource type="Script" path="res://InteractRangeExtender.gd" id="1_stvbt"]
-
-[node name="InteractRangeExtender" type="Area2D"]
-script = ExtResource("1_stvbt")

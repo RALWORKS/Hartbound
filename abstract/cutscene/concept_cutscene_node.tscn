@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://cm3keg86x7x3y"]
 
-[ext_resource type="PackedScene" uid="uid://55vflx8ylix1" path="res://cutscene/cutscene_node.tscn" id="1_h71b0"]
-[ext_resource type="Script" path="res://cutscene/UseConceptInDialogue.gd" id="2_f3ton"]
+[ext_resource type="PackedScene" uid="uid://55vflx8ylix1" path="res://abstract/cutscene/cutscene_node.tscn" id="1_h71b0"]
+[ext_resource type="Script" path="res://abstract/cutscene/UseConceptInDialogue.gd" id="2_f3ton"]
 [ext_resource type="PackedScene" uid="uid://b0g14rmlg7vif" path="res://concept-map/concept_map_searcher.tscn" id="3_ajkbx"]
-[ext_resource type="PackedScene" uid="uid://yplasm5gtgly" path="res://cutscene/cutscene_option.tscn" id="4_3f5al"]
+[ext_resource type="PackedScene" uid="uid://yplasm5gtgly" path="res://abstract/cutscene/cutscene_option.tscn" id="4_3f5al"]
 
 [node name="ConceptCutsceneNode" node_paths=PackedStringArray("use_on_start_fn_from") instance=ExtResource("1_h71b0")]
 use_on_start_fn_from = NodePath("UseConceptInDialogue")

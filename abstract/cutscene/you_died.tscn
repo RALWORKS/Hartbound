@@ -1,10 +1,10 @@
 [gd_scene load_steps=6 format=3 uid="uid://bywqwqaac1gtk"]
 
-[ext_resource type="PackedScene" uid="uid://bp8tsdjdbwj8i" path="res://cutscene/cutscene.tscn" id="1_jryjb"]
-[ext_resource type="PackedScene" uid="uid://55vflx8ylix1" path="res://cutscene/cutscene_node.tscn" id="2_duegf"]
-[ext_resource type="PackedScene" uid="uid://b11g7mb25w5xp" path="res://cutscene/smart_label.tscn" id="3_omypy"]
-[ext_resource type="PackedScene" uid="uid://yplasm5gtgly" path="res://cutscene/cutscene_option.tscn" id="4_hytxc"]
-[ext_resource type="PackedScene" uid="uid://cbobuwybuv22l" path="res://cutscene/die_on_start.tscn" id="5_ceqet"]
+[ext_resource type="PackedScene" uid="uid://bp8tsdjdbwj8i" path="res://abstract/cutscene/cutscene.tscn" id="1_jryjb"]
+[ext_resource type="PackedScene" uid="uid://55vflx8ylix1" path="res://abstract/cutscene/cutscene_node.tscn" id="2_duegf"]
+[ext_resource type="PackedScene" uid="uid://b11g7mb25w5xp" path="res://abstract/cutscene/smart_label.tscn" id="3_omypy"]
+[ext_resource type="PackedScene" uid="uid://yplasm5gtgly" path="res://abstract/cutscene/cutscene_option.tscn" id="4_hytxc"]
+[ext_resource type="PackedScene" uid="uid://cbobuwybuv22l" path="res://abstract/cutscene/die_on_start.tscn" id="5_ceqet"]
 
 [node name="YouDied" node_paths=PackedStringArray("starting_page") instance=ExtResource("1_jryjb")]
 starting_page = NodePath("1")

@@ -15,7 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://dmk3dxuo4q0ie" path="res://assets/scenery/extra-tree-coloured-bright/pedestal-pine.png" id="8_itqmm"]
 [ext_resource type="Texture2D" uid="uid://btd65u3yitxyy" path="res://assets/forest-layers/bg/sizing.png" id="8_k7y2y"]
 [ext_resource type="PackedScene" uid="uid://ikw1o57bgtid" path="res://star_ritual/star.tscn" id="8_wvg1e"]
-[ext_resource type="Shader" path="res://daylight.gdshader" id="15_11ymb"]
+[ext_resource type="Shader" path="res://abstract/lighting/daylight.gdshader" id="15_11ymb"]
 [ext_resource type="PackedScene" uid="uid://cbw4fl1f8ctmj" path="res://scenes/possible_camp.tscn" id="17_pj7ct"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f4js7"]

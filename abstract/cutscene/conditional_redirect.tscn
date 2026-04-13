@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bjmrxj4s3l472"]
 
-[ext_resource type="Script" path="res://cutscene/ConditionalRedirect.gd" id="1_jud8j"]
+[ext_resource type="Script" path="res://abstract/cutscene/ConditionalRedirect.gd" id="1_jud8j"]
 
 [node name="ConditionalRedirect" type="Node2D"]
 script = ExtResource("1_jud8j")

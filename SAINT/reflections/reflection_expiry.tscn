@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://b3n7g5jnnronf"]
-
-[ext_resource type="Script" path="res://reflections/reflection_expiry.gd" id="1_2rvd6"]
-
-[node name="ReflectionExpiry" type="Node"]
-script = ExtResource("1_2rvd6")

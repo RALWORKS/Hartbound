@@ -1,9 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://c0gk4eq06qyd0"]
-
-[ext_resource type="PackedScene" uid="uid://dkdf40bloaki5" path="res://reflections/resolution.tscn" id="1_m1uji"]
-
-[node name="InitiallySidesWithElves" instance=ExtResource("1_m1uji")]
-id = "initially-sides-with-the-elves"
-title = "You side with the Elves--against industrialization"
-description = "Broadly, the Elves want to stamp out industrialization for good, and the Humans want to see it returned to its full glory. You side with the Elves."
-reflection_id = "initial-feelings-on-moon-temple"

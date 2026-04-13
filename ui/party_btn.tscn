@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://c4d8cpdtkkbx" path="res://assets/npcs/nate/profile.png" id="1_7r730"]
 [ext_resource type="Script" path="res://ui/party_btn.gd" id="1_q4ri5"]
-[ext_resource type="PackedScene" uid="uid://b11g7mb25w5xp" path="res://cutscene/smart_label.tscn" id="2_fntgt"]
+[ext_resource type="PackedScene" uid="uid://b11g7mb25w5xp" path="res://abstract/cutscene/smart_label.tscn" id="2_fntgt"]
 
 [node name="PartyBtn" type="Button"]
 clip_contents = true

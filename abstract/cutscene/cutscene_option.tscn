@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://yplasm5gtgly"]
 
-[ext_resource type="Script" path="res://cutscene/CutsceneOption.gd" id="1_ef1ox"]
+[ext_resource type="Script" path="res://abstract/cutscene/CutsceneOption.gd" id="1_ef1ox"]
 [ext_resource type="PackedScene" uid="uid://nglu31ms2rfa" path="res://ui/raise_to_ui_layer.tscn" id="2_oinv1"]
 
 [node name="CutsceneOption" type="Button"]

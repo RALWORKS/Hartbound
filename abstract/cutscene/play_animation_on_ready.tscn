@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://7vlh2at8ts65"]
-
-[ext_resource type="Script" path="res://PlayAnimationOnReady.gd" id="1_5ua8f"]
-
-[node name="PlayAnimationOnReady" type="Node"]
-script = ExtResource("1_5ua8f")

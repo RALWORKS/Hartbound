@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://bh1yfkyt3u44i"]
 
-[ext_resource type="Script" path="res://chapter.gd" id="1_3wcey"]
-[ext_resource type="PackedScene" uid="uid://b1skvjxeeblbv" path="res://chapter_event.tscn" id="2_q5q82"]
-[ext_resource type="PackedScene" uid="uid://dlu7cf3srroaj" path="res://character_dialogue_holder.tscn" id="3_ipjv4"]
+[ext_resource type="Script" path="res://abstract/chapter.gd" id="1_3wcey"]
+[ext_resource type="PackedScene" uid="uid://b1skvjxeeblbv" path="res://abstract/chapter/chapter_event.tscn" id="2_q5q82"]
+[ext_resource type="PackedScene" uid="uid://dlu7cf3srroaj" path="res://abstract/character/character_dialogue_holder.tscn" id="3_ipjv4"]
 
 [node name="Chapter" type="Node"]
 script = ExtResource("1_3wcey")

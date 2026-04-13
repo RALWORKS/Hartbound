@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://8rir4hoqy3xr"]
+
+[ext_resource type="Script" path="res://abstract/character/AbstractModularCharacter.gd" id="1_j1c5m"]
+
+[node name="AbstractModularCharacter" type="Sprite2D"]
+centered = false
+script = ExtResource("1_j1c5m")
+
+[node name="Character" type="Sprite2D" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]

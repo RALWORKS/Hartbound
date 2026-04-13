@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://dbmg2m78t35pw"]
-
-[ext_resource type="Script" path="res://scenes/demo/3/Camp.gd" id="1_0ep7a"]
-
-[node name="Camp" type="Node"]
-script = ExtResource("1_0ep7a")

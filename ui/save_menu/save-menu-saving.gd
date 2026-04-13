@@ -1,4 +1,4 @@
-extends "res://cutscene/CutsceneNode.gd"
+extends "res://abstract/cutscene/CutsceneNode.gd"
 
 func _on_show():
 	#$"/root/Game".save_position()

@@ -1,8 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://cejhnr57j2s6x"]
-
-[ext_resource type="Script" path="res://cutscene/change_expression_on_mouse_exited.gd" id="1_36vwt"]
-
-[node name="ChangeExpressionOnMouseExited" type="Area2D"]
-script = ExtResource("1_36vwt")
-
-[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

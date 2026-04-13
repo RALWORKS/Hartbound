@@ -1,0 +1,766 @@
+[gd_scene load_steps=23 format=3 uid="uid://dyvwckjylk75k"]
+
+[ext_resource type="Texture2D" uid="uid://b4g8r57xw5wby" path="res://assets/icons/day-and-night.png" id="1_akykp"]
+[ext_resource type="PackedScene" uid="uid://ds2vyvbayn3aw" path="res://character/character_sprite_display.tscn" id="1_bl372"]
+[ext_resource type="Script" path="res://abstract/character/character_designer_tabbed.gd" id="1_nfpcx"]
+[ext_resource type="Texture2D" uid="uid://4adsssm6udnr" path="res://assets/icons/person.png" id="2_kpca7"]
+[ext_resource type="PackedScene" uid="uid://cemborgcdx75k" path="res://abstract/character/profile.tscn" id="2_lm1jj"]
+[ext_resource type="Texture2D" uid="uid://dncl23hrjb1ue" path="res://assets/icons/rotate-sprite.png" id="2_nytq7"]
+[ext_resource type="Texture2D" uid="uid://crvme882xtfr7" path="res://assets/icons/person-with-face.png" id="3_cc4bl"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dlkb0"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h8yy3"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_aulhb"]
+content_margin_left = 100.0
+content_margin_right = 100.0
+bg_color = Color(0.972549, 0.396078, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gcog7"]
+content_margin_left = 100.0
+content_margin_right = 100.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qu51m"]
+content_margin_left = 100.0
+content_margin_right = 100.0
+bg_color = Color(0.184314, 0.184314, 0.184314, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_su2r7"]
+bg_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m38xy"]
+bg_color = Color(0.639216, 0.639216, 0.639216, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.972549, 0.396078, 0, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ygdw2"]
+bg_color = Color(0.972549, 0.396078, 0, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pja5r"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1pbbt"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cma0u"]
+bg_color = Color(0.972549, 0.396078, 0, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0benv"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_v1iqd"]
+viewport_path = NodePath("Window")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_t1cyy"]
+viewport_path = NodePath("img")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mtqk0"]
+bg_color = Color(0.972549, 0.396078, 0, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[node name="CharacterDesignerTabbed" type="Node2D"]
+script = ExtResource("1_nfpcx")
+
+[node name="Designer" type="Panel" parent="."]
+offset_left = 440.0
+offset_top = 121.0
+offset_right = 1688.0
+offset_bottom = 1059.0
+
+[node name="Clothing" type="Panel" parent="Designer"]
+layout_mode = 0
+offset_right = 1049.0
+offset_bottom = 934.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_dlkb0")
+
+[node name="OutfitStyle" type="Label" parent="Designer/Clothing"]
+layout_mode = 0
+offset_left = 28.0
+offset_top = 22.0
+offset_right = 229.0
+offset_bottom = 87.0
+theme_override_font_sizes/font_size = 30
+text = "Outfit Style
+"
+
+[node name="Data" type="Panel" parent="Designer/Clothing/OutfitStyle"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 62.0
+offset_right = 242.0
+offset_bottom = 460.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_dlkb0")
+
+[node name="0" type="Button" parent="Designer/Clothing/OutfitStyle/Data"]
+layout_mode = 0
+offset_right = 200.0
+offset_bottom = 33.0
+text = "Ruana"
+
+[node name="1" type="Button" parent="Designer/Clothing/OutfitStyle/Data"]
+layout_mode = 0
+offset_top = 40.0
+offset_right = 200.0
+offset_bottom = 73.0
+text = "Coat
+"
+
+[node name="2" type="Button" parent="Designer/Clothing/OutfitStyle/Data"]
+layout_mode = 0
+offset_top = 80.0
+offset_right = 200.0
+offset_bottom = 113.0
+text = "Side Cape"
+
+[node name="3" type="Button" parent="Designer/Clothing/OutfitStyle/Data"]
+layout_mode = 0
+offset_top = 120.0
+offset_right = 200.0
+offset_bottom = 153.0
+text = "Chiton
+"
+
+[node name="4" type="Button" parent="Designer/Clothing/OutfitStyle/Data"]
+layout_mode = 0
+offset_top = 160.0
+offset_right = 200.0
+offset_bottom = 193.0
+text = "Greatkilt
+"
+
+[node name="Colour1" type="Label" parent="Designer/Clothing"]
+layout_mode = 0
+offset_left = 332.0
+offset_top = 22.0
+offset_right = 533.0
+offset_bottom = 132.0
+theme_override_font_sizes/font_size = 30
+text = "Colour 1
+
+"
+
+[node name="Data" type="Panel" parent="Designer/Clothing/Colour1"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 62.0
+offset_right = 242.0
+offset_bottom = 460.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_dlkb0")
+
+[node name="Colour2" type="Label" parent="Designer/Clothing"]
+layout_mode = 0
+offset_left = 601.0
+offset_top = 22.0
+offset_right = 802.0
+offset_bottom = 132.0
+theme_override_font_sizes/font_size = 30
+text = "Colour 2
+
+"
+
+[node name="Data" type="Panel" parent="Designer/Clothing/Colour2"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 62.0
+offset_right = 242.0
+offset_bottom = 460.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_dlkb0")
+
+[node name="Pattern" type="Label" parent="Designer/Clothing"]
+layout_mode = 0
+offset_left = 865.0
+offset_top = 22.0
+offset_right = 1066.0
+offset_bottom = 132.0
+theme_override_font_sizes/font_size = 30
+text = "Fabric Pattern
+
+"
+
+[node name="Data" type="Panel" parent="Designer/Clothing/Pattern"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 62.0
+offset_right = 242.0
+offset_bottom = 460.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_dlkb0")
+
+[node name="0" type="Button" parent="Designer/Clothing/Pattern/Data"]
+layout_mode = 0
+offset_right = 200.0
+offset_bottom = 33.0
+text = "None"
+
+[node name="1" type="Button" parent="Designer/Clothing/Pattern/Data"]
+layout_mode = 0
+offset_top = 40.0
+offset_right = 200.0
+offset_bottom = 73.0
+text = "Checked"
+
+[node name="2" type="Button" parent="Designer/Clothing/Pattern/Data"]
+layout_mode = 0
+offset_top = 80.0
+offset_right = 200.0
+offset_bottom = 113.0
+text = "Tartan"
+
+[node name="3" type="Button" parent="Designer/Clothing/Pattern/Data"]
+layout_mode = 0
+offset_top = 120.0
+offset_right = 200.0
+offset_bottom = 153.0
+text = "Maze
+"
+
+[node name="Body" type="Panel" parent="Designer"]
+visible = false
+layout_mode = 0
+offset_right = 1049.0
+offset_bottom = 934.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_dlkb0")
+
+[node name="Build" type="Label" parent="Designer/Body"]
+layout_mode = 0
+offset_left = 28.0
+offset_top = 22.0
+offset_right = 229.0
+offset_bottom = 87.0
+theme_override_font_sizes/font_size = 30
+text = "Build
+"
+
+[node name="Data" type="Panel" parent="Designer/Body/Build"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 62.0
+offset_right = 315.0
+offset_bottom = 240.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_dlkb0")
+
+[node name="0" type="Button" parent="Designer/Body/Build/Data"]
+layout_mode = 0
+offset_right = 91.0
+offset_bottom = 166.0
+
+[node name="Wrap" type="Sprite2D" parent="Designer/Body/Build/Data/0"]
+scale = Vector2(0.6, 0.95)
+
+[node name="ico" type="Sprite2D" parent="Designer/Body/Build/Data/0/Wrap"]
+position = Vector2(73.7496, 97.9357)
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("2_kpca7")
+
+[node name="1" type="Button" parent="Designer/Body/Build/Data"]
+layout_mode = 0
+offset_left = 104.0
+offset_right = 195.0
+offset_bottom = 166.0
+
+[node name="Wrap" type="Sprite2D" parent="Designer/Body/Build/Data/1"]
+scale = Vector2(0.8, 1.05)
+
+[node name="ico" type="Sprite2D" parent="Designer/Body/Build/Data/1/Wrap"]
+position = Vector2(55.75, 84.5714)
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("2_kpca7")
+
+[node name="2" type="Button" parent="Designer/Body/Build/Data"]
+layout_mode = 0
+offset_left = 206.0
+offset_right = 297.0
+offset_bottom = 166.0
+
+[node name="Wrap" type="Sprite2D" parent="Designer/Body/Build/Data/2"]
+scale = Vector2(1, 1.15)
+
+[node name="ico" type="Sprite2D" parent="Designer/Body/Build/Data/2/Wrap"]
+position = Vector2(44.75, 72.6087)
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("2_kpca7")
+
+[node name="Skin" type="Label" parent="Designer/Body"]
+layout_mode = 0
+offset_left = 23.0
+offset_top = 263.0
+offset_right = 224.0
+offset_bottom = 328.0
+theme_override_font_sizes/font_size = 30
+text = "Skin Tone
+"
+
+[node name="Data" type="Panel" parent="Designer/Body/Skin"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 62.0
+offset_right = 308.0
+offset_bottom = 318.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_dlkb0")
+
+[node name="FaceShape" type="Label" parent="Designer/Body"]
+layout_mode = 0
+offset_left = 388.0
+offset_top = 22.0
+offset_right = 589.0
+offset_bottom = 87.0
+theme_override_font_sizes/font_size = 30
+text = "Face Shape
+"
+
+[node name="Data" type="Panel" parent="Designer/Body/FaceShape"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 62.0
+offset_right = 308.0
+offset_bottom = 318.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_dlkb0")
+
+[node name="0" type="Button" parent="Designer/Body/FaceShape/Data"]
+layout_mode = 0
+offset_right = 200.0
+offset_bottom = 33.0
+text = "Angular"
+
+[node name="1" type="Button" parent="Designer/Body/FaceShape/Data"]
+layout_mode = 0
+offset_top = 40.0
+offset_right = 200.0
+offset_bottom = 73.0
+text = "Round
+"
+
+[node name="2" type="Button" parent="Designer/Body/FaceShape/Data"]
+layout_mode = 0
+offset_top = 80.0
+offset_right = 200.0
+offset_bottom = 113.0
+text = "Pointed"
+
+[node name="3" type="Button" parent="Designer/Body/FaceShape/Data"]
+layout_mode = 0
+offset_top = 120.0
+offset_right = 200.0
+offset_bottom = 153.0
+text = "Square
+"
+
+[node name="Features" type="Label" parent="Designer/Body"]
+layout_mode = 0
+offset_left = 697.0
+offset_top = 22.0
+offset_right = 932.0
+offset_bottom = 87.0
+theme_override_font_sizes/font_size = 30
+text = "Facial Features
+"
+
+[node name="Data" type="Panel" parent="Designer/Body/Features"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 62.0
+offset_right = 308.0
+offset_bottom = 318.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_dlkb0")
+
+[node name="0" type="Button" parent="Designer/Body/Features/Data"]
+layout_mode = 0
+offset_right = 200.0
+offset_bottom = 33.0
+text = "Soft Eyes"
+
+[node name="1" type="Button" parent="Designer/Body/Features/Data"]
+layout_mode = 0
+offset_top = 40.0
+offset_right = 200.0
+offset_bottom = 73.0
+text = "Small Eyes
+"
+
+[node name="2" type="Button" parent="Designer/Body/Features/Data"]
+layout_mode = 0
+offset_top = 80.0
+offset_right = 200.0
+offset_bottom = 113.0
+text = "Square Eyes"
+
+[node name="Hair" type="Panel" parent="Designer"]
+visible = false
+layout_mode = 0
+offset_right = 1049.0
+offset_bottom = 934.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_dlkb0")
+
+[node name="HairStyle" type="Label" parent="Designer/Hair"]
+layout_mode = 0
+offset_left = 28.0
+offset_top = 22.0
+offset_right = 229.0
+offset_bottom = 87.0
+theme_override_font_sizes/font_size = 30
+text = "Hairstyle
+"
+
+[node name="Data" type="Panel" parent="Designer/Hair/HairStyle"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 62.0
+offset_right = 242.0
+offset_bottom = 460.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_dlkb0")
+
+[node name="0" type="Button" parent="Designer/Hair/HairStyle/Data"]
+layout_mode = 0
+offset_right = 200.0
+offset_bottom = 33.0
+text = "Braids"
+
+[node name="1" type="Button" parent="Designer/Hair/HairStyle/Data"]
+layout_mode = 0
+offset_top = 40.0
+offset_right = 200.0
+offset_bottom = 73.0
+text = "Long + Back Bun
+"
+
+[node name="2" type="Button" parent="Designer/Hair/HairStyle/Data"]
+layout_mode = 0
+offset_top = 80.0
+offset_right = 200.0
+offset_bottom = 113.0
+text = "Single Braid"
+
+[node name="3" type="Button" parent="Designer/Hair/HairStyle/Data"]
+layout_mode = 0
+offset_top = 120.0
+offset_right = 200.0
+offset_bottom = 153.0
+text = "Undercut Braid
+"
+
+[node name="HairColour" type="Label" parent="Designer/Hair"]
+layout_mode = 0
+offset_left = 332.0
+offset_top = 22.0
+offset_right = 533.0
+offset_bottom = 132.0
+theme_override_font_sizes/font_size = 30
+text = "Hair Colour
+
+"
+
+[node name="Data" type="Panel" parent="Designer/Hair/HairColour"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 62.0
+offset_right = 242.0
+offset_bottom = 460.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_dlkb0")
+
+[node name="Portrait" type="Panel" parent="Designer"]
+visible = false
+layout_mode = 0
+offset_right = 1049.0
+offset_bottom = 934.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_dlkb0")
+
+[node name="PortraitBgTexture" type="Label" parent="Designer/Portrait"]
+layout_mode = 0
+offset_left = 34.0
+offset_top = 21.0
+offset_right = 348.0
+offset_bottom = 131.0
+theme_override_font_sizes/font_size = 30
+text = "Background Texture
+
+"
+
+[node name="Data" type="Panel" parent="Designer/Portrait/PortraitBgTexture"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 58.0
+offset_right = 289.0
+offset_bottom = 140.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_dlkb0")
+
+[node name="0" type="Button" parent="Designer/Portrait/PortraitBgTexture/Data"]
+layout_mode = 0
+offset_right = 300.0
+offset_bottom = 33.0
+text = "Wood"
+
+[node name="1" type="Button" parent="Designer/Portrait/PortraitBgTexture/Data"]
+layout_mode = 0
+offset_top = 40.0
+offset_right = 300.0
+offset_bottom = 73.0
+text = "Glass
+"
+
+[node name="2" type="Button" parent="Designer/Portrait/PortraitBgTexture/Data"]
+layout_mode = 0
+offset_top = 80.0
+offset_right = 300.0
+offset_bottom = 113.0
+text = "Columns"
+
+[node name="3" type="Button" parent="Designer/Portrait/PortraitBgTexture/Data"]
+layout_mode = 0
+offset_top = 120.0
+offset_right = 300.0
+offset_bottom = 153.0
+text = "Circles"
+
+[node name="4" type="Button" parent="Designer/Portrait/PortraitBgTexture/Data"]
+layout_mode = 0
+offset_top = 160.0
+offset_right = 300.0
+offset_bottom = 193.0
+text = "Scratches
+"
+
+[node name="PortraitBgColour" type="Label" parent="Designer/Portrait"]
+layout_mode = 0
+offset_left = 34.0
+offset_top = 328.0
+offset_right = 331.0
+offset_bottom = 438.0
+theme_override_font_sizes/font_size = 30
+text = "Background Colour
+
+"
+
+[node name="Data" type="Panel" parent="Designer/Portrait/PortraitBgColour"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 56.0
+offset_right = 369.0
+offset_bottom = 147.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_dlkb0")
+
+[node name="Lighting" type="Label" parent="Designer/Portrait"]
+layout_mode = 0
+offset_left = 551.0
+offset_top = 328.0
+offset_right = 848.0
+offset_bottom = 483.0
+theme_override_font_sizes/font_size = 30
+text = "Lighting
+
+
+"
+
+[node name="Data" type="Panel" parent="Designer/Portrait/Lighting"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 59.0
+offset_right = 390.0
+offset_bottom = 177.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_dlkb0")
+
+[node name="Composition" type="Label" parent="Designer/Portrait"]
+layout_mode = 0
+offset_left = 547.0
+offset_top = 20.0
+offset_right = 780.0
+offset_bottom = 310.0
+theme_override_font_sizes/font_size = 30
+text = "Composition
+
+
+"
+
+[node name="Data" type="Panel" parent="Designer/Portrait/Composition"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 59.0
+offset_right = 487.0
+offset_bottom = 300.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_dlkb0")
+
+[node name="0" type="Button" parent="Designer/Portrait/Composition/Data"]
+clip_contents = true
+layout_mode = 0
+offset_right = 100.0
+offset_bottom = 100.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_h8yy3")
+
+[node name="ico" type="Sprite2D" parent="Designer/Portrait/Composition/Data/0"]
+position = Vector2(52, 155)
+scale = Vector2(0.9, 0.9)
+texture = ExtResource("3_cc4bl")
+
+[node name="1" type="Button" parent="Designer/Portrait/Composition/Data"]
+clip_contents = true
+layout_mode = 0
+offset_left = 120.0
+offset_right = 220.0
+offset_bottom = 100.0
+
+[node name="ico" type="Sprite2D" parent="Designer/Portrait/Composition/Data/1"]
+position = Vector2(51, 132)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("3_cc4bl")
+
+[node name="2" type="Button" parent="Designer/Portrait/Composition/Data"]
+clip_contents = true
+layout_mode = 0
+offset_top = 120.0
+offset_right = 100.0
+offset_bottom = 220.0
+
+[node name="ico" type="Sprite2D" parent="Designer/Portrait/Composition/Data/2"]
+position = Vector2(80, 159)
+scale = Vector2(0.9, 0.9)
+texture = ExtResource("3_cc4bl")
+
+[node name="3" type="Button" parent="Designer/Portrait/Composition/Data"]
+clip_contents = true
+layout_mode = 0
+offset_left = 120.0
+offset_top = 120.0
+offset_right = 220.0
+offset_bottom = 220.0
+
+[node name="ico" type="Sprite2D" parent="Designer/Portrait/Composition/Data/3"]
+position = Vector2(82, 144)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("3_cc4bl")
+
+[node name="TabBar" type="TabBar" parent="."]
+offset_left = 443.0
+offset_top = 83.0
+offset_right = 1518.0
+offset_bottom = 123.0
+mouse_filter = 1
+theme_override_styles/tab_selected = SubResource("StyleBoxFlat_aulhb")
+theme_override_styles/tab_hovered = SubResource("StyleBoxFlat_gcog7")
+theme_override_styles/tab_unselected = SubResource("StyleBoxFlat_qu51m")
+scrolling_enabled = false
+tab_count = 4
+tab_0/title = "Clothing"
+tab_1/title = "Body & Face"
+tab_2/title = "Hair"
+tab_3/title = "Portrait"
+
+[node name="DisplayOptions" type="Panel" parent="."]
+offset_left = 410.0
+offset_top = 824.0
+offset_right = 564.0
+offset_bottom = 1105.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_su2r7")
+
+[node name="LightCycle" type="Button" parent="DisplayOptions"]
+layout_mode = 0
+offset_left = 35.0
+offset_top = 21.0
+offset_right = 135.0
+offset_bottom = 121.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_m38xy")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ygdw2")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_pja5r")
+toggle_mode = true
+
+[node name="CheckButton" type="CheckButton" parent="DisplayOptions/LightCycle"]
+layout_mode = 0
+offset_left = 39.0
+offset_top = 74.0
+offset_right = 91.0
+offset_bottom = 100.0
+mouse_filter = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_1pbbt")
+
+[node name="ico" type="Sprite2D" parent="DisplayOptions/LightCycle"]
+position = Vector2(49, 44)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_akykp")
+
+[node name="RotateChar" type="Button" parent="DisplayOptions"]
+layout_mode = 0
+offset_left = 35.0
+offset_top = 135.0
+offset_right = 135.0
+offset_bottom = 235.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_m38xy")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_cma0u")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_0benv")
+toggle_mode = true
+
+[node name="CheckButton" type="CheckButton" parent="DisplayOptions/RotateChar"]
+layout_mode = 0
+offset_left = 39.0
+offset_top = 74.0
+offset_right = 91.0
+offset_bottom = 100.0
+mouse_filter = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_1pbbt")
+
+[node name="ico" type="Sprite2D" parent="DisplayOptions/RotateChar"]
+position = Vector2(49, 46.7)
+scale = Vector2(0.24, 0.2)
+texture = ExtResource("2_nytq7")
+
+[node name="CharacterSpriteDisplay" parent="." instance=ExtResource("1_bl372")]
+position = Vector2(19, 436)
+scale = Vector2(2, 2)
+texture = SubResource("ViewportTexture_v1iqd")
+
+[node name="Profile" parent="." instance=ExtResource("2_lm1jj")]
+position = Vector2(21, 21)
+scale = Vector2(0.993, 0.993)
+texture = SubResource("ViewportTexture_t1cyy")
+
+[node name="ScreenTitle" type="Label" parent="."]
+offset_left = 433.0
+offset_top = 9.0
+offset_right = 1153.0
+offset_bottom = 94.0
+theme_override_font_sizes/font_size = 40
+text = "Design Character"
+
+[node name="SaveContainer" type="Panel" parent="."]
+offset_left = 548.0
+offset_top = 950.0
+offset_right = 1711.0
+offset_bottom = 1258.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_su2r7")
+
+[node name="RandomizeAll" type="Button" parent="SaveContainer"]
+layout_mode = 0
+offset_left = 23.0
+offset_top = 26.0
+offset_right = 312.0
+offset_bottom = 102.0
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_mtqk0")
+text = "Randomize All"
+
+[connection signal="tab_changed" from="TabBar" to="." method="_on_tab_bar_tab_changed"]
+[connection signal="toggled" from="DisplayOptions/LightCycle" to="." method="_on_light_cycle_toggled"]
+[connection signal="toggled" from="DisplayOptions/RotateChar" to="." method="_on_rotate_char_toggled"]
+[connection signal="pressed" from="SaveContainer/RandomizeAll" to="." method="_on_randomize_all_pressed"]

@@ -1,9 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://08qmtymg2720"]
-
-[ext_resource type="PackedScene" uid="uid://cvbxj0w7b3650" path="res://reflections/resolutions/resolution.tscn" id="1_wqed1"]
-
-[node name="TaylorIsHuman" instance=ExtResource("1_wqed1")]
-id = "taylor-is-human"
-title = "You consider <taylor> a human"
-description = "<taylor> has explained why, as a Moon Temple raised half-Elf, she considers herself culturally Elven, but you can't accept it from someone who's been living as a human--passing for human--for 7 years."
-reflection_id = "taylor-elf-enough?"

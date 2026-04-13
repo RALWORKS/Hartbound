@@ -1,9 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://bhel4gbden7eo"]
-
-[ext_resource type="PackedScene" uid="uid://dkdf40bloaki5" path="res://reflections/resolution.tscn" id="1_ovt55"]
-
-[node name="InitiallyStillPrays" instance=ExtResource("1_ovt55")]
-id = "initially-still-prays"
-title = "You still pray to the Gods of Moon Temple"
-description = "You still pray to the Gods of Moon Temple, as you were raised to"
-reflection_id = "initial-feelings-on-moon-temple"

@@ -1,7 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://cb7ml6611mksi"]
-
-[ext_resource type="Script" path="res://cutscene/travel_cutscene.gd" id="1_0373w"]
-
-[node name="TravelCutscene" type="Node2D"]
-script = ExtResource("1_0373w")
-is_move = false

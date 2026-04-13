@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://b1skvjxeeblbv"]
 
-[ext_resource type="Script" path="res://ChapterEvent.gd" id="1_pjkno"]
+[ext_resource type="Script" path="res://abstract/chapter/ChapterEvent.gd" id="1_pjkno"]
 
 [node name="ChapterEvent" type="Node"]
 script = ExtResource("1_pjkno")

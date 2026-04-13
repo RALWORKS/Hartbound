@@ -1,9 +1,0 @@
-[gd_scene load_steps=3 format=3 uid="uid://wjycar3we6qf"]
-
-[ext_resource type="PackedScene" uid="uid://b26qv8ndwvh7h" path="res://item/inv_item.tscn" id="1_1o6q0"]
-[ext_resource type="Texture2D" uid="uid://28cra2nju78i" path="res://assets/items/demo-1/board-icon.png" id="2_6xlxc"]
-
-[node name="BoardItem" instance=ExtResource("1_1o6q0")]
-id = "board"
-title = "Board"
-icon = ExtResource("2_6xlxc")

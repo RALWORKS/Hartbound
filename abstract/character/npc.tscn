@@ -1,0 +1,47 @@
+[gd_scene load_steps=6 format=3 uid="uid://bl3qjgb340prl"]
+
+[ext_resource type="Script" path="res://abstract/character/npc.gd" id="1_ulp4k"]
+[ext_resource type="PackedScene" uid="uid://cl4heje674d3q" path="res://item/interaction_area.tscn" id="2_b8ca8"]
+[ext_resource type="AudioStream" uid="uid://bfr0kt4krwjws" path="res://assets/sfx/footsteps1/both.ogg" id="3_2ey6i"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_p2524"]
+radius = 28.5714
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rl4jm"]
+radius = 42.8571
+height = 274.286
+
+[node name="NPC" type="CharacterBody2D"]
+y_sort_enabled = true
+scale = Vector2(0.7, 0.7)
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("1_ulp4k")
+
+[node name="char" type="Sprite2D" parent="."]
+offset = Vector2(0, -100)
+hframes = 6
+vframes = 4
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_p2524")
+
+[node name="InteractionArea" parent="." node_paths=PackedStringArray("action_source") instance=ExtResource("2_b8ca8")]
+action_source = NodePath("..")
+child_depth = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
+position = Vector2(-1.19209e-06, -105.714)
+shape = SubResource("CapsuleShape2D_rl4jm")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="Footsteps" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_2ey6i")
+volume_db = -4.0
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+
+[connection signal="tree_entered" from="." to="." method="_on_tree_entered"]
+[connection signal="tree_exited" from="." to="." method="_on_tree_exited"]
+[connection signal="tree_exiting" from="." to="." method="_on_tree_exiting"]

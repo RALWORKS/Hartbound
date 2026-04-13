@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://7w20b1tbjyt4"]
-
-[ext_resource type="Script" path="res://scenes/walk_line.gd" id="1_78nxt"]
-
-[node name="WalkLine" type="Line2D"]
-script = ExtResource("1_78nxt")

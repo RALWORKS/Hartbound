@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://clq8611xkfdqp"]
 
-[ext_resource type="PackedScene" uid="uid://55vflx8ylix1" path="res://cutscene/cutscene_node.tscn" id="1_mifdh"]
-[ext_resource type="Script" path="res://cutscene/CutsceneRedirectNode.gd" id="2_b8o2t"]
+[ext_resource type="PackedScene" uid="uid://55vflx8ylix1" path="res://abstract/cutscene/cutscene_node.tscn" id="1_mifdh"]
+[ext_resource type="Script" path="res://abstract/cutscene/CutsceneRedirectNode.gd" id="2_b8o2t"]
 
 [node name="CutsceneRedirectNode" node_paths=PackedStringArray("use_on_start_fn_from") instance=ExtResource("1_mifdh")]
 use_on_start_fn_from = NodePath("Redirect")

@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://cwobelc0kaio" path="res://assets/effects/pass-out-1/black.png" id="4_jkebq"]
 [ext_resource type="Texture2D" uid="uid://nwp046lvkv0y" path="res://assets/effects/pass-out-1/star-biggest.png" id="5_auguh"]
 [ext_resource type="Texture2D" uid="uid://dneh40ijxqdeo" path="res://assets/stars-backdrop.png" id="6_2snv3"]
-[ext_resource type="PackedScene" uid="uid://b11g7mb25w5xp" path="res://cutscene/smart_label.tscn" id="7_tkxcj"]
+[ext_resource type="PackedScene" uid="uid://b11g7mb25w5xp" path="res://abstract/cutscene/smart_label.tscn" id="7_tkxcj"]
 
 [node name="ViewInventory" instance=ExtResource("1_r0ulf")]
 anchors_preset = 0

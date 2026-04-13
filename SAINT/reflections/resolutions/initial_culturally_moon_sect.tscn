@@ -1,9 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://c5d3wkf4t3kq4"]
-
-[ext_resource type="PackedScene" uid="uid://dkdf40bloaki5" path="res://reflections/resolution.tscn" id="1_pkrho"]
-
-[node name="InitialCulturallyMoonSect" instance=ExtResource("1_pkrho")]
-id = "initial-culturally-moon-sect"
-title = "You identify with Moon Sect culture"
-description = "You still identify with the cultural elements of Moon Sect, but you don't necessarily believe in its supernatural claims"
-reflection_id = "initial-religion"

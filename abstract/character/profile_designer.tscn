@@ -1,0 +1,77 @@
+[gd_scene load_steps=6 format=3 uid="uid://buc6wae5lxvk8"]
+
+[ext_resource type="Script" path="res://abstract/character/ProfileDesigner.gd" id="1_4dkvh"]
+[ext_resource type="PackedScene" uid="uid://cemborgcdx75k" path="res://abstract/character/profile.tscn" id="2_ekdgc"]
+[ext_resource type="Theme" uid="uid://bowrqsap2qmsa" path="res://ui/base_theme.tres" id="3_ptl8c"]
+[ext_resource type="Script" path="res://abstract/character/BGColorButtons.gd" id="3_qk1se"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_k2y0s"]
+viewport_path = NodePath("img")
+
+[node name="ProfileDesigner" type="Node2D"]
+script = ExtResource("1_4dkvh")
+
+[node name="Profile" parent="." instance=ExtResource("2_ekdgc")]
+scale = Vector2(0.5, 0.5)
+texture = SubResource("ViewportTexture_k2y0s")
+
+[node name="BgBtn" type="Button" parent="."]
+offset_left = 457.0
+offset_right = 634.0
+offset_bottom = 33.0
+theme = ExtResource("3_ptl8c")
+text = "Background Texture"
+metadata/_edit_use_anchors_ = true
+
+[node name="EyesBtn" type="Button" parent="."]
+offset_left = 205.0
+offset_top = 40.0
+offset_right = 329.0
+offset_bottom = 71.0
+theme = ExtResource("3_ptl8c")
+text = "Facial Features"
+metadata/_edit_use_anchors_ = true
+
+[node name="FaceBtn" type="Button" parent="."]
+offset_left = 205.0
+offset_right = 329.0
+offset_bottom = 31.0
+theme = ExtResource("3_ptl8c")
+text = "Face Shape"
+metadata/_edit_use_anchors_ = true
+
+[node name="ShotBtn" type="Button" parent="."]
+offset_left = 205.0
+offset_top = 80.0
+offset_right = 329.0
+offset_bottom = 111.0
+theme = ExtResource("3_ptl8c")
+text = "Shot Composition"
+metadata/_edit_use_anchors_ = true
+
+[node name="FilterBtn" type="Button" parent="."]
+offset_left = 205.0
+offset_top = 120.0
+offset_right = 329.0
+offset_bottom = 151.0
+theme = ExtResource("3_ptl8c")
+text = "Filter
+"
+metadata/_edit_use_anchors_ = true
+
+[node name="BGColorButtons" type="Node2D" parent="."]
+position = Vector2(464, 86)
+script = ExtResource("3_qk1se")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 452.0
+offset_top = 40.0
+offset_right = 604.0
+offset_bottom = 86.0
+text = "Background Tint:"
+
+[connection signal="pressed" from="BgBtn" to="." method="_on_bg_btn_pressed"]
+[connection signal="pressed" from="EyesBtn" to="." method="_on_eyes_btn_pressed"]
+[connection signal="pressed" from="FaceBtn" to="." method="_on_face_btn_pressed"]
+[connection signal="pressed" from="ShotBtn" to="." method="_on_shot_btn_pressed"]
+[connection signal="pressed" from="FilterBtn" to="." method="_on_filter_btn_pressed"]

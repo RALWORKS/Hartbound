@@ -1,9 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://dy7jrdc3ss38n"]
-
-[ext_resource type="PackedScene" uid="uid://dkdf40bloaki5" path="res://reflections/resolution.tscn" id="1_qyl80"]
-
-[node name="TaylorMoonTempleConcern" instance=ExtResource("1_qyl80")]
-id = "taylor-moon-temple-concern"
-title = "You were concerned by <taylor>'s statement of support for Moon Temple"
-description = "When <taylor> confided to you that she misses Moon Temple and prays for the Saint of Dusk, you worried about what would happen to her if the wrong people at Sun Temple found out"
-reflection_id = "report-taylor?"

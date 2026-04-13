@@ -58,7 +58,7 @@ func injure():
 	music.push_music($"../InjuryMusic")
 
 func die():
-	var cut = load("res://cutscene/you_died.tscn")
+	var cut = load("res://abstract/cutscene/you_died.tscn")
 	g.chapter.start_cutscene(cut)
 
 func heal():

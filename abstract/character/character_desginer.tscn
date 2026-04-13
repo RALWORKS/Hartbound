@@ -1,0 +1,247 @@
+[gd_scene load_steps=18 format=3 uid="uid://dixypholkmdeq"]
+
+[ext_resource type="Script" path="res://abstract/character/CharacterDesginer.gd" id="1_304cl"]
+[ext_resource type="Texture2D" uid="uid://ddnb1w55tctmj" path="res://assets/scenes/demo/1/f.png" id="2_idm2p"]
+[ext_resource type="PackedScene" uid="uid://b03wpar88cr5r" path="res://abstract/character/character.tscn" id="2_jht2j"]
+[ext_resource type="PackedScene" path="res://ui/outline-button.tscn" id="3_y8erm"]
+[ext_resource type="Script" path="res://abstract/character/SkinColorButtons.gd" id="5_th1gm"]
+[ext_resource type="Script" path="res://abstract/character/OutfitColorButtons.gd" id="6_nrqhh"]
+[ext_resource type="Script" path="res://abstract/character/HairColorButtons.gd" id="6_vhj88"]
+[ext_resource type="PackedScene" uid="uid://dec3rewb3xb1u" path="res://abstract/lighting/daylight_filter.tscn" id="8_g78a4"]
+[ext_resource type="Shader" path="res://abstract/lighting/daylight.gdshader" id="9_tcqvq"]
+[ext_resource type="Script" path="res://abstract/cutscene/auto_play_animation_player.gd" id="10_1ejtx"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_o0f50"]
+viewport_path = NodePath("Window")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_j7uuc"]
+resource_local_to_scene = true
+shader = ExtResource("9_tcqvq")
+shader_parameter/darken = 0.0
+shader_parameter/saturate = 1.0
+shader_parameter/contrast = 1.0
+shader_parameter/warmth = 0.5
+
+[sub_resource type="Animation" id="Animation_247t8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:time")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.3]
+}
+
+[sub_resource type="Animation" id="Animation_cwlco"]
+resource_name = "base"
+length = 8.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:time")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_q02o3"]
+_data = {
+"RESET": SubResource("Animation_247t8"),
+"base": SubResource("Animation_cwlco")
+}
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_piecp"]
+content_margin_left = 15.0
+content_margin_top = 15.0
+content_margin_right = 15.0
+content_margin_bottom = 15.0
+bg_color = Color(0, 0.427451, 0.32549, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0wahf"]
+content_margin_left = 15.0
+content_margin_top = 15.0
+content_margin_right = 15.0
+content_margin_bottom = 15.0
+bg_color = Color(0, 0.176471, 0.12549, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[node name="CharacterDesginer" type="Node2D"]
+script = ExtResource("1_304cl")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = 15.0
+offset_top = 15.0
+offset_right = 225.0
+offset_bottom = 337.0
+color = Color(0.247059, 0.247059, 0.247059, 1)
+
+[node name="Display" type="Sprite2D" parent="."]
+texture = SubResource("ViewportTexture_o0f50")
+centered = false
+offset = Vector2(20, 20)
+
+[node name="Window" type="SubViewport" parent="."]
+size = Vector2i(200, 312)
+
+[node name="BG" type="Sprite2D" parent="Window"]
+position = Vector2(-22, 0)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("2_idm2p")
+centered = false
+offset = Vector2(15, 0)
+hframes = 8
+vframes = 4
+frame = 30
+
+[node name="WrapAndScale" type="Node2D" parent="Window"]
+position = Vector2(-25, 0)
+scale = Vector2(1.5, 1.5)
+
+[node name="Character" parent="Window/WrapAndScale" instance=ExtResource("2_jht2j")]
+position = Vector2(83.3333, 205.333)
+is_demo_instance = true
+
+[node name="DaylightFilter" parent="Window" instance=ExtResource("8_g78a4")]
+time = 0.3
+manual_time = true
+daylight_shader = SubResource("ShaderMaterial_j7uuc")
+
+[node name="Filter" type="ColorRect" parent="Window/DaylightFilter"]
+visible = false
+offset_right = 206.0
+offset_bottom = 318.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Window/DaylightFilter"]
+libraries = {
+"": SubResource("AnimationLibrary_q02o3")
+}
+script = ExtResource("10_1ejtx")
+
+[node name="CheckButton" type="CheckButton" parent="."]
+offset_left = 115.0
+offset_top = 353.0
+offset_right = 223.0
+offset_bottom = 386.0
+text = "Rotate"
+
+[node name="OutfitBtn" parent="." instance=ExtResource("3_y8erm")]
+offset_left = 596.0
+offset_top = 94.0
+offset_right = 721.0
+offset_bottom = 125.0
+text = "> Outfit
+"
+
+[node name="OutfitPatternBtn" parent="." instance=ExtResource("3_y8erm")]
+offset_left = 596.0
+offset_top = 46.0
+offset_right = 723.0
+offset_bottom = 77.0
+text = "> Fabric Pattern
+"
+
+[node name="BuildBtn" parent="." instance=ExtResource("3_y8erm")]
+offset_left = 288.0
+offset_top = 96.0
+offset_right = 413.0
+offset_bottom = 127.0
+text = "> Build
+"
+
+[node name="HairstyleBtn" parent="." instance=ExtResource("3_y8erm")]
+offset_left = 445.0
+offset_top = 95.0
+offset_right = 570.0
+offset_bottom = 126.0
+text = "> Hairstyle
+"
+
+[node name="HairColourBtn" parent="." instance=ExtResource("3_y8erm")]
+offset_left = 445.0
+offset_top = 144.0
+offset_right = 570.0
+offset_bottom = 175.0
+text = "> Hair Colour
+"
+
+[node name="SkinColourBtn" parent="." instance=ExtResource("3_y8erm")]
+offset_left = 288.0
+offset_top = 143.0
+offset_right = 413.0
+offset_bottom = 174.0
+text = "> Skin Colour
+"
+
+[node name="OutfitColourBtn" parent="." instance=ExtResource("3_y8erm")]
+offset_left = 599.0
+offset_top = 143.0
+offset_right = 724.0
+offset_bottom = 174.0
+text = "> Outfit Colour
+"
+
+[node name="AccentColourBtn" parent="." instance=ExtResource("3_y8erm")]
+offset_left = 810.0
+offset_top = 143.0
+offset_right = 935.0
+offset_bottom = 174.0
+text = "> Accent Colour
+"
+
+[node name="SkinColorButtons" type="Node2D" parent="."]
+position = Vector2(285, 204)
+script = ExtResource("5_th1gm")
+
+[node name="HairColorButtons" type="Node2D" parent="."]
+position = Vector2(442, 204)
+script = ExtResource("6_vhj88")
+
+[node name="OutfitColorButtons" type="Node2D" parent="."]
+position = Vector2(597, 204)
+script = ExtResource("6_nrqhh")
+
+[node name="OutfitAccentButtons" type="Node2D" parent="."]
+position = Vector2(810, 204)
+script = ExtResource("6_nrqhh")
+is_accent = true
+
+[node name="RandomizeBtn" parent="." instance=ExtResource("3_y8erm")]
+offset_left = 282.0
+offset_top = 18.0
+offset_right = 424.0
+offset_bottom = 81.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_piecp")
+theme_override_styles/hover = SubResource("StyleBoxFlat_0wahf")
+text = "Randomize"
+
+[connection signal="toggled" from="CheckButton" to="." method="_on_check_button_toggled"]
+[connection signal="pressed" from="OutfitBtn" to="." method="_on_outfit_btn_pressed"]
+[connection signal="pressed" from="OutfitPatternBtn" to="." method="_on_outfit_pattern_btn_pressed"]
+[connection signal="pressed" from="BuildBtn" to="." method="_on_build_btn_pressed"]
+[connection signal="pressed" from="HairstyleBtn" to="." method="_on_hair_btn_pressed"]
+[connection signal="pressed" from="HairColourBtn" to="." method="_on_hair_colour_btn_pressed"]
+[connection signal="pressed" from="SkinColourBtn" to="." method="_on_skin_colour_btn_pressed"]
+[connection signal="pressed" from="OutfitColourBtn" to="." method="_on_outfit_colour_btn_pressed"]
+[connection signal="pressed" from="AccentColourBtn" to="." method="_on_accent_colour_btn_pressed"]
+[connection signal="pressed" from="RandomizeBtn" to="." method="_on_randomize_btn_pressed"]

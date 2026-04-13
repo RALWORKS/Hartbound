@@ -1,7 +1,0 @@
-[gd_scene load_steps=3 format=3 uid="uid://mkspjynot2jb"]
-
-[ext_resource type="PackedScene" uid="uid://c2isr3bs1eyiq" path="res://scenes/demo/3/map_encounter.tscn" id="1_cm1n4"]
-[ext_resource type="PackedScene" uid="uid://bvub1hhya5f00" path="res://scenes/demo/0/elf-encounter.tscn" id="2_act3c"]
-
-[node name="ElfMapEncounter" instance=ExtResource("1_cm1n4")]
-destination_scene = ExtResource("2_act3c")

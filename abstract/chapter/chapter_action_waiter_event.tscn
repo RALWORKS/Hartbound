@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://3wjup2lrwngl"]
 
-[ext_resource type="PackedScene" uid="uid://b1skvjxeeblbv" path="res://chapter_event.tscn" id="1_srak3"]
-[ext_resource type="Script" path="res://chapter_action_waiter_event.gd" id="2_0jxdb"]
+[ext_resource type="PackedScene" uid="uid://b1skvjxeeblbv" path="res://abstract/chapter/chapter_event.tscn" id="1_srak3"]
+[ext_resource type="Script" path="res://abstract/chapter/chapter_action_waiter_event.gd" id="2_0jxdb"]
 
 [node name="ChapterActionWaiterEvent" instance=ExtResource("1_srak3")]
 script = ExtResource("2_0jxdb")

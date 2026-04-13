@@ -1,4 +1,4 @@
-extends "res://cutscene/CutsceneNode.gd"
+extends "res://abstract/cutscene/CutsceneNode.gd"
 
 # Called when the node enters the scene tree for the first time.
 func _on_start():

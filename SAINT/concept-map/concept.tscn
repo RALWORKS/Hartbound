@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://bt0e2jwvmgpgm"]
-
-[ext_resource type="Script" path="res://Concept.gd" id="1_agqln"]
-
-[node name="Concept" type="Node"]
-script = ExtResource("1_agqln")

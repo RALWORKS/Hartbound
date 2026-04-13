@@ -1,9 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://c3xcomixriukp"]
-
-[ext_resource type="PackedScene" uid="uid://cvbxj0w7b3650" path="res://reflections/resolutions/resolution.tscn" id="1_72dhl"]
-
-[node name="EarlyAtheist" instance=ExtResource("1_72dhl")]
-id = "early-atheist"
-title = "You don't believe in Moon Sect, but you respect them as you would any religion"
-description = "You don't believe in Moon Sect, and haven't for some time, but you respect them as you would any religion."
-reflection_id = "are-you-early-atheist"

@@ -1,8 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://cbeds48d0eqpg"]
-
-[ext_resource type="PackedScene" uid="uid://dkdf40bloaki5" path="res://reflections/resolution.tscn" id="1_mr7m6"]
-
-[node name="UseBothNames" instance=ExtResource("1_mr7m6")]
-id = "use-both-names"
-title = "Two Names"
-description = "You use your human name among humans, and your elven name among elves"

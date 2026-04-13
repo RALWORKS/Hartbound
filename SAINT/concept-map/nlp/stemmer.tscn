@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://buylpqabg5qv6"]
-
-[ext_resource type="Script" path="res://concept-map/nlp/Stemmer.gd" id="1_rxh08"]
-
-[node name="Stemmer" type="Node"]
-script = ExtResource("1_rxh08")

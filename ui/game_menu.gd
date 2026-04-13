@@ -2,7 +2,7 @@ extends Node2D
 
 var game = null
 
-var SmartLabel = preload("res://cutscene/smart_label.tscn")
+var SmartLabel = preload("res://abstract/cutscene/smart_label.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

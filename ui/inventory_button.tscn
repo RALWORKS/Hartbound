@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://c6hxqpyeeny0h"]
 
-[ext_resource type="Script" path="res://InventoryButton.gd" id="1_up6n7"]
+[ext_resource type="Script" path="res://ui/InventoryButton.gd" id="1_up6n7"]
 [ext_resource type="Texture2D" uid="uid://cfg0j674x06vh" path="res://assets/items/demo-1/pcb.png.png" id="2_ihoq5"]
 
 [node name="InventoryButton" type="Button"]

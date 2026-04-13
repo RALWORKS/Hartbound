@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://pbfy400dq6ud"]
 
 [ext_resource type="Texture2D" uid="uid://bor6vlo5dcylc" path="res://assets/demo-1/scenes/b.png" id="1_pvn0q"]
-[ext_resource type="Script" path="res://cutscene/dynamic_bg.gd" id="2_r62wg"]
+[ext_resource type="Script" path="res://abstract/cutscene/dynamic_bg.gd" id="2_r62wg"]
 
 [node name="DynamicBg" type="Sprite2D"]
 position = Vector2(826, 318)

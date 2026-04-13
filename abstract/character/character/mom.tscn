@@ -1,9 +1,0 @@
-[gd_scene load_steps=3 format=3 uid="uid://c73d3oyuv6sau"]
-
-[ext_resource type="Script" path="res://character/mom.gd" id="1_f5scf"]
-[ext_resource type="PackedScene" uid="uid://d1qnvmos08y8e" path="res://character/skin_and_hair_data.tscn" id="2_xtnx4"]
-
-[node name="Mom" type="Node2D"]
-script = ExtResource("1_f5scf")
-
-[node name="SkinAndHairData" parent="." instance=ExtResource("2_xtnx4")]

@@ -4,7 +4,7 @@ class_name StandardBg
 #@export var default_scale = Vector2(2, 2)
 #@export var default_position = Vector2(-300, -300)
 
-var daylight = preload("res://effects/daylight/daylight_filter_standard_size.tscn")
+var daylight = preload("res://abstract/lighting/daylight_filter_standard_size.tscn")
 
 @export var standard_bg_offset = Vector2(0, 0)
 @export var relative_scale = Vector2(1, 1)

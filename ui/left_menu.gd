@@ -9,7 +9,8 @@ func _ready():
 
 
 func hint_codex():
-	$ReflectionBtn.hint_codex()
+	#$ReflectionBtn.hint_codex()
+	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -25,7 +26,6 @@ func handle_show_hide():
 
 func hide_self():
 	#visible = false
-	$ReflectionBtn.stop_animations()
 	$CampBtn.stop_animations()
 	$AnimationPlayer.play("hide")
 

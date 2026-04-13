@@ -1,0 +1,11 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://cui5ito36p3hb"]
+
+[ext_resource type="Shader" path="res://abstract/lighting/daylight.gdshader" id="1_6r0rm"]
+
+[resource]
+resource_local_to_scene = true
+shader = ExtResource("1_6r0rm")
+shader_parameter/darken = 0.0
+shader_parameter/saturate = 1.0
+shader_parameter/contrast = 1.0
+shader_parameter/warmth = 0.5

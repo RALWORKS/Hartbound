@@ -5,22 +5,7 @@
 [ext_resource type="Script" path="res://ui/main_screen.gd" id="1_dtog3"]
 [ext_resource type="PackedScene" uid="uid://d3sg85ljfgv6k" path="res://effects/black_star_animation.tscn" id="2_ujwrl"]
 [ext_resource type="PackedScene" uid="uid://bhqmf4wcprk68" path="res://ui/context_bar.tscn" id="4_d5qrq"]
-[ext_resource type="Shader" path="res://effects/demon-vignette.gdshader" id="5_htkuq"]
-[ext_resource type="PackedScene" uid="uid://dq7w6ara6rj8f" path="res://left_menu.tscn" id="7_6q0gw"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_p13e7"]
-resource_local_to_scene = true
-shader = ExtResource("5_htkuq")
-shader_parameter/mul_r = 0.7
-shader_parameter/mul_g = 0.3
-shader_parameter/mul_b = 0.1
-shader_parameter/base_mod = 0.2
-shader_parameter/gradient_mod = 3.0
-shader_parameter/gradient_mul = 2.3
-shader_parameter/top_left = Vector2(0, 0)
-shader_parameter/size = Vector2(1800, 1080)
-shader_parameter/screen_size = Vector2(1920, 1080)
-
+[ext_resource type="PackedScene" uid="uid://dq7w6ara6rj8f" path="res://ui/left_menu.tscn" id="7_6q0gw"]
 [node name="MainScreen" type="SubViewportContainer"]
 offset_right = 1920.0
 offset_bottom = 1080.0
@@ -38,14 +23,6 @@ size = Vector2i(1720, 1080)
 render_target_update_mode = 4
 
 [node name="PostProcessing" type="CanvasLayer" parent="."]
-
-[node name="Filter" type="ColorRect" parent="PostProcessing"]
-visible = false
-material = SubResource("ShaderMaterial_p13e7")
-offset_left = 2.0
-offset_right = 1720.0
-offset_bottom = 1087.0
-mouse_filter = 2
 
 [node name="Emotes" type="CanvasLayer" parent="."]
 

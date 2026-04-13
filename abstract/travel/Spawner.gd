@@ -4,7 +4,7 @@ extends Node2D
 @export var position_from = "."
 @export var follower_offset = Vector2(-30, 0)
 
-var character = preload("res://character/character.tscn")
+var character = preload("res://abstract/character/character.tscn")
 var follower_instance = null
 var followers = []
 var spawn_on_ready = false

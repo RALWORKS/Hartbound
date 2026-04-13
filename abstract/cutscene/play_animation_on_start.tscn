@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://b031fpm2fu6f1"]
-
-[ext_resource type="Script" path="res://cutscene/play_animation_on_start.gd" id="1_tbp8y"]
-
-[node name="PlayAnimationOnStart" type="Node"]
-script = ExtResource("1_tbp8y")

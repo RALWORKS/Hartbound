@@ -1,8 +1,0 @@
-[gd_scene load_steps=3 format=3 uid="uid://u5j4cbancqt2"]
-
-[ext_resource type="PackedScene" uid="uid://b03wpar88cr5r" path="res://character/character.tscn" id="1_xvp50"]
-[ext_resource type="Script" path="res://CharacterMinusTaylorFollow.gd" id="2_gusrr"]
-
-[node name="CharacterMinusTaylorFollow" instance=ExtResource("1_xvp50")]
-script = ExtResource("2_gusrr")
-speed = 110

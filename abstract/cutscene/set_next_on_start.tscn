@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://ln052q6vf1yr"]
-
-[ext_resource type="Script" path="res://cutscene/set_next_on_start.gd" id="1_c5qps"]
-
-[node name="SetNextOnStart" type="Node"]
-script = ExtResource("1_c5qps")

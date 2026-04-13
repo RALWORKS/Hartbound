@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://bj2taf7x5jhxc"]
-
-[ext_resource type="Script" path="res://character/outfit_color_1.gd" id="1_bu2sy"]
-
-[node name="OutfitColor1" type="Node"]
-script = ExtResource("1_bu2sy")

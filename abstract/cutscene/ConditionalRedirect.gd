@@ -1,4 +1,4 @@
-extends "res://cutscene/CutsceneNode.gd"
+extends "res://abstract/cutscene/CutsceneNode.gd"
 
 @export var next_if_true: Node
 @export var next_if_false: Node

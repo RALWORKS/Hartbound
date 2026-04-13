@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://d1qnvmos08y8e"]
-
-[ext_resource type="Script" path="res://character/skin_and_hair_data.gd" id="1_xuftm"]
-
-[node name="SkinAndHairData" type="Node"]
-script = ExtResource("1_xuftm")
