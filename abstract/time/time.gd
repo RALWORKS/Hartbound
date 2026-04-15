@@ -43,7 +43,7 @@ func check_timers():
 	var remaining = []
 	for t in timers:
 		if t[0] <= m:
-			g.chapter.trigger(t[1])
+			glob.g.chapter.trigger(t[1])
 			continue
 		remaining.push_back(t)
 	set_state(["timers"], remaining)

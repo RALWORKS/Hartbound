@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dhxvlcw1c7xf"]
+
+[ext_resource type="Script" path="res://abstract/travel/Map.gd" id="1_cmwig"]
+
+[node name="Map" type="Node"]
+script = ExtResource("1_cmwig")

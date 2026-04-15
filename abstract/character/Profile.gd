@@ -25,6 +25,11 @@ func reload():
 func _process(_delta):
 	pass
 
+func gender_default(gender):
+	print("SET GENDER: ", gender)
+	$img/Character.init_default_texture(gender)
+	save_texture()
+
 func smile():
 	$img/Character.smile()
 
@@ -49,23 +54,17 @@ func refresh():
 	load_profile_textures()
 	
 func _set_texture_from_save():
-	var game = $"/root".get_node_or_null("Game")
-	if not game:
-		return
-	var loaded = game.get_state(["profile", "texture"])
+	var loaded = state.get_state(["profile", "texture"])
 	if loaded == null:
 		return
 	texture_settings = loaded.duplicate()
 	return texture_settings
 
 func save_texture():
-	var game = $"/root".get_node_or_null("Game")
-	if not game:
-		return
 	var CONTROLLED_CHAR_ELEMENTS = ["face", "eyes"]
 	for key in CONTROLLED_CHAR_ELEMENTS:
-		game.set_state(["character", "texture", key], $img/Character.texture_settings[key])
-	game.set_state(["profile", "texture"], texture_settings.duplicate())
+		state.set_state(["character", "texture", key], $img/Character.texture_settings[key])
+	state.set_state(["profile", "texture"], texture_settings.duplicate())
 
 
 var TEXTURES = {

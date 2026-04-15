@@ -24,7 +24,7 @@ func _process(_delta):
 
 
 func _on_pressed():
-	g.scout()
+	glob.g.scout()
 
 
 func _on_mouse_entered():

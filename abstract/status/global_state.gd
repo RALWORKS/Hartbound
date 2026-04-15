@@ -63,10 +63,10 @@ func get_state_default(ix):
 	})
 
 func save():
-	if STATE["savefile_name"] and g._null_or_empty(get_state(["savefile_path"])):
-		STATE["savefile_path"] = g._clean_name_to_path(STATE["savefile_name"]) + ".sav"
-	elif g._null_or_empty(get_state(["savefile_path"])):
-		STATE["savefile_path"] = g._rand_path() + ".sav"
+	if STATE["savefile_name"] and glob.null_or_empty(get_state(["savefile_path"])):
+		STATE["savefile_path"] = state.clean_name_to_path(STATE["savefile_name"]) + ".sav"
+	elif glob._null_or_empty(get_state(["savefile_path"])):
+		STATE["savefile_path"] = state.rand_path() + ".sav"
 
 	var file = FileAccess.open(
 		"user://save/" + STATE["savefile_path"],
@@ -129,9 +129,25 @@ func start(s):
 	return load_chapter()
 
 func load_chapter():
-	return g.CHAPTERS[STATE["chapter"]].instantiate()
+	return glob.g.CHAPTERS[STATE["chapter"]].instantiate()
 
 func start_from_chapter(start_at: String):
 	deep_init_state()
 	STATE["chapter"] = "create"
 	STATE["start_from"] = start_at
+
+
+func rand_path():
+	var rng = RandomNumberGenerator.new()
+	return str(rng.randi_range(1000, 9999))
+
+func clean_name_to_path(n: String):
+	var regex = RegEx.new()
+	regex.compile("[a-zA-Z]+")
+	var result = regex.search_all(n)
+	var strings = []
+	for r in result:
+		for s in r.strings:
+			strings.push_back(s)
+	var out = "-".join(strings)
+	return out + rand_path()

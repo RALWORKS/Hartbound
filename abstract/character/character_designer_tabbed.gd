@@ -103,9 +103,8 @@ func set_build(ix):
 	save()
 
 func direct_state_edit(path, value):
-	var game = $"/root/Game"
-	game.set_state(path, value)
-	print(path, value)
+	state.set_state(path, value)
+	print("CLICK EDIT STATUE", path, "   ",  value)
 	refresh()
 
 func make_swatch_array(target, options, state_path, width):
@@ -154,6 +153,9 @@ func set_outfit(ix):
 func set_outfit_pattern(ix):
 	$CharacterSpriteDisplay.set_outfit_pattern(ix)
 	save()
+	
+func genderize(gender):
+	$Profile.gender_default(gender)
 
 func randomize_features():
 	$Profile.shuffle_bg()

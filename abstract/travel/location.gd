@@ -1,5 +1,7 @@
 extends Node
 
+@onready var map: Node = $Map
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -9,6 +11,9 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
+
+func load_position(p):
+	map.load_position(p)
 
 func get_travel():
 	var data = state.get_state(["active_travel"])
@@ -99,10 +104,10 @@ func save_room(scene_path, entrance_name=null):
 	)
 
 func save_position():
-	if not g.player:
+	if not glob.g.player:
 		return
 	var data = state.get_state(["position"])
-	var p = g.player.get_p()
+	var p = glob.g.player.get_p()
 	data.x = p.x
 	data.y = p.y
 	state.set_state(["position"], data)

@@ -1,7 +1,7 @@
 [gd_scene load_steps=23 format=3 uid="uid://dyvwckjylk75k"]
 
 [ext_resource type="Texture2D" uid="uid://b4g8r57xw5wby" path="res://assets/icons/day-and-night.png" id="1_akykp"]
-[ext_resource type="PackedScene" uid="uid://ds2vyvbayn3aw" path="res://character/character_sprite_display.tscn" id="1_bl372"]
+[ext_resource type="PackedScene" uid="uid://ds2vyvbayn3aw" path="res://abstract/character/character_sprite_display.tscn" id="1_bl372"]
 [ext_resource type="Script" path="res://abstract/character/character_designer_tabbed.gd" id="1_nfpcx"]
 [ext_resource type="Texture2D" uid="uid://4adsssm6udnr" path="res://assets/icons/person.png" id="2_kpca7"]
 [ext_resource type="PackedScene" uid="uid://cemborgcdx75k" path="res://abstract/character/profile.tscn" id="2_lm1jj"]
@@ -71,10 +71,10 @@ corner_radius_bottom_left = 10
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0benv"]
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_v1iqd"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_gxghn"]
 viewport_path = NodePath("Window")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_t1cyy"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_co16s"]
 viewport_path = NodePath("img")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mtqk0"]
@@ -728,12 +728,12 @@ texture = ExtResource("2_nytq7")
 [node name="CharacterSpriteDisplay" parent="." instance=ExtResource("1_bl372")]
 position = Vector2(19, 436)
 scale = Vector2(2, 2)
-texture = SubResource("ViewportTexture_v1iqd")
+texture = SubResource("ViewportTexture_gxghn")
 
 [node name="Profile" parent="." instance=ExtResource("2_lm1jj")]
 position = Vector2(21, 21)
 scale = Vector2(0.993, 0.993)
-texture = SubResource("ViewportTexture_t1cyy")
+texture = SubResource("ViewportTexture_co16s")
 
 [node name="ScreenTitle" type="Label" parent="."]
 offset_left = 433.0

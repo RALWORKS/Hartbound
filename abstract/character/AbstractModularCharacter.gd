@@ -118,9 +118,11 @@ func init_default_texture(gender):
 	elif gender == "F":
 		texture_settings = DEFAULT_TEXTURES_F
 	texture_updated()
+	print(texture_settings)
 	return texture_settings
 
 func randomize_features():
+	load_texture()
 	texture_settings = {
 		"skin": randi() % TEXTURES["skin"].size(),
 		"skin-color": randi() % TEXTURES["skin-color"].size(),
@@ -597,9 +599,7 @@ func texture_updated():
 	_save_texture()
 
 func _set_texture_from_save():
-	if not game:
-		return
-	var loaded = game.get_state(["character", "texture"])
+	var loaded = state.get_state(["character", "texture"])
 	if loaded == null:
 		return
 	texture_settings = loaded.duplicate()
@@ -608,6 +608,7 @@ func _save_texture():
 	pass
 
 func load_texture():
+	print("LOAD TEXTURE: ", texture_settings)
 	_set_texture_from_save()
 	texture_updated()
 	return texture_settings

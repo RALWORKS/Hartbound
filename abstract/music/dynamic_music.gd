@@ -16,7 +16,7 @@ func _process(delta):
 	pass
 
 func _purge_old_music():
-	old_music = old_music.filter(g._not_null)
+	old_music = old_music.filter(glob.not_null)
 	for music in old_music:
 		if not music.playing and not music in music_stack:
 			music.call_deferred("free")

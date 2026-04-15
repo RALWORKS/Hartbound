@@ -57,13 +57,6 @@ func change_name_of(c_id, new_name):
 func remove_character(c):
 	var ix = characters_present.find(c.id)
 	characters_present.remove_at(ix)
-	
-
-func _not_null(item):
-	if item == null:
-		return false
-	return true
-
 
 func unstage_action_node(n):
 	if staged_action_node == n:
@@ -79,30 +72,30 @@ func set_player(some_player):
 
 func reload():
 	load_position()
-	$GlobalStatus.dying = false
+	status.dying = false
 	#respawn_player()
 
 func start_from_state(s):
 	var screen = MainScreen.instantiate()
 	screen.position = Vector2(0, 0)
 	$".".add_child(screen)
-	chapter = $GlobalState.start(s)
+	chapter = state.start(s)
 	chapter.name = "Chapter"
 	$".".add_child(chapter)
 	load_position()
 
 func load_travel():
-	var active_travel = $Location.get_travel()
+	var active_travel = loc.get_travel()
 	if not active_travel["is_active"]:
 		return false
 	chapter.load_travel_stretch(active_travel)
 	return true
 
 func get_state(p):
-	$GlobalState.get_state(p)
+	state.get_state(p)
 
 func set_state(p, v):
-	$GlobalState.set_state(p, v)
+	state.set_state(p, v)
 
 func load_position():
 	if load_travel():
@@ -110,7 +103,7 @@ func load_position():
 	var p = get_state(["position"])
 	p = p if p else {"scene_path": null}
 	if p != null and p["scene_path"] != null:
-		$Map.load_position(p)
+		loc.load_position(p)
 	elif "x" in p and "y" in p and player != null:
 		player.position.x = p.x
 		player.position.y = p.y
@@ -134,13 +127,13 @@ func main_menu():
 	if c != null:
 		c.queue_free()
 	
-	$GlobalState.reset_state()
+	state.reset_state()
 
 
 func to_chapter(_name):
 	set_state(["chapter"], _name)
 	set_state(["position", "entrance_name"], null)
-	var ch = $GlobalState.load_chapter()
+	var ch = state.load_chapter()
 	if $Chapter:
 		$Chapter.queue_free()
 	set_state(["micro_progress"], {})
@@ -149,37 +142,19 @@ func to_chapter(_name):
 	$".".add_child(ch)
 	chapter = ch
 
-func _rand_path():
-	var rng = RandomNumberGenerator.new()
-	return str(rng.randi_range(1000, 9999))
-
-func _clean_name_to_path(n: String):
-	var regex = RegEx.new()
-	regex.compile("[a-zA-Z]+")
-	var result = regex.search_all(n)
-	var strings = []
-	for r in result:
-		for s in r.strings:
-			strings.push_back(s)
-	var out = "-".join(strings)
-	return out + _rand_path()
-
-func _null_or_empty(s):
-	return s == null or s.is_empty()
-
 func save():
-	$GlobalState.save()
+	state.save()
 
 func start_new():
-	$GlobalState.deep_init_state()
-	start_from_state($GlobalState.STATE)
-	$ThemeFader.play("fadeout", -1, $DynamicMusic.music_crossfade_speed)
+	state.deep_init_state()
+	start_from_state(state.STATE)
+	$ThemeFader.play("fadeout", -1, music.music_crossfade_speed)
 
 
 func new_from_chapter(start_at: String):
-	$GlobalState.start_from_chapter(start_at)
-	start_from_state($GlobalState.STATE)
-	$ThemeFader.play("fadeout", -1, $DynamicMusic.music_crossfade_speed)
+	state.start_from_chapter(start_at)
+	start_from_state(state.STATE)
+	$ThemeFader.play("fadeout", -1, music.music_crossfade_speed)
 
 
 func get_start():
@@ -204,7 +179,7 @@ func _ready():
 	world = get_node_or_null("MainScreen/World")
 
 	if short_circuit_cutscene != null:
-		$Blackout.visible = true
+		#$Blackout.visible = true
 		start_new()
 		$Chapter.cutscene.page.leave()
 		#$Chapter.end_cutscene()
@@ -212,7 +187,7 @@ func _ready():
 
 
 func handle_input(delta):
-	if $GlobalStatus.handle_paused():
+	if status.handle_paused():
 		return
 	_handle_walk_input(delta)
 
@@ -233,7 +208,7 @@ func _handle_walk_input(delta):
 	if player == null:
 		return
 	
-	if $GlobalStatus.dying:
+	if status.dying:
 		player.velocity = Vector2(0, 0)
 		return
 
@@ -255,7 +230,7 @@ func _handle_walk_input(delta):
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	handle_input(delta)
-	$DynamicMusic.buffer()
+	music.buffer()
 
 func add_modal(some_modal):
 	if cur_modal == some_modal:

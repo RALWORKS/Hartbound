@@ -9,7 +9,7 @@
 [sub_resource type="ViewportTexture" id="ViewportTexture_sxuk0"]
 viewport_path = NodePath("Window")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_7insq"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_tijt3"]
 resource_local_to_scene = true
 shader = ExtResource("4_hsxlt")
 shader_parameter/darken = 0.0
@@ -84,7 +84,7 @@ is_demo_instance = true
 [node name="DaylightFilter" parent="Window" instance=ExtResource("3_82bmg")]
 time = 0.3
 manual_time = true
-daylight_shader = SubResource("ShaderMaterial_7insq")
+daylight_shader = SubResource("ShaderMaterial_tijt3")
 
 [node name="Filter" type="ColorRect" parent="Window/DaylightFilter"]
 visible = false

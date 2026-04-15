@@ -56,6 +56,7 @@ func set_eyes(ix):
 	char.set_eyes(ix)
 
 func set_face(ix):
+	print("SET FACE: ", ix)
 	char.set_face(ix)
 
 func set_hair_color(ix):
@@ -88,16 +89,13 @@ func start_rotation():
 
 func stop_rotation():
 	$Window/WrapAndScale/Character.stop_animations()
-	
+
 func save_texture():
-	var game = get_node_or_null("/root/Game")
-	if not game:
-		return
 	var next_t = {}
 	var t = $Window/WrapAndScale/Character.get_texture_settings()
 	for key in t:
 		if key in CONTROLLED_ELEMENTS:
-			game.set_state(["character", "texture", key], t[key])
+			state.set_state(["character", "texture", key], t[key])
 
 func refresh():
 	$Window/WrapAndScale/Character.load_texture()

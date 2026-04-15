@@ -48,14 +48,6 @@ func refresh_indicators():
 func _process(_delta):
 	pass
 
-func _on_skin_btn_pressed():
-	$Profile.next_eyes()
-	refresh_indicators()
-
-func _on_randomize_btn_pressed():
-	$Profile.randomize_features()
-	refresh_indicators()
-
 
 func _on_bg_btn_pressed():
 	$Profile.next_bg()

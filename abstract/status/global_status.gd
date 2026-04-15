@@ -24,15 +24,15 @@ func handle_paused():
 		pause()
 		return true
 
-	if g.chapter != null and g.chapter.cutscene != null:
+	if glob.g.chapter != null and glob.g.chapter.cutscene != null:
 		pause()
 		return true
 
-	if g.cur_modal != null:
+	if glob.g.cur_modal != null:
 		pause()
 		return true
 	
-	if g.player == null:
+	if glob.g.player == null:
 		return true
 
 	if paused:
@@ -53,15 +53,15 @@ func pause():
 	unpausing = false
 
 func injure():
-	g.set_state(["injured"], true)
+	state.set_state(["injured"], true)
 	injured = true
 	music.push_music($"../InjuryMusic")
 
 func die():
 	var cut = load("res://abstract/cutscene/you_died.tscn")
-	g.chapter.start_cutscene(cut)
+	glob.g.chapter.start_cutscene(cut)
 
 func heal():
-	g.set_state(["injured"], false)
+	glob.g.set_state(["injured"], false)
 	injured = false
 	music.pop_music($"../InjuryMusic")
