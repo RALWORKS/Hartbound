@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://byrlpmbpj6yr5"]
 
-[ext_resource type="PackedScene" uid="uid://dwet7i6bmp0m6" path="res://travel/spawner.tscn" id="2_b4mwe"]
+[ext_resource type="PackedScene" uid="uid://dwet7i6bmp0m6" path="res://abstract/travel/spawner.tscn" id="2_b4mwe"]
 [ext_resource type="Texture2D" uid="uid://dwyqvct36hhs7" path="res://assets/default-scene.png" id="2_o4l51"]
 [ext_resource type="PackedScene" uid="uid://dec3rewb3xb1u" path="res://abstract/lighting/daylight_filter.tscn" id="3_5fm1i"]
 [ext_resource type="Shader" path="res://abstract/lighting/daylight.gdshader" id="4_tv03u"]
@@ -21,8 +21,6 @@ script/source = "extends Node2D
 
 var _daylight_on = true
 
-var LeylineScreen = preload(\"res://effects/leyline_screen.tscn\")
-
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -35,35 +33,7 @@ func _ready():
 		return
 	
 	add_chapter_contents()
-	$\"/root/Game/MainScreen\".clear_postprocessing()
-	
-	if use_violet_leyline:
-		violet_leyline()
-	elif use_black_leyline:
-		black_leyline()
-	elif vein_node != null:
-		leyline()
-
-func leyline():
-	var ley = LeylineScreen.instantiate()
-	ley.set_vein_node(vein_node)
-	add_child(ley)
-	move_child(ley, $YSort.get_index())
-	ley.run(self)
-
-func black_leyline():
-	var ley = LeylineScreen.instantiate()
-	ley.set_vein_node(vein_node)
-	add_child(ley)
-	move_child(ley, $YSort.get_index())
-	ley.run_black(self)
-
-func violet_leyline():
-	var ley = LeylineScreen.instantiate()
-	ley.set_vein_node(vein_node)
-	add_child(ley)
-	move_child(ley, $YSort.get_index())
-	ley.run_violet(self)
+	glob.g.get_world().clear_postprocessing()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
@@ -91,9 +61,6 @@ func add_chapter_contents():
 		contents_node.visible = false
 		for child in contents_node.get_children():
 			var item = _duplicate(child)
-#			item.set_owner($YSort)
-			#item.visible = true
-#			item.get_parent().remove_child(item)
 			$YSort.add_child(item)
 			child.process_mode = Node.PROCESS_MODE_DISABLED
 			item.process_mode = Node.PROCESS_MODE_INHERIT
@@ -122,12 +89,12 @@ func daylight_off():
 	$Filters/MainDaylightFilter.visible = false
 
 func daylight_off_not_injury():
-	if not $\"/root/Game\".injured:
+	if not status.injured:
 		daylight_off()
 	
 "
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_8pl3g"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_87ljk"]
 resource_local_to_scene = true
 shader = ExtResource("4_tv03u")
 shader_parameter/darken = 0.0
@@ -156,7 +123,7 @@ position = Vector2(560, 365)
 [node name="Filters" type="CanvasLayer" parent="."]
 
 [node name="MainDaylightFilter" parent="Filters" node_paths=PackedStringArray("scene") instance=ExtResource("3_5fm1i")]
-daylight_shader = SubResource("ShaderMaterial_8pl3g")
+daylight_shader = SubResource("ShaderMaterial_87ljk")
 scene = NodePath("../..")
 
 [node name="Filter" type="ColorRect" parent="Filters/MainDaylightFilter"]

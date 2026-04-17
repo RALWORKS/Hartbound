@@ -2,7 +2,7 @@ extends Line2D
 
 class_name TruePath
 
-var Star = preload("res://star_ritual/star.tscn")
+var Star = preload("res://abstract/star_ritual/star.tscn")
 
 var sequence: Array[Star] = []
 
@@ -77,7 +77,7 @@ func fit_to_square(s: int):
 
 	var offset = top_right()
 	
-	var cls = load("res://star_ritual/true_path.tscn")
+	var cls = load("res://abstract/star_ritual/true_path.tscn")
 	
 	var ret = cls.instantiate()
 	for p in points:

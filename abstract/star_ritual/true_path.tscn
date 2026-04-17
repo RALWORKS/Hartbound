@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://brkycd0ijgeml"]
 
-[ext_resource type="Script" path="res://star_ritual/true_path.gd" id="1_0r71a"]
+[ext_resource type="Script" path="res://abstract/star_ritual/true_path.gd" id="1_0r71a"]
 
 [node name="TruePath" type="Line2D"]
 script = ExtResource("1_0r71a")

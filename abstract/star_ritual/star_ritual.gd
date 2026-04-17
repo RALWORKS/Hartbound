@@ -18,7 +18,7 @@ var tracer_line: Line2D = Line2D.new()
 var sigil: TruePath
 var sigil_place: SigilPlace
 
-var HUD = preload("res://star_ritual/hud.tscn")
+var HUD = preload("res://abstract/star_ritual/hud.tscn")
 
 var seconds_allowed: float = 20.0
 var seconds_elapsed: float = 0.0

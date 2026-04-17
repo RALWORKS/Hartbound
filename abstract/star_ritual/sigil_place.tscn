@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://b5c34wc47mrv"]
 
-[ext_resource type="Script" path="res://star_ritual/sigil_place.gd" id="1_7rvfd"]
+[ext_resource type="Script" path="res://abstract/star_ritual/sigil_place.gd" id="1_7rvfd"]
 [ext_resource type="Texture2D" uid="uid://dq2slww0p30ha" path="res://assets/white-blur-circle.png" id="2_2jie6"]
 
 [sub_resource type="Animation" id="Animation_oddtm"]

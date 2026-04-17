@@ -175,6 +175,9 @@ func _get_world():
 		world = $"MainScreen/World"
 	return world
 
+func get_world():
+	return _get_world()
+
 func _ready():
 	world = get_node_or_null("MainScreen/World")
 

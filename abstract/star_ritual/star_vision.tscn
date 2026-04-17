@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://d01tph3lxpu0b"]
 
-[ext_resource type="Script" path="res://star_ritual/star_vision.gd" id="1_67dkm"]
+[ext_resource type="Script" path="res://abstract/star_ritual/star_vision.gd" id="1_67dkm"]
 [ext_resource type="PackedScene" uid="uid://d3sg85ljfgv6k" path="res://effects/black_star_animation.tscn" id="1_kmln0"]
 
 [sub_resource type="Animation" id="Animation_l0vdr"]

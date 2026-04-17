@@ -6,37 +6,21 @@ class_name Chapter
 @export var starting_music: AudioStreamPlayer
 @export var script_holder: Node
 
-@export var biomes: Array[Resource]
-@export var encounters: Array[Resource]
-
-@export var map: Resource
-
 var pending_event = null
 
-var active_map = null
-var active_travel_stretch = null
-
 var events_done = []
-var map_events_done = []
-var dreams_done = [] 
 
 var EVENTS_TO_LOAD = [
 	["events_done", ["micro_progress", "events"]],
-	["map_events_done", ["micro_progress", "map_events"]],
-	["dreams_done", ["micro_progress", "dreams"]],
 ]
 
 var scene0 = null
-
-var cur_game: Array[Node]
 
 var cutscene
 
 var cached_scene_path
 var cached_bg_scale
 var cached_bg_position
-
-var game = null
 
 
 func trigger(trigger_name, e=null):
@@ -56,33 +40,14 @@ func get_next_event():
 	return $Events.get_children()[events_done[-1] + 1]
 
 
-func get_next_map_event():
-	for c in $MapEvents.get_children():
-		if not c.played:
-			return c
-	return null
-
-func get_next_dream():
-	for c in $Dreams.get_children():
-		if not c.played:
-			return c
-	return null
-
-
 func rerun_all_events():
 	if events_done.size() == 0:
-		game.save_room(scene0.scene_file_path)
-		game.save_position()
+		glob.g.save_room(scene0.scene_file_path)
+		glob.g.save_position()
 		call_deferred("next")
 
 	for ix in events_done:
 		var event = $Events.get_children()[ix]
-		event.rerun()
-	for ix in map_events_done:
-		var event = $MapEvents.get_children()[ix]
-		event.rerun()
-	for ix in dreams_done:
-		var event = $Dreams.get_children()[ix]
 		event.rerun()
 
 func next(to_event_name=null):
@@ -101,10 +66,10 @@ func reload_events_done():
 	var key = null
 	for row in EVENTS_TO_LOAD:
 		key = row[1]
-		self[row[0]] = game.get_state(key)
-		print(row[0], key, game.get_state(key))
+		self[row[0]] = glob.g.get_state(key)
+		print(row[0], key, glob.g.get_state(key))
 		if no_events(self[row[0]]):
-			game.set_state(key, [])
+			glob.g.set_state(key, [])
 			self[row[0]] = []
 
 func no_events(data):
@@ -113,24 +78,21 @@ func no_events(data):
 
 func _default_init():
 	scene0 = starting_scene.instantiate()
-	game.show_clock = true
-	#scene0.spawn_at = "n"
-	#$"../MainScreen/World".add_child(scene0)
-	if game.get_travel()["is_active"]:
+	glob.g.show_clock = true
+	if glob.g.get_travel()["is_active"]:
 		reload_events_done()
 		return
-	$"../Map".start(scene0, self)
+	loc.map.start(scene0, self)
 	reload_events_done()
 	scene0.spawn($"..")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	game = $".".get_tree().get_root().get_node("Game")
 	if script_holder != null and script_holder.has_method("pre_init"):
 		script_holder.pre_init()
 	_default_init()
 	if starting_music != null:
-		game.play_music(starting_music)
+		glob.g.play_music(starting_music)
 	rerun_all_events()
 
 func _process(_delta):
@@ -147,29 +109,26 @@ func start_cutscene(
 		cutscene.next_cutscene = cutscene_res
 		return
 	cutscene = cutscene_res.instantiate()
-	cutscene.characters_present = game.characters_present.duplicate()
+	cutscene.characters_present = glob.g.characters_present.duplicate()
 	
-	var world = $"../MainScreen/World".get_children()
+	var world = glob.g.get_world().get_children()
 	var bg
 	
-	game.save_position()
+	glob.g.save_position()
 	
 	if world.size() > 0:
-		var scene: Node2D = $"../MainScreen/World".get_children()[0]
+		var scene: Node2D = glob.g.get_world().get_children()[0]
 		if "dialogue_bg_scale" in scene:
 			bg = scene.scene_file_path
-			cached_scene_path = bg#.texture
+			cached_scene_path = bg
 			cached_bg_scale = scene.dialogue_bg_scale
 			cached_bg_position = scene.dialogue_bg_position
-		#cur_game = world
 
 		for child in world:
-			#$"../MainScreen/World".call_deferred("remove_child", child)
 			child.queue_free()
 	
-	$"../MainScreen/World".call_deferred("add_child", cutscene)
+	glob.get_world().call_deferred("add_child", cutscene)
 	cutscene.npc = npc
-	# cutscene.scene_bg = bg
 	cutscene.input_data = input_data
 	if cutscene_sequence.size() > 0:
 		cutscene.next_cutscene = cutscene_sequence.pop_front()
@@ -196,24 +155,15 @@ func end_cutscene(free=false):
 	for n in cutscene.free_us_first:
 		#n.get_parent().remove_child(n)
 		n.pre_free()
-		#n.free()
-		#holdouts.push_back(n)
-		
-	print("ROUNDUP SCHEME DONE -- actually")
 
 	cutscene.queue_free()
 	
 	cutscene = null
-	#await get_tree().create_timer(0.1).timeout
-	print("ALL FREE")
-#	#game.free_world()
-	game.chapter = self
+	glob.g.chapter = self
 	if next_chapter != "":
-		$"/root/Game".to_chapter(next_chapter)
+		glob.g.to_chapter(next_chapter)
 		return
 	if next_cutscene != null:
-		#await get_tree().create_timer(0.1).timeout
-		print("start next", next_cutscene)
 		start_cutscene(next_cutscene, npc, null, sequence)
 		return
 	
@@ -222,72 +172,30 @@ func end_cutscene(free=false):
 		handle_pending_event()
 		if c != null:
 			return
-	print("RELOAD!")
-	game.show_clock = true
+	glob.g.show_clock = true
 
 	reload_world()
 
 	#await get_tree().create_timer(0.1).timeout
 	if is_move:
-		$"/root/Game".move()
+		glob.g.move()
 
 	if teleport_to != null:
 		teleport(teleport_to)
 	if notification:
-		game.notify(notification)
+		glob.g.notify(notification)
 
 func teleport(teleport_to):
-	$"/root/Game/Map".move_to(teleport_to)
-	teleport_to.spawn(game)
-	$"/root/Game".save_room(teleport_to.scene_file_path, null)
+	loc.map.move_to(teleport_to)
+	teleport_to.spawn(glob.g)
+	glob.g.save_room(teleport_to.scene_file_path, null)
 
 func handle_pending_event():
 	if pending_event != null:
 		pending_event.play()
-	# pending_event = null
-	# handle in Event class
-		
 
 func update_cutscene_page(p):
 	cutscene.update_page(p)
-	
-func to_map():
-	_to_map()
-	active_map.start_drawing_mode()
-
-func to_summary_map():
-	_to_map()
-	active_map.start_summary_mode()
-
-func _to_map():
-	if not map or active_map:
-		return
-	
-	active_map = map.instantiate()
-	active_map.chapter = self
-	
-	var world = $"../MainScreen/World".get_children()
-	#var bg
-	
-	for child in world:
-		child.queue_free()
-	
-	$"../MainScreen/World".call_deferred("add_child", active_map)
-	active_map.load_position($"/root/Game")
-
-func _to_travel_stretch(biome, travel_time_in_atoms, encounter=null):
-	active_travel_stretch = biome.travel_stretch.instantiate()
-	active_travel_stretch.chapter = self
-	
-	var world = $"../MainScreen/World".get_children()
-
-	for child in world:
-		child.queue_free()
-
-	game.show_clock = false
-	$"../MainScreen/World".call_deferred("add_child", active_travel_stretch)
-	active_travel_stretch.start(game, travel_time_in_atoms, biome, encounter)
-
 	
 func get_resource_by_index(bank, ix):
 	if ix == null:
@@ -297,28 +205,7 @@ func get_resource_by_index(bank, ix):
 	return null
 
 
-func to_travel_stretch(biome: Node2D, travel_time_in_atoms, encounter:Node2D=null):
-	_to_travel_stretch(biome, travel_time_in_atoms, encounter)
-	var encounter_ix = null
-	if encounter != null:
-		encounter_ix = get_resource_index(encounters, encounter.scene_file_path)
-	game.start_travel(
-		get_resource_index(biomes, biome.scene_file_path),
-		encounter_ix,
-		travel_time_in_atoms,
-	)
 
-func load_travel_stretch(data):
-	var biome_res: Resource = get_resource_by_index(biomes, data["biome_ix"])
-	if biome_res == null:
-		return
-	var biome = biome_res.instantiate()
-	var encounter_res = get_resource_by_index(encounters, data["encounter_ix"])
-	var encounter = null
-	if encounter_res != null:
-		encounter = encounter_res.instantiate()
-	
-	_to_travel_stretch(biome, data["time_delta"], encounter)
 
 func get_resource_index(bank, path):
 	var i = 0
@@ -329,58 +216,6 @@ func get_resource_index(bank, path):
 		i = i + 1
 	return null
 
-func close_travel_stretch():
-	var camp = active_travel_stretch.get_camp(game)
-	active_travel_stretch.call_deferred("free")
-	await get_tree().create_timer(0.05).timeout
-	game.show_clock = true
-	#reload_world()
-	game.end_travel()
-	teleport(camp)
-
-func _clean_up_map():
-	active_map.call_deferred("free")
-	await get_tree().create_timer(0.05).timeout
-	#$"/root/Game".move()
-	active_map = null
-	game.show_clock = true
-
-func close_map(biome):
-	var time_expended = active_map.get_moves_used()
-	_clean_up_map()
-	
-	if not biome:
-		game.load_position()
-		return
-	
-	if biome.trigger_name:
-		return trigger(biome.trigger_name)
-	
-	var event = get_next_map_event()
-	
-	if event == null:
-		to_travel_stretch(biome, time_expended)
-		return
-	
-	event.cutscene_input_data = biome
-	event.play()
-
-func close_summsary_map():
-	_clean_up_map()
-	reload_world()
-
-func close_map_to_encounter(encounter, biome):
-	var time_expended = active_map.get_time_expended()
-	_clean_up_map()
-	
-	var event = get_next_map_event()
-	
-	if event == null:
-		to_travel_stretch(biome, time_expended, encounter)
-		return
-	
-	event.cutscene_input_data = encounter
-	event.play()
 
 func get_character_dialogue(id):
 	var data = null
@@ -394,13 +229,7 @@ func get_character_dialogue(id):
 
 
 func reload_world(free=false):
-	game.reload()
-	#for child in cur_game:
-	#	if is_instance_valid(child):
-	#		if free:
-	#			child.free()
-	#		else:
-	#			$"../MainScreen/World".add_child(child)
+	glob.g.reload()
 
 
 func get_dialogue_by_id(id):
