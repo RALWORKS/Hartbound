@@ -25,15 +25,12 @@ var seconds_elapsed: float = 0.0
 
 var active: bool = false
 
-var game: Game
-
 var hud
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	visible = false
-	game = $"/root/Game"
 	if set_won_if_needed():
 		return
 	visible = true
@@ -48,7 +45,7 @@ func _ready():
 	sigil_place.set_sigil(sigil)
 
 func set_won_if_needed():
-	var won = game.check_star_ritual(self.id)
+	var won = glob.g.check_star_ritual(self.id)
 	if won:
 		queue_free()
 		return true
@@ -70,12 +67,12 @@ func setup_collision():
 	$Area.connect("body_exited", on_body_exited)
 
 func on_body_entered(body):
-	if body != game.player:
+	if body != glob.g.player:
 		return
 	start()
 
 func on_body_exited(body):
-	if body != game.player:
+	if body != glob.g.player:
 		return
 	stop()
 
@@ -123,7 +120,7 @@ func trace():
 	tracer_line.add_point(get_player_position())
 
 func on_star_cross(star, body):
-	if body != game.player:
+	if body != glob.g.player:
 		return
 	if sequence.size() and star == sequence[-1]:
 		return
@@ -132,7 +129,7 @@ func on_star_cross(star, body):
 	check_win()
 
 func get_player_position():
-	var p = game.player.position
+	var p = glob.g.player.position
 	return p - position
 
 func make_veil():
@@ -163,7 +160,7 @@ func start():
 	seconds_elapsed = 0.0
 	active = true
 	veil.visible = true
-	game.player.z_index = 200
+	glob.g.player.z_index = 200
 	z_index = 150
 	call_higher("daylight_off_not_injury")
 	hud = HUD.instantiate()
@@ -182,18 +179,18 @@ func check_win():
 		win()
 
 func win():
-	game.win_star_ritual(self.id)
+	glob.g.win_star_ritual(self.id)
 	stop()
 	queue_free()
 
 func die():
 	stop()
-	if game.injured:
-		game.die()
+	if glob.g.injured:
+		glob.g.die()
 	else:
-		game.injure()
-		game.notify(injury_notification)
-		game.respawn_player()
+		glob.g.injure()
+		glob.g.notify(injury_notification)
+		glob.g.respawn_player()
 
 func stop():
 	status.ritual = false
@@ -201,7 +198,7 @@ func stop():
 	veil.visible = false
 	reset()
 	active = false
-	game.player.z_index = 0
+	glob.g.player.z_index = 0
 	z_index = 0
 	call_higher("daylight_default")
 	if hud != null:
