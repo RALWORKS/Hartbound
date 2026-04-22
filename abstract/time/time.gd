@@ -51,7 +51,7 @@ func check_timers():
 func move():
 	var m = _init_moves_if_needed()
 	set_state(["moves"], m + 1)
-	status.check_timers()
+	check_timers()
 	advance_time()
 
 func get_moves():

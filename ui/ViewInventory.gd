@@ -5,14 +5,6 @@ extends Node
 @export var width = 500
 @export var spacing = 130
 
-var game = null
-
-
-func _get_game():
-	if game == null:
-		game = $"/root/Game"
-	return game
-
 var InventoryButton = preload("res://ui/inventory_button.tscn")
 
 # Called when the node enters the scene tree for the first time.
@@ -20,17 +12,15 @@ func _ready():
 	refresh_inventory()
 
 
-func refresh_inventory():
-	var g = _get_game()
-	
+func refresh_inventory():	
 	for child in $"../Body/Data".get_children():
 		child.queue_free()
 	
 	var x = left
 	var y = top
-	g.init_inventory_if_needed()
+	inv.init_inventory_if_needed()
 	
-	var data = g.get_state(["inventory"])
+	var data = state.get_state(["inventory"])
 	
 	if data.size() == 0:
 		$"../Body/EmptyIndicator".visible = true

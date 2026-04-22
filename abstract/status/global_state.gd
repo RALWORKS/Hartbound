@@ -65,7 +65,7 @@ func get_state_default(ix):
 func save():
 	if STATE["savefile_name"] and glob.null_or_empty(get_state(["savefile_path"])):
 		STATE["savefile_path"] = state.clean_name_to_path(STATE["savefile_name"]) + ".sav"
-	elif glob._null_or_empty(get_state(["savefile_path"])):
+	elif glob.null_or_empty(get_state(["savefile_path"])):
 		STATE["savefile_path"] = state.rand_path() + ".sav"
 
 	var file = FileAccess.open(
@@ -129,7 +129,7 @@ func start(s):
 	return load_chapter()
 
 func load_chapter():
-	return glob.g.CHAPTERS[STATE["chapter"]].instantiate()
+	return glob.g.CHAPTERS.get(STATE["chapter"]).instantiate()
 
 func start_from_chapter(start_at: String):
 	deep_init_state()

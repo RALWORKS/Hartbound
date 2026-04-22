@@ -26,7 +26,7 @@ func enable():
 
 func _process(_delta):
 	var ch = _get_game().get_node_or_null("Chapter")
-	if ch and ch.cutscene == null and ch.active_map == null:
+	if ch and ch.cutscene == null:
 		if disabled:
 			enable()
 		return

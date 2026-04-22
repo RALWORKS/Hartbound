@@ -35,11 +35,11 @@ func show_self():
 
 func modulate_clock_visibility():
 	if $ColorRect/ClockSlot.visible:
-		if $"/root/Game".cur_modal != null:
+		if glob.g.cur_modal != null:
 			$ColorRect/ClockSlot.visible = false
 			return
 		if status.ritual:
 			$ColorRect/ClockSlot.visible = false
 	else:
-		if $"/root/Game".cur_modal == null and not $"/root/Game".ritual:
+		if glob.g.cur_modal == null and not status.ritual:
 			$ColorRect/ClockSlot.visible = true

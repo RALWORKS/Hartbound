@@ -33,7 +33,6 @@ func _ready():
 		return
 	
 	add_chapter_contents()
-	glob.g.get_world().clear_postprocessing()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
@@ -94,7 +93,7 @@ func daylight_off_not_injury():
 	
 "
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_87ljk"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vt73r"]
 resource_local_to_scene = true
 shader = ExtResource("4_tv03u")
 shader_parameter/darken = 0.0
@@ -123,7 +122,7 @@ position = Vector2(560, 365)
 [node name="Filters" type="CanvasLayer" parent="."]
 
 [node name="MainDaylightFilter" parent="Filters" node_paths=PackedStringArray("scene") instance=ExtResource("3_5fm1i")]
-daylight_shader = SubResource("ShaderMaterial_87ljk")
+daylight_shader = SubResource("ShaderMaterial_vt73r")
 scene = NodePath("../..")
 
 [node name="Filter" type="ColorRect" parent="Filters/MainDaylightFilter"]

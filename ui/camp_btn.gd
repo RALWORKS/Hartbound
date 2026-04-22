@@ -25,9 +25,9 @@ func disable():
 
 func stop_animations():
 	$AnimationPlayer.play("RESET")
-	$CampMarker/Player.play("RESET")
+	#$CampMarker/Player.play("RESET")
 	$AnimationPlayer.stop()
-	$CampMarker/Player.stop()
+	#$CampMarker/Player.stop()
 
 func enable():
 	$".".self_modulate = "#222222ff"
@@ -47,7 +47,6 @@ func refresh_disabled():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-	var g = _get_game()
 	disabled = not status.can_camp
 	refresh_disabled()
 
@@ -56,8 +55,7 @@ func _on_pressed():
 	if disabled:
 		return
 	_on_mouse_exited()
-	var g = _get_game()
-	g.bedtime()
+	glob.g.bedtime()
 
 
 func _on_mouse_entered():

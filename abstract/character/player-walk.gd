@@ -25,7 +25,7 @@ signal fell
 var spawner = null
 
 var current_static_animation = null
-var party = []
+var cur_party = []
 var omit_party_members = []
 var id = "player"
 
@@ -47,7 +47,6 @@ var last_facing = null
 var turning = false
 var cur_collision = null
 var osc_origin = Time.get_ticks_msec()
-var game = null
 var world = null
 var unreachable = false
 
@@ -67,12 +66,12 @@ func char_texture_options():
 
 func respawn():
 	get_parent().remove_child(self)
-	spawner.spawn(game, position.x, position.y)
+	spawner.spawn(glob.g, position.x, position.y)
 	var party_map = {}
-	for p in party:
+	for p in cur_party:
 		party_map[p.id] = p.position
 		p.free()
-	for p in game.player.party:
+	for p in glob.g.player.party:
 		if  p.id not in party_map:
 			continue
 		p.position = party_map[p.id]
@@ -259,10 +258,7 @@ func body_delta():
 	return get_body().get_physics_process_delta_time()
 
 func _ready():
-	game = $"/root".get_node_or_null("Game")
-	if not game:
-		return
-	world = game.get_node_or_null("MainScreen/World")
+	world = glob.g.get_world()
 	TEXTURES = $char.TEXTURES
 #	texture_settings = $char.texture_settings
 	navigation_agent.path_desired_distance = 4.0
@@ -328,11 +324,11 @@ func _mouse_in_range():
 	return true
 
 func _target_in_range():
-	if not game.staged_action_node:
+	if not glob.g.staged_action_node:
 		return false
-	if game.staged_action_node.cur_cursor == null:
+	if glob.g.staged_action_node.cur_cursor == null:
 		return false
-	return game.staged_action_node.in_range
+	return glob.g.staged_action_node.in_range
 
 func set_destination(d):
 	if d == null:
@@ -508,7 +504,7 @@ func _refresh_destination_marker():
 		return
 	destination_marker.move_marker(navigation_agent.target_position)
 	destination_marker.show_marker()
-	if game.staged_action_node == null:
+	if glob.g.staged_action_node == null:
 		destination_marker.marker_walk_mode()
 	else:
 		destination_marker.marker_x_mode()
@@ -556,29 +552,29 @@ func go_direction(delta, input_direction):
 	
 
 func _clear_staged_action_node():
-	game.unstage_action_node(game.staged_action_node)
+	glob.g.unstage_action_node(glob.g.staged_action_node)
 
 func interact_hit(body):
-	if not game:
+	if not glob.g:
 		return
-	if body == game.staged_action_node:
+	if body == glob.g.staged_action_node:
 		set_destination(null)
 	
 	if body.has_method("interact_range_entered"):
-		if body == game.staged_action_node:
+		if body == glob.g.staged_action_node:
 			unreachable = false
 			set_destination(null)
 			stop_walking()
 		body.interact_range_entered()
 
 func interact_exited(body):
-	if not game:
+	if not glob.g:
 		return
 	if body.has_method("interact_range_exited"):
 		body.interact_range_exited()
 	
 	
-	if body == game.staged_action_node:
+	if body == glob.g.staged_action_node:
 		_clear_staged_action_node()
 
 func _on_interact_box_body_entered(body):
@@ -619,7 +615,7 @@ func _on_tree_entered():
 	paused = false
 
 func get_followers(g):
-	var data = g.get_followers_from_state()
+	var data = party.get_followers()
 	print(data)
 	var followers = []
 	for f in data:

@@ -156,7 +156,7 @@ func make_veil():
 	
 
 func start():
-	game.ritual = true
+	status.ritual = true
 	sigil_place.show_sigil()
 	if not veil.get_parent():
 		get_parent().add_child(veil)
@@ -196,7 +196,7 @@ func die():
 		game.respawn_player()
 
 func stop():
-	game.ritual = false
+	status.ritual = false
 	sigil_place.clear()
 	veil.visible = false
 	reset()

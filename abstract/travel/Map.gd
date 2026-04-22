@@ -29,14 +29,12 @@ func set_contents_node(dest: Node):
 	
 
 func _move_to(dest: Node, as_move: bool = true):
-	glob.g.get_node("MainScreen").clear_postprocessing()
-	
 	glob.g.staged_action_node = null
 	var old = current
 	current = dest
 	dest.position = Vector2(0, 0)
 	set_contents_node(dest)
-	$"../MainScreen/World".call_deferred("add_child", dest)
+	glob.g.get_world().call_deferred("add_child", dest)
 	if not old:
 		return
 	assert(old != glob.g)
@@ -64,7 +62,7 @@ func traverse(dest, entrance, save=true, as_move=true, x=null, y=null):
 	var next_entrance: Node2D = dest.get_node("YSort").get_node(entrance)
 	next_entrance.spawn(glob.g, x, y)
 	
-	glob.g.set_context(ctx.ContextType.EXPLORE)
+	glob.g.set_context(ctx.EXPLORE)
 	
 	if save:
 		glob.g.save_room(dest.scene_file_path, entrance)

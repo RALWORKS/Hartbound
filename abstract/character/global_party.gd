@@ -1,5 +1,7 @@
 extends Node
 
+signal check_party
+
 var party = []
 
 

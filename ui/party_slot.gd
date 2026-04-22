@@ -10,7 +10,7 @@ func _game():
 	if game:
 		return game
 	game = $"/root/Game"
-	game.connect("check_party", refresh_party)
+	party.connect("check_party", refresh_party)
 	return game
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

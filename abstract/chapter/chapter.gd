@@ -42,8 +42,8 @@ func get_next_event():
 
 func rerun_all_events():
 	if events_done.size() == 0:
-		glob.g.save_room(scene0.scene_file_path)
-		glob.g.save_position()
+		loc.save_room(scene0.scene_file_path)
+		loc.save_position()
 		call_deferred("next")
 
 	for ix in events_done:
@@ -79,9 +79,6 @@ func no_events(data):
 func _default_init():
 	scene0 = starting_scene.instantiate()
 	glob.g.show_clock = true
-	if glob.g.get_travel()["is_active"]:
-		reload_events_done()
-		return
 	loc.map.start(scene0, self)
 	reload_events_done()
 	scene0.spawn($"..")
@@ -114,7 +111,7 @@ func start_cutscene(
 	var world = glob.g.get_world().get_children()
 	var bg
 	
-	glob.g.save_position()
+	loc.save_position()
 	
 	if world.size() > 0:
 		var scene: Node2D = glob.g.get_world().get_children()[0]
@@ -127,7 +124,7 @@ func start_cutscene(
 		for child in world:
 			child.queue_free()
 	
-	glob.get_world().call_deferred("add_child", cutscene)
+	glob.g.get_world().call_deferred("add_child", cutscene)
 	cutscene.npc = npc
 	cutscene.input_data = input_data
 	if cutscene_sequence.size() > 0:
@@ -178,7 +175,7 @@ func end_cutscene(free=false):
 
 	#await get_tree().create_timer(0.1).timeout
 	if is_move:
-		glob.g.move()
+		t.move()
 
 	if teleport_to != null:
 		teleport(teleport_to)

@@ -36,7 +36,7 @@ func _play(save=true):
 		return
 	played = true
 	if save and not abort_save:
-		g.set_state_push_to_key(progress_state_path, get_index())
+		state.set_state_push_to_key(progress_state_path, get_index())
 
 
 func _mutate():
@@ -63,10 +63,10 @@ func _teleport():
 	var g = _get_game()
 	if to_scene != null:
 		var scene0 = to_scene.instantiate()
-		g.get_node("Map").move_to(scene0, false)
+		loc.map.move_to(scene0, false)
 		scene0.spawn(g)
-		g.save_room(scene0.scene_file_path)
-		g.save_position()
+		loc.save_room(scene0.scene_file_path)
+		loc.save_position()
 	
 
 func rerun():

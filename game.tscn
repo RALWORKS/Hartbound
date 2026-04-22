@@ -1,6 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://cvo7vcb5suvjv"]
+[gd_scene load_steps=11 format=3 uid="uid://cvo7vcb5suvjv"]
 
 [ext_resource type="Script" path="res://game.gd" id="1_0h5ve"]
+[ext_resource type="PackedScene" uid="uid://cel0iikc2diod" path="res://chapters.tscn" id="2_fpwbs"]
 [ext_resource type="AudioStream" uid="uid://cav44ry5mv08r" path="res://assets/music/saint-theme-1.ogg" id="2_jx83x"]
 [ext_resource type="PackedScene" uid="uid://b8kj181l2j2ws" path="res://ui/start_screen.tscn" id="3_0jlt3"]
 [ext_resource type="PackedScene" uid="uid://bcinc4blag4el" path="res://abstract/music/music.tscn" id="7_epwyy"]
@@ -79,6 +80,7 @@ content_scale_aspect = 1
 theme_type_variation = &"default"
 script = ExtResource("1_0h5ve")
 cheat_event_trigger_name = "DemoParents"
+_CHAPTERS = ExtResource("2_fpwbs")
 
 [node name="ThemeMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_jx83x")

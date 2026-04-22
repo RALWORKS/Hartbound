@@ -12,8 +12,6 @@ var show_clock = true
 
 var moves = 0
 
-signal check_party
-
 @export var cheat_mode = true
 @export var cheat_event_trigger_name = ""
 @export var cheat_timer_turns = 2
@@ -38,13 +36,10 @@ var standard_bg_path
 var standard_bg
 var standard_bg_texture
 
+@export var _CHAPTERS: Resource
+@onready var CHAPTERS = _CHAPTERS.instantiate()
 
-
-var CHAPTERS = {
-	#"intro": preload("res://intro-story/intro_story_chapter.tscn"),
-	"create": preload("res://abstract/character/character_creator.tscn"),
-}
-@export var FIRST_CHAPTER = "demo1"
+@export var FIRST_CHAPTER = "demo_1"
 
 
 
@@ -69,6 +64,7 @@ func refresh_data():
 
 func set_player(some_player):
 	player = some_player
+	print("MY PLAYER!!!", player)
 
 func reload():
 	load_position()
@@ -92,10 +88,10 @@ func load_travel():
 	return true
 
 func get_state(p):
-	state.get_state(p)
+	return state.get_state(p)
 
 func set_state(p, v):
-	state.set_state(p, v)
+	return state.set_state(p, v)
 
 func load_position():
 	if load_travel():
@@ -208,8 +204,10 @@ func _mouse_in_world():
 
 
 func _handle_walk_input(delta):
+	print("walk?")
 	if player == null:
 		return
+	print(player)
 	
 	if status.dying:
 		player.velocity = Vector2(0, 0)
@@ -217,6 +215,8 @@ func _handle_walk_input(delta):
 
 	var arrow_keys = Input.get_vector("left", "right", "up", "down")
 	var click = Input.is_action_just_released("click")
+	
+	print(arrow_keys)
 
 	if click and _mouse_in_world():
 		player.destination_clicked(delta)
