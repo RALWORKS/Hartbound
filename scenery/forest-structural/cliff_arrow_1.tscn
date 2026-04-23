@@ -1,0 +1,53 @@
+[gd_scene load_steps=5 format=3 uid="uid://dfqtkptuk7g3v"]
+
+[ext_resource type="Texture2D" uid="uid://w5b3i5ngj8ah" path="res://assets/forest-layers/2/2_trees_triangle.png" id="1_7pcrt"]
+[ext_resource type="Texture2D" uid="uid://cwhx0k3dvr403" path="res://assets/scenery/Scrolling/proud-elm.png" id="2_8heyv"]
+[ext_resource type="Texture2D" uid="uid://bbqm52i4cxyix" path="res://assets/scenery/extra-tree-coloured/great-oak.png" id="3_wujor"]
+[ext_resource type="Texture2D" uid="uid://dmk3dxuo4q0ie" path="res://assets/scenery/extra-tree-coloured/pedestal-pine.png" id="4_dto1h"]
+
+[node name="CliffArrow1" type="Node2D"]
+position = Vector2(8534, 967)
+
+[node name="rightcliffs1" type="Sprite2D" parent="."]
+position = Vector2(-482.45, 726.312)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("1_7pcrt")
+offset = Vector2(0, -250)
+
+[node name="rightcliffs2" type="Sprite2D" parent="."]
+position = Vector2(486.551, 732.312)
+scale = Vector2(-0.7, 0.7)
+texture = ExtResource("1_7pcrt")
+offset = Vector2(0, -250)
+
+[node name="Sprite2D17" type="Sprite2D" parent="."]
+modulate = Color(1, 0.992157, 0.788235, 1)
+position = Vector2(-11.45, -1.84375)
+scale = Vector2(0.770753, 0.571148)
+texture = ExtResource("2_8heyv")
+
+[node name="Sprite2D18" type="Sprite2D" parent="."]
+modulate = Color(1, 0.992157, 0.788235, 1)
+position = Vector2(-30.45, 482.845)
+scale = Vector2(0.898127, 0.729861)
+texture = ExtResource("3_wujor")
+
+[node name="Sprite2D20" type="Sprite2D" parent="."]
+modulate = Color(1, 0.992157, 0.788235, 1)
+position = Vector2(781.55, 565.312)
+rotation = 0.113446
+scale = Vector2(0.898127, 0.729861)
+texture = ExtResource("2_8heyv")
+
+[node name="Sprite2D19" type="Sprite2D" parent="."]
+modulate = Color(1, 0.992157, 0.788235, 1)
+position = Vector2(470.55, 911.312)
+rotation = -0.336849
+scale = Vector2(0.898127, 0.729861)
+texture = ExtResource("4_dto1h")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(0, 728)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(-423, -481, -882, -239, -1003, -33, -746, 169, -494, 335, -227, 507, 267, 527, 681, 315, 968, 144, 1038, -169, 993, -340, 932, -456, 761, -552, 582, -444, 467, -488, 602, -580, 605, -612, 192, -799, -242, -758, -574, -607)

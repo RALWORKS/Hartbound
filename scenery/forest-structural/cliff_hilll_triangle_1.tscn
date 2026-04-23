@@ -1,0 +1,39 @@
+[gd_scene load_steps=3 format=3 uid="uid://blgj4ryxvet34"]
+
+[ext_resource type="Texture2D" uid="uid://b7jynieikunsl" path="res://assets/forest-layers/3/3_corner_trees.png" id="1_exqqh"]
+[ext_resource type="Texture2D" uid="uid://c5gkwi2jowp5e" path="res://assets/forest-layers/1/8_cliffs.png" id="2_3fby0"]
+
+[node name="CliffHilllTriangle1" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-729.5, -251.75)
+scale = Vector2(1, 0.753333)
+texture = ExtResource("1_exqqh")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(556.5, -252.147)
+scale = Vector2(-0.703174, 0.748584)
+texture = ExtResource("1_exqqh")
+
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+position = Vector2(-1007.5, 138)
+texture = ExtResource("2_3fby0")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+position = Vector2(-665.5, -816)
+color = Color(0.968627, 0.94902, 0.917647, 1)
+polygon = PackedVector2Array(280, 823, 463, 796, 644, 775, 778, 892, 303, 877)
+
+[node name="Sprite2D6" type="Sprite2D" parent="."]
+position = Vector2(591.5, 127)
+scale = Vector2(-1, 1)
+texture = ExtResource("2_3fby0")
+
+[node name="Sprite2D4" type="Sprite2D" parent="."]
+position = Vector2(-91.5, 197)
+texture = ExtResource("2_3fby0")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(-1506, -16, -1657, 62, -1698, 284, -1566, 317, -789, 324, -648, 371, 546, 378, 556, 294, 1145, 314, 1269, 260, 1239, 68, 1124, 1, 368, -305, 105, -423, -201, -403, -699, -251)

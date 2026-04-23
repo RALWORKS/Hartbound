@@ -1,0 +1,108 @@
+[gd_scene load_steps=9 format=3 uid="uid://bjgmyirae1eu3"]
+
+[ext_resource type="Texture2D" uid="uid://b7jynieikunsl" path="res://assets/forest-layers/3/3_corner_trees.png" id="1_70yhy"]
+[ext_resource type="Texture2D" uid="uid://bcbfxxys27jd7" path="res://assets/forest-layers/4/2_whole_side.png" id="2_bvmqt"]
+[ext_resource type="Texture2D" uid="uid://bbqm52i4cxyix" path="res://assets/scenery/extra-tree-coloured/great-oak.png" id="3_m85vd"]
+[ext_resource type="Texture2D" uid="uid://cglqdrlgwah76" path="res://assets/forest-layers/4/1_whole_side.png" id="4_n3t2d"]
+[ext_resource type="Texture2D" uid="uid://c5gkwi2jowp5e" path="res://assets/forest-layers/1/8_cliffs.png" id="5_2ltcv"]
+[ext_resource type="Texture2D" uid="uid://cwhx0k3dvr403" path="res://assets/scenery/Scrolling/proud-elm.png" id="6_41qg0"]
+[ext_resource type="Texture2D" uid="uid://ba8f8jn3sykc5" path="res://assets/scenery/extra-tree-coloured/pine-trio.png" id="7_f6chu"]
+[ext_resource type="Texture2D" uid="uid://dmk3dxuo4q0ie" path="res://assets/scenery/extra-tree-coloured/pedestal-pine.png" id="8_6ia3b"]
+
+[node name="CliffZigzag1" type="Node2D"]
+position = Vector2(1624, 1705)
+
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+position = Vector2(-250.893, -307.832)
+rotation = 2.80474
+scale = Vector2(0.578867, -0.659447)
+texture = ExtResource("1_70yhy")
+
+[node name="Sprite2D4" type="Sprite2D" parent="."]
+position = Vector2(-863, -311)
+rotation = -4.15214
+scale = Vector2(0.266289, -0.602818)
+texture = ExtResource("1_70yhy")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-729.5, 684.25)
+scale = Vector2(1, 0.753333)
+texture = ExtResource("2_bvmqt")
+
+[node name="Sprite2D7" type="Sprite2D" parent="."]
+modulate = Color(0.909804, 0.992157, 0.788235, 1)
+position = Vector2(-989, -293)
+rotation = 3.14159
+scale = Vector2(0.60548, -0.43518)
+texture = ExtResource("3_m85vd")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(564, 691)
+scale = Vector2(0.703, 0.749)
+texture = ExtResource("4_n3t2d")
+
+[node name="Sprite2D6" type="Sprite2D" parent="."]
+position = Vector2(531, 1567)
+rotation = 0.00872665
+scale = Vector2(-0.974585, 0.653913)
+texture = ExtResource("5_2ltcv")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+position = Vector2(0, 936)
+color = Color(0.882353, 0.913725, 0.701961, 1)
+polygon = PackedVector2Array(-1, -421, 23, -428, 26, -446, 47, -435, 51, -456, 62, -473, 60, -493, 72, -508, 99, -513, 83, -554, 33, -571, 6, -583, -1, -524, -23, -432)
+
+[node name="Sprite2D14" type="Sprite2D" parent="."]
+modulate = Color(1, 0.992157, 0.788235, 1)
+position = Vector2(-609, -279)
+scale = Vector2(0.645412, 0.543545)
+texture = ExtResource("6_41qg0")
+
+[node name="Sprite2D10" type="Sprite2D" parent="."]
+modulate = Color(1, 0.992157, 0.788235, 1)
+position = Vector2(-28, 792)
+scale = Vector2(0.779228, 0.79934)
+texture = ExtResource("6_41qg0")
+
+[node name="Sprite2D8" type="Sprite2D" parent="."]
+modulate = Color(1, 0.992157, 0.788235, 1)
+position = Vector2(-272, -292)
+scale = Vector2(0.645412, 0.447989)
+texture = ExtResource("7_f6chu")
+
+[node name="Sprite2D9" type="Sprite2D" parent="."]
+modulate = Color(1, 0.992157, 0.788235, 1)
+position = Vector2(66, 88.9998)
+scale = Vector2(0.645412, 0.601912)
+texture = ExtResource("3_m85vd")
+
+[node name="Polygon2D2" type="Polygon2D" parent="."]
+position = Vector2(0, 936)
+color = Color(0.984314, 0.972549, 0.952941, 1)
+polygon = PackedVector2Array(13, 198, 18, 256, 10, 405, -17, 450, 8, 465, 1, 503, 20, 546, 55, 533, 32, 439, 22, 375, 30, 303, 61, 247, 35, 206)
+
+[node name="Sprite2D13" type="Sprite2D" parent="."]
+modulate = Color(1, 0.992157, 0.788235, 1)
+position = Vector2(-399, 1402)
+rotation = -3.14159
+scale = Vector2(0.645, -0.602)
+texture = ExtResource("8_6ia3b")
+
+[node name="Sprite2D12" type="Sprite2D" parent="."]
+modulate = Color(1, 0.992157, 0.788235, 1)
+position = Vector2(-282, 1509)
+rotation = 3.14159
+scale = Vector2(0.645, -0.602)
+texture = ExtResource("8_6ia3b")
+
+[node name="Sprite2D11" type="Sprite2D" parent="."]
+modulate = Color(1, 0.992157, 0.788235, 1)
+position = Vector2(-162, 1431)
+scale = Vector2(0.645412, 0.601912)
+texture = ExtResource("3_m85vd")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(0, 936)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(-1145, -813, -943, -687, -1513, -430, -1483, -335, -908, -88, -807, 59, -586, 139, -812, 220, -878, 321, -626, 482, -747, 552, -616, 628, -631, 668, -237.261, 833.113, 160, 764, 1203, 759, 1183, 578, 790, 437, 556, 294, 846, 180, 700, -72, 659, -163, 463, -294, 368, -305, 352, -390, 906, -753, 231, -1111, -465, -1252, -969, -1287, -1276, -1111, -1251, -995, -1019, -975, -1125, -934)

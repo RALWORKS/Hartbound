@@ -616,7 +616,6 @@ func _on_tree_entered():
 
 func get_followers(g):
 	var data = party.get_followers()
-	print(data)
 	var followers = []
 	for f in data:
 		if not f:

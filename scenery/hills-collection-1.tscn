@@ -1,0 +1,28 @@
+[gd_scene load_steps=9 format=3 uid="uid://eijbvpcdm44y"]
+
+[ext_resource type="PackedScene" uid="uid://blgj4ryxvet34" path="res://scenery/forest-structural/cliff_hilll_triangle_1.tscn" id="1_vi0wu"]
+[ext_resource type="PackedScene" uid="uid://d3djkk8j5kubx" path="res://scenery/forest-structural/cliff_swoop_1.tscn" id="2_grakm"]
+[ext_resource type="PackedScene" uid="uid://dphh41i7e8sut" path="res://scenery/forest-structural/cliff_diamond_1.tscn" id="3_fwfkk"]
+[ext_resource type="PackedScene" uid="uid://bjgmyirae1eu3" path="res://scenery/forest-structural/cliff_zigzag_1.tscn" id="4_xocee"]
+[ext_resource type="PackedScene" uid="uid://cuop6u1g2xv1v" path="res://scenery/forest-structural/cliff_tower_2.tscn" id="5_84cjf"]
+[ext_resource type="PackedScene" uid="uid://cdmsgonsosyyt" path="res://scenery/forest-structural/cliff_zigzag_2.tscn" id="6_eh41c"]
+[ext_resource type="PackedScene" uid="uid://dfqtkptuk7g3v" path="res://scenery/forest-structural/cliff_arrow_1.tscn" id="7_8lkt8"]
+[ext_resource type="PackedScene" uid="uid://bedx5bdjvfr8v" path="res://scenery/forest-structural/cliff_square_1.tscn" id="8_3bqye"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="CliffHilllTriangle1" parent="." instance=ExtResource("1_vi0wu")]
+
+[node name="CliffSwoop1" parent="." instance=ExtResource("2_grakm")]
+
+[node name="CliffDiamond1" parent="." instance=ExtResource("3_fwfkk")]
+
+[node name="CliffZigzag1" parent="." instance=ExtResource("4_xocee")]
+
+[node name="CliffTower2" parent="." instance=ExtResource("5_84cjf")]
+
+[node name="CliffZigzag2" parent="." instance=ExtResource("6_eh41c")]
+
+[node name="CliffArrow1" parent="." instance=ExtResource("7_8lkt8")]
+
+[node name="CliffSquare1" parent="." instance=ExtResource("8_3bqye")]

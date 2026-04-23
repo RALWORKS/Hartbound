@@ -20,7 +20,6 @@ func _process(delta):
 	pass
 
 func handle_paused():
-	print(started, glob.g.player, not paused)
 	if not started:
 		pause()
 		return true

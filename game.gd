@@ -6,6 +6,7 @@ var context = null
 var world: Node = null
 var cur_modal = null
 var player = null
+var camera = null
 var chapter
 
 var show_clock = true
@@ -20,6 +21,7 @@ var moves = 0
 
 var MainScreen = preload("res://ui/main_screen.tscn")
 var StartScreen = preload("res://ui/start_screen.tscn")
+var PlayerCamera = preload("res://abstract/player_camera.tscn")
 
 var staged_action_node = null
 
@@ -64,7 +66,10 @@ func refresh_data():
 
 func set_player(some_player):
 	player = some_player
-	print("MY PLAYER!!!", player)
+	camera = PlayerCamera.instantiate()
+	player.get_parent().add_child(camera)
+	camera.position = player.position
+	
 
 func reload():
 	load_position()
@@ -204,10 +209,8 @@ func _mouse_in_world():
 
 
 func _handle_walk_input(delta):
-	print("walk?")
 	if player == null:
 		return
-	print(player)
 	
 	if status.dying:
 		player.velocity = Vector2(0, 0)
@@ -215,8 +218,6 @@ func _handle_walk_input(delta):
 
 	var arrow_keys = Input.get_vector("left", "right", "up", "down")
 	var click = Input.is_action_just_released("click")
-	
-	print(arrow_keys)
 
 	if click and _mouse_in_world():
 		player.destination_clicked(delta)

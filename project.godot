@@ -96,6 +96,10 @@ cancel={
 ]
 }
 
+[layer_names]
+
+2d_physics/layer_16="CAMERA"
+
 [rendering]
 
 renderer/rendering_method.mobile="forward_plus"

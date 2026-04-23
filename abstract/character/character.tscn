@@ -227,16 +227,6 @@ front_sleeve_accent = NodePath("../img/front-sleeve-accent")
 character_img = NodePath("../img")
 anchor_bottom = true
 
-[node name="Camera2D" type="Camera2D" parent="char"]
-position = Vector2(-1.33333, -234.667)
-scale = Vector2(0.5, 0.5)
-limit_left = 0
-limit_top = 0
-limit_right = 1600
-limit_bottom = 1235
-drag_horizontal_enabled = true
-drag_vertical_enabled = true
-
 [node name="char_anims" type="AnimationPlayer" parent="."]
 root_node = NodePath("../char")
 libraries = {
