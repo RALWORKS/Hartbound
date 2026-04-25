@@ -11,3 +11,7 @@ func not_null(item):
 	if item == null:
 		return false
 	return true
+
+func f_of(x: Node, f: String, args: Array = []):
+	return x.callv(f, args)
+	

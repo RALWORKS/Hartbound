@@ -44,7 +44,7 @@ func _spawn(c, shift, x, y):
 	child.position.y = position_y + shift.y
 	
 	child.arrived_with_player = true
-	get_node(spawn_to).add_child(child)
+	get_node(spawn_to).add_mob(child)
 	
 	return child
 

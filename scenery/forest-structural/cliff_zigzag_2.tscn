@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://b7jynieikunsl" path="res://assets/forest-layers/3/3_corner_trees.png" id="2_wojxe"]
 [ext_resource type="Texture2D" uid="uid://1jnamrw4kgr7" path="res://assets/scenery/Scrolling/narrow-spruce.png" id="3_oe7qs"]
 [ext_resource type="Texture2D" uid="uid://cwhx0k3dvr403" path="res://assets/scenery/Scrolling/proud-elm.png" id="4_acrbm"]
-[ext_resource type="Texture2D" uid="uid://ba8f8jn3sykc5" path="res://assets/scenery/extra-tree-coloured/pine-trio.png" id="4_gvnjk"]
+[ext_resource type="Texture2D" uid="uid://ba8f8jn3sykc5" path="res://assets/scenery/extra-tree-coloured-bright/pine-trio.png" id="4_gvnjk"]
 [ext_resource type="Texture2D" uid="uid://bjybfpp0e8d1r" path="res://assets/scenery/Scrolling/squat-spruce.png" id="5_8k7q3"]
 [ext_resource type="Texture2D" uid="uid://dmk3dxuo4q0ie" path="res://assets/scenery/extra-tree-coloured-bright/pedestal-pine.png" id="6_jenhe"]
 

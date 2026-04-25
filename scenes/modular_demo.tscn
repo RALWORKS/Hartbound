@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://b4b6kwqbiqg85"]
+[gd_scene load_steps=25 format=3 uid="uid://b4b6kwqbiqg85"]
 
 [ext_resource type="PackedScene" uid="uid://byrlpmbpj6yr5" path="res://abstract/scene/scene.tscn" id="1_evu3m"]
 [ext_resource type="Texture2D" uid="uid://dsfg855ag6psn" path="res://assets/forest-layers/bg/meadow1.png" id="2_fiheu"]
@@ -15,13 +15,12 @@
 [ext_resource type="PackedScene" uid="uid://dphh41i7e8sut" path="res://scenery/forest-structural/cliff_diamond_1.tscn" id="13_1l8sw"]
 [ext_resource type="PackedScene" uid="uid://blgj4ryxvet34" path="res://scenery/forest-structural/cliff_hilll_triangle_1.tscn" id="14_5abrn"]
 [ext_resource type="Shader" path="res://abstract/lighting/daylight.gdshader" id="15_11ymb"]
-[ext_resource type="Texture2D" uid="uid://ba8f8jn3sykc5" path="res://assets/scenery/extra-tree-coloured/pine-trio.png" id="15_misai"]
-[ext_resource type="Texture2D" uid="uid://dmk3dxuo4q0ie" path="res://assets/scenery/extra-tree-coloured/pedestal-pine.png" id="16_2lqtd"]
-[ext_resource type="Texture2D" uid="uid://cnlclj8g0tyiw" path="res://assets/scenery/extra-tree-coloured/stone-trio.png" id="16_krwh4"]
-[ext_resource type="Texture2D" uid="uid://nwsqvjdnlosw" path="res://assets/scenery/extra-tree-coloured/trees-and-broken-stone.png" id="17_xpwb2"]
-[ext_resource type="Texture2D" uid="uid://chq6q6xttvwfi" path="res://assets/scenery/extra-tree-coloured/tree-family.png" id="20_5vn87"]
+[ext_resource type="Texture2D" uid="uid://ba8f8jn3sykc5" path="res://assets/scenery/extra-tree-coloured-bright/pine-trio.png" id="15_misai"]
+[ext_resource type="Texture2D" uid="uid://dmk3dxuo4q0ie" path="res://assets/scenery/extra-tree-coloured-bright/pedestal-pine.png" id="16_2lqtd"]
+[ext_resource type="Texture2D" uid="uid://cnlclj8g0tyiw" path="res://assets/scenery/extra-tree-coloured-bright/stone-trio.png" id="16_krwh4"]
+[ext_resource type="Texture2D" uid="uid://nwsqvjdnlosw" path="res://assets/scenery/extra-tree-coloured-bright/trees-and-broken-stone.png" id="17_xpwb2"]
 [ext_resource type="Texture2D" uid="uid://chq6q6xttvwfi" path="res://assets/scenery/extra-tree-coloured-bright/tree-family.png" id="22_px5x2"]
-[ext_resource type="Texture2D" uid="uid://bbqm52i4cxyix" path="res://assets/scenery/extra-tree-coloured/great-oak.png" id="23_lkgal"]
+[ext_resource type="Texture2D" uid="uid://bbqm52i4cxyix" path="res://assets/scenery/extra-tree-coloured-bright/great-oak.png" id="23_lkgal"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_opth5"]
 resource_local_to_scene = true
@@ -369,14 +368,14 @@ offset = Vector2(0, -400)
 modulate = Color(1, 1, 0.796078, 1)
 position = Vector2(5918, 3343)
 scale = Vector2(-0.644, 0.62)
-texture = ExtResource("20_5vn87")
+texture = ExtResource("22_px5x2")
 offset = Vector2(0, -400)
 
 [node name="trees39" type="Sprite2D" parent="YSort" index="52"]
 modulate = Color(1, 1, 0.796078, 1)
 position = Vector2(5601, 3286.89)
 scale = Vector2(-0.812804, 0.797215)
-texture = ExtResource("20_5vn87")
+texture = ExtResource("22_px5x2")
 offset = Vector2(0, -400)
 
 [node name="trees40" type="Sprite2D" parent="YSort" index="53"]

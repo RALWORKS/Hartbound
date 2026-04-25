@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://byrlpmbpj6yr5"]
+[gd_scene load_steps=8 format=3 uid="uid://byrlpmbpj6yr5"]
 
 [ext_resource type="PackedScene" uid="uid://dwet7i6bmp0m6" path="res://abstract/travel/spawner.tscn" id="2_b4mwe"]
 [ext_resource type="Texture2D" uid="uid://dwyqvct36hhs7" path="res://assets/default-scene.png" id="2_o4l51"]
+[ext_resource type="Script" path="res://abstract/scene/YSort.gd" id="2_tnv4h"]
 [ext_resource type="PackedScene" uid="uid://dec3rewb3xb1u" path="res://abstract/lighting/daylight_filter.tscn" id="3_5fm1i"]
 [ext_resource type="Shader" path="res://abstract/lighting/daylight.gdshader" id="4_tv03u"]
 
@@ -93,7 +94,7 @@ func daylight_off_not_injury():
 	
 "
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_vt73r"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2mo8e"]
 resource_local_to_scene = true
 shader = ExtResource("4_tv03u")
 shader_parameter/darken = 0.0
@@ -114,7 +115,7 @@ metadata/_edit_group_ = true
 [node name="StaticBody2D" type="StaticBody2D" parent="Background"]
 
 [node name="YSort" type="Node2D" parent="."]
-y_sort_enabled = true
+script = ExtResource("2_tnv4h")
 
 [node name="DefaultSpawner" parent="YSort" instance=ExtResource("2_b4mwe")]
 position = Vector2(560, 365)
@@ -122,7 +123,7 @@ position = Vector2(560, 365)
 [node name="Filters" type="CanvasLayer" parent="."]
 
 [node name="MainDaylightFilter" parent="Filters" node_paths=PackedStringArray("scene") instance=ExtResource("3_5fm1i")]
-daylight_shader = SubResource("ShaderMaterial_vt73r")
+daylight_shader = SubResource("ShaderMaterial_2mo8e")
 scene = NodePath("../..")
 
 [node name="Filter" type="ColorRect" parent="Filters/MainDaylightFilter"]
