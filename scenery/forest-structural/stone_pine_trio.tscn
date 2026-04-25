@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://byrk6lf6hfid0"]
+
+[ext_resource type="Texture2D" uid="uid://cnlclj8g0tyiw" path="res://assets/scenery/extra-tree-coloured-bright/stone-trio.png" id="1_ra681"]
+[ext_resource type="Script" path="res://abstract/scene/line_sort_scenery.gd" id="2_wfh7e"]
+[ext_resource type="PackedScene" uid="uid://doqir1yy8117e" path="res://abstract/scene/baseline.tscn" id="3_3wnd7"]
+
+[node name="StonePineTrio" type="Sprite2D" node_paths=PackedStringArray("baseline")]
+modulate = Color(1, 1, 0.796078, 1)
+scale = Vector2(0.643928, 0.620047)
+texture = ExtResource("1_ra681")
+offset = Vector2(0, -400)
+script = ExtResource("2_wfh7e")
+baseline = NodePath("Baseline")
+
+[node name="Baseline" parent="." instance=ExtResource("3_3wnd7")]
+points = PackedVector2Array(-524.903, -104.831, -388.242, -64.5112, -1.55297, -219.338, 451.914, -24.1917, 514.033, -33.8684, 555.963, -108.056)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(-528.009, -117.733, -389.795, -75.8007, -3.10594, -249.981, 68.1594, -213.69, 88.5192, -127.41, 187.909, -133.861, 399.113, -45.1579, 459.679, -30.6428, 548.198, -137.086, 9.31781, -377.391)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://b4b6kwqbiqg85"]
+[gd_scene load_steps=26 format=3 uid="uid://b4b6kwqbiqg85"]
 
 [ext_resource type="PackedScene" uid="uid://byrlpmbpj6yr5" path="res://abstract/scene/scene.tscn" id="1_evu3m"]
 [ext_resource type="Texture2D" uid="uid://dsfg855ag6psn" path="res://assets/forest-layers/bg/meadow1.png" id="2_fiheu"]
@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://blgj4ryxvet34" path="res://scenery/forest-structural/cliff_hilll_triangle_1.tscn" id="14_5abrn"]
 [ext_resource type="Shader" path="res://abstract/lighting/daylight.gdshader" id="15_11ymb"]
 [ext_resource type="Texture2D" uid="uid://ba8f8jn3sykc5" path="res://assets/scenery/extra-tree-coloured-bright/pine-trio.png" id="15_misai"]
+[ext_resource type="PackedScene" uid="uid://byrk6lf6hfid0" path="res://scenery/forest-structural/stone_pine_trio.tscn" id="16_1gx11"]
 [ext_resource type="Texture2D" uid="uid://dmk3dxuo4q0ie" path="res://assets/scenery/extra-tree-coloured-bright/pedestal-pine.png" id="16_2lqtd"]
 [ext_resource type="Texture2D" uid="uid://cnlclj8g0tyiw" path="res://assets/scenery/extra-tree-coloured-bright/stone-trio.png" id="16_krwh4"]
 [ext_resource type="Texture2D" uid="uid://nwsqvjdnlosw" path="res://assets/scenery/extra-tree-coloured-bright/trees-and-broken-stone.png" id="17_xpwb2"]
@@ -238,12 +239,8 @@ scale = Vector2(0.643928, 0.620047)
 texture = ExtResource("15_misai")
 offset = Vector2(0, -400)
 
-[node name="trees26" type="Sprite2D" parent="YSort" index="33"]
-modulate = Color(1, 1, 0.796078, 1)
-position = Vector2(1088, 1783)
-scale = Vector2(0.643928, 0.620047)
-texture = ExtResource("16_krwh4")
-offset = Vector2(0, -400)
+[node name="StonePineTrio" parent="YSort" index="33" instance=ExtResource("16_1gx11")]
+position = Vector2(1240, 1224)
 
 [node name="trees6" type="Sprite2D" parent="YSort" index="34"]
 modulate = Color(1, 1, 0.796078, 1)
@@ -275,7 +272,7 @@ offset = Vector2(0, -400)
 
 [node name="trees10" type="Sprite2D" parent="YSort" index="38"]
 modulate = Color(1, 1, 0.796078, 1)
-position = Vector2(1631.75, 1224.98)
+position = Vector2(1120, 2315)
 scale = Vector2(0.643928, 0.620047)
 texture = ExtResource("16_2lqtd")
 offset = Vector2(0, -400)
