@@ -42,7 +42,7 @@ func _move_to(dest: Node, as_move: bool = true):
 	
 	if as_move:
 		await get_tree().create_timer(0.1).timeout
-		glob.g.move()
+		t.move()
 	
 
 func load_position(data):
@@ -65,9 +65,9 @@ func traverse(dest, entrance, save=true, as_move=true, x=null, y=null):
 	glob.g.set_context(ctx.EXPLORE)
 	
 	if save:
-		glob.g.save_room(dest.scene_file_path, entrance)
+		loc.save_room(dest.scene_file_path, entrance)
 		
-		$"../ActionEmitter".send(
-			$"../ActionEmitter".TYPE.ROOM_CHANGE,
+		glob.g.action_emitter.send(
+			glob.g.action_emitter.TYPE.ROOM_CHANGE,
 			{"dest_id": dest.id if dest.id.length() else null},
 		)

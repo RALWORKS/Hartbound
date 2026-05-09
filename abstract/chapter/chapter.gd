@@ -185,7 +185,7 @@ func end_cutscene(free=false):
 func teleport(teleport_to):
 	loc.map.move_to(teleport_to)
 	teleport_to.spawn(glob.g)
-	glob.g.save_room(teleport_to.scene_file_path, null)
+	loc.save_room(teleport_to.scene_file_path, null)
 
 func handle_pending_event():
 	if pending_event != null:

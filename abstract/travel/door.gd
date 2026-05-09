@@ -36,7 +36,7 @@ func _enable():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-	var scout = Input.is_action_pressed("scout") or _get_game().is_scouting
+	var scout = Input.is_action_pressed("scout") or status.is_scouting
 	if scout and not $Wrap/Pointer.visible:
 		$Wrap/Pointer.set_deferred("visible", true)
 	elif not scout and $Wrap/Pointer.visible:
@@ -61,10 +61,9 @@ func _on_hitbox_body_entered(body):
 	go()
 
 func go():
-	var map = get_node("/root/Game/Map")
 	if dest_resource:
 		on_traverse()
-		map.traverse(dest, dest_edge)
+		loc.map.traverse(dest, dest_edge)
 
 func spawn(g, x=null, y=null):
 	$Spawner.follower_offset = follower_offset

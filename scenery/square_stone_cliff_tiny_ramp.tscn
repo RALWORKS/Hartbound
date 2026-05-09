@@ -1,0 +1,93 @@
+[gd_scene load_steps=7 format=3 uid="uid://3bchwrw74ti0"]
+
+[ext_resource type="Script" path="res://abstract/scene/line_sort_scenery.gd" id="1_trte3"]
+[ext_resource type="Texture2D" uid="uid://dayjr3ows4hfl" path="res://assets/textures/cliff-face-pale-grey.png" id="2_vqlgp"]
+[ext_resource type="Texture2D" uid="uid://ccdd020kenm4q" path="res://assets/forest-layers/bg/mossy-stone.png" id="3_on36e"]
+[ext_resource type="PackedScene" uid="uid://8p308si3awg0" path="res://effects/crayon_line.tscn" id="4_41q2c"]
+[ext_resource type="PackedScene" uid="uid://bbo6xrp4ysffi" path="res://effects/pen_line.tscn" id="5_cuxto"]
+[ext_resource type="PackedScene" uid="uid://doqir1yy8117e" path="res://abstract/scene/baseline.tscn" id="6_2k6t8"]
+
+[node name="SquareStoneCliffTiny" type="Node2D" node_paths=PackedStringArray("baseline")]
+script = ExtResource("1_trte3")
+baseline = NodePath("Baseline")
+
+[node name="Polygon2D3" type="Polygon2D" parent="."]
+position = Vector2(-1048, -1744)
+texture = ExtResource("3_on36e")
+texture_offset = Vector2(14.565, 181.02)
+texture_scale = Vector2(2, 2)
+polygon = PackedVector2Array(1044, 1594, 1390, 1739, 1477, 1678, 1119.78, 1536.74)
+uv = PackedVector2Array(862.182, 671.273, 1208.18, 816.273, 1295.18, 755.273, 937.964, 614.015)
+
+[node name="CrayonLine3" parent="." instance=ExtResource("4_41q2c")]
+position = Vector2(-160, -8)
+points = PackedVector2Array(192, -92, 230, -106, 244, -85, 243, -65)
+width = 20.0
+default_color = Color(0.74902, 0.894118, 0.109804, 0.564706)
+
+[node name="Polygon2D7" type="Polygon2D" parent="."]
+position = Vector2(-160, -8)
+color = Color(1, 1, 0.686275, 0.235294)
+polygon = PackedVector2Array(158, -144, 228, -199, 590, -58, 501, 3)
+
+[node name="ShortCrack4" parent="." instance=ExtResource("5_cuxto")]
+position = Vector2(178, -26)
+points = PackedVector2Array(-129, -104, -123, -109)
+default_color = Color(0.909804, 0.537255, 0.686275, 0.494118)
+
+[node name="ShortCrack5" parent="." instance=ExtResource("5_cuxto")]
+position = Vector2(261, 9)
+points = PackedVector2Array(-129, -104, -123, -109)
+default_color = Color(0.909804, 0.537255, 0.686275, 0.494118)
+
+[node name="ShortCrack6" parent="." instance=ExtResource("5_cuxto")]
+position = Vector2(269, 11)
+points = PackedVector2Array(-129, -104, -123, -109)
+default_color = Color(0.909804, 0.537255, 0.686275, 0.494118)
+
+[node name="Polygon2D6" type="Polygon2D" parent="."]
+texture_repeat = 2
+position = Vector2(-704, -1805)
+color = Color(0.631373, 0.623529, 0.615686, 1)
+texture = ExtResource("2_vqlgp")
+texture_scale = Vector2(1.5, 1.5)
+polygon = PackedVector2Array(1043, 1803, 707, 1806, 699, 1653, 1042, 1794)
+
+[node name="CrayonLine9" parent="." instance=ExtResource("4_41q2c")]
+position = Vector2(-160, -8)
+points = PackedVector2Array(370, 4, 164, 8, 157, -139, 374, -51)
+width = 23.0
+default_color = Color(0.501961, 0.611765, 0.313726, 0.631373)
+
+[node name="PenLine5" parent="." instance=ExtResource("5_cuxto")]
+position = Vector2(-160, -8)
+points = PackedVector2Array(155, -142, 245.753, -104.862, 255, -103, 265.627, -96.7291, 290.625, -86.4994, 302, -84, 312.447, -77.5693, 390.502, -45.6273, 394, -41, 402.06, -40.8976, 502, 0, 474, 6, 467, 2, 464, 6, 359, 6, 347, 9, 333, 7, 302, 6, 295, 7, 259, 9, 238, 7, 211, 8, 164, 8, 162.881, -15.1702, 157, -137)
+default_color = Color(0.909804, 0.537255, 0.686275, 0.494118)
+
+[node name="PenLine6" parent="." instance=ExtResource("5_cuxto")]
+position = Vector2(-160, -8)
+points = PackedVector2Array(231, -200, 589, -58)
+default_color = Color(0.909804, 0.537255, 0.686275, 0.494118)
+
+[node name="PenLine7" parent="." instance=ExtResource("5_cuxto")]
+position = Vector2(-160, -8)
+points = PackedVector2Array(157, -144, 231, -199)
+width = 5.0
+default_color = Color(0.909804, 0.537255, 0.686275, 0.407843)
+
+[node name="Polygon2D8" type="Polygon2D" parent="."]
+position = Vector2(-160, -8)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(-160, -8)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(164.702, 11.2888, 499, 4, 156, -142)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(218, -193, 231, -203, 593, -58)
+
+[node name="Baseline" parent="." instance=ExtResource("6_2k6t8")]
+position = Vector2(207, -55)
+points = PackedVector2Array(-137, -149, 200, -20)
+width = 10.0

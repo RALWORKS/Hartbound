@@ -102,5 +102,6 @@ cancel={
 
 [rendering]
 
+textures/canvas_textures/default_texture_repeat=1
 renderer/rendering_method.mobile="forward_plus"
 renderer/rendering_method.web="forward_plus"

@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://b4b6kwqbiqg85"]
+[gd_scene load_steps=27 format=3 uid="uid://b4b6kwqbiqg85"]
 
 [ext_resource type="PackedScene" uid="uid://byrlpmbpj6yr5" path="res://abstract/scene/scene.tscn" id="1_evu3m"]
 [ext_resource type="Texture2D" uid="uid://dsfg855ag6psn" path="res://assets/forest-layers/bg/meadow1.png" id="2_fiheu"]
@@ -16,12 +16,13 @@
 [ext_resource type="PackedScene" uid="uid://blgj4ryxvet34" path="res://scenery/forest-structural/cliff_hilll_triangle_1.tscn" id="14_5abrn"]
 [ext_resource type="Shader" path="res://abstract/lighting/daylight.gdshader" id="15_11ymb"]
 [ext_resource type="Texture2D" uid="uid://ba8f8jn3sykc5" path="res://assets/scenery/extra-tree-coloured-bright/pine-trio.png" id="15_misai"]
-[ext_resource type="PackedScene" uid="uid://byrk6lf6hfid0" path="res://scenery/forest-structural/stone_pine_trio.tscn" id="16_1gx11"]
 [ext_resource type="Texture2D" uid="uid://dmk3dxuo4q0ie" path="res://assets/scenery/extra-tree-coloured-bright/pedestal-pine.png" id="16_2lqtd"]
 [ext_resource type="Texture2D" uid="uid://cnlclj8g0tyiw" path="res://assets/scenery/extra-tree-coloured-bright/stone-trio.png" id="16_krwh4"]
 [ext_resource type="Texture2D" uid="uid://nwsqvjdnlosw" path="res://assets/scenery/extra-tree-coloured-bright/trees-and-broken-stone.png" id="17_xpwb2"]
+[ext_resource type="PackedScene" uid="uid://bw0oc4d4585x7" path="res://scenery/forest-structural/synth-cliff-1.tscn" id="21_yqn2d"]
+[ext_resource type="PackedScene" uid="uid://dxfuidhlgwthh" path="res://abstract/travel/door.tscn" id="22_l323w"]
 [ext_resource type="Texture2D" uid="uid://chq6q6xttvwfi" path="res://assets/scenery/extra-tree-coloured-bright/tree-family.png" id="22_px5x2"]
-[ext_resource type="Texture2D" uid="uid://bbqm52i4cxyix" path="res://assets/scenery/extra-tree-coloured-bright/great-oak.png" id="23_lkgal"]
+[ext_resource type="Texture2D" uid="uid://bbqm52i4cxyix" path="res://assets/scenery/extra-tree-coloured-bright/great-oak.png" id="22_qwomy"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_opth5"]
 resource_local_to_scene = true
@@ -130,355 +131,362 @@ position = Vector2(3033, -112)
 position = Vector2(3081, 336)
 scale = Vector2(-1, 1)
 
-[node name="CliffSwoop2" parent="YSort" index="4" instance=ExtResource("7_atkh4")]
-position = Vector2(4757, -413)
-
-[node name="CliffTower2" parent="YSort" index="5" instance=ExtResource("8_wraec")]
-position = Vector2(-767, 3379)
-
-[node name="CliffTower3" parent="YSort" index="6" instance=ExtResource("8_wraec")]
-position = Vector2(412, 5899)
-
-[node name="CliffSquare1" parent="YSort" index="7" instance=ExtResource("9_w1etj")]
-position = Vector2(68, 2319)
-
-[node name="CliffArrow1" parent="YSort" index="8" instance=ExtResource("10_vp2p5")]
-position = Vector2(-215, 1068)
-
-[node name="CliffZigzag1" parent="YSort" index="9" instance=ExtResource("11_71hal")]
+[node name="CliffZigzag1" parent="YSort" index="4" instance=ExtResource("11_71hal")]
 position = Vector2(102, -103)
 
-[node name="CliffZigzag2" parent="YSort" index="10" instance=ExtResource("12_js347")]
-position = Vector2(2673, 532)
+[node name="CliffArrow1" parent="YSort" index="5" instance=ExtResource("10_vp2p5")]
+position = Vector2(-545, 984)
 
-[node name="CliffZigzag7" parent="YSort" index="11" instance=ExtResource("12_js347")]
-position = Vector2(5988, 208)
+[node name="CliffSquare1" parent="YSort" index="6" instance=ExtResource("9_w1etj")]
+position = Vector2(68, 2319)
+
+[node name="CliffZigzag7" parent="YSort" index="7" instance=ExtResource("12_js347")]
+position = Vector2(6240, 79)
 scale = Vector2(-1, 1)
 
-[node name="CliffZigzag5" parent="YSort" index="12" instance=ExtResource("12_js347")]
+[node name="CliffZigzag5" parent="YSort" index="8" instance=ExtResource("12_js347")]
 position = Vector2(6402, 3767)
 
-[node name="CliffZigzag6" parent="YSort" index="13" instance=ExtResource("12_js347")]
+[node name="CliffZigzag6" parent="YSort" index="9" instance=ExtResource("12_js347")]
 position = Vector2(6834, 4843)
 
-[node name="CliffZigzag4" parent="YSort" index="14" instance=ExtResource("12_js347")]
+[node name="CliffZigzag4" parent="YSort" index="10" instance=ExtResource("12_js347")]
 position = Vector2(3106, 5914)
 
-[node name="CliffZigzag3" parent="YSort" index="15" instance=ExtResource("12_js347")]
+[node name="CliffZigzag3" parent="YSort" index="11" instance=ExtResource("12_js347")]
 position = Vector2(1242, 4229)
 
-[node name="CliffDiamond1" parent="YSort" index="16" instance=ExtResource("13_1l8sw")]
+[node name="CliffTower4" parent="YSort" index="12" instance=ExtResource("8_wraec")]
+position = Vector2(-539, 3333)
+
+[node name="CliffDiamond1" parent="YSort" index="13" instance=ExtResource("13_1l8sw")]
 position = Vector2(3937, 4030)
 
-[node name="CliffDiamond4" parent="YSort" index="17" instance=ExtResource("13_1l8sw")]
+[node name="CliffDiamond4" parent="YSort" index="14" instance=ExtResource("13_1l8sw")]
 position = Vector2(7476, 3717)
 
-[node name="CliffDiamond5" parent="YSort" index="18" instance=ExtResource("13_1l8sw")]
+[node name="CliffDiamond5" parent="YSort" index="15" instance=ExtResource("13_1l8sw")]
 position = Vector2(7476, 4559)
 
-[node name="CliffDiamond3" parent="YSort" index="19" instance=ExtResource("13_1l8sw")]
+[node name="CliffDiamond3" parent="YSort" index="16" instance=ExtResource("13_1l8sw")]
 position = Vector2(4772, 5766)
 
-[node name="CliffDiamond2" parent="YSort" index="20" instance=ExtResource("13_1l8sw")]
+[node name="CliffDiamond2" parent="YSort" index="17" instance=ExtResource("13_1l8sw")]
 position = Vector2(1113, -635)
 
-[node name="CliffHilllTriangle1" parent="YSort" index="21" instance=ExtResource("14_5abrn")]
+[node name="CliffHilllTriangle1" parent="YSort" index="18" instance=ExtResource("14_5abrn")]
 position = Vector2(946, 3968)
 
-[node name="CliffArrow2" parent="YSort" index="22" instance=ExtResource("10_vp2p5")]
+[node name="CliffArrow2" parent="YSort" index="19" instance=ExtResource("10_vp2p5")]
 position = Vector2(8001, 1164)
 
-[node name="CliffArrow3" parent="YSort" index="23" instance=ExtResource("10_vp2p5")]
-position = Vector2(2017, 1981)
-
-[node name="CliffArrow4" parent="YSort" index="24" instance=ExtResource("10_vp2p5")]
+[node name="CliffArrow4" parent="YSort" index="20" instance=ExtResource("10_vp2p5")]
 position = Vector2(3920, 1800)
 
-[node name="CliffZigzag8" parent="YSort" index="25" instance=ExtResource("11_71hal")]
+[node name="CliffZigzag8" parent="YSort" index="21" instance=ExtResource("11_71hal")]
 position = Vector2(8318, -7)
 
-[node name="CliffZigzag10" parent="YSort" index="26" instance=ExtResource("12_js347")]
+[node name="CliffZigzag10" parent="YSort" index="22" instance=ExtResource("12_js347")]
 position = Vector2(8600, 2283)
 scale = Vector2(-1, 1)
 
-[node name="CliffDiamond6" parent="YSort" index="27" instance=ExtResource("13_1l8sw")]
+[node name="CliffDiamond6" parent="YSort" index="23" instance=ExtResource("13_1l8sw")]
 position = Vector2(6865, -301)
 
-[node name="trees1" type="Sprite2D" parent="YSort" index="28"]
+[node name="trees1" type="Sprite2D" parent="YSort" index="24"]
 modulate = Color(1, 1, 0.796078, 1)
 position = Vector2(3151.75, 2896.98)
 scale = Vector2(0.643928, 0.620047)
 texture = ExtResource("15_misai")
 offset = Vector2(0, -400)
 
-[node name="trees2" type="Sprite2D" parent="YSort" index="29"]
+[node name="trees2" type="Sprite2D" parent="YSort" index="25"]
 modulate = Color(1, 1, 0.796078, 1)
 position = Vector2(5575.75, 1968.98)
 scale = Vector2(0.643928, 0.620047)
 texture = ExtResource("15_misai")
 offset = Vector2(0, -400)
 
-[node name="trees3" type="Sprite2D" parent="YSort" index="30"]
+[node name="trees3" type="Sprite2D" parent="YSort" index="26"]
 modulate = Color(1, 1, 0.796078, 1)
 position = Vector2(4706.75, 620.977)
 scale = Vector2(0.643928, 0.620047)
 texture = ExtResource("15_misai")
 offset = Vector2(0, -400)
 
-[node name="trees4" type="Sprite2D" parent="YSort" index="31"]
+[node name="trees4" type="Sprite2D" parent="YSort" index="27"]
 modulate = Color(1, 1, 0.796078, 1)
 position = Vector2(627.75, 519.977)
 scale = Vector2(0.643928, 0.620047)
 texture = ExtResource("15_misai")
 offset = Vector2(0, -400)
 
-[node name="trees5" type="Sprite2D" parent="YSort" index="32"]
+[node name="trees5" type="Sprite2D" parent="YSort" index="28"]
 modulate = Color(1, 1, 0.796078, 1)
 position = Vector2(707.75, 2148.98)
 scale = Vector2(0.643928, 0.620047)
 texture = ExtResource("15_misai")
 offset = Vector2(0, -400)
 
-[node name="StonePineTrio" parent="YSort" index="33" instance=ExtResource("16_1gx11")]
-position = Vector2(1240, 1224)
-
-[node name="trees6" type="Sprite2D" parent="YSort" index="34"]
+[node name="trees6" type="Sprite2D" parent="YSort" index="29"]
 modulate = Color(1, 1, 0.796078, 1)
 position = Vector2(2438.75, 5870.98)
 scale = Vector2(0.643928, 0.620047)
 texture = ExtResource("15_misai")
 offset = Vector2(0, -400)
 
-[node name="trees7" type="Sprite2D" parent="YSort" index="35"]
+[node name="trees7" type="Sprite2D" parent="YSort" index="30"]
 modulate = Color(1, 1, 0.796078, 1)
 position = Vector2(5696.75, 5553.98)
 scale = Vector2(0.643928, 0.620047)
 texture = ExtResource("15_misai")
 offset = Vector2(0, -400)
 
-[node name="trees8" type="Sprite2D" parent="YSort" index="36"]
+[node name="trees8" type="Sprite2D" parent="YSort" index="31"]
 modulate = Color(1, 1, 0.796078, 1)
 position = Vector2(6296.75, 2906.98)
 scale = Vector2(0.643928, 0.620047)
 texture = ExtResource("15_misai")
 offset = Vector2(0, -400)
 
-[node name="trees9" type="Sprite2D" parent="YSort" index="37"]
+[node name="trees9" type="Sprite2D" parent="YSort" index="32"]
 modulate = Color(1, 1, 0.796078, 1)
 position = Vector2(6862.75, 734.977)
 scale = Vector2(0.643928, 0.620047)
 texture = ExtResource("15_misai")
 offset = Vector2(0, -400)
 
-[node name="trees10" type="Sprite2D" parent="YSort" index="38"]
+[node name="trees10" type="Sprite2D" parent="YSort" index="33"]
 modulate = Color(1, 1, 0.796078, 1)
 position = Vector2(1120, 2315)
 scale = Vector2(0.643928, 0.620047)
 texture = ExtResource("16_2lqtd")
 offset = Vector2(0, -400)
 
-[node name="trees11" type="Sprite2D" parent="YSort" index="39"]
+[node name="trees11" type="Sprite2D" parent="YSort" index="34"]
 modulate = Color(1, 1, 0.796078, 1)
 position = Vector2(4824.75, 2942.98)
 scale = Vector2(0.643928, 0.620047)
 texture = ExtResource("16_2lqtd")
 offset = Vector2(0, -400)
 
-[node name="trees12" type="Sprite2D" parent="YSort" index="40"]
+[node name="trees12" type="Sprite2D" parent="YSort" index="35"]
 modulate = Color(1, 1, 0.796078, 1)
 position = Vector2(4354.75, 4809.98)
 scale = Vector2(0.643928, 0.620047)
 texture = ExtResource("16_2lqtd")
 offset = Vector2(0, -400)
 
-[node name="trees13" type="Sprite2D" parent="YSort" index="41"]
+[node name="trees13" type="Sprite2D" parent="YSort" index="36"]
 modulate = Color(1, 1, 0.796078, 1)
 position = Vector2(5345.75, 5237.98)
 scale = Vector2(0.643928, 0.620047)
 texture = ExtResource("16_2lqtd")
 offset = Vector2(0, -400)
 
-[node name="trees14" type="Sprite2D" parent="YSort" index="42"]
+[node name="trees14" type="Sprite2D" parent="YSort" index="37"]
 modulate = Color(1, 1, 0.796078, 1)
 position = Vector2(5723.75, 2714.98)
 scale = Vector2(0.643928, 0.620047)
 texture = ExtResource("16_2lqtd")
 offset = Vector2(0, -400)
 
-[node name="trees15" type="Sprite2D" parent="YSort" index="43"]
+[node name="trees15" type="Sprite2D" parent="YSort" index="38"]
 modulate = Color(1, 1, 0.796078, 1)
 position = Vector2(3713.75, 1232.98)
 scale = Vector2(0.643928, 0.620047)
 texture = ExtResource("16_2lqtd")
 offset = Vector2(0, -400)
 
-[node name="trees16" type="Sprite2D" parent="YSort" index="44"]
+[node name="trees16" type="Sprite2D" parent="YSort" index="39"]
 modulate = Color(1, 1, 0.796078, 1)
 position = Vector2(2758.75, 3142.98)
 scale = Vector2(0.643928, 0.620047)
 texture = ExtResource("17_xpwb2")
 offset = Vector2(0, -400)
 
-[node name="trees27" type="Sprite2D" parent="YSort" index="45"]
+[node name="trees27" type="Sprite2D" parent="YSort" index="40"]
 modulate = Color(1, 1, 0.796078, 1)
 position = Vector2(2363, 3439)
 scale = Vector2(0.643928, 0.620047)
-texture = ExtResource("23_lkgal")
+texture = ExtResource("22_qwomy")
 offset = Vector2(0, -400)
 
-[node name="trees29" type="Sprite2D" parent="YSort" index="46"]
+[node name="trees29" type="Sprite2D" parent="YSort" index="41"]
 modulate = Color(1, 1, 0.796078, 1)
 position = Vector2(2419, 3393)
 scale = Vector2(0.643928, 0.620047)
 texture = ExtResource("16_krwh4")
 offset = Vector2(0, -400)
 
-[node name="trees28" type="Sprite2D" parent="YSort" index="47"]
+[node name="trees28" type="Sprite2D" parent="YSort" index="42"]
 modulate = Color(1, 1, 0.796078, 1)
 position = Vector2(1891, 3337)
 scale = Vector2(0.643928, 0.620047)
 texture = ExtResource("15_misai")
 offset = Vector2(0, -400)
 
-[node name="trees17" type="Sprite2D" parent="YSort" index="48"]
+[node name="trees17" type="Sprite2D" parent="YSort" index="43"]
 modulate = Color(1, 1, 0.796078, 1)
 position = Vector2(4390.75, 861.977)
 scale = Vector2(0.643928, 0.620047)
 texture = ExtResource("17_xpwb2")
 offset = Vector2(0, -400)
 
-[node name="trees25" type="Sprite2D" parent="YSort" index="49"]
+[node name="trees25" type="Sprite2D" parent="YSort" index="44"]
 modulate = Color(1, 1, 0.796078, 1)
 position = Vector2(5424, 3321)
 scale = Vector2(0.643928, 0.620047)
 texture = ExtResource("17_xpwb2")
 offset = Vector2(0, -400)
 
-[node name="trees37" type="Sprite2D" parent="YSort" index="50"]
+[node name="trees37" type="Sprite2D" parent="YSort" index="45"]
 modulate = Color(1, 1, 0.796078, 1)
 position = Vector2(5638, 3459)
 scale = Vector2(-0.644, 0.62)
 texture = ExtResource("17_xpwb2")
 offset = Vector2(0, -400)
 
-[node name="trees38" type="Sprite2D" parent="YSort" index="51"]
+[node name="trees38" type="Sprite2D" parent="YSort" index="46"]
 modulate = Color(1, 1, 0.796078, 1)
 position = Vector2(5918, 3343)
 scale = Vector2(-0.644, 0.62)
 texture = ExtResource("22_px5x2")
 offset = Vector2(0, -400)
 
-[node name="trees39" type="Sprite2D" parent="YSort" index="52"]
+[node name="trees39" type="Sprite2D" parent="YSort" index="47"]
 modulate = Color(1, 1, 0.796078, 1)
 position = Vector2(5601, 3286.89)
 scale = Vector2(-0.812804, 0.797215)
 texture = ExtResource("22_px5x2")
 offset = Vector2(0, -400)
 
-[node name="trees40" type="Sprite2D" parent="YSort" index="53"]
+[node name="trees40" type="Sprite2D" parent="YSort" index="48"]
 modulate = Color(1, 1, 0.796078, 1)
 position = Vector2(5217, 3282)
 scale = Vector2(-0.812804, 0.634046)
 texture = ExtResource("15_misai")
 offset = Vector2(0, -400)
 
-[node name="trees18" type="Sprite2D" parent="YSort" index="54"]
+[node name="trees18" type="Sprite2D" parent="YSort" index="49"]
 modulate = Color(1, 1, 0.796078, 1)
 position = Vector2(1283.75, 148.977)
 scale = Vector2(0.643928, 0.620047)
 texture = ExtResource("17_xpwb2")
 offset = Vector2(0, -400)
 
-[node name="trees19" type="Sprite2D" parent="YSort" index="55"]
+[node name="trees19" type="Sprite2D" parent="YSort" index="50"]
 modulate = Color(1, 1, 0.796078, 1)
 position = Vector2(2987.75, 4589.98)
 scale = Vector2(-0.644, 0.62)
 texture = ExtResource("17_xpwb2")
 offset = Vector2(0, -400)
 
-[node name="trees20" type="Sprite2D" parent="YSort" index="56"]
+[node name="trees20" type="Sprite2D" parent="YSort" index="51"]
 modulate = Color(1, 1, 0.796078, 1)
 position = Vector2(3522.75, 5786.98)
 scale = Vector2(-0.644, 0.62)
 texture = ExtResource("17_xpwb2")
 offset = Vector2(0, -400)
 
-[node name="trees32" type="Sprite2D" parent="YSort" index="57"]
+[node name="trees32" type="Sprite2D" parent="YSort" index="52"]
 modulate = Color(1, 1, 0.796078, 1)
 position = Vector2(3485, 5017)
 scale = Vector2(0.644, 0.62)
 texture = ExtResource("17_xpwb2")
 offset = Vector2(0, -400)
 
-[node name="trees35" type="Sprite2D" parent="YSort" index="58"]
+[node name="trees35" type="Sprite2D" parent="YSort" index="53"]
 modulate = Color(1, 1, 0.796078, 1)
 position = Vector2(5019.99, 4319.42)
 scale = Vector2(0.5522, 0.553612)
 texture = ExtResource("17_xpwb2")
 offset = Vector2(0, -400)
 
-[node name="trees36" type="Sprite2D" parent="YSort" index="59"]
+[node name="trees36" type="Sprite2D" parent="YSort" index="54"]
 modulate = Color(1, 1, 0.796078, 1)
 position = Vector2(4838, 4475)
 scale = Vector2(0.5522, 0.553612)
 texture = ExtResource("15_misai")
 offset = Vector2(0, -400)
 
-[node name="trees33" type="Sprite2D" parent="YSort" index="60"]
+[node name="trees33" type="Sprite2D" parent="YSort" index="55"]
 modulate = Color(1, 1, 0.796078, 1)
 position = Vector2(3677, 4881)
 scale = Vector2(0.644, 0.62)
 texture = ExtResource("22_px5x2")
 offset = Vector2(0, -400)
 
-[node name="trees34" type="Sprite2D" parent="YSort" index="61"]
+[node name="trees34" type="Sprite2D" parent="YSort" index="56"]
 modulate = Color(1, 1, 0.796078, 1)
 position = Vector2(3125, 4929)
 scale = Vector2(0.644, 0.62)
 texture = ExtResource("22_px5x2")
 offset = Vector2(0, -400)
 
-[node name="trees30" type="Sprite2D" parent="YSort" index="62"]
+[node name="trees30" type="Sprite2D" parent="YSort" index="57"]
 modulate = Color(1, 1, 0.796078, 1)
 position = Vector2(4479, 5425)
 scale = Vector2(-0.644, 0.62)
 texture = ExtResource("15_misai")
 offset = Vector2(0, -400)
 
-[node name="trees31" type="Sprite2D" parent="YSort" index="63"]
+[node name="trees31" type="Sprite2D" parent="YSort" index="58"]
 modulate = Color(1, 1, 0.796078, 1)
 position = Vector2(3897, 4829)
 scale = Vector2(-0.644, 0.62)
 texture = ExtResource("15_misai")
 offset = Vector2(0, -400)
 
-[node name="trees21" type="Sprite2D" parent="YSort" index="64"]
+[node name="trees21" type="Sprite2D" parent="YSort" index="59"]
 modulate = Color(1, 1, 0.796078, 1)
 position = Vector2(7570, 3023)
 scale = Vector2(-0.644, 0.62)
 texture = ExtResource("17_xpwb2")
 offset = Vector2(0, -400)
 
-[node name="trees22" type="Sprite2D" parent="YSort" index="65"]
+[node name="trees22" type="Sprite2D" parent="YSort" index="60"]
 modulate = Color(1, 1, 0.796078, 1)
 position = Vector2(7477, 2298)
 scale = Vector2(-0.644, 0.62)
-texture = ExtResource("23_lkgal")
+texture = ExtResource("22_qwomy")
 offset = Vector2(0, -400)
 
-[node name="trees23" type="Sprite2D" parent="YSort" index="66"]
+[node name="trees23" type="Sprite2D" parent="YSort" index="61"]
 modulate = Color(1, 1, 0.796078, 1)
 position = Vector2(7617.99, 979.34)
 scale = Vector2(-0.644, 0.62)
-texture = ExtResource("23_lkgal")
+texture = ExtResource("22_qwomy")
 offset = Vector2(0, -300)
 
-[node name="trees24" type="Sprite2D" parent="YSort" index="67"]
+[node name="CliffTower3" parent="YSort" index="62" instance=ExtResource("8_wraec")]
+position = Vector2(412, 5899)
+
+[node name="SynthCliff1" parent="YSort" index="63" instance=ExtResource("21_yqn2d")]
+position = Vector2(2631, 954)
+
+[node name="trees41" type="Sprite2D" parent="YSort/SynthCliff1" index="24"]
 modulate = Color(1, 1, 0.796078, 1)
-position = Vector2(5001.99, 373.34)
-scale = Vector2(-0.644, 0.62)
-texture = ExtResource("23_lkgal")
-offset = Vector2(0, -300)
+position = Vector2(-255, -80.0001)
+scale = Vector2(0.643928, 0.620047)
+texture = ExtResource("22_qwomy")
+offset = Vector2(0, -400)
+
+[node name="SynthCliff2" parent="YSort" index="64" instance=ExtResource("21_yqn2d")]
+position = Vector2(2894, 1330)
+
+[node name="trees26" type="Sprite2D" parent="YSort/SynthCliff2" index="24"]
+modulate = Color(1, 1, 0.796078, 1)
+position = Vector2(-133, -153)
+scale = Vector2(0.643928, 0.620047)
+texture = ExtResource("17_xpwb2")
+offset = Vector2(0, -400)
+
+[node name="Door" parent="YSort" index="65" instance=ExtResource("22_l323w")]
+position = Vector2(4894, 29)
+scale = Vector2(5, 1)
+dest_resource = "res://scenes/rising_1.tscn"
+dest_edge = "Door"
 
 [node name="MainDaylightFilter" parent="Filters" index="0"]
 daylight_shader = SubResource("ShaderMaterial_opth5")
@@ -488,7 +496,7 @@ collision_layer = 32768
 collision_mask = 32768
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CAMERA_BOUNDS" index="0"]
-position = Vector2(4384.5, -342.5)
+position = Vector2(4385, -294)
 shape = SubResource("RectangleShape2D_78hih")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="CAMERA_BOUNDS" index="1"]

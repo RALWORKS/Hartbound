@@ -1,0 +1,170 @@
+[gd_scene load_steps=7 format=3 uid="uid://byftnhvvihylh"]
+
+[ext_resource type="Script" path="res://abstract/scene/line_sort_scenery.gd" id="1_v1xmj"]
+[ext_resource type="Texture2D" uid="uid://dayjr3ows4hfl" path="res://assets/textures/cliff-face-pale-grey.png" id="2_tyiys"]
+[ext_resource type="Texture2D" uid="uid://ccdd020kenm4q" path="res://assets/forest-layers/bg/mossy-stone.png" id="3_2lwls"]
+[ext_resource type="PackedScene" uid="uid://8p308si3awg0" path="res://effects/crayon_line.tscn" id="4_l6qse"]
+[ext_resource type="PackedScene" uid="uid://bbo6xrp4ysffi" path="res://effects/pen_line.tscn" id="6_03wdd"]
+[ext_resource type="PackedScene" uid="uid://doqir1yy8117e" path="res://abstract/scene/baseline.tscn" id="7_dlynb"]
+
+[node name="SquareStoneCliffTiny" type="Node2D" node_paths=PackedStringArray("baseline")]
+script = ExtResource("1_v1xmj")
+baseline = NodePath("Baseline")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+texture_repeat = 2
+position = Vector2(-888, -1736)
+color = Color(0.847059, 0.847059, 0.733333, 1)
+texture = ExtResource("2_tyiys")
+texture_scale = Vector2(1.5, 1.5)
+polygon = PackedVector2Array(977, 1809, 1163, 1662, 1162, 1503, 977, 1646)
+
+[node name="Polygon2D2" type="Polygon2D" parent="."]
+texture_repeat = 2
+position = Vector2(-888, -1736)
+color = Color(0.717647, 0.709804, 0.701961, 1)
+texture = ExtResource("2_tyiys")
+texture_scale = Vector2(1.5, 1.5)
+polygon = PackedVector2Array(977, 1808, 707, 1806, 699, 1653, 977, 1646)
+
+[node name="Polygon2D3" type="Polygon2D" parent="."]
+position = Vector2(-888, -1736)
+texture = ExtResource("3_2lwls")
+texture_offset = Vector2(14.565, 181.02)
+texture_scale = Vector2(2, 2)
+polygon = PackedVector2Array(701, 1653, 976, 1649, 1163, 1503, 1160, 1497, 887, 1499, 703, 1645)
+uv = PackedVector2Array(264.636, 280.273, 539.636, 276.273, 726.636, 130.273, 723.636, 124.273, 450.636, 126.273, 263.636, 269.273)
+
+[node name="Polygon2D5" type="Polygon2D" parent="."]
+position = Vector2(-888, -1736)
+color = Color(0.796078, 0.796078, 0.796078, 0.407843)
+texture_offset = Vector2(14.565, 181.02)
+texture_scale = Vector2(2, 2)
+polygon = PackedVector2Array(704, 1650, 976, 1649, 1163, 1503, 1160, 1497, 887, 1499, 708, 1642)
+uv = PackedVector2Array(264.636, 280.273, 539.636, 276.273, 726.636, 130.273, 723.636, 124.273, 450.636, 126.273, 263.636, 269.273)
+
+[node name="Polygon2D4" type="Polygon2D" parent="."]
+visible = false
+position = Vector2(-888, -1736)
+color = Color(1, 1, 1, 0.337255)
+texture_offset = Vector2(14.565, 181.02)
+texture_scale = Vector2(2, 2)
+polygon = PackedVector2Array(701, 1653, 976, 1649, 1163, 1503, 1160, 1497, 887, 1499, 700, 1642)
+
+[node name="CrayonLine" parent="." instance=ExtResource("4_l6qse")]
+points = PackedVector2Array(147, -124, 271, -224, 269, -69)
+width = 20.0
+default_color = Color(0.74902, 0.894118, 0.109804, 0.564706)
+
+[node name="CrayonLine5" parent="." instance=ExtResource("4_l6qse")]
+points = PackedVector2Array(2, -222, 215, -211, 121, -229, 265, -229)
+width = 20.0
+default_color = Color(0.74902, 0.894118, 0.109804, 0.564706)
+
+[node name="CrayonLine8" parent="." instance=ExtResource("4_l6qse")]
+position = Vector2(-86, 29)
+points = PackedVector2Array(141, -209, 215, -211, 121, -229, 265, -229)
+width = 20.0
+default_color = Color(0.74902, 0.894118, 0.109804, 0.564706)
+
+[node name="CrayonLine6" parent="." instance=ExtResource("4_l6qse")]
+points = PackedVector2Array(-185, -86, 87, -87, 127, -120)
+width = 20.0
+default_color = Color(0.447059, 0.694118, 0.270588, 0.564706)
+
+[node name="CrayonLine3" parent="." instance=ExtResource("4_l6qse")]
+points = PackedVector2Array(192, -92, 230, -106, 244, -85, 243, -65)
+width = 20.0
+default_color = Color(0.74902, 0.894118, 0.109804, 0.564706)
+
+[node name="CrayonLine2" parent="." instance=ExtResource("4_l6qse")]
+points = PackedVector2Array(158, 18, 189, -8)
+width = 20.0
+default_color = Color(0.454902, 0.623529, 0.25098, 0.784314)
+
+[node name="CrayonLine4" parent="." instance=ExtResource("4_l6qse")]
+points = PackedVector2Array(206, -236, -4, -236, -188, -86, 84, -87, 188, -168)
+width = 11.0
+default_color = Color(0.501961, 0.529412, 0.431373, 0.45098)
+
+[node name="CrayonLine7" parent="." instance=ExtResource("4_l6qse")]
+points = PackedVector2Array(-184, 6, -182, 38, -182, 71, 88, 73, 87, -83)
+width = 11.0
+default_color = Color(0.501961, 0.592157, 0.431373, 0.92549)
+
+[node name="PenLine" parent="." instance=ExtResource("6_03wdd")]
+points = PackedVector2Array(87, -86, 88, 73, 101.127, 62.4278, 106.852, 57.8164, 112.488, 53.2769, 257.879, -63.8213, 262, -76, 268, -71, 273, -76, 273, -235, 234.104, -204.587, 227, -195, 220.161, -193.684, 129, -121, 123, -113, 115, -113, 85, -88)
+default_color = Color(0.909804, 0.537255, 0.686275, 0.494118)
+
+[node name="PenLine2" parent="." instance=ExtResource("6_03wdd")]
+points = PackedVector2Array(89, 73, -183, 70, -187, -88, -31, -86, 87, -89)
+default_color = Color(0.909804, 0.537255, 0.686275, 0.494118)
+
+[node name="JaggedCrack1" parent="." instance=ExtResource("6_03wdd")]
+position = Vector2(-2, 15)
+points = PackedVector2Array(-129, -104, -123, -109, -114, -111, -120, -117, -113, -124)
+default_color = Color(0.909804, 0.537255, 0.686275, 0.494118)
+
+[node name="ShortCrack1" parent="." instance=ExtResource("6_03wdd")]
+position = Vector2(14, 15)
+points = PackedVector2Array(-129, -104, -123, -109)
+default_color = Color(0.909804, 0.537255, 0.686275, 0.494118)
+
+[node name="ShortCrack2" parent="." instance=ExtResource("6_03wdd")]
+position = Vector2(206, 15)
+points = PackedVector2Array(-129, -104, -123, -109)
+default_color = Color(0.909804, 0.537255, 0.686275, 0.494118)
+
+[node name="ShortCrack3" parent="." instance=ExtResource("6_03wdd")]
+position = Vector2(186, 15)
+points = PackedVector2Array(-129, -104, -123, -109)
+default_color = Color(0.909804, 0.537255, 0.686275, 0.494118)
+
+[node name="TShortCrack1" parent="." instance=ExtResource("6_03wdd")]
+position = Vector2(25, 9)
+points = PackedVector2Array(163, -183, 172, -183)
+default_color = Color(0.909804, 0.537255, 0.686275, 0.494118)
+
+[node name="TShortCrack3" parent="." instance=ExtResource("6_03wdd")]
+position = Vector2(34, 1)
+points = PackedVector2Array(166, -183, 172, -183)
+default_color = Color(0.909804, 0.537255, 0.686275, 0.494118)
+
+[node name="TShortCrack4" parent="." instance=ExtResource("6_03wdd")]
+position = Vector2(50, -9)
+points = PackedVector2Array(162, -183, 172, -183)
+default_color = Color(0.909804, 0.537255, 0.686275, 0.494118)
+
+[node name="TShortCrack5" parent="." instance=ExtResource("6_03wdd")]
+position = Vector2(50, -9)
+points = PackedVector2Array(162, -183, 179, -190)
+default_color = Color(0.909804, 0.537255, 0.686275, 0.494118)
+
+[node name="LongCrack1" parent="." instance=ExtResource("6_03wdd")]
+position = Vector2(130, -129)
+points = PackedVector2Array(-244, -8, -123, -109)
+default_color = Color(0.909804, 0.537255, 0.686275, 0.494118)
+
+[node name="LongCrack2" parent="." instance=ExtResource("6_03wdd")]
+position = Vector2(142, -129)
+points = PackedVector2Array(-173, -68, -123, -109)
+width = 5.0
+default_color = Color(0.909804, 0.537255, 0.686275, 0.494118)
+
+[node name="LongCrack3" parent="." instance=ExtResource("6_03wdd")]
+position = Vector2(142, -129)
+points = PackedVector2Array(-5, -103, -149, -103)
+width = 5.0
+default_color = Color(0.909804, 0.537255, 0.686275, 0.494118)
+
+[node name="PenLine3" parent="." instance=ExtResource("6_03wdd")]
+points = PackedVector2Array(-187, -88, -1, -237, 267, -239, 271, -235)
+default_color = Color(0.909804, 0.537255, 0.686275, 0.494118)
+
+[node name="Baseline" parent="." instance=ExtResource("7_dlynb")]
+points = PackedVector2Array(-209, 56, 81, 62, 304, -113)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(-185, 70, 86, 75, 275, -78, 13, -91)

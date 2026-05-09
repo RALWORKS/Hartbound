@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://bdbp5t1yeh5sv"]
+
+[ext_resource type="Texture2D" uid="uid://004m3mbmjima" path="res://assets/crazy-isometric-guide.png" id="1_rx81o"]
+[ext_resource type="Script" path="res://scenery/iso_1.gd" id="2_m33d1"]
+
+[node name="ISO1" type="Sprite2D"]
+modulate = Color(1, 1, 1, 0.227451)
+z_index = 100
+texture = ExtResource("1_rx81o")
+script = ExtResource("2_m33d1")

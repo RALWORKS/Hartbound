@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://7f78v4poqfnq"]
+
+[ext_resource type="PackedScene" uid="uid://cik53jyqv2nj2" path="res://abstract/scene/greeble_polygon.tscn" id="1_4umb4"]
+[ext_resource type="Texture2D" uid="uid://bokmdx22fxd6l" path="res://assets/forest-layers/bg/meadow1-tiles.png" id="2_b7b38"]
+
+[node name="s" instance=ExtResource("1_4umb4")]
+self_modulate = Color(1, 1, 1, 0)
+position = Vector2(-68, 2)
+texture = ExtResource("2_b7b38")
+polygon = PackedVector2Array(195, 79, 174, 582, 669, 334)
+start_at = 100
+length_scale = 3.0
+deviation_scale = 2.5
+
+[node name="Child" parent="." index="0"]
+texture = ExtResource("2_b7b38")
+polygon = PackedVector2Array(195, 79, 188, 123, 206, 141, 205, 163, 181, 179, 192, 201, 176, 235, 187, 272, 175, 287, 176, 306, 193, 335, 179, 356, 181, 353, 183, 377, 172, 385, 185, 403, 183, 415, 182, 459, 173, 488, 190, 510, 189, 526, 166, 549, 178, 555, 174, 582, 205, 548, 238, 558, 234, 554, 244, 545, 279, 529, 282, 516, 309, 513, 332, 516, 346, 504, 381, 488, 402, 482, 416, 472, 429, 450, 469, 454, 490, 433, 475, 429, 496, 410, 497, 422, 525, 416, 538, 402, 561, 383, 603, 379, 612, 350, 636, 338, 651, 351, 669, 334, 617, 319, 609, 303, 587, 284, 580, 274, 564, 280, 566, 284, 550, 276, 503, 258, 495, 252, 456, 236, 447, 213, 414, 216, 403, 199, 400, 188, 365, 161, 347, 170, 341, 168, 323, 161, 321, 145, 305, 144, 281, 114, 252, 100, 246, 107, 225, 96)

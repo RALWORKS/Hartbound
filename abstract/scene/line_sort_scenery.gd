@@ -40,7 +40,7 @@ func check_should_be_behind(_item: Node2D, mob: Node2D):
 
 
 func global_pt(pt):
-	return (pt * scale + position + baseline.position)
+	return (pt * scale + position + scale * baseline.position)
 
 
 func get_bounds(trace: int):

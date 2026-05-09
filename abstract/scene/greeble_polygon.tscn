@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://cik53jyqv2nj2"]
+
+[ext_resource type="Script" path="res://abstract/scene/greeble_polygon.gd" id="1_d1t13"]
+
+[node name="GreeblePolygon" type="Polygon2D"]
+script = ExtResource("1_d1t13")
+length_scale = 1.2
+deviation_scale = 1.2
