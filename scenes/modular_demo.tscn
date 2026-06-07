@@ -485,7 +485,7 @@ offset = Vector2(0, -400)
 [node name="Door" parent="YSort" index="65" instance=ExtResource("22_l323w")]
 position = Vector2(4894, 29)
 scale = Vector2(5, 1)
-dest_resource = "res://scenes/rising_1.tscn"
+dest_resource = "res://scenes/mod2.tscn"
 dest_edge = "Door"
 
 [node name="MainDaylightFilter" parent="Filters" index="0"]
