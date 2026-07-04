@@ -1,4 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://bcsk74hos8fah"]
+[gd_scene load_steps=5 format=3 uid="uid://bcsk74hos8fah"]
+
+[ext_resource type="Script" path="res://anims/elk/left_animator.gd" id="1_govy0"]
 
 [sub_resource type="Animation" id="Animation_78grx"]
 length = 0.001
@@ -283,3 +285,4 @@ speed_scale = 3.0
 libraries = {
 "": SubResource("AnimationLibrary_7khng")
 }
+script = ExtResource("1_govy0")
