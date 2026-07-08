@@ -562,7 +562,7 @@ _data = {
 "walk": SubResource("Animation_7srnr")
 }
 
-[sub_resource type="Animation" id="Animation_lcach"]
+[sub_resource type="Animation" id="Animation_h3a77"]
 length = 0.001
 loop_mode = 1
 tracks/0/type = "value"
@@ -695,10 +695,10 @@ tracks/10/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(297, 323)]
+"values": [Vector2(303, 323)]
 }
 
-[sub_resource type="Animation" id="Animation_r1nd0"]
+[sub_resource type="Animation" id="Animation_44f7m"]
 length = 3.6
 loop_mode = 1
 tracks/0/type = "value"
@@ -831,13 +831,13 @@ tracks/10/keys = {
 "times": PackedFloat32Array(0, 0.6, 1.7, 2.5, 3.6),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(297, 323), Vector2(297, 320), Vector2(297, 323), Vector2(297, 320), Vector2(297, 323)]
+"values": [Vector2(303, 323), Vector2(303, 320), Vector2(303, 323), Vector2(303, 320), Vector2(303, 323)]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_utqdc"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_yy4v7"]
 _data = {
-"RESET": SubResource("Animation_lcach"),
-"walk": SubResource("Animation_r1nd0")
+"RESET": SubResource("Animation_h3a77"),
+"walk": SubResource("Animation_44f7m")
 }
 
 [node name="ElkSprite" type="Node2D"]
@@ -848,13 +848,12 @@ visible = false
 [node name="RightFront" type="Sprite2D" parent="Left"]
 modulate = Color(0.686275, 0.596078, 0.576471, 1)
 position = Vector2(161, 280)
-rotation = -0.122173
 scale = Vector2(0.961667, 0.983333)
 texture = ExtResource("3_fmvr6")
 offset = Vector2(-50, -30)
 hframes = 6
 vframes = 5
-frame = 6
+frame = 16
 
 [node name="RightBack" type="Sprite2D" parent="Left"]
 modulate = Color(0.686275, 0.596078, 0.576471, 1)
@@ -864,7 +863,7 @@ texture = ExtResource("3_fmvr6")
 offset = Vector2(40, -50)
 hframes = 6
 vframes = 5
-frame = 9
+frame = 21
 
 [node name="Body" type="Polygon2D" parent="Left"]
 texture = ExtResource("1_f126h")
@@ -918,20 +917,24 @@ length = 76.686
 bone_angle = -18.305
 
 [node name="LeftFront" type="Sprite2D" parent="Left"]
+modulate = Color(0.972549, 0.972549, 0.972549, 1)
 position = Vector2(178, 312)
+rotation = -0.122173
 texture = ExtResource("3_fmvr6")
 offset = Vector2(-60, -50)
 hframes = 6
 vframes = 5
-frame = 18
+frame = 4
 
 [node name="LeftBack" type="Sprite2D" parent="Left"]
+modulate = Color(0.972549, 0.972549, 0.972549, 1)
 position = Vector2(381, 303)
+rotation = 0.261799
 texture = ExtResource("3_fmvr6")
 offset = Vector2(40, -50)
 hframes = 6
 vframes = 5
-frame = 19
+frame = 7
 
 [node name="LeftAnimator" parent="Left" instance=ExtResource("4_8q6to")]
 libraries = {
@@ -939,19 +942,30 @@ libraries = {
 "movement": SubResource("AnimationLibrary_jn5n5")
 }
 
+[node name="ChestConcealerDark" type="Polygon2D" parent="Left"]
+color = Color(0.87451, 0.847059, 0.839216, 1)
+polygon = PackedVector2Array(138, 304, 145, 324, 151, 329, 157, 330, 166, 331, 166, 327, 169, 325, 168, 322, 163, 319, 155, 308, 140, 293, 135, 300)
+
+[node name="ChestConcealerWhite" type="Polygon2D" parent="Left"]
+color = Color(0.972549, 0.972549, 0.972549, 1)
+polygon = PackedVector2Array(214, 328, 211, 339, 170, 332, 161, 320)
+
+[node name="HipConcealer" type="Polygon2D" parent="Left"]
+color = Color(0.972549, 0.972549, 0.972549, 1)
+polygon = PackedVector2Array(334, 315, 347, 314, 401, 306, 419, 306, 420, 288, 412, 269, 344, 258)
+
 [node name="UpLeft" type="Node2D" parent="."]
 visible = false
 
 [node name="RightFront" type="Sprite2D" parent="UpLeft"]
 modulate = Color(0.686275, 0.596078, 0.576471, 1)
 position = Vector2(213, 311)
-rotation = -0.0925025
 scale = Vector2(0.9, 0.9)
 texture = ExtResource("3_fmvr6")
 offset = Vector2(-50, -70)
 hframes = 6
 vframes = 5
-frame = 12
+frame = 16
 
 [node name="RightBack" type="Sprite2D" parent="UpLeft"]
 modulate = Color(0.686275, 0.596078, 0.576471, 1)
@@ -961,7 +975,7 @@ texture = ExtResource("3_fmvr6")
 offset = Vector2(40, -50)
 hframes = 6
 vframes = 5
-frame = 15
+frame = 19
 
 [node name="Body" type="Polygon2D" parent="UpLeft"]
 position = Vector2(-585, 28)
@@ -990,7 +1004,7 @@ length = 94.025
 bone_angle = 0.0
 
 [node name="Neck" type="Bone2D" parent="UpLeft/Skeleton2D/Hip"]
-position = Vector2(-118, -17)
+position = Vector2(-119, -21)
 rest = Transform2D(1, 0, 0, 1, -119, -21)
 auto_calculate_length_and_angle = false
 length = 94.025
@@ -998,7 +1012,6 @@ bone_angle = 250.17
 
 [node name="Ear" type="Bone2D" parent="UpLeft/Skeleton2D/Hip/Neck"]
 position = Vector2(-20, -93)
-rotation = -0.0523599
 rest = Transform2D(1, 0, 0, 1, -20, -93)
 auto_calculate_length_and_angle = false
 length = 83.996
@@ -1006,28 +1019,31 @@ bone_angle = 320.758
 
 [node name="Bum" type="Bone2D" parent="UpLeft/Skeleton2D/Hip"]
 position = Vector2(25, 10)
-rotation = 0.0523599
 rest = Transform2D(1, 0, 0, 1, 25, 10)
 auto_calculate_length_and_angle = false
 length = 56.627
 bone_angle = 31.107
 
 [node name="LeftFront" type="Sprite2D" parent="UpLeft"]
+modulate = Color(0.972549, 0.972549, 0.972549, 1)
 position = Vector2(164, 326)
+rotation = -0.122173
 scale = Vector2(0.9, 0.9)
 texture = ExtResource("3_fmvr6")
 offset = Vector2(-60, -70)
 hframes = 6
 vframes = 5
-frame = 24
+frame = 4
 
 [node name="LeftBack" type="Sprite2D" parent="UpLeft"]
-position = Vector2(304, 358)
+modulate = Color(0.972549, 0.972549, 0.972549, 1)
+position = Vector2(304, 355)
+rotation = 0.261799
 texture = ExtResource("3_fmvr6")
 offset = Vector2(40, -50)
 hframes = 6
 vframes = 5
-frame = 25
+frame = 5
 
 [node name="LeftAnimator" parent="UpLeft" instance=ExtResource("4_8q6to")]
 libraries = {
@@ -1037,27 +1053,42 @@ libraries = {
 neck_base = Vector2(-119, -21)
 back_left_base = Vector2(304, 358)
 
+[node name="ChestConcealerLight" type="Polygon2D" parent="UpLeft"]
+color = Color(0.964706, 0.964706, 0.964706, 1)
+polygon = PackedVector2Array(193, 335, 207, 330, 204, 313, 192, 317, 192, 323, 188, 318, 171, 318, 132, 305, 135, 318, 142, 328)
+
+[node name="ChestConcealerDark" type="Polygon2D" parent="UpLeft"]
+color = Color(0.87451, 0.847059, 0.839216, 1)
+polygon = PackedVector2Array(136, 278, 134, 308, 138, 328, 139, 319, 154, 331, 150, 316, 160, 331, 156, 316, 172, 329, 169, 314, 153, 288)
+
+[node name="ChestConcealerBlue" type="Polygon2D" parent="UpLeft"]
+color = Color(0.392157, 0.215686, 0.756863, 1)
+polygon = PackedVector2Array(130, 299, 130, 320, 135, 334, 133, 303)
+
+[node name="HipConcealer" type="Polygon2D" parent="UpLeft"]
+color = Color(0.972549, 0.972549, 0.972549, 1)
+polygon = PackedVector2Array(254, 356, 266, 372, 303, 370, 341, 373, 344, 363, 342, 346, 314, 320, 268, 325)
+
 [node name="DownLeft" type="Node2D" parent="."]
 
 [node name="RightFront" type="Sprite2D" parent="DownLeft"]
 modulate = Color(0.686275, 0.596078, 0.576471, 1)
 position = Vector2(140, 405)
-rotation = -0.122173
 texture = ExtResource("3_fmvr6")
 offset = Vector2(-50, -70)
 hframes = 6
 vframes = 5
-frame = 8
+frame = 24
 
 [node name="RightBack" type="Sprite2D" parent="DownLeft"]
 modulate = Color(0.686275, 0.596078, 0.576471, 1)
-position = Vector2(248, 320)
+position = Vector2(254, 320)
 scale = Vector2(0.9, 0.9)
 texture = ExtResource("3_fmvr6")
 offset = Vector2(40, -50)
 hframes = 6
 vframes = 5
-frame = 13
+frame = 27
 
 [node name="Body" type="Polygon2D" parent="DownLeft"]
 position = Vector2(-1717, 52)
@@ -1068,7 +1099,7 @@ uv = PackedVector2Array(1721.23, 226.194, 1761.23, 265.194, 1808.21, 245.623, 18
 bones = ["Hip", PackedFloat32Array(0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0), "Hip/Neck", PackedFloat32Array(1, 1, 1, 1, 0, 0, 0, 0.5, 0.5, 1, 1, 1), "Hip/Neck/Ear", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Hip/Bum", PackedFloat32Array(0, 0, 0, 0, 0.5, 0.5, 0.5, 0, 0, 0, 0, 0)]
 
 [node name="Bum" type="Polygon2D" parent="DownLeft"]
-position = Vector2(-1728, 57)
+position = Vector2(-1720, 54)
 texture = ExtResource("1_f126h")
 skeleton = NodePath("../Skeleton2D")
 polygon = PackedVector2Array(1928.13, 281.73, 1944.13, 185.73, 2101.41, 177.697, 2104.13, 277.73, 2070.13, 333.73, 2002.13, 367.73)
@@ -1086,7 +1117,7 @@ length = 94.025
 bone_angle = 0.0
 
 [node name="Neck" type="Bone2D" parent="DownLeft/Skeleton2D/Hip"]
-position = Vector2(-119, -21)
+position = Vector2(-118, -17)
 rest = Transform2D(1, 0, 0, 1, -119, -21)
 auto_calculate_length_and_angle = false
 length = 94.025
@@ -1094,6 +1125,7 @@ bone_angle = 250.17
 
 [node name="Ear" type="Bone2D" parent="DownLeft/Skeleton2D/Hip/Neck"]
 position = Vector2(-20, -93)
+rotation = -0.0523599
 rest = Transform2D(1, 0, 0, 1, -20, -93)
 auto_calculate_length_and_angle = false
 length = 83.996
@@ -1101,36 +1133,47 @@ bone_angle = 320.758
 
 [node name="Bum" type="Bone2D" parent="DownLeft/Skeleton2D/Hip"]
 position = Vector2(25, 10)
+rotation = 0.0523599
 rest = Transform2D(1, 0, 0, 1, 25, 10)
 auto_calculate_length_and_angle = false
 length = 56.627
 bone_angle = 31.107
 
 [node name="LeftFront" type="Sprite2D" parent="DownLeft"]
+modulate = Color(0.972549, 0.972549, 0.972549, 1)
 position = Vector2(183, 413)
 texture = ExtResource("3_fmvr6")
 offset = Vector2(-60, -70)
 hframes = 6
 vframes = 5
-frame = 20
+frame = 12
 
 [node name="LeftBack" type="Sprite2D" parent="DownLeft"]
-position = Vector2(297, 320)
+modulate = Color(0.972549, 0.972549, 0.972549, 1)
+position = Vector2(303, 323)
 scale = Vector2(0.9, 0.9)
 texture = ExtResource("3_fmvr6")
 offset = Vector2(40, -50)
 hframes = 6
 vframes = 5
-frame = 23
+frame = 13
 
 [node name="LeftAnimator" parent="DownLeft" instance=ExtResource("4_8q6to")]
 libraries = {
 "": SubResource("AnimationLibrary_7khng"),
-"movement": SubResource("AnimationLibrary_utqdc")
+"movement": SubResource("AnimationLibrary_yy4v7")
 }
 neck_base = Vector2(-119, -21)
-back_left_base = Vector2(297, 323)
+back_left_base = Vector2(303, 323)
 
-[node name="Polygon2D" type="Polygon2D" parent="DownLeft"]
+[node name="HipConcealer" type="Polygon2D" parent="DownLeft"]
 color = Color(0.972549, 0.972549, 0.972549, 1)
-polygon = PackedVector2Array(246, 316, 311, 278, 301, 348, 265, 373)
+polygon = PackedVector2Array(246, 316, 311, 278, 338, 307, 336, 328, 301, 348, 265, 373)
+
+[node name="ChestConcealerWhite" type="Polygon2D" parent="DownLeft"]
+color = Color(0.972549, 0.972549, 0.972549, 1)
+polygon = PackedVector2Array(141, 377, 145, 390, 150, 387, 155, 406, 160.92, 401.68, 182, 401, 195, 391, 220, 391, 217, 413, 161, 417, 141, 407)
+
+[node name="ChestConcealerDark" type="Polygon2D" parent="DownLeft"]
+color = Color(0.87451, 0.847059, 0.839216, 1)
+polygon = PackedVector2Array(139, 356, 148, 361, 159, 362, 164, 361, 172, 369, 178, 372, 182, 374, 176, 392, 174, 380, 156, 397, 151, 382, 144, 399)
