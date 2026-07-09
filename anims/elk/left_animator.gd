@@ -60,22 +60,22 @@ func make_walk_animations():
 		"tracks": {
 			"LeftFront:frame": {
 			"times": [0],
-			"values": [2]
+			"values": [0]
 			},
 
 			"LeftBack:frame": {
 			"times": [0],
-			"values": [3]
+			"values": [1]
 			},
 
 			"RightFront:frame": {
 			"times": [0],
-			"values": [14]
+			"values": [0]
 			},
 
 			"RightBack:frame": {
 			"times": [0],
-			"values": [15]
+			"values": [1]
 			},
 
 			"LeftBack:rotation": {
