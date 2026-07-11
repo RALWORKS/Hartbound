@@ -2,6 +2,7 @@
 extends Node2D
 
 @export var animation: String = "left_stopped"
+@export var show_demo_rider = false
 var last_animation = "left_stopped"
 
 
@@ -11,6 +12,7 @@ var last_animation = "left_stopped"
 	"up_left": [$UpLeft, false],
 	"up_right": [$UpLeft, true],
 	"down_left": [$DownLeft, false],
+	"test_mount": [$DownLeft, false],
 	"down_right": [$DownLeft, true],
 	"down": [$Down, false],
 	"up": [$Up, false],
@@ -32,10 +34,12 @@ func play(anim: String):
 	
 	if not d in DIRECTIONS:
 		return
+		
 	
 	play_params(DIRECTIONS[d][0], DIRECTIONS[d][1], cycle)
 	
-		
+	if anim == "test_mount":
+		pass
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -54,12 +58,15 @@ func play_params(group: Node2D, mirror:bool, anim: String):
 	if not anims:
 		return
 	anims.play("movement/" + anim)
+	if show_demo_rider:
+		group.get_node("RIDER").visible = true
 	
 func hide_all():
 	scale = Vector2(1.0, 1.0)
 	for c in get_children():
 		c.visible = false
 		c.process_mode = Node.PROCESS_MODE_DISABLED
+		c.get_node("RIDER").visible = false
 
 func get_animator(c):
 	var panim = c.get_node_or_null("PARAMETERIZED_ANIMS")

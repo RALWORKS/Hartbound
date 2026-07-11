@@ -5,6 +5,9 @@ extends Node2D
 @export var animations_refreshing = true
 var _refresh_started = false
 
+@export var animation = "down_stopped"
+var last_animation = "down_stopped"
+
 func _animation_from_frames(frames_sequence):
 	var animation = Animation.new()
 	animation.length = frame_spacing * frames_sequence.size()
@@ -26,40 +29,48 @@ func _make_walk_animations():
 	var library = AnimationLibrary.new()
 	
 	for key in ANIMATIONS.keys():
-		var value = ANIMATIONS[key]		
+		var value = ANIMATIONS[key]
 		library.add_animation(key, _animation_from_frames(value))
 
+	$AnimationPlayer.remove_animation_library("movement")
 	$AnimationPlayer.add_animation_library("movement", library)
 	animations_refreshing = false
 	_refresh_started = false
 
 var ANIMATIONS = {
 	"down": [28, 29, 30, 31, 32, 33, 34, 35],
-	"down-stopped": [27],
+	"down_stopped": [27],
 	"up": [19, 20, 21, 22, 23, 24, 25, 26],
-	"up-stopped": [18],
+	"up_stopped": [18],
 	"left": [1, 2, 3, 4, 5, 6, 7, 8],
-	"left-stopped": [0],
-	#"right": [13, 12, 14, 12],
-	#"right-stopped": [12],
-	#"down-right": [10, 9, 11, 9],
-	#"down-right-stopped": [9],
-	"down-left": [37, 38, 39, 40, 41, 42, 43, 44],
-	"down-left-stopped": [36],
-	#"up-right": [7, 6, 8, 6],
-	#"up-right-stopped": [6],
-	"up-left": [10, 11, 12, 13, 14, 15, 16, 17],
-	"up-left-stopped": [9],
-	#"Rotate": [0, 9, 12, 6, 3, 23, 17, 20]
+	"left_stopped": [0],
+	"down_left": [37, 38, 39, 40, 41, 42, 43, 44],
+	"down_left_stopped": [36],
+	"up_left": [10, 11, 12, 13, 14, 15, 16, 17],
+	"up_left_stopped": [9],
+	"ride_up": [47],
+	"ride_down": [49],
+	"ride_left": [45],
+	"ride_up_left": [46],
+	"ride_down_left": [48],
+	"mount_f1": [50],
+	"mount_f2": [51],
 }
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	refresh_animation()
 
+func refresh_animation():
+	last_animation = animation
+	if not $AnimationPlayer.has_animation("movement/" + animation):
+		return
+	$AnimationPlayer.play("movement/" + animation)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if animations_refreshing and not _refresh_started:
 		_make_walk_animations()
+	if animation != last_animation:
+		refresh_animation()
