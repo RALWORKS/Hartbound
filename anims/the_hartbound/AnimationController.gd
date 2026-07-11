@@ -5,7 +5,10 @@ extends Node2D
 @export var animations_refreshing = true
 var _refresh_started = false
 
-@export var animation = "down_stopped"
+# @export var animation = "down_stopped"
+
+@onready var root = $".."
+
 var last_animation = "down_stopped"
 var animation_player_command = "down_stopped"
 
@@ -51,13 +54,13 @@ var ANIMATIONS = {
 }
 
 func play(anim):
-	animation = anim
+	root.animation = anim
 
 func refresh_animation():
-	last_animation = animation
+	last_animation = root.animation
 
-	var tok: Array = animation.split("_")
-	var d = animation
+	var tok: Array = root.animation.split("_")
+	var d = root.animation
 
 	var append = ""
 	if tok[-1] == "stopped":
@@ -110,6 +113,7 @@ func _make_walk_animations():
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	last_animation = root.animation
 	refresh_animation()
 
 
@@ -117,5 +121,5 @@ func _ready():
 func _process(delta):
 	if animations_refreshing and not _refresh_started:
 		_make_walk_animations()
-	if animation != last_animation:
+	if root.animation != last_animation:
 		refresh_animation()
