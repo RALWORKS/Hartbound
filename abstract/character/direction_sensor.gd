@@ -1,4 +1,5 @@
 extends Node2D
+@export var is_active = true
 @export var facing = "down"
 var turning = false
 var anim = "down_stopped"
@@ -31,6 +32,8 @@ func get_v():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	if not is_active:
+		return
 	refresh()
 	
 

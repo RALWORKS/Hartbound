@@ -2,7 +2,7 @@
 extends Node2D
 
 @export var animation: String = "left_stopped"
-@export var show_rider = false
+@export var has_rider = false
 var last_animation = "left_stopped"
 
 
@@ -58,9 +58,19 @@ func play_params(group: Node2D, mirror:bool, anim: String):
 	if not anims:
 		return
 	anims.play("movement/" + anim)
-	if show_rider:
+	if has_rider:
 		group.get_node("RIDER").visible = true
-	
+
+func hide_rider():
+	has_rider = false
+	for c in get_children():
+		c.get_node("RIDER").visible = false
+
+func show_rider():
+	has_rider = true
+	for c in get_children():
+		c.get_node("RIDER").visible = true
+
 func hide_all():
 	scale = Vector2(1.0, 1.0)
 	for c in get_children():

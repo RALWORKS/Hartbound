@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://bfaabqnxf5j0i"]
+
+[ext_resource type="Script" path="res://player/bond_zone.gd" id="1_1nfq5"]
+[ext_resource type="Texture2D" uid="uid://crwgsbucxyldl" path="res://assets/circle.png" id="2_ictqd"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_qa8kl"]
+vertices = PackedVector2Array(-313, -870, 275, -867, 728, -543, 906, -15, 781, 469, 453, 762, -3, 886, -527, 755, -816, 359, -873, 3, -758, -496)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-313, -870, 275, -867, 728, -543, 906, -15, 781, 469, 453, 762, -3, 886, -527, 755, -816, 359, -873, 3, -758, -496)])
+
+[node name="BondZone" type="CharacterBody2D"]
+collision_layer = 6
+collision_mask = 6
+script = ExtResource("1_1nfq5")
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+navigation_polygon = SubResource("NavigationPolygon_qa8kl")
+
+[node name="EDGEA" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-827, -221, -737, -429, -593, -618, -416, -746, -208, -829, -1, -852, 207, -829, 415, -750, 611, -599, 739, -433, 822, -225, 856, -2, 822, 224, 739, 436, 868, 500, 973, 281, 1019, -6, 981, -263, 890, -531, 724, -731, 486, -905, 249, -991, -1, -1022, -208, -1003, -488, -901, -703, -761, -877, -535, -982, -244)
+
+[node name="EDGEB" type="CollisionPolygon2D" parent="."]
+rotation = 3.02989
+polygon = PackedVector2Array(-827, -221, -737, -429, -593, -618, -416, -746, -208, -829, -1, -852, 207, -829, 415, -750, 611, -599, 739, -433, 822, -225, 856, -2, 822, 224, 739, 436, 868, 500, 973, 281, 1019, -6, 981, -263, 890, -531, 724, -731, 486, -905, 249, -991, -1, -1022, -208, -1003, -488, -901, -703, -761, -877, -535, -982, -244)
+
+[node name="DEBUG" type="Sprite2D" parent="."]
+modulate = Color(1, 0, 1, 0.301961)
+scale = Vector2(10, 10)
+texture = ExtResource("2_ictqd")

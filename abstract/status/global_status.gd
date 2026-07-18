@@ -9,6 +9,13 @@ var dying = false
 var injured = false
 var ritual: bool = false
 
+enum MODE {
+	RIDER, ELF, ELK
+}
+enum MOVEMENT_OPERATOR {
+	SELF, PROXY
+}
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

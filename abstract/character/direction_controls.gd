@@ -1,5 +1,9 @@
 extends Node2D
-@export var autonomous = false
+
+@export var is_active = true
+@export var proxied = false
+
+@export var autonomous = true
 @export var disable_all = false
 @export var paused = false
 @export var character: Node2D
@@ -19,26 +23,45 @@ func _ready():
 	pass # Replace with function body.
 
 
+func get_speed():
+	if "speed" in character:
+		return character.speed
+	return speed
+
+func get_speed_scale():
+	if "speed_scale" in character:
+		return character.speed_scale
+	return speed_scale
+
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
-	# _refresh_destination_marker()
+	if not is_active:
+		return
+	if proxied:
+		move_proxied(delta)
+		return
 	if autonomous:
 		_handle_input_autonomously(delta)
 	var input_direction = refresh_walk_direction()
 	if input_direction != null:
 		go_direction(body_delta(), input_direction)
 
-	#set_anim()
-	#call_follower()
+
+func move_proxied(delta):
+	var collision = get_body().move_and_collide(get_v() * body_delta())
+	_handle_collisions(body_delta(), collision, get_v().normalized())
 
 
 func go_direction(delta, input_direction):
+	if not is_active:
+		return
 	if disable_all:
 		return
 
 	set_v(_modulate_velocity(input_direction))
 
-	var collision = get_body().move_and_collide(get_v() * body_delta())
+	var collision = get_body().move_and_collide(get_v() * body_delta() * get_speed_scale())
 	_handle_collisions(body_delta(), collision, input_direction)
 
 func _handle_collisions(_delta, collision, input_direction):
@@ -55,7 +78,7 @@ func _handle_collisions(_delta, collision, input_direction):
 #		normal = normal.normalized()
 		var slide = input_direction.slide(normal).normalized()
 		set_v(_modulate_velocity(slide))
-		get_body().move_and_collide(get_v() * body_delta())
+		get_body().move_and_collide(get_v() * body_delta() * get_speed_scale())
 		return
 
 	#set_anim() # needed in order to face the right way when stopping
@@ -63,6 +86,8 @@ func _handle_collisions(_delta, collision, input_direction):
 	
 	
 func no_input():
+	if not is_active:
+		return
 	if navigation_finished():
 		set_v(Vector2(0, 0))
 
@@ -79,7 +104,7 @@ func get_body():
 	return character
 
 func _modulate_velocity(direction):
-	return direction * speed * speed_scale
+	return direction * get_speed() #* get_speed_scale()
 
 func _near(a, b):
 	if null in [a, b]:
