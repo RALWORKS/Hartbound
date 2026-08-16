@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" path="res://anims/the_hartbound/main.gd" id="1_rida5"]
 [ext_resource type="PackedScene" uid="uid://wacr8mkdn2s1" path="res://abstract/character/direction_sensor.tscn" id="2_7s5t5"]
-[ext_resource type="Texture2D" uid="uid://68fw60xiemuk" path="res://anims/8doll-2-all-better-feet.png" id="2_qgvvs"]
 [ext_resource type="Script" path="res://anims/the_hartbound/AnimationController.gd" id="2_qhurd"]
+[ext_resource type="PackedScene" uid="uid://biutpd3erund6" path="res://anims/the_hartbound/spritesheet.tscn" id="2_ratnp"]
 [ext_resource type="PackedScene" uid="uid://mq4ctfv28yt2" path="res://abstract/character/direction_controls.tscn" id="3_uhmi7"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_nqnkc"]
@@ -334,10 +334,7 @@ script = ExtResource("1_rida5")
 transparent_bg = true
 size = Vector2i(1728, 2304)
 
-[node name="Body0" type="Sprite2D" parent="Texture"]
-modulate = Color(0.713726, 1, 1, 1)
-texture = ExtResource("2_qgvvs")
-centered = false
+[node name="Spritesheet" parent="Texture" instance=ExtResource("2_ratnp")]
 
 [node name="DirectionSensor" parent="." node_paths=PackedStringArray("player", "root") instance=ExtResource("2_7s5t5")]
 player = NodePath("../AnimationController")

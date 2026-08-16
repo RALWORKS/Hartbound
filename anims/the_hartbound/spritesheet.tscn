@@ -1,0 +1,33 @@
+[gd_scene load_steps=8 format=3 uid="uid://biutpd3erund6"]
+
+[ext_resource type="Texture2D" uid="uid://68fw60xiemuk" path="res://anims/8doll-2-all-better-feet.png" id="1_qk2rt"]
+[ext_resource type="PackedScene" uid="uid://b7gk2ff6ev5nw" path="res://anims/the_hartbound/face/hard.tscn" id="2_p7ok5"]
+[ext_resource type="PackedScene" uid="uid://harpuqe8hdp4" path="res://anims/the_hartbound/ears/low/main.tscn" id="3_46l24"]
+[ext_resource type="PackedScene" uid="uid://d4cih43pei740" path="res://anims/the_hartbound/face/soft.tscn" id="4_luu8c"]
+[ext_resource type="PackedScene" uid="uid://cr0hihkhisi5q" path="res://anims/the_hartbound/hair/half-ponytail/main.tscn" id="4_wcpb0"]
+[ext_resource type="PackedScene" uid="uid://cbipoce46uexu" path="res://anims/the_hartbound/ears/high/main.tscn" id="5_km878"]
+[ext_resource type="PackedScene" uid="uid://c1m14bggkyj0o" path="res://anims/the_hartbound/hair/round-bun/main.tscn" id="6_jruff"]
+
+[node name="Spritesheet" type="Node2D"]
+
+[node name="Body" type="Sprite2D" parent="."]
+modulate = Color(0.713726, 1, 1, 1)
+texture = ExtResource("1_qk2rt")
+centered = false
+
+[node name="HardFace" parent="Body" instance=ExtResource("2_p7ok5")]
+
+[node name="LowEars" parent="Body" instance=ExtResource("3_46l24")]
+
+[node name="SoftFace" parent="Body" instance=ExtResource("4_luu8c")]
+visible = false
+
+[node name="HighEars" parent="Body" instance=ExtResource("5_km878")]
+visible = false
+
+[node name="Hair" type="Node2D" parent="."]
+
+[node name="HalfPonytail" parent="Hair" instance=ExtResource("4_wcpb0")]
+
+[node name="RoundBun" parent="Hair" instance=ExtResource("6_jruff")]
+visible = false

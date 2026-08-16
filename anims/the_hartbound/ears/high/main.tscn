@@ -1,0 +1,247 @@
+[gd_scene load_steps=4 format=3 uid="uid://cbipoce46uexu"]
+
+[ext_resource type="Texture2D" uid="uid://68fw60xiemuk" path="res://anims/8doll-2-all-better-feet.png" id="1_p483l"]
+[ext_resource type="Texture2D" uid="uid://d0752gj30nned" path="res://anims/the_hartbound/ears/high/back.png" id="2_phk4c"]
+[ext_resource type="Texture2D" uid="uid://3ipi57olrjkl" path="res://anims/the_hartbound/ears/high/front.png" id="3_bda0j"]
+
+[node name="HighEars" type="Node2D"]
+z_index = 1
+
+[node name="Base" type="Sprite2D" parent="."]
+visible = false
+self_modulate = Color(1, 1, 0.74902, 1)
+texture = ExtResource("1_p483l")
+centered = false
+
+[node name="1" type="Node2D" parent="."]
+
+[node name="EarsBack" type="Sprite2D" parent="1"]
+z_index = -8
+texture = ExtResource("2_phk4c")
+centered = false
+
+[node name="EarsMain" type="Sprite2D" parent="1"]
+z_index = 1
+texture = ExtResource("3_bda0j")
+centered = false
+
+[node name="2" type="Node2D" parent="."]
+position = Vector2(191, 0)
+
+[node name="EarsBack" type="Sprite2D" parent="2"]
+z_index = -8
+texture = ExtResource("2_phk4c")
+centered = false
+
+[node name="EarsMain" type="Sprite2D" parent="2"]
+z_index = 1
+texture = ExtResource("3_bda0j")
+centered = false
+
+[node name="3" type="Node2D" parent="."]
+position = Vector2(383, 0)
+
+[node name="EarsBack" type="Sprite2D" parent="3"]
+z_index = -8
+texture = ExtResource("2_phk4c")
+centered = false
+
+[node name="EarsMain" type="Sprite2D" parent="3"]
+z_index = 1
+texture = ExtResource("3_bda0j")
+centered = false
+
+[node name="4" type="Node2D" parent="."]
+position = Vector2(575, 0)
+
+[node name="EarsBack" type="Sprite2D" parent="4"]
+z_index = -8
+texture = ExtResource("2_phk4c")
+centered = false
+
+[node name="EarsMain" type="Sprite2D" parent="4"]
+z_index = 1
+texture = ExtResource("3_bda0j")
+centered = false
+
+[node name="5" type="Node2D" parent="."]
+position = Vector2(767, 0)
+
+[node name="EarsBack" type="Sprite2D" parent="5"]
+z_index = -8
+texture = ExtResource("2_phk4c")
+centered = false
+
+[node name="EarsMain" type="Sprite2D" parent="5"]
+z_index = 1
+texture = ExtResource("3_bda0j")
+centered = false
+
+[node name="6" type="Node2D" parent="."]
+position = Vector2(959, 0)
+
+[node name="EarsBack" type="Sprite2D" parent="6"]
+z_index = -8
+texture = ExtResource("2_phk4c")
+centered = false
+
+[node name="EarsMain" type="Sprite2D" parent="6"]
+z_index = 1
+texture = ExtResource("3_bda0j")
+centered = false
+
+[node name="7" type="Node2D" parent="."]
+position = Vector2(1151, 0)
+
+[node name="EarsBack" type="Sprite2D" parent="7"]
+z_index = -8
+texture = ExtResource("2_phk4c")
+centered = false
+
+[node name="EarsMain" type="Sprite2D" parent="7"]
+z_index = 1
+texture = ExtResource("3_bda0j")
+centered = false
+
+[node name="8" type="Node2D" parent="."]
+position = Vector2(1343, 0)
+
+[node name="EarsBack" type="Sprite2D" parent="8"]
+z_index = -8
+texture = ExtResource("2_phk4c")
+centered = false
+
+[node name="EarsMain" type="Sprite2D" parent="8"]
+z_index = 1
+texture = ExtResource("3_bda0j")
+centered = false
+
+[node name="9" type="Node2D" parent="."]
+position = Vector2(1535, 0)
+
+[node name="EarsBack" type="Sprite2D" parent="9"]
+z_index = -8
+texture = ExtResource("2_phk4c")
+centered = false
+
+[node name="EarsMain" type="Sprite2D" parent="9"]
+z_index = 1
+texture = ExtResource("3_bda0j")
+centered = false
+
+[node name="10" type="Node2D" parent="."]
+position = Vector2(579, 1938)
+
+[node name="EarsBack" type="Sprite2D" parent="10"]
+z_index = -8
+texture = ExtResource("2_phk4c")
+centered = false
+vframes = 5
+frame = 4
+
+[node name="EarsMain" type="Sprite2D" parent="10"]
+z_index = 1
+texture = ExtResource("3_bda0j")
+centered = false
+vframes = 5
+frame = 4
+
+[node name="11" type="Node2D" parent="."]
+position = Vector2(1, 1924)
+
+[node name="EarsBack" type="Sprite2D" parent="11"]
+z_index = -8
+texture = ExtResource("2_phk4c")
+centered = false
+vframes = 5
+
+[node name="EarsMain" type="Sprite2D" parent="11"]
+z_index = 1
+texture = ExtResource("3_bda0j")
+centered = false
+vframes = 5
+
+[node name="12" type="Node2D" parent="."]
+position = Vector2(199, 1938)
+
+[node name="EarsBack" type="Sprite2D" parent="12"]
+z_index = -8
+texture = ExtResource("2_phk4c")
+centered = false
+vframes = 5
+frame = 1
+
+[node name="EarsMain" type="Sprite2D" parent="12"]
+z_index = 1
+texture = ExtResource("3_bda0j")
+centered = false
+vframes = 5
+frame = 1
+
+[node name="13" type="Node2D" parent="."]
+position = Vector2(978, 1950)
+
+[node name="EarsBack" type="Sprite2D" parent="13"]
+z_index = -8
+texture = ExtResource("2_phk4c")
+centered = false
+vframes = 5
+frame = 1
+
+[node name="EarsMain" type="Sprite2D" parent="13"]
+z_index = 1
+texture = ExtResource("3_bda0j")
+centered = false
+vframes = 5
+frame = 1
+
+[node name="14" type="Node2D" parent="."]
+position = Vector2(1175, 1931)
+
+[node name="EarsBack" type="Sprite2D" parent="14"]
+z_index = -8
+texture = ExtResource("2_phk4c")
+centered = false
+vframes = 5
+frame = 1
+
+[node name="EarsMain" type="Sprite2D" parent="14"]
+z_index = 1
+texture = ExtResource("3_bda0j")
+centered = false
+vframes = 5
+frame = 1
+
+[node name="15" type="Node2D" parent="."]
+position = Vector2(384, 1931)
+
+[node name="EarsBack" type="Sprite2D" parent="15"]
+z_index = -8
+texture = ExtResource("2_phk4c")
+centered = false
+vframes = 5
+frame = 2
+
+[node name="EarsMain" type="Sprite2D" parent="15"]
+z_index = 1
+texture = ExtResource("3_bda0j")
+centered = false
+vframes = 5
+frame = 2
+
+[node name="16" type="Node2D" parent="."]
+position = Vector2(765, 1931)
+
+[node name="EarsBack" type="Sprite2D" parent="16"]
+z_index = -8
+texture = ExtResource("2_phk4c")
+centered = false
+vframes = 5
+frame = 3
+
+[node name="EarsMain" type="Sprite2D" parent="16"]
+z_index = 1
+texture = ExtResource("3_bda0j")
+centered = false
+vframes = 5
+frame = 3

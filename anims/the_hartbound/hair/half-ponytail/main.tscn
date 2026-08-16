@@ -1,0 +1,324 @@
+[gd_scene load_steps=5 format=3 uid="uid://cr0hihkhisi5q"]
+
+[ext_resource type="Texture2D" uid="uid://68fw60xiemuk" path="res://anims/8doll-2-all-better-feet.png" id="1_oq6o1"]
+[ext_resource type="Texture2D" uid="uid://jtatojulmc1d" path="res://anims/the_hartbound/hair/half-ponytail/back.png" id="2_kkdgm"]
+[ext_resource type="Texture2D" uid="uid://chdicjsugyo0o" path="res://anims/the_hartbound/hair/half-ponytail/main.png" id="3_juqn6"]
+[ext_resource type="Texture2D" uid="uid://ba1rafg7oqng0" path="res://anims/the_hartbound/hair/half-ponytail/front.png" id="4_xuaqq"]
+
+[node name="HalfPonytail" type="Node2D"]
+
+[node name="Base" type="Sprite2D" parent="."]
+visible = false
+self_modulate = Color(1, 1, 0.74902, 1)
+texture = ExtResource("1_oq6o1")
+centered = false
+
+[node name="1" type="Node2D" parent="."]
+
+[node name="HairBack" type="Sprite2D" parent="1"]
+z_index = -8
+texture = ExtResource("2_kkdgm")
+centered = false
+
+[node name="HairMain" type="Sprite2D" parent="1"]
+texture = ExtResource("3_juqn6")
+centered = false
+
+[node name="HairFront" type="Sprite2D" parent="1"]
+z_index = 2
+texture = ExtResource("4_xuaqq")
+centered = false
+
+[node name="2" type="Node2D" parent="."]
+position = Vector2(191, 0)
+
+[node name="HairBack" type="Sprite2D" parent="2"]
+z_index = -8
+texture = ExtResource("2_kkdgm")
+centered = false
+
+[node name="HairMain" type="Sprite2D" parent="2"]
+texture = ExtResource("3_juqn6")
+centered = false
+
+[node name="HairFront" type="Sprite2D" parent="2"]
+z_index = 2
+texture = ExtResource("4_xuaqq")
+centered = false
+
+[node name="3" type="Node2D" parent="."]
+position = Vector2(383, 0)
+
+[node name="HairBack" type="Sprite2D" parent="3"]
+z_index = -8
+texture = ExtResource("2_kkdgm")
+centered = false
+
+[node name="HairMain" type="Sprite2D" parent="3"]
+texture = ExtResource("3_juqn6")
+centered = false
+
+[node name="HairFront" type="Sprite2D" parent="3"]
+z_index = 2
+texture = ExtResource("4_xuaqq")
+centered = false
+
+[node name="4" type="Node2D" parent="."]
+position = Vector2(575, 0)
+
+[node name="HairBack" type="Sprite2D" parent="4"]
+z_index = -8
+texture = ExtResource("2_kkdgm")
+centered = false
+
+[node name="HairMain" type="Sprite2D" parent="4"]
+texture = ExtResource("3_juqn6")
+centered = false
+
+[node name="HairFront" type="Sprite2D" parent="4"]
+z_index = 2
+texture = ExtResource("4_xuaqq")
+centered = false
+
+[node name="5" type="Node2D" parent="."]
+position = Vector2(767, 0)
+
+[node name="HairBack" type="Sprite2D" parent="5"]
+z_index = -8
+texture = ExtResource("2_kkdgm")
+centered = false
+
+[node name="HairMain" type="Sprite2D" parent="5"]
+texture = ExtResource("3_juqn6")
+centered = false
+
+[node name="HairFront" type="Sprite2D" parent="5"]
+z_index = 2
+texture = ExtResource("4_xuaqq")
+centered = false
+
+[node name="6" type="Node2D" parent="."]
+position = Vector2(959, 0)
+
+[node name="HairBack" type="Sprite2D" parent="6"]
+z_index = -8
+texture = ExtResource("2_kkdgm")
+centered = false
+
+[node name="HairMain" type="Sprite2D" parent="6"]
+texture = ExtResource("3_juqn6")
+centered = false
+
+[node name="HairFront" type="Sprite2D" parent="6"]
+z_index = 2
+texture = ExtResource("4_xuaqq")
+centered = false
+
+[node name="7" type="Node2D" parent="."]
+position = Vector2(1151, 0)
+
+[node name="HairBack" type="Sprite2D" parent="7"]
+z_index = -8
+texture = ExtResource("2_kkdgm")
+centered = false
+
+[node name="HairMain" type="Sprite2D" parent="7"]
+texture = ExtResource("3_juqn6")
+centered = false
+
+[node name="HairFront" type="Sprite2D" parent="7"]
+z_index = 2
+texture = ExtResource("4_xuaqq")
+centered = false
+
+[node name="8" type="Node2D" parent="."]
+position = Vector2(1343, 0)
+
+[node name="HairBack" type="Sprite2D" parent="8"]
+z_index = -8
+texture = ExtResource("2_kkdgm")
+centered = false
+
+[node name="HairMain" type="Sprite2D" parent="8"]
+texture = ExtResource("3_juqn6")
+centered = false
+
+[node name="HairFront" type="Sprite2D" parent="8"]
+z_index = 2
+texture = ExtResource("4_xuaqq")
+centered = false
+
+[node name="9" type="Node2D" parent="."]
+position = Vector2(1535, 0)
+
+[node name="HairBack" type="Sprite2D" parent="9"]
+z_index = -8
+texture = ExtResource("2_kkdgm")
+centered = false
+
+[node name="HairMain" type="Sprite2D" parent="9"]
+texture = ExtResource("3_juqn6")
+centered = false
+
+[node name="HairFront" type="Sprite2D" parent="9"]
+z_index = 2
+texture = ExtResource("4_xuaqq")
+centered = false
+
+[node name="10" type="Node2D" parent="."]
+position = Vector2(579, 1938)
+
+[node name="HairBack" type="Sprite2D" parent="10"]
+z_index = -8
+texture = ExtResource("2_kkdgm")
+centered = false
+vframes = 5
+frame = 4
+
+[node name="HairMain" type="Sprite2D" parent="10"]
+texture = ExtResource("3_juqn6")
+centered = false
+vframes = 5
+frame = 4
+
+[node name="HairFront" type="Sprite2D" parent="10"]
+z_index = 2
+texture = ExtResource("4_xuaqq")
+centered = false
+vframes = 5
+frame = 4
+
+[node name="11" type="Node2D" parent="."]
+position = Vector2(1, 1924)
+
+[node name="HairBack" type="Sprite2D" parent="11"]
+z_index = -8
+texture = ExtResource("2_kkdgm")
+centered = false
+vframes = 5
+
+[node name="HairMain" type="Sprite2D" parent="11"]
+texture = ExtResource("3_juqn6")
+centered = false
+vframes = 5
+
+[node name="HairFront" type="Sprite2D" parent="11"]
+z_index = 2
+texture = ExtResource("4_xuaqq")
+centered = false
+vframes = 5
+
+[node name="12" type="Node2D" parent="."]
+position = Vector2(199, 1938)
+
+[node name="HairBack" type="Sprite2D" parent="12"]
+z_index = -8
+texture = ExtResource("2_kkdgm")
+centered = false
+vframes = 5
+frame = 1
+
+[node name="HairMain" type="Sprite2D" parent="12"]
+texture = ExtResource("3_juqn6")
+centered = false
+vframes = 5
+frame = 1
+
+[node name="HairFront" type="Sprite2D" parent="12"]
+z_index = 2
+texture = ExtResource("4_xuaqq")
+centered = false
+vframes = 5
+frame = 1
+
+[node name="13" type="Node2D" parent="."]
+position = Vector2(978, 1950)
+
+[node name="HairBack" type="Sprite2D" parent="13"]
+z_index = -8
+texture = ExtResource("2_kkdgm")
+centered = false
+vframes = 5
+frame = 1
+
+[node name="HairMain" type="Sprite2D" parent="13"]
+texture = ExtResource("3_juqn6")
+centered = false
+vframes = 5
+frame = 1
+
+[node name="HairFront" type="Sprite2D" parent="13"]
+z_index = 2
+texture = ExtResource("4_xuaqq")
+centered = false
+vframes = 5
+frame = 1
+
+[node name="14" type="Node2D" parent="."]
+position = Vector2(1175, 1931)
+
+[node name="HairBack" type="Sprite2D" parent="14"]
+z_index = -8
+texture = ExtResource("2_kkdgm")
+centered = false
+vframes = 5
+frame = 1
+
+[node name="HairMain" type="Sprite2D" parent="14"]
+texture = ExtResource("3_juqn6")
+centered = false
+vframes = 5
+frame = 1
+
+[node name="HairFront" type="Sprite2D" parent="14"]
+z_index = 2
+texture = ExtResource("4_xuaqq")
+centered = false
+vframes = 5
+frame = 1
+
+[node name="15" type="Node2D" parent="."]
+position = Vector2(384, 1931)
+
+[node name="HairBack" type="Sprite2D" parent="15"]
+z_index = -8
+texture = ExtResource("2_kkdgm")
+centered = false
+vframes = 5
+frame = 2
+
+[node name="HairMain" type="Sprite2D" parent="15"]
+texture = ExtResource("3_juqn6")
+centered = false
+vframes = 5
+frame = 2
+
+[node name="HairFront" type="Sprite2D" parent="15"]
+z_index = 2
+texture = ExtResource("4_xuaqq")
+centered = false
+vframes = 5
+frame = 2
+
+[node name="16" type="Node2D" parent="."]
+position = Vector2(765, 1931)
+
+[node name="HairBack" type="Sprite2D" parent="16"]
+z_index = -8
+texture = ExtResource("2_kkdgm")
+centered = false
+vframes = 5
+frame = 3
+
+[node name="HairMain" type="Sprite2D" parent="16"]
+texture = ExtResource("3_juqn6")
+centered = false
+vframes = 5
+frame = 3
+
+[node name="HairFront" type="Sprite2D" parent="16"]
+z_index = 2
+texture = ExtResource("4_xuaqq")
+centered = false
+vframes = 5
+frame = 3

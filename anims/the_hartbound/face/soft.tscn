@@ -1,0 +1,141 @@
+[gd_scene load_steps=3 format=3 uid="uid://d4cih43pei740"]
+
+[ext_resource type="Texture2D" uid="uid://68fw60xiemuk" path="res://anims/8doll-2-all-better-feet.png" id="1_e8wj5"]
+[ext_resource type="Texture2D" uid="uid://bsbf2i23og0bp" path="res://anims/the_hartbound/face/soft.png" id="2_upwsj"]
+
+[node name="SoftFace" type="Node2D"]
+
+[node name="Base" type="Sprite2D" parent="."]
+visible = false
+self_modulate = Color(1, 1, 0.74902, 1)
+texture = ExtResource("1_e8wj5")
+centered = false
+
+[node name="1" type="Node2D" parent="."]
+position = Vector2(-1, 1)
+
+[node name="Face" type="Sprite2D" parent="1"]
+texture = ExtResource("2_upwsj")
+centered = false
+
+[node name="2" type="Node2D" parent="."]
+position = Vector2(190, 1)
+
+[node name="Face" type="Sprite2D" parent="2"]
+texture = ExtResource("2_upwsj")
+centered = false
+
+[node name="3" type="Node2D" parent="."]
+position = Vector2(382, 1)
+
+[node name="Face" type="Sprite2D" parent="3"]
+texture = ExtResource("2_upwsj")
+centered = false
+
+[node name="4" type="Node2D" parent="."]
+position = Vector2(574, 1)
+
+[node name="Face" type="Sprite2D" parent="4"]
+texture = ExtResource("2_upwsj")
+centered = false
+
+[node name="5" type="Node2D" parent="."]
+position = Vector2(766, 1)
+
+[node name="Face" type="Sprite2D" parent="5"]
+texture = ExtResource("2_upwsj")
+centered = false
+
+[node name="6" type="Node2D" parent="."]
+position = Vector2(958, 1)
+
+[node name="Face" type="Sprite2D" parent="6"]
+texture = ExtResource("2_upwsj")
+centered = false
+
+[node name="7" type="Node2D" parent="."]
+position = Vector2(1150, 1)
+
+[node name="Face" type="Sprite2D" parent="7"]
+texture = ExtResource("2_upwsj")
+centered = false
+
+[node name="8" type="Node2D" parent="."]
+position = Vector2(1342, 1)
+
+[node name="Face" type="Sprite2D" parent="8"]
+texture = ExtResource("2_upwsj")
+centered = false
+
+[node name="9" type="Node2D" parent="."]
+position = Vector2(1534, 1)
+
+[node name="Face" type="Sprite2D" parent="9"]
+texture = ExtResource("2_upwsj")
+centered = false
+
+[node name="10" type="Node2D" parent="."]
+position = Vector2(578, 1939)
+
+[node name="Face" type="Sprite2D" parent="10"]
+texture = ExtResource("2_upwsj")
+centered = false
+vframes = 6
+frame = 4
+
+[node name="11" type="Node2D" parent="."]
+position = Vector2(0, 1925)
+
+[node name="Face" type="Sprite2D" parent="11"]
+texture = ExtResource("2_upwsj")
+centered = false
+vframes = 6
+
+[node name="12" type="Node2D" parent="."]
+position = Vector2(198, 1939)
+
+[node name="Face" type="Sprite2D" parent="12"]
+position = Vector2(0, -7)
+texture = ExtResource("2_upwsj")
+centered = false
+vframes = 6
+frame = 1
+
+[node name="13" type="Node2D" parent="."]
+position = Vector2(977, 1951)
+
+[node name="Face" type="Sprite2D" parent="13"]
+position = Vector2(0, -2)
+texture = ExtResource("2_upwsj")
+centered = false
+vframes = 6
+frame = 1
+
+[node name="14" type="Node2D" parent="."]
+position = Vector2(1174, 1932)
+
+[node name="Face" type="Sprite2D" parent="14"]
+position = Vector2(0, -3)
+texture = ExtResource("2_upwsj")
+centered = false
+vframes = 6
+frame = 1
+
+[node name="15" type="Node2D" parent="."]
+position = Vector2(383, 1932)
+
+[node name="Face" type="Sprite2D" parent="15"]
+texture = ExtResource("2_upwsj")
+centered = false
+vframes = 6
+frame = 2
+
+[node name="16" type="Node2D" parent="."]
+position = Vector2(764, 1932)
+
+[node name="Face" type="Sprite2D" parent="16"]
+position = Vector2(1, 7)
+texture = ExtResource("2_upwsj")
+centered = false
+vframes = 6
+frame = 3
