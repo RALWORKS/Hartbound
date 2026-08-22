@@ -1,0 +1,67 @@
+@tool
+extends Node2D
+
+@export var animation: String = "left_stopped"
+var last_animation = "left_stopped"
+
+
+@onready var DIRECTIONS = {
+	"left": [$Left, false],
+	"right": [$Left, true],
+	"up_left": [$UpLeft, false],
+	"up_right": [$UpLeft, true],
+	"down_left": [$DownLeft, false],
+	"test_mount": [$DownLeft, false],
+	"down_right": [$DownLeft, true],
+	"down": [$Down, false],
+	"up": [$Up, false],
+}
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
+func play(anim: String):
+	var tok: Array = anim.split("_")
+	var d = anim
+	var cycle = "walk"
+	if tok[-1] == "stopped":
+		tok.pop_back()
+		d = "_".join(tok)
+		cycle = "stop"
+	
+	if not d in DIRECTIONS:
+		return
+		
+	
+	play_params(DIRECTIONS[d][0], DIRECTIONS[d][1], cycle)
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	if animation != last_animation:
+		play(animation)
+		last_animation = animation
+
+func play_params(group: Node2D, mirror:bool, anim: String):
+	hide_all()
+	group.visible = true
+	group.process_mode = Node.PROCESS_MODE_INHERIT
+	if mirror:
+		scale = Vector2(-1.0, 1.0)
+	var anims:AnimationPlayer = get_animator(group)
+	if not anims:
+		return
+	anims.play(anim)
+
+func hide_all():
+	scale = Vector2(1.0, 1.0)
+	for c in get_children():
+		if c.get_class() != "Node2D":
+			continue
+		c.visible = false
+		c.process_mode = Node.PROCESS_MODE_DISABLED
+
+func get_animator(c):
+	return c.get_node_or_null("AnimationPlayer")
