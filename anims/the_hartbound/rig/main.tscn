@@ -2926,6 +2926,153 @@ _data = {
 "walk": SubResource("Animation_ub56u")
 }
 
+[sub_resource type="Animation" id="Animation_42r6y"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Skeleton2D/Pelvis/LeftHip/LeftKnee:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.196767, 129.116)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Skeleton2D/Pelvis/RightHip:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Polygons/LeftToe3:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Polygons/RightToe3:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Skeleton2D/Pelvis/RightHip:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(36, 49)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Skeleton2D/Pelvis/LeftHip:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-29, 42)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Skeleton2D/Pelvis/Chest/Neck/LeftShoulder/LeftElbow:rotation")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-0.261799]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Skeleton2D/Pelvis/Chest/Neck/RightShoulder/RightElbow:rotation")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.261799]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Skeleton2D/Pelvis/Chest/Neck/LeftShoulder:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-57, 6)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Skeleton2D/Pelvis/Chest/Neck/RightShoulder:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(59, 7)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Polygons/LeftToe:visible")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Polygons/RightToe:visible")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
 [sub_resource type="Animation" id="Animation_lrlgv"]
 resource_name = "stop"
 tracks/0/type = "value"
@@ -3267,7 +3414,7 @@ tracks/27/keys = {
 tracks/28/type = "value"
 tracks/28/imported = false
 tracks/28/enabled = true
-tracks/28/path = NodePath("Polygons/RightToe3:visible")
+tracks/28/path = NodePath("Polygons/LeftToe2:visible")
 tracks/28/interp = 1
 tracks/28/loop_wrap = true
 tracks/28/keys = {
@@ -3279,55 +3426,55 @@ tracks/28/keys = {
 tracks/29/type = "value"
 tracks/29/imported = false
 tracks/29/enabled = true
-tracks/29/path = NodePath("Polygons/LeftToe2:visible")
+tracks/29/path = NodePath("Skeleton2D/Pelvis/Chest/Neck/RightShoulder/RightElbow:rotation")
 tracks/29/interp = 1
 tracks/29/loop_wrap = true
 tracks/29/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
+"update": 0,
+"values": [0.392699]
 }
 tracks/30/type = "value"
 tracks/30/imported = false
 tracks/30/enabled = true
-tracks/30/path = NodePath("Polygons/LeftToe3:visible")
+tracks/30/path = NodePath("Skeleton2D/Pelvis/Chest/Neck/RightShoulder/RightElbow:position")
 tracks/30/interp = 1
 tracks/30/loop_wrap = true
 tracks/30/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
+"update": 0,
+"values": [Vector2(3, 96)]
 }
 tracks/31/type = "value"
 tracks/31/imported = false
 tracks/31/enabled = true
-tracks/31/path = NodePath("Skeleton2D/Pelvis/Chest/Neck/RightShoulder/RightElbow:rotation")
+tracks/31/path = NodePath("Polygons/RightAnkle:visible")
 tracks/31/interp = 1
 tracks/31/loop_wrap = true
 tracks/31/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.392699]
+"update": 1,
+"values": [true]
 }
 tracks/32/type = "value"
 tracks/32/imported = false
 tracks/32/enabled = true
-tracks/32/path = NodePath("Skeleton2D/Pelvis/Chest/Neck/RightShoulder/RightElbow:position")
+tracks/32/path = NodePath("Polygons/RightToe:visible")
 tracks/32/interp = 1
 tracks/32/loop_wrap = true
 tracks/32/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(3, 96)]
+"update": 1,
+"values": [true]
 }
 tracks/33/type = "value"
 tracks/33/imported = false
 tracks/33/enabled = true
-tracks/33/path = NodePath("Polygons/RightAnkle:visible")
+tracks/33/path = NodePath("Polygons/LeftAnkle:visible")
 tracks/33/interp = 1
 tracks/33/loop_wrap = true
 tracks/33/keys = {
@@ -3339,7 +3486,7 @@ tracks/33/keys = {
 tracks/34/type = "value"
 tracks/34/imported = false
 tracks/34/enabled = true
-tracks/34/path = NodePath("Polygons/RightToe:visible")
+tracks/34/path = NodePath("Polygons/LeftToe:visible")
 tracks/34/interp = 1
 tracks/34/loop_wrap = true
 tracks/34/keys = {
@@ -3351,31 +3498,31 @@ tracks/34/keys = {
 tracks/35/type = "value"
 tracks/35/imported = false
 tracks/35/enabled = true
-tracks/35/path = NodePath("Polygons/LeftAnkle:visible")
+tracks/35/path = NodePath("Polygons/RightThigh:modulate")
 tracks/35/interp = 1
 tracks/35/loop_wrap = true
 tracks/35/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
 }
 tracks/36/type = "value"
 tracks/36/imported = false
 tracks/36/enabled = true
-tracks/36/path = NodePath("Polygons/LeftToe:visible")
+tracks/36/path = NodePath("Polygons/LeftHand:modulate")
 tracks/36/interp = 1
 tracks/36/loop_wrap = true
 tracks/36/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
 }
 tracks/37/type = "value"
 tracks/37/imported = false
 tracks/37/enabled = true
-tracks/37/path = NodePath("Polygons/RightThigh:modulate")
+tracks/37/path = NodePath("Polygons/LeftElbow:modulate")
 tracks/37/interp = 1
 tracks/37/loop_wrap = true
 tracks/37/keys = {
@@ -3387,7 +3534,7 @@ tracks/37/keys = {
 tracks/38/type = "value"
 tracks/38/imported = false
 tracks/38/enabled = true
-tracks/38/path = NodePath("Polygons/LeftHand:modulate")
+tracks/38/path = NodePath("Polygons/RightElbow:modulate")
 tracks/38/interp = 1
 tracks/38/loop_wrap = true
 tracks/38/keys = {
@@ -3399,7 +3546,7 @@ tracks/38/keys = {
 tracks/39/type = "value"
 tracks/39/imported = false
 tracks/39/enabled = true
-tracks/39/path = NodePath("Polygons/LeftElbow:modulate")
+tracks/39/path = NodePath("Polygons/RightHand:modulate")
 tracks/39/interp = 1
 tracks/39/loop_wrap = true
 tracks/39/keys = {
@@ -3407,561 +3554,6 @@ tracks/39/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
-}
-tracks/40/type = "value"
-tracks/40/imported = false
-tracks/40/enabled = true
-tracks/40/path = NodePath("Polygons/RightElbow:modulate")
-tracks/40/interp = 1
-tracks/40/loop_wrap = true
-tracks/40/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-tracks/41/type = "value"
-tracks/41/imported = false
-tracks/41/enabled = true
-tracks/41/path = NodePath("Polygons/RightHand:modulate")
-tracks/41/interp = 1
-tracks/41/loop_wrap = true
-tracks/41/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_enbn5"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Skeleton2D/Pelvis/Chest/Neck/LeftShoulder:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-57, 11)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Skeleton2D/Pelvis/Chest/Neck/LeftShoulder:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.225147]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Skeleton2D/Pelvis/Chest/Neck/LeftShoulder/LeftElbow:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-2, 91)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Skeleton2D/Pelvis/Chest/Neck/LeftShoulder/LeftElbow:rotation")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [-0.336849]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Skeleton2D/Pelvis/Chest/Neck/RightShoulder:position")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(59, 7)]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("Skeleton2D/Pelvis/Chest/Neck/RightShoulder:rotation")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [-0.225147]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("Skeleton2D/Pelvis/LeftHip:position")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-34, 38)]
-}
-tracks/7/type = "value"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("Skeleton2D/Pelvis/LeftHip:rotation")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-tracks/8/type = "value"
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/path = NodePath("Skeleton2D/Pelvis/LeftHip/LeftKnee:position")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(3, 119)]
-}
-tracks/9/type = "value"
-tracks/9/imported = false
-tracks/9/enabled = true
-tracks/9/path = NodePath("Skeleton2D/Pelvis/LeftHip/LeftKnee:rotation")
-tracks/9/interp = 1
-tracks/9/loop_wrap = true
-tracks/9/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-tracks/10/type = "value"
-tracks/10/imported = false
-tracks/10/enabled = true
-tracks/10/path = NodePath("Skeleton2D/Pelvis/LeftHip/LeftKnee/LeftAnkle:position")
-tracks/10/interp = 1
-tracks/10/loop_wrap = true
-tracks/10/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-3, 158)]
-}
-tracks/11/type = "value"
-tracks/11/imported = false
-tracks/11/enabled = true
-tracks/11/path = NodePath("Skeleton2D/Pelvis/LeftHip/LeftKnee/LeftAnkle:rotation")
-tracks/11/interp = 1
-tracks/11/loop_wrap = true
-tracks/11/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-tracks/12/type = "value"
-tracks/12/imported = false
-tracks/12/enabled = true
-tracks/12/path = NodePath("Skeleton2D/Pelvis/RightHip:rotation")
-tracks/12/interp = 1
-tracks/12/loop_wrap = true
-tracks/12/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-tracks/13/type = "value"
-tracks/13/imported = false
-tracks/13/enabled = true
-tracks/13/path = NodePath("Skeleton2D/Pelvis/RightHip/RightKnee:position")
-tracks/13/interp = 1
-tracks/13/loop_wrap = true
-tracks/13/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 111)]
-}
-tracks/14/type = "value"
-tracks/14/imported = false
-tracks/14/enabled = true
-tracks/14/path = NodePath("Skeleton2D/Pelvis/RightHip/RightKnee:rotation")
-tracks/14/interp = 1
-tracks/14/loop_wrap = true
-tracks/14/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-tracks/15/type = "value"
-tracks/15/imported = false
-tracks/15/enabled = true
-tracks/15/path = NodePath("Skeleton2D/Pelvis/RightHip:position")
-tracks/15/interp = 1
-tracks/15/loop_wrap = true
-tracks/15/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(36, 35)]
-}
-tracks/16/type = "value"
-tracks/16/imported = false
-tracks/16/enabled = true
-tracks/16/path = NodePath("Skeleton2D/Pelvis/RightHip/RightKnee/RightAnkle:position")
-tracks/16/interp = 1
-tracks/16/loop_wrap = true
-tracks/16/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(4, 161)]
-}
-tracks/17/type = "value"
-tracks/17/imported = false
-tracks/17/enabled = true
-tracks/17/path = NodePath("Skeleton2D/Pelvis/RightHip/RightKnee/RightAnkle:rotation")
-tracks/17/interp = 1
-tracks/17/loop_wrap = true
-tracks/17/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-tracks/18/type = "value"
-tracks/18/imported = false
-tracks/18/enabled = true
-tracks/18/path = NodePath("Skeleton2D/Pelvis/RightHip/RightKnee/RightAnkle/RightFoot:position")
-tracks/18/interp = 1
-tracks/18/loop_wrap = true
-tracks/18/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(22, -8)]
-}
-tracks/19/type = "value"
-tracks/19/imported = false
-tracks/19/enabled = true
-tracks/19/path = NodePath("Skeleton2D/Pelvis/RightHip/RightKnee/RightAnkle/RightFoot:rotation")
-tracks/19/interp = 1
-tracks/19/loop_wrap = true
-tracks/19/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-tracks/20/type = "value"
-tracks/20/imported = false
-tracks/20/enabled = true
-tracks/20/path = NodePath("Skeleton2D/Pelvis/Chest:position")
-tracks/20/interp = 1
-tracks/20/loop_wrap = true
-tracks/20/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(4, -52)]
-}
-tracks/21/type = "value"
-tracks/21/imported = false
-tracks/21/enabled = true
-tracks/21/path = NodePath("Skeleton2D/Pelvis/Chest:rotation")
-tracks/21/interp = 1
-tracks/21/loop_wrap = true
-tracks/21/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-tracks/22/type = "value"
-tracks/22/imported = false
-tracks/22/enabled = true
-tracks/22/path = NodePath("Skeleton2D/Pelvis:rotation")
-tracks/22/interp = 1
-tracks/22/loop_wrap = true
-tracks/22/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-tracks/23/type = "value"
-tracks/23/imported = false
-tracks/23/enabled = true
-tracks/23/path = NodePath("Skeleton2D/Pelvis/Chest/Neck:position")
-tracks/23/interp = 1
-tracks/23/loop_wrap = true
-tracks/23/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-4, -83)]
-}
-tracks/24/type = "value"
-tracks/24/imported = false
-tracks/24/enabled = true
-tracks/24/path = NodePath("Skeleton2D/Pelvis/Chest/Neck:rotation")
-tracks/24/interp = 1
-tracks/24/loop_wrap = true
-tracks/24/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-tracks/25/type = "value"
-tracks/25/imported = false
-tracks/25/enabled = true
-tracks/25/path = NodePath("Skeleton2D/Pelvis/Chest/Neck/Head:position")
-tracks/25/interp = 1
-tracks/25/loop_wrap = true
-tracks/25/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-6, -24)]
-}
-tracks/26/type = "value"
-tracks/26/imported = false
-tracks/26/enabled = true
-tracks/26/path = NodePath("Skeleton2D/Pelvis/Chest/Neck/Head:rotation")
-tracks/26/interp = 1
-tracks/26/loop_wrap = true
-tracks/26/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-tracks/27/type = "value"
-tracks/27/imported = false
-tracks/27/enabled = true
-tracks/27/path = NodePath("Polygons/RightToe2:visible")
-tracks/27/interp = 1
-tracks/27/loop_wrap = true
-tracks/27/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/28/type = "value"
-tracks/28/imported = false
-tracks/28/enabled = true
-tracks/28/path = NodePath("Polygons/RightToe3:visible")
-tracks/28/interp = 1
-tracks/28/loop_wrap = true
-tracks/28/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/29/type = "value"
-tracks/29/imported = false
-tracks/29/enabled = true
-tracks/29/path = NodePath("Polygons/LeftToe2:visible")
-tracks/29/interp = 1
-tracks/29/loop_wrap = true
-tracks/29/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/30/type = "value"
-tracks/30/imported = false
-tracks/30/enabled = true
-tracks/30/path = NodePath("Polygons/LeftToe3:visible")
-tracks/30/interp = 1
-tracks/30/loop_wrap = true
-tracks/30/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/31/type = "value"
-tracks/31/imported = false
-tracks/31/enabled = true
-tracks/31/path = NodePath("Skeleton2D/Pelvis/Chest/Neck/RightShoulder/RightElbow:rotation")
-tracks/31/interp = 1
-tracks/31/loop_wrap = true
-tracks/31/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.392699]
-}
-tracks/32/type = "value"
-tracks/32/imported = false
-tracks/32/enabled = true
-tracks/32/path = NodePath("Skeleton2D/Pelvis/Chest/Neck/RightShoulder/RightElbow:position")
-tracks/32/interp = 1
-tracks/32/loop_wrap = true
-tracks/32/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(3, 96)]
-}
-tracks/33/type = "value"
-tracks/33/imported = false
-tracks/33/enabled = true
-tracks/33/path = NodePath("Polygons/RightAnkle:visible")
-tracks/33/interp = 1
-tracks/33/loop_wrap = true
-tracks/33/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/34/type = "value"
-tracks/34/imported = false
-tracks/34/enabled = true
-tracks/34/path = NodePath("Polygons/RightToe:visible")
-tracks/34/interp = 1
-tracks/34/loop_wrap = true
-tracks/34/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/35/type = "value"
-tracks/35/imported = false
-tracks/35/enabled = true
-tracks/35/path = NodePath("Polygons/LeftAnkle:visible")
-tracks/35/interp = 1
-tracks/35/loop_wrap = true
-tracks/35/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/36/type = "value"
-tracks/36/imported = false
-tracks/36/enabled = true
-tracks/36/path = NodePath("Polygons/LeftToe:visible")
-tracks/36/interp = 1
-tracks/36/loop_wrap = true
-tracks/36/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/37/type = "value"
-tracks/37/imported = false
-tracks/37/enabled = true
-tracks/37/path = NodePath("Skeleton2D/Pelvis/LeftHip/LeftKnee/LeftAnkle/LeftFoot:position")
-tracks/37/interp = 1
-tracks/37/loop_wrap = true
-tracks/37/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-12.9961, -13.9426)]
-}
-tracks/38/type = "value"
-tracks/38/imported = false
-tracks/38/enabled = true
-tracks/38/path = NodePath("Polygons/LeftThigh:modulate")
-tracks/38/interp = 1
-tracks/38/loop_wrap = true
-tracks/38/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-tracks/39/type = "value"
-tracks/39/imported = false
-tracks/39/enabled = true
-tracks/39/path = NodePath("Polygons/RightThigh:modulate")
-tracks/39/interp = 1
-tracks/39/loop_wrap = true
-tracks/39/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-tracks/40/type = "value"
-tracks/40/imported = false
-tracks/40/enabled = true
-tracks/40/path = NodePath("Polygons/RightHand:modulate")
-tracks/40/interp = 1
-tracks/40/loop_wrap = true
-tracks/40/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(0.882353, 0.854902, 0.847059, 1)]
-}
-tracks/41/type = "value"
-tracks/41/imported = false
-tracks/41/enabled = true
-tracks/41/path = NodePath("Polygons/RightElbow:modulate")
-tracks/41/interp = 1
-tracks/41/loop_wrap = true
-tracks/41/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(0.882353, 0.854902, 0.847059, 1)]
-}
-tracks/42/type = "value"
-tracks/42/imported = false
-tracks/42/enabled = true
-tracks/42/path = NodePath("Polygons/LeftElbow:modulate")
-tracks/42/interp = 1
-tracks/42/loop_wrap = true
-tracks/42/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(0.882353, 0.854902, 0.847059, 1)]
-}
-tracks/43/type = "value"
-tracks/43/imported = false
-tracks/43/enabled = true
-tracks/43/path = NodePath("Polygons/LeftHand:modulate")
-tracks/43/interp = 1
-tracks/43/loop_wrap = true
-tracks/43/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(0.882353, 0.854902, 0.847059, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_hk7m5"]
@@ -3975,10 +3567,10 @@ tracks/0/path = NodePath("Skeleton2D/Pelvis/Chest/Neck/LeftShoulder:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.2, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector2(-57, 11)]
+"values": [Vector2(-57, 11), Vector2(-57, 6), Vector2(-57, 14.3333)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -4011,10 +3603,10 @@ tracks/3/path = NodePath("Skeleton2D/Pelvis/Chest/Neck/LeftShoulder/LeftElbow:ro
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [-0.336849]
+"values": [-0.336849, -0.261799]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
@@ -4023,10 +3615,10 @@ tracks/4/path = NodePath("Skeleton2D/Pelvis/Chest/Neck/RightShoulder:position")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.2, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector2(59, 7)]
+"values": [Vector2(59, 7), Vector2(59, 12), Vector2(59, 2)]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
@@ -4047,10 +3639,10 @@ tracks/6/path = NodePath("Skeleton2D/Pelvis/LeftHip:position")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
-"times": PackedFloat32Array(0, 0.4, 0.6),
+"times": PackedFloat32Array(0, 0.5, 0.6),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector2(-34, 38), Vector2(-29, 27), Vector2(-23, 6)]
+"values": [Vector2(-34, 38), Vector2(-29, 42), Vector2(-23, 6)]
 }
 tracks/7/type = "value"
 tracks/7/imported = false
@@ -4071,10 +3663,10 @@ tracks/8/path = NodePath("Skeleton2D/Pelvis/LeftHip/LeftKnee:position")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.5, 0.6),
+"times": PackedFloat32Array(0, 0.1, 0.5, 0.6),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(-4, 100), Vector2(-1, 121), Vector2(2.5903, 118.348), Vector2(8.77922, 120.958)]
+"values": [Vector2(-4, 100), Vector2(0.196767, 129.116), Vector2(2.5903, 118.348), Vector2(0.272903, 110.693)]
 }
 tracks/9/type = "value"
 tracks/9/imported = false
@@ -4119,10 +3711,10 @@ tracks/12/path = NodePath("Skeleton2D/Pelvis/RightHip:rotation")
 tracks/12/interp = 1
 tracks/12/loop_wrap = true
 tracks/12/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.3, 0.6, 0.7),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.2, 0.3, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [0.0, -0.218166, -0.174533, -0.0436332, -0.0218166]
+"values": [0.0, -0.218166, -0.174533, 0.0]
 }
 tracks/13/type = "value"
 tracks/13/imported = false
@@ -4155,10 +3747,10 @@ tracks/15/path = NodePath("Skeleton2D/Pelvis/RightHip:position")
 tracks/15/interp = 1
 tracks/15/loop_wrap = true
 tracks/15/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.4),
+"times": PackedFloat32Array(0.1, 0.2, 0.4),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector2(35.3333, 32.3333), Vector2(36, 11), Vector2(35, 43)]
+"values": [Vector2(36, 49), Vector2(36, 11), Vector2(35, 43)]
 }
 tracks/16/type = "value"
 tracks/16/imported = false
@@ -4307,11 +3899,11 @@ tracks/27/keys = {
 tracks/28/type = "value"
 tracks/28/imported = false
 tracks/28/enabled = true
-tracks/28/path = NodePath("Polygons/RightToe3:visible")
+tracks/28/path = NodePath("Polygons/LeftToe2:visible")
 tracks/28/interp = 1
 tracks/28/loop_wrap = true
 tracks/28/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.3),
+"times": PackedFloat32Array(0, 0.5, 0.6),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [false, true, false]
@@ -4319,187 +3911,187 @@ tracks/28/keys = {
 tracks/29/type = "value"
 tracks/29/imported = false
 tracks/29/enabled = true
-tracks/29/path = NodePath("Polygons/LeftToe2:visible")
+tracks/29/path = NodePath("Skeleton2D/Pelvis/Chest/Neck/RightShoulder/RightElbow:rotation")
 tracks/29/interp = 1
 tracks/29/loop_wrap = true
 tracks/29/keys = {
-"times": PackedFloat32Array(0, 0.5, 0.6),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [false, true, false]
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.392699, 0.261799]
 }
 tracks/30/type = "value"
 tracks/30/imported = false
 tracks/30/enabled = true
-tracks/30/path = NodePath("Polygons/LeftToe3:visible")
+tracks/30/path = NodePath("Skeleton2D/Pelvis/Chest/Neck/RightShoulder/RightElbow:position")
 tracks/30/interp = 1
 tracks/30/loop_wrap = true
 tracks/30/keys = {
-"times": PackedFloat32Array(0, 0.6, 0.7),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [false, true, false]
-}
-tracks/31/type = "value"
-tracks/31/imported = false
-tracks/31/enabled = true
-tracks/31/path = NodePath("Skeleton2D/Pelvis/Chest/Neck/RightShoulder/RightElbow:rotation")
-tracks/31/interp = 1
-tracks/31/loop_wrap = true
-tracks/31/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.392699]
-}
-tracks/32/type = "value"
-tracks/32/imported = false
-tracks/32/enabled = true
-tracks/32/path = NodePath("Skeleton2D/Pelvis/Chest/Neck/RightShoulder/RightElbow:position")
-tracks/32/interp = 1
-tracks/32/loop_wrap = true
-tracks/32/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(3, 96)]
 }
-tracks/33/type = "value"
-tracks/33/imported = false
-tracks/33/enabled = true
-tracks/33/path = NodePath("Polygons/RightAnkle:visible")
-tracks/33/interp = 1
-tracks/33/loop_wrap = true
-tracks/33/keys = {
+tracks/31/type = "value"
+tracks/31/imported = false
+tracks/31/enabled = true
+tracks/31/path = NodePath("Polygons/RightAnkle:visible")
+tracks/31/interp = 1
+tracks/31/loop_wrap = true
+tracks/31/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
 "values": [true, false, false, true]
+}
+tracks/32/type = "value"
+tracks/32/imported = false
+tracks/32/enabled = true
+tracks/32/path = NodePath("Polygons/RightToe:visible")
+tracks/32/interp = 1
+tracks/32/loop_wrap = true
+tracks/32/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [true, false, false, false, true]
+}
+tracks/33/type = "value"
+tracks/33/imported = false
+tracks/33/enabled = true
+tracks/33/path = NodePath("Polygons/LeftAnkle:visible")
+tracks/33/interp = 1
+tracks/33/loop_wrap = true
+tracks/33/keys = {
+"times": PackedFloat32Array(0, 0.5, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, true]
 }
 tracks/34/type = "value"
 tracks/34/imported = false
 tracks/34/enabled = true
-tracks/34/path = NodePath("Polygons/RightToe:visible")
+tracks/34/path = NodePath("Polygons/LeftToe:visible")
 tracks/34/interp = 1
 tracks/34/loop_wrap = true
 tracks/34/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"times": PackedFloat32Array(0, 0.1, 0.5, 0.8),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [true, false, false, true]
+"values": [true, true, false, true]
 }
 tracks/35/type = "value"
 tracks/35/imported = false
-tracks/35/enabled = true
-tracks/35/path = NodePath("Polygons/LeftAnkle:visible")
+tracks/35/enabled = false
+tracks/35/path = NodePath("Skeleton2D/Pelvis/LeftHip/LeftKnee/LeftAnkle/LeftFoot:position")
 tracks/35/interp = 1
 tracks/35/loop_wrap = true
 tracks/35/keys = {
-"times": PackedFloat32Array(0, 0.5, 0.7),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [true, false, true]
-}
-tracks/36/type = "value"
-tracks/36/imported = false
-tracks/36/enabled = true
-tracks/36/path = NodePath("Polygons/LeftToe:visible")
-tracks/36/interp = 1
-tracks/36/loop_wrap = true
-tracks/36/keys = {
-"times": PackedFloat32Array(0, 0.5, 0.7),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [true, false, true]
-}
-tracks/37/type = "value"
-tracks/37/imported = false
-tracks/37/enabled = false
-tracks/37/path = NodePath("Skeleton2D/Pelvis/LeftHip/LeftKnee/LeftAnkle/LeftFoot:position")
-tracks/37/interp = 1
-tracks/37/loop_wrap = true
-tracks/37/keys = {
 "times": PackedFloat32Array(0.7),
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(-12.9961, -13.9426)]
 }
-tracks/38/type = "value"
-tracks/38/imported = false
-tracks/38/enabled = true
-tracks/38/path = NodePath("Polygons/LeftThigh:modulate")
-tracks/38/interp = 1
-tracks/38/loop_wrap = true
-tracks/38/keys = {
+tracks/36/type = "value"
+tracks/36/imported = false
+tracks/36/enabled = true
+tracks/36/path = NodePath("Polygons/LeftThigh:modulate")
+tracks/36/interp = 1
+tracks/36/loop_wrap = true
+tracks/36/keys = {
 "times": PackedFloat32Array(0, 0.4, 0.6),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(0.882353, 0.854902, 0.847059, 1)]
 }
-tracks/39/type = "value"
-tracks/39/imported = false
-tracks/39/enabled = true
-tracks/39/path = NodePath("Polygons/RightThigh:modulate")
-tracks/39/interp = 1
-tracks/39/loop_wrap = true
-tracks/39/keys = {
+tracks/37/type = "value"
+tracks/37/imported = false
+tracks/37/enabled = true
+tracks/37/path = NodePath("Polygons/RightThigh:modulate")
+tracks/37/interp = 1
+tracks/37/loop_wrap = true
+tracks/37/keys = {
 "times": PackedFloat32Array(0, 0.2, 0.4),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(0.882353, 0.854902, 0.847059, 1), Color(1, 1, 1, 1)]
 }
+tracks/38/type = "value"
+tracks/38/imported = false
+tracks/38/enabled = true
+tracks/38/path = NodePath("Polygons/RightHand:modulate")
+tracks/38/interp = 1
+tracks/38/loop_wrap = true
+tracks/38/keys = {
+"times": PackedFloat32Array(0.2, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0.882353, 0.854902, 0.847059, 1)]
+}
+tracks/39/type = "value"
+tracks/39/imported = false
+tracks/39/enabled = true
+tracks/39/path = NodePath("Polygons/RightElbow:modulate")
+tracks/39/interp = 1
+tracks/39/loop_wrap = true
+tracks/39/keys = {
+"times": PackedFloat32Array(0.2, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0.882353, 0.854902, 0.847059, 1)]
+}
 tracks/40/type = "value"
 tracks/40/imported = false
 tracks/40/enabled = true
-tracks/40/path = NodePath("Polygons/RightHand:modulate")
+tracks/40/path = NodePath("Polygons/LeftElbow:modulate")
 tracks/40/interp = 1
 tracks/40/loop_wrap = true
 tracks/40/keys = {
 "times": PackedFloat32Array(0.2, 0.6),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Color(1, 1, 1, 1), Color(0.882353, 0.854902, 0.847059, 1)]
+"values": [Color(0.882353, 0.854902, 0.847059, 1), Color(1, 1, 1, 1)]
 }
 tracks/41/type = "value"
 tracks/41/imported = false
 tracks/41/enabled = true
-tracks/41/path = NodePath("Polygons/RightElbow:modulate")
+tracks/41/path = NodePath("Polygons/LeftHand:modulate")
 tracks/41/interp = 1
 tracks/41/loop_wrap = true
 tracks/41/keys = {
 "times": PackedFloat32Array(0.2, 0.6),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Color(1, 1, 1, 1), Color(0.882353, 0.854902, 0.847059, 1)]
+"values": [Color(0.882353, 0.854902, 0.847059, 1), Color(1, 1, 1, 1)]
 }
 tracks/42/type = "value"
 tracks/42/imported = false
 tracks/42/enabled = true
-tracks/42/path = NodePath("Polygons/LeftElbow:modulate")
+tracks/42/path = NodePath("Polygons/LeftToe3:visible")
 tracks/42/interp = 1
 tracks/42/loop_wrap = true
 tracks/42/keys = {
-"times": PackedFloat32Array(0.2, 0.6),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(0.882353, 0.854902, 0.847059, 1), Color(1, 1, 1, 1)]
+"times": PackedFloat32Array(0, 0.2, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [false, false, true, false]
 }
 tracks/43/type = "value"
 tracks/43/imported = false
 tracks/43/enabled = true
-tracks/43/path = NodePath("Polygons/LeftHand:modulate")
+tracks/43/path = NodePath("Polygons/RightToe3:visible")
 tracks/43/interp = 1
 tracks/43/loop_wrap = true
 tracks/43/keys = {
-"times": PackedFloat32Array(0.2, 0.6),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(0.882353, 0.854902, 0.847059, 1), Color(1, 1, 1, 1)]
+"times": PackedFloat32Array(0, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_2kosc"]
 _data = {
-"RESET": SubResource("Animation_enbn5"),
+"RESET": SubResource("Animation_42r6y"),
 "stop": SubResource("Animation_lrlgv"),
 "walk": SubResource("Animation_hk7m5")
 }
@@ -4507,12 +4099,12 @@ _data = {
 [node name="Rig" type="Node2D"]
 
 [node name="Sheet" type="Sprite2D" parent="."]
-position = Vector2(448, 318)
+position = Vector2(332, 324)
 scale = Vector2(1.61458, 1.67708)
 texture = ExtResource("1_kbdht")
 hframes = 9
 vframes = 6
-frame = 25
+frame = 27
 
 [node name="Texture" type="SubViewport" parent="."]
 disable_3d = true
@@ -5043,7 +4635,6 @@ rest = Transform2D(1, 0, 0, 1, -32, 22)
 [node name="LeftElbow" type="Bone2D" parent="UpLeft/Skeleton2D/Pelvis/Chest/Neck/LeftShoulder"]
 position = Vector2(-2, 91)
 rotation = 0.1309
-scale = Vector2(1, 1)
 rest = Transform2D(1, 0, 0, 1, -2, 91)
 
 [node name="LeftHand" type="Bone2D" parent="UpLeft/Skeleton2D/Pelvis/Chest/Neck/LeftShoulder/LeftElbow"]
@@ -5062,7 +4653,6 @@ bone_angle = -85.424
 
 [node name="RightHip" type="Bone2D" parent="UpLeft/Skeleton2D/Pelvis"]
 position = Vector2(30, 26)
-scale = Vector2(1, 1)
 rest = Transform2D(1, 0, 0, 1, 30, 26)
 
 [node name="RightKnee" type="Bone2D" parent="UpLeft/Skeleton2D/Pelvis/RightHip"]
@@ -5082,12 +4672,10 @@ bone_angle = 192.024
 
 [node name="LeftHip" type="Bone2D" parent="UpLeft/Skeleton2D/Pelvis"]
 position = Vector2(-17, 35)
-scale = Vector2(1, 1)
 rest = Transform2D(1, 0, 0, 1, -17, 35)
 
 [node name="LeftKnee" type="Bone2D" parent="UpLeft/Skeleton2D/Pelvis/LeftHip"]
 position = Vector2(2, 109)
-scale = Vector2(1, 1)
 rest = Transform2D(1, 0, 0, 1, 2, 109)
 
 [node name="LeftAnkle" type="Bone2D" parent="UpLeft/Skeleton2D/Pelvis/LeftHip/LeftKnee"]
@@ -5122,7 +4710,7 @@ uv = PackedVector2Array(487, 739, 501, 810, 509, 835, 569, 823, 577, 753, 572, 7
 bones = ["Pelvis", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest/Neck", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest/Neck/RightShoulder", PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1), "Pelvis/Chest/Neck/RightShoulder/RightElbow", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest/Neck/RightShoulder/RightElbow/RightHand", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest/Neck/LeftShoulder", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest/Neck/LeftShoulder/LeftElbow", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest/Neck/LeftShoulder/LeftElbow/LeftHand", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest/Neck/Head", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/RightHip", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/RightHip/RightKnee", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/RightHip/RightKnee/RightAnkle", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/RightHip/RightKnee/RightAnkle/RightFoot", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/LeftHip", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/LeftHip/LeftKnee", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/LeftHip/LeftKnee/LeftAnkle", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/LeftHip/LeftKnee/LeftAnkle/LeftFoot", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0)]
 
 [node name="RightElbow" type="Polygon2D" parent="Up/Polygons"]
-modulate = Color(0.882353, 0.854902, 0.847059, 1)
+modulate = Color(0.935546, 0.920506, 0.91621, 1)
 material = SubResource("CanvasItemMaterial_ah8bk")
 position = Vector2(-416, -629)
 texture = SubResource("ViewportTexture_itsal")
@@ -5133,7 +4721,7 @@ uv = PackedVector2Array(506.579, 840.789, 502.632, 896.053, 511.842, 935.526, 57
 bones = ["Pelvis", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest/Neck", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest/Neck/RightShoulder", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest/Neck/RightShoulder/RightElbow", PackedFloat32Array(1, 1, 1, 1, 1, 1, 1), "Pelvis/Chest/Neck/RightShoulder/RightElbow/RightHand", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest/Neck/LeftShoulder", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest/Neck/LeftShoulder/LeftElbow", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest/Neck/LeftShoulder/LeftElbow/LeftHand", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest/Neck/Head", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0), "Pelvis/RightHip", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0), "Pelvis/RightHip/RightKnee", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0), "Pelvis/RightHip/RightKnee/RightAnkle", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0), "Pelvis/RightHip/RightKnee/RightAnkle/RightFoot", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0), "Pelvis/LeftHip", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0), "Pelvis/LeftHip/LeftKnee", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0), "Pelvis/LeftHip/LeftKnee/LeftAnkle", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0), "Pelvis/LeftHip/LeftKnee/LeftAnkle/LeftFoot", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0)]
 
 [node name="RightHand" type="Polygon2D" parent="Up/Polygons"]
-modulate = Color(0.882353, 0.854902, 0.847059, 1)
+modulate = Color(0.935546, 0.920506, 0.91621, 1)
 material = SubResource("CanvasItemMaterial_ah8bk")
 position = Vector2(-417, -661)
 texture = SubResource("ViewportTexture_itsal")
@@ -5164,6 +4752,7 @@ uv = PackedVector2Array(463.158, 1003.95, 486.842, 1051.32, 478.947, 1106.58, 49
 bones = ["Pelvis", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest/Neck", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest/Neck/RightShoulder", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest/Neck/RightShoulder/RightElbow", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest/Neck/RightShoulder/RightElbow/RightHand", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest/Neck/LeftShoulder", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest/Neck/LeftShoulder/LeftElbow", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest/Neck/LeftShoulder/LeftElbow/LeftHand", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest/Neck/Head", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/RightHip", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/RightHip/RightKnee", PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1), "Pelvis/RightHip/RightKnee/RightAnkle", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/RightHip/RightKnee/RightAnkle/RightFoot", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/LeftHip", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/LeftHip/LeftKnee", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/LeftHip/LeftKnee/LeftAnkle", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/LeftHip/LeftKnee/LeftAnkle/LeftFoot", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0)]
 
 [node name="RightToe" type="Polygon2D" parent="Up/Polygons"]
+visible = false
 material = SubResource("CanvasItemMaterial_ah8bk")
 position = Vector2(-404.771, -665.526)
 texture = SubResource("ViewportTexture_itsal")
@@ -5174,7 +4763,6 @@ uv = PackedVector2Array(579.279, 1228.78, 572.072, 1253.1, 554.054, 1263.01, 517
 bones = ["Pelvis", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest/Neck", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest/Neck/RightShoulder", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest/Neck/RightShoulder/RightElbow", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest/Neck/RightShoulder/RightElbow/RightHand", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest/Neck/LeftShoulder", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest/Neck/LeftShoulder/LeftElbow", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest/Neck/LeftShoulder/LeftElbow/LeftHand", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest/Neck/Head", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/RightHip", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/RightHip/RightKnee", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/RightHip/RightKnee/RightAnkle", PackedFloat32Array(0.5, 0, 0, 0, 0, 0, 0, 0.5, 0.5), "Pelvis/RightHip/RightKnee/RightAnkle/RightFoot", PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1), "Pelvis/LeftHip", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/LeftHip/LeftKnee", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/LeftHip/LeftKnee/LeftAnkle", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/LeftHip/LeftKnee/LeftAnkle/LeftFoot", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0)]
 
 [node name="RightAnkle" type="Polygon2D" parent="Up/Polygons"]
-visible = false
 material = SubResource("CanvasItemMaterial_ah8bk")
 position = Vector2(-325.771, -670.526)
 texture = SubResource("ViewportTexture_itsal")
@@ -5218,7 +4806,7 @@ uv = PackedVector2Array(12.3964, 834.243, 71.3964, 833.243, 85.3964, 772.243, 83
 bones = ["Pelvis", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest/Neck", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest/Neck/RightShoulder", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest/Neck/RightShoulder/RightElbow", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest/Neck/RightShoulder/RightElbow/RightHand", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest/Neck/LeftShoulder", PackedFloat32Array(1, 1, 1, 1, 1, 1, 1), "Pelvis/Chest/Neck/LeftShoulder/LeftElbow", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest/Neck/LeftShoulder/LeftElbow/LeftHand", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest/Neck/Head", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0), "Pelvis/RightHip", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0), "Pelvis/RightHip/RightKnee", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0), "Pelvis/RightHip/RightKnee/RightAnkle", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0), "Pelvis/RightHip/RightKnee/RightAnkle/RightFoot", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0), "Pelvis/LeftHip", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0), "Pelvis/LeftHip/LeftKnee", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0), "Pelvis/LeftHip/LeftKnee/LeftAnkle", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0), "Pelvis/LeftHip/LeftKnee/LeftAnkle/LeftFoot", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0)]
 
 [node name="LeftElbow" type="Polygon2D" parent="Up/Polygons"]
-modulate = Color(0.882353, 0.854902, 0.847059, 1)
+modulate = Color(0.946807, 0.934396, 0.930849, 1)
 material = SubResource("CanvasItemMaterial_ah8bk")
 position = Vector2(-7.79279, -633.487)
 texture = SubResource("ViewportTexture_itsal")
@@ -5229,7 +4817,7 @@ uv = PackedVector2Array(12.3964, 841.55, 73.3964, 840.55, 77.3964, 854.55, 79.39
 bones = ["Pelvis", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest/Neck", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest/Neck/RightShoulder", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest/Neck/RightShoulder/RightElbow", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest/Neck/RightShoulder/RightElbow/RightHand", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest/Neck/LeftShoulder", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest/Neck/LeftShoulder/LeftElbow", PackedFloat32Array(1, 1, 0.5, 1, 1, 1, 1), "Pelvis/Chest/Neck/LeftShoulder/LeftElbow/LeftHand", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest/Neck/Head", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0), "Pelvis/RightHip", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0), "Pelvis/RightHip/RightKnee", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0), "Pelvis/RightHip/RightKnee/RightAnkle", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0), "Pelvis/RightHip/RightKnee/RightAnkle/RightFoot", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0), "Pelvis/LeftHip", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0), "Pelvis/LeftHip/LeftKnee", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0), "Pelvis/LeftHip/LeftKnee/LeftAnkle", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0), "Pelvis/LeftHip/LeftKnee/LeftAnkle/LeftFoot", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0)]
 
 [node name="LeftHand" type="Polygon2D" parent="Up/Polygons"]
-modulate = Color(0.882353, 0.854902, 0.847059, 1)
+modulate = Color(0.946807, 0.934396, 0.930849, 1)
 material = SubResource("CanvasItemMaterial_ah8bk")
 position = Vector2(-4.79279, -666.487)
 texture = SubResource("ViewportTexture_itsal")
@@ -5240,6 +4828,7 @@ uv = PackedVector2Array(21.7307, 949.534, 71.1712, 948.598, 89.1892, 986.436, 84
 bones = ["Pelvis", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest/Neck", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest/Neck/RightShoulder", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest/Neck/RightShoulder/RightElbow", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest/Neck/RightShoulder/RightElbow/RightHand", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest/Neck/LeftShoulder", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest/Neck/LeftShoulder/LeftElbow", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest/Neck/LeftShoulder/LeftElbow/LeftHand", PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1), "Pelvis/Chest/Neck/Head", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/RightHip", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/RightHip/RightKnee", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/RightHip/RightKnee/RightAnkle", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/RightHip/RightKnee/RightAnkle/RightFoot", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/LeftHip", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/LeftHip/LeftKnee", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/LeftHip/LeftKnee/LeftAnkle", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/LeftHip/LeftKnee/LeftAnkle/LeftFoot", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)]
 
 [node name="LeftThigh" type="Polygon2D" parent="Up/Polygons"]
+modulate = Color(0.988739, 0.986111, 0.98536, 1)
 material = SubResource("CanvasItemMaterial_ah8bk")
 position = Vector2(-96.982, -546.175)
 texture = SubResource("ViewportTexture_itsal")
@@ -5251,7 +4840,7 @@ bones = ["Pelvis", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/
 
 [node name="LeftKnee" type="Polygon2D" parent="Up/Polygons"]
 material = SubResource("CanvasItemMaterial_ah8bk")
-position = Vector2(-82.982, -600.175)
+position = Vector2(-78.982, -600.175)
 texture = SubResource("ViewportTexture_itsal")
 texture_offset = Vector2(0, 630)
 skeleton = NodePath("../../Skeleton2D")
@@ -5262,7 +4851,7 @@ bones = ["Pelvis", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/Che
 [node name="LeftToe" type="Polygon2D" parent="Up/Polygons"]
 visible = false
 material = SubResource("CanvasItemMaterial_ah8bk")
-position = Vector2(-12.982, -664.175)
+position = Vector2(-8.982, -664.175)
 texture = SubResource("ViewportTexture_itsal")
 texture_offset = Vector2(0, 630)
 skeleton = NodePath("../../Skeleton2D")
@@ -5271,9 +4860,8 @@ uv = PackedVector2Array(85.5856, 1252.2, 90.991, 1229.68, 76.7444, 1210.46, 34.2
 bones = ["Pelvis", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest/Neck", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest/Neck/RightShoulder", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest/Neck/RightShoulder/RightElbow", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest/Neck/RightShoulder/RightElbow/RightHand", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest/Neck/LeftShoulder", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest/Neck/LeftShoulder/LeftElbow", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest/Neck/LeftShoulder/LeftElbow/LeftHand", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest/Neck/Head", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/RightHip", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/RightHip/RightKnee", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/RightHip/RightKnee/RightAnkle", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/RightHip/RightKnee/RightAnkle/RightFoot", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/LeftHip", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/LeftHip/LeftKnee", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/LeftHip/LeftKnee/LeftAnkle", PackedFloat32Array(0.5, 0.5, 0.5, 0, 0, 0, 0, 0), "Pelvis/LeftHip/LeftKnee/LeftAnkle/LeftFoot", PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1)]
 
 [node name="LeftAnkle" type="Polygon2D" parent="Up/Polygons"]
-visible = false
 material = SubResource("CanvasItemMaterial_ah8bk")
-position = Vector2(-80.982, -668.175)
+position = Vector2(-76.982, -668.175)
 texture = SubResource("ViewportTexture_itsal")
 texture_offset = Vector2(0, 630)
 skeleton = NodePath("../../Skeleton2D")
@@ -5361,13 +4949,13 @@ rest = Transform2D(1, 0, 0, 1, -4, -83)
 
 [node name="RightShoulder" type="Bone2D" parent="Up/Skeleton2D/Pelvis/Chest/Neck"]
 position = Vector2(59, 7)
-rotation = -0.225147
+rotation = -0.304665
 scale = Vector2(1, 1)
 rest = Transform2D(1, 0, 0, 1, 59, 7)
 
 [node name="RightElbow" type="Bone2D" parent="Up/Skeleton2D/Pelvis/Chest/Neck/RightShoulder"]
 position = Vector2(3, 96)
-rotation = 0.392699
+rotation = 0.261799
 rest = Transform2D(1, 0, 0, 1, 3, 96)
 
 [node name="RightHand" type="Bone2D" parent="Up/Skeleton2D/Pelvis/Chest/Neck/RightShoulder/RightElbow"]
@@ -5378,15 +4966,14 @@ length = 42.008
 bone_angle = 97.628
 
 [node name="LeftShoulder" type="Bone2D" parent="Up/Skeleton2D/Pelvis/Chest/Neck"]
-position = Vector2(-57, 11)
-rotation = 0.225147
-scale = Vector2(1, 1)
+position = Vector2(-57, 6)
+rotation = 0.333671
+scale = Vector2(0.999999, 0.999999)
 rest = Transform2D(1, 0, 0, 1, -57, 11)
 
 [node name="LeftElbow" type="Bone2D" parent="Up/Skeleton2D/Pelvis/Chest/Neck/LeftShoulder"]
 position = Vector2(-2, 91)
-rotation = -0.336849
-scale = Vector2(0.999999, 0.999999)
+rotation = -0.261799
 rest = Transform2D(1, 0, 0, 1, -2, 91)
 
 [node name="LeftHand" type="Bone2D" parent="Up/Skeleton2D/Pelvis/Chest/Neck/LeftShoulder/LeftElbow"]
@@ -5404,12 +4991,12 @@ length = 68.017
 bone_angle = -85.424
 
 [node name="RightHip" type="Bone2D" parent="Up/Skeleton2D/Pelvis"]
-position = Vector2(36, 35)
-scale = Vector2(1, 1)
+position = Vector2(36, 49)
 rest = Transform2D(1, 0, 0, 1, 36, 35)
 
 [node name="RightKnee" type="Bone2D" parent="Up/Skeleton2D/Pelvis/RightHip"]
-position = Vector2(0, 111)
+position = Vector2(-0.581669, 112.826)
+rotation = 0.236739
 scale = Vector2(1, 1)
 rest = Transform2D(1, 0, 0, 1, 0, 111)
 
@@ -5425,12 +5012,14 @@ length = 16.0
 bone_angle = 326.261
 
 [node name="LeftHip" type="Bone2D" parent="Up/Skeleton2D/Pelvis"]
-position = Vector2(-34, 38)
+position = Vector2(-29, 42)
+rotation = 0.0334135
+scale = Vector2(1, 1)
 rest = Transform2D(1, 0, 0, 1, -34, 38)
 
 [node name="LeftKnee" type="Bone2D" parent="Up/Skeleton2D/Pelvis/LeftHip"]
-position = Vector2(3, 119)
-scale = Vector2(1, 1)
+position = Vector2(0.196767, 129.116)
+rotation = -0.141506
 rest = Transform2D(1, 0, 0, 1, 3, 119)
 
 [node name="LeftAnkle" type="Bone2D" parent="Up/Skeleton2D/Pelvis/LeftHip/LeftKnee"]
@@ -5438,14 +5027,318 @@ position = Vector2(-3, 158)
 rest = Transform2D(1, 0, 0, 1, -3, 158)
 
 [node name="LeftFoot" type="Bone2D" parent="Up/Skeleton2D/Pelvis/LeftHip/LeftKnee/LeftAnkle"]
-position = Vector2(-12.9961, -13.9426)
+position = Vector2(-15, -5)
 rest = Transform2D(1, 0, 0, 1, -15, -5)
 auto_calculate_length_and_angle = false
 length = 24.67
 bone_angle = 206.141
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Up"]
-speed_scale = 0.75
+speed_scale = 0.6
 libraries = {
 "": SubResource("AnimationLibrary_2kosc")
 }
+
+[node name="Down" type="Node2D" parent="."]
+visible = false
+
+[node name="Polygons" type="Node2D" parent="Down"]
+position = Vector2(-10, -24)
+
+[node name="Chest" type="Polygon2D" parent="Down/Polygons"]
+material = SubResource("CanvasItemMaterial_ah8bk")
+position = Vector2(-203, -731)
+texture = SubResource("ViewportTexture_itsal")
+texture_offset = Vector2(0, 1260)
+skeleton = NodePath("../../Skeleton2D")
+polygon = PackedVector2Array(229.348, 877.317, 295.652, 868.622, 354.348, 870.796, 371.739, 901.231, 368.155, 974.529, 359.036, 1020.92, 340.217, 1046.88, 250.873, 1048.8, 229.417, 1016.87, 225.023, 950.848, 208.696, 908.763)
+uv = PackedVector2Array(229.348, 877.317, 295.652, 868.622, 354.348, 870.796, 371.739, 901.231, 368.155, 974.529, 359.036, 1020.92, 340.217, 1046.88, 250.873, 1048.8, 229.417, 1016.87, 225.023, 950.848, 208.696, 908.763)
+bones = ["Pelvis", PackedFloat32Array(0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0), "Pelvis/Chest", PackedFloat32Array(1, 1, 1, 1, 1, 0, 0, 0, 0, 1, 1), "Pelvis/Chest/Neck", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest/Neck/RightShoulder", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest/Neck/RightShoulder/RightElbow", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest/Neck/RightShoulder/RightElbow/RightHand", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest/Neck/LeftShoulder", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest/Neck/LeftShoulder/LeftElbow", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest/Neck/LeftShoulder/LeftElbow/LeftHand", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest/Neck/Head", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/RightHip", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/RightHip/RightKnee", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/RightHip/RightKnee/RightAnkle", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/RightHip/RightKnee/RightAnkle/RightFoot", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/LeftHip", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/LeftHip/LeftKnee", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/LeftHip/LeftKnee/LeftAnkle", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/LeftHip/LeftKnee/LeftAnkle/LeftFoot", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)]
+
+[node name="Hips" type="Polygon2D" parent="Down/Polygons"]
+material = SubResource("CanvasItemMaterial_ah8bk")
+position = Vector2(-202, -837)
+texture = SubResource("ViewportTexture_itsal")
+texture_offset = Vector2(0, 1260)
+skeleton = NodePath("../../Skeleton2D")
+polygon = PackedVector2Array(235.87, 1058.84, 230.16, 1093.76, 212.142, 1155.92, 223.854, 1194.66, 255.385, 1216.28, 293.223, 1210.88, 333.764, 1219.89, 373.913, 1179.49, 373.403, 1121.69, 366.304, 1088.19, 342.391, 1055.58)
+uv = PackedVector2Array(235.87, 1058.84, 230.16, 1093.76, 212.142, 1155.92, 223.854, 1194.66, 255.385, 1216.28, 293.223, 1210.88, 333.764, 1219.89, 373.913, 1179.49, 373.403, 1121.69, 366.304, 1088.19, 342.391, 1055.58)
+bones = ["Pelvis", PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1), "Pelvis/Chest", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest/Neck", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest/Neck/RightShoulder", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest/Neck/RightShoulder/RightElbow", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest/Neck/RightShoulder/RightElbow/RightHand", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest/Neck/LeftShoulder", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest/Neck/LeftShoulder/LeftElbow", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest/Neck/LeftShoulder/LeftElbow/LeftHand", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest/Neck/Head", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/RightHip", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/RightHip/RightKnee", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/RightHip/RightKnee/RightAnkle", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/RightHip/RightKnee/RightAnkle/RightFoot", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/LeftHip", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/LeftHip/LeftKnee", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/LeftHip/LeftKnee/LeftAnkle", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/LeftHip/LeftKnee/LeftAnkle/LeftFoot", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)]
+
+[node name="LeftThigh" type="Polygon2D" parent="Down/Polygons"]
+material = SubResource("CanvasItemMaterial_ah8bk")
+position = Vector2(-85.982, -546.175)
+texture = SubResource("ViewportTexture_itsal")
+texture_offset = Vector2(0, 1260)
+skeleton = NodePath("../../Skeleton2D")
+polygon = PackedVector2Array(138.18, 1020.23, 186.957, 1013.19, 191.304, 993.622, 190.332, 946.238, 189.715, 893.152, 178.604, 856.732, 150.793, 843.653, 106.404, 856.87, 94.4044, 905.87, 93.1355, 976.986, 108.851, 1013.52)
+uv = PackedVector2Array(138.18, 1020.23, 186.957, 1013.19, 191.304, 993.622, 190.332, 946.238, 189.715, 893.152, 178.604, 856.732, 150.793, 843.653, 106.404, 856.87, 94.4044, 905.87, 93.1355, 976.986, 108.851, 1013.52)
+bones = ["Pelvis", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest/Neck", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest/Neck/RightShoulder", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest/Neck/RightShoulder/RightElbow", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest/Neck/RightShoulder/RightElbow/RightHand", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest/Neck/LeftShoulder", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest/Neck/LeftShoulder/LeftElbow", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest/Neck/LeftShoulder/LeftElbow/LeftHand", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest/Neck/Head", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/RightHip", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/RightHip/RightKnee", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/RightHip/RightKnee/RightAnkle", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/RightHip/RightKnee/RightAnkle/RightFoot", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/LeftHip", PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1), "Pelvis/LeftHip/LeftKnee", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/LeftHip/LeftKnee/LeftAnkle", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/LeftHip/LeftKnee/LeftAnkle/LeftFoot", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)]
+
+[node name="LeftKnee" type="Polygon2D" parent="Down/Polygons"]
+material = SubResource("CanvasItemMaterial_ah8bk")
+position = Vector2(-89.6342, -595.709)
+texture = SubResource("ViewportTexture_itsal")
+texture_offset = Vector2(0, 1260)
+skeleton = NodePath("../../Skeleton2D")
+polygon = PackedVector2Array(104.348, 1030.58, 183.696, 1019.71, 191.607, 1050.65, 189.806, 1077.68, 188.855, 1110.66, 194.565, 1180.58, 139.391, 1191.21, 105.435, 1189.27, 108.696, 1107.75, 101.391, 1046.21)
+uv = PackedVector2Array(104.348, 1030.58, 183.696, 1019.71, 191.607, 1050.65, 189.806, 1077.68, 188.855, 1110.66, 194.565, 1180.58, 139.391, 1191.21, 105.435, 1189.27, 108.696, 1107.75, 101.391, 1046.21)
+bones = ["Pelvis", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest/Neck", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest/Neck/RightShoulder", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest/Neck/RightShoulder/RightElbow", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest/Neck/RightShoulder/RightElbow/RightHand", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest/Neck/LeftShoulder", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest/Neck/LeftShoulder/LeftElbow", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest/Neck/LeftShoulder/LeftElbow/LeftHand", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest/Neck/Head", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/RightHip", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/RightHip/RightKnee", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/RightHip/RightKnee/RightAnkle", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/RightHip/RightKnee/RightAnkle/RightFoot", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/LeftHip", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/LeftHip/LeftKnee", PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1), "Pelvis/LeftHip/LeftKnee/LeftAnkle", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/LeftHip/LeftKnee/LeftAnkle/LeftFoot", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0)]
+
+[node name="LeftAnkle" type="Polygon2D" parent="Down/Polygons"]
+material = SubResource("CanvasItemMaterial_ah8bk")
+position = Vector2(-91.6522, -649.534)
+texture = SubResource("ViewportTexture_itsal")
+texture_offset = Vector2(0, 1260)
+skeleton = NodePath("../../Skeleton2D")
+polygon = PackedVector2Array(109.783, 1218.62, 119.222, 1257.82, 136.957, 1263.19, 157.609, 1266.45, 175, 1257.75, 186.957, 1244.71, 189.13, 1225.14, 178.682, 1193.86, 157.06, 1190.25, 127.331, 1193.86)
+uv = PackedVector2Array(109.783, 1218.62, 119.222, 1257.82, 136.957, 1263.19, 157.609, 1266.45, 175, 1257.75, 186.957, 1244.71, 189.13, 1225.14, 178.682, 1193.86, 157.06, 1190.25, 127.331, 1193.86)
+bones = ["Pelvis", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest/Neck", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest/Neck/RightShoulder", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest/Neck/RightShoulder/RightElbow", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest/Neck/RightShoulder/RightElbow/RightHand", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest/Neck/LeftShoulder", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest/Neck/LeftShoulder/LeftElbow", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest/Neck/LeftShoulder/LeftElbow/LeftHand", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest/Neck/Head", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/RightHip", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/RightHip/RightKnee", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/RightHip/RightKnee/RightAnkle", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/RightHip/RightKnee/RightAnkle/RightFoot", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/LeftHip", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/LeftHip/LeftKnee", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0.5, 0.5, 0.5), "Pelvis/LeftHip/LeftKnee/LeftAnkle", PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1), "Pelvis/LeftHip/LeftKnee/LeftAnkle/LeftFoot", PackedFloat32Array(0.5, 0.5, 0.5, 0, 0, 0, 0, 0, 0, 0.5)]
+
+[node name="LeftToe" type="Polygon2D" parent="Down/Polygons"]
+material = SubResource("CanvasItemMaterial_ah8bk")
+position = Vector2(-6.65217, -629.534)
+texture = SubResource("ViewportTexture_itsal")
+texture_offset = Vector2(0, 1260)
+skeleton = NodePath("../../Skeleton2D")
+polygon = PackedVector2Array(76.087, 1250.14, 100, 1209.93, 82.6087, 1171.88, 51.087, 1171.88, 16.3043, 1202.32, -4.34783, 1237.1, 23.913, 1272.97, 53.2609, 1272.97)
+uv = PackedVector2Array(76.087, 1250.14, 100, 1209.93, 82.6087, 1171.88, 51.087, 1171.88, 16.3043, 1202.32, -4.34783, 1237.1, 23.913, 1272.97, 53.2609, 1272.97)
+bones = ["Pelvis", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest/Neck", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest/Neck/RightShoulder", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest/Neck/RightShoulder/RightElbow", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest/Neck/RightShoulder/RightElbow/RightHand", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest/Neck/LeftShoulder", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest/Neck/LeftShoulder/LeftElbow", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest/Neck/LeftShoulder/LeftElbow/LeftHand", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest/Neck/Head", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/RightHip", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/RightHip/RightKnee", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/RightHip/RightKnee/RightAnkle", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/RightHip/RightKnee/RightAnkle/RightFoot", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/LeftHip", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/LeftHip/LeftKnee", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/LeftHip/LeftKnee/LeftAnkle", PackedFloat32Array(0.5, 0.5, 0.5, 0, 0, 0, 0, 0), "Pelvis/LeftHip/LeftKnee/LeftAnkle/LeftFoot", PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1)]
+
+[node name="LeftToe2" type="Polygon2D" parent="Down/Polygons"]
+visible = false
+material = SubResource("CanvasItemMaterial_ah8bk")
+position = Vector2(81, -226)
+rotation = 0.244346
+texture = SubResource("ViewportTexture_itsal")
+texture_offset = Vector2(0, 1260)
+skeleton = NodePath("../../Skeleton2D")
+polygon = PackedVector2Array(195.652, 815.361, 193.478, 776.23, 177.174, 731.665, 138.043, 727.317, 118.478, 752.317, 104.348, 793.622, 121.739, 831.665, 165.217, 833.839)
+uv = PackedVector2Array(195.652, 815.361, 193.478, 776.23, 177.174, 731.665, 138.043, 727.317, 118.478, 752.317, 104.348, 793.622, 121.739, 831.665, 165.217, 833.839)
+bones = ["Pelvis", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest/Neck", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest/Neck/RightShoulder", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest/Neck/RightShoulder/RightElbow", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest/Neck/RightShoulder/RightElbow/RightHand", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest/Neck/LeftShoulder", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest/Neck/LeftShoulder/LeftElbow", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest/Neck/LeftShoulder/LeftElbow/LeftHand", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest/Neck/Head", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/RightHip", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/RightHip/RightKnee", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/RightHip/RightKnee/RightAnkle", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/RightHip/RightKnee/RightAnkle/RightFoot", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/LeftHip", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/LeftHip/LeftKnee", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/LeftHip/LeftKnee/LeftAnkle", PackedFloat32Array(0.5, 0.5, 0.5, 0, 0, 0, 0, 0), "Pelvis/LeftHip/LeftKnee/LeftAnkle/LeftFoot", PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1)]
+
+[node name="RightThigh" type="Polygon2D" parent="Down/Polygons"]
+material = SubResource("CanvasItemMaterial_ah8bk")
+position = Vector2(-318.771, -553.46)
+texture = SubResource("ViewportTexture_itsal")
+texture_offset = Vector2(0, 1260)
+skeleton = NodePath("../../Skeleton2D")
+polygon = PackedVector2Array(490.516, 881.618, 493.148, 923.723, 489.621, 970.389, 479.208, 1016.96, 401.98, 1016.96, 399.727, 1000.04, 394.464, 935.565, 395.779, 881.618, 415.516, 848.723, 466.832, 843.46)
+uv = PackedVector2Array(490.516, 881.618, 493.148, 923.723, 489.621, 970.389, 479.208, 1016.96, 401.98, 1016.96, 399.727, 1000.04, 394.464, 935.565, 395.779, 881.618, 415.516, 848.723, 466.832, 843.46)
+bones = ["Pelvis", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest/Neck", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest/Neck/RightShoulder", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest/Neck/RightShoulder/RightElbow", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest/Neck/RightShoulder/RightElbow/RightHand", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest/Neck/LeftShoulder", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest/Neck/LeftShoulder/LeftElbow", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest/Neck/LeftShoulder/LeftElbow/LeftHand", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest/Neck/Head", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/RightHip", PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1), "Pelvis/RightHip/RightKnee", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/RightHip/RightKnee/RightAnkle", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/RightHip/RightKnee/RightAnkle/RightFoot", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/LeftHip", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/LeftHip/LeftKnee", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/LeftHip/LeftKnee/LeftAnkle", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/LeftHip/LeftKnee/LeftAnkle/LeftFoot", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0)]
+
+[node name="RightKnee" type="Polygon2D" parent="Down/Polygons"]
+material = SubResource("CanvasItemMaterial_ah8bk")
+position = Vector2(-315.789, -596.881)
+texture = SubResource("ViewportTexture_itsal")
+texture_offset = Vector2(0, 1260)
+skeleton = NodePath("../../Skeleton2D")
+polygon = PackedVector2Array(476.238, 1023.89, 486.842, 1051.32, 478.947, 1106.58, 480.198, 1183.3, 447.368, 1185.53, 394.737, 1185.53, 390.789, 1121.05, 393.421, 1050, 401.316, 1018.42)
+uv = PackedVector2Array(476.238, 1023.89, 486.842, 1051.32, 478.947, 1106.58, 480.198, 1183.3, 447.368, 1185.53, 394.737, 1185.53, 390.789, 1121.05, 393.421, 1050, 401.316, 1018.42)
+bones = ["Pelvis", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest/Neck", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest/Neck/RightShoulder", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest/Neck/RightShoulder/RightElbow", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest/Neck/RightShoulder/RightElbow/RightHand", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest/Neck/LeftShoulder", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest/Neck/LeftShoulder/LeftElbow", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest/Neck/LeftShoulder/LeftElbow/LeftHand", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest/Neck/Head", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/RightHip", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/RightHip/RightKnee", PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1), "Pelvis/RightHip/RightKnee/RightAnkle", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/RightHip/RightKnee/RightAnkle/RightFoot", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/LeftHip", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/LeftHip/LeftKnee", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/LeftHip/LeftKnee/LeftAnkle", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/LeftHip/LeftKnee/LeftAnkle/LeftFoot", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0)]
+
+[node name="RightAnkle" type="Polygon2D" parent="Down/Polygons"]
+material = SubResource("CanvasItemMaterial_ah8bk")
+position = Vector2(-312.789, -646.881)
+texture = SubResource("ViewportTexture_itsal")
+texture_offset = Vector2(0, 1260)
+skeleton = NodePath("../../Skeleton2D")
+polygon = PackedVector2Array(410.87, 1192.53, 400, 1218.62, 401.087, 1236.01, 409.783, 1257.75, 425, 1263.19, 447.826, 1262.1, 465.217, 1255.58, 479.348, 1239.27, 476.087, 1220.8, 469.565, 1205.58, 460.87, 1191.45)
+uv = PackedVector2Array(410.87, 1192.53, 400, 1218.62, 401.087, 1236.01, 409.783, 1257.75, 425, 1263.19, 447.826, 1262.1, 465.217, 1255.58, 479.348, 1239.27, 476.087, 1220.8, 469.565, 1205.58, 460.87, 1191.45)
+bones = ["Pelvis", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest/Neck", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest/Neck/RightShoulder", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest/Neck/RightShoulder/RightElbow", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest/Neck/RightShoulder/RightElbow/RightHand", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest/Neck/LeftShoulder", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest/Neck/LeftShoulder/LeftElbow", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest/Neck/LeftShoulder/LeftElbow/LeftHand", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest/Neck/Head", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/RightHip", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/RightHip/RightKnee", PackedFloat32Array(1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/RightHip/RightKnee/RightAnkle", PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1), "Pelvis/RightHip/RightKnee/RightAnkle/RightFoot", PackedFloat32Array(0, 0.5, 0.5, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/LeftHip", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/LeftHip/LeftKnee", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/LeftHip/LeftKnee/LeftAnkle", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/LeftHip/LeftKnee/LeftAnkle/LeftFoot", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)]
+
+[node name="RightToe" type="Polygon2D" parent="Down/Polygons"]
+material = SubResource("CanvasItemMaterial_ah8bk")
+position = Vector2(-395.789, -620.881)
+texture = SubResource("ViewportTexture_itsal")
+texture_offset = Vector2(0, 1260)
+skeleton = NodePath("../../Skeleton2D")
+polygon = PackedVector2Array(579.279, 1228.78, 573.913, 1255.58, 553.261, 1272.97, 517.724, 1271.3, 483.696, 1204.49, 493.478, 1181.67, 509.783, 1165.36, 536.956, 1166.45, 564.13, 1204.49)
+uv = PackedVector2Array(579.279, 1228.78, 573.913, 1255.58, 553.261, 1272.97, 517.724, 1271.3, 483.696, 1204.49, 493.478, 1181.67, 509.783, 1165.36, 536.956, 1166.45, 564.13, 1204.49)
+bones = ["Pelvis", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest/Neck", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest/Neck/RightShoulder", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest/Neck/RightShoulder/RightElbow", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest/Neck/RightShoulder/RightElbow/RightHand", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest/Neck/LeftShoulder", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest/Neck/LeftShoulder/LeftElbow", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest/Neck/LeftShoulder/LeftElbow/LeftHand", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest/Neck/Head", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/RightHip", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/RightHip/RightKnee", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/RightHip/RightKnee/RightAnkle", PackedFloat32Array(0.5, 0, 0, 0, 0, 0, 0, 0.5, 0.5), "Pelvis/RightHip/RightKnee/RightAnkle/RightFoot", PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1), "Pelvis/LeftHip", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/LeftHip/LeftKnee", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/LeftHip/LeftKnee/LeftAnkle", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/LeftHip/LeftKnee/LeftAnkle/LeftFoot", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0)]
+
+[node name="RightToe2" type="Polygon2D" parent="Down/Polygons"]
+visible = false
+material = SubResource("CanvasItemMaterial_ah8bk")
+position = Vector2(-287, -233)
+texture = SubResource("ViewportTexture_itsal")
+texture_offset = Vector2(0, 1260)
+skeleton = NodePath("../../Skeleton2D")
+polygon = PackedVector2Array(478.261, 778.404, 482.609, 821.883, 454.348, 833.839, 411.957, 831.665, 392.391, 815.361, 391.304, 778.404, 410.87, 738.187, 431.522, 727.317, 455.435, 731.665)
+uv = PackedVector2Array(478.261, 778.404, 482.609, 821.883, 454.348, 833.839, 411.957, 831.665, 392.391, 815.361, 391.304, 778.404, 410.87, 738.187, 431.522, 727.317, 455.435, 731.665)
+bones = ["Pelvis", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest/Neck", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest/Neck/RightShoulder", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest/Neck/RightShoulder/RightElbow", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest/Neck/RightShoulder/RightElbow/RightHand", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest/Neck/LeftShoulder", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest/Neck/LeftShoulder/LeftElbow", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest/Neck/LeftShoulder/LeftElbow/LeftHand", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest/Neck/Head", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/RightHip", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/RightHip/RightKnee", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/RightHip/RightKnee/RightAnkle", PackedFloat32Array(0, 0, 0, 0, 0, 0.5, 0.5, 0.5, 0), "Pelvis/RightHip/RightKnee/RightAnkle/RightFoot", PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1), "Pelvis/LeftHip", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/LeftHip/LeftKnee", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/LeftHip/LeftKnee/LeftAnkle", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/LeftHip/LeftKnee/LeftAnkle/LeftFoot", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0)]
+
+[node name="RightShoulder" type="Polygon2D" parent="Down/Polygons"]
+material = SubResource("CanvasItemMaterial_ah8bk")
+position = Vector2(-491, -506)
+rotation = -0.1309
+texture = SubResource("ViewportTexture_itsal")
+texture_offset = Vector2(0, 1260)
+skeleton = NodePath("../../Skeleton2D")
+polygon = PackedVector2Array(499.281, 761.807, 513.281, 832.807, 521.281, 857.807, 581.281, 845.807, 589.281, 775.807, 584.281, 735.807, 552.281, 713.807, 528.281, 716.807, 509.281, 732.807)
+uv = PackedVector2Array(499.281, 761.807, 513.281, 832.807, 521.281, 857.807, 581.281, 845.807, 589.281, 775.807, 584.281, 735.807, 552.281, 713.807, 528.281, 716.807, 509.281, 732.807)
+bones = ["Pelvis", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest/Neck", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest/Neck/RightShoulder", PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1), "Pelvis/Chest/Neck/RightShoulder/RightElbow", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest/Neck/RightShoulder/RightElbow/RightHand", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest/Neck/LeftShoulder", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest/Neck/LeftShoulder/LeftElbow", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest/Neck/LeftShoulder/LeftElbow/LeftHand", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest/Neck/Head", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/RightHip", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/RightHip/RightKnee", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/RightHip/RightKnee/RightAnkle", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/RightHip/RightKnee/RightAnkle/RightFoot", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/LeftHip", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/LeftHip/LeftKnee", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/LeftHip/LeftKnee/LeftAnkle", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/LeftHip/LeftKnee/LeftAnkle/LeftFoot", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0)]
+
+[node name="RightElbow" type="Polygon2D" parent="Down/Polygons"]
+material = SubResource("CanvasItemMaterial_ah8bk")
+position = Vector2(-499.979, -551.215)
+rotation = -0.1309
+texture = SubResource("ViewportTexture_itsal")
+texture_offset = Vector2(0, 1260)
+skeleton = NodePath("../../Skeleton2D")
+polygon = PackedVector2Array(513.51, 860.591, 512.871, 915.972, 518.812, 953.596, 581.188, 956.566, 587.129, 936.764, 584.563, 871.118, 575.352, 852.697)
+uv = PackedVector2Array(513.51, 860.591, 512.871, 915.972, 518.812, 953.596, 581.188, 956.566, 587.129, 936.764, 584.563, 871.118, 575.352, 852.697)
+bones = ["Pelvis", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest/Neck", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest/Neck/RightShoulder", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest/Neck/RightShoulder/RightElbow", PackedFloat32Array(1, 1, 1, 1, 1, 1, 1), "Pelvis/Chest/Neck/RightShoulder/RightElbow/RightHand", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest/Neck/LeftShoulder", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest/Neck/LeftShoulder/LeftElbow", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest/Neck/LeftShoulder/LeftElbow/LeftHand", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest/Neck/Head", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0), "Pelvis/RightHip", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0), "Pelvis/RightHip/RightKnee", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0), "Pelvis/RightHip/RightKnee/RightAnkle", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0), "Pelvis/RightHip/RightKnee/RightAnkle/RightFoot", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0), "Pelvis/LeftHip", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0), "Pelvis/LeftHip/LeftKnee", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0), "Pelvis/LeftHip/LeftKnee/LeftAnkle", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0), "Pelvis/LeftHip/LeftKnee/LeftAnkle/LeftFoot", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0)]
+
+[node name="RightHand" type="Polygon2D" parent="Down/Polygons"]
+material = SubResource("CanvasItemMaterial_ah8bk")
+position = Vector2(-500.137, -575.401)
+rotation = -0.1309
+texture = SubResource("ViewportTexture_itsal")
+texture_offset = Vector2(0, 1260)
+skeleton = NodePath("../../Skeleton2D")
+polygon = PackedVector2Array(523.059, 959.927, 508.911, 997.16, 515.164, 1025.71, 529.703, 1044.69, 548.515, 1049.64, 573.267, 1035.77, 591.48, 1021.77, 592.796, 988.875, 579.638, 961.243)
+uv = PackedVector2Array(523.059, 959.927, 508.911, 997.16, 515.164, 1025.71, 529.703, 1044.69, 548.515, 1049.64, 573.267, 1035.77, 591.48, 1021.77, 592.796, 988.875, 579.638, 961.243)
+bones = ["Pelvis", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest/Neck", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest/Neck/RightShoulder", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest/Neck/RightShoulder/RightElbow", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest/Neck/RightShoulder/RightElbow/RightHand", PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1), "Pelvis/Chest/Neck/LeftShoulder", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest/Neck/LeftShoulder/LeftElbow", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest/Neck/LeftShoulder/LeftElbow/LeftHand", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest/Neck/Head", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/RightHip", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/RightHip/RightKnee", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/RightHip/RightKnee/RightAnkle", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/RightHip/RightKnee/RightAnkle/RightFoot", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/LeftHip", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/LeftHip/LeftKnee", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/LeftHip/LeftKnee/LeftAnkle", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/LeftHip/LeftKnee/LeftAnkle/LeftFoot", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0)]
+
+[node name="LeftShoulder" type="Polygon2D" parent="Down/Polygons"]
+material = SubResource("CanvasItemMaterial_ah8bk")
+position = Vector2(84, -572)
+rotation = 0.1309
+texture = SubResource("ViewportTexture_itsal")
+texture_offset = Vector2(0, 1260)
+skeleton = NodePath("../../Skeleton2D")
+polygon = PackedVector2Array(15.6573, 850.547, 74.6573, 849.547, 88.6573, 788.547, 86.6573, 734.547, 58.6573, 711.547, 23.6573, 714.547, -0.342728, 752.547)
+uv = PackedVector2Array(15.6573, 850.547, 74.6573, 849.547, 88.6573, 788.547, 86.6573, 734.547, 58.6573, 711.547, 23.6573, 714.547, -0.342728, 752.547)
+bones = ["Pelvis", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest/Neck", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest/Neck/RightShoulder", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest/Neck/RightShoulder/RightElbow", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest/Neck/RightShoulder/RightElbow/RightHand", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest/Neck/LeftShoulder", PackedFloat32Array(1, 1, 1, 1, 1, 1, 1), "Pelvis/Chest/Neck/LeftShoulder/LeftElbow", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest/Neck/LeftShoulder/LeftElbow/LeftHand", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest/Neck/Head", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0), "Pelvis/RightHip", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0), "Pelvis/RightHip/RightKnee", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0), "Pelvis/RightHip/RightKnee/RightAnkle", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0), "Pelvis/RightHip/RightKnee/RightAnkle/RightFoot", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0), "Pelvis/LeftHip", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0), "Pelvis/LeftHip/LeftKnee", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0), "Pelvis/LeftHip/LeftKnee/LeftAnkle", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0), "Pelvis/LeftHip/LeftKnee/LeftAnkle/LeftFoot", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0)]
+
+[node name="LeftElbow" type="Polygon2D" parent="Down/Polygons"]
+material = SubResource("CanvasItemMaterial_ah8bk")
+position = Vector2(92.5039, -602.912)
+rotation = 0.1309
+texture = SubResource("ViewportTexture_itsal")
+texture_offset = Vector2(0, 1260)
+skeleton = NodePath("../../Skeleton2D")
+polygon = PackedVector2Array(9.13553, 856.767, 70.1355, 855.767, 74.1355, 869.767, 76.1355, 918.767, 72.8261, 945.796, 9.78261, 952.317, 2.13553, 928.767)
+uv = PackedVector2Array(9.13553, 856.767, 70.1355, 855.767, 74.1355, 869.767, 76.1355, 918.767, 72.8261, 945.796, 9.78261, 952.317, 2.13553, 928.767)
+bones = ["Pelvis", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest/Neck", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest/Neck/RightShoulder", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest/Neck/RightShoulder/RightElbow", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest/Neck/RightShoulder/RightElbow/RightHand", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest/Neck/LeftShoulder", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest/Neck/LeftShoulder/LeftElbow", PackedFloat32Array(1, 1, 0.5, 1, 1, 1, 1), "Pelvis/Chest/Neck/LeftShoulder/LeftElbow/LeftHand", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest/Neck/Head", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0), "Pelvis/RightHip", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0), "Pelvis/RightHip/RightKnee", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0), "Pelvis/RightHip/RightKnee/RightAnkle", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0), "Pelvis/RightHip/RightKnee/RightAnkle/RightFoot", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0), "Pelvis/LeftHip", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0), "Pelvis/LeftHip/LeftKnee", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0), "Pelvis/LeftHip/LeftKnee/LeftAnkle", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0), "Pelvis/LeftHip/LeftKnee/LeftAnkle/LeftFoot", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0)]
+
+[node name="LeftHand" type="Polygon2D" parent="Down/Polygons"]
+material = SubResource("CanvasItemMaterial_ah8bk")
+position = Vector2(98.2471, -646.535)
+rotation = 0.1309
+texture = SubResource("ViewportTexture_itsal")
+texture_offset = Vector2(0, 1260)
+skeleton = NodePath("../../Skeleton2D")
+polygon = PackedVector2Array(19.5568, 956.056, 68.9973, 955.12, 83.6956, 989.274, 80.4348, 1011.01, 69.5652, 1033.84, 51.087, 1046.88, 25, 1041.45, 4.55677, 1025.05, 4.1324, 1007.37, 5.0333, 980.345, 8.63689, 963.228)
+uv = PackedVector2Array(19.5568, 956.056, 68.9973, 955.12, 83.6956, 989.274, 80.4348, 1011.01, 69.5652, 1033.84, 51.087, 1046.88, 25, 1041.45, 4.55677, 1025.05, 4.1324, 1007.37, 5.0333, 980.345, 8.63689, 963.228)
+bones = ["Pelvis", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest/Neck", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest/Neck/RightShoulder", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest/Neck/RightShoulder/RightElbow", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest/Neck/RightShoulder/RightElbow/RightHand", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest/Neck/LeftShoulder", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest/Neck/LeftShoulder/LeftElbow", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest/Neck/LeftShoulder/LeftElbow/LeftHand", PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1), "Pelvis/Chest/Neck/Head", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/RightHip", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/RightHip/RightKnee", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/RightHip/RightKnee/RightAnkle", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/RightHip/RightKnee/RightAnkle/RightFoot", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/LeftHip", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/LeftHip/LeftKnee", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/LeftHip/LeftKnee/LeftAnkle", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/LeftHip/LeftKnee/LeftAnkle/LeftFoot", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)]
+
+[node name="Head" type="Polygon2D" parent="Down/Polygons"]
+material = SubResource("CanvasItemMaterial_ah8bk")
+position = Vector2(-209, -637)
+texture = SubResource("ViewportTexture_itsal")
+texture_offset = Vector2(0, 1260)
+skeleton = NodePath("../../Skeleton2D")
+polygon = PackedVector2Array(259.783, 776.23, 326.087, 776.23, 349.079, 721.502, 345.475, 691.773, 323.854, 663.845, 290.52, 653.034, 256.286, 669.25, 240.971, 698.079, 241.872, 744.926)
+uv = PackedVector2Array(259.783, 776.23, 326.087, 776.23, 349.079, 721.502, 345.475, 691.773, 323.854, 663.845, 290.52, 653.034, 256.286, 669.25, 240.971, 698.079, 241.872, 744.926)
+bones = ["Pelvis", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest/Neck", PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1), "Pelvis/Chest/Neck/RightShoulder", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest/Neck/RightShoulder/RightElbow", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest/Neck/RightShoulder/RightElbow/RightHand", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest/Neck/LeftShoulder", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest/Neck/LeftShoulder/LeftElbow", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest/Neck/LeftShoulder/LeftElbow/LeftHand", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest/Neck/Head", PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1), "Pelvis/RightHip", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/RightHip/RightKnee", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/RightHip/RightKnee/RightAnkle", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/RightHip/RightKnee/RightAnkle/RightFoot", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/LeftHip", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/LeftHip/LeftKnee", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/LeftHip/LeftKnee/LeftAnkle", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/LeftHip/LeftKnee/LeftAnkle/LeftFoot", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0)]
+
+[node name="Neck" type="Polygon2D" parent="Down/Polygons"]
+material = SubResource("CanvasItemMaterial_ah8bk")
+position = Vector2(-208, -673)
+texture = SubResource("ViewportTexture_itsal")
+texture_offset = Vector2(0, 1260)
+skeleton = NodePath("../../Skeleton2D")
+polygon = PackedVector2Array(257.531, 786.769, 325, 786.013, 329.348, 797.969, 333.696, 833.839, 333.696, 857.752, 298.913, 865.361, 264.13, 865.361, 252.174, 849.056)
+uv = PackedVector2Array(257.531, 786.769, 325, 786.013, 329.348, 797.969, 333.696, 833.839, 333.696, 857.752, 298.913, 865.361, 264.13, 865.361, 252.174, 849.056)
+bones = ["Pelvis", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest", PackedFloat32Array(0, 0, 0, 1, 1, 1, 1, 1), "Pelvis/Chest/Neck", PackedFloat32Array(1, 1, 1, 0.5, 0, 0, 0, 0.5), "Pelvis/Chest/Neck/RightShoulder", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest/Neck/RightShoulder/RightElbow", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest/Neck/RightShoulder/RightElbow/RightHand", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest/Neck/LeftShoulder", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest/Neck/LeftShoulder/LeftElbow", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest/Neck/LeftShoulder/LeftElbow/LeftHand", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest/Neck/Head", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/RightHip", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/RightHip/RightKnee", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/RightHip/RightKnee/RightAnkle", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/RightHip/RightKnee/RightAnkle/RightFoot", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/LeftHip", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/LeftHip/LeftKnee", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/LeftHip/LeftKnee/LeftAnkle", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/LeftHip/LeftKnee/LeftAnkle/LeftFoot", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0)]
+
+[node name="Skeleton2D" type="Skeleton2D" parent="Down"]
+
+[node name="Pelvis" type="Bone2D" parent="Down/Skeleton2D"]
+position = Vector2(81, 276)
+rest = Transform2D(1, 0, 0, 1, 81, 276)
+
+[node name="Chest" type="Bone2D" parent="Down/Skeleton2D/Pelvis"]
+position = Vector2(4, -52)
+rest = Transform2D(1, 0, 0, 1, 4, -52)
+
+[node name="Neck" type="Bone2D" parent="Down/Skeleton2D/Pelvis/Chest"]
+position = Vector2(-4, -83)
+rest = Transform2D(1, 0, 0, 1, -4, -83)
+
+[node name="RightShoulder" type="Bone2D" parent="Down/Skeleton2D/Pelvis/Chest/Neck"]
+position = Vector2(59, 7)
+rest = Transform2D(1, 0, 0, 1, 59, 7)
+
+[node name="RightElbow" type="Bone2D" parent="Down/Skeleton2D/Pelvis/Chest/Neck/RightShoulder"]
+position = Vector2(3, 96)
+rest = Transform2D(1, 0, 0, 1, 3, 96)
+
+[node name="RightHand" type="Bone2D" parent="Down/Skeleton2D/Pelvis/Chest/Neck/RightShoulder/RightElbow"]
+position = Vector2(7, 58)
+rest = Transform2D(1, 0, 0, 1, 7, 58)
+auto_calculate_length_and_angle = false
+length = 42.008
+bone_angle = 97.628
+
+[node name="LeftShoulder" type="Bone2D" parent="Down/Skeleton2D/Pelvis/Chest/Neck"]
+position = Vector2(-57, 11)
+rest = Transform2D(1, 0, 0, 1, -57, 11)
+
+[node name="LeftElbow" type="Bone2D" parent="Down/Skeleton2D/Pelvis/Chest/Neck/LeftShoulder"]
+position = Vector2(-2, 91)
+rest = Transform2D(1, 0, 0, 1, -2, 91)
+
+[node name="LeftHand" type="Bone2D" parent="Down/Skeleton2D/Pelvis/Chest/Neck/LeftShoulder/LeftElbow"]
+position = Vector2(3, 65)
+rest = Transform2D(1, 0, 0, 1, 3, 65)
+auto_calculate_length_and_angle = false
+length = 42.008
+bone_angle = 97.628
+
+[node name="Head" type="Bone2D" parent="Down/Skeleton2D/Pelvis/Chest/Neck"]
+position = Vector2(-6, -24)
+rest = Transform2D(1, 0, 0, 1, -6, -24)
+auto_calculate_length_and_angle = false
+length = 68.017
+bone_angle = -85.424
+
+[node name="RightHip" type="Bone2D" parent="Down/Skeleton2D/Pelvis"]
+position = Vector2(36, 35)
+rest = Transform2D(1, 0, 0, 1, 36, 35)
+
+[node name="RightKnee" type="Bone2D" parent="Down/Skeleton2D/Pelvis/RightHip"]
+position = Vector2(0, 111)
+rest = Transform2D(1, 0, 0, 1, 0, 111)
+
+[node name="RightAnkle" type="Bone2D" parent="Down/Skeleton2D/Pelvis/RightHip/RightKnee"]
+position = Vector2(4, 161)
+rest = Transform2D(1, 0, 0, 1, 4, 161)
+
+[node name="RightFoot" type="Bone2D" parent="Down/Skeleton2D/Pelvis/RightHip/RightKnee/RightAnkle"]
+position = Vector2(22, -8)
+rest = Transform2D(1, 0, 0, 1, 22, -8)
+auto_calculate_length_and_angle = false
+length = 16.0
+bone_angle = 326.261
+
+[node name="LeftHip" type="Bone2D" parent="Down/Skeleton2D/Pelvis"]
+position = Vector2(-34, 38)
+rest = Transform2D(1, 0, 0, 1, -34, 38)
+
+[node name="LeftKnee" type="Bone2D" parent="Down/Skeleton2D/Pelvis/LeftHip"]
+position = Vector2(0.196767, 129.116)
+rest = Transform2D(1, 0, 0, 1, 3, 119)
+
+[node name="LeftAnkle" type="Bone2D" parent="Down/Skeleton2D/Pelvis/LeftHip/LeftKnee"]
+position = Vector2(-3, 158)
+rest = Transform2D(1, 0, 0, 1, -3, 158)
+
+[node name="LeftFoot" type="Bone2D" parent="Down/Skeleton2D/Pelvis/LeftHip/LeftKnee/LeftAnkle"]
+position = Vector2(-15, -5)
+rest = Transform2D(1, 0, 0, 1, -15, -5)
+auto_calculate_length_and_angle = false
+length = 24.67
+bone_angle = 206.141
