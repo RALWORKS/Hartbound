@@ -5,10 +5,16 @@ extends AnimationPlayer
 
 
 var timer = 0.0
+var started = false
 
 
 func _ready() -> void:
 	playback_process_mode = ANIMATION_PROCESS_MANUAL
+	connect("animation_changed", reset)
+
+func reset():
+	started = false
+	timer = 0.0
 
 func _process(delta: float) -> void:
 	if not is_playing():

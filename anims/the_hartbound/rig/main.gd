@@ -9,12 +9,17 @@ var last_animation = "left_stopped"
 	"left": [$Left, false],
 	"right": [$Left, true],
 	"up_left": [$UpLeft, false],
+	"mount": [$UpLeft, false],
 	"up_right": [$UpLeft, true],
 	"down_left": [$DownLeft, false],
-	"test_mount": [$DownLeft, false],
 	"down_right": [$DownLeft, true],
 	"down": [$Down, false],
 	"up": [$Up, false],
+}
+
+var ALIASES = {
+	"down_left_ride": "left_ride",
+	"down_right_ride": "right_ride",
 }
 
 # Called when the node enters the scene tree for the first time.
@@ -23,6 +28,9 @@ func _ready():
 
 
 func play(anim: String):
+	if anim in ALIASES:
+		anim = ALIASES[anim]
+
 	var tok: Array = anim.split("_")
 	var d = anim
 	var cycle = "walk"
@@ -30,6 +38,15 @@ func play(anim: String):
 		tok.pop_back()
 		d = "_".join(tok)
 		cycle = "stop"
+	if tok[-1] == "ride":
+		tok.pop_back()
+		d = "_".join(tok)
+		cycle = "ride"
+	if tok[-1] == "mount":
+		tok.pop_back()
+		d = anim
+		cycle = "mount"
+	
 	
 	if not d in DIRECTIONS:
 		return
