@@ -3,6 +3,14 @@ extends Node2D
 
 @export var animation: String = "left_stopped"
 var last_animation = "left_stopped"
+@export var animation_switching: ANIMATION_SWITCHING = ANIMATION_SWITCHING.ULTRA_SMOOTH
+
+enum ANIMATION_SWITCHING {
+	ULTRA_SMOOTH,
+	CONSERVE_MEMORY
+}
+
+var UNIVERSAL_MODES = ["stop", "walk", "ride"]
 
 
 @onready var DIRECTIONS = {
@@ -62,23 +70,32 @@ func _process(delta):
 		last_animation = animation
 
 func play_params(group: Node2D, mirror:bool, anim: String):
-	hide_all()
-	group.visible = true
 	group.process_mode = Node.PROCESS_MODE_INHERIT
+	scale = Vector2(1.0, 1.0)
 	if mirror:
 		scale = Vector2(-1.0, 1.0)
 	var anims:AnimationPlayer = get_animator(group)
 	if not anims:
 		return
 	anims.play(anim)
+	reset(group, anim)
+	group.visible = true
 
-func hide_all():
-	scale = Vector2(1.0, 1.0)
+func reset(focus, mode):
+	if mode not in UNIVERSAL_MODES:
+		mode = "stop"
+	var anims
 	for c in get_children():
-		if c.get_class() != "Node2D":
+		if c.get_class() != "Node2D" or c == focus:
 			continue
+		if animation_switching == ANIMATION_SWITCHING.CONSERVE_MEMORY:
+			c.visible = false
+			c.process_mode = Node.PROCESS_MODE_DISABLED
+			continue
+		c.process_mode = Node.PROCESS_MODE_INHERIT
+		anims = get_animator(c)
+		anims.play(mode)
 		c.visible = false
-		c.process_mode = Node.PROCESS_MODE_DISABLED
 
 func get_animator(c):
 	return c.get_node_or_null("AnimationPlayer")
