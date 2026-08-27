@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://cbs36wby4a0sq"]
+[gd_scene load_steps=16 format=3 uid="uid://cbs36wby4a0sq"]
 
 [ext_resource type="PackedScene" uid="uid://byrlpmbpj6yr5" path="res://abstract/scene/scene.tscn" id="1_rjhk2"]
 [ext_resource type="Texture2D" uid="uid://bokmdx22fxd6l" path="res://assets/forest-layers/bg/meadow1-tiles.png" id="2_q7r53"]
@@ -13,6 +13,12 @@
 [ext_resource type="Texture2D" uid="uid://bmg0dexxehfmo" path="res://assets/forest-layers/medium-rect.png" id="6_i8ftj"]
 [ext_resource type="Texture2D" uid="uid://dlrn5x0iyl8jl" path="res://assets/forest-layers/clif-edge-1-slim-right.png" id="7_5bkl8"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6l41t"]
+size = Vector2(4486, 232)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wpr5e"]
+size = Vector2(320, 3184)
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_orj2v"]
 resource_local_to_scene = true
 shader = ExtResource("3_hfalb")
@@ -23,10 +29,33 @@ shader_parameter/warmth = 0.5
 
 [node name="Scene" instance=ExtResource("1_rjhk2")]
 
-[node name="Background" parent="." index="0"]
+[node name="CameraBound" type="StaticBody2D" parent="." index="0"]
+collision_layer = 32769
+collision_mask = 32769
+
+[node name="H" type="CollisionShape2D" parent="CameraBound" index="0"]
+position = Vector2(1717, 2531)
+shape = SubResource("RectangleShape2D_6l41t")
+debug_color = Color(0.482353, 0.901961, 1, 0.419608)
+
+[node name="H2" type="CollisionShape2D" parent="CameraBound" index="1"]
+z_index = 100
+position = Vector2(1687, -69)
+shape = SubResource("RectangleShape2D_6l41t")
+debug_color = Color(0.482353, 0.901961, 1, 0.419608)
+
+[node name="V" type="CollisionShape2D" parent="CameraBound" index="2"]
+position = Vector2(-159, 1235)
+shape = SubResource("RectangleShape2D_wpr5e")
+
+[node name="V2" type="CollisionShape2D" parent="CameraBound" index="3"]
+position = Vector2(3425, 1203)
+shape = SubResource("RectangleShape2D_wpr5e")
+
+[node name="Background" parent="." index="1"]
 texture = ExtResource("2_q7r53")
 
-[node name="Right2" type="Sprite2D" parent="." index="1" node_paths=PackedStringArray("baseline")]
+[node name="Right2" type="Sprite2D" parent="." index="2" node_paths=PackedStringArray("baseline")]
 position = Vector2(180.25, 1360)
 rotation = 3.14159
 scale = Vector2(0.5, -0.5)
@@ -39,7 +68,7 @@ baseline = NodePath("Baseline")
 visible = false
 points = PackedVector2Array(-930, 289, -664, 450, -344, 512, -114, 482, -1, 529, 266, 420, 302, 276, 562, 260, 726, 60, 942, -118)
 
-[node name="Right3" type="Sprite2D" parent="." index="2" node_paths=PackedStringArray("baseline")]
+[node name="Right3" type="Sprite2D" parent="." index="3" node_paths=PackedStringArray("baseline")]
 position = Vector2(2990, 1424)
 rotation = 2.92343
 scale = Vector2(0.5, -0.5)
@@ -52,7 +81,7 @@ baseline = NodePath("../Right2/Baseline")
 visible = false
 points = PackedVector2Array(-930, 289, -664, 450, -344, 512, -114, 482, -1, 529, 266, 420, 302, 276, 562, 260, 726, 60, 942, -118)
 
-[node name="Left2" type="Sprite2D" parent="." index="3" node_paths=PackedStringArray("baseline")]
+[node name="Left2" type="Sprite2D" parent="." index="4" node_paths=PackedStringArray("baseline")]
 position = Vector2(1220.25, 1468)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("7_5bkl8")

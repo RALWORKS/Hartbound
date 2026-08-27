@@ -5,21 +5,49 @@ extends Node2D
 
 @export var chain_length = 1600
 @export var damp_zone = 350
+var arrived_with_player = true
+var spawner: Node
 
 var in_transition = false
 
 var last_mode = null
-
+@export var ELK: CharacterBody2D
+@export var HARTBOUND: CharacterBody2D
 
 @onready var SPRITES = {
-	status.MODE.ELK: [$Elk, $TheHartbound],
-	status.MODE.RIDER: [$Elk, null],
-	status.MODE.ELF: [$TheHartbound, $Elk],
+	status.MODE.ELK: [ELK, HARTBOUND],
+	status.MODE.RIDER: [ELK, null],
+	status.MODE.ELF: [HARTBOUND, ELK],
 }
 
 func _ready():
-	pass
+	if spawner != null:
+		var ysort = get_parent()
+		var pos_a = ELK.get_global_position()
+		var pos_b = HARTBOUND.get_global_position()
+		remove_child(HARTBOUND)
+		remove_child(ELK)
+		ELK.scale = ELK.scale * scale
+		HARTBOUND.scale = HARTBOUND.scale * scale
+		ELK.position = pos_a
+		HARTBOUND.position = pos_b
+		ysort.call_deferred("add_mob", HARTBOUND)
+		ysort.call_deferred("add_mob", ELK)
 		
+
+func get_followers(_g):
+	return []
+
+func get_actor_velocity():
+	return SPRITES[mode][0].velocity * SPRITES[mode][0].cur_speed_mul
+
+func get_actor_speed():
+	return SPRITES[mode][0].speed
+	
+func get_actor_position():
+	if not is_node_ready():
+		return position
+	return SPRITES[mode][0].get_global_position()
 
 func poll_mode_switcher():
 	if Engine.is_editor_hint():
@@ -43,21 +71,21 @@ func update_mode():
 	if status.MODE.RIDER in [_last_mode, mode]:
 		trigger_mount_transition()
 		return
-	$Elk.mode = mode
-	$TheHartbound.mode = mode
+	ELK.mode = mode
+	HARTBOUND.mode = mode
 	
 	
 
 func trigger_mount_transition():
-	$TheHartbound.mode = status.MODE.RIDER
-	$TheHartbound.visible = false
-	$Elk.mode = mode
+	HARTBOUND.mode = status.MODE.RIDER
+	HARTBOUND.visible = false
+	ELK.mode = mode
 	in_transition = true
 
 func on_mount_transition_ended():
 	if mode != status.MODE.RIDER:
-		$TheHartbound.mode = mode
-		$TheHartbound.visible = true
+		HARTBOUND.mode = mode
+		HARTBOUND.visible = true
 	in_transition = false
 
 
@@ -79,8 +107,11 @@ func chain():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	poll_mode_switcher()
+	if not HARTBOUND or not ELK:
+		print("missing")
+		return
 	if mode == status.MODE.RIDER:
-		$TheHartbound.position = $Elk.position + Vector2(100, 100)
+		HARTBOUND.position = ELK.position + Vector2(0, 100)
 	update_mode()
 	chain()
 

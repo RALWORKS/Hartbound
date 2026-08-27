@@ -4,15 +4,18 @@
 [ext_resource type="PackedScene" uid="uid://52g14ts2i27r" path="res://anims/the_hartbound/main.tscn" id="1_7nwnn"]
 [ext_resource type="PackedScene" uid="uid://cedk3hghn7kms" path="res://anims/elk/main.tscn" id="2_bptnw"]
 
-[node name="Player" type="Node2D"]
+[node name="Player" type="Node2D" node_paths=PackedStringArray("ELK", "HARTBOUND")]
 y_sort_enabled = true
 position = Vector2(500, 500)
 scale = Vector2(0.5, 0.5)
 script = ExtResource("1_06xi5")
+chain_length = 1000
+ELK = NodePath("Elk")
+HARTBOUND = NodePath("TheHartbound")
 
 [node name="TheHartbound" parent="." node_paths=PackedStringArray("partner") instance=ExtResource("1_7nwnn")]
 visible = false
-position = Vector2(100, 100)
+position = Vector2(0, 100)
 scale = Vector2(1.2, 1.2)
 partner = NodePath("../Elk")
 mode = 0

@@ -65,10 +65,14 @@ func refresh_data():
 		screen.get_node("RightMenu/GameMenu").refresh_data()
 
 func set_player(some_player):
+	if camera:
+		camera.free()
+	if player:
+		player.free()
 	player = some_player
 	camera = PlayerCamera.instantiate()
 	player.get_parent().add_child(camera)
-	camera.position = player.position
+	camera.position = player.get_actor_position()
 	
 
 func reload():
@@ -220,15 +224,15 @@ func _handle_walk_input(delta):
 	var click = Input.is_action_just_released("click")
 
 	if click and _mouse_in_world():
-		player.destination_clicked(delta)
+		#player.destination_clicked(delta)
 		return
 	
 
 	if arrow_keys.x != 0 or arrow_keys.y != 0:
-		player.arrow_keys_pressed(delta, arrow_keys)
+		#player.arrow_keys_pressed(delta, arrow_keys)
 		return
 	
-	player.no_input()
+	#player.no_input()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

@@ -6,8 +6,11 @@ var mobs = []
 
 
 func add_mob(mob: Node2D):
-	mobs.push_back(mob)
+	var old = mob.get_parent()
+	print(mob, old)
 	add_child(mob)
+	print("NOW", mob, mob.get_parent())
+	mobs.push_back(mob)
 
 func compare_y(a, b):
 	return a.position.y < b.position.y
@@ -59,6 +62,8 @@ func sort_item(item: Node2D, mob: Node2D):
 	if should_be_behind == is_behind:
 		return
 
+	if mob.get_parent() != self:
+		return
 	if should_be_behind:
 		move_child(mob, item.get_index() + 1)
 		#print("raise player", item, targ)

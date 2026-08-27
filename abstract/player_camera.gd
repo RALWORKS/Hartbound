@@ -1,13 +1,16 @@
 class_name PlayerCamera extends CharacterBody2D
 
 var threshold = 100
+var speed = 10
+var stuck = false
 
 var NOSORT = true
 
+var last_pos
+var jumped = false
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	print("Add camera!")
-	print("cam: ", $Camera)
 	pass
 
 
@@ -20,13 +23,19 @@ func try_centering_player(delta):
 	if not p:
 		return
 
-	var distance = p.position.distance_to(position)
-	var angle_to = position.direction_to(p.position).normalized()
+	var distance = p.get_actor_position().distance_to(position)
+	var angle_to = position.direction_to(p.get_actor_position()).normalized()
 	
-	if distance < threshold:
-		velocity = p.velocity
-	else:
-		velocity = angle_to*p.speed
+	velocity = angle_to * distance * speed
+	
+	#if distance < threshold:
+	#	jumped = false
+	#velocity = p.get_actor_velocity()
+	
+	print(velocity)
+		
+	#else:
+	#	position = p.get_actor_position()
 		
 
 	move_and_slide()

@@ -4,10 +4,12 @@ extends Node2D
 @export var position_from = "."
 @export var follower_offset = Vector2(-30, 0)
 
-var character = preload("res://abstract/character/character.tscn")
+#var character = preload("res://abstract/character/character.tscn")
+var character = preload("res://player/main.tscn")
 var follower_instance = null
 var followers = []
 var spawn_on_ready = false
+var spawned = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -19,6 +21,10 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	pass
+	
+
+func get_followers():
+	return []
 
 func _spawn(c, shift, x, y):
 	print(x, y)
@@ -50,6 +56,10 @@ func _spawn(c, shift, x, y):
 
 
 func spawn(g, x=null, y=null):
+	if spawned:
+		return
+	spawned = true
+	print("spawntrue")
 	var character_instance = _spawn(character, Vector2(0, 0), x, y)
 	character_instance.spawner = self
 	var player_displays = g.get_active_player_display_modes()
