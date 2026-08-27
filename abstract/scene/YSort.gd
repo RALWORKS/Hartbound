@@ -17,7 +17,7 @@ func _ready():
 	initial_ysort()
 
 func initial_ysort():
-	var c = get_children()
+	var c = get_children().duplicate()
 	c.sort_custom(compare_y)
 	var i = 0
 	while i < c.size():
@@ -31,7 +31,7 @@ func _process(delta):
 		ysort(mob)
 	
 func ysort(mob):
-	var targets = get_children().duplicate()
+	var targets = get_children()
 	for c in targets:
 		sort_item(c, mob)
 
@@ -44,6 +44,8 @@ func sort_item(item: Node2D, mob: Node2D):
 	if item == mob:
 		return
 	var targ = self
+	if "NOSORT" in item:
+		return
 	if item.has_method(SORT_FUNCTION):
 		targ = item
 
@@ -51,14 +53,18 @@ func sort_item(item: Node2D, mob: Node2D):
 	
 	var is_behind = item.get_index() < mob.get_index()
 	
+	if should_be_behind == null:
+		return
 	
 	if should_be_behind == is_behind:
 		return
 
 	if should_be_behind:
-		move_child(mob, item.get_index())
+		move_child(mob, item.get_index() + 1)
+		#print("raise player", item, targ)
 		return
 
-	move_child(mob, item.get_index() + 1)
+	move_child(mob, item.get_index())
+	#print("lower player", item, targ)
 	
 	

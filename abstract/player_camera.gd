@@ -2,6 +2,8 @@ class_name PlayerCamera extends CharacterBody2D
 
 var threshold = 100
 
+var NOSORT = true
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	print("Add camera!")

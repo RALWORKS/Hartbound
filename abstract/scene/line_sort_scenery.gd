@@ -79,6 +79,9 @@ func check_is_under_line(mob: Node2D):
 	
 	var vertical = interpolate_x(bounds[0], bounds[1], trace)
 	
+	if mob.position.x < bounds[0].x or mob.position.x > bounds[1].x:
+		return null
+	
 	return vertical.y < mob.position.y
 	
 	

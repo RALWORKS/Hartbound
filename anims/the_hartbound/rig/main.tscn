@@ -10828,7 +10828,6 @@ rest = Transform2D(1, 0, 0, 1, -4, -83)
 
 [node name="RightShoulder" type="Bone2D" parent="Left/Skeleton2D/Pelvis/Chest/Neck"]
 position = Vector2(24, 14)
-scale = Vector2(1, 1)
 rest = Transform2D(1, 0, 0, 1, 24, 14)
 
 [node name="RightElbow" type="Bone2D" parent="Left/Skeleton2D/Pelvis/Chest/Neck/RightShoulder"]
@@ -10868,7 +10867,6 @@ bone_angle = -85.424
 
 [node name="Hair" type="Bone2D" parent="Left/Skeleton2D/Pelvis/Chest/Neck/Head"]
 position = Vector2(0, -75)
-scale = Vector2(1, 1)
 rest = Transform2D(1, 0, 0, 1, -6, -24)
 auto_calculate_length_and_angle = false
 length = 231.017
@@ -10902,6 +10900,7 @@ rest = Transform2D(1, 0, 0, 1, -17, 35)
 
 [node name="LeftKnee" type="Bone2D" parent="Left/Skeleton2D/Pelvis/LeftHip"]
 position = Vector2(4, 124)
+scale = Vector2(1, 1)
 rest = Transform2D(1, 0, 0, 1, 4, 124)
 
 [node name="LeftAnkle" type="Bone2D" parent="Left/Skeleton2D/Pelvis/LeftHip/LeftKnee"]
@@ -11269,7 +11268,6 @@ rest = Transform2D(1, 0, 0, 1, 0, 111)
 
 [node name="RightAnkle" type="Bone2D" parent="UpLeft/Skeleton2D/Pelvis/RightHip/RightKnee"]
 position = Vector2(5, 133)
-scale = Vector2(1, 1)
 rest = Transform2D(1, 0, 0, 1, 5, 133)
 
 [node name="RightFoot" type="Bone2D" parent="UpLeft/Skeleton2D/Pelvis/RightHip/RightKnee/RightAnkle"]
@@ -11282,6 +11280,7 @@ bone_angle = 192.024
 
 [node name="LeftHip" type="Bone2D" parent="UpLeft/Skeleton2D/Pelvis"]
 position = Vector2(-17, 35)
+scale = Vector2(1, 1)
 rest = Transform2D(1, 0, 0, 1, -17, 35)
 
 [node name="LeftKnee" type="Bone2D" parent="UpLeft/Skeleton2D/Pelvis/LeftHip"]
@@ -11325,7 +11324,7 @@ uv = PackedVector2Array(487, 739, 501, 810, 509, 835, 569, 823, 577, 753, 572, 7
 bones = ["Pelvis", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest/Neck", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest/Neck/RightShoulder", PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1), "Pelvis/Chest/Neck/RightShoulder/RightElbow", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest/Neck/RightShoulder/RightElbow/RightHand", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest/Neck/LeftShoulder", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest/Neck/LeftShoulder/LeftElbow", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest/Neck/LeftShoulder/LeftElbow/LeftHand", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest/Neck/Head", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/RightHip", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/RightHip/RightKnee", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/RightHip/RightKnee/RightAnkle", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/RightHip/RightKnee/RightAnkle/RightFoot", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/LeftHip", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/LeftHip/LeftKnee", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/LeftHip/LeftKnee/LeftAnkle", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/LeftHip/LeftKnee/LeftAnkle/LeftFoot", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0)]
 
 [node name="RightHand" type="Polygon2D" parent="Up/Polygons"]
-modulate = Color(0.970584, 0.96372, 0.961759, 1)
+modulate = Color(0.941177, 0.927451, 0.92353, 1)
 material = SubResource("CanvasItemMaterial_ah8bk")
 position = Vector2(-417, -661)
 texture = SubResource("ViewportTexture_itsal")
@@ -11420,7 +11419,7 @@ uv = PackedVector2Array(12.3964, 834.243, 71.3964, 833.243, 85.3964, 772.243, 83
 bones = ["Pelvis", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest/Neck", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest/Neck/RightShoulder", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest/Neck/RightShoulder/RightElbow", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest/Neck/RightShoulder/RightElbow/RightHand", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest/Neck/LeftShoulder", PackedFloat32Array(1, 1, 1, 1, 1, 1, 1), "Pelvis/Chest/Neck/LeftShoulder/LeftElbow", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest/Neck/LeftShoulder/LeftElbow/LeftHand", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0), "Pelvis/Chest/Neck/Head", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0), "Pelvis/RightHip", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0), "Pelvis/RightHip/RightKnee", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0), "Pelvis/RightHip/RightKnee/RightAnkle", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0), "Pelvis/RightHip/RightKnee/RightAnkle/RightFoot", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0), "Pelvis/LeftHip", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0), "Pelvis/LeftHip/LeftKnee", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0), "Pelvis/LeftHip/LeftKnee/LeftAnkle", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0), "Pelvis/LeftHip/LeftKnee/LeftAnkle/LeftFoot", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0)]
 
 [node name="LeftHand" type="Polygon2D" parent="Up/Polygons"]
-modulate = Color(0.911769, 0.891182, 0.8853, 1)
+modulate = Color(0.941176, 0.927451, 0.923529, 1)
 material = SubResource("CanvasItemMaterial_ah8bk")
 position = Vector2(-4.79279, -666.487)
 texture = SubResource("ViewportTexture_itsal")
@@ -11594,7 +11593,6 @@ rest = Transform2D(1, 0, 0, 1, 59, 7)
 [node name="RightElbow" type="Bone2D" parent="Up/Skeleton2D/Pelvis/Chest/Neck/RightShoulder"]
 position = Vector2(-7.31223, 97.4708)
 rotation = 0.785398
-scale = Vector2(1, 1)
 rest = Transform2D(1, 0, 0, 1, 3, 96)
 
 [node name="RightHand" type="Bone2D" parent="Up/Skeleton2D/Pelvis/Chest/Neck/RightShoulder/RightElbow"]
@@ -11613,7 +11611,6 @@ rest = Transform2D(1, 0, 0, 1, -57, 11)
 [node name="LeftElbow" type="Bone2D" parent="Up/Skeleton2D/Pelvis/Chest/Neck/LeftShoulder"]
 position = Vector2(8.29337, 94.0013)
 rotation = -0.860447
-scale = Vector2(1, 1)
 rest = Transform2D(1, 0, 0, 1, -2, 91)
 
 [node name="LeftHand" type="Bone2D" parent="Up/Skeleton2D/Pelvis/Chest/Neck/LeftShoulder/LeftElbow"]
@@ -11632,7 +11629,6 @@ bone_angle = -85.424
 
 [node name="Hair" type="Bone2D" parent="Up/Skeleton2D/Pelvis/Chest/Neck/Head"]
 position = Vector2(-6, -24)
-scale = Vector2(1, 1)
 rest = Transform2D(1, 0, 0, 1, -6, -24)
 auto_calculate_length_and_angle = false
 length = 231.017
@@ -11669,7 +11665,6 @@ rest = Transform2D(1, 0, 0, 1, -34, 38)
 [node name="LeftKnee" type="Bone2D" parent="Up/Skeleton2D/Pelvis/LeftHip"]
 position = Vector2(7.33154, 118.217)
 rotation = -0.890118
-scale = Vector2(1, 1)
 rest = Transform2D(1, 0, 0, 1, 3, 119)
 
 [node name="LeftAnkle" type="Bone2D" parent="Up/Skeleton2D/Pelvis/LeftHip/LeftKnee"]
@@ -11818,7 +11813,7 @@ bones = ["Pelvis", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Pelvis/Che
 [node name="RightAnkle" type="Polygon2D" parent="Down/Polygons"]
 material = SubResource("CanvasItemMaterial_ah8bk")
 position = Vector2(-314, -664)
-color = Color(0.92157, 0.90327, 0.898042, 1)
+color = Color(0.921569, 0.903268, 0.898039, 1)
 texture = SubResource("ViewportTexture_itsal")
 texture_offset = Vector2(0, 1260)
 skeleton = NodePath("../../Skeleton2D")
@@ -12025,7 +12020,6 @@ bone_angle = 90.0
 [node name="RightHip" type="Bone2D" parent="Down/Skeleton2D/Pelvis"]
 position = Vector2(37, 46)
 rotation = -0.645772
-scale = Vector2(1, 1)
 rest = Transform2D(1, 0, 0, 1, 36, 35)
 
 [node name="RightKnee" type="Bone2D" parent="Down/Skeleton2D/Pelvis/RightHip"]
@@ -12053,7 +12047,6 @@ rest = Transform2D(1, 0, 0, 1, -34, 38)
 [node name="LeftKnee" type="Bone2D" parent="Down/Skeleton2D/Pelvis/LeftHip"]
 position = Vector2(18.2127, 115.377)
 rotation = -0.602139
-scale = Vector2(1, 1)
 rest = Transform2D(1, 0, 0, 1, 1.10269e-06, 119)
 
 [node name="LeftAnkle" type="Bone2D" parent="Down/Skeleton2D/Pelvis/LeftHip/LeftKnee"]
@@ -12339,7 +12332,7 @@ rest = Transform2D(1, 0, 0, 1, -4, -83)
 
 [node name="RightShoulder" type="Bone2D" parent="DownLeft/Skeleton2D/Pelvis/Chest/Neck"]
 position = Vector2(47, 12)
-rotation = 0.170199
+rotation = -0.287979
 rest = Transform2D(1, 0, 0, 1, 47, 12)
 
 [node name="RightElbow" type="Bone2D" parent="DownLeft/Skeleton2D/Pelvis/Chest/Neck/RightShoulder"]
@@ -12357,7 +12350,7 @@ bone_angle = 97.628
 
 [node name="LeftShoulder" type="Bone2D" parent="DownLeft/Skeleton2D/Pelvis/Chest/Neck"]
 position = Vector2(-15, 21)
-rotation = -0.130919
+rotation = 0.392699
 rest = Transform2D(1, 0, 0, 1, -19, 23)
 
 [node name="LeftElbow" type="Bone2D" parent="DownLeft/Skeleton2D/Pelvis/Chest/Neck/LeftShoulder"]
@@ -12387,12 +12380,12 @@ bone_angle = 90.0
 
 [node name="RightHip" type="Bone2D" parent="DownLeft/Skeleton2D/Pelvis"]
 position = Vector2(30, 26)
-rotation = -0.0742064
+rotation = 0.427606
+scale = Vector2(1, 1)
 rest = Transform2D(1, 0, 0, 1, 30, 26)
 
 [node name="RightKnee" type="Bone2D" parent="DownLeft/Skeleton2D/Pelvis/RightHip"]
 position = Vector2(0, 111)
-rotation = -0.78528
 rest = Transform2D(1, 0, 0, 1, 0, 111)
 
 [node name="RightAnkle" type="Bone2D" parent="DownLeft/Skeleton2D/Pelvis/RightHip/RightKnee"]
@@ -12408,11 +12401,12 @@ bone_angle = 167.617
 
 [node name="LeftHip" type="Bone2D" parent="DownLeft/Skeleton2D/Pelvis"]
 position = Vector2(-17, 35)
-rotation = 0.0567534
+rotation = -0.532325
+scale = Vector2(1, 1)
 rest = Transform2D(1, 0, 0, 1, -17, 35)
 
 [node name="LeftKnee" type="Bone2D" parent="DownLeft/Skeleton2D/Pelvis/LeftHip"]
-position = Vector2(2, 109)
+position = Vector2(1.99998, 109)
 rest = Transform2D(1, 0, 0, 1, 2, 109)
 
 [node name="LeftAnkle" type="Bone2D" parent="DownLeft/Skeleton2D/Pelvis/LeftHip/LeftKnee"]
