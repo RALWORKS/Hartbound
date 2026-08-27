@@ -10,6 +10,7 @@ signal transition_ended
 @export var mode: status.MODE = status.MODE.RIDER
 
 var last_mode = status.MODE.RIDER
+var mounting = false
 
 @export var speed = 150
 @export var base_speed_scale = Vector2(1.0, 1.0)
@@ -48,17 +49,23 @@ func start_following():
 
 func mount():
 	#$ElkSpriteAnimationController.hide_rider()
+	if mounting:
+		return
+	mounting = true
 	$DirectionControls.is_active = false
 	velocity = Vector2(0.0, 0.0)
-	$ElkSpriteAnimationController.play("down_left_stopped")
-	$ElkSpriteAnimationController/DownLeft/TESTMOUNT/Anim.play("up")
+	$ElkSpriteAnimationController.play("up_left_stopped")
+	$ElkSpriteAnimationController/UpLeft/TESTMOUNT/Anim.play("up")
 
 func dismount():
 	#$ElkSpriteAnimationController.hide_rider()
+	if mounting:
+		return
+	mounting = true
 	$DirectionControls.is_active = false
 	velocity = Vector2(0.0, 0.0)
-	$ElkSpriteAnimationController.play("down_left_stopped")
-	$ElkSpriteAnimationController/DownLeft/TESTMOUNT/Anim.play_backwards("up")
+	$ElkSpriteAnimationController.play("up_left_stopped")
+	$ElkSpriteAnimationController/UpLeft/TESTMOUNT/Anim.play("down")
 
 
 func _physics_process(delta):
@@ -70,14 +77,15 @@ func _ready():
 
 
 func on_mount_completed(_anim_name):
+	mounting = false
 	if mode == status.MODE.RIDER:
-		$ElkSpriteAnimationController/DownLeft/TESTMOUNT.visible = false
+		$ElkSpriteAnimationController/UpLeft/TESTMOUNT.visible = false
 		emit_signal("transition_ended")
 		get_tree().create_timer(SWITCH_DELAY)
 		$ElkSpriteAnimationController.show_rider()
 		start_leading()
 		return
-	$ElkSpriteAnimationController/DownLeft/TESTMOUNT.visible = false
+	$ElkSpriteAnimationController/UpLeft/TESTMOUNT.visible = false
 	emit_signal("transition_ended")
 	get_tree().create_timer(SWITCH_DELAY)
 	$ElkSpriteAnimationController.hide_rider()

@@ -12,7 +12,7 @@ var last_animation = "left_stopped"
 	"up_left": [$UpLeft, false],
 	"up_right": [$UpLeft, true],
 	"down_left": [$DownLeft, false],
-	"test_mount": [$DownLeft, false],
+	"test_mount": [$UpLeft, false],
 	"down_right": [$DownLeft, true],
 	"down": [$Down, false],
 	"up": [$Up, false],
@@ -20,7 +20,7 @@ var last_animation = "left_stopped"
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	$"UpLeft/TESTMOUNT/1".animation = "ride_up_left"
 
 
 func play(anim: String):
@@ -75,7 +75,7 @@ func hide_all():
 	scale = Vector2(1.0, 1.0)
 	for c in get_children():
 		c.visible = false
-		c.process_mode = Node.PROCESS_MODE_DISABLED
+		#c.process_mode = Node.PROCESS_MODE_DISABLED
 		c.get_node("RIDER").visible = false
 
 func get_animator(c):

@@ -2,6 +2,7 @@
 extends CharacterBody2D
 
 @export var animation = "down_stopped"
+@export var animations: Node2D
 
 @export var partner: CharacterBody2D
 
@@ -40,6 +41,9 @@ func update_mode():
 
 func mount():
 	passify()
+
+func dangerously_call_animation(anim: String):
+	animations.play(anim)
 
 func passify():
 	$DirectionSensor.is_active = false

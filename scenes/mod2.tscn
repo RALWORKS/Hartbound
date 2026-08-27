@@ -1,14 +1,17 @@
-[gd_scene load_steps=11 format=3 uid="uid://cbs36wby4a0sq"]
+[gd_scene load_steps=14 format=3 uid="uid://cbs36wby4a0sq"]
 
 [ext_resource type="PackedScene" uid="uid://byrlpmbpj6yr5" path="res://abstract/scene/scene.tscn" id="1_rjhk2"]
 [ext_resource type="Texture2D" uid="uid://bokmdx22fxd6l" path="res://assets/forest-layers/bg/meadow1-tiles.png" id="2_q7r53"]
+[ext_resource type="Texture2D" uid="uid://bj4xll0mmsmlm" path="res://assets/forest-layers/clif-edge-2.png" id="3_8xmyx"]
 [ext_resource type="Shader" path="res://abstract/lighting/daylight.gdshader" id="3_hfalb"]
 [ext_resource type="PackedScene" uid="uid://dxfuidhlgwthh" path="res://abstract/travel/door.tscn" id="3_uvf63"]
 [ext_resource type="Texture2D" uid="uid://drdb3tdeqrm0c" path="res://assets/forest-layers/big-square.png" id="4_w4tod"]
 [ext_resource type="Texture2D" uid="uid://cg34rst2txsef" path="res://assets/forest-layers/jagged-triangle.png" id="5_ftvpc"]
 [ext_resource type="Script" path="res://abstract/scene/line_sort_scenery.gd" id="5_tb13l"]
+[ext_resource type="Texture2D" uid="uid://mson4sx7t8la" path="res://assets/forest-layers/clif-edge-2-slim-left.png" id="6_b3woe"]
 [ext_resource type="PackedScene" uid="uid://doqir1yy8117e" path="res://abstract/scene/baseline.tscn" id="6_gq86s"]
 [ext_resource type="Texture2D" uid="uid://bmg0dexxehfmo" path="res://assets/forest-layers/medium-rect.png" id="6_i8ftj"]
+[ext_resource type="Texture2D" uid="uid://dlrn5x0iyl8jl" path="res://assets/forest-layers/clif-edge-1-slim-right.png" id="7_5bkl8"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_orj2v"]
 resource_local_to_scene = true
@@ -23,33 +26,61 @@ shader_parameter/warmth = 0.5
 [node name="Background" parent="." index="0"]
 texture = ExtResource("2_q7r53")
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Background/StaticBody2D" index="0"]
-scale = Vector2(0.5, 0.5)
-polygon = PackedVector2Array(-334, 429, -69, 402, 261, 563, 927, 1063, 912, 1169, 300, 1418, -54, 1546, -474, 1878, -794, 2114, -1152, 2054, -1494, 1894, -1958, 1714, -2434, 1420, -2466, 1276, -1296, 496)
+[node name="Right2" type="Sprite2D" parent="." index="1" node_paths=PackedStringArray("baseline")]
+position = Vector2(180.25, 1360)
+rotation = 3.14159
+scale = Vector2(0.5, -0.5)
+texture = ExtResource("3_8xmyx")
+flip_h = true
+script = ExtResource("5_tb13l")
+baseline = NodePath("Baseline")
 
-[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Background/StaticBody2D" index="1"]
-scale = Vector2(0.5, 0.5)
-polygon = PackedVector2Array(202, -55, 602, 247, 1003, 466, 1312, 451, 1493, 701, 1984, 723, 2588, 210, 2853, 164, 3532, -274)
+[node name="Baseline" parent="Right2" index="0" instance=ExtResource("6_gq86s")]
+visible = false
+points = PackedVector2Array(-930, 289, -664, 450, -344, 512, -114, 482, -1, 529, 266, 420, 302, 276, 562, 260, 726, 60, 942, -118)
 
-[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="Background/StaticBody2D" index="2"]
-scale = Vector2(0.5, 0.5)
-polygon = PackedVector2Array(4732, 798, 3578, 119, 2641, 580, 2422, 1086, 1786, 1604, 2067, 1833, 2437, 1863, 2640, 1842, 2770, 1910, 3056.96, 1737.25, 3082, 1636, 3382, 1600, 3500, 1378, 3774.85, 1241.29, 3638, 1118, 3706, 1068, 4016, 1158, 4334, 1050, 4612, 898)
+[node name="Right3" type="Sprite2D" parent="." index="2" node_paths=PackedStringArray("baseline")]
+position = Vector2(2990, 1424)
+rotation = 2.92343
+scale = Vector2(0.5, -0.5)
+texture = ExtResource("6_b3woe")
+flip_h = true
+script = ExtResource("5_tb13l")
+baseline = NodePath("../Right2/Baseline")
 
-[node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="Background/StaticBody2D" index="3"]
-scale = Vector2(0.5, 0.5)
-polygon = PackedVector2Array(3479, 3238, 2317, 2603, 2535, 2264, 3434, 1493, 4257, 3011)
+[node name="Baseline" parent="Right3" index="0" instance=ExtResource("6_gq86s")]
+visible = false
+points = PackedVector2Array(-930, 289, -664, 450, -344, 512, -114, 482, -1, 529, 266, 420, 302, 276, 562, 260, 726, 60, 942, -118)
 
-[node name="CollisionPolygon2D5" type="CollisionPolygon2D" parent="Background/StaticBody2D" index="4"]
+[node name="Left2" type="Sprite2D" parent="." index="3" node_paths=PackedStringArray("baseline")]
+position = Vector2(1220.25, 1468)
 scale = Vector2(0.5, 0.5)
-polygon = PackedVector2Array(2339, 2649, 1705, 2226, 1501, 2120, 1388, 1969, 1252, 1795, 684, 1468, -326, 2050, -598, 2578, -236, 2768, 40, 2564, 404, 2748, 880, 2506, 1100, 2492, 370, 3064, 646, 3250, 826, 3248, 948, 3302, 1208, 3242, 1342, 3318, 1616, 3176, 1642, 3050, 1914, 3032)
+texture = ExtResource("7_5bkl8")
+script = ExtResource("5_tb13l")
+baseline = NodePath("../YSort/Left/Baseline")
+
+[node name="Baseline" parent="Left2" index="0" instance=ExtResource("6_gq86s")]
+visible = false
+points = PackedVector2Array(-1793, 144, -196, 1013, 668, 370, 1143, 211, 1596, 53, 1630, 34)
 
 [node name="Door" parent="YSort" index="1" instance=ExtResource("3_uvf63")]
 position = Vector2(181, 14)
 dest_resource = "res://scenes/modular_demo.tscn"
 dest_edge = "Door"
 
-[node name="Top" type="Sprite2D" parent="YSort" index="2" node_paths=PackedStringArray("baseline")]
-position = Vector2(1006, -125)
+[node name="Right" type="Sprite2D" parent="YSort" index="2" node_paths=PackedStringArray("baseline")]
+position = Vector2(2376, -11)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("6_i8ftj")
+flip_h = true
+script = ExtResource("5_tb13l")
+baseline = NodePath("Baseline")
+
+[node name="Baseline" parent="YSort/Right" index="0" instance=ExtResource("6_gq86s")]
+points = PackedVector2Array(-918, 289, -651, 492, -267, 518, -75, 486, 28, 560, 270, 428, 294, 298, 576, 260, 718, 54, 897, -58)
+
+[node name="Top" type="Sprite2D" parent="YSort" index="3" node_paths=PackedStringArray("baseline")]
+position = Vector2(949, -21)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_w4tod")
 script = ExtResource("5_tb13l")
@@ -63,7 +94,7 @@ position = Vector2(-254, -178)
 texture = ExtResource("6_i8ftj")
 flip_h = true
 
-[node name="Left" type="Sprite2D" parent="YSort" index="3" node_paths=PackedStringArray("baseline")]
+[node name="Left" type="Sprite2D" parent="YSort" index="4" node_paths=PackedStringArray("baseline")]
 position = Vector2(-384, 566)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_w4tod")
@@ -73,8 +104,8 @@ baseline = NodePath("Baseline")
 [node name="Baseline" parent="YSort/Left" index="0" instance=ExtResource("6_gq86s")]
 points = PackedVector2Array(-1793, 144, -196, 1013, 668, 370, 1143, 211, 1596, 53, 1630, 34)
 
-[node name="Down" type="Sprite2D" parent="YSort" index="4" node_paths=PackedStringArray("baseline")]
-position = Vector2(1778, 253)
+[node name="Down" type="Sprite2D" parent="YSort" index="5" node_paths=PackedStringArray("baseline")]
+position = Vector2(1974, 312)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("5_ftvpc")
 flip_h = true
@@ -84,8 +115,8 @@ baseline = NodePath("Baseline")
 [node name="Baseline" parent="YSort/Down" index="0" instance=ExtResource("6_gq86s")]
 points = PackedVector2Array(-1132, 495, -70, 662, 164, 516, 454, 616, 824, 480, 1134, 298)
 
-[node name="BottomLeft" type="Sprite2D" parent="YSort" index="5" node_paths=PackedStringArray("baseline")]
-position = Vector2(275, 1011)
+[node name="BottomLeft" type="Sprite2D" parent="YSort" index="6" node_paths=PackedStringArray("baseline")]
+position = Vector2(-38, 958)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("5_ftvpc")
 flip_h = true
@@ -93,39 +124,50 @@ script = ExtResource("5_tb13l")
 baseline = NodePath("Baseline")
 
 [node name="Baseline" parent="YSort/BottomLeft" index="0" instance=ExtResource("6_gq86s")]
-points = PackedVector2Array(-1166, 556, -786, 684, -490, 508, -156, 666, 1105, 157)
+points = PackedVector2Array(-1166, 556, -786, 684, -490, 508, -156, 666, 184, 516, 452, 598, 1166, 280)
 
-[node name="Right" type="Sprite2D" parent="YSort" index="6" node_paths=PackedStringArray("baseline")]
-position = Vector2(1377, 655)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("6_i8ftj")
+[node name="BottomLeft2" type="Sprite2D" parent="YSort" index="7" node_paths=PackedStringArray("baseline")]
+position = Vector2(3095, 18)
+scale = Vector2(-0.5, 0.5)
+texture = ExtResource("5_ftvpc")
 flip_h = true
 script = ExtResource("5_tb13l")
 baseline = NodePath("Baseline")
 
-[node name="Baseline" parent="YSort/Right" index="0" instance=ExtResource("6_gq86s")]
-points = PackedVector2Array(-918, 289, -651, 492, -267, 518, -75, 486, 28, 560, 270, 428, 294, 298, 576, 260, 718, 54, 897, -58)
+[node name="Baseline" parent="YSort/BottomLeft2" index="0" instance=ExtResource("6_gq86s")]
+points = PackedVector2Array(-1166, 556, -786, 684, -490, 508, -156, 666, 194, 504, 488, 610, 1160, 308)
 
-[node name="Left2" type="Sprite2D" parent="YSort" index="7" node_paths=PackedStringArray("baseline")]
-position = Vector2(1996, 1176)
+[node name="Left3" type="Sprite2D" parent="YSort" index="8" node_paths=PackedStringArray("baseline")]
+position = Vector2(3619, 606)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_w4tod")
+script = ExtResource("5_tb13l")
+baseline = NodePath("Baseline")
+
+[node name="Baseline" parent="YSort/Left3" index="0" instance=ExtResource("6_gq86s")]
+points = PackedVector2Array(-1645, 231, -435, 834, 579, 429, 1604, 55)
+
+[node name="BottomLeft3" type="Sprite2D" parent="YSort" index="9" node_paths=PackedStringArray("baseline")]
+position = Vector2(2892, 903)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("5_ftvpc")
+flip_h = true
+script = ExtResource("5_tb13l")
+baseline = NodePath("../BottomLeft/Baseline")
+
+[node name="Baseline" parent="YSort/BottomLeft3" index="0" instance=ExtResource("6_gq86s")]
+visible = false
+points = PackedVector2Array(-1166, 556, -786, 684, -490, 508, -156, 666, 1105, 157)
+
+[node name="Left2" type="Sprite2D" parent="YSort" index="10" node_paths=PackedStringArray("baseline")]
+position = Vector2(1477, 822)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_w4tod")
 script = ExtResource("5_tb13l")
 baseline = NodePath("Baseline")
 
 [node name="Baseline" parent="YSort/Left2" index="0" instance=ExtResource("6_gq86s")]
-points = PackedVector2Array(-1645, 231, -435, 834, 579, 429, 1604, 55)
-
-[node name="Right2" type="Sprite2D" parent="YSort" index="8" node_paths=PackedStringArray("baseline")]
-position = Vector2(658, 1370)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("6_i8ftj")
-flip_h = true
-script = ExtResource("5_tb13l")
-baseline = NodePath("Baseline")
-
-[node name="Baseline" parent="YSort/Right2" index="0" instance=ExtResource("6_gq86s")]
-points = PackedVector2Array(-930, 289, -664, 450, -344, 512, -114, 482, -1, 529, 266, 420, 302, 276, 562, 260, 726, 60, 942, -118)
+points = PackedVector2Array(-1576, 288, -196, 1013, 274, 772, 668, 370, 1143, 211, 1596, 53, 1630, 34)
 
 [node name="MainDaylightFilter" parent="Filters" index="0"]
 daylight_shader = SubResource("ShaderMaterial_orj2v")
