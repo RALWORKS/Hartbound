@@ -21,6 +21,7 @@ func update_mode():
 		return
 	var _last_mode = last_mode
 	last_mode = mode
+	$DirectionControls.reset()
 	
 	if mode == status.MODE.RIDER:
 		mount()
@@ -55,9 +56,11 @@ func dismount():
 
 func start_leading():
 	$DirectionControls.is_active = true
+	$DirectionControls.leader = null
 
 func start_following():
-	$DirectionControls.is_active = false
+	$DirectionControls.is_active = true
+	$DirectionControls.leader = partner
 
 func _physics_process(delta):
 	update_mode()
@@ -66,3 +69,11 @@ func _physics_process(delta):
 func _ready():
 	if mode == status.MODE.RIDER:
 		passify()
+
+func hitbox_detects_body(body):
+	if body == partner:
+		$DirectionControls.bump(partner.velocity)
+
+func hitbox_body_leaving(body):
+	if body == partner:
+		$DirectionControls.stop_pushing()

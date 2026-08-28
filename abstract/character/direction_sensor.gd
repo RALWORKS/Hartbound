@@ -8,7 +8,7 @@ var last_anim = "down_stopped"
 
 signal animation_changed(anim: String)
 
-@export var root: Node2D
+@export var root: CharacterBody2D
 
 @export var latency = 0.2
 var refreshing = false
@@ -27,6 +27,7 @@ func _ready():
 
 
 func get_v():
+	#return root.velocity
 	return root.velocity
 
 

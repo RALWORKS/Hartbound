@@ -1,9 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://52g14ts2i27r"]
+[gd_scene load_steps=7 format=3 uid="uid://52g14ts2i27r"]
 
 [ext_resource type="Script" path="res://anims/the_hartbound/main.gd" id="1_rida5"]
 [ext_resource type="PackedScene" uid="uid://wacr8mkdn2s1" path="res://abstract/character/direction_sensor.tscn" id="2_7s5t5"]
 [ext_resource type="PackedScene" uid="uid://mq4ctfv28yt2" path="res://abstract/character/direction_controls.tscn" id="3_uhmi7"]
 [ext_resource type="PackedScene" uid="uid://c5t1f2yxr68pd" path="res://anims/the_hartbound/rig/main.tscn" id="6_gtr86"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_th8il"]
+radius = 74.1485
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_nqnkc"]
 radius = 50.2494
@@ -11,9 +14,20 @@ radius = 50.2494
 [node name="TheHartbound" type="CharacterBody2D" node_paths=PackedStringArray("animations")]
 collision_layer = 3
 collision_mask = 3
+motion_mode = 1
+wall_min_slide_angle = 0.0872665
+floor_stop_on_slope = false
+floor_constant_speed = true
+floor_block_on_wall = false
 script = ExtResource("1_rida5")
 animation = "left_stopped"
 animations = NodePath("Rig")
+
+[node name="Hitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+shape = SubResource("CircleShape2D_th8il")
+debug_color = Color(0.658824, 0.196078, 0.654902, 0.419608)
 
 [node name="DirectionSensor" parent="." node_paths=PackedStringArray("player", "root") instance=ExtResource("2_7s5t5")]
 player = NodePath("../Rig")
@@ -23,6 +37,7 @@ latency = 0.05
 [node name="DirectionControls" parent="." node_paths=PackedStringArray("character") instance=ExtResource("3_uhmi7")]
 character = NodePath("..")
 speed = 150
+follow_distance = 300
 speed_scale = Vector2(1.2, 0.8)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -32,4 +47,8 @@ shape = SubResource("CircleShape2D_nqnkc")
 position = Vector2(0, 0)
 scale = Vector2(0.6, 0.6)
 root = NodePath("..")
-animation = "left_stopped"
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+
+[connection signal="body_entered" from="Hitbox" to="." method="hitbox_detects_body"]
+[connection signal="body_exited" from="Hitbox" to="." method="hitbox_body_leaving"]

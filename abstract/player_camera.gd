@@ -27,16 +27,6 @@ func try_centering_player(delta):
 	var angle_to = position.direction_to(p.get_actor_position()).normalized()
 	
 	velocity = angle_to * distance * speed
-	
-	#if distance < threshold:
-	#	jumped = false
-	#velocity = p.get_actor_velocity()
-	
-	print(velocity)
-		
-	#else:
-	#	position = p.get_actor_position()
-		
 
 	move_and_slide()
 

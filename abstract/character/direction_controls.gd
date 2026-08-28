@@ -8,11 +8,15 @@ extends Node2D
 @export var paused = false
 @export var character: Node2D
 @export var speed = 100
+@export var follow_distance = 200
 @export var speed_scale = Vector2(1.0, 1.0)
+@export var leader: CharacterBody2D
 
 @onready var navigation_agent = $NavigationAgent2D
 
 var unreachable = false
+
+var being_pushed = false
 
 var cur_collision = null
 var last_collision = null
@@ -41,7 +45,13 @@ func _physics_process(delta):
 	if proxied:
 		move_proxied(delta)
 		return
-	if autonomous:
+	if being_pushed and leader:
+		leader_repels()
+		return
+	if leader and character.position.distance_to(leader.position) > follow_distance:
+		var follow = leader.position + (leader.position.direction_to(character.position).normalized() * 0.75 * follow_distance)
+		set_destination(follow)
+	elif autonomous:
 		_handle_input_autonomously(delta)
 	var input_direction = refresh_walk_direction()
 	if input_direction != null:
@@ -61,29 +71,51 @@ func go_direction(delta, input_direction):
 
 	set_v(_modulate_velocity(input_direction))
 
-	var collision = get_body().move_and_collide(get_v() * body_delta() * get_speed_scale())
+	var collision = get_collision()
 	_handle_collisions(body_delta(), collision, input_direction)
+
+func get_collision():
+	return get_body().move_and_collide(get_v() * body_delta() * get_speed_scale())
 
 func _handle_collisions(_delta, collision, input_direction):
 	if not collision:
 		cur_collision = null
 		return
 	
-	if collision and not _near(last_collision, position):
+	if collision: #and last_collision and not _near(last_collision, position):
 		last_collision = cur_collision
 		cur_collision = position
 		
 		var normal = collision.get_normal()
 #		normal.y = normal.y * (1/0.655)
 #		normal = normal.normalized()
+		#get_body().move_and_slide()
 		var slide = input_direction.slide(normal).normalized()
 		set_v(_modulate_velocity(slide))
-		get_body().move_and_collide(get_v() * body_delta() * get_speed_scale())
+		get_body().move_and_slide()
 		return
-
-	#set_anim() # needed in order to face the right way when stopping
+		#cur_collision = get_collision()
+#	elif collision and last_collision and leader:
+#		set_destination(position)
+#		return
 	set_v(Vector2(0, 0)) # 'cause here, we lose the direction
+
+func bump(v: Vector2):
+	being_pushed = true
+	if not is_active:
+		return
+	if not leader:
+		return
+	set_destination(position)
+	leader_repels()
+
+func leader_repels():
+	var d = leader.position.direction_to(character.position)
+	go_direction(body_delta(), d)
 	
+
+func stop_pushing():
+	being_pushed = false
 	
 func no_input():
 	if not is_active:
@@ -136,7 +168,10 @@ func navigation_finished():
 	return navigation_agent.is_navigation_finished()
 
 func refresh_walk_direction():
-	if navigation_finished():
+	if navigation_finished() or (
+		leader and character.position.distance_to(leader.position) < follow_distance
+	):
+		Vector2(0, 0)
 		return null
 	
 	var cur_agent_position: Vector2 = global_position
@@ -163,12 +198,16 @@ func _handle_input_autonomously(delta):
 	var arrow_keys = Input.get_vector("left", "right", "up", "down")
 	var click = Input.is_action_just_released("click")
 
-	#if click and _mouse_in_world():
-	#	player.destination_clicked(delta)
-	#	return
+	if click and glob.g.mouse_in_world():
+		destination_clicked(delta)
+		return
 	
 	if arrow_keys.x != 0 or arrow_keys.y != 0:
 		arrow_keys_pressed(delta, arrow_keys)
 		return
 	
 	no_input()
+
+func reset():
+	set_destination(null)
+	set_v(Vector2(0, 0))

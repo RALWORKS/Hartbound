@@ -21,6 +21,7 @@ HARTBOUND_INDICATOR = NodePath("TheHartbound/Indicator")
 position = Vector2(0, 100)
 scale = Vector2(1.2, 1.2)
 partner = NodePath("../Elk")
+speed = 200
 
 [node name="Indicator" type="Sprite2D" parent="TheHartbound"]
 self_modulate = Color(0.85098, 0.52549, 0.996078, 1)
@@ -37,12 +38,10 @@ texture = ExtResource("2_mn0ll")
 
 [node name="White2" type="Sprite2D" parent="TheHartbound/Indicator"]
 position = Vector2(-1.2, 5.39998)
-scale = Vector2(1, 1)
 texture = ExtResource("3_6xf1o")
 
 [node name="White" type="Sprite2D" parent="TheHartbound/Indicator"]
 position = Vector2(-2, 0.111099)
-scale = Vector2(1, 1)
 texture = ExtResource("3_6xf1o")
 
 [node name="Elk" parent="." node_paths=PackedStringArray("partner") instance=ExtResource("2_bptnw")]

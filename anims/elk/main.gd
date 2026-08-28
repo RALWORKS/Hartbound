@@ -24,6 +24,7 @@ func update_mode():
 	
 	var _last_mode = last_mode
 	last_mode = mode
+	$DirectionControls.reset()
 	
 	if _last_mode == status.MODE.RIDER:
 		dismount()
@@ -31,6 +32,7 @@ func update_mode():
 	
 	if mode == status.MODE.RIDER:
 		mount()
+		start_leading()
 		return
 
 	if mode == status.MODE.ELK:
@@ -42,17 +44,17 @@ func update_mode():
 
 
 func start_leading():
-	$DirectionControls.is_active = true
+	$DirectionControls.leader = null
 
 func start_following():
-	$DirectionControls.is_active = false
+	$DirectionControls.leader = partner
 
 func mount():
 	#$ElkSpriteAnimationController.hide_rider()
 	if mounting:
 		return
 	mounting = true
-	$DirectionControls.is_active = false
+	#$DirectionControls.is_active = false
 	velocity = Vector2(0.0, 0.0)
 	$ElkSpriteAnimationController.play("up_left_stopped")
 	$ElkSpriteAnimationController/UpLeft/TESTMOUNT/Anim.play("up")
@@ -62,7 +64,7 @@ func dismount():
 	if mounting:
 		return
 	mounting = true
-	$DirectionControls.is_active = false
+	#$DirectionControls.is_active = false
 	velocity = Vector2(0.0, 0.0)
 	$ElkSpriteAnimationController.play("up_left_stopped")
 	$ElkSpriteAnimationController/UpLeft/TESTMOUNT/Anim.play("down")
@@ -93,9 +95,16 @@ func on_mount_completed(_anim_name):
 	
 	
 	if mode == status.MODE.ELF:
+		print("elf!")
 		start_following()
 		return
 	
 	start_leading()
 	
-	
+func hitbox_detects_body(body):
+	if body == partner:
+		$DirectionControls.bump(partner.velocity)
+
+func hitbox_body_leaving(body):
+	if body == partner:
+		$DirectionControls.stop_pushing()

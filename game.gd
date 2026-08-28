@@ -199,6 +199,8 @@ func handle_input(delta):
 		return
 	_handle_walk_input(delta)
 
+func mouse_in_world():
+	return _mouse_in_world()
 
 func _mouse_in_world():
 	var w = _get_world()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://cedk3hghn7kms"]
+[gd_scene load_steps=35 format=3 uid="uid://cedk3hghn7kms"]
 
 [ext_resource type="PackedScene" uid="uid://mq4ctfv28yt2" path="res://abstract/character/direction_controls.tscn" id="1_8xr0b"]
 [ext_resource type="Texture2D" uid="uid://cwd5hmfq4j6eq" path="res://anims/hart1.png" id="1_f126h"]
@@ -10,6 +10,9 @@
 [ext_resource type="PackedScene" uid="uid://bcsk74hos8fah" path="res://anims/elk/left_animator.tscn" id="4_8q6to"]
 [ext_resource type="Texture2D" uid="uid://cpya1w5sfvkyc" path="res://anims/elk/legs/up.png" id="5_tyerp"]
 [ext_resource type="PackedScene" uid="uid://52g14ts2i27r" path="res://anims/the_hartbound/main.tscn" id="6_k1kid"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bckut"]
+radius = 149.282
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jh4ly"]
 radius = 122.188
@@ -1509,11 +1512,23 @@ _data = {
 [node name="Elk" type="CharacterBody2D"]
 collision_layer = 5
 collision_mask = 5
+motion_mode = 1
+wall_min_slide_angle = 0.0872665
+floor_stop_on_slope = false
+floor_constant_speed = true
+floor_block_on_wall = false
 script = ExtResource("1_xfrac")
+
+[node name="Hitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+shape = SubResource("CircleShape2D_bckut")
+debug_color = Color(0.282353, 0.823529, 0, 0.160784)
 
 [node name="DirectionControls" parent="." node_paths=PackedStringArray("character") instance=ExtResource("1_8xr0b")]
 character = NodePath("..")
 speed = 300
+follow_distance = 400
 speed_scale = Vector2(1, 0.7)
 
 [node name="DirectionSensor" parent="." node_paths=PackedStringArray("player", "root") instance=ExtResource("1_us5db")]
@@ -2161,4 +2176,6 @@ libraries = {
 "movement": SubResource("AnimationLibrary_yum02")
 }
 
+[connection signal="body_entered" from="Hitbox" to="." method="hitbox_detects_body"]
+[connection signal="body_exited" from="Hitbox" to="." method="hitbox_body_leaving"]
 [connection signal="animation_finished" from="ElkSpriteAnimationController/UpLeft/TESTMOUNT/Anim" to="." method="on_mount_completed"]
