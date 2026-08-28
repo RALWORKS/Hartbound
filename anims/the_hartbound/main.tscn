@@ -12,6 +12,7 @@ radius = 50.2494
 collision_layer = 3
 collision_mask = 3
 script = ExtResource("1_rida5")
+animation = "left_stopped"
 animations = NodePath("Rig")
 
 [node name="DirectionSensor" parent="." node_paths=PackedStringArray("player", "root") instance=ExtResource("2_7s5t5")]
@@ -31,4 +32,4 @@ shape = SubResource("CircleShape2D_nqnkc")
 position = Vector2(0, 0)
 scale = Vector2(0.6, 0.6)
 root = NodePath("..")
-animation = "down_stopped"
+animation = "left_stopped"

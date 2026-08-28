@@ -13,6 +13,8 @@ var in_transition = false
 var last_mode = null
 @export var ELK: CharacterBody2D
 @export var HARTBOUND: CharacterBody2D
+@export var ELK_INDICATOR: Sprite2D
+@export var HARTBOUND_INDICATOR: Sprite2D
 
 @onready var SPRITES = {
 	status.MODE.ELK: [ELK, HARTBOUND],
@@ -22,18 +24,25 @@ var last_mode = null
 
 func _ready():
 	if spawner != null:
-		var ysort = get_parent()
-		var pos_a = ELK.get_global_position()
-		var pos_b = HARTBOUND.get_global_position()
-		remove_child(HARTBOUND)
-		remove_child(ELK)
-		ELK.scale = ELK.scale * scale
-		HARTBOUND.scale = HARTBOUND.scale * scale
-		ELK.position = pos_a
-		HARTBOUND.position = pos_b
-		ysort.call_deferred("add_mob", HARTBOUND)
-		ysort.call_deferred("add_mob", ELK)
-		
+		eject_children()
+	
+	if HARTBOUND_INDICATOR and ELK_INDICATOR:
+		HARTBOUND.move_child(HARTBOUND_INDICATOR, 0)
+		ELK.move_child(ELK_INDICATOR, 0)
+
+func eject_children():
+	var ysort = get_parent()
+	var pos_a = ELK.get_global_position()
+	var pos_b = HARTBOUND.get_global_position()
+	remove_child(HARTBOUND)
+	remove_child(ELK)
+	ELK.scale = ELK.scale * scale
+	HARTBOUND.scale = HARTBOUND.scale * scale
+	ELK.position = pos_a
+	HARTBOUND.position = pos_b
+	ysort.call_deferred("add_mob", HARTBOUND)
+	ysort.call_deferred("add_mob", ELK)
+
 
 func get_followers(_g):
 	return []
@@ -73,6 +82,18 @@ func update_mode():
 		return
 	ELK.mode = mode
 	HARTBOUND.mode = mode
+
+
+func update_indicators():
+	if not HARTBOUND_INDICATOR or not ELK_INDICATOR:
+		return
+	if mode in [status.MODE.ELK, status.MODE.RIDER]:
+		HARTBOUND_INDICATOR.visible = false
+		ELK_INDICATOR.visible = true
+		return
+	HARTBOUND_INDICATOR.visible = true
+	ELK_INDICATOR.visible = false
+	
 	
 	
 
@@ -110,9 +131,12 @@ func _process(delta):
 	if not HARTBOUND or not ELK:
 		print("missing")
 		return
+	if spawner:
+		position = SPRITES[mode][0].position
 	if mode == status.MODE.RIDER:
 		HARTBOUND.position = ELK.position + Vector2(0, 100)
 	update_mode()
+	update_indicators()
 	chain()
 
 

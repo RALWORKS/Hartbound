@@ -1,26 +1,62 @@
-[gd_scene load_steps=4 format=3 uid="uid://b8uhsk5a8dj6w"]
+[gd_scene load_steps=6 format=3 uid="uid://b8uhsk5a8dj6w"]
 
 [ext_resource type="Script" path="res://player/main.gd" id="1_06xi5"]
 [ext_resource type="PackedScene" uid="uid://52g14ts2i27r" path="res://anims/the_hartbound/main.tscn" id="1_7nwnn"]
 [ext_resource type="PackedScene" uid="uid://cedk3hghn7kms" path="res://anims/elk/main.tscn" id="2_bptnw"]
+[ext_resource type="Texture2D" uid="uid://b14iypt2562x" path="res://player/indicator1.png" id="2_mn0ll"]
+[ext_resource type="Texture2D" uid="uid://b5t7svc0e52yr" path="res://player/indicator2.png" id="3_6xf1o"]
 
-[node name="Player" type="Node2D" node_paths=PackedStringArray("ELK", "HARTBOUND")]
+[node name="Player" type="Node2D" node_paths=PackedStringArray("ELK", "HARTBOUND", "ELK_INDICATOR", "HARTBOUND_INDICATOR")]
 y_sort_enabled = true
-position = Vector2(500, 500)
 scale = Vector2(0.5, 0.5)
 script = ExtResource("1_06xi5")
+mode = 1
 chain_length = 1000
 ELK = NodePath("Elk")
 HARTBOUND = NodePath("TheHartbound")
+ELK_INDICATOR = NodePath("Elk/Indicator")
+HARTBOUND_INDICATOR = NodePath("TheHartbound/Indicator")
 
 [node name="TheHartbound" parent="." node_paths=PackedStringArray("partner") instance=ExtResource("1_7nwnn")]
-visible = false
 position = Vector2(0, 100)
 scale = Vector2(1.2, 1.2)
 partner = NodePath("../Elk")
-mode = 0
+
+[node name="Indicator" type="Sprite2D" parent="TheHartbound"]
+self_modulate = Color(0.85098, 0.52549, 0.996078, 1)
+position = Vector2(0, 6.99999)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("2_mn0ll")
+
+[node name="Color" type="Sprite2D" parent="TheHartbound/Indicator"]
+visible = false
+self_modulate = Color(0.831373, 0.627451, 1, 0.956863)
+position = Vector2(0, 6.99999)
+scale = Vector2(1.1, 1.1)
+texture = ExtResource("2_mn0ll")
+
+[node name="White2" type="Sprite2D" parent="TheHartbound/Indicator"]
+position = Vector2(-1.2, 5.39998)
+scale = Vector2(1, 1)
+texture = ExtResource("3_6xf1o")
+
+[node name="White" type="Sprite2D" parent="TheHartbound/Indicator"]
+position = Vector2(-2, 0.111099)
+scale = Vector2(1, 1)
+texture = ExtResource("3_6xf1o")
 
 [node name="Elk" parent="." node_paths=PackedStringArray("partner") instance=ExtResource("2_bptnw")]
 partner = NodePath("../TheHartbound")
+mode = 1
+
+[node name="Indicator" type="Sprite2D" parent="Elk"]
+visible = false
+self_modulate = Color(0.384314, 1, 1, 1)
+position = Vector2(0, 32)
+texture = ExtResource("2_mn0ll")
+
+[node name="Indicator2" type="Sprite2D" parent="Elk/Indicator"]
+position = Vector2(-2, 0)
+texture = ExtResource("3_6xf1o")
 
 [connection signal="transition_ended" from="Elk" to="." method="on_mount_transition_ended"]
