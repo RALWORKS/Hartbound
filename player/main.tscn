@@ -47,6 +47,7 @@ texture = ExtResource("3_6xf1o")
 [node name="Elk" parent="." node_paths=PackedStringArray("partner") instance=ExtResource("2_bptnw")]
 partner = NodePath("../TheHartbound")
 mode = 1
+speed = 200
 
 [node name="Indicator" type="Sprite2D" parent="Elk"]
 visible = false

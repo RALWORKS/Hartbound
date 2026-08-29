@@ -3,6 +3,7 @@ extends Node2D
 
 @export var animation: String = "left_stopped"
 @export var has_rider = false
+@export var speed_scale = 1.0
 var last_animation = "left_stopped"
 
 
@@ -57,7 +58,7 @@ func play_params(group: Node2D, mirror:bool, anim: String):
 	var anims:AnimationPlayer = get_animator(group)
 	if not anims:
 		return
-	anims.play("movement/" + anim)
+	anims.play("movement/" + anim, -1, speed_scale)
 	if has_rider:
 		group.get_node("RIDER").visible = true
 

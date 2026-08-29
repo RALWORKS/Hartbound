@@ -12,6 +12,8 @@ extends CharacterBody2D
 @export var base_speed_scale = Vector2(1.0, 1.0)
 @export var cur_speed_mul = 1.0
 
+@onready var follower_target = $FollowerTarget
+
 var last_mode = null
 var speed_scale = base_speed_scale * cur_speed_mul
 
@@ -65,6 +67,8 @@ func start_following():
 func _physics_process(delta):
 	update_mode()
 	speed_scale = cur_speed_mul * base_speed_scale
+
+
 
 func _ready():
 	if mode == status.MODE.RIDER:

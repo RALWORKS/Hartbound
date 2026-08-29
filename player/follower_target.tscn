@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://dmmhg4s8d0yl4"]
+
+[ext_resource type="Script" path="res://player/follower_target.gd" id="1_6pdni"]
+[ext_resource type="Texture2D" uid="uid://b5t7svc0e52yr" path="res://player/indicator2.png" id="2_q6nwe"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_d0ab3"]
+radius = 21.8403
+
+[node name="FollowerTarget" type="Area2D"]
+script = ExtResource("1_6pdni")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_d0ab3")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
+scale = Vector2(0.306084, 0.340909)
+texture = ExtResource("2_q6nwe")

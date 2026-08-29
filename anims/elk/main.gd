@@ -9,6 +9,8 @@ signal transition_ended
 
 @export var mode: status.MODE = status.MODE.RIDER
 
+@onready var follower_target = $FollowerTarget
+
 var last_mode = status.MODE.RIDER
 var mounting = false
 

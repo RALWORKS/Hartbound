@@ -20,9 +20,9 @@ size = Vector2(4486, 232)
 size = Vector2(320, 3184)
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_hkpgp"]
-vertices = PackedVector2Array(517, 497, 124, 204, 613, 490, 803, 1138, 308, 1284, 651, 1036, 2352, 897, 2765, 351, 2613, 839, 2429, 1290, 2397, 1532, 3679, 2249, 936, 2262, 2175, 1525, 3172, 998, 3203, 1246, 1698, 1182, 2048, 1328, 1635, 1354, 1489, 1316, 619, 922, 435, 719, 987, 1512, 994, 1284)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2), PackedInt32Array(3, 4, 5), PackedInt32Array(6, 7, 8, 9), PackedInt32Array(10, 11, 12, 13), PackedInt32Array(14, 15, 9, 8), PackedInt32Array(16, 6, 9, 17, 18, 19), PackedInt32Array(0, 2, 20, 21), PackedInt32Array(5, 21, 20, 3), PackedInt32Array(9, 10, 13, 17), PackedInt32Array(19, 18, 22, 23), PackedInt32Array(23, 22, 3), PackedInt32Array(20, 23, 3)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(124, 204, 517, 497, 435, 719, 651, 1036, 308, 1284, 803, 1138, 987, 1512, 1635, 1354, 2048, 1328, 2175, 1525, 936, 2262, 3679, 2249, 2397, 1532, 2429, 1290, 3203, 1246, 3172, 998, 2613, 839, 2765, 351, 2352, 897, 1698, 1182, 1489, 1316, 994, 1284, 619, 922, 613, 490)])
+vertices = PackedVector2Array(517, 497, 124, 204, 613, 490, 830, 484, 1798, 20, 1346, 340, 616.357, 731.689, 326, 1361, 10, 1269, 338, 1301, 397.94, 1312.83, 486, 644, 2626, 496, 2538, 248, 2922, 392, 2306, 712, 2613, 839, 2352, 897, 651, 1036, 674, 1128, 278, 684, 619, 922, 1279.75, 1440.62, 1170, 1657, 987, 1512, 994, 1284, 3172, 998, 3203, 1246, 2429, 1290, 1698, 1182, 2397, 1532, 3214, 1845, 3254, 2513, 22, 2521, 1170, 2021, 22, 1949, 346, 1657, 1570, 1737, 2175, 1525, 2048, 1328, 1635, 1354, 1489, 1316, 758, 1404)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2), PackedInt32Array(3, 4, 5, 6), PackedInt32Array(7, 8, 9, 10), PackedInt32Array(0, 2, 3, 6, 11), PackedInt32Array(12, 13, 14), PackedInt32Array(15, 12, 14, 16, 17), PackedInt32Array(10, 9, 18, 19), PackedInt32Array(18, 20, 11, 21), PackedInt32Array(22, 23, 24, 25), PackedInt32Array(17, 16, 26, 27, 28, 29), PackedInt32Array(30, 31, 32, 33, 34), PackedInt32Array(35, 36, 34, 33), PackedInt32Array(30, 34, 37, 38), PackedInt32Array(28, 30, 38, 39), PackedInt32Array(29, 28, 39, 40, 41), PackedInt32Array(41, 40, 22, 25), PackedInt32Array(21, 25, 24, 42, 18), PackedInt32Array(11, 6, 21), PackedInt32Array(18, 42, 19)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(124, 204, 517, 497, 486, 644, 278, 684, 651, 1036, 338, 1301, 10, 1269, 326, 1361, 397.94, 1312.83, 674, 1128, 758, 1404, 987, 1512, 1170, 1657, 1279.75, 1440.62, 1635, 1354, 2048, 1328, 2175, 1525, 1570, 1737, 1170, 2021, 346, 1657, 22, 1949, 22, 2521, 3254, 2513, 3214, 1845, 2397, 1532, 2429, 1290, 3203, 1246, 3172, 998, 2613, 839, 2922, 392, 2538, 248, 2626, 496, 2306, 712, 2352, 897, 1698, 1182, 1489, 1316, 994, 1284, 619, 922, 616.357, 731.689, 1346, 340, 1798, 20, 830, 484, 613, 490)])
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_orj2v"]
 resource_local_to_scene = true
@@ -180,7 +180,7 @@ position = Vector2(-11860, -662)
 polygon = PackedVector2Array(7396, 2396, 6026, 1568, 5142, 2120, 5770, 2414, 6084, 2366, 6436, 2518, 6760, 2328, 7044, 2538)
 
 [node name="BigSquare3" type="Sprite2D" parent="YSort" index="6" node_paths=PackedStringArray("baseline")]
-position = Vector2(1477, 822)
+position = Vector2(1478, 822)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_w4tod")
 script = ExtResource("5_tb13l")

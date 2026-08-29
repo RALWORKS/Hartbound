@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://cedk3hghn7kms"]
+[gd_scene load_steps=36 format=3 uid="uid://cedk3hghn7kms"]
 
 [ext_resource type="PackedScene" uid="uid://mq4ctfv28yt2" path="res://abstract/character/direction_controls.tscn" id="1_8xr0b"]
 [ext_resource type="Texture2D" uid="uid://cwd5hmfq4j6eq" path="res://anims/hart1.png" id="1_f126h"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://bcsk74hos8fah" path="res://anims/elk/left_animator.tscn" id="4_8q6to"]
 [ext_resource type="Texture2D" uid="uid://cpya1w5sfvkyc" path="res://anims/elk/legs/up.png" id="5_tyerp"]
 [ext_resource type="PackedScene" uid="uid://52g14ts2i27r" path="res://anims/the_hartbound/main.tscn" id="6_k1kid"]
+[ext_resource type="PackedScene" uid="uid://dmmhg4s8d0yl4" path="res://player/follower_target.tscn" id="11_m7b3y"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_bckut"]
 radius = 149.282
@@ -1529,13 +1530,14 @@ debug_color = Color(0.282353, 0.823529, 0, 0.160784)
 character = NodePath("..")
 speed = 300
 follow_distance = 400
+rest_time = 2.0
 speed_scale = Vector2(1, 0.7)
 
 [node name="DirectionSensor" parent="." node_paths=PackedStringArray("player", "root") instance=ExtResource("1_us5db")]
 facing = "left"
 player = NodePath("../ElkSpriteAnimationController")
 root = NodePath("..")
-latency = 0.05
+latency = 0.1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_jh4ly")
@@ -1544,6 +1546,7 @@ shape = SubResource("CircleShape2D_jh4ly")
 script = ExtResource("2_oqfoy")
 animation = "up_stopped"
 has_rider = true
+speed_scale = 1.3
 
 [node name="Left" type="Node2D" parent="ElkSpriteAnimationController"]
 visible = false
@@ -2175,6 +2178,11 @@ libraries = {
 "": SubResource("AnimationLibrary_if8f2"),
 "movement": SubResource("AnimationLibrary_yum02")
 }
+
+[node name="FollowerTarget" parent="." instance=ExtResource("11_m7b3y")]
+modulate = Color(0, 1, 1, 1)
+position = Vector2(160, 2)
+radius = 400
 
 [connection signal="body_entered" from="Hitbox" to="." method="hitbox_detects_body"]
 [connection signal="body_exited" from="Hitbox" to="." method="hitbox_body_leaving"]

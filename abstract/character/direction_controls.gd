@@ -9,12 +9,14 @@ extends Node2D
 @export var character: Node2D
 @export var speed = 100
 @export var follow_distance = 200
+@export var rest_time = 1.0
 @export var speed_scale = Vector2(1.0, 1.0)
 @export var leader: CharacterBody2D
 
 @onready var navigation_agent = $NavigationAgent2D
 
 var unreachable = false
+var resting = false
 
 var being_pushed = false
 
@@ -37,6 +39,10 @@ func get_speed_scale():
 		return character.speed_scale
 	return speed_scale
 
+func rest():
+	resting = true
+	await get_tree().create_timer(rest_time).timeout
+	resting = false
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
@@ -48,10 +54,16 @@ func _physics_process(delta):
 	if being_pushed and leader:
 		leader_repels()
 		return
-	if leader and character.position.distance_to(leader.position) > follow_distance:
-		var follow = leader.position + (leader.position.direction_to(character.position).normalized() * 0.75 * follow_distance)
+	if leader and character.position.distance_to(leader.position) > follow_distance and not resting:
+		var follow = leader.position
+		if "follower_target" in leader:
+			follow = leader.follower_target.get_target()
 		set_destination(follow)
-	elif autonomous:
+	elif leader and character.position.distance_to(leader.position) < follow_distance:
+		rest()
+		set_destination(null)
+		set_v(Vector2(0, 0))
+	elif autonomous and not leader:
 		_handle_input_autonomously(delta)
 	var input_direction = refresh_walk_direction()
 	if input_direction != null:
@@ -94,10 +106,7 @@ func _handle_collisions(_delta, collision, input_direction):
 		set_v(_modulate_velocity(slide))
 		get_body().move_and_slide()
 		return
-		#cur_collision = get_collision()
-#	elif collision and last_collision and leader:
-#		set_destination(position)
-#		return
+
 	set_v(Vector2(0, 0)) # 'cause here, we lose the direction
 
 func bump(v: Vector2):
@@ -171,7 +180,8 @@ func refresh_walk_direction():
 	if navigation_finished() or (
 		leader and character.position.distance_to(leader.position) < follow_distance
 	):
-		Vector2(0, 0)
+		#Vector2(0, 0)
+		set_destination(null)
 		return null
 	
 	var cur_agent_position: Vector2 = global_position
