@@ -19,6 +19,8 @@ var moves = 0
 
 @onready var action_emitter = $ActionEmitter
 
+signal player_mode_changed
+
 var MainScreen = preload("res://ui/main_screen.tscn")
 var StartScreen = preload("res://ui/start_screen.tscn")
 var PlayerCamera = preload("res://abstract/player_camera.tscn")
@@ -73,7 +75,10 @@ func set_player(some_player):
 	camera = PlayerCamera.instantiate()
 	player.get_parent().add_child(camera)
 	camera.position = player.get_actor_position()
-	
+	player.connect("mode_changed", handle_player_mode)
+
+func handle_player_mode(new_mode):
+	emit_signal("player_mode_changed", new_mode)	
 
 func reload():
 	load_position()

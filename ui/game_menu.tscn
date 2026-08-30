@@ -1,17 +1,19 @@
-[gd_scene load_steps=14 format=3 uid="uid://d2tvvel0wxl51"]
+[gd_scene load_steps=17 format=3 uid="uid://d2tvvel0wxl51"]
 
 [ext_resource type="Script" path="res://ui/game_menu.gd" id="1_qi0kv"]
 [ext_resource type="Texture2D" uid="uid://b4qmfyh2beo7n" path="res://assets/menubg.png" id="1_qo3pl"]
-[ext_resource type="PackedScene" uid="uid://cemborgcdx75k" path="res://abstract/character/profile.tscn" id="3_gksuv"]
 [ext_resource type="Script" path="res://ui/ProfileBtn.gd" id="4_5c32q"]
-[ext_resource type="PackedScene" uid="uid://i6laa1tesr13" path="res://ui/modal.tscn" id="5_jpiq8"]
-[ext_resource type="Theme" uid="uid://bowrqsap2qmsa" path="res://ui/base_theme.tres" id="6_pr2h2"]
-[ext_resource type="Texture2D" uid="uid://cwobelc0kaio" path="res://assets/effects/pass-out-1/black.png" id="7_45e3t"]
-[ext_resource type="Texture2D" uid="uid://nwp046lvkv0y" path="res://assets/effects/pass-out-1/star-biggest.png" id="8_7cibf"]
-[ext_resource type="Texture2D" uid="uid://dneh40ijxqdeo" path="res://assets/stars-backdrop.png" id="9_st631"]
+[ext_resource type="PackedScene" uid="uid://cncvnw005od5g" path="res://player/hartbound_profile.tscn" id="5_6kxf2"]
+[ext_resource type="PackedScene" uid="uid://depinvg66fupr" path="res://player/elk_profile.tscn" id="5_ehnyx"]
+[ext_resource type="Texture2D" uid="uid://by0jeq6qsgdco" path="res://assets/hartbound/ride.png" id="7_coqhh"]
+[ext_resource type="Script" path="res://ui/black_and_white_button.gd" id="7_x2wxv"]
+[ext_resource type="Texture2D" uid="uid://dnevlh5hd2siu" path="res://assets/hartbound/hold-position.png" id="8_2ydm8"]
 [ext_resource type="PackedScene" uid="uid://dnao46ua3ewbf" path="res://ui/party_slot.tscn" id="10_thgpk"]
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_i8c3e"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gf4ah"]
+bg_color = Color(0.505882, 0.388235, 0.654902, 1)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_7s8ya"]
 viewport_path = NodePath("img")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xueob"]
@@ -19,8 +21,17 @@ content_margin_left = 45.0
 bg_color = Color(0, 0, 0, 0.815686)
 border_color = Color(0, 0, 0, 1)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_s8vpo"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kb1yp"]
+bg_color = Color(0.227451, 0.501961, 0.52549, 1)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_da7dg"]
 viewport_path = NodePath("img")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yy76t"]
+bg_color = Color(0.298039, 0.298039, 0.298039, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mwq8v"]
+bg_color = Color(0.603922, 0.603922, 0.603922, 1)
 
 [node name="GameMenu" type="Node2D"]
 position = Vector2(1720, 0)
@@ -31,21 +42,36 @@ scale = Vector2(1.28, 1.28)
 texture = ExtResource("1_qo3pl")
 centered = false
 
-[node name="ProfileBtn" type="Button" parent="."]
+[node name="HartboundIndicator" type="ColorRect" parent="."]
+offset_left = 9.0
+offset_top = 9.0
+offset_right = 199.0
+offset_bottom = 210.0
+color = Color(0.713726, 0.478431, 1, 1)
+
+[node name="HartIndicator" type="ColorRect" parent="."]
+offset_left = 9.0
+offset_top = 209.0
+offset_right = 199.0
+offset_bottom = 410.0
+color = Color(0.258824, 0.803922, 0.847059, 1)
+
+[node name="HartboundBtn" type="Button" parent="."]
 clip_contents = true
 offset_left = 14.0
 offset_top = 14.0
 offset_right = 194.0
 offset_bottom = 204.0
+theme_override_styles/hover = SubResource("StyleBoxFlat_gf4ah")
 script = ExtResource("4_5c32q")
 metadata/_edit_use_anchors_ = true
 
-[node name="Profile" parent="ProfileBtn" instance=ExtResource("3_gksuv")]
+[node name="Profile" parent="HartboundBtn" instance=ExtResource("5_6kxf2")]
 position = Vector2(15, 12)
 scale = Vector2(0.38, 0.38)
-texture = SubResource("ViewportTexture_i8c3e")
+texture = SubResource("ViewportTexture_7s8ya")
 
-[node name="Label" type="Label" parent="ProfileBtn"]
+[node name="Label" type="Label" parent="HartboundBtn"]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 0.058
@@ -53,11 +79,11 @@ offset_left = 18.0
 offset_top = 164.0
 offset_right = 153.038
 offset_bottom = 212.0
-text = "Character"
+text = "Hartbound"
 horizontal_alignment = 1
 clip_text = true
 
-[node name="ToolTip" type="RichTextLabel" parent="ProfileBtn"]
+[node name="ToolTip" type="RichTextLabel" parent="HartboundBtn"]
 layout_mode = 0
 offset_left = 5.0
 offset_top = 80.0
@@ -67,109 +93,128 @@ scale = Vector2(0.5, 0.5)
 mouse_filter = 1
 theme_override_font_sizes/normal_font_size = 30
 theme_override_styles/normal = SubResource("StyleBoxFlat_xueob")
-text = "Character Record"
-
-[node name="CharacterRecord" parent="." instance=ExtResource("5_jpiq8")]
-visible = false
-anchors_preset = 0
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-offset_right = 1720.0
-offset_bottom = 1080.0
-size_flags_horizontal = 0
-theme_type_variation = &"ModalBlack"
-title = "Character Record"
-
-[node name="black" type="Sprite2D" parent="CharacterRecord"]
-clip_children = 2
-position = Vector2(890.5, 734.5)
-scale = Vector2(1.29928, 0.992029)
-texture = ExtResource("7_45e3t")
-
-[node name="purple" type="Sprite2D" parent="CharacterRecord/black"]
-visible = false
-position = Vector2(-8.85107, 18.6487)
-scale = Vector2(0.968767, 1.00804)
-texture = ExtResource("8_7cibf")
-
-[node name="stars" type="Sprite2D" parent="CharacterRecord/black"]
-scale = Vector2(0.45, 0.45)
-texture = ExtResource("9_st631")
-offset = Vector2(0, -300)
-
-[node name="Profile" parent="CharacterRecord/black" instance=ExtResource("3_gksuv")]
-modulate = Color(0.34902, 0.439216, 0.576471, 1)
-position = Vector2(70, -607.341)
-scale = Vector2(1.3, 1.703)
-texture = SubResource("ViewportTexture_s8vpo")
-with_background = false
-
-[node name="FullName" type="RichTextLabel" parent="CharacterRecord"]
-layout_mode = 1
-anchors_preset = -1
-anchor_top = 0.046
-anchor_right = 0.997
-anchor_bottom = 0.165
-offset_left = 32.0
-offset_top = 23.32
-offset_right = -40.2
-offset_bottom = -35.2
-mouse_filter = 2
-theme = ExtResource("6_pr2h2")
-theme_override_font_sizes/normal_font_size = 50
-text = "Full Character Name"
-
-[node name="FullNameDefinition" type="RichTextLabel" parent="CharacterRecord"]
-layout_mode = 1
-anchors_preset = -1
-anchor_top = 0.139
-anchor_right = 0.997
-anchor_bottom = 0.207
-offset_left = 32.0
-offset_top = -7.12001
-offset_right = -683.2
-offset_bottom = -45.56
-mouse_filter = 2
-theme_override_font_sizes/normal_font_size = 25
-bbcode_enabled = true
-text = "[i]Character Name Definition[/i]"
-
-[node name="ContentBG" type="ColorRect" parent="CharacterRecord"]
-visible = false
-layout_mode = 1
-anchors_preset = -1
-anchor_top = 0.327
-anchor_right = 0.997
-anchor_bottom = 1.007
-offset_left = 32.0
-offset_top = -153.16
-offset_right = -630.84
-offset_bottom = -87.5599
-mouse_filter = 2
-theme = ExtResource("6_pr2h2")
-theme_type_variation = &"VoiceoverBox"
-color = Color(0.196078, 0.196078, 0.196078, 0.847059)
-
-[node name="StoryContainer" type="ScrollContainer" parent="CharacterRecord"]
-layout_mode = 0
-offset_left = 32.0
-offset_top = 216.0
-offset_right = 1047.0
-offset_bottom = 983.0
-
-[node name="Story" type="VBoxContainer" parent="CharacterRecord/StoryContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-theme_override_constants/separation = 20
+text = "           Select"
 
 [node name="PartySlot" parent="." instance=ExtResource("10_thgpk")]
 offset_left = 14.0
 offset_top = 203.0
 offset_right = 201.0
 
-[connection signal="mouse_entered" from="ProfileBtn" to="ProfileBtn" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="ProfileBtn" to="ProfileBtn" method="_on_mouse_exited"]
-[connection signal="pressed" from="ProfileBtn" to="." method="_on_profile_btn_pressed"]
+[node name="ElkBtn" type="Button" parent="PartySlot"]
+clip_contents = true
+layout_mode = 0
+offset_top = 12.0
+offset_right = 180.0
+offset_bottom = 202.0
+theme_override_styles/hover = SubResource("StyleBoxFlat_kb1yp")
+script = ExtResource("4_5c32q")
+metadata/_edit_use_anchors_ = true
+
+[node name="Profile" parent="PartySlot/ElkBtn" instance=ExtResource("5_ehnyx")]
+position = Vector2(15, 12)
+scale = Vector2(0.38, 0.38)
+texture = SubResource("ViewportTexture_da7dg")
+
+[node name="Label" type="Label" parent="PartySlot/ElkBtn"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.058
+offset_left = 18.0
+offset_top = 164.0
+offset_right = 153.038
+offset_bottom = 212.0
+text = "Hart"
+horizontal_alignment = 1
+clip_text = true
+
+[node name="ToolTip" type="RichTextLabel" parent="PartySlot/ElkBtn"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 80.0
+offset_right = 347.0
+offset_bottom = 124.0
+scale = Vector2(0.5, 0.5)
+mouse_filter = 1
+theme_override_font_sizes/normal_font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_xueob")
+text = "           Select"
+
+[node name="RideButton" type="Button" parent="PartySlot"]
+clip_contents = true
+layout_mode = 0
+offset_left = 8.0
+offset_top = 229.0
+offset_right = 78.0
+offset_bottom = 299.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_yy76t")
+theme_override_styles/hover = SubResource("StyleBoxFlat_mwq8v")
+script = ExtResource("7_x2wxv")
+
+[node name="Indicator" type="ColorRect" parent="PartySlot/RideButton"]
+visible = false
+layout_mode = 0
+offset_right = 83.0
+offset_bottom = 81.0
+mouse_filter = 1
+
+[node name="Icon" type="Sprite2D" parent="PartySlot/RideButton"]
+position = Vector2(35, 35)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("7_coqhh")
+
+[node name="ToolTip" type="RichTextLabel" parent="PartySlot/RideButton"]
+layout_mode = 0
+offset_left = -2.0
+offset_top = 24.0
+offset_right = 208.0
+offset_bottom = 74.0
+scale = Vector2(0.5, 0.5)
+mouse_filter = 1
+theme_override_font_sizes/normal_font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_xueob")
+text = "Ride"
+
+[node name="HoldPositionButton" type="Button" parent="PartySlot"]
+clip_contents = true
+layout_mode = 0
+offset_left = 97.0
+offset_top = 229.0
+offset_right = 167.0
+offset_bottom = 299.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_yy76t")
+theme_override_styles/hover = SubResource("StyleBoxFlat_mwq8v")
+script = ExtResource("7_x2wxv")
+
+[node name="Indicator" type="ColorRect" parent="PartySlot/HoldPositionButton"]
+visible = false
+layout_mode = 0
+offset_right = 83.0
+offset_bottom = 81.0
+mouse_filter = 1
+
+[node name="Icon" type="Sprite2D" parent="PartySlot/HoldPositionButton"]
+position = Vector2(35, 34)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("8_2ydm8")
+
+[node name="ToolTip" type="RichTextLabel" parent="PartySlot/HoldPositionButton"]
+layout_mode = 0
+offset_left = -14.0
+offset_top = 14.0
+offset_right = 196.0
+offset_bottom = 98.0
+scale = Vector2(0.5, 0.5)
+mouse_filter = 1
+theme_override_font_sizes/normal_font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_xueob")
+text = "  Hold
+Position"
+
+[connection signal="mouse_entered" from="HartboundBtn" to="HartboundBtn" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="HartboundBtn" to="HartboundBtn" method="_on_mouse_exited"]
+[connection signal="pressed" from="HartboundBtn" to="." method="_on_hartbound_btn_pressed"]
+[connection signal="mouse_entered" from="PartySlot/ElkBtn" to="PartySlot/ElkBtn" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="PartySlot/ElkBtn" to="PartySlot/ElkBtn" method="_on_mouse_exited"]
+[connection signal="pressed" from="PartySlot/ElkBtn" to="." method="_on_elk_btn_pressed"]
+[connection signal="pressed" from="PartySlot/RideButton" to="." method="_on_ride_button_pressed"]
+[connection signal="pressed" from="PartySlot/HoldPositionButton" to="." method="_on_hold_position_button_pressed"]

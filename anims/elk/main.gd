@@ -4,6 +4,8 @@ extends CharacterBody2D
 signal transition_ended
 
 @export var SWITCH_DELAY = 0.1
+@export var mount_timeout = 0.85
+@export var hold_position = false
 
 @export var partner: CharacterBody2D
 
@@ -26,7 +28,7 @@ func update_mode():
 	
 	var _last_mode = last_mode
 	last_mode = mode
-	$DirectionControls.reset()
+	$DirectionControls.reset_direction()
 	
 	if _last_mode == status.MODE.RIDER:
 		dismount()
@@ -52,47 +54,60 @@ func start_following():
 	$DirectionControls.leader = partner
 
 func mount():
-	#$ElkSpriteAnimationController.hide_rider()
 	if mounting:
 		return
-	mounting = true
-	#$DirectionControls.is_active = false
+	set_mount_state()
 	velocity = Vector2(0.0, 0.0)
-	$ElkSpriteAnimationController.play("up_left_stopped")
-	$ElkSpriteAnimationController/UpLeft/TESTMOUNT/Anim.play("up")
+
+	$ElkSpriteAnimationController.mount()
 
 func dismount():
-	#$ElkSpriteAnimationController.hide_rider()
 	if mounting:
 		return
-	mounting = true
-	#$DirectionControls.is_active = false
+	set_mount_state()
 	velocity = Vector2(0.0, 0.0)
-	$ElkSpriteAnimationController.play("up_left_stopped")
-	$ElkSpriteAnimationController/UpLeft/TESTMOUNT/Anim.play("down")
+	$ElkSpriteAnimationController.dismount()
 
+func set_mount_state():
+	if Engine.is_editor_hint():
+		mounting = true
+	elif not get_tree():
+		return
+	else:
+		start_mount_timeout()
+
+func start_mount_timeout():
+	mounting = true
+	await get_tree().create_timer(mount_timeout).timeout
+	if mounting:
+		on_mount_completed()
 
 func _physics_process(delta):
 	update_mode()
 	speed_scale = cur_speed_mul * base_speed_scale
 
 func _ready():
-	pass
-
-
-func on_mount_completed(_anim_name):
-	mounting = false
 	if mode == status.MODE.RIDER:
-		$ElkSpriteAnimationController/UpLeft/TESTMOUNT.visible = false
+		$ElkSpriteAnimationController.has_rider = true
+	else:
+		$ElkSpriteAnimationController.has_rider = false
+
+
+func on_mount_completed():
+	mounting = false
+	$ElkSpriteAnimationController.mounting = false
+	$DirectionControls.is_active = true
+	if mode == status.MODE.RIDER:
+		#$ElkSpriteAnimationController/UpLeft/TESTMOUNT.visible = false
 		emit_signal("transition_ended")
 		get_tree().create_timer(SWITCH_DELAY)
-		$ElkSpriteAnimationController.show_rider()
+		$ElkSpriteAnimationController.has_rider = true
 		start_leading()
 		return
-	$ElkSpriteAnimationController/UpLeft/TESTMOUNT.visible = false
+	#$ElkSpriteAnimationController/UpLeft/TESTMOUNT.visible = false
 	emit_signal("transition_ended")
 	get_tree().create_timer(SWITCH_DELAY)
-	$ElkSpriteAnimationController.hide_rider()
+	$ElkSpriteAnimationController.has_rider = false
 
 	
 	

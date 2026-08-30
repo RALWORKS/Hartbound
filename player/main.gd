@@ -5,6 +5,7 @@ extends Node2D
 
 @export var chain_length = 1600
 @export var damp_zone = 350
+@export var hold_position = false
 var arrived_with_player = true
 var spawner: Node
 
@@ -22,7 +23,10 @@ var last_mode = null
 	status.MODE.ELF: [HARTBOUND, ELK],
 }
 
+signal mode_changed
+
 func _ready():
+	$Chain.scale = Vector2(0.9/scale.x, 0.9/scale.y)
 	if spawner != null:
 		eject_children()
 	
@@ -70,14 +74,23 @@ func poll_mode_switcher():
 
 
 func update_mode():
+	if hold_position:
+		HARTBOUND.hold_position = true
+		ELK.hold_position = true
+	else:
+		HARTBOUND.hold_position = false
+		ELK.hold_position = false
 	if mode == last_mode:
 		return
+	
+	emit_signal("mode_changed", mode)
 	
 	var _last_mode = last_mode
 	last_mode = mode
 
 	
 	if status.MODE.RIDER in [_last_mode, mode]:
+		HARTBOUND.visible = false
 		trigger_mount_transition()
 		return
 	ELK.mode = mode
@@ -118,10 +131,20 @@ func chain():
 	
 	var radius = follower.position.distance_to(leader.position + leader.velocity)
 	var buffer = chain_length - radius
+	$Chain.clear_points()
+	$Chain.add_point(Vector2(0, 0))
+	$Chain.add_point(SPRITES[mode][1].position - position)
+	
+	if buffer / damp_zone < 0.3:
+		$Chain/AnimationPlayer.play("flicker")
+	elif $Chain/AnimationPlayer.current_animation == "flicker":
+		$Chain/AnimationPlayer.play("RESET")
 	
 	if buffer < damp_zone:
 		leader.cur_speed_mul = buffer / damp_zone
+		$Chain.modulate.a = 1.0 - (buffer / damp_zone)
 		return
+	$Chain.modulate.a = 0.0
 	leader.cur_speed_mul = 1.0
 
 

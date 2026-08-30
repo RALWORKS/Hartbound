@@ -5,6 +5,7 @@ extends CharacterBody2D
 @export var animations: Node2D
 
 @export var partner: CharacterBody2D
+@export var hold_position = false
 
 @export var mode: status.MODE = status.MODE.ELF
 
@@ -23,7 +24,7 @@ func update_mode():
 		return
 	var _last_mode = last_mode
 	last_mode = mode
-	$DirectionControls.reset()
+	$DirectionControls.reset_direction()
 	
 	if mode == status.MODE.RIDER:
 		mount()

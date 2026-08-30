@@ -54,8 +54,8 @@ func refresh():
 
 	var v = get_v()
 	
-	facing = get_facing(v)	
-	
+	facing = get_facing(v)
+
 	if last_facing==null:
 		last_facing = facing
 	

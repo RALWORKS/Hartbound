@@ -1,3 +1,5 @@
+@tool
+
 extends Node2D
 
 @export var is_active = true
@@ -28,6 +30,9 @@ var last_collision = null
 func _ready():
 	pass # Replace with function body.
 
+func reset_direction():
+	set_destination(null)
+	set_v(Vector2(0, 0))
 
 func get_speed():
 	if "speed" in character:
@@ -46,6 +51,8 @@ func rest():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
+	if Engine.is_editor_hint():
+		return
 	if not is_active:
 		return
 	if proxied:
@@ -54,16 +61,9 @@ func _physics_process(delta):
 	if being_pushed and leader:
 		leader_repels()
 		return
-	if leader and character.position.distance_to(leader.position) > follow_distance and not resting:
-		var follow = leader.position
-		if "follower_target" in leader:
-			follow = leader.follower_target.get_target()
-		set_destination(follow)
-	elif leader and character.position.distance_to(leader.position) < follow_distance:
-		rest()
-		set_destination(null)
-		set_v(Vector2(0, 0))
-	elif autonomous and not leader:
+	if leader:
+		follow()
+	elif autonomous:
 		_handle_input_autonomously(delta)
 	var input_direction = refresh_walk_direction()
 	if input_direction != null:
@@ -73,6 +73,22 @@ func _physics_process(delta):
 func move_proxied(delta):
 	var collision = get_body().move_and_collide(get_v() * body_delta())
 	_handle_collisions(body_delta(), collision, get_v().normalized())
+
+func follow():
+	if character.hold_position:
+		set_destination(null)
+		set_v(Vector2(0, 0))
+		return
+	
+	if character.position.distance_to(leader.position) > follow_distance and not resting:
+		var follow = leader.position
+		if "follower_target" in leader:
+			follow = leader.follower_target.get_target()
+		set_destination(follow)
+	elif character.position.distance_to(leader.position) < follow_distance:
+		rest()
+		set_destination(null)
+		set_v(Vector2(0, 0))
 
 
 func go_direction(delta, input_direction):
@@ -208,7 +224,7 @@ func _handle_input_autonomously(delta):
 	var arrow_keys = Input.get_vector("left", "right", "up", "down")
 	var click = Input.is_action_just_released("click")
 
-	if click and glob.g.mouse_in_world():
+	if click and glob.g and glob.g.mouse_in_world():
 		destination_clicked(delta)
 		return
 	
@@ -218,6 +234,3 @@ func _handle_input_autonomously(delta):
 	
 	no_input()
 
-func reset():
-	set_destination(null)
-	set_v(Vector2(0, 0))

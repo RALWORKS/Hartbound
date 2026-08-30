@@ -7,19 +7,35 @@ var SmartLabel = preload("res://abstract/cutscene/smart_label.tscn")
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	game = $"/root".get_node_or_null("Game")
-	refresh_data($CharacterRecord)
+	glob.g.connect("player_mode_changed", player_mode_changed)
+	#player_mode_changed(glob.g.player.mode)
+	#refresh_data($CharacterRecord)
+
+func player_mode_changed(new_mode):
+	if new_mode == status.MODE.ELF:
+		$HartboundIndicator.modulate = glob.WHITE
+		$HartIndicator.modulate = glob.TRANSPARENT
+		$PartySlot/RideButton.off()
+	elif new_mode == status.MODE.ELK:
+		$HartboundIndicator.modulate = glob.TRANSPARENT
+		$HartIndicator.modulate = glob.WHITE
+		$PartySlot/RideButton.off()
+	else:
+		$HartboundIndicator.modulate = glob.TRANSPARENT
+		$HartIndicator.modulate = glob.TRANSPARENT
+		$PartySlot/RideButton.on()
 
 func refresh_data(character_record=null):
-	$ProfileBtn/Profile.refresh()
-	$CharacterRecord/black/Profile.refresh()
-	if not character_record:
-		character_record = $CharacterRecord
+	#$ProfileBtn/Profile.refresh()
+	#$CharacterRecord/black/Profile.refresh()
+	#if not character_record:
+	#	character_record = $CharacterRecord
 	if not game:
 		return
 	var name_ = game.get_state(["character", "name"])
 	if not name_:
 		return
-	$ProfileBtn/Label.text = name_["short"]
+	#$ProfileBtn/Label.text = name_["short"]
 	var full_name = character_record.get_node("FullName")
 	full_name.clear()
 	var short_name = name_["elf_short"]
@@ -57,10 +73,6 @@ func refresh_data(character_record=null):
 func _process(_delta):
 	pass
 
-
-func _on_profile_btn_pressed():
-	open_character_record()
-
 func open_character_record():
 	var c = $CharacterRecord.duplicate()
 	refresh_data(c)
@@ -78,5 +90,19 @@ func _on_character_record_focus_exited():
 	close_character_record()
 
 
-func _on_profile_btn_mouse_entered():
-	pass # Replace with function body.
+
+func _on_hartbound_btn_pressed():
+	glob.g.player.mode = status.MODE.ELF
+
+
+func _on_elk_btn_pressed():
+	glob.g.player.mode = status.MODE.ELK
+
+
+func _on_ride_button_pressed():
+	glob.g.player.mode = status.MODE.RIDER
+
+
+func _on_hold_position_button_pressed():
+	$PartySlot/HoldPositionButton.toggle()
+	glob.g.player.hold_position = $PartySlot/HoldPositionButton.is_on
