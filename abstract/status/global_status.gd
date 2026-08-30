@@ -9,6 +9,8 @@ var dying = false
 var injured = false
 var ritual: bool = false
 
+var ui_hovered = false
+
 enum MODE {
 	RIDER, ELF, ELK
 }

@@ -211,6 +211,8 @@ func _mouse_in_world():
 	var w = _get_world()
 	if w == null:
 		return true
+	if status.ui_hovered:
+		return false
 	var mouse = get_mouse_position()
 	if mouse.x > w.size.x - 20:
 		return false
