@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://b82yg80y2thfp"]
 
 [ext_resource type="PackedScene" uid="uid://i6laa1tesr13" path="res://ui/modal.tscn" id="1_r0ulf"]
-[ext_resource type="PackedScene" uid="uid://v8p64d73itjl" path="res://item/inventory_map.tscn" id="2_1cn8n"]
+[ext_resource type="PackedScene" uid="uid://v8p64d73itjl" path="res://abstract/item/inventory_map.tscn" id="2_1cn8n"]
 [ext_resource type="Script" path="res://ui/ViewInventory.gd" id="2_dm5bo"]
 [ext_resource type="Texture2D" uid="uid://cwobelc0kaio" path="res://assets/effects/pass-out-1/black.png" id="4_jkebq"]
 [ext_resource type="Texture2D" uid="uid://nwp046lvkv0y" path="res://assets/effects/pass-out-1/star-biggest.png" id="5_auguh"]
@@ -14,7 +14,8 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-offset_right = 1720.0
+offset_left = 103.0
+offset_right = 1960.0
 offset_bottom = 1080.0
 title = "Inventory"
 
@@ -26,7 +27,7 @@ script = ExtResource("2_dm5bo")
 [node name="TitleBar" parent="." index="2"]
 anchors_preset = 0
 anchor_right = 0.0
-offset_right = 1600.0
+offset_right = 1820.0
 offset_bottom = 1080.0
 
 [node name="Exit" parent="TitleBar" index="0"]
@@ -39,11 +40,12 @@ clip_contents = true
 
 [node name="black" type="Sprite2D" parent="Body" index="0"]
 clip_children = 2
-position = Vector2(900.5, 685)
-scale = Vector2(1.29928, 0.992029)
+position = Vector2(937.498, 685)
+scale = Vector2(1.3529, 0.992029)
 texture = ExtResource("4_jkebq")
 
 [node name="stars" type="Sprite2D" parent="Body/black" index="0"]
+position = Vector2(108.522, 0)
 scale = Vector2(0.45, 0.45)
 texture = ExtResource("6_2snv3")
 offset = Vector2(0, -300)
@@ -61,6 +63,7 @@ offset_top = 47.0
 offset_right = 694.0
 offset_bottom = 133.0
 text = "There's nothing here right now."
+raise_to_ui_layer = false
 
 [node name="Data" type="Node2D" parent="Body" index="2"]
 position = Vector2(132, 0)

@@ -125,6 +125,8 @@ func on_mount_transition_ended():
 
 func chain():
 	if mode == status.MODE.RIDER:
+		$Chain.modulate.a = 0.0
+		$Chain.clear_points()
 		return
 	var leader = SPRITES[mode][0]
 	var follower = SPRITES[mode][1]

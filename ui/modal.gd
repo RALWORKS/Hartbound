@@ -3,6 +3,7 @@ extends Panel
 @export var is_cached = false
 @export var title = "Window"
 @export var wrapper: Node = null
+var layer: CanvasLayer
 var game = null
 
 # Called when the node enters the scene tree for the first time.
@@ -36,17 +37,31 @@ func close():
 	elif wrapper:
 		wrapper.call_deferred("free")
 	else:
-		call_deferred("free")
+		layer.call_deferred("free")
 
 func open(g):
 	if wrapper:
 		wrapper.on_open(g)
 	if is_cached:
 		visible = true
+	
 	elif wrapper:
 		g.add_child(wrapper)
 	else:
-		g.add_child($".")
+		layer = CanvasLayer.new()
+		layer.add_child(self)
+		layer.layer = 2
+		g.add_child(layer)
 	g.add_modal($".")
 	$".".set_focus_mode(FOCUS_ALL)
 	$".".grab_focus()
+
+
+func _on_mouse_entered():
+	status.ui_hovered = true
+
+
+
+
+func _on_mouse_exited():
+	status.ui_hovered = false

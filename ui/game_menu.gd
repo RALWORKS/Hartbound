@@ -21,8 +21,8 @@ func player_mode_changed(new_mode):
 		$"../HartIndicator".modulate = glob.WHITE
 		$"../PartySlot/RideButton".off()
 	else:
-		$"../HartboundIndicator".modulate = glob.TRANSPARENT
-		$"../HartIndicator".modulate = glob.TRANSPARENT
+		$"../HartboundIndicator".modulate = glob.WHITE
+		$"../HartIndicator".modulate = glob.WHITE
 		$"../PartySlot/RideButton".on()
 
 func refresh_data(character_record=null):
@@ -54,8 +54,6 @@ func _on_hold_position_button_pressed():
 
 func _on_mouse_block_mouse_entered():
 	status.ui_hovered = true
-	print("treeeeeeuueueu")
 
 func _on_mouse_block_mouse_exited():
 	status.ui_hovered = false
-	print("fallllale")

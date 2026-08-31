@@ -26,7 +26,7 @@ func handle_show_hide():
 
 func hide_self():
 	#visible = false
-	$CampBtn.stop_animations()
+	$ColorRect/CampBtnCampBtn.stop_animations()
 	$AnimationPlayer.play("hide")
 
 func show_self():
@@ -43,3 +43,11 @@ func modulate_clock_visibility():
 	else:
 		if glob.g.cur_modal == null and not status.ritual:
 			$ColorRect/ClockSlot.visible = true
+
+
+func _on_color_rect_mouse_entered():
+	status.ui_hovered = true
+
+
+func _on_color_rect_mouse_exited():
+	status.ui_hovered = true

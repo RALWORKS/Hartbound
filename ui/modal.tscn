@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://i6laa1tesr13"]
 
-[ext_resource type="Theme" uid="uid://bowrqsap2qmsa" path="res://base_theme.tres" id="1_531ua"]
+[ext_resource type="Theme" uid="uid://bowrqsap2qmsa" path="res://ui/base_theme.tres" id="1_531ua"]
 [ext_resource type="Script" path="res://ui/modal.gd" id="2_4lnkt"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tb4w0"]
@@ -64,3 +64,6 @@ offset_left = -10.0
 offset_top = 50.0
 theme = ExtResource("1_531ua")
 theme_type_variation = &"ModalBody"
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
