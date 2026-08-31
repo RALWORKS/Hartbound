@@ -2,6 +2,7 @@
 extends CharacterBody2D
 
 signal transition_ended
+signal start_mounting
 
 @export var SWITCH_DELAY = 0.1
 @export var mount_timeout = 0.85
@@ -28,6 +29,7 @@ func update_mode():
 	
 	var _last_mode = last_mode
 	last_mode = mode
+	$DirectionControls.trying_to_mount = false
 	$DirectionControls.reset_direction()
 	
 	if _last_mode == status.MODE.RIDER:
@@ -35,8 +37,9 @@ func update_mode():
 		return
 	
 	if mode == status.MODE.RIDER:
-		mount()
-		start_leading()
+		#mount()
+		$DirectionControls.trying_to_mount = true
+		start_following()
 		return
 
 	if mode == status.MODE.ELK:
@@ -48,12 +51,17 @@ func update_mode():
 
 
 func start_leading():
+	$DirectionControls.reset_direction()
 	$DirectionControls.leader = null
 
 func start_following():
+	$DirectionControls.reset_direction()
 	$DirectionControls.leader = partner
 
 func mount():
+	$DirectionControls.trying_to_mount = false
+	start_leading()
+	emit_signal("start_mounting")
 	if mounting:
 		return
 	set_mount_state()
@@ -112,7 +120,6 @@ func on_mount_completed():
 	
 	
 	if mode == status.MODE.ELF:
-		print("elf!")
 		start_following()
 		return
 	

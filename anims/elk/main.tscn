@@ -36,6 +36,7 @@ speed = 300
 follow_distance = 400
 rest_time = 2.0
 speed_scale = Vector2(1, 0.7)
+trying_to_mount = null
 
 [node name="DirectionSensor" parent="." node_paths=PackedStringArray("player", "root") instance=ExtResource("1_us5db")]
 facing = "left"

@@ -82,7 +82,7 @@ func play(anim: String):
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if root != null:
+	if root != null and "animation" in root:
 		animation = root.animation
 	if animation != last_animation:
 		play(animation)

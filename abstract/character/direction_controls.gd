@@ -14,6 +14,7 @@ extends Node2D
 @export var rest_time = 1.0
 @export var speed_scale = Vector2(1.0, 1.0)
 @export var leader: CharacterBody2D
+@export var trying_to_mount = false
 
 @onready var navigation_agent = $NavigationAgent2D
 
@@ -55,6 +56,9 @@ func _physics_process(delta):
 		return
 	if not is_active:
 		return
+	if trying_to_mount and leader and being_pushed:
+		character.mount()
+		return
 	if proxied:
 		move_proxied(delta)
 		return
@@ -75,12 +79,13 @@ func move_proxied(delta):
 	_handle_collisions(body_delta(), collision, get_v().normalized())
 
 func follow():
-	if character.hold_position:
+	if trying_to_mount:
+		set_destination(leader.position)
+	elif character.hold_position:
 		set_destination(null)
 		set_v(Vector2(0, 0))
 		return
-	
-	if character.position.distance_to(leader.position) > follow_distance and not resting:
+	elif character.position.distance_to(leader.position) > follow_distance and not resting:
 		var follow = leader.position
 		if "follower_target" in leader:
 			follow = leader.follower_target.get_target()
@@ -127,6 +132,9 @@ func _handle_collisions(_delta, collision, input_direction):
 
 func bump(v: Vector2):
 	being_pushed = true
+	if trying_to_mount:
+		return
+
 	if not is_active:
 		return
 	if not leader:
@@ -194,7 +202,9 @@ func navigation_finished():
 
 func refresh_walk_direction():
 	if navigation_finished() or (
-		leader and character.position.distance_to(leader.position) < follow_distance
+		leader
+		and character.mode != status.MODE.RIDER
+		and character.position.distance_to(leader.position) < follow_distance
 	):
 		#Vector2(0, 0)
 		set_destination(null)

@@ -27,6 +27,7 @@ signal mode_changed
 
 func _ready():
 	$Chain.scale = Vector2(0.9/scale.x, 0.9/scale.y)
+	ELK.connect("start_mounting", trigger_mount_transition)
 	if spawner != null:
 		eject_children()
 	
@@ -88,11 +89,10 @@ func update_mode():
 	var _last_mode = last_mode
 	last_mode = mode
 
-	
-	if status.MODE.RIDER in [_last_mode, mode]:
-		HARTBOUND.visible = false
-		trigger_mount_transition()
-		return
+	#if status.MODE.RIDER in [_last_mode, mode]:
+		#HARTBOUND.visible = false
+		#trigger_mount_transition()
+		#return
 	ELK.mode = mode
 	HARTBOUND.mode = mode
 
@@ -117,7 +117,10 @@ func trigger_mount_transition():
 	in_transition = true
 
 func on_mount_transition_ended():
-	if mode != status.MODE.RIDER:
+	if mode == status.MODE.RIDER:
+		HARTBOUND.mode = mode
+		HARTBOUND.visible = false
+	else:
 		HARTBOUND.mode = mode
 		HARTBOUND.visible = true
 	in_transition = false
@@ -158,7 +161,7 @@ func _process(delta):
 		return
 	if spawner:
 		position = SPRITES[mode][0].position
-	if mode == status.MODE.RIDER:
+	if not HARTBOUND.visible:
 		HARTBOUND.position = ELK.position + Vector2(0, 100)
 	update_mode()
 	update_indicators()

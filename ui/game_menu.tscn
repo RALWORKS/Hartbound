@@ -13,7 +13,7 @@
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gf4ah"]
 bg_color = Color(0.505882, 0.388235, 0.654902, 1)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_yndha"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_kxogw"]
 viewport_path = NodePath("img")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xueob"]
@@ -24,7 +24,7 @@ border_color = Color(0, 0, 0, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kb1yp"]
 bg_color = Color(0.227451, 0.501961, 0.52549, 1)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_07ghb"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_d4d7w"]
 viewport_path = NodePath("img")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yy76t"]
@@ -99,7 +99,7 @@ metadata/_edit_use_anchors_ = true
 [node name="Profile" parent="HartboundBtn" instance=ExtResource("5_6kxf2")]
 position = Vector2(15, 12)
 scale = Vector2(0.38, 0.38)
-texture = SubResource("ViewportTexture_yndha")
+texture = SubResource("ViewportTexture_kxogw")
 
 [node name="Label" type="Label" parent="HartboundBtn"]
 layout_mode = 1
@@ -148,7 +148,7 @@ metadata/_edit_use_anchors_ = true
 [node name="Profile" parent="PartySlot/ElkBtn" instance=ExtResource("5_ehnyx")]
 position = Vector2(15, 12)
 scale = Vector2(0.38, 0.38)
-texture = SubResource("ViewportTexture_07ghb")
+texture = SubResource("ViewportTexture_d4d7w")
 
 [node name="Label" type="Label" parent="PartySlot/ElkBtn"]
 layout_mode = 1

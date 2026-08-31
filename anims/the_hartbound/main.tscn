@@ -40,6 +40,7 @@ character = NodePath("..")
 speed = 150
 follow_distance = 300
 speed_scale = Vector2(1.2, 0.8)
+trying_to_mount = null
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_nqnkc")
