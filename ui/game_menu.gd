@@ -12,6 +12,11 @@ func _ready():
 	#refresh_data($CharacterRecord)
 
 func player_mode_changed(new_mode):
+	if glob.g.player.hold_position:
+		$"../PartySlot/HoldPositionButton".on()
+	else:
+		$"../PartySlot/HoldPositionButton".off()
+	
 	if new_mode == status.MODE.ELF:
 		$"../HartboundIndicator".modulate = glob.WHITE
 		$"../HartIndicator".modulate = glob.TRANSPARENT
@@ -48,8 +53,7 @@ func _on_ride_button_pressed():
 
 
 func _on_hold_position_button_pressed():
-	$"../PartySlot/HoldPositionButton".toggle()
-	glob.g.player.hold_position = $"../PartySlot/HoldPositionButton".is_on
+	glob.g.player.hold_position = !glob.g.player.hold_position
 
 
 func _on_mouse_block_mouse_entered():

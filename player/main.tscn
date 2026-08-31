@@ -74,6 +74,7 @@ libraries = {
 position = Vector2(0, 100)
 scale = Vector2(1.2, 1.2)
 partner = NodePath("../Elk")
+hold_position = null
 speed = 200
 
 [node name="Indicator" type="Sprite2D" parent="TheHartbound"]
@@ -99,7 +100,6 @@ texture = ExtResource("3_6xf1o")
 
 [node name="Elk" parent="." node_paths=PackedStringArray("partner") instance=ExtResource("2_bptnw")]
 mount_timeout = 0.85
-hold_position = false
 partner = NodePath("../TheHartbound")
 mode = 1
 speed = 200

@@ -6,6 +6,7 @@ extends Node2D
 @export var chain_length = 1600
 @export var damp_zone = 350
 @export var hold_position = false
+var last_hold_position = null
 var arrived_with_player = true
 var spawner: Node
 
@@ -75,19 +76,21 @@ func poll_mode_switcher():
 
 
 func update_mode():
-	if hold_position:
-		HARTBOUND.hold_position = true
-		ELK.hold_position = true
-	else:
-		HARTBOUND.hold_position = false
-		ELK.hold_position = false
-	if mode == last_mode:
+	if mode == status.MODE.RIDER:
+		hold_position = false
+
+	if mode == last_mode and hold_position == last_hold_position:
 		return
-	
+
 	emit_signal("mode_changed", mode)
+	
+	HARTBOUND.hold_position = hold_position
+	ELK.hold_position = hold_position
+	
 	
 	var _last_mode = last_mode
 	last_mode = mode
+	last_hold_position = hold_position
 
 	#if status.MODE.RIDER in [_last_mode, mode]:
 		#HARTBOUND.visible = false
@@ -100,8 +103,12 @@ func update_mode():
 func update_indicators():
 	if not HARTBOUND_INDICATOR or not ELK_INDICATOR:
 		return
-	if mode in [status.MODE.ELK, status.MODE.RIDER]:
+	if mode == status.MODE.ELK:
 		HARTBOUND_INDICATOR.visible = false
+		ELK_INDICATOR.visible = true
+		return
+	if mode == status.MODE.RIDER:
+		HARTBOUND_INDICATOR.visible = true
 		ELK_INDICATOR.visible = true
 		return
 	HARTBOUND_INDICATOR.visible = true

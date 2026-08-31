@@ -16,11 +16,11 @@ extends CharacterBody2D
 @onready var follower_target = $FollowerTarget
 
 var last_mode = null
-var about_to_mount = false
 var speed_scale = base_speed_scale * cur_speed_mul
 
 func mount():
 	$DirectionControls.trying_to_mount = false
+	$DirectionControls.reset_direction()
 	start_leading()
 	call_deferred("passify")
 
@@ -87,7 +87,7 @@ func _ready():
 
 func hitbox_detects_body(body):
 	if body == partner:
-		$DirectionControls.bump(partner.velocity)
+		$DirectionControls.bump(partner)
 
 func hitbox_body_leaving(body):
 	if body == partner:

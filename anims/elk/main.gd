@@ -59,11 +59,12 @@ func start_following():
 	$DirectionControls.leader = partner
 
 func mount():
-	$DirectionControls.trying_to_mount = false
-	start_leading()
-	emit_signal("start_mounting")
 	if mounting:
 		return
+	$DirectionControls.trying_to_mount = false
+	$DirectionControls.reset_direction()
+	start_leading()
+	emit_signal("start_mounting")
 	set_mount_state()
 	velocity = Vector2(0.0, 0.0)
 
@@ -127,7 +128,7 @@ func on_mount_completed():
 	
 func hitbox_detects_body(body):
 	if body == partner:
-		$DirectionControls.bump(partner.velocity)
+		$DirectionControls.bump(partner)
 
 func hitbox_body_leaving(body):
 	if body == partner:

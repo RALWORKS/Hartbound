@@ -21,7 +21,7 @@ extends Node2D
 var unreachable = false
 var resting = false
 
-var being_pushed = false
+var being_pushed_by = null
 
 var cur_collision = null
 var last_collision = null
@@ -56,14 +56,15 @@ func _physics_process(delta):
 		return
 	if not is_active:
 		return
-	if trying_to_mount and leader and being_pushed:
+	if trying_to_mount and leader and being_pushed_by == leader:
 		character.mount()
+		being_pushed_by.mount()
 		return
 	if proxied:
 		move_proxied(delta)
 		return
-	if being_pushed and leader:
-		leader_repels()
+	if being_pushed_by:
+		bump_repels()
 		return
 	if leader:
 		follow()
@@ -130,25 +131,27 @@ func _handle_collisions(_delta, collision, input_direction):
 
 	set_v(Vector2(0, 0)) # 'cause here, we lose the direction
 
-func bump(v: Vector2):
-	being_pushed = true
+func bump(some_char: CharacterBody2D):
+	being_pushed_by = some_char
+	
 	if trying_to_mount:
 		return
 
 	if not is_active:
 		return
-	if not leader:
-		return
-	set_destination(position)
-	leader_repels()
 
-func leader_repels():
-	var d = leader.position.direction_to(character.position)
+	reset_direction()
+	bump_repels()
+
+func bump_repels():
+	if not being_pushed_by:
+		return
+	var d = being_pushed_by.position.direction_to(character.position)
 	go_direction(body_delta(), d)
 	
 
 func stop_pushing():
-	being_pushed = false
+	being_pushed_by = null
 	
 func no_input():
 	if not is_active:
