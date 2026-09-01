@@ -230,25 +230,22 @@ func make_walk_animations():
 			},
 
 			"Skeleton2D/Hip/Bum:rotation": {
-			"times": [0, 0.6, 1.7, 2.5, 3.6],
-			"values": [0.0523599, 0.0, 0.0523599, 0.0, 0.0523599]
+			"times": [0, 1.7],
+			"values": [0.0523599, 0.0]
 			},
 
 			"Skeleton2D/Hip/Neck:position": {
-			"times": [0, 0.6, 2, 2.5, 3.6],
+			"times": [0, 2],
 			"values": [
 				neck_base + Vector2(1, 4),
 				neck_base,
-				neck_base + Vector2(1, 4),
-				neck_base,
-				neck_base + Vector2(1, 4),
 				],
 			},
 
 
 			"Skeleton2D/Hip/Neck/Ear:rotation": {
-			"times": [0, 0.6, 2, 2.5, 3.6],
-			"values": [-0.0523599, 0.0, -0.0523599, 0.0, -0.0523599]
+			"times": [0, 2.0],
+			"values": [-0.0523599, 0.0]
 			},
 
 			"LeftBack:position":
