@@ -45,7 +45,7 @@ func _make_walk_animations(anims):
 	var library = AnimationLibrary.new()
 	
 	for key in anims.keys():
-		var value = anims[key]		
+		var value = anims[key]
 		library.add_animation(key, _animation_from_data(value))
 
 	add_animation_library("movement", library)
@@ -189,10 +189,86 @@ func make_walk_animations():
 			}
 		}
 	}
+	
+	var RUN = {
+		"length": 3.6,
+		"loop_mode": 1,
+		"tracks": {
+			"LeftFront:frame": {
+			"times": [0, 0.3, 0.6, 0.9, 1.2, 1.5, 1.8, 2.1, 2.4, 2.7, 3, 3.3, 3.6],
+			"values": [26, 24, 22, 20, 18, 16, 14, 12, 10, 8, 6, 4, 2]
+			},
+
+			"LeftBack:frame": {
+			"times": [0, 0.2, 0.5, 0.8, 1.1, 1.4, 1.7, 2, 2.3, 2.6, 2.9, 3.2, 3.5],
+			"values": [3, 27, 25, 23, 21, 19, 17, 15, 13, 11, 9, 7, 5]
+			},
+
+			"RightFront:frame": {
+			"times": [0, 0.3, 0.6, 0.9, 1.2, 1.5, 1.8, 2.1, 2.4, 2.7, 3, 3.3, 3.6],
+			"values": [24, 22, 20, 18, 16, 14, 12, 10, 8, 6, 4, 2, 26]
+			},
+
+			"RightBack:frame": {
+			"times": [0, 0.2, 0.5, 0.8, 1.1, 1.4, 1.7, 2, 2.3, 2.6, 2.9, 3.2, 3.5],
+			"values": [25, 23, 21, 19, 19, 17, 15, 13, 11, 9, 7, 5, 27]
+			},
+
+			"LeftBack:rotation": {
+			"times": [0, 1.5, 2.7, 3.6],
+			"values": [0.0, 0.0, 0.261799, 0.0]
+			},
+
+			"LeftFront:rotation": {
+			"times": [0, 1.2, 2.4, 3.6],
+			"values": [0.0, 0.0, -0.122173, 0.0]
+			},
+
+			"RightFront:rotation": {
+			"times": [0, 0.6, 1.8, 3.3, 3.6],
+			"values": [0.0, -0.0925025, -0.0925025, -0.122173, 0.0]
+			},
+
+			"Skeleton2D/Hip/Bum:rotation": {
+			"times": [0, 0.6, 1.7, 2.5, 3.6],
+			"values": [0.0523599, 0.0, 0.0523599, 0.0, 0.0523599]
+			},
+
+			"Skeleton2D/Hip/Neck:position": {
+			"times": [0, 0.6, 2, 2.5, 3.6],
+			"values": [
+				neck_base + Vector2(1, 4),
+				neck_base,
+				neck_base + Vector2(1, 4),
+				neck_base,
+				neck_base + Vector2(1, 4),
+				],
+			},
+
+
+			"Skeleton2D/Hip/Neck/Ear:rotation": {
+			"times": [0, 0.6, 2, 2.5, 3.6],
+			"values": [-0.0523599, 0.0, -0.0523599, 0.0, -0.0523599]
+			},
+
+			"LeftBack:position":
+			{
+			"times": [0, 0.6, 1.7, 2.5, 3.6],
+			"values": [
+				back_left_base,
+				back_left_base + Vector2(0, -3),
+				back_left_base,
+				back_left_base + Vector2(0, -3),
+				back_left_base,
+				]
+			}
+		}
+	}
 
 
 	var ANIMATIONS = {
 	"RESET": RESET,
+	"run": RUN,
 	"walk": WALK
 	}
 	

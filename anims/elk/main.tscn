@@ -23,6 +23,9 @@ floor_block_on_wall = false
 script = ExtResource("1_xfrac")
 mount_timeout = null
 hold_position = null
+speed = null
+walk_speed = null
+run_speed = null
 
 [node name="Hitbox" type="Area2D" parent="."]
 
@@ -50,6 +53,7 @@ shape = SubResource("CircleShape2D_jh4ly")
 [node name="ElkSpriteAnimationController" parent="." instance=ExtResource("4_yup56")]
 animation = "up_left"
 has_rider = true
+default_cycle = "run"
 
 [node name="FollowerTarget" parent="." instance=ExtResource("11_m7b3y")]
 modulate = Color(0, 1, 1, 1)

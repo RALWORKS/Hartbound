@@ -102,7 +102,9 @@ texture = ExtResource("3_6xf1o")
 mount_timeout = 0.85
 partner = NodePath("../TheHartbound")
 mode = 1
-speed = 200
+speed = 150
+walk_speed = 150
+run_speed = 300
 
 [node name="Indicator" type="Sprite2D" parent="Elk"]
 visible = false

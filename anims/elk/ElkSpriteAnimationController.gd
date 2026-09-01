@@ -4,10 +4,24 @@ extends Node2D
 @export var animation: String = "left_stopped"
 @export var has_rider = false
 @export var speed_scale = 1.0
+
+@export var default_cycle = "walk"
+
 var last_animation = "left_stopped"
 var mounting = false
 
 signal mount_transition_ended
+
+var SPEEDS = {
+	"walk": 1.0,
+	"RESET": 1.0,
+	"run": 1.5,
+}
+
+var CYCLE_TAGS = {
+	"run": "run",
+	"walk": null,
+}
 
 
 @onready var DIRECTIONS = {
@@ -29,8 +43,16 @@ func _ready():
 	pass
 
 func play(anim: String):
-	print("play, ", anim)
-	animation = anim
+	animation = modulate_animation_cycle(anim)
+
+func modulate_animation_cycle(anim_name):
+	var tok: Array = anim_name.split("_")
+	if tok[-1] in ["stopped", "run"] or not CYCLE_TAGS[default_cycle]:
+		return anim_name
+
+	return anim_name + "_" + CYCLE_TAGS[default_cycle]
+	
+	
 
 func _play(anim: String):
 	var tok: Array = anim.split("_")
@@ -40,6 +62,10 @@ func _play(anim: String):
 		tok.pop_back()
 		d = "_".join(tok)
 		cycle = "RESET"
+	elif tok[-1] == "run":
+		tok.pop_back()
+		d = "_".join(tok)
+		cycle = "run"
 	
 	if not d in DIRECTIONS:
 		return
@@ -57,7 +83,7 @@ func _play(anim: String):
 
 func play_mount(anim):
 	play_params($UpLeft, false, "RESET")
-	$UpLeft/TESTMOUNT/Anim.play(anim)
+	$UpLeft/TESTMOUNT/Anim.play(anim, -1)
 
 func mount():
 	play_mount("up")
@@ -88,7 +114,7 @@ func play_params(group: Node2D, mirror:bool, anim: String):
 	var anims:AnimationPlayer = get_animator(group)
 	if not anims:
 		return
-	anims.play("movement/" + anim, -1, speed_scale)
+	anims.play("movement/" + anim, -1, speed_scale * SPEEDS[anim])
 	if has_rider:
 		group.get_node("RIDER").visible = true
 

@@ -18,6 +18,8 @@ var last_mode = status.MODE.RIDER
 var mounting = false
 
 @export var speed = 150
+@export var walk_speed = 150
+@export var run_speed = 300
 @export var base_speed_scale = Vector2(1.0, 1.0)
 @export var cur_speed_mul = 1.0
 var speed_scale = base_speed_scale * cur_speed_mul
@@ -33,11 +35,15 @@ func update_mode():
 	$DirectionControls.reset_direction()
 	
 	if _last_mode == status.MODE.RIDER:
+		$ElkSpriteAnimationController.default_cycle = "walk"
+		speed = walk_speed
 		dismount()
 		return
 	
 	if mode == status.MODE.RIDER:
 		#mount()
+		$ElkSpriteAnimationController.default_cycle = "run"
+		speed = run_speed
 		$DirectionControls.trying_to_mount = true
 		start_following()
 		return
@@ -98,8 +104,12 @@ func _physics_process(delta):
 func _ready():
 	if mode == status.MODE.RIDER:
 		$ElkSpriteAnimationController.has_rider = true
+		$ElkSpriteAnimationController.default_cycle = "run"
+		speed = run_speed
 	else:
 		$ElkSpriteAnimationController.has_rider = false
+		$ElkSpriteAnimationController.default_cycle = "run"
+		speed = walk_speed
 
 
 func on_mount_completed():
