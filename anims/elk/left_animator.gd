@@ -24,10 +24,10 @@ func _process(delta):
 @export var animations_refreshing = true
 var _refresh_started = false
 
-func _animation_from_data(data):
+func _animation_from_data(data, loop_mode):
 	var animation = Animation.new()
 	animation.length = data["length"]
-	animation.loop_mode = Animation.LOOP_LINEAR
+	animation.loop_mode = loop_mode
 	for path in data["tracks"]:
 		var track_index = animation.add_track(Animation.TYPE_VALUE)
 		animation.track_set_path(track_index, path)
@@ -46,7 +46,10 @@ func _make_walk_animations(anims):
 	
 	for key in anims.keys():
 		var value = anims[key]
-		library.add_animation(key, _animation_from_data(value))
+		var loop_mode = Animation.LOOP_LINEAR
+		if key in ["jump"]:
+			loop_mode = Animation.LOOP_NONE
+		library.add_animation(key, _animation_from_data(value, loop_mode))
 
 	add_animation_library("movement", library)
 	animations_refreshing = false
@@ -261,11 +264,84 @@ func make_walk_animations():
 			}
 		}
 	}
+	
+	var JUMP = {
+		"length": 3.6,
+		"loop_mode": 1,
+		"tracks": {
+			"LeftFront:frame": {
+			"times": [ 2.4, 2.7, 3, 3.3, 3.6, 0, 0.3, 0.6, 0.9, 1.2, 1.5, 1.8, 2.1],
+			"values": [26, 24, 22, 20, 18, 16, 14, 12, 10, 8, 6, 4, 2]
+			},
+
+			"LeftBack:frame": {
+			"times": [2.3, 2.6, 2.9, 3.2, 3.5, 0, 0.2, 0.5, 0.8, 1.1, 1.4, 1.7, 2],
+			"values": [3, 27, 25, 23, 21, 19, 17, 15, 13, 11, 9, 7, 5]
+			},
+
+			"RightFront:frame": {
+			"times": [2.4, 2.7, 3, 3.3, 3.6, 0, 0.3, 0.6, 0.9, 1.2, 1.5, 1.8, 2.1],
+			"values": [24, 22, 20, 18, 16, 14, 12, 10, 8, 6, 4, 2, 26]
+			},
+
+			"RightBack:frame": {
+			"times": [2.3, 2.6, 2.9, 3.2, 3.5, 0, 0.2, 0.5, 0.8, 1.1, 1.4, 1.7, 2],
+			"values": [25, 23, 21, 19, 19, 17, 15, 13, 11, 9, 7, 5, 27]
+			},
+
+			"LeftBack:rotation": {
+			"times": [2.7, 3.6, 0, 1.5],
+			"values": [0.0, 0.0, 0.261799, 0.0]
+			},
+
+			"LeftFront:rotation": {
+			"times": [0, 1.2, 2.4, 3.6],
+			"values": [0.0, 0.0, -0.122173, 0.0]
+			},
+
+			"RightFront:rotation": {
+			"times": [3.3, 3.6, 0, 0.6, 1.8],
+			"values": [0.0, -0.0925025, -0.0925025, -0.122173, 0.0]
+			},
+
+			"Skeleton2D/Hip/Bum:rotation": {
+			"times": [0, 1.7],
+			"values": [0.0523599, 0.0]
+			},
+
+			"Skeleton2D/Hip/Neck:position": {
+			"times": [0, 2],
+			"values": [
+				neck_base + Vector2(1, 4),
+				neck_base,
+				],
+			},
+
+
+			"Skeleton2D/Hip/Neck/Ear:rotation": {
+			"times": [0, 2.0],
+			"values": [-0.0523599, 0.0]
+			},
+
+			"LeftBack:position":
+			{
+			"times": [0, 0.6, 1.7, 2.5, 3.6],
+			"values": [
+				back_left_base,
+				back_left_base + Vector2(0, -3),
+				back_left_base,
+				back_left_base + Vector2(0, -3),
+				back_left_base,
+				]
+			}
+		}
+	}
 
 
 	var ANIMATIONS = {
 	"RESET": RESET,
 	"run": RUN,
+	"jump": JUMP,
 	"walk": WALK
 	}
 	

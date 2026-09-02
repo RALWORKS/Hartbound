@@ -51,9 +51,9 @@ latency = 0.1
 shape = SubResource("CircleShape2D_jh4ly")
 
 [node name="ElkSpriteAnimationController" parent="." instance=ExtResource("4_yup56")]
-animation = "up_left"
+animation = "up_left_stopped"
 has_rider = true
-default_cycle = "run"
+default_cycle = "walk"
 
 [node name="FollowerTarget" parent="." instance=ExtResource("11_m7b3y")]
 modulate = Color(0, 1, 1, 1)

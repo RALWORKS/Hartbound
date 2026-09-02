@@ -6,6 +6,7 @@ extends Node2D
 @export var speed_scale = 1.0
 
 @export var default_cycle = "walk"
+var last_default_cycle = "walk"
 
 var last_animation = "left_stopped"
 var mounting = false
@@ -16,10 +17,12 @@ var SPEEDS = {
 	"walk": 1.0,
 	"RESET": 1.0,
 	"run": 1.5,
+	"jump": 1.5,
 }
 
 var CYCLE_TAGS = {
 	"run": "run",
+	"jump": "jump",
 	"walk": null,
 }
 
@@ -47,7 +50,10 @@ func play(anim: String):
 
 func modulate_animation_cycle(anim_name):
 	var tok: Array = anim_name.split("_")
-	if tok[-1] in ["stopped", "run"] or not CYCLE_TAGS[default_cycle]:
+	if tok[-1] == last_default_cycle and tok[-1] != default_cycle:
+		tok.pop_back()
+		anim_name = "_".join(tok)
+	if tok[-1] in ["stopped", "run", "jump"] or not CYCLE_TAGS[default_cycle]:
 		return anim_name
 
 	return anim_name + "_" + CYCLE_TAGS[default_cycle]
@@ -66,6 +72,10 @@ func _play(anim: String):
 		tok.pop_back()
 		d = "_".join(tok)
 		cycle = "run"
+	elif tok[-1] == "jump":
+		tok.pop_back()
+		d = "_".join(tok)
+		cycle = "jump"
 	
 	if not d in DIRECTIONS:
 		return
@@ -97,6 +107,9 @@ func dismount():
 func _process(delta):
 	if mounting:
 		return
+	if default_cycle in CYCLE_TAGS and default_cycle != last_default_cycle:
+		play(animation)
+		last_default_cycle = default_cycle
 	if animation != last_animation:
 		_play(animation)
 		last_animation = animation
