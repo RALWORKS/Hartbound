@@ -26,6 +26,7 @@ hold_position = null
 speed = null
 walk_speed = null
 run_speed = null
+jump_warmup = 0.0
 
 [node name="Hitbox" type="Area2D" parent="."]
 
@@ -53,11 +54,13 @@ shape = SubResource("CircleShape2D_jh4ly")
 [node name="ElkSpriteAnimationController" parent="." instance=ExtResource("4_yup56")]
 animation = "up_left_stopped"
 has_rider = true
-default_cycle = "walk"
+default_cycle = "run"
 
 [node name="FollowerTarget" parent="." instance=ExtResource("11_m7b3y")]
 modulate = Color(0, 1, 1, 1)
 position = Vector2(160, 2)
+collision_layer = 0
+collision_mask = 0
 radius = 400
 
 [connection signal="body_entered" from="Hitbox" to="." method="hitbox_detects_body"]

@@ -13,7 +13,7 @@
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gf4ah"]
 bg_color = Color(0.505882, 0.388235, 0.654902, 1)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_1lsou"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_6umhd"]
 viewport_path = NodePath("img")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xueob"]
@@ -24,7 +24,7 @@ border_color = Color(0, 0, 0, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kb1yp"]
 bg_color = Color(0.227451, 0.501961, 0.52549, 1)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_u4ywg"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_lkk3l"]
 viewport_path = NodePath("img")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yy76t"]
@@ -56,6 +56,7 @@ offset_left = 5.0
 offset_top = 9.0
 offset_right = 195.0
 offset_bottom = 210.0
+focus_mode = 1
 color = Color(0.909804, 0, 1, 1)
 
 [node name="Black" type="ColorRect" parent="HartboundIndicator"]
@@ -65,6 +66,7 @@ offset_left = 5.0
 offset_top = 6.0
 offset_right = 184.0
 offset_bottom = 194.0
+focus_mode = 1
 color = Color(0, 0, 0, 1)
 
 [node name="HartIndicator" type="ColorRect" parent="."]
@@ -73,6 +75,7 @@ offset_left = 5.0
 offset_top = 224.0
 offset_right = 195.0
 offset_bottom = 425.0
+focus_mode = 1
 color = Color(0.192157, 0.984314, 1, 1)
 
 [node name="Black" type="ColorRect" parent="HartIndicator"]
@@ -82,6 +85,7 @@ offset_left = 5.0
 offset_top = 6.0
 offset_right = 184.0
 offset_bottom = 194.0
+focus_mode = 1
 color = Color(0, 0, 0, 1)
 
 [node name="HartboundBtn" type="Button" parent="."]
@@ -91,6 +95,7 @@ offset_left = 10.0
 offset_top = 14.0
 offset_right = 190.0
 offset_bottom = 204.0
+focus_mode = 0
 mouse_filter = 1
 theme_override_styles/hover = SubResource("StyleBoxFlat_gf4ah")
 script = ExtResource("4_5c32q")
@@ -99,7 +104,7 @@ metadata/_edit_use_anchors_ = true
 [node name="Profile" parent="HartboundBtn" instance=ExtResource("5_6kxf2")]
 position = Vector2(15, 12)
 scale = Vector2(0.38, 0.38)
-texture = SubResource("ViewportTexture_1lsou")
+texture = SubResource("ViewportTexture_6umhd")
 
 [node name="Label" type="Label" parent="HartboundBtn"]
 layout_mode = 1
@@ -140,6 +145,7 @@ offset_left = -1724.0
 offset_top = 27.0
 offset_right = -1544.0
 offset_bottom = 217.0
+focus_mode = 1
 mouse_filter = 1
 theme_override_styles/hover = SubResource("StyleBoxFlat_kb1yp")
 script = ExtResource("4_5c32q")
@@ -148,7 +154,7 @@ metadata/_edit_use_anchors_ = true
 [node name="Profile" parent="PartySlot/ElkBtn" instance=ExtResource("5_ehnyx")]
 position = Vector2(15, 12)
 scale = Vector2(0.38, 0.38)
-texture = SubResource("ViewportTexture_u4ywg")
+texture = SubResource("ViewportTexture_lkk3l")
 
 [node name="Label" type="Label" parent="PartySlot/ElkBtn"]
 layout_mode = 1
@@ -181,6 +187,7 @@ offset_left = -1716.0
 offset_top = 244.0
 offset_right = -1646.0
 offset_bottom = 314.0
+focus_mode = 0
 mouse_filter = 1
 theme_override_styles/normal = SubResource("StyleBoxFlat_yy76t")
 theme_override_styles/hover = SubResource("StyleBoxFlat_mwq8v")
@@ -217,6 +224,7 @@ offset_left = -1627.0
 offset_top = 244.0
 offset_right = -1557.0
 offset_bottom = 314.0
+focus_mode = 0
 mouse_filter = 1
 theme_override_styles/normal = SubResource("StyleBoxFlat_yy76t")
 theme_override_styles/hover = SubResource("StyleBoxFlat_mwq8v")

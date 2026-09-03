@@ -17,6 +17,7 @@ extends Node2D
 @export var trying_to_mount = false
 
 @onready var navigation_agent = $NavigationAgent2D
+var destination = null
 
 var unreachable = false
 var resting = false
@@ -198,12 +199,15 @@ func set_destination(d):
 		return
 	navigation_agent.target_position = d
 	unreachable = not navigation_agent.is_target_reachable()
+	destination = d
 
 func navigation_finished():
 	#print("finish")
 	return navigation_agent.is_navigation_finished()
 
 func refresh_walk_direction():
+	#if not destination:
+	#	return null
 	if navigation_finished() or (
 		leader
 		and character.mode != status.MODE.RIDER
@@ -237,12 +241,12 @@ func _handle_input_autonomously(delta):
 	var arrow_keys = Input.get_vector("left", "right", "up", "down")
 	var click = Input.is_action_just_released("click")
 
-	if click and glob.g and glob.g.mouse_in_world():
-		destination_clicked(delta)
-		return
-	
 	if arrow_keys.x != 0 or arrow_keys.y != 0:
 		arrow_keys_pressed(delta, arrow_keys)
+		set_destination(null)
+		return
+	elif click and glob.g and glob.g.mouse_in_world():
+		destination_clicked(delta)
 		return
 	
 	no_input()

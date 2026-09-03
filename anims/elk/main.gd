@@ -22,6 +22,7 @@ var mounting = false
 @export var run_speed = 300
 @export var base_speed_scale = Vector2(1.0, 1.0)
 @export var cur_speed_mul = 1.0
+@export var jump_warmup = 0.5
 var speed_scale = base_speed_scale * cur_speed_mul
 
 
@@ -54,6 +55,37 @@ func update_mode():
 	
 	start_following()
 
+
+func fly():
+	$DirectionControls.proxied = true
+	$DirectionControls.reset_direction()
+	$ElkSpriteAnimationController.default_cycle = "jump"
+	set_collision_layer_value(glob.UNIVERSAL_COLLISION_LAYER, false)
+	set_collision_layer_value(glob.ELK_COLLISION_LAYER, false)
+	set_collision_layer_value(glob.SUB_ROOM_COLLISION_LAYER, false)
+	
+	set_collision_mask_value(glob.UNIVERSAL_COLLISION_LAYER, false)
+	set_collision_mask_value(glob.ELK_COLLISION_LAYER, false)
+	set_collision_mask_value(glob.SUB_ROOM_COLLISION_LAYER, false)
+	z_index = 1
+	return
+
+func land_sub_room():
+	$DirectionControls.proxied = false
+	$DirectionControls.reset_direction()
+	$ElkSpriteAnimationController.default_cycle = "walk"
+	#set_collision_layer_value(glob.SUB_ROOM_COLLISION_LAYER, true)
+	#set_collision_mask_value(glob.SUB_ROOM_COLLISION_LAYER, true)
+
+func land_main_room():
+	$DirectionControls.proxied = false
+	$DirectionControls.reset_direction()
+	z_index = 0
+	$ElkSpriteAnimationController.default_cycle = "walk"
+	set_collision_layer_value(glob.UNIVERSAL_COLLISION_LAYER, true)
+	set_collision_layer_value(glob.ELK_COLLISION_LAYER, true)
+	set_collision_mask_value(glob.UNIVERSAL_COLLISION_LAYER, true)
+	set_collision_mask_value(glob.ELK_COLLISION_LAYER, true)
 
 
 func start_leading():

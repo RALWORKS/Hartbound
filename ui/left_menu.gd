@@ -26,7 +26,7 @@ func handle_show_hide():
 
 func hide_self():
 	#visible = false
-	$ColorRect/CampBtnCampBtn.stop_animations()
+	#$ColorRect/CampBtnCampBtn.stop_animations()
 	$AnimationPlayer.play("hide")
 
 func show_self():

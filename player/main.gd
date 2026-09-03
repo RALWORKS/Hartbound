@@ -52,6 +52,9 @@ func eject_children():
 
 func get_followers(_g):
 	return []
+	
+func get_p():
+	return position
 
 func get_actor_velocity():
 	return SPRITES[mode][0].velocity * SPRITES[mode][0].cur_speed_mul
