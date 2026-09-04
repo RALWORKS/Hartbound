@@ -14,6 +14,7 @@ signal start_mounting
 
 @onready var follower_target = $FollowerTarget
 
+var cur_seeking = null
 var last_mode = status.MODE.RIDER
 var mounting = false
 
@@ -67,6 +68,9 @@ func fly():
 	set_collision_mask_value(glob.UNIVERSAL_COLLISION_LAYER, false)
 	set_collision_mask_value(glob.ELK_COLLISION_LAYER, false)
 	set_collision_mask_value(glob.SUB_ROOM_COLLISION_LAYER, false)
+	
+	$Hitbox.set_collision_layer_value(glob.UNIVERSAL_COLLISION_LAYER, false)
+	$Hitbox.set_collision_mask_value(glob.UNIVERSAL_COLLISION_LAYER, false)
 	z_index = 1
 	return
 
@@ -74,8 +78,11 @@ func land_sub_room():
 	$DirectionControls.proxied = false
 	$DirectionControls.reset_direction()
 	$ElkSpriteAnimationController.default_cycle = "walk"
-	#set_collision_layer_value(glob.SUB_ROOM_COLLISION_LAYER, true)
-	#set_collision_mask_value(glob.SUB_ROOM_COLLISION_LAYER, true)
+	z_index = 1
+	set_collision_layer_value(glob.SUB_ROOM_COLLISION_LAYER, true)
+	set_collision_mask_value(glob.SUB_ROOM_COLLISION_LAYER, true)
+	$Hitbox.set_collision_layer_value(glob.SUB_ROOM_COLLISION_LAYER, true)
+	$Hitbox.set_collision_mask_value(glob.SUB_ROOM_COLLISION_LAYER, true)
 
 func land_main_room():
 	$DirectionControls.proxied = false
@@ -86,6 +93,14 @@ func land_main_room():
 	set_collision_layer_value(glob.ELK_COLLISION_LAYER, true)
 	set_collision_mask_value(glob.UNIVERSAL_COLLISION_LAYER, true)
 	set_collision_mask_value(glob.ELK_COLLISION_LAYER, true)
+	
+	$Hitbox.set_collision_layer_value(glob.UNIVERSAL_COLLISION_LAYER, true)
+	$Hitbox.set_collision_mask_value(glob.UNIVERSAL_COLLISION_LAYER, true)
+
+
+func seek(d: Vector2):
+	$DirectionControls.set_destination(d)
+	cur_seeking = d
 
 
 func start_leading():
@@ -113,7 +128,8 @@ func dismount():
 		return
 	set_mount_state()
 	velocity = Vector2(0.0, 0.0)
-	$ElkSpriteAnimationController.dismount()
+	if $ElkSpriteAnimationController.has_rider:
+		$ElkSpriteAnimationController.dismount()
 
 func set_mount_state():
 	if Engine.is_editor_hint():

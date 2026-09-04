@@ -186,6 +186,15 @@ func _near(a, b):
 	) < THRESHOLD + 1
 
 
+func reset_seeking():
+	if "cur_seeking" in character:
+		character.cur_seeking = null
+
+func get_seeking():
+	if "cur_seeking" in character:
+		return character.cur_seeking
+	return null
+
 func _target_in_range():
 	if not glob.g.staged_action_node:
 		return false
@@ -208,6 +217,10 @@ func navigation_finished():
 func refresh_walk_direction():
 	#if not destination:
 	#	return null
+	if get_seeking():
+		set_destination(get_seeking())
+		
+
 	if navigation_finished() or (
 		leader
 		and character.mode != status.MODE.RIDER
@@ -234,6 +247,7 @@ func arrow_keys_pressed(_delta, arrow_keys):
 func destination_clicked(_delta):
 	if disable_all or paused:
 		return
+	reset_seeking()
 	set_destination($"..".get_global_mouse_position())
 
 func _handle_input_autonomously(delta):
@@ -242,6 +256,7 @@ func _handle_input_autonomously(delta):
 	var click = Input.is_action_just_released("click")
 
 	if arrow_keys.x != 0 or arrow_keys.y != 0:
+		reset_seeking()
 		arrow_keys_pressed(delta, arrow_keys)
 		set_destination(null)
 		return
