@@ -24,6 +24,7 @@ script = ExtResource("1_rida5")
 animations = NodePath("Rig")
 
 [node name="Hitbox" type="Area2D" parent="."]
+scale = Vector2(1.6, 1.6)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
 shape = SubResource("CircleShape2D_th8il")
@@ -41,11 +42,11 @@ follow_distance = 300
 speed_scale = Vector2(1.2, 0.8)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(1.6, 1.6)
 shape = SubResource("CircleShape2D_nqnkc")
 
 [node name="Rig" parent="." node_paths=PackedStringArray("root") instance=ExtResource("6_gtr86")]
 position = Vector2(0, 0)
-scale = Vector2(0.6, 0.6)
 root = NodePath("..")
 use_thick_lines = true
 

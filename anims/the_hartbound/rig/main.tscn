@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=3 uid="uid://c5t1f2yxr68pd"]
+[gd_scene load_steps=53 format=3 uid="uid://c5t1f2yxr68pd"]
 
 [ext_resource type="Texture2D" uid="uid://c33qktvai0v5d" path="res://anims/rigman-components.png" id="1_0tk4e"]
 [ext_resource type="Texture2D" uid="uid://cnn4e5vlsgirg" path="res://anims/rigman-cutting-guide.png" id="1_1k6lv"]
@@ -11,7 +11,6 @@
 [ext_resource type="Texture2D" uid="uid://drrlicpjea1bv" path="res://anims/hair-cutting-guide.png" id="5_qxqtw"]
 [ext_resource type="Texture2D" uid="uid://bb664oyvomlv3" path="res://anims/demo-hair.png" id="6_cw6sp"]
 [ext_resource type="Texture2D" uid="uid://byx4ooc7s4ur6" path="res://anims/the_hartbound/rig/clothing/skinny-jeans.png" id="6_gq5uh"]
-[ext_resource type="Texture2D" uid="uid://bwfpw1t424o3u" path="res://anims/the_hartbound/rig/face/soft-face.png" id="7_2ta1j"]
 [ext_resource type="Texture2D" uid="uid://cd22whx3a2r7d" path="res://anims/the_hartbound/rig/clothing/skinny-jeans-outline-thick.png" id="7_12pd8"]
 [ext_resource type="Texture2D" uid="uid://vah8v10citso" path="res://anims/the_hartbound/rig/hair/bun.png" id="7_g3hoe"]
 [ext_resource type="Texture2D" uid="uid://cbkm8b5rtok1k" path="res://anims/the_hartbound/rig/clothing/shirt-long-sleeves-skintight-outline-thick.png" id="7_q0vtt"]
@@ -19,6 +18,8 @@
 [ext_resource type="Texture2D" uid="uid://boarfnbj3eadb" path="res://anims/the_hartbound/rig/face/low-ears.png" id="9_uijjn"]
 [ext_resource type="Texture2D" uid="uid://bv3ia1hc6484j" path="res://anims/the_hartbound/rig/clothing/dress-shoes-outline-thick.png" id="11_ibe24"]
 [ext_resource type="Texture2D" uid="uid://65tjnsvuikru" path="res://anims/the_hartbound/rig/hair/bun-outline-thick.png" id="12_q7r26"]
+[ext_resource type="Texture2D" uid="uid://cjftttqfea0o1" path="res://anims/the_hartbound/rig/face/soft-face-v.png" id="16_neaq1"]
+[ext_resource type="Texture2D" uid="uid://dtpbb2cilfyhf" path="res://anims/the_hartbound/rig/face/soft-face-outline-thick.png" id="17_teatm"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_j8nci"]
 blend_mode = 4
@@ -11243,7 +11244,7 @@ _data = {
 [node name="Rig" type="Node2D" node_paths=PackedStringArray("line_width_thick")]
 position = Vector2(77, 0)
 script = ExtResource("1_si75y")
-line_width_thick = [NodePath("MainBodyTexture/ShirtLine"), NodePath("MainBodyTexture/PantsLine"), NodePath("MainBodyTexture/BodyLine"), NodePath("MainBodyTexture/ShoesLine"), NodePath("HairTexture/HairLine")]
+line_width_thick = [NodePath("MainBodyTexture/ShirtLine"), NodePath("MainBodyTexture/PantsLine"), NodePath("MainBodyTexture/BodyLine"), NodePath("MainBodyTexture/ShoesLine"), NodePath("HairTexture/HairLine"), NodePath("FaceTexture/Line")]
 animation = "down_stopped"
 
 [node name="Sheet" type="Sprite2D" parent="."]
@@ -11346,7 +11347,12 @@ size = Vector2i(573, 1440)
 
 [node name="Face" type="Sprite2D" parent="FaceTexture"]
 modulate = Color(0.960784, 0.843137, 0.768627, 1)
-texture = ExtResource("7_2ta1j")
+texture = ExtResource("16_neaq1")
+centered = false
+
+[node name="Line" type="Sprite2D" parent="FaceTexture"]
+modulate = Color(0.960784, 0.843137, 0.768627, 1)
+texture = ExtResource("17_teatm")
 centered = false
 
 [node name="EarsTexture" type="SubViewport" parent="."]

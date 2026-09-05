@@ -1,13 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://cemborgcdx75k"]
+[gd_scene load_steps=6 format=3 uid="uid://cemborgcdx75k"]
 
 [ext_resource type="Script" path="res://abstract/character/Profile.gd" id="1_ub4hi"]
 [ext_resource type="Texture2D" uid="uid://f0714pv60rjh" path="res://assets/character/profile/bg5.png" id="2_3r2h7"]
 [ext_resource type="PackedScene" uid="uid://8rir4hoqy3xr" path="res://abstract/character/abstract_modular_character.tscn" id="2_qxdjb"]
-[ext_resource type="Texture2D" uid="uid://y4csi2y8e4pg" path="res://assets/character/profile/head.png" id="5_vw4gv"]
-[ext_resource type="Texture2D" uid="uid://dmbvjircd87x7" path="res://assets/character/profile/shirt.png" id="6_hee2c"]
-[ext_resource type="Texture2D" uid="uid://dv7f63bqrk0ly" path="res://assets/character/profile/locks.png" id="7_ha2vv"]
-[ext_resource type="Texture2D" uid="uid://c2vpmjnf21nk0" path="res://assets/character/profile/face-round.png" id="8_aunvl"]
-[ext_resource type="Texture2D" uid="uid://c2xh8mnfms6u0" path="res://assets/character/profile/round-eyes-neutral.png" id="9_4n3wx"]
 [ext_resource type="PackedScene" uid="uid://c5t1f2yxr68pd" path="res://anims/the_hartbound/rig/main.tscn" id="9_pye2c"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_26oqu"]
@@ -30,12 +25,12 @@ centered = false
 
 [node name="Character" parent="img" node_paths=PackedStringArray("profile_head", "profile_face", "profile_hair", "profile_hair_front", "profile_shirt", "profile_features", "character_img") instance=ExtResource("2_qxdjb")]
 position = Vector2(250, 550)
-profile_head = NodePath("../../profileImg/head")
-profile_face = NodePath("../../profileImg/face")
-profile_hair = NodePath("../../profileImg/hair")
-profile_hair_front = NodePath("../../profileImg/hair-front")
-profile_shirt = NodePath("../../profileImg/shirt")
-profile_features = NodePath("../../profileImg/features")
+profile_head = NodePath("")
+profile_face = NodePath("")
+profile_hair = NodePath("")
+profile_hair_front = NodePath("")
+profile_shirt = NodePath("")
+profile_features = NodePath("")
 character_img = NodePath("../../profileImg")
 
 [node name="profileImg" type="SubViewport" parent="."]
@@ -45,36 +40,6 @@ handle_input_locally = false
 gui_disable_input = true
 size = Vector2i(600, 1200)
 size_2d_override = Vector2i(768, 1024)
-
-[node name="head" type="Sprite2D" parent="profileImg"]
-visible = false
-texture = ExtResource("5_vw4gv")
-centered = false
-
-[node name="shirt" type="Sprite2D" parent="profileImg"]
-visible = false
-texture = ExtResource("6_hee2c")
-centered = false
-
-[node name="hair" type="Sprite2D" parent="profileImg"]
-visible = false
-texture = ExtResource("7_ha2vv")
-centered = false
-
-[node name="face" type="Sprite2D" parent="profileImg"]
-visible = false
-texture_filter = 3
-texture = ExtResource("8_aunvl")
-centered = false
-
-[node name="features" type="Sprite2D" parent="profileImg"]
-visible = false
-texture = ExtResource("9_4n3wx")
-centered = false
-
-[node name="hair-front" type="Sprite2D" parent="profileImg"]
-visible = false
-centered = false
 
 [node name="Rig" parent="profileImg" instance=ExtResource("9_pye2c")]
 position = Vector2(269, 1624)

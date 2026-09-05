@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://cncvnw005od5g"]
 
-[ext_resource type="Texture2D" uid="uid://dnj7kem6q41pe" path="res://assets/character/profile/bg3.png" id="2_a0xhx"]
+[ext_resource type="Texture2D" uid="uid://bt5kn61wwqv4b" path="res://assets/character/profile/bg2.png" id="1_pmu6c"]
 [ext_resource type="PackedScene" uid="uid://c5t1f2yxr68pd" path="res://anims/the_hartbound/rig/main.tscn" id="9_cbnii"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_26oqu"]
@@ -18,10 +18,9 @@ render_target_update_mode = 4
 [node name="background" type="Sprite2D" parent="img"]
 modulate = Color(0.52549, 0.54902, 0.439216, 1)
 scale = Vector2(0.75, 0.75)
-texture = ExtResource("2_a0xhx")
+texture = ExtResource("1_pmu6c")
 centered = false
 
 [node name="Rig" parent="img" instance=ExtResource("9_cbnii")]
 position = Vector2(222, 1513)
 scale = Vector2(2.6, 2.6)
-animation = "down_stopped"

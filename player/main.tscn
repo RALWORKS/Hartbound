@@ -72,7 +72,7 @@ libraries = {
 
 [node name="TheHartbound" parent="." node_paths=PackedStringArray("partner") instance=ExtResource("1_7nwnn")]
 position = Vector2(0, 100)
-scale = Vector2(1.2, 1.2)
+scale = Vector2(0.72, 0.72)
 partner = NodePath("../Elk")
 hold_position = null
 speed = 200
@@ -80,7 +80,6 @@ speed = 200
 [node name="Indicator" type="Sprite2D" parent="TheHartbound"]
 self_modulate = Color(0.85098, 0.52549, 0.996078, 1)
 position = Vector2(0, 6.99999)
-scale = Vector2(0.6, 0.6)
 texture = ExtResource("2_mn0ll")
 
 [node name="Color" type="Sprite2D" parent="TheHartbound/Indicator"]

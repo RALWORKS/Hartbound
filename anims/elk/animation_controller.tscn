@@ -3021,13 +3021,13 @@ position = Vector2(-298, -472)
 modulate = Color(0.686275, 0.596078, 0.576471, 1)
 material = SubResource("CanvasItemMaterial_4n3j8")
 position = Vector2(161, 280)
-rotation = -0.0925025
+rotation = -0.122173
 scale = Vector2(0.961667, 0.983333)
 texture = SubResource("ViewportTexture_j2wsd")
 offset = Vector2(-50, -30)
 hframes = 6
 vframes = 5
-frame = 12
+frame = 10
 
 [node name="RightBack" type="Sprite2D" parent="Left"]
 modulate = Color(0.686275, 0.596078, 0.576471, 1)
@@ -3038,7 +3038,7 @@ texture = SubResource("ViewportTexture_aqs4r")
 offset = Vector2(40, -50)
 hframes = 6
 vframes = 5
-frame = 17
+frame = 15
 
 [node name="Body" type="Polygon2D" parent="Left"]
 material = SubResource("CanvasItemMaterial_ug5m6")
@@ -3075,7 +3075,7 @@ length = 94.025
 bone_angle = 0.0
 
 [node name="Neck" type="Bone2D" parent="Left/Skeleton2D/Hip"]
-position = Vector2(-135, -12)
+position = Vector2(-136, -16)
 rest = Transform2D(1, 0, 0, 1, -136, -16)
 auto_calculate_length_and_angle = false
 length = 94.025
@@ -3083,14 +3083,12 @@ bone_angle = 250.17
 
 [node name="Ear" type="Bone2D" parent="Left/Skeleton2D/Hip/Neck"]
 position = Vector2(-45, -85)
-rotation = -0.0523599
 rest = Transform2D(1, 0, 0, 1, -45, -85)
 auto_calculate_length_and_angle = false
 length = 83.996
 bone_angle = 320.758
 
 [node name="Bum" type="Bone2D" parent="Left/Skeleton2D/Hip"]
-rotation = 0.0523599
 rest = Transform2D(1, 0, 0, 1, 0, 0)
 auto_calculate_length_and_angle = false
 length = 76.686
@@ -3104,17 +3102,17 @@ texture = SubResource("ViewportTexture_j2wsd")
 offset = Vector2(-60, -50)
 hframes = 6
 vframes = 5
-frame = 24
+frame = 22
 
 [node name="LeftBack" type="Sprite2D" parent="Left"]
 modulate = Color(0.972549, 0.972549, 0.972549, 1)
 material = SubResource("CanvasItemMaterial_yxe0s")
-position = Vector2(381, 306)
+position = Vector2(381, 303)
 texture = SubResource("ViewportTexture_aqs4r")
 offset = Vector2(40, -50)
 hframes = 6
 vframes = 5
-frame = 27
+frame = 25
 
 [node name="PARAMETERIZED_ANIMS" parent="Left" instance=ExtResource("4_147xr")]
 libraries = {
@@ -3140,7 +3138,7 @@ polygon = PackedVector2Array(334, 315, 347, 314, 401, 306, 419, 306, 420, 288, 4
 [node name="RIDER" parent="Left" instance=ExtResource("5_xcyso")]
 visible = false
 position = Vector2(282, 409)
-scale = Vector2(1.2, 1.2)
+scale = Vector2(0.72, 0.72)
 animation = "ride_left"
 hold_position = null
 mode = 0
@@ -3270,14 +3268,14 @@ polygon = PackedVector2Array(254, 356, 266, 372, 303, 370, 341, 373, 344, 363, 3
 [node name="RIDER" parent="UpLeft" instance=ExtResource("5_xcyso")]
 visible = false
 position = Vector2(266, 433)
-scale = Vector2(1.2, 1.2)
+scale = Vector2(0.72, 0.72)
 animation = "ride_up_left"
 hold_position = null
 mode = 0
 
 [node name="TESTMOUNT" type="Node2D" parent="UpLeft"]
 position = Vector2(215, 574)
-scale = Vector2(1.2, 1.2)
+scale = Vector2(0.72, 0.72)
 
 [node name="1" parent="UpLeft/TESTMOUNT" instance=ExtResource("5_xcyso")]
 visible = false
@@ -3410,7 +3408,7 @@ polygon = PackedVector2Array(139, 356, 148, 361, 159, 362, 164, 361, 172, 369, 1
 [node name="RIDER" parent="DownLeft" instance=ExtResource("5_xcyso")]
 visible = false
 position = Vector2(250, 471)
-scale = Vector2(1.2, 1.2)
+scale = Vector2(0.72, 0.72)
 animation = "ride_down_left"
 hold_position = null
 mode = 0
@@ -3427,7 +3425,7 @@ texture = SubResource("ViewportTexture_wp48p")
 offset = Vector2(35, 80)
 hframes = 4
 vframes = 3
-frame = 4
+frame = 9
 
 [node name="RightBack" type="Sprite2D" parent="Down"]
 modulate = Color(0.623529, 0.560784, 0.545098, 1)
@@ -3438,7 +3436,7 @@ texture = SubResource("ViewportTexture_wp48p")
 offset = Vector2(35, 80)
 hframes = 4
 vframes = 3
-frame = 8
+frame = 7
 
 [node name="LeftFront" type="Sprite2D" parent="Down"]
 modulate = Color(0.972549, 0.972549, 0.972549, 1)
@@ -3448,7 +3446,7 @@ texture = SubResource("ViewportTexture_yj4wb")
 offset = Vector2(35, 80)
 hframes = 4
 vframes = 3
-frame = 5
+frame = 2
 
 [node name="RightFront" type="Sprite2D" parent="Down"]
 modulate = Color(0.972549, 0.972549, 0.972549, 1)
@@ -3459,7 +3457,7 @@ texture = SubResource("ViewportTexture_yj4wb")
 offset = Vector2(35, 80)
 hframes = 4
 vframes = 3
-frame = 8
+frame = 7
 
 [node name="Back" type="Polygon2D" parent="Down"]
 material = SubResource("CanvasItemMaterial_t3vbk")
@@ -3488,7 +3486,7 @@ length = 94.025
 bone_angle = 0.0
 
 [node name="Neck" type="Bone2D" parent="Down/Skeleton2D/Hip"]
-position = Vector2(0, 43.2644)
+position = Vector2(0, 48.8682)
 rest = Transform2D(1, 0, 0, 1, 0, 43)
 auto_calculate_length_and_angle = false
 length = 94.025
@@ -3496,8 +3494,8 @@ bone_angle = 250.17
 
 [node name="RightEar" type="Bone2D" parent="Down/Skeleton2D/Hip/Neck"]
 position = Vector2(0, -147)
-rotation = 0.0490636
-scale = Vector2(1, 1)
+rotation = 0.0490166
+scale = Vector2(0.999999, 0.999999)
 rest = Transform2D(1, 0, 0, 1, 0, -147)
 auto_calculate_length_and_angle = false
 length = 43.878
@@ -3505,15 +3503,15 @@ bone_angle = 207.817
 
 [node name="LeftEar" type="Bone2D" parent="Down/Skeleton2D/Hip/Neck"]
 position = Vector2(0, -147)
-rotation = -0.0490636
-scale = Vector2(1, 1)
+rotation = -0.0490166
+scale = Vector2(0.999999, 0.999999)
 rest = Transform2D(1, 0, 0, 1, 0, -147)
 auto_calculate_length_and_angle = false
 length = 43.878
 bone_angle = 327.817
 
 [node name="Bum" type="Bone2D" parent="Down/Skeleton2D/Hip"]
-position = Vector2(0, -44.887)
+position = Vector2(0, -40.3352)
 rest = Transform2D(1, 0, 0, 1, 0, -47)
 auto_calculate_length_and_angle = false
 length = 56.627
@@ -3522,7 +3520,7 @@ bone_angle = -88.893
 [node name="RIDER" parent="Down" instance=ExtResource("5_xcyso")]
 visible = false
 position = Vector2(230, 447)
-scale = Vector2(1.2, 1.2)
+scale = Vector2(0.72, 0.72)
 animation = "ride_down"
 hold_position = null
 mode = 0
@@ -3574,7 +3572,7 @@ texture = SubResource("ViewportTexture_uc5vu")
 offset = Vector2(35, 80)
 hframes = 4
 vframes = 3
-frame = 1
+frame = 8
 
 [node name="RightBack" type="Sprite2D" parent="Up"]
 modulate = Color(0.623529, 0.560784, 0.545098, 1)
@@ -3586,7 +3584,7 @@ texture = SubResource("ViewportTexture_uc5vu")
 offset = Vector2(35, 80)
 hframes = 4
 vframes = 3
-frame = 7
+frame = 4
 
 [node name="LeftFront" type="Sprite2D" parent="Up"]
 modulate = Color(0.972549, 0.972549, 0.972549, 1)
@@ -3597,7 +3595,7 @@ texture = SubResource("ViewportTexture_idipc")
 offset = Vector2(35, 80)
 hframes = 4
 vframes = 3
-frame = 4
+frame = 9
 
 [node name="RightFront" type="Sprite2D" parent="Up"]
 modulate = Color(0.972549, 0.972549, 0.972549, 1)
@@ -3609,7 +3607,7 @@ texture = SubResource("ViewportTexture_idipc")
 offset = Vector2(35, 80)
 hframes = 4
 vframes = 3
-frame = 8
+frame = 7
 
 [node name="Head" type="Polygon2D" parent="Up"]
 material = SubResource("CanvasItemMaterial_3q78m")
@@ -3631,7 +3629,7 @@ length = 94.025
 bone_angle = 0.0
 
 [node name="Neck" type="Bone2D" parent="Up/Skeleton2D/Hip"]
-position = Vector2(0, -22.1368)
+position = Vector2(0, -22.2437)
 rest = Transform2D(1, 0, 0, 1, 0, -20)
 auto_calculate_length_and_angle = false
 length = 1.0
@@ -3639,7 +3637,7 @@ bone_angle = 250.17
 
 [node name="RightEar" type="Bone2D" parent="Up/Skeleton2D/Hip/Neck"]
 position = Vector2(2, -86)
-rotation = 0.0722001
+rotation = 0.00425272
 scale = Vector2(0.999999, 0.999999)
 rest = Transform2D(0.999284, 0.0378427, -0.0378427, 0.999284, 2, -86)
 auto_calculate_length_and_angle = false
@@ -3648,7 +3646,7 @@ bone_angle = 207.817
 
 [node name="LeftEar" type="Bone2D" parent="Up/Skeleton2D/Hip/Neck"]
 position = Vector2(2, -86)
-rotation = -0.0722001
+rotation = -0.00425272
 scale = Vector2(0.999999, 0.999999)
 rest = Transform2D(0.999284, -0.0378427, 0.0378427, 0.999284, 2, -86)
 auto_calculate_length_and_angle = false
@@ -3656,7 +3654,7 @@ length = 43.878
 bone_angle = 327.817
 
 [node name="Bum" type="Bone2D" parent="Up/Skeleton2D/Hip"]
-position = Vector2(0, 58.2949)
+position = Vector2(0, 52.7018)
 rest = Transform2D(1, 0, 0, 1, 0, 60)
 auto_calculate_length_and_angle = false
 length = 56.627
@@ -3692,7 +3690,7 @@ bones = ["Hip", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Hip/Neck", Packe
 [node name="RIDER" parent="Up" instance=ExtResource("5_xcyso")]
 visible = false
 position = Vector2(228, 491)
-scale = Vector2(1.2, 1.2)
+scale = Vector2(0.72, 0.72)
 animation = "ride_up"
 hold_position = null
 mode = 0
