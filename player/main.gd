@@ -135,6 +135,8 @@ func on_mount_transition_ended():
 		HARTBOUND.visible = true
 	in_transition = false
 
+func global_pos():
+	return get_global_transform().get_origin()
 
 func chain():
 	if mode == status.MODE.RIDER:
@@ -144,18 +146,22 @@ func chain():
 	var leader = SPRITES[mode][0]
 	var follower = SPRITES[mode][1]
 	
-	var radius = follower.position.distance_to(leader.position + leader.velocity)
-	var buffer = chain_length - radius
+	var radius = follower.global_pos().distance_to(leader.global_pos())
+	var next_radius = follower.global_pos().distance_to(
+		leader.global_pos() + leader.velocity
+	)
+	var buffer = clamp(chain_length - radius, 0.0, chain_length)
+
 	$Chain.clear_points()
 	$Chain.add_point(Vector2(0, 0))
-	$Chain.add_point(SPRITES[mode][1].position - position)
+	$Chain.add_point(SPRITES[mode][1].global_pos() - global_pos())
 	
 	if buffer / damp_zone < 0.3:
 		$Chain/AnimationPlayer.play("flicker")
 	elif $Chain/AnimationPlayer.current_animation == "flicker":
 		$Chain/AnimationPlayer.play("RESET")
 	
-	if buffer < damp_zone:
+	if buffer < damp_zone and radius < next_radius:
 		leader.cur_speed_mul = buffer / damp_zone
 		$Chain.modulate.a = 1.0 - (buffer / damp_zone)
 		return
@@ -170,7 +176,7 @@ func _process(delta):
 		print("missing")
 		return
 	if spawner:
-		position = SPRITES[mode][0].position
+		position = SPRITES[mode][0].global_pos()
 	if not HARTBOUND.visible:
 		HARTBOUND.position = ELK.position + Vector2(0, 100)
 	update_mode()

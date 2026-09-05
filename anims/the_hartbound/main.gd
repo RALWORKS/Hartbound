@@ -79,6 +79,8 @@ func _physics_process(delta):
 	update_mode()
 	speed_scale = cur_speed_mul * base_speed_scale
 
+func global_pos():
+	return get_global_transform().get_origin()
 
 
 func _ready():

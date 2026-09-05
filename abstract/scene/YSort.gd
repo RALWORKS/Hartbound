@@ -1,3 +1,5 @@
+class_name YSort
+
 extends Node2D
 
 var SORT_FUNCTION = "check_should_be_behind"
@@ -9,8 +11,8 @@ func add_mob(mob: Node2D):
 	var old = mob.get_parent()
 	print(mob, old)
 	add_child(mob)
-	print("NOW", mob, mob.get_parent())
 	mobs.push_back(mob)
+	ysort(mob)
 
 func compare_y(a, b):
 	return a.position.y < b.position.y
@@ -26,6 +28,9 @@ func initial_ysort():
 	while i < c.size():
 		move_child(c[i], i)
 		i = i + 1
+
+	for layer in c:
+		ysort(layer)
 	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -39,7 +44,7 @@ func ysort(mob):
 		sort_item(c, mob)
 
 
-func check_should_be_behind(item: Node2D, mob: Node2D):
+func check_child_should_be_behind(item: Node2D, mob: Node2D):
 	return item.position.y <= mob.position.y
 
 
@@ -49,10 +54,9 @@ func sort_item(item: Node2D, mob: Node2D):
 	var targ = self
 	if "NOSORT" in item:
 		return
+	var should_be_behind = check_child_should_be_behind(item, mob)
 	if item.has_method(SORT_FUNCTION):
-		targ = item
-
-	var should_be_behind = glob.f_of(targ, SORT_FUNCTION, [item, mob])
+		should_be_behind = glob.f_of(item, SORT_FUNCTION, [item, mob])
 	
 	var is_behind = item.get_index() < mob.get_index()
 	
@@ -66,10 +70,8 @@ func sort_item(item: Node2D, mob: Node2D):
 		return
 	if should_be_behind:
 		move_child(mob, item.get_index() + 1)
-		#print("raise player", item, targ)
 		return
 
 	move_child(mob, item.get_index())
-	#print("lower player", item, targ)
 	
 	

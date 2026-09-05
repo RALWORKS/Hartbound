@@ -1,10 +1,10 @@
 [gd_scene load_steps=3 format=3 uid="uid://budy3e037ao4d"]
 
 [ext_resource type="PackedScene" uid="uid://bh1yfkyt3u44i" path="res://abstract/chapter/chapter.tscn" id="1_ac3kb"]
-[ext_resource type="PackedScene" uid="uid://b4b6kwqbiqg85" path="res://scenes/modular_demo.tscn" id="2_g16hl"]
+[ext_resource type="PackedScene" uid="uid://dqlgvws0q31nt" path="res://scenes/mission-1.tscn" id="2_ihbio"]
 
 [node name="Demo1" instance=ExtResource("1_ac3kb")]
-starting_scene = ExtResource("2_g16hl")
+starting_scene = ExtResource("2_ihbio")
 
 [node name="StartChapter" parent="Events" index="0"]
-to_scene = ExtResource("2_g16hl")
+to_scene = ExtResource("2_ihbio")

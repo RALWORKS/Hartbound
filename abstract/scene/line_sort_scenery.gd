@@ -1,14 +1,25 @@
-extends Node2D
+extends YSort
 
 @export var baseline: Line2D
+@export var interactive = true
+@export var interactables: Array[Node2D]
 
 var xpoints = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	initial_ysort()
 	sort_points()
 	if baseline:
 		baseline.visible = false
+	if not interactive:
+		for c in interactables:
+			c.visible = false
+			c.process_mode = Node.PROCESS_MODE_DISABLED
+
+func _process(delta):
+	for mob in mobs:
+		ysort(mob)
 
 
 func sortx(a, b):
@@ -25,10 +36,6 @@ func sort_points():
 	xpoints.sort_custom(sortx)
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
 func default_check_should_be_behind(mob: Node2D):
 	return position.y <= mob.position.y
 
@@ -40,7 +47,10 @@ func check_should_be_behind(_item: Node2D, mob: Node2D):
 
 
 func global_pt(pt):
-	return (pt * scale + position + scale * baseline.position)
+	return (
+		pt * baseline.get_global_transform().get_scale()
+		+ baseline.get_global_transform().get_origin()
+	)
 
 
 func get_bounds(trace: int):

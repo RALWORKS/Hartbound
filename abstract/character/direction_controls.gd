@@ -87,16 +87,20 @@ func follow():
 		set_destination(null)
 		set_v(Vector2(0, 0))
 		return
-	elif character.position.distance_to(leader.position) > follow_distance and not resting:
-		var follow = leader.position
+	elif character.global_pos().distance_to(leader.global_pos()) > follow_distance and not resting:
+		var follow = leader.global_pos()
 		if "follower_target" in leader:
 			follow = leader.follower_target.get_target()
+		follow = follow - character.get_parent().global_position
 		set_destination(follow)
-	elif character.position.distance_to(leader.position) < follow_distance:
+	elif distance_to_leader() < follow_distance:
 		rest()
 		set_destination(null)
 		set_v(Vector2(0, 0))
 
+
+func distance_to_leader():
+	return character.global_pos().distance_to(leader.global_pos())
 
 func go_direction(delta, input_direction):
 	if not is_active:
@@ -224,7 +228,7 @@ func refresh_walk_direction():
 	if navigation_finished() or (
 		leader
 		and character.mode != status.MODE.RIDER
-		and character.position.distance_to(leader.position) < follow_distance
+		and distance_to_leader() < follow_distance
 	):
 		#Vector2(0, 0)
 		set_destination(null)

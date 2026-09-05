@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://b12avf6mjwceh"]
+[gd_scene load_steps=8 format=3 uid="uid://b12avf6mjwceh"]
 
 [ext_resource type="Script" path="res://abstract/scene/elk_jump_arc.gd" id="1_3v7x5"]
 [ext_resource type="Texture2D" uid="uid://lw55eyk570q0" path="res://assets/hartbound/climb-icon.png" id="2_2land"]
@@ -26,12 +26,16 @@ corner_radius_bottom_left = 100
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6h27g"]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_38mv1"]
+radius = 20.2237
+
 [node name="ElkJumpArc" type="Line2D"]
 default_color = Color(0, 0.588235, 0.752941, 1)
 script = ExtResource("1_3v7x5")
 speed = 500
 
 [node name="Button" type="Button" parent="."]
+z_index = 1
 offset_left = -45.0
 offset_top = -45.0
 offset_right = 45.0
@@ -50,6 +54,7 @@ texture = ExtResource("2_2land")
 centered = false
 
 [node name="Label" type="Label" parent="Button"]
+layout_mode = 0
 offset_left = 19.0
 offset_top = 86.0
 offset_right = 86.0
@@ -61,6 +66,24 @@ theme_override_constants/shadow_outline_size = 15
 theme_override_font_sizes/font_size = 20
 text = "JUMP"
 
+[node name="A" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="A"]
+shape = SubResource("CircleShape2D_38mv1")
+
+[node name="B" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="B"]
+shape = SubResource("CircleShape2D_38mv1")
+
 [connection signal="mouse_entered" from="Button" to="." method="_on_button_mouse_entered"]
 [connection signal="mouse_exited" from="Button" to="." method="_on_button_mouse_exited"]
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="body_entered" from="A" to="." method="_on_a_body_entered"]
+[connection signal="body_exited" from="A" to="." method="_on_a_body_exited"]
+[connection signal="body_entered" from="B" to="." method="_on_b_body_entered"]
+[connection signal="body_exited" from="B" to="." method="_on_b_body_exited"]

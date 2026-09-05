@@ -1,0 +1,92 @@
+[gd_scene load_steps=11 format=3 uid="uid://dqlgvws0q31nt"]
+
+[ext_resource type="PackedScene" uid="uid://byrlpmbpj6yr5" path="res://abstract/scene/scene.tscn" id="1_2inri"]
+[ext_resource type="Texture2D" uid="uid://c6ygothb5jxqs" path="res://assets/forest-layers/bg/meadow-blue2-tiles.png" id="2_ywdcp"]
+[ext_resource type="Shader" path="res://abstract/lighting/daylight.gdshader" id="3_pq1m1"]
+[ext_resource type="Texture2D" uid="uid://ba8f8jn3sykc5" path="res://assets/scenery/extra-tree-coloured-bright/pine-trio.png" id="3_qo7hk"]
+[ext_resource type="PackedScene" uid="uid://cph8dalfcj236" path="res://scenery/medium_rect_cool.tscn" id="4_fyaue"]
+[ext_resource type="Texture2D" uid="uid://bbqm52i4cxyix" path="res://assets/scenery/extra-tree-coloured-bright/great-oak.png" id="5_5866f"]
+[ext_resource type="Texture2D" uid="uid://chq6q6xttvwfi" path="res://assets/scenery/extra-tree-coloured-bright/tree-family.png" id="5_ui6u4"]
+[ext_resource type="Texture2D" uid="uid://cwhx0k3dvr403" path="res://assets/scenery/Scrolling/proud-elm.png" id="6_e3yi0"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_nxgn0"]
+vertices = PackedVector2Array(924, -1746, 3953, -869, 4117, 1682, -1507, 1782, -1906, -898)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-1906, -898, -1507, 1782, 4117, 1682, 3953, -869, 924, -1746)])
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_tdobl"]
+resource_local_to_scene = true
+shader = ExtResource("3_pq1m1")
+shader_parameter/darken = 0.0
+shader_parameter/saturate = 1.0
+shader_parameter/contrast = 1.0
+shader_parameter/warmth = 0.5
+
+[node name="Scene" instance=ExtResource("1_2inri")]
+metadata/_edit_vertical_guides_ = [-602.0]
+
+[node name="Background" parent="." index="0"]
+texture_repeat = 2
+position = Vector2(-1584, -1280)
+texture = ExtResource("2_ywdcp")
+
+[node name="Polygon2D" type="Polygon2D" parent="Background" index="1"]
+texture_repeat = 3
+texture = ExtResource("2_ywdcp")
+polygon = PackedVector2Array(-2229, -1618, -372, -2641, 5602, -2076, 7405, -838, 8356, 1435, 7647, 2795, 6813, 3548, 5117, 3817, -1583, 3952, -3601, 2122, -3763, -623)
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="YSort" index="0"]
+navigation_polygon = SubResource("NavigationPolygon_nxgn0")
+use_edge_connections = false
+
+[node name="DefaultSpawner" parent="YSort" index="1"]
+position = Vector2(1141, 512)
+
+[node name="MediumRectCool2" parent="YSort" index="2" instance=ExtResource("4_fyaue")]
+position = Vector2(1688, -236)
+interactive = false
+
+[node name="PineTrio2" type="Sprite2D" parent="YSort" index="3"]
+modulate = Color(0.768627, 0.858824, 0.678431, 1)
+position = Vector2(813, 159)
+texture = ExtResource("3_qo7hk")
+offset = Vector2(0, -300)
+
+[node name="MediumRectCool" parent="YSort" index="4" instance=ExtResource("4_fyaue")]
+position = Vector2(18, 0)
+
+[node name="Oak" type="Sprite2D" parent="YSort/MediumRectCool" index="8"]
+modulate = Color(0.768627, 0.858824, 0.678431, 1)
+position = Vector2(460, 338)
+texture = ExtResource("6_e3yi0")
+offset = Vector2(0, -400)
+
+[node name="TwinPines" type="Sprite2D" parent="YSort" index="5"]
+modulate = Color(0.768627, 0.858824, 0.678431, 1)
+position = Vector2(1599, 212)
+texture = ExtResource("3_qo7hk")
+offset = Vector2(0, -300)
+
+[node name="MediumRectCool3" parent="YSort" index="6" instance=ExtResource("4_fyaue")]
+position = Vector2(2301, 370)
+
+[node name="GreatOak" type="Sprite2D" parent="YSort/MediumRectCool3" index="8"]
+modulate = Color(0.768627, 0.858824, 0.678431, 1)
+position = Vector2(-375, -381)
+texture = ExtResource("5_5866f")
+offset = Vector2(0, -400)
+
+[node name="TreeFamily" type="Sprite2D" parent="YSort/MediumRectCool3" index="9"]
+modulate = Color(0.768627, 0.858824, 0.678431, 1)
+position = Vector2(63, -126)
+texture = ExtResource("5_ui6u4")
+offset = Vector2(0, -300)
+
+[node name="PineTrio" type="Sprite2D" parent="YSort" index="7"]
+modulate = Color(0.768627, 0.858824, 0.678431, 1)
+position = Vector2(175, 682)
+texture = ExtResource("3_qo7hk")
+offset = Vector2(0, -300)
+
+[node name="MainDaylightFilter" parent="Filters" index="0"]
+daylight_shader = SubResource("ShaderMaterial_tdobl")

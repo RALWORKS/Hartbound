@@ -1,0 +1,78 @@
+[gd_scene load_steps=7 format=3 uid="uid://cph8dalfcj236"]
+
+[ext_resource type="Texture2D" uid="uid://chneejwaycxsa" path="res://assets/forest-layers/medium-rect-cool.png" id="1_afkxl"]
+[ext_resource type="PackedScene" uid="uid://b12avf6mjwceh" path="res://abstract/scene/elk_jump_arc.tscn" id="2_ekb0w"]
+[ext_resource type="Script" path="res://abstract/scene/line_sort_scenery.gd" id="2_oysrv"]
+[ext_resource type="PackedScene" uid="uid://doqir1yy8117e" path="res://abstract/scene/baseline.tscn" id="4_t4ll3"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_n01nh"]
+vertices = PackedVector2Array(294, -344, 614, -75, 396, -9, 78, 99, -638, -305, -437, -464, -87, -461)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2), PackedInt32Array(3, 4, 5, 6, 0, 2)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-638, -305, 78, 99, 396, -9, 614, -75, 294, -344, -87, -461, -437, -464)])
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_co8g7"]
+vertices = PackedVector2Array(375, 336, 222, 342, 581, 201, 512, 270, 677, 234, 701, 108, 803, 159)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 3, 2, 5, 6), PackedInt32Array(6, 5, 5)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(222, 342, 581, 201, 701, 108, 701, 108, 803, 159, 677, 234, 512, 270, 375, 336)])
+
+[node name="MediumRectCool" type="Sprite2D" node_paths=PackedStringArray("baseline", "interactables")]
+texture = ExtResource("1_afkxl")
+script = ExtResource("2_oysrv")
+baseline = NodePath("Baseline")
+interactables = [NodePath("ElkJumpArc"), NodePath("ElkJumpArc2")]
+
+[node name="Bottom" type="StaticBody2D" parent="."]
+modulate = Color(0.537255, 0, 0.537255, 0.556863)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Bottom"]
+polygon = PackedVector2Array(-926, -81, -782, 27, -713, 33, -596, 252, -297, 297, -276, 426, -3, 567, 90, 489, 189, 492, 186, 522, 264, 516, 354, 543, 486, 495, 674, 489, 800, 414, 842, 357, 932, 309, 932, 276, 821, 126, -78, -314)
+
+[node name="Ledge" type="StaticBody2D" parent="."]
+modulate = Color(0.329412, 0, 0.329412, 1)
+light_mask = 8
+visibility_layer = 8
+collision_layer = 8
+collision_mask = 8
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Ledge"]
+polygon = PackedVector2Array(171, 321, 338, 383, 581, 291, 744, 244, 834, 169, 669, 83, 700, 69, 849, 148, 879, 180, 785, 252, 590, 321, 338, 410, 150, 345)
+
+[node name="Polygon2D" type="CollisionPolygon2D" parent="Ledge"]
+polygon = PackedVector2Array(157, 340, 701, 66, 725, 82, 185, 348)
+
+[node name="Top2" type="StaticBody2D" parent="."]
+modulate = Color(0.329412, 0, 0.329412, 1)
+light_mask = 4
+visibility_layer = 4
+collision_layer = 16
+collision_mask = 16
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Top2"]
+polygon = PackedVector2Array(-731, -289, -262, 15, 83, 164, 378, 68, 582, 33, 665, -60, 625, -146, 337, -368, -30, -499, -386, -521, -403, -499, -25, -473, 320, -347, 602, -131, 627, -78, 562, -5, 360, 31, 70, 121, -245, -17, -708, -325)
+
+[node name="Polygon2D" type="CollisionPolygon2D" parent="Top2"]
+polygon = PackedVector2Array(-607, -393, -338, -521, -350, -551, -600, -448, -733, -287, -693, -267)
+
+[node name="Top" type="NavigationRegion2D" parent="."]
+navigation_polygon = SubResource("NavigationPolygon_n01nh")
+use_edge_connections = false
+
+[node name="FrontStep" type="NavigationRegion2D" parent="."]
+navigation_polygon = SubResource("NavigationPolygon_co8g7")
+use_edge_connections = false
+
+[node name="ElkJumpArc" parent="." instance=ExtResource("2_ekb0w")]
+position = Vector2(752, 256)
+points = PackedVector2Array(189, 164, 143, 165, 109, -70, 17, -170, 11, -90, -62, -89)
+a_destination_collision_layer = 1
+b_destination_collision_layer = 4
+
+[node name="ElkJumpArc2" parent="." instance=ExtResource("2_ekb0w")]
+position = Vector2(446, 72)
+points = PackedVector2Array(146, 154, 8, 192, -53, -136, -121, -192, -145, -81, -269, -149)
+a_destination_node = ".."
+a_destination_collision_layer = 4
+b_destination_collision_layer = 5
+
+[node name="Baseline" parent="." instance=ExtResource("4_t4ll3")]
+points = PackedVector2Array(-981, -56, -923, -83, -711, -23, -575, 222, -270, 269, -245, 418, -29, 537, 92, 431, 337, 509, 680, 466, 939, 317, 987, 340)

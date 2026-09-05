@@ -16,7 +16,7 @@ func get_target():
 	var root = get_parent()
 	if not root:
 		return position
-	return root.position + (root.scale * position)
+	return global_position
 
 func update_follower_position():
 	var root = get_parent()

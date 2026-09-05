@@ -66,7 +66,7 @@ bg_color = Color(0, 0, 0, 1)
 position = Vector2(0, 145)
 show_clock = false
 is_move = false
-starting_page = NodePath("1")
+starting_page = NodePath("END")
 
 [node name="1" parent="." index="0" instance=ExtResource("2_wt2i3")]
 visible = false

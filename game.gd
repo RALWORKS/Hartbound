@@ -62,14 +62,15 @@ func unstage_action_node(n):
 		staged_action_node = null
 
 func refresh_data():
-	var screen = get_node_or_null("MainScreen")
-	if screen != null:
-		screen.get_node("RightMenu/GameMenu").refresh_data()
+	pass
+	#var screen = get_node_or_null("MainScreen")
+	#if screen != null:
+	#	screen.get_node("RightMenu/GameMenu").refresh_data()
 
 func set_player(some_player):
-	if camera:
+	if camera and is_instance_valid(camera):
 		camera.free()
-	if player:
+	if player and is_instance_valid(player):
 		player.free()
 	player = some_player
 	camera = PlayerCamera.instantiate()

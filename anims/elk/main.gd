@@ -57,32 +57,39 @@ func update_mode():
 	start_following()
 
 
+func global_pos():
+	return get_global_transform().get_origin()
+
+
 func fly():
 	$DirectionControls.proxied = true
 	$DirectionControls.reset_direction()
 	$ElkSpriteAnimationController.default_cycle = "jump"
-	set_collision_layer_value(glob.UNIVERSAL_COLLISION_LAYER, false)
-	set_collision_layer_value(glob.ELK_COLLISION_LAYER, false)
-	set_collision_layer_value(glob.SUB_ROOM_COLLISION_LAYER, false)
-	
-	set_collision_mask_value(glob.UNIVERSAL_COLLISION_LAYER, false)
-	set_collision_mask_value(glob.ELK_COLLISION_LAYER, false)
-	set_collision_mask_value(glob.SUB_ROOM_COLLISION_LAYER, false)
-	
-	$Hitbox.set_collision_layer_value(glob.UNIVERSAL_COLLISION_LAYER, false)
-	$Hitbox.set_collision_mask_value(glob.UNIVERSAL_COLLISION_LAYER, false)
+	set_collision_layer(0)
+	set_collision_mask(0)
 	z_index = 1
 	return
 
-func land_sub_room():
+func land_sub_room(layer: int):
 	$DirectionControls.proxied = false
 	$DirectionControls.reset_direction()
 	$ElkSpriteAnimationController.default_cycle = "walk"
-	z_index = 1
-	set_collision_layer_value(glob.SUB_ROOM_COLLISION_LAYER, true)
-	set_collision_mask_value(glob.SUB_ROOM_COLLISION_LAYER, true)
-	$Hitbox.set_collision_layer_value(glob.SUB_ROOM_COLLISION_LAYER, true)
-	$Hitbox.set_collision_mask_value(glob.SUB_ROOM_COLLISION_LAYER, true)
+	
+	z_index = 0
+
+	set_collision_layer(0)
+	set_collision_mask(0)
+	$Hitbox.set_collision_layer(0)
+	$Hitbox.set_collision_mask(0)
+	
+	set_collision_layer_value(layer, true)
+	set_collision_mask_value(layer, true)
+	$Hitbox.set_collision_layer_value(layer, true)
+	$Hitbox.set_collision_mask_value(layer, true)
+	
+	set_collision_mask_value(glob.ELK_COLLISION_LAYER, true)
+	set_collision_mask_value(glob.ELK_COLLISION_LAYER, true)
+
 
 func land_main_room():
 	$DirectionControls.proxied = false
