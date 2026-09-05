@@ -63,13 +63,13 @@ use_edge_connections = false
 
 [node name="ElkJumpArc" parent="." instance=ExtResource("2_ekb0w")]
 position = Vector2(752, 256)
-points = PackedVector2Array(189, 164, 143, 165, 109, -70, 17, -170, 11, -90, -62, -89)
+points = PackedVector2Array(189, 164, 158, 165, 117, -71, 69, -146, -9, -117, -58, -67)
 a_destination_collision_layer = 1
 b_destination_collision_layer = 4
 
 [node name="ElkJumpArc2" parent="." instance=ExtResource("2_ekb0w")]
 position = Vector2(446, 72)
-points = PackedVector2Array(146, 154, 8, 192, -53, -136, -121, -192, -145, -81, -269, -149)
+points = PackedVector2Array(146, 154, 51, 140, -59, -124, -125, -176, -173, -116, -230, -88)
 a_destination_node = ".."
 a_destination_collision_layer = 4
 b_destination_collision_layer = 5

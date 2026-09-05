@@ -59,7 +59,7 @@ HARTBOUND_INDICATOR = NodePath("TheHartbound/Indicator")
 
 [node name="Chain" type="Line2D" parent="."]
 modulate = Color(1, 1, 1, 0)
-scale = Vector2(1.8, 1.8)
+scale = Vector2(1.5, 1.5)
 points = PackedVector2Array(0, 0, 0, 0)
 width = 40.0
 texture = ExtResource("2_iccto")

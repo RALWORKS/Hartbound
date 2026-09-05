@@ -20,6 +20,10 @@ var SPEEDS = {
 	"jump": 1.5,
 }
 
+@export var CYCLE_START_OVERRIDES: Dictionary = {
+	"jump": 0.2,
+}
+
 var CYCLE_TAGS = {
 	"run": "run",
 	"jump": "jump",
@@ -127,7 +131,11 @@ func play_params(group: Node2D, mirror:bool, anim: String):
 	var anims:AnimationPlayer = get_animator(group)
 	if not anims:
 		return
+	var head = 0.0
+	if anim in CYCLE_START_OVERRIDES:
+		head = CYCLE_START_OVERRIDES[anim]
 	anims.play("movement/" + anim, -1, speed_scale * SPEEDS[anim])
+	anims.advance(head)
 	if has_rider:
 		group.get_node("RIDER").visible = true
 
