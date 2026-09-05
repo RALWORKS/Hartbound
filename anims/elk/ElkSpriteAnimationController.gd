@@ -134,16 +134,22 @@ func play_params(group: Node2D, mirror:bool, anim: String):
 func hide_rider():
 	#has_rider = false
 	for c in get_children():
+		if c.get_class() != "Node2D":
+			continue
 		c.get_node("RIDER").visible = false
 
 func show_rider():
 	#has_rider = true
 	for c in get_children():
+		if c.get_class() != "Node2D":
+			continue
 		c.get_node("RIDER").visible = true
 
 func hide_all():
 	scale = Vector2(abs(scale.x), scale.y)
 	for c in get_children():
+		if c.get_class() != "Node2D":
+			continue
 		c.visible = false
 		#c.process_mode = Node.PROCESS_MODE_DISABLED
 		c.get_node("RIDER").visible = false

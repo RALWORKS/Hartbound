@@ -4,6 +4,10 @@ extends Node2D
 
 @export var root: Node2D
 
+@export var use_thick_lines = false
+
+@export var line_width_thick: Array[Node2D]
+
 @export var animation: String = "left_stopped"
 var last_animation = "left_stopped"
 @export var animation_switching: ANIMATION_SWITCHING = ANIMATION_SWITCHING.ULTRA_SMOOTH
@@ -14,6 +18,11 @@ enum ANIMATION_SWITCHING {
 }
 
 var UNIVERSAL_MODES = ["stop", "walk", "ride"]
+
+
+func refresh_line():
+	for l in line_width_thick:
+		l.visible = bool(use_thick_lines)
 
 
 @onready var DIRECTIONS = {
@@ -36,7 +45,7 @@ var ALIASES = {
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	refresh_line()
 
 func _convert_names(anim):
 	var tok: Array = anim.split("_")

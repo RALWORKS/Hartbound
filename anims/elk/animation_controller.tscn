@@ -1,12 +1,38 @@
-[gd_scene load_steps=41 format=3 uid="uid://c7ong8uiivjt5"]
+[gd_scene load_steps=77 format=3 uid="uid://c7ong8uiivjt5"]
 
 [ext_resource type="Script" path="res://anims/elk/ElkSpriteAnimationController.gd" id="1_t4fu3"]
 [ext_resource type="Texture2D" uid="uid://b67gxxjxbvj8q" path="res://anims/elk/legs/left-tweens.png" id="2_d2wsp"]
+[ext_resource type="Texture2D" uid="uid://4h6xutbvbdio" path="res://anims/elk/hart1-outline-thick.png" id="3_44ng3"]
 [ext_resource type="Texture2D" uid="uid://cwd5hmfq4j6eq" path="res://anims/hart1.png" id="3_hwfgr"]
+[ext_resource type="Texture2D" uid="uid://ku032al8330m" path="res://anims/elk/hart1-outline-medium.png" id="3_n4ug8"]
 [ext_resource type="PackedScene" uid="uid://bcsk74hos8fah" path="res://anims/elk/left_animator.tscn" id="4_147xr"]
+[ext_resource type="Texture2D" uid="uid://b52idp827f4fe" path="res://anims/elk/left-tweens-outline-thick.png" id="5_mwiw7"]
 [ext_resource type="PackedScene" uid="uid://52g14ts2i27r" path="res://anims/the_hartbound/main.tscn" id="5_xcyso"]
+[ext_resource type="Texture2D" uid="uid://bvdtfikrca577" path="res://anims/elk/left-tweens-outline-medium.png" id="6_1flh7"]
 [ext_resource type="Texture2D" uid="uid://ftjoowfydl52" path="res://anims/elk/legs/down.png" id="6_g183m"]
+[ext_resource type="Texture2D" uid="uid://ca4i0ek88m1bs" path="res://anims/elk/elk-legs-up-outline-thick.png" id="6_urvu7"]
 [ext_resource type="Texture2D" uid="uid://cpya1w5sfvkyc" path="res://anims/elk/legs/up.png" id="7_0oh7v"]
+[ext_resource type="Texture2D" uid="uid://dykbfd0ruw63o" path="res://anims/elk/elk-legs-down-outline-thick.png" id="7_rf36b"]
+[ext_resource type="Texture2D" uid="uid://dn36q6crm452b" path="res://anims/elk/elk-legs-up-outline-medium.png" id="9_pdq2c"]
+[ext_resource type="Texture2D" uid="uid://bklns6fguwxht" path="res://anims/elk/elk-legs-down-outline-medium.png" id="11_cpfl7"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_4n3j8"]
+blend_mode = 4
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_j2wsd"]
+viewport_path = NodePath("LegsTextureLeft")
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_yxe0s"]
+blend_mode = 4
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_aqs4r"]
+viewport_path = NodePath("LegsTextureLeft")
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ug5m6"]
+blend_mode = 4
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_t4mur"]
+viewport_path = NodePath("BodyTexture")
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_7khng"]
 
@@ -561,6 +587,15 @@ _data = {
 "walk": SubResource("Animation_8ksqd")
 }
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_auppq"]
+blend_mode = 4
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_yekc6"]
+blend_mode = 4
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_7117t"]
+viewport_path = NodePath("BodyTexture")
+
 [sub_resource type="Animation" id="Animation_2420l"]
 length = 0.001
 loop_mode = 1
@@ -1112,6 +1147,9 @@ _data = {
 "walk": SubResource("Animation_u768g")
 }
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_w7or5"]
+blend_mode = 4
+
 [sub_resource type="Animation" id="Animation_rs8u0"]
 length = 0.001
 tracks/0/type = "value"
@@ -1309,6 +1347,12 @@ _data = {
 "down": SubResource("Animation_gkvyq"),
 "up": SubResource("Animation_w1fv7")
 }
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_m0nb2"]
+blend_mode = 4
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_ad2hy"]
+viewport_path = NodePath("BodyTexture")
 
 [sub_resource type="Animation" id="Animation_4srib"]
 length = 0.001
@@ -1861,6 +1905,27 @@ _data = {
 "walk": SubResource("Animation_s7qiy")
 }
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_neou1"]
+blend_mode = 4
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_wp48p"]
+viewport_path = NodePath("LegsTextureUp")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_yj4wb"]
+viewport_path = NodePath("LegsTextureDown")
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_t3vbk"]
+blend_mode = 4
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_18l0w"]
+viewport_path = NodePath("BodyTexture")
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ahv0a"]
+blend_mode = 4
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_4oh3l"]
+viewport_path = NodePath("BodyTexture")
+
 [sub_resource type="Animation" id="Animation_hhg5f"]
 length = 0.001
 tracks/0/type = "value"
@@ -2401,6 +2466,33 @@ _data = {
 "walk": SubResource("Animation_vqloh")
 }
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_hksk0"]
+blend_mode = 4
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_uc5vu"]
+viewport_path = NodePath("LegsTextureDown")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_idipc"]
+viewport_path = NodePath("LegsTextureUp")
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_3q78m"]
+blend_mode = 4
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_k3cqn"]
+viewport_path = NodePath("BodyTexture")
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_pxi6d"]
+blend_mode = 4
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_5tjj0"]
+viewport_path = NodePath("BodyTexture")
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ulkj3"]
+blend_mode = 4
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_p4mys"]
+viewport_path = NodePath("BodyTexture")
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_if8f2"]
 
 [sub_resource type="Animation" id="Animation_ktjdv"]
@@ -2842,46 +2934,131 @@ _data = {
 
 [node name="ElkSpriteAnimationController" type="Node2D"]
 script = ExtResource("1_t4fu3")
+animation = "down_left_stopped"
 speed_scale = 1.3
 
+[node name="BodyTexture" type="SubViewport" parent="."]
+transparent_bg = true
+size = Vector2i(2800, 840)
+
+[node name="Body" type="Sprite2D" parent="BodyTexture"]
+texture = ExtResource("3_hwfgr")
+centered = false
+
+[node name="Line" type="Sprite2D" parent="BodyTexture"]
+self_modulate = Color(0.572549, 0.270588, 0.839216, 1)
+texture = ExtResource("3_n4ug8")
+centered = false
+
+[node name="LineThick" type="Sprite2D" parent="BodyTexture"]
+visible = false
+self_modulate = Color(0.6, 0.454902, 0.909804, 1)
+texture = ExtResource("3_44ng3")
+centered = false
+
+[node name="LegsTextureLeft" type="SubViewport" parent="."]
+transparent_bg = true
+size = Vector2i(1800, 3000)
+
+[node name="Legs" type="Sprite2D" parent="LegsTextureLeft"]
+texture = ExtResource("2_d2wsp")
+centered = false
+
+[node name="Line" type="Sprite2D" parent="LegsTextureLeft"]
+self_modulate = Color(0.6, 0.454902, 0.909804, 1)
+texture = ExtResource("6_1flh7")
+centered = false
+
+[node name="LineThick" type="Sprite2D" parent="LegsTextureLeft"]
+visible = false
+self_modulate = Color(0.6, 0.454902, 0.909804, 1)
+texture = ExtResource("5_mwiw7")
+centered = false
+
+[node name="LegsTextureUp" type="SubViewport" parent="."]
+transparent_bg = true
+size = Vector2i(800, 900)
+
+[node name="Legs" type="Sprite2D" parent="LegsTextureUp"]
+texture = ExtResource("7_0oh7v")
+centered = false
+
+[node name="Line" type="Sprite2D" parent="LegsTextureUp"]
+self_modulate = Color(0.6, 0.454902, 0.909804, 1)
+texture = ExtResource("9_pdq2c")
+centered = false
+
+[node name="LineThick" type="Sprite2D" parent="LegsTextureUp"]
+visible = false
+self_modulate = Color(0.6, 0.454902, 0.909804, 1)
+texture = ExtResource("6_urvu7")
+centered = false
+
+[node name="LegsTextureDown" type="SubViewport" parent="."]
+transparent_bg = true
+size = Vector2i(800, 900)
+
+[node name="Legs" type="Sprite2D" parent="LegsTextureDown"]
+texture = ExtResource("6_g183m")
+centered = false
+
+[node name="Line" type="Sprite2D" parent="LegsTextureDown"]
+self_modulate = Color(0.6, 0.454902, 0.909804, 1)
+texture = ExtResource("11_cpfl7")
+centered = false
+
+[node name="LineThick" type="Sprite2D" parent="LegsTextureDown"]
+visible = false
+self_modulate = Color(0.6, 0.454902, 0.909804, 1)
+texture = ExtResource("7_rf36b")
+centered = false
+
 [node name="Left" type="Node2D" parent="."]
+visible = false
 position = Vector2(-298, -472)
 
 [node name="RightFront" type="Sprite2D" parent="Left"]
 modulate = Color(0.686275, 0.596078, 0.576471, 1)
+material = SubResource("CanvasItemMaterial_4n3j8")
 position = Vector2(161, 280)
+rotation = -0.0925025
 scale = Vector2(0.961667, 0.983333)
-texture = ExtResource("2_d2wsp")
+texture = SubResource("ViewportTexture_j2wsd")
 offset = Vector2(-50, -30)
 hframes = 6
 vframes = 5
+frame = 12
 
 [node name="RightBack" type="Sprite2D" parent="Left"]
 modulate = Color(0.686275, 0.596078, 0.576471, 1)
+material = SubResource("CanvasItemMaterial_yxe0s")
 position = Vector2(347, 293)
 scale = Vector2(0.961667, 0.983333)
-texture = ExtResource("2_d2wsp")
+texture = SubResource("ViewportTexture_aqs4r")
 offset = Vector2(40, -50)
 hframes = 6
 vframes = 5
-frame = 1
+frame = 17
 
 [node name="Body" type="Polygon2D" parent="Left"]
-texture = ExtResource("3_hwfgr")
+material = SubResource("CanvasItemMaterial_ug5m6")
+texture = SubResource("ViewportTexture_t4mur")
 skeleton = NodePath("../Skeleton2D")
 polygon = PackedVector2Array(15, 205, 55, 244, 92, 230, 118, 342, 257, 368, 305, 299, 265, 201, 156.303, 136.555, 209.664, 89.0756, 310.924, 54.2017, 191.176, -18.4874, 75, 96)
 uv = PackedVector2Array(15, 205, 55, 244, 92, 230, 118, 342, 257, 368, 305, 299, 265, 201, 156.303, 136.555, 209.664, 89.0756, 310.924, 54.2017, 191.176, -18.4874, 75, 96)
 bones = ["Hip", PackedFloat32Array(0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0), "Hip/Neck", PackedFloat32Array(1, 1, 1, 1, 0, 0, 0, 0.5, 0.5, 1, 1, 1), "Hip/Neck/Ear", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Hip/Bum", PackedFloat32Array(0, 0, 0, 0, 0.5, 0.5, 0.5, 0, 0, 0, 0, 0)]
 
 [node name="Ear" type="Polygon2D" parent="Left"]
-texture = ExtResource("3_hwfgr")
+material = SubResource("CanvasItemMaterial_ug5m6")
+texture = SubResource("ViewportTexture_t4mur")
 skeleton = NodePath("../Skeleton2D")
 polygon = PackedVector2Array(172.269, 147.899, 154.622, 137.815, 160.084, 126.891, 168.487, 119.328, 180.252, 112.605, 198.319, 107.983, 200.84, 128.571)
 uv = PackedVector2Array(172.269, 147.899, 154.622, 137.815, 160.084, 126.891, 168.487, 119.328, 180.252, 112.605, 198.319, 107.983, 200.84, 128.571)
 bones = ["Hip", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0), "Hip/Neck", PackedFloat32Array(1, 1, 0, 0, 0, 0, 0), "Hip/Neck/Ear", PackedFloat32Array(0, 0, 1, 1, 1, 1, 1), "Hip/Bum", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0)]
 
 [node name="Bum" type="Polygon2D" parent="Left"]
-texture = ExtResource("3_hwfgr")
+material = SubResource("CanvasItemMaterial_ug5m6")
+texture = SubResource("ViewportTexture_t4mur")
 skeleton = NodePath("../Skeleton2D")
 polygon = PackedVector2Array(251, 284, 266, 201, 425, 176, 455, 331, 356, 403, 246, 378)
 uv = PackedVector2Array(251, 284, 266, 201, 478, 176, 455, 331, 292, 399, 246, 378)
@@ -2898,7 +3075,7 @@ length = 94.025
 bone_angle = 0.0
 
 [node name="Neck" type="Bone2D" parent="Left/Skeleton2D/Hip"]
-position = Vector2(-136, -16)
+position = Vector2(-135, -12)
 rest = Transform2D(1, 0, 0, 1, -136, -16)
 auto_calculate_length_and_angle = false
 length = 94.025
@@ -2906,12 +3083,14 @@ bone_angle = 250.17
 
 [node name="Ear" type="Bone2D" parent="Left/Skeleton2D/Hip/Neck"]
 position = Vector2(-45, -85)
+rotation = -0.0523599
 rest = Transform2D(1, 0, 0, 1, -45, -85)
 auto_calculate_length_and_angle = false
 length = 83.996
 bone_angle = 320.758
 
 [node name="Bum" type="Bone2D" parent="Left/Skeleton2D/Hip"]
+rotation = 0.0523599
 rest = Transform2D(1, 0, 0, 1, 0, 0)
 auto_calculate_length_and_angle = false
 length = 76.686
@@ -2919,20 +3098,23 @@ bone_angle = -18.305
 
 [node name="LeftFront" type="Sprite2D" parent="Left"]
 modulate = Color(0.972549, 0.972549, 0.972549, 1)
+material = SubResource("CanvasItemMaterial_4n3j8")
 position = Vector2(178, 312)
-texture = ExtResource("2_d2wsp")
+texture = SubResource("ViewportTexture_j2wsd")
 offset = Vector2(-60, -50)
 hframes = 6
 vframes = 5
+frame = 24
 
 [node name="LeftBack" type="Sprite2D" parent="Left"]
 modulate = Color(0.972549, 0.972549, 0.972549, 1)
+material = SubResource("CanvasItemMaterial_yxe0s")
 position = Vector2(381, 306)
-texture = ExtResource("2_d2wsp")
+texture = SubResource("ViewportTexture_aqs4r")
 offset = Vector2(40, -50)
 hframes = 6
 vframes = 5
-frame = 1
+frame = 27
 
 [node name="PARAMETERIZED_ANIMS" parent="Left" instance=ExtResource("4_147xr")]
 libraries = {
@@ -2941,14 +3123,17 @@ libraries = {
 }
 
 [node name="ChestConcealerDark" type="Polygon2D" parent="Left"]
+material = SubResource("CanvasItemMaterial_auppq")
 color = Color(0.87451, 0.847059, 0.839216, 1)
 polygon = PackedVector2Array(138, 304, 145, 324, 151, 329, 157, 330, 166, 331, 166, 327, 169, 325, 168, 322, 163, 319, 155, 308, 140, 293, 135, 300)
 
 [node name="ChestConcealerWhite" type="Polygon2D" parent="Left"]
+material = SubResource("CanvasItemMaterial_auppq")
 color = Color(0.972549, 0.972549, 0.972549, 1)
 polygon = PackedVector2Array(214, 328, 211, 339, 170, 332, 161, 320)
 
 [node name="HipConcealer" type="Polygon2D" parent="Left"]
+material = SubResource("CanvasItemMaterial_auppq")
 color = Color(0.972549, 0.972549, 0.972549, 1)
 polygon = PackedVector2Array(334, 315, 347, 314, 401, 306, 419, 306, 420, 288, 412, 269, 344, 258)
 
@@ -2966,36 +3151,38 @@ position = Vector2(-270, -464)
 
 [node name="RightFront" type="Sprite2D" parent="UpLeft"]
 modulate = Color(0.686275, 0.596078, 0.576471, 1)
+material = SubResource("CanvasItemMaterial_4n3j8")
 position = Vector2(213, 311)
-rotation = -0.0925025
 scale = Vector2(0.9, 0.9)
-texture = ExtResource("2_d2wsp")
+texture = SubResource("ViewportTexture_j2wsd")
 offset = Vector2(-50, -70)
 hframes = 6
 vframes = 5
-frame = 14
 
 [node name="RightBack" type="Sprite2D" parent="UpLeft"]
 modulate = Color(0.686275, 0.596078, 0.576471, 1)
+material = SubResource("CanvasItemMaterial_yxe0s")
 position = Vector2(331, 333)
 scale = Vector2(0.961667, 0.983333)
-texture = ExtResource("2_d2wsp")
+texture = SubResource("ViewportTexture_aqs4r")
 offset = Vector2(40, -50)
 hframes = 6
 vframes = 5
-frame = 17
+frame = 1
 
 [node name="Body" type="Polygon2D" parent="UpLeft"]
+material = SubResource("CanvasItemMaterial_yekc6")
 position = Vector2(-585, 28)
-texture = ExtResource("3_hwfgr")
+texture = SubResource("ViewportTexture_7117t")
 skeleton = NodePath("../Skeleton2D")
 polygon = PackedVector2Array(604.109, 180.248, 644.109, 219.248, 691.089, 199.677, 707.109, 317.248, 810.298, 355.042, 835.508, 291.597, 850.214, 220.168, 770.297, 163.044, 798.773, 64.3231, 794.059, 20.4693, 734.654, -21.1148, 664.109, 71.2475)
 uv = PackedVector2Array(604.109, 180.248, 644.109, 219.248, 691.089, 199.677, 707.109, 317.248, 810.298, 355.042, 835.508, 291.597, 850.214, 220.168, 770.297, 163.044, 798.773, 64.3231, 794.059, 20.4693, 734.654, -21.1148, 664.109, 71.2475)
 bones = ["Hip", PackedFloat32Array(0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0), "Hip/Neck", PackedFloat32Array(1, 1, 1, 1, 0, 0, 0, 0.5, 0.5, 1, 1, 1), "Hip/Neck/Ear", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Hip/Bum", PackedFloat32Array(0, 0, 0, 0, 0.5, 0.5, 0.5, 0, 0, 0, 0, 0)]
 
 [node name="Bum" type="Polygon2D" parent="UpLeft"]
+material = SubResource("CanvasItemMaterial_yekc6")
 position = Vector2(-588, 26)
-texture = ExtResource("3_hwfgr")
+texture = SubResource("ViewportTexture_7117t")
 skeleton = NodePath("../Skeleton2D")
 polygon = PackedVector2Array(820.307, 278.059, 835.307, 195.059, 959.406, 197.697, 991.089, 349.182, 925.307, 397.059, 815.307, 372.059)
 uv = PackedVector2Array(820.307, 278.059, 835.307, 195.059, 959.406, 197.697, 991.089, 349.182, 925.307, 397.059, 815.307, 372.059)
@@ -3012,7 +3199,7 @@ length = 94.025
 bone_angle = 0.0
 
 [node name="Neck" type="Bone2D" parent="UpLeft/Skeleton2D/Hip"]
-position = Vector2(-118, -17)
+position = Vector2(-119, -21)
 rest = Transform2D(1, 0, 0, 1, -119, -21)
 auto_calculate_length_and_angle = false
 length = 94.025
@@ -3020,7 +3207,6 @@ bone_angle = 250.17
 
 [node name="Ear" type="Bone2D" parent="UpLeft/Skeleton2D/Hip/Neck"]
 position = Vector2(-20, -93)
-rotation = -0.0523599
 rest = Transform2D(1, 0, 0, 1, -20, -93)
 auto_calculate_length_and_angle = false
 length = 83.996
@@ -3028,7 +3214,6 @@ bone_angle = 320.758
 
 [node name="Bum" type="Bone2D" parent="UpLeft/Skeleton2D/Hip"]
 position = Vector2(25, 10)
-rotation = 0.0523599
 rest = Transform2D(1, 0, 0, 1, 25, 10)
 auto_calculate_length_and_angle = false
 length = 56.627
@@ -3036,23 +3221,23 @@ bone_angle = 31.107
 
 [node name="LeftFront" type="Sprite2D" parent="UpLeft"]
 modulate = Color(0.972549, 0.972549, 0.972549, 1)
+material = SubResource("CanvasItemMaterial_4n3j8")
 position = Vector2(164, 326)
 scale = Vector2(0.9, 0.9)
-texture = ExtResource("2_d2wsp")
+texture = SubResource("ViewportTexture_j2wsd")
 offset = Vector2(-60, -70)
 hframes = 6
 vframes = 5
-frame = 16
 
 [node name="LeftBack" type="Sprite2D" parent="UpLeft"]
 modulate = Color(0.972549, 0.972549, 0.972549, 1)
+material = SubResource("CanvasItemMaterial_yxe0s")
 position = Vector2(304, 358)
-rotation = 0.261799
-texture = ExtResource("2_d2wsp")
+texture = SubResource("ViewportTexture_aqs4r")
 offset = Vector2(40, -50)
 hframes = 6
 vframes = 5
-frame = 19
+frame = 1
 
 [node name="PARAMETERIZED_ANIMS" parent="UpLeft" instance=ExtResource("4_147xr")]
 libraries = {
@@ -3063,18 +3248,22 @@ neck_base = Vector2(-119, -21)
 back_left_base = Vector2(304, 358)
 
 [node name="ChestConcealerLight" type="Polygon2D" parent="UpLeft"]
+material = SubResource("CanvasItemMaterial_w7or5")
 color = Color(0.964706, 0.964706, 0.964706, 1)
 polygon = PackedVector2Array(193, 335, 207, 330, 204, 313, 192, 317, 192, 323, 188, 318, 171, 318, 132, 305, 135, 318, 142, 328)
 
 [node name="ChestConcealerDark" type="Polygon2D" parent="UpLeft"]
+material = SubResource("CanvasItemMaterial_w7or5")
 color = Color(0.87451, 0.847059, 0.839216, 1)
 polygon = PackedVector2Array(136, 278, 134, 308, 138, 328, 139, 319, 154, 331, 150, 316, 160, 331, 156, 316, 172, 329, 169, 314, 153, 288)
 
 [node name="ChestConcealerBlue" type="Polygon2D" parent="UpLeft"]
+material = SubResource("CanvasItemMaterial_w7or5")
 color = Color(0.392157, 0.215686, 0.756863, 1)
 polygon = PackedVector2Array(130, 299, 130, 320, 135, 334, 133, 303)
 
 [node name="HipConcealer" type="Polygon2D" parent="UpLeft"]
+material = SubResource("CanvasItemMaterial_w7or5")
 color = Color(0.972549, 0.972549, 0.972549, 1)
 polygon = PackedVector2Array(254, 356, 266, 372, 303, 370, 341, 373, 344, 363, 342, 346, 314, 320, 268, 325)
 
@@ -3104,40 +3293,41 @@ libraries = {
 }
 
 [node name="DownLeft" type="Node2D" parent="."]
-visible = false
 position = Vector2(-256, -496)
 
 [node name="RightFront" type="Sprite2D" parent="DownLeft"]
 modulate = Color(0.686275, 0.596078, 0.576471, 1)
+material = SubResource("CanvasItemMaterial_4n3j8")
 position = Vector2(140, 405)
-rotation = -0.0925025
-texture = ExtResource("2_d2wsp")
+texture = SubResource("ViewportTexture_j2wsd")
 offset = Vector2(-50, -70)
 hframes = 6
 vframes = 5
-frame = 16
 
 [node name="RightBack" type="Sprite2D" parent="DownLeft"]
 modulate = Color(0.686275, 0.596078, 0.576471, 1)
+material = SubResource("CanvasItemMaterial_yxe0s")
 position = Vector2(254, 320)
 scale = Vector2(0.9, 0.9)
-texture = ExtResource("2_d2wsp")
+texture = SubResource("ViewportTexture_aqs4r")
 offset = Vector2(40, -50)
 hframes = 6
 vframes = 5
-frame = 19
+frame = 1
 
 [node name="Body" type="Polygon2D" parent="DownLeft"]
+material = SubResource("CanvasItemMaterial_m0nb2")
 position = Vector2(-1717, 52)
-texture = ExtResource("3_hwfgr")
+texture = SubResource("ViewportTexture_ad2hy")
 skeleton = NodePath("../Skeleton2D")
 polygon = PackedVector2Array(1721.23, 226.194, 1761.23, 265.194, 1808.21, 245.623, 1824.23, 363.194, 1927.41, 400.988, 1998.98, 359.093, 2036.01, 264.031, 1979.22, 176.377, 1915.89, 110.269, 1929.84, 25.7592, 1849.6, -1.40121, 1757, 112.179)
 uv = PackedVector2Array(1721.23, 226.194, 1761.23, 265.194, 1808.21, 245.623, 1824.23, 363.194, 1927.41, 400.988, 1998.98, 359.093, 2036.01, 264.031, 1979.22, 176.377, 1915.89, 110.269, 1929.84, 25.7592, 1849.6, -1.40121, 1757, 112.179)
 bones = ["Hip", PackedFloat32Array(0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0), "Hip/Neck", PackedFloat32Array(1, 1, 1, 1, 0, 0, 0, 0.5, 0.5, 1, 1, 1), "Hip/Neck/Ear", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Hip/Bum", PackedFloat32Array(0, 0, 0, 0, 0.5, 0.5, 0.5, 0, 0, 0, 0, 0)]
 
 [node name="Bum" type="Polygon2D" parent="DownLeft"]
+material = SubResource("CanvasItemMaterial_m0nb2")
 position = Vector2(-1720, 54)
-texture = ExtResource("3_hwfgr")
+texture = SubResource("ViewportTexture_ad2hy")
 skeleton = NodePath("../Skeleton2D")
 polygon = PackedVector2Array(1928.13, 281.73, 1944.13, 185.73, 2101.41, 177.697, 2104.13, 277.73, 2070.13, 333.73, 2002.13, 367.73)
 uv = PackedVector2Array(1928.13, 281.73, 1944.13, 185.73, 2101.41, 177.697, 2104.13, 277.73, 2070.13, 333.73, 2002.13, 367.73)
@@ -3176,22 +3366,23 @@ bone_angle = 31.107
 
 [node name="LeftFront" type="Sprite2D" parent="DownLeft"]
 modulate = Color(0.972549, 0.972549, 0.972549, 1)
+material = SubResource("CanvasItemMaterial_4n3j8")
 position = Vector2(183, 413)
-texture = ExtResource("2_d2wsp")
+texture = SubResource("ViewportTexture_j2wsd")
 offset = Vector2(-60, -70)
 hframes = 6
 vframes = 5
-frame = 18
 
 [node name="LeftBack" type="Sprite2D" parent="DownLeft"]
 modulate = Color(0.972549, 0.972549, 0.972549, 1)
+material = SubResource("CanvasItemMaterial_yxe0s")
 position = Vector2(303, 323)
 scale = Vector2(0.9, 0.9)
-texture = ExtResource("2_d2wsp")
+texture = SubResource("ViewportTexture_aqs4r")
 offset = Vector2(40, -50)
 hframes = 6
 vframes = 5
-frame = 21
+frame = 1
 
 [node name="PARAMETERIZED_ANIMS" parent="DownLeft" instance=ExtResource("4_147xr")]
 libraries = {
@@ -3202,14 +3393,17 @@ neck_base = Vector2(-119, -21)
 back_left_base = Vector2(303, 323)
 
 [node name="HipConcealer" type="Polygon2D" parent="DownLeft"]
+material = SubResource("CanvasItemMaterial_neou1")
 color = Color(0.972549, 0.972549, 0.972549, 1)
 polygon = PackedVector2Array(246, 316, 311, 278, 338, 307, 336, 328, 301, 348, 265, 373)
 
 [node name="ChestConcealerWhite" type="Polygon2D" parent="DownLeft"]
+material = SubResource("CanvasItemMaterial_neou1")
 color = Color(0.972549, 0.972549, 0.972549, 1)
 polygon = PackedVector2Array(141, 377, 145, 390, 150, 387, 155, 406, 160.92, 401.68, 182, 401, 195, 391, 220, 391, 217, 413, 161, 417, 141, 407)
 
 [node name="ChestConcealerDark" type="Polygon2D" parent="DownLeft"]
+material = SubResource("CanvasItemMaterial_neou1")
 color = Color(0.87451, 0.847059, 0.839216, 1)
 polygon = PackedVector2Array(139, 356, 148, 361, 159, 362, 164, 361, 172, 369, 178, 372, 182, 374, 176, 392, 174, 380, 156, 397, 151, 382, 144, 399)
 
@@ -3229,7 +3423,7 @@ position = Vector2(-229, -499)
 modulate = Color(0.623529, 0.560784, 0.545098, 1)
 position = Vector2(203.361, 290.226)
 rotation = 0.0349066
-texture = ExtResource("6_g183m")
+texture = SubResource("ViewportTexture_wp48p")
 offset = Vector2(35, 80)
 hframes = 4
 vframes = 3
@@ -3240,42 +3434,44 @@ modulate = Color(0.623529, 0.560784, 0.545098, 1)
 position = Vector2(253.361, 291.226)
 rotation = 3.10669
 scale = Vector2(1, -1)
-texture = ExtResource("6_g183m")
+texture = SubResource("ViewportTexture_wp48p")
 offset = Vector2(35, 80)
 hframes = 4
 vframes = 3
-frame = 4
+frame = 8
 
 [node name="LeftFront" type="Sprite2D" parent="Down"]
 modulate = Color(0.972549, 0.972549, 0.972549, 1)
 position = Vector2(203, 418)
 rotation = 0.0349066
-texture = ExtResource("6_g183m")
+texture = SubResource("ViewportTexture_yj4wb")
 offset = Vector2(35, 80)
 hframes = 4
 vframes = 3
-frame = 6
+frame = 5
 
 [node name="RightFront" type="Sprite2D" parent="Down"]
 modulate = Color(0.972549, 0.972549, 0.972549, 1)
 position = Vector2(253, 419)
 rotation = -0.0349066
 scale = Vector2(-1, 1)
-texture = ExtResource("6_g183m")
+texture = SubResource("ViewportTexture_yj4wb")
 offset = Vector2(35, 80)
 hframes = 4
 vframes = 3
-frame = 7
+frame = 8
 
 [node name="Back" type="Polygon2D" parent="Down"]
+material = SubResource("CanvasItemMaterial_t3vbk")
 position = Vector2(-2289, 38)
-texture = ExtResource("3_hwfgr")
+texture = SubResource("ViewportTexture_18l0w")
 skeleton = NodePath("../Skeleton2D")
 polygon = PackedVector2Array(2473.79, 265.169, 2492.89, 232.584, 2514.8, 223.034, 2537.27, 223.596, 2547.95, 227.528, 2567.61, 266.854, 2562.55, 199.438, 2550.45, 176.777, 2513.96, 163.981, 2485.52, 178.91, 2471.54, 196.067)
 uv = PackedVector2Array(2473.79, 265.169, 2492.89, 232.584, 2514.8, 223.034, 2537.27, 223.596, 2547.95, 227.528, 2567.61, 266.854, 2562.55, 199.438, 2550.45, 176.777, 2513.96, 163.981, 2485.52, 178.91, 2471.54, 196.067)
 bones = ["Hip", PackedFloat32Array(1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0), "Hip/Neck", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Hip/Neck/Ear", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Hip/Bum", PackedFloat32Array(0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1)]
 
 [node name="Polygon2D" type="Polygon2D" parent="Down/Back"]
+material = SubResource("CanvasItemMaterial_t3vbk")
 position = Vector2(0, 10.5347)
 color = Color(0.819608, 0.792157, 0.784314, 1)
 skeleton = NodePath("../../Skeleton2D")
@@ -3292,7 +3488,7 @@ length = 94.025
 bone_angle = 0.0
 
 [node name="Neck" type="Bone2D" parent="Down/Skeleton2D/Hip"]
-position = Vector2(0, 43)
+position = Vector2(0, 43.2644)
 rest = Transform2D(1, 0, 0, 1, 0, 43)
 auto_calculate_length_and_angle = false
 length = 94.025
@@ -3300,7 +3496,8 @@ bone_angle = 250.17
 
 [node name="RightEar" type="Bone2D" parent="Down/Skeleton2D/Hip/Neck"]
 position = Vector2(0, -147)
-rotation = 0.0872665
+rotation = 0.0490636
+scale = Vector2(1, 1)
 rest = Transform2D(1, 0, 0, 1, 0, -147)
 auto_calculate_length_and_angle = false
 length = 43.878
@@ -3308,14 +3505,15 @@ bone_angle = 207.817
 
 [node name="LeftEar" type="Bone2D" parent="Down/Skeleton2D/Hip/Neck"]
 position = Vector2(0, -147)
-rotation = -0.0872665
+rotation = -0.0490636
+scale = Vector2(1, 1)
 rest = Transform2D(1, 0, 0, 1, 0, -147)
 auto_calculate_length_and_angle = false
 length = 43.878
 bone_angle = 327.817
 
 [node name="Bum" type="Bone2D" parent="Down/Skeleton2D/Hip"]
-position = Vector2(0, -60)
+position = Vector2(0, -44.887)
 rest = Transform2D(1, 0, 0, 1, 0, -47)
 auto_calculate_length_and_angle = false
 length = 56.627
@@ -3330,24 +3528,27 @@ hold_position = null
 mode = 0
 
 [node name="Front" type="Polygon2D" parent="Down"]
+material = SubResource("CanvasItemMaterial_ahv0a")
 position = Vector2(-2289, 32)
-texture = ExtResource("3_hwfgr")
+texture = SubResource("ViewportTexture_4oh3l")
 skeleton = NodePath("../Skeleton2D")
 polygon = PackedVector2Array(2481.53, 403.604, 2459.91, 360.36, 2463.51, 280.18, 2495.04, 231.532, 2491.44, 218.018, 2484.23, 206.306, 2488.74, 193.694, 2481.53, 179.279, 2495.04, 170.27, 2498.65, 157.658, 2457.2, 131.532, 2425.67, 14.4144, 2602.25, 6.30631, 2577.92, 127.928, 2532.88, 157.658, 2539.19, 171.171, 2547.29, 174.775, 2547.29, 186.486, 2550.9, 198.198, 2546.39, 214.414, 2550, 234.234, 2578.83, 278.378, 2576.12, 350.45, 2557.2, 402.703)
 uv = PackedVector2Array(2481.53, 403.604, 2459.91, 360.36, 2463.51, 280.18, 2495.04, 231.532, 2491.44, 218.018, 2484.23, 206.306, 2488.74, 193.694, 2481.53, 179.279, 2495.04, 170.27, 2498.65, 157.658, 2457.2, 131.532, 2425.67, 14.4144, 2602.25, 6.30631, 2577.92, 127.928, 2532.88, 157.658, 2539.19, 171.171, 2547.29, 174.775, 2547.29, 186.486, 2550.9, 198.198, 2546.39, 214.414, 2550, 234.234, 2578.83, 278.378, 2576.12, 350.45, 2557.2, 402.703)
 bones = ["Hip", PackedFloat32Array(1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1), "Hip/Neck", PackedFloat32Array(0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0), "Hip/Neck/RightEar", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Hip/Neck/LeftEar", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Hip/Bum", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)]
 
 [node name="LeftEar" type="Polygon2D" parent="Down"]
+material = SubResource("CanvasItemMaterial_ahv0a")
 position = Vector2(-2289, 32)
-texture = ExtResource("3_hwfgr")
+texture = SubResource("ViewportTexture_4oh3l")
 skeleton = NodePath("../Skeleton2D")
 polygon = PackedVector2Array(2481.5, 178.91, 2489.55, 177.725, 2495.48, 174.408, 2499.98, 165.64, 2495.95, 157.109, 2488.13, 149.526, 2467.52, 151.185, 2450.45, 162.322, 2472.49, 178.673)
 uv = PackedVector2Array(2481.5, 178.91, 2489.55, 177.725, 2495.48, 174.408, 2499.98, 165.64, 2495.95, 157.109, 2488.13, 149.526, 2467.52, 151.185, 2450.45, 162.322, 2472.49, 178.673)
 bones = ["Hip", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Hip/Neck", PackedFloat32Array(0.5, 0.5, 1, 1, 1, 1, 0, 0, 0), "Hip/Neck/RightEar", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Hip/Neck/LeftEar", PackedFloat32Array(1, 0, 0, 0, 0, 0.5, 1, 1, 1), "Hip/Bum", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0)]
 
 [node name="RightEar" type="Polygon2D" parent="Down"]
+material = SubResource("CanvasItemMaterial_ahv0a")
 position = Vector2(-2289, 32)
-texture = ExtResource("3_hwfgr")
+texture = SubResource("ViewportTexture_4oh3l")
 skeleton = NodePath("../Skeleton2D")
 polygon = PackedVector2Array(2555.9, 175.592, 2542.63, 176.303, 2536.95, 172.038, 2531.73, 165.64, 2537.66, 155.45, 2547.85, 147.867, 2565.86, 146.446, 2574.62, 149.289, 2567.75, 166.351)
 uv = PackedVector2Array(2555.9, 175.592, 2542.63, 176.303, 2536.95, 172.038, 2531.73, 165.64, 2537.66, 155.45, 2547.85, 147.867, 2565.86, 146.446, 2574.62, 149.289, 2567.75, 166.351)
@@ -3366,49 +3567,54 @@ position = Vector2(-224, -547)
 
 [node name="LeftBack" type="Sprite2D" parent="Up"]
 modulate = Color(0.623529, 0.560784, 0.545098, 1)
-position = Vector2(203.361, 354.226)
+material = SubResource("CanvasItemMaterial_hksk0")
+position = Vector2(208.361, 349.226)
 rotation = 0.0349066
-texture = ExtResource("6_g183m")
+texture = SubResource("ViewportTexture_uc5vu")
 offset = Vector2(35, 80)
 hframes = 4
 vframes = 3
-frame = 4
+frame = 1
 
 [node name="RightBack" type="Sprite2D" parent="Up"]
 modulate = Color(0.623529, 0.560784, 0.545098, 1)
-position = Vector2(253.361, 355.226)
+material = SubResource("CanvasItemMaterial_hksk0")
+position = Vector2(248.361, 355.226)
 rotation = 3.10669
 scale = Vector2(1, -1)
-texture = ExtResource("6_g183m")
+texture = SubResource("ViewportTexture_uc5vu")
+offset = Vector2(35, 80)
+hframes = 4
+vframes = 3
+frame = 7
+
+[node name="LeftFront" type="Sprite2D" parent="Up"]
+modulate = Color(0.972549, 0.972549, 0.972549, 1)
+material = SubResource("CanvasItemMaterial_hksk0")
+position = Vector2(203, 449)
+rotation = 0.0349066
+texture = SubResource("ViewportTexture_idipc")
 offset = Vector2(35, 80)
 hframes = 4
 vframes = 3
 frame = 4
 
-[node name="LeftFront" type="Sprite2D" parent="Up"]
-modulate = Color(0.972549, 0.972549, 0.972549, 1)
-position = Vector2(203, 449)
-rotation = 0.0349066
-texture = ExtResource("7_0oh7v")
-offset = Vector2(35, 80)
-hframes = 4
-vframes = 3
-frame = 7
-
 [node name="RightFront" type="Sprite2D" parent="Up"]
 modulate = Color(0.972549, 0.972549, 0.972549, 1)
+material = SubResource("CanvasItemMaterial_hksk0")
 position = Vector2(253, 450)
 rotation = -0.0349066
 scale = Vector2(-1, 1)
-texture = ExtResource("7_0oh7v")
+texture = SubResource("ViewportTexture_idipc")
 offset = Vector2(35, 80)
 hframes = 4
 vframes = 3
-frame = 7
+frame = 8
 
 [node name="Head" type="Polygon2D" parent="Up"]
+material = SubResource("CanvasItemMaterial_3q78m")
 position = Vector2(-1172, 75)
-texture = ExtResource("3_hwfgr")
+texture = SubResource("ViewportTexture_k3cqn")
 skeleton = NodePath("../Skeleton2D")
 polygon = PackedVector2Array(1406.86, 234.328, 1390.44, 234.328, 1374.77, 228.358, 1359.84, 211.94, 1374.49, 176.369, 1367.28, 164.657, 1371.79, 152.045, 1364.58, 137.63, 1378.09, 128.621, 1381.7, 116.009, 1340.25, 89.8831, 1308.72, -27.2345, 1485.3, -35.3426, 1460.97, 86.2791, 1415.93, 116.009, 1422.24, 129.522, 1430.34, 133.126, 1430.34, 144.837, 1433.95, 156.549, 1429.44, 172.765, 1433.05, 192.585, 1443.42, 211.94, 1432.23, 223.134, 1424.02, 228.358)
 uv = PackedVector2Array(1406.86, 234.328, 1390.44, 234.328, 1374.77, 228.358, 1359.84, 211.94, 1374.49, 176.369, 1367.28, 164.657, 1371.79, 152.045, 1364.58, 137.63, 1378.09, 128.621, 1381.7, 116.009, 1340.25, 89.8831, 1308.72, -27.2345, 1485.3, -35.3426, 1460.97, 86.2791, 1415.93, 116.009, 1422.24, 129.522, 1430.34, 133.126, 1430.34, 144.837, 1433.95, 156.549, 1429.44, 172.765, 1433.05, 192.585, 1443.42, 211.94, 1432.23, 223.134, 1424.02, 228.358)
@@ -3425,7 +3631,7 @@ length = 94.025
 bone_angle = 0.0
 
 [node name="Neck" type="Bone2D" parent="Up/Skeleton2D/Hip"]
-position = Vector2(0, -10)
+position = Vector2(0, -22.1368)
 rest = Transform2D(1, 0, 0, 1, 0, -20)
 auto_calculate_length_and_angle = false
 length = 1.0
@@ -3433,6 +3639,8 @@ bone_angle = 250.17
 
 [node name="RightEar" type="Bone2D" parent="Up/Skeleton2D/Hip/Neck"]
 position = Vector2(2, -86)
+rotation = 0.0722001
+scale = Vector2(0.999999, 0.999999)
 rest = Transform2D(0.999284, 0.0378427, -0.0378427, 0.999284, 2, -86)
 auto_calculate_length_and_angle = false
 length = 43.878
@@ -3440,37 +3648,42 @@ bone_angle = 207.817
 
 [node name="LeftEar" type="Bone2D" parent="Up/Skeleton2D/Hip/Neck"]
 position = Vector2(2, -86)
+rotation = -0.0722001
+scale = Vector2(0.999999, 0.999999)
 rest = Transform2D(0.999284, -0.0378427, 0.0378427, 0.999284, 2, -86)
 auto_calculate_length_and_angle = false
 length = 43.878
 bone_angle = 327.817
 
 [node name="Bum" type="Bone2D" parent="Up/Skeleton2D/Hip"]
-position = Vector2(0, 60)
+position = Vector2(0, 58.2949)
 rest = Transform2D(1, 0, 0, 1, 0, 60)
 auto_calculate_length_and_angle = false
 length = 56.627
 bone_angle = 87.578
 
 [node name="Back" type="Polygon2D" parent="Up"]
+material = SubResource("CanvasItemMaterial_pxi6d")
 position = Vector2(-1172, 75)
-texture = ExtResource("3_hwfgr")
+texture = SubResource("ViewportTexture_5tjj0")
 skeleton = NodePath("../Skeleton2D")
 polygon = PackedVector2Array(1356.11, 222.388, 1377.75, 208.209, 1411.33, 205.224, 1438.95, 216.418, 1478.5, 288.06, 1450.89, 385.821, 1345.66, 389.552, 1324.02, 282.09)
 uv = PackedVector2Array(1356.11, 222.388, 1377.75, 208.209, 1411.33, 205.224, 1438.95, 216.418, 1478.5, 288.06, 1450.89, 385.821, 1345.66, 389.552, 1324.02, 282.09)
 bones = ["Hip", PackedFloat32Array(1, 1, 1, 1, 0.5, 0, 0, 0.5), "Hip/Neck", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0), "Hip/Neck/RightEar", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0), "Hip/Neck/LeftEar", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0), "Hip/Bum", PackedFloat32Array(0, 0, 0, 0, 0.5, 0.5, 0.5, 0.5)]
 
 [node name="LeftEar" type="Polygon2D" parent="Up"]
+material = SubResource("CanvasItemMaterial_pxi6d")
 position = Vector2(-2289, 32)
-texture = ExtResource("3_hwfgr")
+texture = SubResource("ViewportTexture_5tjj0")
 skeleton = NodePath("../Skeleton2D")
 polygon = PackedVector2Array(2481.5, 178.91, 2489.55, 177.725, 2495.48, 174.408, 2499.98, 165.64, 2495.95, 157.109, 2488.13, 149.526, 2467.52, 151.185, 2450.45, 162.322, 2472.49, 178.673)
 uv = PackedVector2Array(2481.5, 178.91, 2489.55, 177.725, 2495.48, 174.408, 2499.98, 165.64, 2495.95, 157.109, 2488.13, 149.526, 2467.52, 151.185, 2450.45, 162.322, 2472.49, 178.673)
 bones = ["Hip", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Hip/Neck", PackedFloat32Array(0.5, 0.5, 1, 1, 1, 1, 0, 0, 0), "Hip/Neck/RightEar", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Hip/Neck/LeftEar", PackedFloat32Array(1, 0, 0, 0, 0, 0.5, 1, 1, 1), "Hip/Bum", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0)]
 
 [node name="RightEar" type="Polygon2D" parent="Up"]
+material = SubResource("CanvasItemMaterial_pxi6d")
 position = Vector2(-2289, 32)
-texture = ExtResource("3_hwfgr")
+texture = SubResource("ViewportTexture_5tjj0")
 skeleton = NodePath("../Skeleton2D")
 polygon = PackedVector2Array(2555.9, 175.592, 2542.63, 176.303, 2536.95, 172.038, 2531.73, 165.64, 2537.66, 155.45, 2547.85, 147.867, 2565.86, 146.446, 2574.62, 149.289, 2567.75, 166.351)
 uv = PackedVector2Array(2555.9, 175.592, 2542.63, 176.303, 2536.95, 172.038, 2531.73, 165.64, 2537.66, 155.45, 2547.85, 147.867, 2565.86, 146.446, 2574.62, 149.289, 2567.75, 166.351)
@@ -3485,8 +3698,9 @@ hold_position = null
 mode = 0
 
 [node name="Back2" type="Polygon2D" parent="Up"]
+material = SubResource("CanvasItemMaterial_ulkj3")
 position = Vector2(-1172, 75)
-texture = ExtResource("3_hwfgr")
+texture = SubResource("ViewportTexture_p4mys")
 skeleton = NodePath("../Skeleton2D")
 polygon = PackedVector2Array(1352, 257, 1383, 241, 1418.66, 242.014, 1445.74, 257.292, 1466.58, 282.639, 1450.89, 385.821, 1345.66, 389.552, 1334, 281)
 uv = PackedVector2Array(1352, 257, 1383, 241, 1418.66, 242.014, 1445.74, 257.292, 1466.58, 282.639, 1450.89, 385.821, 1345.66, 389.552, 1334, 281)

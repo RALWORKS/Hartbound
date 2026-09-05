@@ -79,4 +79,3 @@ centered = false
 [node name="Rig" parent="profileImg" instance=ExtResource("9_pye2c")]
 position = Vector2(269, 1624)
 scale = Vector2(2.8, 2.8)
-animation = "down_stopped"
