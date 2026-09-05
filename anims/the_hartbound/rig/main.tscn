@@ -11351,6 +11351,7 @@ texture = ExtResource("16_neaq1")
 centered = false
 
 [node name="Line" type="Sprite2D" parent="FaceTexture"]
+visible = false
 modulate = Color(0.960784, 0.843137, 0.768627, 1)
 texture = ExtResource("17_teatm")
 centered = false
